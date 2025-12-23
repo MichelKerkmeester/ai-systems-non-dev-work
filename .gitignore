@@ -1,0 +1,42 @@
+# Git Ignore Configuration
+# Specifies intentionally untracked files that Git should ignore
+
+.DS_Store
+
+# Development
+node_modules/
+
+# IDE and AI folders (ignored at all levels)
+.vscode/
+.claude/
+.opencode/
+.opencode
+.gemini/
+
+# Configuration files (ignored at all levels)
+.env
+.mcp.json
+.utcp_config.json
+opencode.json
+mcp_servers.json
+settings.local.json
+
+# Database files (contain personal memory/session data)
+memory/database/*.sqlite
+memory/database/*.sqlite-shm
+memory/database/*.sqlite-wal
+
+# Working directories (ignored at all levels)
+context/
+export/
+memory/
+specs/
+
+# Archive folder (root level only)
+/z — Archive/
+
+# Complete folder ignore
+Barter - Copywriter
+Barter - TikTok SEO & Creative Strategy
+Barter - Feature Promotion
+Barter - UX Researcher
