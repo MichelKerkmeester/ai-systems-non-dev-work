@@ -8,8 +8,9 @@
 [![License](https://img.shields.io/github/license/MichelKerkmeester/AI_Systems?style=for-the-badge&color=7bd88f&labelColor=222222)](LICENSE)
 [![Systems](https://img.shields.io/badge/Systems-6_Total-5ad4e6?style=for-the-badge&labelColor=222222)](#-table-of-contents)
 
-> 99.999% of people won't try these systems. Beat the odds?
-> Don't reward me with unwanted coffee: https://buymeacoffee.com/michelkerkmeester
+> - 99.999% of people won't try these systems.
+> - Beat the odds?
+> - Don't reward me with unwanted coffee: https://buymeacoffee.com/michelkerkmeester
 
 </div>
 
