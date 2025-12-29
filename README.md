@@ -1,7 +1,22 @@
-# AI Magic ✨
+<div align="center">
 
-> - 99.999% of people won't try these systems. Beat the odds?
-> - Don't reward me with unwanted coffee: https://buymeacoffee.com/michelkerkmeester
+# AI Systems
+
+**Claude skills & MCP agents for productivity automation**
+
+[![GitHub Stars](https://img.shields.io/github/stars/MichelKerkmeester/AI_Systems?style=for-the-badge&logo=github&color=fce566&labelColor=222222)](https://github.com/MichelKerkmeester/AI_Systems/stargazers)
+[![License](https://img.shields.io/github/license/MichelKerkmeester/AI_Systems?style=for-the-badge&color=7bd88f&labelColor=222222)](LICENSE)
+[![Claude](https://img.shields.io/badge/Claude-Skills-fd9353?style=for-the-badge&labelColor=222222)](https://www.anthropic.com/news/skills)
+[![MCP](https://img.shields.io/badge/MCP-Agents-948ae3?style=for-the-badge&labelColor=222222)](https://modelcontextprotocol.io)
+[![Systems](https://img.shields.io/badge/Systems-6_Total-5ad4e6?style=for-the-badge&labelColor=222222)](#-table-of-contents)
+
+[Writer Systems](#%EF%B8%8F-specialized-writer-systems) • [MCP Agents](#-mcps-made-easy) • [Resources](#-resources)
+
+</div>
+
+---
+
+> Don't reward me with unwanted coffee: https://buymeacoffee.com/michelkerkmeester
 
 ## 📋 Table of Contents
 
