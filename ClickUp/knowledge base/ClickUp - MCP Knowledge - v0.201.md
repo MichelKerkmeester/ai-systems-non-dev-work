@@ -19,8 +19,6 @@ Technical reference for ClickUp MCP server capabilities and integration for task
 
 ---
 
-<a id="1-server-overview"></a>
-
 ## 1. 🔌 SERVER OVERVIEW
 
 ### MCP Server Details
@@ -81,8 +79,6 @@ Connection verification must be the **first action before all operations** (ALWA
 4. Verify connection using `get_workspace_hierarchy` tool
 
 ---
-
-<a id="2-core-capabilities"></a>
 
 ## 2. 🛠️ CORE CAPABILITIES
 
@@ -163,8 +159,6 @@ document_operations:
 - Cannot modify locked or archived items
 
 ---
-
-<a id="3-format-support"></a>
 
 ## 3. 📊 FORMAT SUPPORT
 
@@ -266,8 +260,6 @@ supported_types:
 ```
 
 ---
-
-<a id="4-task-workspace-operations"></a>
 
 ## 4. ✅ TASK & WORKSPACE OPERATIONS
 
@@ -428,8 +420,6 @@ best_practices:
 
 ---
 
-<a id="5-time-tracking-collaboration"></a>
-
 ## 5. ⏱️ TIME TRACKING & COLLABORATION
 
 ### Time Tracking Operations
@@ -512,8 +502,6 @@ attach_task_file:
 ```
 
 ---
-
-<a id="6-limitations"></a>
 
 ## 6. ⚠️ LIMITATIONS
 
@@ -621,8 +609,6 @@ data_preservation:
 ```
 
 ---
-
-<a id="7-quick-reference"></a>
 
 ## 7. 🏎️ QUICK REFERENCE
 

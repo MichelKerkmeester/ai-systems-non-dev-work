@@ -19,8 +19,6 @@ Technical reference for Terminal-based FFMPEG commands for HLS (HTTP Live Stream
 
 ---
 
-<a id="1-overview"></a>
-
 ## 1. 🔌 OVERVIEW
 
 ### Terminal System Details
@@ -59,8 +57,6 @@ dependencies:
 ```
 
 ---
-
-<a id="2-hls-fundamentals"></a>
 
 ## 2. 🛠️ CORE CAPABILITIES
 

@@ -20,8 +20,6 @@ Technical reference for Imagician MCP server capabilities and integration for im
 
 ---
 
-<a id="1-server-overview"></a>
-
 ## 1. 🔌 SERVER OVERVIEW
 
 ### MCP Server Details
@@ -54,8 +52,6 @@ Connection verification must be the **first action before all operations**. Use 
 - ❌ **Disconnected:** "Imagician Not Connected - Setup required"
 
 ---
-
-<a id="2-core-capabilities"></a>
 
 ## 2. 🛠️ CORE CAPABILITIES
 
@@ -115,8 +111,6 @@ For optimal results, process images in this sequence:
 
 ---
 
-<a id="3-format-support"></a>
-
 ## 3. 📊 FORMAT SUPPORT
 
 ### Supported Formats
@@ -150,8 +144,6 @@ Imagician supports modern image formats with full input/output capabilities.
 **Note:** Format selection logic and recommendations are in MEDIA Thinking Framework Section 2 (Evaluate).
 
 ---
-
-<a id="4-operation-specifications"></a>
 
 ## 4. ⚙️ OPERATION SPECIFICATIONS
 
@@ -222,8 +214,6 @@ compress:
 
 ---
 
-<a id="5-quality-optimization"></a>
-
 ## 5. 🎯 QUALITY OPTIMIZATION
 
 ### Quality Guidelines
@@ -259,8 +249,6 @@ Quality settings determine the balance between file size and visual fidelity. Hi
 - Modern: AVIF at 75%
 
 ---
-
-<a id="6-resize--crop"></a>
 
 ## 6. 📐 RESIZE & CROP
 
@@ -339,8 +327,6 @@ social_media:
 
 ---
 
-<a id="7-transforms"></a>
-
 ## 7. 🔄 TRANSFORMS
 
 ### Rotation Operation
@@ -398,8 +384,6 @@ auto_orientation:
 ```
 
 ---
-
-<a id="8-quick-reference"></a>
 
 ## 8. 🏎️ QUICK REFERENCE
 

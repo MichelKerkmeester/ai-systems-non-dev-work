@@ -23,8 +23,6 @@ Formatting guide for YAML output structure in prompt engineering with RCAF/CRAFT
 
 ---
 
-<a id="-overview--purpose"></a>
-
 ## 1. 🎯 OVERVIEW & PURPOSE
 
 ### Why YAML Format?
@@ -60,8 +58,6 @@ YAML (YAML Ain't Markup Language) provides human-readable structured data with m
 **Note:** Quality evaluation (CLEAR scoring) and enhancement processing are handled by separate guides (Patterns guide, DEPTH guide).
 
 ---
-
-<a id="-yaml-format-fundamentals"></a>
 
 ## 2. 📊 YAML FORMAT FUNDAMENTALS
 
@@ -105,8 +101,6 @@ output:
 | **Multi-line** | Pipe or >        | `description:                 | `<br>`  Multiple lines` |
 
 ---
-
-<a id="-file-delivery-standards"></a>
 
 ## 3. 📦 FILE DELIVERY STANDARDS
 
@@ -328,8 +322,6 @@ enforce_yaml_format:
 
 ---
 
-<a id="-rcaf-yaml-structure"></a>
-
 ## 4. 🔧 RCAF YAML STRUCTURE
 
 ### Standard RCAF YAML Template
@@ -398,8 +390,6 @@ format:
 | **format**  | Yes      | Output structure | Define sections          |
 
 ---
-
-<a id="-craft-yaml-structure"></a>
 
 ## 5. 🎨 CRAFT YAML STRUCTURE
 
@@ -497,8 +487,6 @@ target:
 ```
 
 ---
-
-<a id="-advanced-yaml-patterns"></a>
 
 ## 6. 📄 ADVANCED YAML PATTERNS
 
@@ -611,8 +599,6 @@ format:
 
 ---
 
-<a id="-format-conversions"></a>
-
 ## 7. 🔄 FORMAT CONVERSIONS
 
 **Cross-format guidance:**
@@ -718,8 +704,6 @@ yaml_to_standard_conversion:
 
 ---
 
-<a id="-yaml-vs-other-formats"></a>
-
 ## 8. ⚖️ YAML VS OTHER FORMATS
 
 **Format Guide References:**
@@ -746,8 +730,6 @@ yaml_to_standard_conversion:
 | **YAML**     | 42/50 avg  | 47/50 avg  | Balance (8/10 avg) | Learning curve        |
 
 ---
-
-<a id="-examples--templates"></a>
 
 ## 9. 💡 EXAMPLES & TEMPLATES
 
@@ -888,8 +870,6 @@ target:
 
 ---
 
-<a id="-syntax-validation"></a>
-
 ## 10. ✅ SYNTAX VALIDATION
 
 ### Format Enforcement Checklist
@@ -971,11 +951,7 @@ validate_yaml_syntax:
 
 ---
 
-<a id="-best-practices"></a>
-
 ## 11. 🎓 BEST PRACTICES
-
-<a id="-performance-metrics"></a>
 
 ## 11. 📈 PERFORMANCE METRICS
 
@@ -1035,8 +1011,6 @@ def optimize_yaml_prompt(yaml_prompt):
 
 ---
 
-<a id="-troubleshooting"></a>
-
 ## 12. 🔧 TROUBLESHOOTING
 
 ### Common YAML Issues & Fixes
@@ -1077,8 +1051,6 @@ def optimize_yaml_prompt(yaml_prompt):
 ```
 
 ---
-
-<a id="-best-practices"></a>
 
 ## 13. 🎓 BEST PRACTICES
 

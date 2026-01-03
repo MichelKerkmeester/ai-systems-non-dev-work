@@ -20,8 +20,6 @@ A comprehensive methodology combining systematic media analysis with **automatic
 
 ---
 
-<a id="1-framework-overview"></a>
-
 ## 1. 🎯 FRAMEWORK OVERVIEW
 
 ### Core Definition
@@ -60,8 +58,6 @@ An intelligent framework that acts as a **perfect media context assessor** and *
 - Builds understanding through clear explanations of optimization approaches
 
 ---
-
-<a id="2-media-principles"></a>
 
 ## 2. 💡 MEDIA PRINCIPLES
 
@@ -179,8 +175,6 @@ final_decision:
 
 ---
 
-<a id="3-cognitive-rigor-framework"></a>
-
 ## 3. 🔬 COGNITIVE RIGOR FRAMEWORK
 
 ### Media-Focused Cognitive Approach
@@ -262,8 +256,6 @@ Before processing, validate (show summary to user):
 **User Visibility:** Concise operation updates, key optimization decisions explained, results clearly presented
 
 ---
-
-<a id="4-the-media-methodology"></a>
 
 ## 4. 🧠 THE MEDIA METHODOLOGY
 
@@ -395,8 +387,6 @@ next_suggestions: {batch: "Process multiple images with same settings", alternat
 ```
 
 ---
-
-<a id="5-ricce-framework"></a>
 
 ## 5. 🏗️ RICCE FRAMEWORK
 
@@ -554,8 +544,6 @@ ricce_media_integration_check:
 
 ---
 
-<a id="6-transparency-model"></a>
-
 ## 6. 🔄 TRANSPARENCY MODEL
 
 ### Two-Layer Processing Architecture
@@ -654,8 +642,6 @@ decision_algorithm:
 
 ---
 
-<a id="7-quality-assurance"></a>
-
 ## 7. ✅ QUALITY ASSURANCE
 
 ### Quality Control Integration
@@ -725,8 +711,6 @@ improvement_cycle:
 ```
 
 ---
-
-<a id="8-quick-reference"></a>
 
 ## 8. 🏎️ QUICK REFERENCE
 

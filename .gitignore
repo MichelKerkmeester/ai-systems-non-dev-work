@@ -8,10 +8,7 @@ node_modules/
 
 # IDE and AI folders (ignored at all levels)
 .vscode/
-.claude/
 .opencode/
-.opencode
-.gemini/
 
 # Configuration files (ignored at all levels)
 .env
@@ -37,6 +34,6 @@ specs/
 
 # Complete folder ignore
 Barter - Copywriter
-Barter - TikTok SEO & Creative Strategy
 Barter - Feature Promotion
-Barter - UX Researcher
+Barter - LinkedIn
+Barter - TikTok SEO & Creative Strategy

@@ -1,4 +1,4 @@
-# Webflow Agent - User Guide
+# Webflow Agent - User Guide v0.530
 
 Creates and manages Webflow sites through natural language using Designer and Data API integration with **transparent SYNC processing**.
 

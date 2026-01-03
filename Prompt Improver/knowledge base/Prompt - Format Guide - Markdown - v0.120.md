@@ -23,8 +23,6 @@ Formatting guide for Markdown (Standard) output structure in prompt engineering 
 
 ---
 
-<a id="-overview--purpose"></a>
-
 ## 1. 🎯 OVERVIEW & PURPOSE
 
 ### Why Markdown (Standard) Format?
@@ -62,8 +60,6 @@ Markdown format provides natural language prompt engineering with optimal human 
 
 ---
 
-<a id="-markdown-format-fundamentals"></a>
-
 ## 2. 📊 MARKDOWN FORMAT FUNDAMENTALS
 
 ### Core Markdown Principles
@@ -94,8 +90,6 @@ Markdown format provides natural language prompt engineering with optimal human 
 | **Block Quotes**   | Context emphasis      | `> Important note`       |
 
 ---
-
-<a id="-file-delivery-standards"></a>
 
 ## 3. 📦 FILE DELIVERY STANDARDS
 
@@ -219,8 +213,6 @@ NO metadata sections! Just the enhanced prompt.
 
 ---
 
-<a id="-rcaf-markdown-structure"></a>
-
 ## 4. 🔧 RCAF MARKDOWN STRUCTURE
 
 ### Standard RCAF Template
@@ -268,8 +260,6 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 | **Format**  | Yes      | Output structure     | Define sections and length          |
 
 ---
-
-<a id="-craft-markdown-structure"></a>
 
 ## 5. 🎨 CRAFT MARKDOWN STRUCTURE
 
@@ -320,8 +310,6 @@ Mode: $refine | Complexity: High | Framework: CRAFT
 | Comprehensive documentation needed  | Quick clarity needed  |
 
 ---
-
-<a id="-advanced-markdown-patterns"></a>
 
 ## 6. 📄 ADVANCED MARKDOWN PATTERNS
 
@@ -386,8 +374,6 @@ If general inquiry or how-to question:
 ```
 
 ---
-
-<a id="-format-conversions"></a>
 
 ## 7. 🔄 FORMAT CONVERSIONS
 
@@ -481,8 +467,6 @@ format: Dashboard with charts and executive summary
 
 ---
 
-<a id="-markdown-vs-other-formats"></a>
-
 ## 8. ⚖️ MARKDOWN VS OTHER FORMATS
 
 **Format Guide References:**
@@ -502,8 +486,6 @@ format: Dashboard with charts and executive summary
 | **Integration**      | Manual          | Automated       | Semi-automated |
 
 ---
-
-<a id="-examples--templates"></a>
 
 ## 9. 💡 EXAMPLES & TEMPLATES
 
@@ -534,8 +516,6 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 ```
 
 ---
-
-<a id="-syntax-validation"></a>
 
 ## 10. ✅ SYNTAX VALIDATION
 
@@ -634,8 +614,6 @@ validate_craft:
 ```
 
 ---
-
-<a id="-best-practices"></a>
 
 ## 11. 🎓 BEST PRACTICES
 

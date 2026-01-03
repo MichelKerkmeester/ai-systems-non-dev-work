@@ -20,8 +20,6 @@ Technical reference for Webflow MCP server capabilities and integration for Desi
 
 ---
 
-<a id="1-server-overview"></a>
-
 ## 1. 🔌 SERVER OVERVIEW
 
 ### MCP Server Details
@@ -133,8 +131,6 @@ async function verifyConnection() {
 - **App Missing:** Designer API unavailable → Launch MCP Bridge App
 
 ---
-
-<a id="2-core-capabilities"></a>
 
 ## 2. 🛠️ CORE CAPABILITIES
 
@@ -270,8 +266,6 @@ Content and structural operations using native APIs:
 
 ---
 
-<a id="3-format-support"></a>
-
 ## 3. 📊 FORMAT SUPPORT
 
 ### Field Types Available
@@ -360,8 +354,6 @@ field_types:
 ```
 
 ---
-
-<a id="4-designer-api-operations"></a>
 
 ## 4. 🎨 DESIGNER API OPERATIONS
 
@@ -609,8 +601,6 @@ designer_api_requirements:
 
 ---
 
-<a id="5-data-api-operations"></a>
-
 ## 5. 📈 DATA API OPERATIONS
 
 ### Collection Management
@@ -779,8 +769,6 @@ before_any_data_operation:
 
 ---
 
-<a id="6-publishing-workflows"></a>
-
 ## 6. 🚀 PUBLISHING WORKFLOWS
 
 ### Publishing States
@@ -873,8 +861,6 @@ publishing_protocol:
 ```
 
 ---
-
-<a id="7-limitations"></a>
 
 ## 7. ⚠️ LIMITATIONS
 
@@ -998,8 +984,6 @@ access_requirements:
 ```
 
 ---
-
-<a id="8-quick-reference"></a>
 
 ## 8. 🏎️ QUICK REFERENCE
 
