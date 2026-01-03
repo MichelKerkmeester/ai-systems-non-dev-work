@@ -9,21 +9,19 @@ Formatting guide for JSON output structure in prompt engineering with RCAF/CRAFT
 
 ## 📋 TABLE OF CONTENTS
 
-1. [🎯 OVERVIEW & PURPOSE](#-overview--purpose)
-2. [📊 JSON FORMAT FUNDAMENTALS](#-json-format-fundamentals)
-3. [📦 FILE DELIVERY STANDARDS](#-file-delivery-standards)
-4. [🔧 RCAF JSON STRUCTURE](#-rcaf-json-structure)
-5. [🎨 CRAFT JSON STRUCTURE](#-craft-json-structure)
-6. [📄 ADVANCED JSON PATTERNS](#-advanced-json-patterns)
-7. [🔄 FORMAT CONVERSIONS](#-format-conversions)
-8. [⚖️ JSON VS OTHER FORMATS](#-json-vs-other-formats)
-9. [💡 EXAMPLES & TEMPLATES](#-examples--templates)
-10. [✅ SYNTAX VALIDATION](#-syntax-validation)
-11. [🎓 BEST PRACTICES](#-best-practices)
+1. 🎯 OVERVIEW & PURPOSE
+2. 📊 JSON FORMAT FUNDAMENTALS
+3. 📦 FILE DELIVERY STANDARDS
+4. 🔧 RCAF JSON STRUCTURE
+5. 🎨 CRAFT JSON STRUCTURE
+6. 📄 ADVANCED JSON PATTERNS
+7. 🔄 FORMAT CONVERSIONS
+8. ⚖️ JSON VS OTHER FORMATS
+9. 💡 EXAMPLES & TEMPLATES
+10. ✅ SYNTAX VALIDATION
+11. 🎓 BEST PRACTICES
 
 ---
-
-<a id="-overview--purpose"></a>
 
 ## 1. 🎯 OVERVIEW & PURPOSE
 
@@ -50,8 +48,6 @@ JSON format provides structured, machine-parseable prompt engineering with consi
 **Note:** Quality evaluation (CLEAR scoring) and enhancement processing are handled by separate guides (Patterns guide, DEPTH guide).
 
 ---
-
-<a id="-json-format-fundamentals"></a>
 
 ## 2. 📊 JSON FORMAT FUNDAMENTALS
 
@@ -91,8 +87,6 @@ JSON format provides structured, machine-parseable prompt engineering with consi
 | **Object**  | Nested structure | `"format": {"type": "report"}` |
 
 ---
-
-<a id="-file-delivery-standards"></a>
 
 ## 3. 📦 FILE DELIVERY STANDARDS
 
@@ -348,8 +342,6 @@ enforce_json_format:
 
 ---
 
-<a id="-rcaf-json-structure"></a>
-
 ## 4. 🔧 RCAF JSON STRUCTURE
 
 ### Standard RCAF JSON Template
@@ -415,8 +407,6 @@ Mode: $json | Complexity: Medium | Framework: RCAF
 | **format**  | Yes      | Output structure | Defines how results should be organized         |
 
 ---
-
-<a id="-craft-json-structure"></a>
 
 ## 5. 🎨 CRAFT JSON STRUCTURE
 
@@ -494,8 +484,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 ```
 
 ---
-
-<a id="-advanced-json-patterns"></a>
 
 ## 6. 📄 ADVANCED JSON PATTERNS
 
@@ -587,8 +575,6 @@ Mode: $json | Complexity: Medium | Framework: RCAF
 
 ---
 
-<a id="-format-conversions"></a>
-
 ## 7. 🔄 FORMAT CONVERSIONS
 
 ### Standard to JSON Conversion
@@ -658,8 +644,6 @@ json_to_standard_conversion:
 
 ---
 
-<a id="-json-vs-other-formats"></a>
-
 ## 8. ⚖️ JSON VS OTHER FORMATS
 
 ### When to Use JSON Format
@@ -681,8 +665,6 @@ json_to_standard_conversion:
 | **YAML**     | 42/50     | Balance (8/10 avg)              | Learning curve        |
 
 ---
-
-<a id="-examples--templates"></a>
 
 ## 9. 💡 EXAMPLES & TEMPLATES
 
@@ -754,8 +736,6 @@ Mode: $json | Complexity: High | Framework: RCAF
 ```
 
 ---
-
-<a id="-syntax-validation"></a>
 
 ## 10. ✅ SYNTAX VALIDATION
 
@@ -836,8 +816,6 @@ validate_json_syntax:
 ```
 
 ---
-
-<a id="-best-practices"></a>
 
 ## 11. 🎓 BEST PRACTICES
 

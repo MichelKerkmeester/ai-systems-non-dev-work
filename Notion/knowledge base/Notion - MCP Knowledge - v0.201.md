@@ -19,8 +19,6 @@ Technical reference for Notion MCP server capabilities and integration for works
 
 ---
 
-<a id="1-server-overview"></a>
-
 ## 1. 🔌 SERVER OVERVIEW
 
 ### MCP Server Details
@@ -74,8 +72,6 @@ Connection verification must be the **first action before all operations** (ALWA
 - **Not Shared:** Content not accessible → Share page/database with integration in Notion
 
 ---
-
-<a id="2-core-capabilities"></a>
 
 ## 2. 🛠️ CORE CAPABILITIES
 
@@ -149,8 +145,6 @@ page_operations:
 - Cannot access other workspaces or modify locked properties
 
 ---
-
-<a id="3-format-support"></a>
 
 ## 3. 📊 FORMAT SUPPORT
 
@@ -233,8 +227,6 @@ equation:
 ```
 
 ---
-
-<a id="4-database-page-operations"></a>
 
 ## 4. 🗄️ DATABASE & PAGE OPERATIONS
 
@@ -463,8 +455,6 @@ note: "Direct file upload not supported - use external URLs"
 
 ---
 
-<a id="5-search-collaboration"></a>
-
 ## 5. 🔍 SEARCH & COLLABORATION
 
 ### Search Operations
@@ -604,8 +594,6 @@ permissions:
 
 ---
 
-<a id="6-limitations"></a>
-
 ## 6. ⚠️ LIMITATIONS
 
 ### Critical Limitations
@@ -736,8 +724,6 @@ performance:
 ```
 
 ---
-
-<a id="7-quick-reference"></a>
 
 ## 7. 🏎️ QUICK REFERENCE
 

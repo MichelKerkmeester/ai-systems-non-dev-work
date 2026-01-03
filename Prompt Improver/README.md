@@ -1,4 +1,4 @@
-# Prompt Engineering Assistant v0.921
+# Prompt Engineering Assistant - User Guide  v0.921
 
 Transforms vague requests into clear, effective AI prompts using proven frameworks, systematic evaluation, and **concise transparent DEPTH processing**.
 
@@ -177,15 +177,15 @@ $yaml config template           # YAML format with hierarchy optimization
 
 **Default Mode:** The system defaults to `$interactive` with automatic 10-round DEPTH unless specified.
 
-| Mode | Command | Purpose | Questions | DEPTH Processing | Transparency | Output |
-|------|---------|---------|-----------|------------------|--------------|--------|
-| **Interactive** | (default) | Guided enhancement | 1 comprehensive | 10 rounds (concise updates) | Two-layer | User choice |
-| **$quick** | `$quick` / `$q` | Fast processing | NONE | 1-5 auto-scaled | Summary | Auto-format |
-| **$short** | `$short` / `$s` | Minimal refinement | 1 comprehensive | 3 rounds | Key changes | Auto-format |
-| **$improve** | `$improve` / `$i` | Standard enhancement | 1 comprehensive | 10 rounds (concise updates) | Two-layer | Auto-format |
-| **$refine** | `$refine` / `$r` | Maximum optimization | 1 comprehensive | 10 rounds (concise updates) | Deep analysis | Auto-format |
-| **$json** | `$json` / `$j` | API format | 1 comprehensive | 10 rounds (concise updates) | Structure focus | JSON only |
-| **$yaml** | `$yaml` / `$y` | Config format | 1 comprehensive | 10 rounds (concise updates) | Template focus | YAML only |
+| Mode            | Command           | Purpose              | Questions       | DEPTH Processing            | Transparency    | Output      |
+| --------------- | ----------------- | -------------------- | --------------- | --------------------------- | --------------- | ----------- |
+| **Interactive** | (default)         | Guided enhancement   | 1 comprehensive | 10 rounds (concise updates) | Two-layer       | User choice |
+| **$quick**      | `$quick` / `$q`   | Fast processing      | NONE            | 1-5 auto-scaled             | Summary         | Auto-format |
+| **$short**      | `$short` / `$s`   | Minimal refinement   | 1 comprehensive | 3 rounds                    | Key changes     | Auto-format |
+| **$improve**    | `$improve` / `$i` | Standard enhancement | 1 comprehensive | 10 rounds (concise updates) | Two-layer       | Auto-format |
+| **$refine**     | `$refine` / `$r`  | Maximum optimization | 1 comprehensive | 10 rounds (concise updates) | Deep analysis   | Auto-format |
+| **$json**       | `$json` / `$j`    | API format           | 1 comprehensive | 10 rounds (concise updates) | Structure focus | JSON only   |
+| **$yaml**       | `$yaml` / `$y`    | Config format        | 1 comprehensive | 10 rounds (concise updates) | Template focus  | YAML only   |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question to understand your enhancement needs:
@@ -230,12 +230,12 @@ System waits for complete response before proceeding with full DEPTH processing.
 **Purpose:** Rapid enhancement with auto-scaled DEPTH (1-5 rounds)
 
 **Complexity Scaling:**
-| Complexity | DEPTH Rounds | Use Case |
-|------------|--------------|----------|
-| **1-2** | 1-2 rounds | Simple edits, typo fixes |
-| **3-4** | 3 rounds | Basic refinement |
-| **5-6** | 4 rounds | Standard enhancement |
-| **7+** | 5 rounds | Complex restructuring |
+| Complexity | DEPTH Rounds | Use Case                 |
+| ---------- | ------------ | ------------------------ |
+| **1-2**    | 1-2 rounds   | Simple edits, typo fixes |
+| **3-4**    | 3 rounds     | Basic refinement         |
+| **5-6**    | 4 rounds     | Standard enhancement     |
+| **7+**     | 5 rounds     | Complex restructuring    |
 
 **Process:**
 - No questions asked (immediate processing)
@@ -421,21 +421,21 @@ Ready for delivery
 A structured 5-phase methodology ensuring comprehensive prompt enhancement through **concise transparent excellence** - full rigor applied internally, meaningful updates shown to users.
 
 **Processing Depth:**
-| Mode | Rounds | User Visibility | Application |
-|------|--------|-----------------|-------------|
-| **Standard** | 10 rounds | Concise progress updates | Real-time transparency |
-| **$quick** | 1-5 auto-scaled | Summary at completion | Complexity-based |
-| **$short** | 3 rounds | Key changes only | Focused refinement |
+| Mode         | Rounds          | User Visibility          | Application            |
+| ------------ | --------------- | ------------------------ | ---------------------- |
+| **Standard** | 10 rounds       | Concise progress updates | Real-time transparency |
+| **$quick**   | 1-5 auto-scaled | Summary at completion    | Complexity-based       |
+| **$short**   | 3 rounds        | Key changes only         | Focused refinement     |
 
 ### DEPTH Phases (v0.106 with RICCE Integration)
 
-| Phase | Purpose | Internal Processing | User Sees |
-|-------|---------|---------------------|-----------|
-| **D**iscover | Deep understanding | 5 perspectives, assumption audit, complexity analysis, RICCE Role & Context | "🔍 Analyzing (5 perspectives)" |
-| **E**ngineer | Solution generation | 7 frameworks evaluated, constraint analysis, RICCE Constraints & Instructions | "⚙️ Engineering (optimal framework selected)" |
-| **P**rototype | Build framework | Template application, RICCE validation, mechanism-first structure | "🔨 Building (RCAF/framework structure)" |
-| **T**est | Validate quality | CLEAR scoring (5 dimensions), quality gates, RICCE Examples validation | "✅ Validating (CLEAR 42/50)" |
-| **H**armonize | Final polish | Final verification, cognitive rigor check, RICCE completeness | "✨ Finalizing (excellence confirmed)" |
+| Phase         | Purpose             | Internal Processing                                                           | User Sees                                    |
+| ------------- | ------------------- | ----------------------------------------------------------------------------- | -------------------------------------------- |
+| **D**iscover  | Deep understanding  | 5 perspectives, assumption audit, complexity analysis, RICCE Role & Context   | "🔍 Analyzing (5 perspectives)"               |
+| **E**ngineer  | Solution generation | 7 frameworks evaluated, constraint analysis, RICCE Constraints & Instructions | "⚙️ Engineering (optimal framework selected)" |
+| **P**rototype | Build framework     | Template application, RICCE validation, mechanism-first structure             | "🔨 Building (RCAF/framework structure)"      |
+| **T**est      | Validate quality    | CLEAR scoring (5 dimensions), quality gates, RICCE Examples validation        | "✅ Validating (CLEAR 42/50)"                 |
+| **H**armonize | Final polish        | Final verification, cognitive rigor check, RICCE completeness                 | "✨ Finalizing (excellence confirmed)"        |
 
 ### What Users Actually See
 
@@ -578,15 +578,15 @@ framework_selection:
 
 ### Framework Selection Matrix
 
-| Complexity | Primary Need | Framework | Success Rate | Use Cases |
-|------------|--------------|-----------|--------------|-----------|
-| **1-3** | Speed | RACE | 88% | Urgent tasks, quick iterations |
-| **1-4** | Clarity | RCAF | 92% | General prompts, balanced needs |
-| **3-6** | Audience | COSTAR | 94% | Content creation, communication |
-| **4-6** | Instructions | CIDI | 90% | Documentation, tutorials |
-| **5-7** | Creativity | CRISPE | 87% | Strategy, exploration |
-| **6-8** | Precision | TIDD-EC | 93% | Compliance, quality-critical |
-| **7-10** | Comprehensive | CRAFT | 91% | Complex projects, planning |
+| Complexity | Primary Need  | Framework | Success Rate | Use Cases                       |
+| ---------- | ------------- | --------- | ------------ | ------------------------------- |
+| **1-3**    | Speed         | RACE      | 88%          | Urgent tasks, quick iterations  |
+| **1-4**    | Clarity       | RCAF      | 92%          | General prompts, balanced needs |
+| **3-6**    | Audience      | COSTAR    | 94%          | Content creation, communication |
+| **4-6**    | Instructions  | CIDI      | 90%          | Documentation, tutorials        |
+| **5-7**    | Creativity    | CRISPE    | 87%          | Strategy, exploration           |
+| **6-8**    | Precision     | TIDD-EC   | 93%          | Compliance, quality-critical    |
+| **7-10**   | Comprehensive | CRAFT     | 91%          | Complex projects, planning      |
 
 ### Framework Descriptions
 
@@ -660,13 +660,13 @@ enhancement_pipeline:
 
 ### Common Pattern Transformations
 
-| Pattern | Impact | CLEAR Gain | Example |
-|---------|--------|------------|---------|
-| **Vague→Specific** | Add role, context, metrics | +15-20 points | "Analyze text" → "Analyze sentiment in customer reviews with 1-5 scale" |
-| **Assumption Elimination** | Make implicit explicit | +3-5 Correctness | Add: "[Assumes: data in CSV format with header row]" |
-| **Scope Boundaries** | Define included/excluded | +4-6 Logic | "Analyze reviews (exclude ratings <3 stars)" |
-| **Example Injection** | Clarify format expectations | +3-5 Expression | Add 2-3 input/output examples |
-| **Success Layering** | Min/target/excellence levels | +4-5 Arrangement | Define minimum viable, target, and excellence criteria |
+| Pattern                    | Impact                       | CLEAR Gain       | Example                                                                 |
+| -------------------------- | ---------------------------- | ---------------- | ----------------------------------------------------------------------- |
+| **Vague→Specific**         | Add role, context, metrics   | +15-20 points    | "Analyze text" → "Analyze sentiment in customer reviews with 1-5 scale" |
+| **Assumption Elimination** | Make implicit explicit       | +3-5 Correctness | Add: "[Assumes: data in CSV format with header row]"                    |
+| **Scope Boundaries**       | Define included/excluded     | +4-6 Logic       | "Analyze reviews (exclude ratings <3 stars)"                            |
+| **Example Injection**      | Clarify format expectations  | +3-5 Expression  | Add 2-3 input/output examples                                           |
+| **Success Layering**       | Min/target/excellence levels | +4-5 Arrangement | Define minimum viable, target, and excellence criteria                  |
 
 ### Enhancement Priority Matrix
 
@@ -718,23 +718,23 @@ contextual_clear_scoring:
 
 ### CLEAR Dimensions (50-point scale)
 
-| Dimension | Points | Assessment Criteria |
-|-----------|--------|---------------------|
-| **Correctness** | 10 | Accuracy, no contradictions, valid assumptions |
-| **Logic** | 10 | Reasoning flow, cause-effect, conditional handling |
-| **Expression** | 15 | Clarity, specificity, minimal ambiguity |
-| **Arrangement** | 10 | Structure, organization, logical flow |
-| **Reusability** | 5 | Adaptability, parameterization, flexibility |
+| Dimension       | Points | Assessment Criteria                                |
+| --------------- | ------ | -------------------------------------------------- |
+| **Correctness** | 10     | Accuracy, no contradictions, valid assumptions     |
+| **Logic**       | 10     | Reasoning flow, cause-effect, conditional handling |
+| **Expression**  | 15     | Clarity, specificity, minimal ambiguity            |
+| **Arrangement** | 10     | Structure, organization, logical flow              |
+| **Reusability** | 5      | Adaptability, parameterization, flexibility        |
 
 ### Score Interpretation
 
-| Score | Grade | Quality Level | Action |
-|-------|-------|--------------|--------|
-| **45-50** | A+ | Excellence | Ship immediately |
-| **40-44** | A | Professional | Ready to use |
-| **35-39** | B | Good | Minor refinements optional |
-| **30-34** | C | Adequate | Consider improvements |
-| **<30** | D/F | Needs work | Significant enhancement required |
+| Score     | Grade | Quality Level | Action                           |
+| --------- | ----- | ------------- | -------------------------------- |
+| **45-50** | A+    | Excellence    | Ship immediately                 |
+| **40-44** | A     | Professional  | Ready to use                     |
+| **35-39** | B     | Good          | Minor refinements optional       |
+| **30-34** | C     | Adequate      | Consider improvements            |
+| **<30**   | D/F   | Needs work    | Significant enhancement required |
 
 ### Multi-Pass Evaluation
 1. **Surface Pass**: Framework presence, basic completeness

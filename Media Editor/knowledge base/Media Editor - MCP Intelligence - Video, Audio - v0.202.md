@@ -20,8 +20,6 @@ Technical reference for Video-Audio MCP server capabilities and integration for 
 
 ---
 
-<a id="1-server-overview"></a>
-
 ## 1. 🔌 SERVER OVERVIEW
 
 ### MCP Server Details
@@ -55,8 +53,6 @@ Connection verification must be the **first action before all operations**. Use 
 - MCP server running and accessible
 
 ---
-
-<a id="2-core-capabilities"></a>
 
 ## 2. 🛠️ CORE CAPABILITIES
 
@@ -104,8 +100,6 @@ The Video-Audio MCP server provides comprehensive media processing capabilities 
 - `health_check` - Verify server status and FFmpeg version
 
 ---
-
-<a id="3-video-operations"></a>
 
 ## 3. 🎬 VIDEO OPERATIONS
 
@@ -265,8 +259,6 @@ change_aspect_ratio:
 
 ---
 
-<a id="4-audio-operations"></a>
-
 ## 4. 🎵 AUDIO OPERATIONS
 
 ### Audio Extraction and Conversion
@@ -399,8 +391,6 @@ remove_silence:
 ```
 
 ---
-
-<a id="5-advanced-features"></a>
 
 ## 5. 🎨 ADVANCED FEATURES
 
@@ -568,9 +558,7 @@ insert_broll:
 
 ---
 
-<a id="6-format-support"></a>
-
-## 6. � FORMAT SUPPORT
+## 6. 📦 FORMAT SUPPORT
 
 ### Video Formats
 
@@ -643,8 +631,6 @@ formats:
 ```
 
 ---
-
-<a id="7-codec-specifications"></a>
 
 ## 7. ⚙️ CODEC SPECIFICATIONS
 
@@ -726,8 +712,6 @@ audio_codecs:
 ```
 
 ---
-
-<a id="8-quick-reference"></a>
 
 ## 8. 🏎️ QUICK REFERENCE
 

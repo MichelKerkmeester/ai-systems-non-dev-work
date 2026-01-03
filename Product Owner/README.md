@@ -1,4 +1,4 @@
-# Product Owner System v0.922
+# Product Owner System - User Guide v0.922
 
 Transforms requests into professional tickets, epics, and documentation with **concise transparent DEPTH processing**.
 
@@ -152,14 +152,14 @@ $story user login               # Direct story mode (10 rounds auto)
 
 **Default Mode:** The system defaults to `$interactive` with automatic 10-round DEPTH unless specified.
 
-| Mode | Purpose | Questions | DEPTH Processing | Transparency | Template Version | Output |
-|------|---------|-----------|------------------|--------------|------------------|---------|
-| **Interactive** | Determine what to create | 1 comprehensive | 10 rounds (concise updates) | Two-layer | Auto-selected | Exact request |
-| **$quick** | Fast creation | NONE | 1-5 auto-scaled | Summary | Auto-selected | Exact request |
-| **$doc** | Documentation | 1 comprehensive | 10 rounds (concise updates) | Two-layer | v0.119 | Requested doc only |
-| **$epic** | Epics | 1 comprehensive | 10 rounds (concise updates) | Two-layer | v0.130 | Requested epic only |
-| **$story** | User stories | 1 comprehensive | 10 rounds (concise updates) | Two-layer | v0.133 | Requested story only |
-| **$ticket** | Dev tickets | 1 comprehensive | 10 rounds (concise updates) | Two-layer | v0.133 | Requested ticket only |
+| Mode            | Purpose                  | Questions       | DEPTH Processing            | Transparency | Template Version | Output                |
+| --------------- | ------------------------ | --------------- | --------------------------- | ------------ | ---------------- | --------------------- |
+| **Interactive** | Determine what to create | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | Auto-selected    | Exact request         |
+| **$quick**      | Fast creation            | NONE            | 1-5 auto-scaled             | Summary      | Auto-selected    | Exact request         |
+| **$doc**        | Documentation            | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.119           | Requested doc only    |
+| **$epic**       | Epics                    | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.130           | Requested epic only   |
+| **$story**      | User stories             | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.133           | Requested story only  |
+| **$ticket**     | Dev tickets              | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.133           | Requested ticket only |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question gathering all info at once:
@@ -190,11 +190,11 @@ System waits for complete response before proceeding.
 **Key Feature:** Includes Resolution Checklist for QA verification (differentiates from stories)
 
 **Complexity Levels:**
-| Level | Indicators | Sections | Resolution Items | Use Case |
-|-------|-----------|----------|------------------|----------|
-| **Simple** | bug, fix, typo, update | 2-3 | 4-6 | Quick fixes and minor updates |
-| **Standard** | feature, dashboard, api | 4-5 | 8-12 | Standard features and enhancements |
-| **Complex** | platform, architecture, migration | 6-8 | 12-20 | System-wide changes and migrations |
+| Level        | Indicators                        | Sections | Resolution Items | Use Case                           |
+| ------------ | --------------------------------- | -------- | ---------------- | ---------------------------------- |
+| **Simple**   | bug, fix, typo, update            | 2-3      | 4-6              | Quick fixes and minor updates      |
+| **Standard** | feature, dashboard, api           | 4-5      | 8-12             | Standard features and enhancements |
+| **Complex**  | platform, architecture, migration | 6-8      | 12-20            | System-wide changes and migrations |
 
 ---
 
@@ -210,22 +210,22 @@ System waits for complete response before proceeding.
 - **Business value clear:** Explicit articulation of user and business value
 
 **Complexity Levels:**
-| Level | Indicators | Sections | Focus | Use Case |
-|-------|-----------|----------|-------|----------|
-| **Simple** | simple, basic, quick | 2-3 | Single user action | Simple user interactions |
-| **Standard** | feature, capability, flow | 4-5 | Complete user journey | Standard user features |
-| **Complex** | platform, system, ecosystem | 6-8 | Multi-step scenarios | Complex user workflows |
+| Level        | Indicators                  | Sections | Focus                 | Use Case                 |
+| ------------ | --------------------------- | -------- | --------------------- | ------------------------ |
+| **Simple**   | simple, basic, quick        | 2-3      | Single user action    | Simple user interactions |
+| **Standard** | feature, capability, flow   | 4-5      | Complete user journey | Standard user features   |
+| **Complex**  | platform, system, ecosystem | 6-8      | Multi-step scenarios  | Complex user workflows   |
 
 **Story vs Ticket Comparison:**
-| Feature | Story (v0.133) | Ticket (v0.133) |
-|---------|----------------|-----------------|
-| **Command** | `$story` | `$ticket` |
-| **Focus** | User journey & experience | Technical implementation |
-| **Title Format** | "As a [user], I want..." | "[SCOPE] Feature: name" |
-| **Acceptance** | Given-When-Then format | Standard criteria |
-| **Checklist** | ❌ No Resolution Checklist | ✅ Detailed QA Checklist |
-| **Audience** | Stakeholders, product team | Engineering, QA team |
-| **Use Case** | Requirements definition | Implementation tracking |
+| Feature          | Story (v0.133)             | Ticket (v0.133)          |
+| ---------------- | -------------------------- | ------------------------ |
+| **Command**      | `$story`                   | `$ticket`                |
+| **Focus**        | User journey & experience  | Technical implementation |
+| **Title Format** | "As a [user], I want..."   | "[SCOPE] Feature: name"  |
+| **Acceptance**   | Given-When-Then format     | Standard criteria        |
+| **Checklist**    | ❌ No Resolution Checklist  | ✅ Detailed QA Checklist  |
+| **Audience**     | Stakeholders, product team | Engineering, QA team     |
+| **Use Case**     | Requirements definition    | Implementation tracking  |
 
 ---
 
@@ -240,11 +240,11 @@ System waits for complete response before proceeding.
 - Links to related stories and tickets
 
 **Complexity Levels:**
-| Level | Features | Template Sections | Focus | Use Case |
-|-------|----------|-------------------|-------|----------|
-| **Initiative** | 5-10 | 5-7 sections | Single team deliverables | Focused features, single-team projects |
-| **Program** | 10-20 | 8-10 sections | Multi-team coordination | Cross-team initiatives, platform features |
-| **Strategic** | 20+ | 10+ sections | Platform transformation | Company-wide changes, major platforms |
+| Level          | Features | Template Sections | Focus                    | Use Case                                  |
+| -------------- | -------- | ----------------- | ------------------------ | ----------------------------------------- |
+| **Initiative** | 5-10     | 5-7 sections      | Single team deliverables | Focused features, single-team projects    |
+| **Program**    | 10-20    | 8-10 sections     | Multi-team coordination  | Cross-team initiatives, platform features |
+| **Strategic**  | 20+      | 10+ sections      | Platform transformation  | Company-wide changes, major platforms     |
 
 **Standard Epic Sections:**
 1. **About** - 3 sentences max on what's being built and why
@@ -268,11 +268,11 @@ System waits for complete response before proceeding.
 - No external dependencies
 
 **Complexity Levels:**
-| Type | Main Sections | Depth | Use Case | Examples |
-|------|---------------|-------|----------|----------|
-| **Simple** | 2-3 | Quick reference | Product briefs, overviews | Feature announcements, quick guides |
-| **Standard** | 4-6 | Detailed guide | Feature specs, user guides | API documentation, user manuals |
-| **Complex** | 7+ | Comprehensive | Strategy docs, platforms | Architecture docs, system specifications |
+| Type         | Main Sections | Depth           | Use Case                   | Examples                                 |
+| ------------ | ------------- | --------------- | -------------------------- | ---------------------------------------- |
+| **Simple**   | 2-3           | Quick reference | Product briefs, overviews  | Feature announcements, quick guides      |
+| **Standard** | 4-6           | Detailed guide  | Feature specs, user guides | API documentation, user manuals          |
+| **Complex**  | 7+            | Comprehensive   | Strategy docs, platforms   | Architecture docs, system specifications |
 
 **Common Documentation Types:**
 - **Feature Documentation** - How features work and how to use them
@@ -326,20 +326,20 @@ Deliver Exact Request
 A structured 5-phase methodology ensuring comprehensive analysis through **concise transparent excellence** - full rigor applied internally, meaningful updates shown to users.
 
 **Processing Depth:**
-| Mode | Rounds | User Visibility | Application |
-|------|--------|-----------------|-------------|
-| **Standard** | 10 rounds | Concise progress updates | Real-time transparency |
-| **$Quick** | 1-5 auto-scaled | Summary at completion | Complexity-based |
+| Mode         | Rounds          | User Visibility          | Application            |
+| ------------ | --------------- | ------------------------ | ---------------------- |
+| **Standard** | 10 rounds       | Concise progress updates | Real-time transparency |
+| **$Quick**   | 1-5 auto-scaled | Summary at completion    | Complexity-based       |
 
 ### DEPTH Phases (v0.108 with RICCE Integration)
 
-| Phase | Purpose | Internal Processing | User Sees |
-|-------|---------|---------------------|-----------|
-| **D**iscover | Deep understanding | 5 perspectives, assumption audit, opposition analysis, RICCE Role & Context | "🔍 Analyzing (5 perspectives)" |
-| **E**ngineer | Solution generation | 8 approaches, constraint reversal, RICCE Constraints & Instructions | "⚙️ Engineering (optimal selected)" |
-| **P**rototype | Build framework | Template application, RICCE validation, mechanism-first | "🔨 Building (RICCE-compliant)" |
-| **T**est | Validate quality | 6-dimension rating, quality gates, RICCE Examples | "✅ Validating (excellence confirmed)" |
-| **H**armonize | Final polish | Final validation, cognitive rigor check, RICCE verification | "✨ Finalizing (ready for delivery)" |
+| Phase         | Purpose             | Internal Processing                                                         | User Sees                             |
+| ------------- | ------------------- | --------------------------------------------------------------------------- | ------------------------------------- |
+| **D**iscover  | Deep understanding  | 5 perspectives, assumption audit, opposition analysis, RICCE Role & Context | "🔍 Analyzing (5 perspectives)"        |
+| **E**ngineer  | Solution generation | 8 approaches, constraint reversal, RICCE Constraints & Instructions         | "⚙️ Engineering (optimal selected)"    |
+| **P**rototype | Build framework     | Template application, RICCE validation, mechanism-first                     | "🔨 Building (RICCE-compliant)"        |
+| **T**est      | Validate quality    | 6-dimension rating, quality gates, RICCE Examples                           | "✅ Validating (excellence confirmed)" |
+| **H**armonize | Final polish        | Final validation, cognitive rigor check, RICCE verification                 | "✨ Finalizing (ready for delivery)"   |
 
 ### What Users Actually See
 
