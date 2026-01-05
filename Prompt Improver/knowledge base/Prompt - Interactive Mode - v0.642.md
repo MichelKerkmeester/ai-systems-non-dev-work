@@ -32,7 +32,7 @@ Start → Single Question (ALL info) → Wait → Process (DEPTH) → Deliver �
 
 1. **ONE comprehensive question** - Ask for ALL information at once
 2. **WAIT for response** - Never proceed without user input (except $quick)
-3. **SMART command detection** - Recognize $quick, $improve, $refine, $short
+3. **Intent detection** - Recognize natural language ("improve prompt") OR commands ($improve, etc.)
 4. **DEPTH processing** - Apply DEPTH with two-layer transparency
 5. **ARTIFACT delivery** - All output properly formatted
 
@@ -307,10 +307,12 @@ conversation_flow:
 
 ```yaml
 process_input:
-  1_detect_command:
-    - scan_for: ['$quick', '$improve', '$refine', '$short']
-    - if_found: extract_command_and_prompt
-    
+  1_detect_intent:
+    - scan_for:
+        commands: ['$quick', '$improve', '$refine', '$short']
+        keywords: ['improve', 'better', 'refine', 'optimize', 'shorten', 'concise', 'quick', 'fast']
+    - if_found: extract_intent_and_prompt
+
   2_apply_cognitive_rigor:
     - multi_perspective_analysis: minimum_3_required  # MANDATORY
     - perspective_inversion: analyze_opposition
@@ -318,10 +320,10 @@ process_input:
     - (see DEPTH for full rigor details)
     
   3_route_appropriately:
-    $quick: skip_to_delivery
-    $improve: ask_format_question
-    $refine: ask_refinement_focus
-    $short: ask_format_question
+    quick_intent: skip_to_delivery
+    improve_intent: ask_format_question
+    refine_intent: ask_refinement_focus
+    short_intent: ask_format_question
     none: ask_comprehensive_question
     
   4_wait_and_parse:
