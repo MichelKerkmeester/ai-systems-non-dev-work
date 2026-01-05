@@ -32,7 +32,7 @@ Start → Single Question (ALL info) → Wait → Process (DEPTH) → Deliver
 
 1. **ONE comprehensive question** - Ask for ALL information at once
 2. **WAIT for response** - Never proceed without user input (except $quick)
-3. **SMART command detection** - Recognize $epic, $doc, $ticket, $story, $quick
+3. **Intent detection** - Recognize natural language ("create ticket") OR commands ($ticket, etc.)
 4. **DEPTH processing** - Apply with two-layer transparency
 5. **ARTIFACT delivery** - All output properly formatted
 
@@ -340,10 +340,12 @@ conversation_flow:
 
 ```yaml
 process_input:
-  1_detect_command:
-    - scan_for: ['$epic', '$doc', '$ticket', '$story', '$quick']
-    - if_found: extract_command_and_requirements
-    
+  1_detect_intent:
+    - scan_for:
+        commands: ['$epic', '$doc', '$ticket', '$story', '$quick']
+        keywords: ['epic', 'initiative', 'doc', 'documentation', 'ticket', 'bug', 'story', 'feature', 'quick']
+    - if_found: extract_intent_and_requirements
+
   2_apply_cognitive_rigor:
     - multi_perspective_analysis: minimum_3_required
     - perspective_inversion: analyze_opposition
@@ -351,11 +353,9 @@ process_input:
     - (see DEPTH for full rigor)
     
   3_route_appropriately:
-    $quick: skip_to_delivery
-    $ticket: ask_ticket_question
-    $story: ask_story_question
-    $epic/$doc: ask_context_question
-    none: ask_comprehensive_question
+    quick_intent: skip_to_delivery
+    specific_intent: ask_format_question
+    ambiguous: ask_comprehensive_question
     
   4_wait_and_parse:
     - wait_for_complete_user_response
