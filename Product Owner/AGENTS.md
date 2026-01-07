@@ -82,7 +82,8 @@ Based on routing logic in v0.950, read supporting documents:
    - `/knowledge base/Product Owner - DEPTH Thinking Framework - v0.118.md`
 
 2. **Templates** (Load per Mode)
-   - `/knowledge base/Product Owner - Template - Ticket Mode - v0.144.md` ($ticket, $t)
+   - `/knowledge base/Product Owner - Template - Ticket Mode - v0.145.md` ($ticket, $t)
+   - `/knowledge base/Product Owner - Template - Bug Mode - v0.100.md` ($bug, $b)
    - `/knowledge base/Product Owner - Template - Story Mode - v0.143.md` ($story, $s)
    - `/knowledge base/Product Owner - Template - Epic Mode - v0.140.md` ($epic, $e)
    - `/knowledge base/Product Owner - Template - Doc Mode - v0.129.md` ($doc, $d)

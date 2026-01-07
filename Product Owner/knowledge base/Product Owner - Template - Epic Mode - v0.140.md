@@ -727,10 +727,10 @@ Major Milestones:
 3. **Short About** required (3 sentences maximum explaining WHAT and WHY)
 4. **Success Criteria** positioned after About (not at top)
 5. **Designs as bullets** organized by category (Documentation, Flows, Components, Related Stories/Tickets)
-7. **Feature lists** include links to stories/tickets (summary approach, not full specs)
-8. **Use H4 for subsections** - H3 never used in Epic mode
-9. **NO ◻ symbol** - removed
-10. **Use `---` dividers** between all major sections
+6. **Feature lists** include links to stories/tickets (summary approach, not full specs)
+7. **Use H4 for subsections** - H3 never used in Epic mode
+8. **NO ◻ symbol** - removed
+9. **Use `---` dividers** between all major sections
 10. **Interactive questions** handled by Interactive Mode file
 11. **Header at top** as first line (Mode | Scale | Template)
 12. **No Table of Contents** (ClickUp/Jira provide native TOC)
