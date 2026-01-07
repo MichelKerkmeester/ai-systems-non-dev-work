@@ -89,7 +89,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 - Wait for user input on ALL content questions
 - Position About first (after header)
 - Integrate context in About narrative
-- Use clean H3/H4 headers
+- Use clean H4 headers (H3 never used)
 - Place header at top of artifact
 - Deliver exactly what was requested
 - Use `---` separators appropriately
@@ -133,7 +133,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 3. About (⌘) - Purpose and context
 4. References & Resources (⌥) - Bulleted list format with categories
 5. Main sections (❖) - Scaled content
-6. Subsections - H3 numbered when multiple, clean otherwise
+6. Subsections - H4 headers (clean, no symbols)
 
 #### Formatting Standards
 - **Dividers:** Use `---` between major sections only (not after headers)
@@ -570,18 +570,6 @@ The north star that guides all platform decisions and investments
 [for the requested platform only].
 
 #### Core Value Propositions
----
-
-# ❖ Platform Strategy
----
-
-### 1. Vision & Mission
----
-The north star that guides all platform decisions and investments
-[for the requested platform only].
----
-
-#### Core Value Propositions
 
 1. **Primary Value Driver**
    - What it solves [within platform scope]
@@ -597,10 +585,10 @@ The north star that guides all platform decisions and investments
    - Unique advantages
    - Barriers to entry
    - Defensibility
+
 ---
 
 ### 2. Market Positioning
----
 
 #### Target Segments
 
@@ -843,18 +831,18 @@ The north star that guides all platform decisions and investments
 3. **About section first** after metadata (integrate context narratively)
 4. **Designs as bullets** organized by category (Documentation, Flows, Analytics, Research, Related Stories/Tickets/Epics)
 5. **Tables for metrics only** - not for References & Resources
-6. **Use H3 for subsections** - number them (### 1. Title) only when multiple subsections exist
-7. **Single subsection** uses clean H3 (no numbers, no symbols)
+6. **Use H4 for subsections** - number them (#### 1. Title) only when multiple subsections exist
+7. **Single subsection** uses clean H4 (no numbers, no symbols)
 8. **Use `---` dividers** between all major sections
-10. **Interactive questions** handled by Interactive Mode file
-11. **Header at top** as first line (Mode | Complexity | Template)
-12. **No Table of Contents** (ClickUp/Jira provide native TOC)
-13. **Only requested topic** - no scope expansion beyond user request
-14. **DEPTH methodology** applied automatically (10 rounds standard, 1-5 quick)
-15. **Template version** confirmed before creation
-16. **Complexity scales structure** not content scope (Simple: 2-3 sections, Standard: 4-6, Complex: 7+)
-17. **Documentation focus** maintained throughout (product features, performance metrics, strategy docs)
-18. **H3 NEVER used** - use H4 for all subsections
+9. **Interactive questions** handled by Interactive Mode file
+10. **Header at top** as first line (Mode | Complexity | Template)
+11. **No Table of Contents** (ClickUp/Jira provide native TOC)
+12. **Only requested topic** - no scope expansion beyond user request
+13. **DEPTH methodology** applied automatically (10 rounds standard, 1-5 quick)
+14. **Template version** confirmed before creation
+15. **Complexity scales structure** not content scope (Simple: 2-3 sections, Standard: 4-6, Complex: 7+)
+16. **Documentation focus** maintained throughout (product features, performance metrics, strategy docs)
+17. **H3 NEVER used** - use H4 for all subsections
 ```
 
 ---
