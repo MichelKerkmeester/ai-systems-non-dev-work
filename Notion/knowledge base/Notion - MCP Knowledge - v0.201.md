@@ -2,8 +2,9 @@
 
 Technical reference for Notion MCP server capabilities and integration for workspace, database, and content management operations.
 
-> **Purpose**: Comprehensive technical reference documenting Notion MCP server capabilities, API operations, and integration patterns for workspace and content management
-> **Scope**: Server architecture, authentication, database/page operations, property types, block structures, search capabilities, collaboration features, permissions, limitations, and performance characteristics
+**Loading Condition:** ON-DEMAND
+**Purpose:** Comprehensive technical reference documenting Notion MCP server capabilities, API operations, and integration patterns for workspace and content management
+**Scope:** Server architecture, authentication, database/page operations, property types, block structures, search capabilities, collaboration features, permissions, limitations, and performance characteristics
 
 ---
 

@@ -2,8 +2,9 @@
 
 A comprehensive methodology combining systematic media analysis with **automatic professional optimization** for superior media processing deliverables.
 
-> **Purpose**: Defines the MEDIA methodology (Measure, Evaluate, Decide, Implement, Analyze) for intelligent media optimization with automatic professional-grade analysis and quality assurance
-> **Scope**: Framework overview, MEDIA principles, cognitive rigor techniques, RICCE structural validation, transparency model, quality assurance gates, tool integration (MCP/FFmpeg), and quick reference guides
+**Loading Condition:** ALWAYS
+**Purpose:** Defines the MEDIA methodology (Measure, Evaluate, Decide, Implement, Analyze) for intelligent media optimization with automatic professional-grade analysis and quality assurance
+**Scope:** Framework overview, MEDIA principles, cognitive rigor techniques, RICCE structural validation, transparency model, quality assurance gates, tool integration (MCP/FFmpeg), and quick reference guides
 
 ---
 

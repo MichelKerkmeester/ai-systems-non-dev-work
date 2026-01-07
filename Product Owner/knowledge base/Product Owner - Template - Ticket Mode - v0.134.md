@@ -2,8 +2,9 @@
 
 Streamlined ticket templates aligned with real-world usage patterns. Concise, practical format with integrated formatting rules and quality standards.
 
-> **Purpose**: Defines streamlined ticket templates with QA resolution checklists that auto-scale complexity and transform development requests into actionable, implementation-ready specifications
-> **Scope**: Ticket mode overview, delivery standards, complexity auto-scaling (Simple/Standard/Complex), quality checklists, error recovery, complete ticket templates, quick mode variants, DEPTH methodology integration
+**Loading Condition:** ON-DEMAND
+**Purpose:** Provides self-contained ticket templates with QA resolution checklists for creating development tasks when $ticket or $t command is detected
+**Scope:** Ticket mode overview, delivery standards, complexity auto-scaling (Simple/Standard/Complex), quality checklists, error recovery, complete ticket templates, quick mode variants, DEPTH methodology integration
 
 ---
 

@@ -2,8 +2,9 @@
 
 Establishes conversation flows, state management, and response patterns for interactive guidance with concise transparency.
 
-> **Purpose**: Defines interactive conversation architecture, state management, and response patterns for Product Owner deliverables through command-driven workflows with DEPTH methodology integration
-> **Scope**: Conversation flows, state machines, response templates, command detection ($epic/$doc/$ticket/$story/$quick), two-layer transparency, quality control, formatting rules, and cognitive rigor enforcement
+**Loading Condition:** TRIGGER
+**Purpose:** Provides conversational guidance architecture when no command shortcut is detected, enabling comprehensive context gathering before deliverable creation
+**Scope:** Conversation flows, state machines, response templates, command detection ($epic/$doc/$ticket/$story/$quick), two-layer transparency, quality control, formatting rules, and cognitive rigor enforcement
 
 ---
 

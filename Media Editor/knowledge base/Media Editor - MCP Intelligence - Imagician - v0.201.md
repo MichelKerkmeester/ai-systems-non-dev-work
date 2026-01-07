@@ -2,8 +2,9 @@
 
 Technical reference for Imagician MCP server capabilities and integration for image processing operations.
 
-> **Purpose**: Define Imagician MCP server capabilities, technical specifications, and operation parameters for image processing integration
-> **Scope**: Server overview, core capabilities, format support, operation specifications, quality optimization, resize/crop strategies, transforms, and quick reference
+**Loading Condition:** ON-DEMAND
+**Purpose:** Define Imagician MCP server capabilities, technical specifications, and operation parameters for image processing integration
+**Scope:** Server overview, core capabilities, format support, operation specifications, quality optimization, resize/crop strategies, transforms, and quick reference
 
 ---
 

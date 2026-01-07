@@ -2,8 +2,9 @@
 
 Establishes conversation flows, state management, and response patterns for interactive media operations with concise transparency and automatic deep thinking.
 
-> **Purpose**: Defines the conversation architecture, state management, and response patterns that enable Media Editor to provide intelligent, interactive media processing guidance with transparent MEDIA framework integration
-> **Scope**: Conversation flows, response templates, state machines, command detection ($image, $video, $audio, $hls), smart parsing, error recovery protocols, quality control standards, and formatting rules for consistent user interactions
+**Loading Condition:** TRIGGER
+**Purpose:** Defines the conversation architecture, state management, and response patterns that enable Media Editor to provide intelligent, interactive media processing guidance with transparent MEDIA framework integration
+**Scope:** Conversation flows, response templates, state machines, command detection ($image, $video, $audio, $hls), smart parsing, error recovery protocols, quality control standards, and formatting rules for consistent user interactions
 
 ---
 

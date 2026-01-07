@@ -2,8 +2,9 @@
 
 Technical reference for Video-Audio MCP server capabilities and integration for video and audio processing operations.
 
-> **Purpose**: Defines comprehensive technical specifications and operational capabilities for the Video-Audio MCP server powered by FFmpeg, enabling systematic video and audio processing workflows.
-> **Scope**: MCP server integration, video/audio format conversion, editing operations, codec specifications, advanced effects (overlays, transitions, subtitles), performance characteristics, and tool reference.
+**Loading Condition:** ON-DEMAND
+**Purpose:** Defines comprehensive technical specifications and operational capabilities for the Video-Audio MCP server powered by FFmpeg, enabling systematic video and audio processing workflows
+**Scope:** MCP server integration, video/audio format conversion, editing operations, codec specifications, advanced effects (overlays, transitions, subtitles), performance characteristics, and tool reference
 
 ---
 
