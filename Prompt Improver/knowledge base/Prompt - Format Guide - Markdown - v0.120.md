@@ -2,8 +2,9 @@
 
 Formatting guide for Markdown (Standard) output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 
-> **Purpose**: Defines Markdown syntax specifications, structure patterns, validation rules, and file delivery standards for natural language prompt output
-> **Scope**: RCAF/CRAFT frameworks in Markdown format, file delivery standards, syntax validation, format conversions, advanced patterns, best practices
+**Loading Condition:** ON-DEMAND
+**Purpose:** Defines Markdown syntax specifications, structure patterns, validation rules, and file delivery standards for natural language prompt output.
+**Scope:** RCAF/CRAFT frameworks in Markdown format, file delivery standards, syntax validation, format conversions, advanced patterns, best practices.
 
 ---
 

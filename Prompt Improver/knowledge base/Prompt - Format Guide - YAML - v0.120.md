@@ -2,8 +2,9 @@
 
 Formatting guide for YAML output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 
-> **Purpose**: Defines YAML syntax specifications, structure patterns, validation rules, and file delivery standards for prompt engineering output formatting
-> **Scope**: YAML fundamentals, RCAF/CRAFT structures, file delivery protocols, format conversions, syntax validation, advanced patterns, performance optimization, and best practices
+**Loading Condition:** ON-DEMAND
+**Purpose:** Defines YAML syntax specifications, structure patterns, validation rules, and file delivery standards for prompt engineering output formatting.
+**Scope:** YAML fundamentals, RCAF/CRAFT structures, file delivery protocols, format conversions, syntax validation, advanced patterns, performance optimization, and best practices.
 
 ---
 

@@ -2,8 +2,9 @@
 
 Formatting guide for JSON output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 
-> **Purpose**: Define JSON syntax specifications, structure patterns, validation rules, and file delivery standards for prompt engineering output
-> **Scope**: JSON format fundamentals, RCAF/CRAFT JSON structures, file delivery standards, syntax validation, format conversions, advanced patterns, and best practices
+**Loading Condition:** ON-DEMAND
+**Purpose:** Define JSON syntax specifications, structure patterns, validation rules, and file delivery standards for prompt engineering output.
+**Scope:** JSON format fundamentals, RCAF/CRAFT JSON structures, file delivery standards, syntax validation, format conversions, advanced patterns, and best practices.
 
 ---
 
