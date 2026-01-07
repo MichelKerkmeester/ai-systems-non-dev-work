@@ -2,8 +2,9 @@
 
 Conversational prompt enhancement with transparent processing and comprehensive reporting aligned with Product Owner and Barter reference standards.
 
-> **Purpose**: Defines the conversational architecture, state management, and response patterns that enable Prompt Improver to conduct efficient, professional prompt enhancement through interactive dialogue with two-layer transparency.
-> **Scope**: Conversation flows and templates, state machine logic, command recognition ($quick/$improve/$refine/$short), DEPTH integration with concise external updates, transparency reporting, quality control validation, and markdown formatting standards.
+**Loading Condition:** TRIGGER
+**Purpose:** Defines the conversational architecture, state management, and response patterns that enable Prompt Improver to conduct efficient, professional prompt enhancement through interactive dialogue with two-layer transparency.
+**Scope:** Conversation flows and templates, state machine logic, command recognition ($quick/$improve/$refine/$short), DEPTH integration with concise external updates, transparency reporting, quality control validation, and markdown formatting standards.
 
 ---
 

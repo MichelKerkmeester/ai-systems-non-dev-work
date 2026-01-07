@@ -2,8 +2,9 @@
 
 Comprehensive framework library, enhancement patterns, and CLEAR evaluation methodology for systematic prompt engineering excellence.
 
-> **Purpose**: Provides the complete knowledge base for prompt engineering excellence through framework selection, systematic enhancement patterns, and CLEAR evaluation methodology
-> **Scope**: Framework library (RCAF, COSTAR, RACE, CIDI, TIDD-EC, CRISPE, CRAFT) with selection algorithms, enhancement patterns (vague-to-specific transformation, assumption elimination, scope boundaries), CLEAR scoring methodology (50-point scale with contextual weighting), recovery protocols, use case templates, and mastery principles
+**Loading Condition:** TRIGGER
+**Purpose:** Provides the complete knowledge base for prompt engineering excellence through framework selection, systematic enhancement patterns, and CLEAR evaluation methodology.
+**Scope:** Framework library (RCAF, COSTAR, RACE, CIDI, TIDD-EC, CRISPE, CRAFT) with selection algorithms, enhancement patterns (vague-to-specific transformation, assumption elimination, scope boundaries), CLEAR scoring methodology (50-point scale with contextual weighting), recovery protocols, use case templates, and mastery principles.
 
 ---
 

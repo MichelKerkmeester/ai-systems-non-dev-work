@@ -2,8 +2,9 @@
 
 A comprehensive methodology combining systematic analysis with **transparent professional excellence** for superior prompt engineering deliverables.
 
-> **Purpose**: Establishes the comprehensive DEPTH methodology (Discover, Engineer, Prototype, Test, Harmonize) combined with RICCE structural validation and cognitive rigor techniques for superior prompt engineering deliverables through transparent professional excellence.
-> **Scope**: Multi-perspective analysis framework (minimum 3, target 5 perspectives), cognitive rigor techniques (perspective inversion, constraint reversal, assumption audit, mechanism-first), RICCE completeness validation (Role, Instructions, Context, Constraints, Examples), two-layer transparency model, CLEAR quality scoring (40+/50 target), framework integration patterns, and quality assurance protocols.
+**Loading Condition:** ALWAYS
+**Purpose:** Establishes the comprehensive DEPTH methodology (Discover, Engineer, Prototype, Test, Harmonize) combined with RICCE structural validation and cognitive rigor techniques for superior prompt engineering deliverables through transparent professional excellence.
+**Scope:** Multi-perspective analysis framework (minimum 3, target 5 perspectives), cognitive rigor techniques (perspective inversion, constraint reversal, assumption audit, mechanism-first), RICCE completeness validation (Role, Instructions, Context, Constraints, Examples), two-layer transparency model, CLEAR quality scoring (40+/50 target), framework integration patterns, and quality assurance protocols.
 
 ---
 
