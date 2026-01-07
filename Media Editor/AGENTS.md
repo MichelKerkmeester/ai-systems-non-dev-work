@@ -69,7 +69,7 @@ Use `generate_summary` to review the thinking process before taking action.
 **FOLLOW THE INSTRUCTIONS BELOW IMMEDIATELY.**
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Media Editor - v0.230.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `/knowledge base/Media Editor - v0.240.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -79,28 +79,28 @@ This is your PRIMARY instruction set that contains:
 
 ### **📚 STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
 
-Based on routing logic in v0.230, read supporting documents:
+Based on routing logic in v0.240, read supporting documents:
 
 1. **Core Framework** (Always Load)
-   - `/knowledge base/Media Editor - MEDIA Thinking Framework - v0.223.md`
+   - `/knowledge base/Media Editor - MEDIA Thinking Framework - v0.233.md`
 
 2. **MCP Tool Intelligence** (Load per Media Type)
-   - `/knowledge base/Media Editor - MCP Intelligence - Imagician - v0.201.md` ($image, $img)
-   - `/knowledge base/Media Editor - MCP Intelligence - Video, Audio - v0.202.md` ($video, $audio)
+   - `/knowledge base/Media Editor - MCP Intelligence - Imagician - v0.211.md` ($image, $img)
+   - `/knowledge base/Media Editor - MCP Intelligence - Video, Audio - v0.212.md` ($video, $audio)
 
 3. **Specialized Processing** (Load for HLS)
-   - `/knowledge base/Media Editor - HLS - Video Conversion - v0.100.md` ($hls)
+   - `/knowledge base/Media Editor - HLS - Video Conversion - v0.110.md` ($hls)
 
 4. **Interactive Framework** (Load for Clarification)
-   - `/knowledge base/Media Editor - Interactive Intelligence - v0.210.md`
+   - `/knowledge base/Media Editor - Interactive Intelligence - v0.220.md`
 
 ---
 
 # 3. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- ❌ Skip the system prompt (`/knowledge base/Media Editor - v0.230.md`)
-- ❌ Proceed without reading v0.230 completely
+- ❌ Skip the system prompt (`/knowledge base/Media Editor - v0.240.md`)
+- ❌ Proceed without reading v0.240 completely
 - ❌ Proceed without MCP/FFmpeg tool verification (BLOCKING step)
 - ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user)
@@ -110,9 +110,9 @@ Based on routing logic in v0.230, read supporting documents:
 - ❌ Process files exceeding tool limits (50MB images, 100MB video MCP)
 
 ### ALWAYS:
-- ✅ Start with `/knowledge base/Media Editor - v0.230.md`
-- ✅ Verify MCP/FFmpeg tools FIRST (blocking step per v0.230)
-- ✅ Follow routing logic in v0.230
+- ✅ Start with `/knowledge base/Media Editor - v0.240.md`
+- ✅ Verify MCP/FFmpeg tools FIRST (blocking step per v0.240)
+- ✅ Follow routing logic in v0.240
 - ✅ Apply MEDIA framework (10 rounds) for all operations
 - ✅ Respect file organization rules (/export/{###-folder}/)
 - ✅ Read ONLY required supporting documents based on routing
@@ -124,10 +124,10 @@ Based on routing logic in v0.230, read supporting documents:
 # 4. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** — Media editing specialist role boundaries enforced
-2. **System Prompt (v0.230)** — Read completely, contains all routing logic
+2. **System Prompt (v0.240)** — Read completely, contains all routing logic
 3. **Tool Verification (BLOCKING)** — Check required MCP/FFmpeg tools per v0.230
 4. **Apply Routing** — Follow command/mode detection in v0.230
 5. **Supporting Documents** — Read as determined by routing logic
 6. **Execute with MEDIA Framework** — Apply 10-round analysis, deliver to /export/
 
-**→ GO TO:** `/knowledge base/Media Editor - v0.230.md` **NOW**
+**→ GO TO:** `/knowledge base/Media Editor - v0.240.md` **NOW**

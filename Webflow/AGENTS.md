@@ -67,7 +67,7 @@ Use `generate_summary` to review the thinking process before taking action.
 **FOLLOW THE INSTRUCTIONS BELOW IMMEDIATELY.**
 
 ### **STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Webflow - v0.530.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `/knowledge base/Webflow - v0.540.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -77,16 +77,16 @@ This is your PRIMARY instruction set that contains:
 
 ### **STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
 
-Based on routing logic in v0.530, read supporting documents:
+Based on routing logic in v0.540, read supporting documents:
 
 1. **Core Methodology** (Always Load)
-   - `/knowledge base/Webflow - SYNC Thinking Framework - v0.401.md`
+   - `/knowledge base/Webflow - SYNC Thinking Framework - v0.411.md`
 
 2. **API Operations** (Load for MCP Operations)
-   - `/knowledge base/Webflow - MCP Knowledge - v0.403.md`
+   - `/knowledge base/Webflow - MCP Knowledge - v0.413.md`
 
 3. **Interactive Mode** (Load for Unclear Intent/Errors)
-   - `/knowledge base/Webflow - Interactive Intelligence - v0.401.md`
+   - `/knowledge base/Webflow - Interactive Intelligence - v0.411.md`
 
 ### **STEP 3: VERIFY MCP CONNECTION (BLOCKING)**
 
@@ -102,8 +102,8 @@ Based on routing logic in v0.530, read supporting documents:
 # 3. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- Skip the system prompt (`/knowledge base/Webflow - v0.530.md`)
-- Proceed without reading v0.530 completely
+- Skip the system prompt (`/knowledge base/Webflow - v0.540.md`)
+- Proceed without reading v0.540 completely
 - Proceed without verifying MCP connection (BLOCKING requirement)
 - Read ALL documents unnecessarily (routing logic determines what's needed)
 - Promise operations not supported by available MCP tools
@@ -113,9 +113,9 @@ Based on routing logic in v0.530, read supporting documents:
 - Violate role boundaries defined in Context Override
 
 ### ALWAYS:
-- Start with `/knowledge base/Webflow - v0.530.md`
+- Start with `/knowledge base/Webflow - v0.540.md`
 - Verify MCP connection FIRST (blocking requirement)
-- Follow routing logic in v0.530
+- Follow routing logic in v0.540
 - Check companion app status for Designer API operations
 - Respect processing hierarchy
 - Read ONLY required supporting documents based on routing
@@ -129,10 +129,10 @@ Based on routing logic in v0.530, read supporting documents:
 # 4. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** - Webflow MCP specialist role boundaries enforced
-2. **System Prompt (v0.530)** - Read completely, contains all routing logic
+2. **System Prompt (v0.540)** - Read completely, contains all routing logic
 3. **MCP Verification** - Test connection (BLOCKING)
-4. **Apply Routing** - Follow operation detection in v0.530
+4. **Apply Routing** - Follow operation detection in v0.540
 5. **Supporting Documents** - Read as determined by routing logic
 6. **Execute SYNC** - Survey --> Yield --> Navigate --> Create
 
-**→ GO TO:** `/knowledge base/Webflow - v0.530.md` **NOW**
+**→ GO TO:** `/knowledge base/Webflow - v0.540.md` **NOW**

@@ -240,7 +240,7 @@ states:
     expectedInputs: [complete_context]
     
   processing:
-    action: apply_depth_v0107_with_cognitive_rigor
+    action: apply_depth_v0118_with_cognitive_rigor
     transparency: concise_updates
     perspectives: minimum_3_required  # BLOCKING
     waitForInput: false
@@ -300,7 +300,7 @@ process:
   - scan_input_for_command
   - if_found: route_to_appropriate_question
   - if_not_found: use_comprehensive_question
-  - apply_cognitive_rigor_per_depth_v0107
+  - apply_cognitive_rigor_per_depth_v0118
   - wait_for_response (except $quick)
 ```
 
@@ -323,7 +323,7 @@ conversation_flow:
     never_self_answer: true
     
   processing_state:
-    apply_depth: v0107_full_rigor
+    apply_depth: v0118_full_rigor
     show_user: concise_updates_only
     validate: perspectives_minimum_3
     
@@ -364,7 +364,7 @@ process_input:
     - validate_completeness
     
   5_process_and_deliver:
-    - apply_DEPTH_v0105_transparently
+    - apply_DEPTH_v0118_transparently
     - show_concise_progress_updates
     - deliver_polished_artifact
 ```
