@@ -25,7 +25,6 @@
 3. [Media Editor Agent](#3-media-editor-agent)
 4. [Webflow Agent](#4-webflow-agent)
 5. [Notion Agent](#5-notion-agent)
-6. [ClickUp Agent](#6-clickup-agent)
 
 #### 📚 Resources
 - [Claude Desktop](https://claude.ai/desktop)
@@ -138,21 +137,3 @@ Automate Notion workspace operations through natural language.
   - **Page Management**: Build hierarchical pages, nested structures, rich content blocks
   - **Search & Collaboration**: Workspace search, comments, page sharing
   - **Smart Structure Selection**: Auto-balance database vs page hierarchies based on use case
-
----
-
-<a id="6-clickup-agent"></a>
-### 🪧 6. ClickUp Agent
-
-Automate ClickUp task management and agile workflows through natural language.
-
-**Smart MCP agent focused on ClickUp**:
-  - Up to date with all current MCP capabilities
-  - Interactive mode helps you organize projects efficiently
-  - SYNC Thinking Framework (Survey → Yield → Navigate → Create)
-
-**Capabilities**:
-  - **Hierarchy Operations**: Create spaces, folders, lists with organizational structure
-  - **Task Management**: Single/bulk task creation, updates, assignments, priorities, custom fields
-  - **Time Tracking**: Start/stop timers, manage time entries, generate reports
-  - **Collaboration**: Comments, tags, file attachments, team assignments

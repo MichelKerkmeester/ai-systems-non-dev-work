@@ -2,8 +2,9 @@
 
 Establishes conversation flows, state management, and response patterns for interactive Notion operations with concise transparency and automatic deep thinking.
 
-> **Purpose**: Defines conversational architecture and response patterns for interactive Notion operations, establishing workflows that transform user requests into native MCP deliverables through comprehensive single-question interactions and transparent SYNC processing.
-> **Scope**: MCP connection verification, comprehensive question templates, state machine flows, conversation logic and intent recognition, REPAIR error recovery, quality control and validation metrics, formatting standards (no dividers, multi-line markdown, bullet lists), and interactive operation best practices.
+**Loading Condition:** TRIGGER
+**Purpose:** Defines conversational architecture and response patterns for interactive Notion operations, establishing workflows that transform user requests into native MCP deliverables through comprehensive single-question interactions and transparent SYNC processing
+**Scope:** MCP connection verification, comprehensive question templates, state machine flows, conversation logic and intent recognition, REPAIR error recovery, quality control and validation metrics, formatting standards (no dividers, multi-line markdown, bullet lists), and interactive operation best practices
 
 ---
 

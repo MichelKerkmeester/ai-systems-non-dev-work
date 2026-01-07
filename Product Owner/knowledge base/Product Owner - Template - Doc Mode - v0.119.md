@@ -2,8 +2,9 @@
 
 Documentation templates with integrated formatting rules and quality standards. All delivery logic consolidated for self-contained operation.
 
-> **Purpose**: Define comprehensive documentation templates with auto-scaling complexity, integrated formatting standards, and DEPTH methodology for creating product documentation that transforms feature requests into professional deliverables
-> **Scope**: Command structure, delivery standards, complexity auto-scaling (Simple/Standard/Complex), formatting rules with symbol hierarchy, quality validation checklists, error recovery protocols, and three complete documentation templates with metadata, About sections, References structure, and performance metrics
+**Loading Condition:** ON-DEMAND
+**Purpose:** Provides self-contained documentation templates for creating technical or user documentation when $doc or $d command is detected
+**Scope:** Command structure, delivery standards, complexity auto-scaling (Simple/Standard/Complex), formatting rules with symbol hierarchy, quality validation checklists, error recovery protocols, and three complete documentation templates with metadata, About sections, References structure, and performance metrics
 
 ---
 

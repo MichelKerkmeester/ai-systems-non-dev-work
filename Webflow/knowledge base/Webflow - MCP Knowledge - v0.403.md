@@ -2,8 +2,9 @@
 
 Technical reference for Webflow MCP server capabilities and integration for Designer and Data API operations.
 
-> **Purpose**: Comprehensive technical reference for Webflow MCP server capabilities, native API operations (Designer and Data API), authentication methods, and integration specifications
-> **Scope**: Server architecture, connection protocols, Designer API operations (elements, styles, components), Data API operations (collections, content, publishing), field types, workflows, limitations, rate limits, companion app requirements, and integration references
+**Loading Condition:** ON-DEMAND
+**Purpose:** Provides comprehensive technical specifications for Webflow MCP server operations when API-specific knowledge is needed for collection, content, or component operations
+**Scope:** Server architecture, connection protocols, Designer API operations (elements, styles, components), Data API operations (collections, content, publishing), field types, workflows, limitations, rate limits, companion app requirements, and integration references
 
 ---
 

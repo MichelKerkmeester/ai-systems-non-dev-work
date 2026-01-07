@@ -2,8 +2,9 @@
 
 Epic templates with integrated formatting rules and quality standards. All delivery logic consolidated for self-contained operation.
 
-> **Purpose**: Defines comprehensive epic creation templates with integrated formatting rules, quality standards, and delivery logic for transforming strategic initiatives into structured, scalable documentation at Initiative, Program, and Strategic levels.
-> **Scope**: Epic mode overview and command syntax, artifact delivery standards and DEPTH methodology application, complexity auto-scaling based on project keywords, symbol hierarchy and formatting rules, quality validation checklists and error recovery protocols, three tier-specific templates (Initiative/Program/Strategic) with example structures.
+**Loading Condition:** ON-DEMAND
+**Purpose:** Provides self-contained epic templates with strategic scaling (Initiative/Program/Strategic) for creating high-level initiative documentation when $epic or $e command is detected
+**Scope:** Epic mode overview and command syntax, artifact delivery standards and DEPTH methodology application, complexity auto-scaling based on project keywords, symbol hierarchy and formatting rules, quality validation checklists and error recovery protocols, three tier-specific templates (Initiative/Program/Strategic) with example structures
 
 ---
 
