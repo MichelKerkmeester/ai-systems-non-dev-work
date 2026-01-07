@@ -96,6 +96,18 @@ Violation of this protocol **invalidates the entire response**.
 
 **FOLLOW THE INSTRUCTIONS BELOW IMMEDIATELY.**
 
+### STEP 0: CHECK CONTEXT FOLDER
+**Trigger Conditions (if ANY apply):**
+1. This is the **first message** of the session
+2. Query suggests context is needed (keywords: "based on", "using", "reference", "example", "previous", "existing", "similar to", "continue", or mentions specific files/projects)
+
+**When triggered, ask the user:**
+> "Would you like me to check the `/context` folder for reference materials before proceeding?"
+
+**Response Handling:**
+- **YES:** Read relevant files from `/context/` and incorporate into task understanding
+- **NO:** Proceed directly to Step 1
+
 ### STEP 1: READ SYSTEM PROMPT FIRST
 **MANDATORY:** Read `/knowledge base/Product Owner - v0.950.md` **COMPLETELY** before proceeding.
 
