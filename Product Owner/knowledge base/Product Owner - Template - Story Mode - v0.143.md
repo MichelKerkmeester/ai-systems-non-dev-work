@@ -105,7 +105,7 @@ For development tickets with QA checklists and resolution tracking, use `$ticket
 - H2 for secondary sections (✦ Success, ⌥ Designs)
 - H3 NEVER used - use H4 for all subsections
 - H4 for subsections within Requirements and Change Summary
-- No blank lines between dividers and section headers
+- One blank line before divider, one blank line after divider
 - Clean headers at H4 level (no symbols)
 
 ### Content Integration

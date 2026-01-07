@@ -1,10 +1,10 @@
-# Product Owner System - User Guide v0.922
+# Product Owner System - User Guide v0.950
 
-Transforms requests into professional tickets, epics, and documentation with **concise transparent DEPTH processing**.
+Transforms requests into professional tickets, bugs, stories, epics, and documentation with **concise transparent DEPTH processing**.
 
 ## 📋 TABLE OF CONTENTS
 
-1. [🆕 WHAT'S NEW IN V0.922](#1-whats-new-in-v0922)
+1. [🆕 WHAT'S NEW IN V0.950](#1-whats-new-in-v0950)
 2. [✨ KEY FEATURES](#2-key-features)
 3. [🌳 SYSTEM ARCHITECTURE](#3-system-architecture)
 4. [🚀 QUICK SETUP](#4-quick-setup)
@@ -16,53 +16,65 @@ Transforms requests into professional tickets, epics, and documentation with **c
 
 ---
 
-<a id="1-whats-new-in-v0922"></a>
-## 1. 🆕 WHAT'S NEW IN V0.922
+<a id="1-whats-new-in-v0950"></a>
+## 1. 🆕 WHAT'S NEW IN V0.950
 
-### Major Improvements
+### Major Additions
 
-**System Prompt v0.922:**
-- More structured cognitive rigor framework (Section 5) with clearer operational guidance
-- Clearer enforcement of multi-perspective analysis as BLOCKING requirement
-- Explicit quality checklist with three validation phases (pre-creation, creation, post-creation)
-- Clearer "never" rules to prevent scope creep and over-transparency
-- Better integration of RICCE validation within DEPTH methodology
-- Improved cognitive rigor quick reference section
-- Stronger emphasis on two-layer transparency throughout processing
+**Bug Mode ($bug) - NEW in v0.950:**
+- New dedicated mode for defect tracking and bug reports
+- Command: `$bug` or `$b` for quick access
+- Dedicated template: Bug Mode v0.100
+- **Evidence section (⌥)** for screenshots, logs, and error output
+- **Root cause tracking** in Resolution Checklist
+- Fixed complexity (no scaling - bugs are bugs)
+- Integrated into Interactive Mode routing and DEPTH Framework
 
-**DEPTH Framework v0.108:**
-- Refined transparency model with concrete examples showing internal vs external processing
-- Enhanced RICCE-DEPTH integration mapping with clearer validation checkpoints
-- More detailed cognitive rigor technique descriptions
-- Better validation checkpoint documentation across all five phases
+**System Prompt v0.950:**
+- Added Bug Mode command detection and routing
+- Updated mode processing hierarchy for 5 modes
+- Enhanced semantic topic registry with bug-specific keywords
+- Refined command entry points documentation
 
-**Interactive Mode v0.307:**
-- Enhanced conversation architecture documentation
-- Better state machine definitions for clearer state management
-- Clearer command detection logic and routing
-- Improved response template formatting with multi-line markdown emphasis
+**DEPTH Framework v0.118:**
+- Added Bug Mode v0.100 to all template version references
+- Updated Ticket Mode from v0.144 to v0.145
+- Comprehensive version tracking across all validation checkpoints
+- Enhanced template compliance validation
 
-### 📊 Evolution: v0.922 → v0.921 → v0.920 → v0.915 → v0.914 → v0.913
+**Interactive Mode v0.317:**
+- Added `$bug` command detection and routing
+- New Bug Context Question template for context gathering
+- Added 'defect' and 'issue' keywords to smart detection
+- Updated state machine with bug_context_question route
 
+**Template Updates:**
+- Ticket Mode: v0.144 → v0.145 (consistency improvements)
+- Doc Mode: v0.129 (H3/H4 consistency fixes)
+- Story Mode: v0.143 (divider spacing standardization)
+- Epic Mode: v0.140 (numbering corrections)
+
+### 📊 Evolution: v0.950 → v0.922 → v0.921 → v0.920 → v0.915 → v0.914
+
+**v0.950:** Bug Mode addition, 5-mode architecture, comprehensive version updates
 **v0.922:** Refined cognitive rigor enforcement and quality validation structure  
 **v0.921:** RICCE framework integration and comprehensive definition  
 **v0.920:** Readability improvements and transparency model alignment  
 **v0.915:** Template separation (dedicated story mode)  
-**v0.914:** Two-layer transparency (concise + full rigor)  
-**v0.913:** Initial multi-perspective framework
+**v0.914:** Two-layer transparency (concise + full rigor)
 
 ---
 
 <a id="2-key-features"></a>
 ## 2. ✨ KEY FEATURES
 
-- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (v0.133 Ticket/Story, v0.130 Epic, v0.119 Doc)
-- **🧠 DEPTH Framework v0.108**: 10-round methodology with two-layer transparency and RICCE integration
+- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Ticket v0.145, Bug v0.100, Story v0.143, Epic v0.140, Doc v0.129)
+- **🧠 DEPTH Framework v0.118**: 10-round methodology with two-layer transparency and RICCE integration
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
 - **🔬 Enhanced Cognitive Rigor**: 6 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first, RICCE compliance)
 - **📊 Two-Layer Model**: Full rigor internally, concise updates externally with improved transparency guidelines
 - **🎯 RICCE Framework**: Role, Instructions, Context, Constraints, Examples validation integrated throughout DEPTH
-- **🚀 Four Modes**: Tickets, Stories, Epics, Documentation
+- **🚀 Five Modes**: Tickets, Bugs, Stories, Epics, Documentation
 - **⚡ Quick Mode**: Auto-scaled 1-5 rounds
 - **💬 Single Question**: All info gathered at once
 - **🎯 Auto-Complexity**: Smart detection and scaling
@@ -76,13 +88,18 @@ Transforms requests into professional tickets, epics, and documentation with **c
 ```
 AGENTS.md → Entry point with routing logic
     ↓
-Writer - Product Owner - v0.922.md (System prompt - 26 core rules)
+Product Owner - v0.950.md (System prompt - routing & rules)
     ↓
-DEPTH Framework v0.108 (Methodology with RICCE)
+DEPTH Framework v0.118 (Methodology with RICCE)
     ↓
-Interactive Mode v0.307 (Conversation flow)
+Interactive Mode v0.317 (Conversation flow)
     ↓
-Templates (Ticket v0.133, Story v0.133, Epic v0.130, Doc v0.119)
+Templates:
+├── Ticket Mode v0.145 (Development tasks)
+├── Bug Mode v0.100 (Defect tracking) ← NEW
+├── Story Mode v0.143 (User stories)
+├── Epic Mode v0.140 (Initiatives)
+└── Doc Mode v0.129 (Documentation)
     ↓
 Output → /export/[###]-artifact.md
 ```
@@ -97,35 +114,41 @@ Output → /export/[###]-artifact.md
 
 ### Step 2: Add System Instructions
 1. Edit project details → Custom instructions
-3. Copy and paste: `Writer - Product Owner - v0.922.md` 
+3. Copy and paste: `Product Owner - v0.950.md` 
 4. Save the project
 
 ### Step 3: Upload Supporting Documents
 Add these documents to your project:
 
 **Core Framework:**
-- `Product Owner - DEPTH Thinking Framework - v0.108.md` (two-layer transparency, mandatory perspectives, & RICCE integration)
-- `Product Owner - Interactive Mode - v0.307.md` (conversation flow & smart routing)
+- `Product Owner - DEPTH Thinking Framework - v0.118.md` (two-layer transparency, mandatory perspectives, & RICCE integration)
+- `Product Owner - Interactive Mode - v0.317.md` (conversation flow & smart routing)
 
-**Improved Self-Contained Templates:**
+**Self-Contained Templates:**
 Each template is fully self-contained with embedded rules, quality checks, and formatting standards:
 
-- **`Product Owner - Template - Ticket Mode - v0.133.md`**
+- **`Product Owner - Template - Ticket Mode - v0.145.md`**
   - Development tickets with detailed QA Resolution Checklists
   - Auto-scaling: Simple (4-6 items), Standard (8-12), Complex (12-20)
   - Includes mechanism-first validation and scope discipline
+
+- **`Product Owner - Template - Bug Mode - v0.100.md`** ← NEW
+  - Bug reports with evidence tracking and reproduction steps
+  - Fixed complexity (no scaling - bugs have consistent structure)
+  - Evidence section for screenshots/logs/error output
+  - Root cause tracking in Resolution Checklist
   
-- **`Product Owner - Template - Story Mode - v0.133.md`**
+- **`Product Owner - Template - Story Mode - v0.143.md`**
   - User stories in narrative format (no QA checklist)
   - Focus on user journey and business value
-  - Given-When-Then acceptance criteria
+  - Change Summary section for tracking modifications
   
-- **`Product Owner - Template - Epic Mode - v0.130.md`**
+- **`Product Owner - Template - Epic Mode - v0.140.md`**
   - High-level summaries with links to stories/tickets
   - Scale options: Initiative (5-10), Program (10-20), Strategic (20+)
   - Includes success metrics and implementation phases
   
-- **`Product Owner - Template - Doc Mode - v0.119.md`**
+- **`Product Owner - Template - Doc Mode - v0.129.md`**
   - Technical and user documentation
   - Complexity levels: Simple (2-3), Standard (4-6), Complex (7+)
   - Tool-agnostic design principles
@@ -134,7 +157,7 @@ Each template is fully self-contained with embedded rules, quality checks, and f
 - No external rule dependencies - everything embedded in each template
 - Automatic complexity scaling based on request keywords
 - Complete quality checklists and error recovery built-in
-- Consistent DEPTH v0.108 integration across all templates
+- Consistent DEPTH v0.118 integration across all templates
 
 ### Step 4: Start Creating
 ```
@@ -142,6 +165,7 @@ need user authentication        # Interactive discovery flow
 $quick auth epic                # Immediate epic creation (1-5 rounds auto)
 $epic payment platform          # Direct epic mode (10 rounds auto)
 $ticket payment integration     # Direct ticket mode (10 rounds auto)
+$bug login not working          # Direct bug mode (10 rounds auto) ← NEW
 $story user login               # Direct story mode (10 rounds auto)
 ```
 
@@ -156,14 +180,15 @@ $story user login               # Direct story mode (10 rounds auto)
 | --------------- | ------------------------ | --------------- | --------------------------- | ------------ | ---------------- | --------------------- |
 | **Interactive** | Determine what to create | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | Auto-selected    | Exact request         |
 | **$quick**      | Fast creation            | NONE            | 1-5 auto-scaled             | Summary      | Auto-selected    | Exact request         |
-| **$doc**        | Documentation            | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.119           | Requested doc only    |
-| **$epic**       | Epics                    | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.130           | Requested epic only   |
-| **$story**      | User stories             | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.133           | Requested story only  |
-| **$ticket**     | Dev tickets              | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.133           | Requested ticket only |
+| **$ticket**     | Dev tickets              | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.145           | Requested ticket only |
+| **$bug**        | Bug reports              | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.100           | Requested bug only    |
+| **$story**      | User stories             | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.143           | Requested story only  |
+| **$epic**       | Epics                    | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.140           | Requested epic only   |
+| **$doc**        | Documentation            | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.129           | Requested doc only    |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question gathering all info at once:
-- Deliverable type (ticket/story/epic/doc)
+- Deliverable type (ticket/bug/story/epic/doc)
 - Scope/scale
 - Brief description
 
@@ -198,7 +223,45 @@ System waits for complete response before proceeding.
 
 ---
 
-### 📖 Story Mode (v0.133) **← Separated in v0.915**
+### 🐛 $bug Mode (v0.100) **← NEW in v0.950**
+
+**Purpose:** Bug reports with evidence tracking, reproduction steps, and root cause analysis
+
+**Key Features:**
+- **Evidence section (⌥):** Dedicated area for screenshots, logs, and error output
+- **Reproduction steps:** Clear steps to reproduce the issue
+- **Root cause tracking:** Included in Resolution Checklist
+- **Fixed complexity:** No scaling - bugs have consistent structure
+- **Resolution Checklist (✓):** QA verification items with root cause field
+
+**Structure:**
+```
+⌘ About          → Context and bug description
+⌥ Evidence       → Screenshots, logs, error output
+❖ Requirements   → What needs to be fixed
+✓ Resolution     → QA checklist with root cause
+```
+
+**Bug vs Ticket Comparison:**
+| Feature              | Bug (v0.100)             | Ticket (v0.145)          |
+| -------------------- | ------------------------ | ------------------------ |
+| **Command**          | `$bug` or `$b`           | `$ticket` or `$t`        |
+| **Purpose**          | Defect tracking          | Feature development      |
+| **Evidence Section** | ✅ Yes (⌥)                | ❌ No                     |
+| **Root Cause**       | ✅ Yes (in checklist)     | ❌ No                     |
+| **Complexity**       | Fixed (no scaling)       | Auto-scaled (3 levels)   |
+| **Resolution List**  | ✅ Yes (✓)                | ✅ Yes (✓)                |
+| **Use Case**         | Bug fixes, defects       | New features, tasks      |
+
+**When to Use Bug Mode:**
+- Reporting defects or unexpected behavior
+- Tracking issues that need investigation
+- When evidence (screenshots/logs) is important
+- When root cause analysis is needed
+
+---
+
+### 📖 Story Mode (v0.143)
 
 **Purpose:** User stories in narrative format focusing on user journey and experience
 
@@ -216,20 +279,20 @@ System waits for complete response before proceeding.
 | **Standard** | feature, capability, flow   | 4-5      | Complete user journey | Standard user features   |
 | **Complex**  | platform, system, ecosystem | 6-8      | Multi-step scenarios  | Complex user workflows   |
 
-**Story vs Ticket Comparison:**
-| Feature          | Story (v0.133)             | Ticket (v0.133)          |
-| ---------------- | -------------------------- | ------------------------ |
-| **Command**      | `$story`                   | `$ticket`                |
-| **Focus**        | User journey & experience  | Technical implementation |
-| **Title Format** | "As a [user], I want..."   | "[SCOPE] Feature: name"  |
-| **Acceptance**   | Given-When-Then format     | Standard criteria        |
-| **Checklist**    | ❌ No Resolution Checklist  | ✅ Detailed QA Checklist  |
-| **Audience**     | Stakeholders, product team | Engineering, QA team     |
-| **Use Case**     | Requirements definition    | Implementation tracking  |
+**Story vs Ticket vs Bug Comparison:**
+| Feature          | Story (v0.143)             | Ticket (v0.145)          | Bug (v0.100)             |
+| ---------------- | -------------------------- | ------------------------ | ------------------------ |
+| **Command**      | `$story`                   | `$ticket`                | `$bug`                   |
+| **Focus**        | User journey & experience  | Technical implementation | Defect tracking          |
+| **Evidence**     | ❌ No                       | ❌ No                     | ✅ Yes (⌥)                |
+| **Root Cause**   | ❌ No                       | ❌ No                     | ✅ Yes                    |
+| **Checklist**    | ❌ No Resolution Checklist  | ✅ Detailed QA Checklist  | ✅ Resolution + Root Cause|
+| **Complexity**   | Auto-scaled (3 levels)     | Auto-scaled (3 levels)   | Fixed                    |
+| **Use Case**     | Requirements definition    | Implementation tracking  | Bug fixes, defects       |
 
 ---
 
-### 🚀 Epic Mode (v0.130)
+### 🚀 Epic Mode (v0.140)
 
 **Purpose:** Epics as summaries with links to stories and tickets
 
@@ -257,7 +320,7 @@ System waits for complete response before proceeding.
 
 ---
 
-### 📄 Doc Mode (v0.119)
+### 📄 Doc Mode (v0.129)
 
 **Purpose:** Technical documentation and user guides
 
@@ -289,7 +352,7 @@ System waits for complete response before proceeding.
 
 ### Conversational Guidance Flow
 
-**Default behavior** when no mode specified ($ticket, $story, $epic, $doc, $quick)
+**Default behavior** when no mode specified ($ticket, $bug, $story, $epic, $doc, $quick)
 
 **Process:**
 ```
@@ -300,7 +363,7 @@ Single Comprehensive Question
      ↓
 Wait for Complete User Response
      ↓
-Apply DEPTH v0.108 (10 rounds with concise updates)
+Apply DEPTH v0.118 (10 rounds with concise updates)
      ↓
 Deliver Exact Request
 ```
@@ -312,7 +375,7 @@ Deliver Exact Request
 - Applies full DEPTH with two-layer transparency
 - Routes to appropriate template based on user's answer
 
-**Full details:** `Product Owner - Interactive Mode - v0.307.md`
+**Full details:** `Product Owner - Interactive Mode - v0.317.md`
 
 ---
 
@@ -331,7 +394,7 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 | **Standard** | 10 rounds       | Concise progress updates | Real-time transparency |
 | **$Quick**   | 1-5 auto-scaled | Summary at completion    | Complexity-based       |
 
-### DEPTH Phases (v0.108 with RICCE Integration)
+### DEPTH Phases (v0.118 with RICCE Integration)
 
 | Phase         | Purpose             | Internal Processing                                                         | User Sees                             |
 | ------------- | ------------------- | --------------------------------------------------------------------------- | ------------------------------------- |
@@ -351,7 +414,7 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 ⚙️ **Engineering solution** (8 approaches evaluated)
 **Selected:** Microservice architecture with event-driven sync
 
-🔨 **Building** (Template v0.133, RICCE-compliant)
+🔨 **Building** (Template v0.145, RICCE-compliant)
 **Structure:** 5 sections, 12 acceptance criteria
 
 ✅ **Quality validation complete**
@@ -376,7 +439,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 **Validation Gates:** Three-phase enforcement (pre-creation, during creation, post-creation) ensures consistent excellence
 
-**Full details:** `Product Owner - DEPTH Thinking Framework - v0.108.md`
+**Full details:** `Product Owner - DEPTH Thinking Framework - v0.118.md`
 
 ---
 
@@ -440,4 +503,4 @@ Six mandatory frameworks applied internally (users see key insights only):
 **Assumption Flagged:** [Assumes: SSO integration available by Sprint 3]
 ```
 
-**Full details:** `Product Owner - DEPTH Thinking Framework - v0.108.md` (Section 4-5)
+**Full details:** `Product Owner - DEPTH Thinking Framework - v0.118.md` (Section 5-6)

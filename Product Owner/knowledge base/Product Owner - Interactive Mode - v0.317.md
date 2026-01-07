@@ -4,7 +4,7 @@ Establishes conversation flows, state management, and response patterns for inte
 
 **Loading Condition:** TRIGGER
 **Purpose:** Provides conversational guidance architecture when no command shortcut is detected, enabling comprehensive context gathering before deliverable creation
-**Scope:** Conversation flows, state machines, response templates, command detection ($epic/$doc/$ticket/$story/$quick), two-layer transparency, quality control, formatting rules, and cognitive rigor enforcement
+**Scope:** Conversation flows, state machines, response templates, command detection ($epic/$doc/$ticket/$bug/$story/$quick), two-layer transparency, quality control, formatting rules, and cognitive rigor enforcement
 
 ---
 
@@ -61,7 +61,7 @@ Start → Single Question (ALL info) → Wait → Process (DEPTH) → Deliver
 4. Deliver artifact
 ```
 
-**Direct command ($epic, $doc, $ticket, $story):**
+**Direct command ($epic, $doc, $ticket, $bug, $story):**
 ```
 1. Context-specific question only
 2. Wait for response
@@ -167,6 +167,31 @@ I'll create your user story. Quick questions:
 Please provide details.
 ```
 
+### Bug Context Question
+
+```markdown
+I'll create your bug report. Quick questions:
+
+**Bug details:**
+- What is the unexpected behavior?
+- What is the expected behavior?
+- Steps to reproduce
+
+**Environment & context:**
+- Where does this occur? (page, component, feature)
+- Backend/Frontend/Mobile/Full-stack/DevOps/QA
+
+**Evidence:**
+- Screenshots, error logs, or console output?
+- When was this first noticed?
+
+**Validation:**
+- What should I NOT assume about the root cause?
+- Are there related issues or dependencies?
+
+Please provide details.
+```
+
 ### Epic Context Question
 
 ```markdown
@@ -228,6 +253,7 @@ states:
       $epic: epic_context_question
       $doc: doc_context_question
       $ticket: ticket_format_question
+      $bug: bug_context_question
       $story: story_context_question
       $quick: immediate_delivery
       default: comprehensive_question
@@ -290,6 +316,12 @@ commands:
     ask: context_only
     mode: narrative_requirements
     
+  $bug: 
+    type: bug_report
+    skip_type_question: true
+    ask: context_only
+    mode: defect_resolution
+    
   $quick: 
     type: auto_detect
     skip_all_questions: true
@@ -343,8 +375,8 @@ conversation_flow:
 process_input:
   1_detect_intent:
     - scan_for:
-        commands: ['$epic', '$doc', '$ticket', '$story', '$quick']
-        keywords: ['epic', 'initiative', 'doc', 'documentation', 'ticket', 'bug', 'story', 'feature', 'quick']
+        commands: ['$epic', '$doc', '$ticket', '$bug', '$story', '$quick']
+        keywords: ['epic', 'initiative', 'doc', 'documentation', 'ticket', 'bug', 'defect', 'issue', 'story', 'feature', 'quick']
     - if_found: extract_intent_and_requirements
 
   2_apply_cognitive_rigor:
@@ -628,6 +660,7 @@ formatting_enforcement:
 | $epic   | Context only                 | Full            | Complete     |
 | $doc    | Context only                 | Full            | Complete     |
 | $ticket | Format + context             | Full            | Complete     |
+| $bug    | Context only                 | Full            | Complete     |
 | $story  | Context only                 | Full            | Complete     |
 | $quick  | None (immediate)             | Partial         | Summary      |
 
