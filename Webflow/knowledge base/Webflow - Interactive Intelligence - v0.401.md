@@ -2,8 +2,9 @@
 
 Establishes conversation flows, state management, and response patterns for interactive Webflow operations with concise transparency and automatic deep thinking.
 
-> **Purpose**: Defines conversation flows, state management, and response patterns for interactive Webflow operations with AI-guided assistance
-> **Scope**: MCP connection verification, comprehensive question templates, SYNC framework integration, state machine logic, error recovery (REPAIR protocol), quality control standards, and formatting requirements for clean user-facing outputs
+**Loading Condition:** TRIGGER
+**Purpose:** Provides conversational guidance and REPAIR protocol when clarification is needed or ambiguous requests require interactive resolution
+**Scope:** MCP connection verification, comprehensive question templates, SYNC framework integration, state machine logic, error recovery (REPAIR protocol), quality control standards, and formatting requirements for clean user-facing outputs
 
 ---
 

@@ -74,7 +74,6 @@ Available AI Systems for intelligent routing:
 
 | System              | Aliases                                           | Role                                                        | MCP |
 | ------------------- | ------------------------------------------------- | ----------------------------------------------------------- | --- |
-| **ClickUp**         | `clickup`, `cu`                                   | Workspace management via native MCP (tasks, lists, folders) | Yes |
 | **Media Editor**    | `media`, `image`, `video`, `audio`, `hls`         | Image/video/audio processing via MCP tools                  | Yes |
 | **Notion**          | `notion`                                          | Workspace management via native MCP (databases, pages)      | Yes |
 | **Product Owner**   | `po`, `product`, `ticket`, `story`, `epic`, `doc` | Write tickets, stories, epics focusing on WHAT and WHY      | No  |
@@ -82,11 +81,6 @@ Available AI Systems for intelligent routing:
 | **Webflow**         | `webflow`, `wf`                                   | Site management via Data API and Designer API               | Yes |
 
 ### Registry Details
-
-**ClickUp:**
-- Folder: `ClickUp`
-- Keywords: task, list, folder, time tracking, custom field, hierarchy, workspace
-- Framework: SYNC (Survey → Yield → Navigate → Create)
 
 **Media Editor:**
 - Folder: `Media Editor`
@@ -121,7 +115,6 @@ Available AI Systems for intelligent routing:
 $ARGUMENTS
     │
     ├─► First word matches SYSTEM ALIAS (case-insensitive)
-    │   ├─► "clickup" | "cu"                    → CLICKUP SYSTEM
     │   ├─► "webflow" | "wf"                    → WEBFLOW SYSTEM  
     │   ├─► "notion"                            → NOTION SYSTEM
     │   ├─► "media" | "image" | "video" | "audio" | "hls" → MEDIA EDITOR
@@ -136,7 +129,6 @@ $ARGUMENTS
     │   │
     │   │   Analyze request against registry keywords:
     │   │
-    │   ├─► "task", "list", "folder", "time track"     → Suggest CLICKUP
     │   ├─► "collection", "cms", "field", "designer"   → Suggest WEBFLOW
     │   ├─► "database", "block", "relation", "page"    → Suggest NOTION
     │   ├─► "resize", "compress", "convert", "hls"     → Suggest MEDIA EDITOR
@@ -159,15 +151,14 @@ Which AI System should handle this request?
 
 | Option | System          | Best For                                                   |
 | ------ | --------------- | ---------------------------------------------------------- |
-| A      | ClickUp         | Tasks, lists, folders, time tracking, project management   |
-| B      | Media Editor    | Image resize/compress, video convert, audio, HLS streaming |
-| C      | Notion          | Databases, pages, blocks, properties, relations            |
-| D      | Product Owner   | Tickets, user stories, epics, specifications               |
-| E      | Prompt Improver | Prompt enhancement, optimization, structuring              |
-| F      | Webflow         | CMS collections, fields, pages, components                 |
-| G      | Custom Path     | Specify path to unlisted agent folder                      |
+| A      | Media Editor    | Image resize/compress, video convert, audio, HLS streaming |
+| B      | Notion          | Databases, pages, blocks, properties, relations            |
+| C      | Product Owner   | Tickets, user stories, epics, specifications               |
+| D      | Prompt Improver | Prompt enhancement, optimization, structuring              |
+| E      | Webflow         | CMS collections, fields, pages, components                 |
+| F      | Custom Path     | Specify path to unlisted agent folder                      |
 
-Reply with letter (A-G):
+Reply with letter (A-F):
 ```
 
 ---
@@ -218,7 +209,6 @@ After system resolution and mode detection, execute the 7-step workflow:
 ### Step 1.1: Parse System Selector
 
 1. Check if first word of `$ARGUMENTS` matches a system alias:
-   - `clickup` or `cu` → ClickUp system
    - `webflow` or `wf` → Webflow system
    - `notion` → Notion system
    - `media`, `image`, `video`, `audio`, or `hls` → Media Editor system
@@ -708,7 +698,7 @@ Search attempted:
 - ../AGENTS.md
 - ../../AGENTS.md
 
-Available systems: clickup, webflow, notion, media, po, prompt
+Available systems: webflow, notion, media, po, prompt
 Or use: path: /custom/path
 
 STATUS=FAIL
@@ -756,9 +746,6 @@ STATUS=CANCELLED
 ### Direct System Selection
 
 ```bash
-# ClickUp task creation
-/agent_router:workflow clickup "Create a bug fix task for login timeout"
-
 # Webflow CMS work (using alias)
 /agent_router:workflow wf "Add author field to blog collection"
 

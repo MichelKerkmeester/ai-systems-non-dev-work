@@ -2,8 +2,9 @@
 
 Technical reference for Terminal-based FFMPEG commands for HLS (HTTP Live Streaming) video conversion operations.
 
-> **Purpose**: Provides Terminal-based FFMPEG command patterns for HLS multi-quality video conversion with adaptive streaming capabilities
-> **Scope**: HLS fundamentals, FFMPEG command specifications, quality optimization, codec configurations, batch processing workflows, and integration with MCP operations
+**Loading Condition:** ON-DEMAND
+**Purpose:** Provides Terminal-based FFMPEG command patterns for HLS multi-quality video conversion with adaptive streaming capabilities
+**Scope:** HLS fundamentals, FFMPEG command specifications, quality optimization, codec configurations, batch processing workflows, and integration with MCP operations
 
 ---
 

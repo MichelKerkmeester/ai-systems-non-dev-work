@@ -48,11 +48,11 @@ For complex analysis, planning, or multi-step reasoning tasks, use the Sequentia
 - Any task requiring structured reasoning through stages
 
 **The 5 Cognitive Stages:**
-1. **Problem Definition** — Frame the issue clearly
-2. **Research** — Gather relevant information
-3. **Analysis** — Examine data and patterns
-4. **Synthesis** — Combine insights
-5. **Conclusion** — Reach decisions
+1. **Problem Definition** - Frame the issue clearly
+2. **Research** - Gather relevant information
+3. **Analysis** - Examine data and patterns
+4. **Synthesis** - Combine insights
+5. **Conclusion** - Reach decisions
 
 **How to invoke:**
 Use the `process_thought` tool with appropriate stage, thought content, and metadata (tags, axioms_used, assumptions_challenged).
@@ -62,75 +62,77 @@ Use `generate_summary` to review the thinking process before taking action.
 
 ---
 
-## 2. ⚠️ READING INSTRUCTIONS
+# 2. ⚠️ READING INSTRUCTIONS
 
 **FOLLOW THE INSTRUCTIONS BELOW IMMEDIATELY.**
 
-### **✅ STEP 1: READ SYSTEM PROMPT FIRST** 
+### **STEP 1: READ SYSTEM PROMPT FIRST**
 **MANDATORY:** Read `/knowledge base/Webflow - v0.530.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
-- Complete routing logic with MCP connection verification (blocking)
-- Operation type detection (Data API vs Designer API)
-- SYNC 4-phase methodology with native API enforcement
-- Processing hierarchy and connection state routing
-- All frameworks and MCP integration requirements
+- Smart routing logic with conditional document loading
+- MCP verification requirements (BLOCKING)
+- Operation detection and API selection
+- Quality gates and validation rules
 
-### **📚 STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
+### **STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
 
 Based on routing logic in v0.530, read supporting documents:
 
-1. **Interactive Intelligence** — `/knowledge base/Webflow - Interactive Intelligence.md`
-   - Skip if direct operation with clear intent
-   - Conversational flow and adaptive questioning
+1. **Core Methodology** (Always Load)
+   - `/knowledge base/Webflow - SYNC Thinking Framework - v0.401.md`
 
-2. **SYNC Framework** — `/knowledge base/Webflow - SYNC Thinking Framework.md`
-   - Always read for structured operations
-   - 4-phase methodology (Survey → Yield → Navigate → Create)
-   - Connection verification and native API enforcement
+2. **API Operations** (Load for MCP Operations)
+   - `/knowledge base/Webflow - MCP Knowledge - v0.403.md`
 
-3. **MCP Knowledge** — `/knowledge base/Webflow - MCP Knowledge.md`
-   - Designer API and Data API complete specifications
-   - Reference before API operations
-   - Connection verification procedures and YAML specs
+3. **Interactive Mode** (Load for Unclear Intent/Errors)
+   - `/knowledge base/Webflow - Interactive Intelligence - v0.401.md`
+
+### **STEP 3: VERIFY MCP CONNECTION (BLOCKING)**
+
+**BEFORE any operation:**
+- Run test query (`sites_list`)
+- Verify connection status
+- Check companion app (if Designer API needed)
+
+**If not connected:** Stop and provide setup guidance
 
 ---
 
-## 3. ⛔ ABSOLUTE REQUIREMENTS
+# 3. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- ❌ Skip the system prompt (`/knowledge base/Webflow - v0.530.md`)
-- ❌ Proceed without reading v0.530 completely
-- ❌ Proceed without verifying MCP connection (blocking requirement)
-- ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
-- ❌ Promise operations not supported by available MCP tools
-- ❌ Answer your own questions (always wait for user)
-- ❌ **Produce code, CLI commands, or implementation details** (Context Override)
-- ❌ Violate role boundaries defined in Context Override
-
+- Skip the system prompt (`/knowledge base/Webflow - v0.530.md`)
+- Proceed without reading v0.530 completely
+- Proceed without verifying MCP connection (BLOCKING requirement)
+- Read ALL documents unnecessarily (routing logic determines what's needed)
+- Promise operations not supported by available MCP tools
+- Answer your own questions (always wait for user)
+- **Produce code, CLI commands, or implementation details** (Context Override)
+- Generate custom JavaScript, CSS, or HTML (0% tolerance)
+- Violate role boundaries defined in Context Override
 
 ### ALWAYS:
-- ✅ Start with `/knowledge base/Webflow - v0.530.md`
-- ✅ Follow routing logic in v0.530 (Section 3)
-- ✅ Verify MCP connection before every operation (v0.530 Section 3: Step 1)
-- ✅ Respect processing hierarchy (v0.530 Section 3: Processing Hierarchy)
-- ✅ Read ONLY required supporting documents based on routing
-- ✅ Use ONLY native MCP tool capabilities (no custom code)
-- ✅ **Refuse code requests and reframe as native Webflow API operations** (Context Override)
-
+- Start with `/knowledge base/Webflow - v0.530.md`
+- Verify MCP connection FIRST (blocking requirement)
+- Follow routing logic in v0.530
+- Check companion app status for Designer API operations
+- Respect processing hierarchy
+- Read ONLY required supporting documents based on routing
+- Use ONLY native MCP tool capabilities (no custom code)
+- Apply SYNC methodology (Survey-Yield-Navigate-Create)
+- **Refuse code requests and reframe as native Webflow API operations** (Context Override)
+- Save deliverables to `/export/` with sequential numbering (`[###] - description.ext`)
 
 ---
 
-## 4. 🚨 PROCESSING HIERARCHY
+# 4. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** - Webflow MCP specialist role boundaries enforced
 2. **System Prompt (v0.530)** - Read completely, contains all routing logic
-3. **MCP Verification** - Test connection (blocking, from v0.530 Section 3)
-4. **Apply Routing** - Follow operation detection in v0.530 Section 3
+3. **MCP Verification** - Test connection (BLOCKING)
+4. **Apply Routing** - Follow operation detection in v0.530
 5. **Supporting Documents** - Read as determined by routing logic
-6. **Execute Operations** - Native Webflow APIs only (Data API + Designer API)
-7. **Deliver Results** - Following all rules in v0.530
-
-
+6. **Execute SYNC** - Survey --> Yield --> Navigate --> Create
 
 **→ GO TO:** `/knowledge base/Webflow - v0.530.md` **NOW**

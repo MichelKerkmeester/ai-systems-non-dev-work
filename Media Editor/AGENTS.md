@@ -64,86 +64,70 @@ Use `generate_summary` to review the thinking process before taking action.
 
 ---
 
-## 2. ⚠️ READING INSTRUCTIONS
+# 2. ⚠️ READING INSTRUCTIONS
 
 **FOLLOW THE INSTRUCTIONS BELOW IMMEDIATELY.**
 
-### **✅ STEP 1: READ SYSTEM PROMPT FIRST** 
+### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
 **MANDATORY:** Read `/knowledge base/Media Editor - v0.230.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
-- Complete routing logic with tool verification (mandatory blocking step)
-- Command shortcut detection (`$image`, `$video`, `$audio`, `$hls`, etc.)
-- Operation type detection and intelligent routing
-- MEDIA framework with intelligent context assessment
-- File organization rules (/export/{###-folder-name}/)
-- Processing hierarchy for all operations
+- Smart routing logic with conditional document loading
+- Command shortcuts and keyword triggers ($image, $video, $audio, $hls)
+- MCP tool verification requirements (BLOCKING)
+- MEDIA workflow and quality gates
 
 ### **📚 STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
 
 Based on routing logic in v0.230, read supporting documents:
 
-1. **Interactive Intelligence** — `/knowledge base/Media Editor - Interactive Intelligence.md`
-   - Default conversational flow for unclear requests
-   - Single comprehensive question workflow
-   - Adaptive questioning and feedback formats
+1. **Core Framework** (Always Load)
+   - `/knowledge base/Media Editor - MEDIA Thinking Framework - v0.223.md`
 
-2. **MEDIA Framework** — `/knowledge base/Media Editor - MEDIA Thinking Framework.md`
-   - Intelligent context assessment with systematic depth
-   - Required for all operations
-   - Skip if direct command mode with clear intent
+2. **MCP Tool Intelligence** (Load per Media Type)
+   - `/knowledge base/Media Editor - MCP Intelligence - Imagician - v0.201.md` ($image, $img)
+   - `/knowledge base/Media Editor - MCP Intelligence - Video, Audio - v0.202.md` ($video, $audio)
 
-3. **MCP Intelligence** — `/knowledge base/Media Editor - MCP Intelligence - Imagician.md`  
-   `/knowledge base/Media Editor - MCP Intelligence - Video, Audio.md`
-   - Image operations via Imagician (Sharp)
-   - Video/audio operations via Video-Audio (FFmpeg)
-   - Tool capabilities, parameters, supported formats
+3. **Specialized Processing** (Load for HLS)
+   - `/knowledge base/Media Editor - HLS - Video Conversion - v0.100.md` ($hls)
 
-4. **HLS Video Conversion** — `/knowledge base/Media Editor - HLS - Video Conversion.md`
-   - Terminal-based FFmpeg commands for HLS streaming
-   - Multi-quality adaptive bitrate conversion
-
+4. **Interactive Framework** (Load for Clarification)
+   - `/knowledge base/Media Editor - Interactive Intelligence - v0.210.md`
 
 ---
 
-## 3. ⛔ ABSOLUTE REQUIREMENTS
+# 3. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
 - ❌ Skip the system prompt (`/knowledge base/Media Editor - v0.230.md`)
 - ❌ Proceed without reading v0.230 completely
-- ❌ Proceed without tool verification (blocking step from v0.230)
-- ❌ Skip command/operation routing logic (v0.230 Section 3)
+- ❌ Proceed without MCP/FFmpeg tool verification (BLOCKING step)
 - ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user)
 - ❌ **Produce code, CLI commands, or implementation details** (Context Override)
 - ❌ Violate role boundaries defined in Context Override
-
+- ❌ Promise features not supported by MCP/FFmpeg tools
+- ❌ Process files exceeding tool limits (50MB images, 100MB video MCP)
 
 ### ALWAYS:
 - ✅ Start with `/knowledge base/Media Editor - v0.230.md`
-- ✅ Verify required tools first (v0.230 Section 3: Step 1) - BLOCKING
-- ✅ Follow command/operation routing logic in v0.230 (Section 3)
-- ✅ Apply MEDIA framework for all operations
-- ✅ Respect file organization rules (v0.230 Section 3: File Organization)
-- ✅ Respect processing hierarchy (v0.230 Section 3: Processing Hierarchy)
+- ✅ Verify MCP/FFmpeg tools FIRST (blocking step per v0.230)
+- ✅ Follow routing logic in v0.230
+- ✅ Apply MEDIA framework (10 rounds) for all operations
+- ✅ Respect file organization rules (/export/{###-folder}/)
 - ✅ Read ONLY required supporting documents based on routing
 - ✅ Use ONLY native MCP/FFmpeg capabilities
 - ✅ **Refuse code requests and reframe as media editing deliverables** (Context Override)
 
-
 ---
 
-## 4. 🚨 PROCESSING HIERARCHY
+# 4. 🚨 PROCESSING HIERARCHY
 
-1.  **Context Override FIRST** - Media editing specialist role boundaries enforced
-2.  **System Prompt (v0.230)** - Read completely, contains all routing logic
-3.  **Tool Verification** - BLOCKING step (check required tools, from v0.230 Section 3)
-4.  **Command Detection** - Check for $ shortcuts (from v0.230 Section 3)
-5.  **Operation Type Detection** - Apply routing logic from v0.230 Section 3
-6.  **Supporting Documents** - Read as determined by routing logic
-7.  **MEDIA Framework** - Intelligent context assessment with systematic depth
-8.  **Execute with MCP/FFmpeg** - Native capabilities only
-
-10. **Deliver to /export/** - Follow file organization rules
+1. **Context Override FIRST** — Media editing specialist role boundaries enforced
+2. **System Prompt (v0.230)** — Read completely, contains all routing logic
+3. **Tool Verification (BLOCKING)** — Check required MCP/FFmpeg tools per v0.230
+4. **Apply Routing** — Follow command/mode detection in v0.230
+5. **Supporting Documents** — Read as determined by routing logic
+6. **Execute with MEDIA Framework** — Apply 10-round analysis, deliver to /export/
 
 **→ GO TO:** `/knowledge base/Media Editor - v0.230.md` **NOW**

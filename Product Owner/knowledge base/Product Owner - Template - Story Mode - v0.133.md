@@ -2,8 +2,9 @@
 
 User story templates with integrated formatting rules and quality standards. All delivery logic consolidated for self-contained operation.
 
-> **Purpose**: Defines Story Mode templates for creating narrative-focused user stories with auto-scaling complexity levels (Simple/Standard/Complex) and integrated DEPTH methodology.
-> **Scope**: Story Mode command structure, delivery standards, complexity auto-scaling rules, quality validation checklists, error recovery protocols, template formats (Simple/Standard/Complex/Quick), formatting standards, and story-specific requirements.
+**Loading Condition:** ON-DEMAND
+**Purpose:** Provides self-contained user story templates in narrative format for creating user-centered requirements when $story or $s command is detected
+**Scope:** Story Mode command structure, delivery standards, complexity auto-scaling rules, quality validation checklists, error recovery protocols, template formats (Simple/Standard/Complex/Quick), formatting standards, and story-specific requirements
 
 ---
 

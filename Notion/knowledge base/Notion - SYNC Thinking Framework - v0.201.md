@@ -2,8 +2,9 @@
 
 A comprehensive methodology combining systematic SYNC analysis with the RICCE completeness framework for superior Notion workspace deliverables.
 
-> **Purpose**: Define a systematic methodology for building Notion workspaces using native API operations only, combining SYNC analysis (Survey, Yield, Navigate, Create) with RICCE completeness framework for professional database design and knowledge management.
-> **Scope**: SYNC four-phase methodology, cognitive rigor framework, RICCE validation (Role, Instructions, Context, Constraints, Examples), two-layer transparency model, native API limitations and capabilities, quality assurance gates, Database vs Page analysis, operation sequencing, and zero custom code enforcement.
+**Loading Condition:** ALWAYS
+**Purpose:** Define a systematic methodology for building Notion workspaces using native API operations only, combining SYNC analysis (Survey, Yield, Navigate, Create) with RICCE completeness framework for professional database design and knowledge management
+**Scope:** SYNC four-phase methodology, cognitive rigor framework, RICCE validation (Role, Instructions, Context, Constraints, Examples), two-layer transparency model, native API limitations and capabilities, quality assurance gates, Database vs Page analysis, operation sequencing, and zero custom code enforcement
 
 ---
 
