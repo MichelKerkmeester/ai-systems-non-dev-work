@@ -1,4 +1,4 @@
-# Prompt Format Guide: YAML
+# Prompt Format Guide: YAML - v0.130
 
 Formatting guide for YAML output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 

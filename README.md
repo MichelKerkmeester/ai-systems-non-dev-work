@@ -39,10 +39,10 @@
 <a id="1-product-owner"></a>
 ### 👨‍💻 1. Product Owner
 
-Create professional tickets, stories, epics, and documentation with automatic complexity scaling and concise transparent DEPTH processing.
+Create professional tasks, bugs, stories, epics, and documentation with automatic complexity scaling and concise transparent DEPTH processing.
 
 **Intelligent Modes & Commands**:
-  - Modes: $ticket, $story, $epic, $doc, $interactive (default), $quick (instant)
+  - Modes: $task, $bug, $story, $epic, $doc, $interactive (default), $quick (instant)
   - Auto-complexity: Simple (2-3), Standard (4-5), Complex (6-8 sections)
   - Smart routing: Single comprehensive question, then intelligent template selection
 

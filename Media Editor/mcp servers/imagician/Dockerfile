@@ -17,4 +17,9 @@ COPY dist/index.js /app/dist/
 # Create images directory
 RUN mkdir -p /images/Original /images/New
 
+# Create non-root user
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+RUN chown -R appuser:appuser /app
+USER appuser
+
 CMD ["node", "dist/index.js"]

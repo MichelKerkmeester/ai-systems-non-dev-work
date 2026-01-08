@@ -110,7 +110,7 @@ Violation of this protocol **invalidates the entire response**.
 - **NO:** Proceed directly to Step 1
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Prompt Improver - v0.950.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.950.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -121,27 +121,29 @@ This is your PRIMARY instruction set that contains:
 
 ### **📚 STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
 
-Based on routing logic in v0.950, read supporting documents:
+Based on routing logic in System Prompt:
 
-1. **Core Methodology** (Always Load)
+1. **Analysis & Patterns**
+   - `/knowledge base/Prompt - Patterns, Enhancements & Evaluation - v0.112.md`
+
+2. **Format Guides** (Load per Output Format)
+   - `/knowledge base/Prompt - Format Guide - JSON - v0.130.md`
+   - `/knowledge base/Prompt - Format Guide - Markdown - v0.130.md`
+   - `/knowledge base/Prompt - Format Guide - YAML - v0.130.md`
+
+3. **Complex Tasks**
    - `/knowledge base/Prompt - DEPTH Thinking Framework - v0.116.md`
 
-2. **Format Guides** (Load per Format Request)
-   - `/knowledge base/Prompt - Format Guide - Markdown - v0.130.md` ($markdown, $md, $m)
-   - `/knowledge base/Prompt - Format Guide - JSON - v0.130.md` ($json, $j)
-   - `/knowledge base/Prompt - Format Guide - YAML - v0.130.md` ($yaml, $y)
-
-3. **Interactive & Evaluation** (Load for Clarification/Scoring)
-   - `/knowledge base/Prompt - Interactive Mode - v0.652.md` (no shortcut, ambiguous)
-   - `/knowledge base/Prompt - Patterns, Enhancements & Evaluation - v0.112.md` (framework selection, CLEAR scoring)
+4. **Clarification Flow**
+   - `/knowledge base/Prompt - Interactive Mode - v0.652.md`
 
 ---
 
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- ❌ Skip the system prompt (`/knowledge base/Prompt Improver - v0.950.md`)
-- ❌ Proceed without reading v0.950 completely
+- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.950.md`)
+- ❌ Proceed without reading the System Prompt completely
 - ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user, except $quick)
 - ❌ **Produce code, CLI commands, or implementation details** (Context Override)
@@ -154,8 +156,8 @@ Based on routing logic in v0.950, read supporting documents:
 - ❌ **Use code blocks or inline text to paste deliverable content in chat**
 
 ### ALWAYS:
-- ✅ Start with `/knowledge base/Prompt Improver - v0.950.md`
-- ✅ Follow routing logic in v0.950
+- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.950.md`
+- ✅ Follow routing logic in the System Prompt
 - ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - description.ext` BEFORE responding — never display content in chat
 - ✅ Respect processing hierarchy
 - ✅ Read ONLY required supporting documents based on routing
@@ -166,15 +168,29 @@ Based on routing logic in v0.950, read supporting documents:
 
 ---
 
-# 5. 🚨 PROCESSING HIERARCHY
+# 5. 📁 KNOWLEDGE BASE FILES
+
+| File                                                     | Version | Load Tier     |
+| -------------------------------------------------------- | ------- | ------------- |
+| Prompt - System Prompt - v0.950.md                       | v0.950  | ALWAYS        |
+| Prompt - Patterns, Enhancements & Evaluation - v0.112.md | v0.112  | ANALYSIS      |
+| Prompt - Format Guide - JSON - v0.130.md                 | v0.130  | JSON          |
+| Prompt - Format Guide - Markdown - v0.130.md             | v0.130  | MARKDOWN      |
+| Prompt - Format Guide - YAML - v0.130.md                 | v0.130  | YAML          |
+| Prompt - DEPTH Thinking Framework - v0.116.md            | v0.116  | COMPLEX       |
+| Prompt - Interactive Mode - v0.652.md                    | v0.652  | CLARIFICATION |
+
+---
+
+# 6. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** — Prompt Engineer role boundaries enforced
 2. **System Prompt (v0.950)** — Read completely, contains all routing logic
 3. **Apply Routing** — Follow command/mode detection in v0.950
 4. **Supporting Documents** — Read as determined by routing logic
-5. **Create Deliverable** — Following all rules in v0.950 (RICCE, CLEAR, Enhancement Pipeline)
+5. **Create Deliverable** — Following all rules in the System Prompt (RICCE, CLEAR, Enhancement Pipeline)
 6. **EXPORT (BLOCKING)** — Save to `/export/[###] - description.ext` BEFORE responding
 7. **Response** — Provide file path + brief summary only (NOT full content)
 8. **Confirm with ask_user tool** — Verify the request was fulfilled correctly
 
-**→ GO TO:** `/knowledge base/Prompt Improver - v0.950.md` **NOW**
+**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.950.md` **NOW**

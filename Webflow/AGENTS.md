@@ -97,8 +97,8 @@ Violation of this protocol **invalidates the entire response**.
 
 **FOLLOW THE INSTRUCTIONS BELOW IMMEDIATELY.**
 
-### **STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Webflow - v0.540.md` **COMPLETELY** before proceeding.
+### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
+**MANDATORY:** Read `/knowledge base/Webflow - System Prompt - v0.540.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -106,17 +106,17 @@ This is your PRIMARY instruction set that contains:
 - Operation detection and API selection
 - Quality gates and validation rules
 
-### **STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
+### **📚 STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
 
-Based on routing logic in v0.540, read supporting documents:
+Based on routing logic in System Prompt:
 
-1. **Core Methodology** (Always Load)
-   - `/knowledge base/Webflow - SYNC Thinking Framework - v0.411.md`
-
-2. **API Operations** (Load for MCP Operations)
+1. **API Operations**
    - `/knowledge base/Webflow - MCP Knowledge - v0.413.md`
 
-3. **Interactive Mode** (Load for Unclear Intent/Errors)
+2. **Complex Sync Tasks**
+   - `/knowledge base/Webflow - SYNC Thinking Framework - v0.411.md`
+
+3. **Clarification Flow**
    - `/knowledge base/Webflow - Interactive Intelligence - v0.411.md`
 
 ### **STEP 3: VERIFY MCP CONNECTION (BLOCKING)**
@@ -133,8 +133,8 @@ Based on routing logic in v0.540, read supporting documents:
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- Skip the system prompt (`/knowledge base/Webflow - v0.540.md`)
-- Proceed without reading v0.540 completely
+- Skip the system prompt (`/knowledge base/Webflow - System Prompt - v0.540.md`)
+- Proceed without reading the System Prompt completely
 - Proceed without verifying MCP connection (BLOCKING requirement)
 - Read ALL documents unnecessarily (routing logic determines what's needed)
 - Promise operations not supported by available MCP tools
@@ -148,9 +148,9 @@ Based on routing logic in v0.540, read supporting documents:
 - **Use code blocks or inline text to paste deliverable content in chat**
 
 ### ALWAYS:
-- Start with `/knowledge base/Webflow - v0.540.md`
+- Start with `/knowledge base/Webflow - System Prompt - v0.540.md`
 - Verify MCP connection FIRST (blocking requirement)
-- Follow routing logic in v0.540
+- Follow routing logic in the System Prompt
 - Check companion app status for Designer API operations
 - Respect processing hierarchy
 - Read ONLY required supporting documents based on routing
@@ -161,10 +161,21 @@ Based on routing logic in v0.540, read supporting documents:
 
 ---
 
-# 5. 🚨 PROCESSING HIERARCHY
+# 5. 📁 KNOWLEDGE BASE FILES
+
+| File | Version | Load Tier |
+|------|---------|-----------|
+| Webflow - System Prompt - v0.540.md | v0.540 | ALWAYS |
+| Webflow - MCP Knowledge - v0.413.md | v0.413 | API |
+| Webflow - SYNC Thinking Framework - v0.411.md | v0.411 | COMPLEX |
+| Webflow - Interactive Intelligence - v0.411.md | v0.411 | CLARIFICATION |
+
+---
+
+# 6. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** — Webflow MCP specialist role boundaries enforced
-2. **System Prompt (v0.540)** — Read completely, contains all routing logic
+2. **System Prompt** — Read completely, contains all routing logic
 3. **MCP Verification (BLOCKING)** — Test connection before proceeding
 4. **Apply Routing** — Follow operation detection in v0.540
 5. **Supporting Documents** — Read as determined by routing logic
@@ -172,4 +183,4 @@ Based on routing logic in v0.540, read supporting documents:
 7. **EXPORT (BLOCKING)** — Save to `/export/[###] - description.ext` BEFORE responding
 8. **Response** — Provide file path + brief summary only (NOT full content)
 
-**→ GO TO:** `/knowledge base/Webflow - v0.540.md` **NOW**
+**→ GO TO:** `/knowledge base/Webflow - System Prompt - v0.540.md` **NOW**

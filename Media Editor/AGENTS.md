@@ -100,7 +100,7 @@ Violation of this protocol **invalidates the entire response**.
 **FOLLOW THE INSTRUCTIONS BELOW IMMEDIATELY.**
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Media Editor - v0.240.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `/knowledge base/Media Editor - System Prompt - v0.240.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -110,19 +110,21 @@ This is your PRIMARY instruction set that contains:
 
 ### **📚 STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
 
-Based on routing logic in v0.240, read supporting documents:
+Based on routing logic in System Prompt:
 
-1. **Core Framework** (Always Load)
+1. **Image Processing**
+   - `/knowledge base/Media Editor - MCP Intelligence - Imagician - v0.211.md`
+
+2. **Video/Audio Processing**
+   - `/knowledge base/Media Editor - MCP Intelligence - Video, Audio - v0.212.md`
+
+3. **HLS Streaming**
+   - `/knowledge base/Media Editor - HLS - Video Conversion - v0.110.md`
+
+4. **Complex Tasks**
    - `/knowledge base/Media Editor - MEDIA Thinking Framework - v0.233.md`
 
-2. **MCP Tool Intelligence** (Load per Media Type)
-   - `/knowledge base/Media Editor - MCP Intelligence - Imagician - v0.211.md` ($image, $img)
-   - `/knowledge base/Media Editor - MCP Intelligence - Video, Audio - v0.212.md` ($video, $audio)
-
-3. **Specialized Processing** (Load for HLS)
-   - `/knowledge base/Media Editor - HLS - Video Conversion - v0.110.md` ($hls)
-
-4. **Interactive Framework** (Load for Clarification)
+5. **Clarification Flow**
    - `/knowledge base/Media Editor - Interactive Intelligence - v0.220.md`
 
 ---
@@ -130,8 +132,8 @@ Based on routing logic in v0.240, read supporting documents:
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- ❌ Skip the system prompt (`/knowledge base/Media Editor - v0.240.md`)
-- ❌ Proceed without reading v0.240 completely
+- ❌ Skip the system prompt (`/knowledge base/Media Editor - System Prompt - v0.240.md`)
+- ❌ Proceed without reading the System Prompt completely
 - ❌ Proceed without MCP/FFmpeg tool verification (BLOCKING step)
 - ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user)
@@ -145,9 +147,9 @@ Based on routing logic in v0.240, read supporting documents:
 - ❌ **Dump extensive metadata or logs in chat instead of referencing export**
 
 ### ALWAYS:
-- ✅ Start with `/knowledge base/Media Editor - v0.240.md`
-- ✅ Verify MCP/FFmpeg tools FIRST (blocking step per v0.240)
-- ✅ Follow routing logic in v0.240
+- ✅ Start with `/knowledge base/Media Editor - System Prompt - v0.240.md`
+- ✅ Verify MCP/FFmpeg tools FIRST (blocking step per System Prompt)
+- ✅ Follow routing logic in System Prompt
 - ✅ Apply MEDIA framework (10 rounds) for all operations
 - ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/{###-folder}/` BEFORE responding — never display content in chat
 - ✅ Read ONLY required supporting documents based on routing
@@ -156,15 +158,28 @@ Based on routing logic in v0.240, read supporting documents:
 
 ---
 
-# 5. 🚨 PROCESSING HIERARCHY
+# 5. 📁 KNOWLEDGE BASE FILES
+
+| File | Version | Load Tier |
+|------|---------|-----------|
+| Media Editor - System Prompt - v0.240.md | v0.240 | ALWAYS |
+| Media Editor - MCP Intelligence - Imagician - v0.211.md | v0.211 | IMAGE |
+| Media Editor - MCP Intelligence - Video, Audio - v0.212.md | v0.212 | VIDEO/AUDIO |
+| Media Editor - HLS - Video Conversion - v0.110.md | v0.110 | HLS |
+| Media Editor - MEDIA Thinking Framework - v0.233.md | v0.233 | COMPLEX |
+| Media Editor - Interactive Intelligence - v0.220.md | v0.220 | CLARIFICATION |
+
+---
+
+# 6. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** — Media editing specialist role boundaries enforced
-2. **System Prompt (v0.240)** — Read completely, contains all routing logic
-3. **Tool Verification (BLOCKING)** — Check required MCP/FFmpeg tools per v0.240
-4. **Apply Routing** — Follow command/mode detection in v0.240
+2. **System Prompt** — Read completely, contains all routing logic
+3. **Tool Verification (BLOCKING)** — Check required MCP/FFmpeg tools per System Prompt
+4. **Apply Routing** — Follow command/mode detection in System Prompt
 5. **Supporting Documents** — Read as determined by routing logic
 6. **Execute with MEDIA Framework** — Apply 10-round analysis
 7. **EXPORT (BLOCKING)** — Save to `/export/{###-folder}/` BEFORE responding
 8. **Response** — Provide file path + brief summary only (NOT full metadata/logs)
 
-**→ GO TO:** `/knowledge base/Media Editor - v0.240.md` **NOW**
+**→ GO TO:** `/knowledge base/Media Editor - System Prompt - v0.240.md` **NOW**
