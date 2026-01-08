@@ -178,10 +178,15 @@ states:
   start:
     detect_command: true
     routes:
-      $quick: immediate_processing
-      $improve: format_selection
-      $refine: refinement_type_question
-      $short: format_selection
+      # Mode commands (with aliases)
+      $quick: immediate_processing    # alias: $q
+      $short: format_selection        # alias: $s, DEPTH: 3
+      $improve: format_selection      # alias: $i
+      $refine: refinement_type_question  # alias: $r
+      # Format commands (with aliases)
+      $json: format_json              # alias: $j
+      $yaml: format_yaml              # alias: $y
+      $markdown: format_markdown      # alias: $m
       default: comprehensive_question
     wait: true
     
@@ -284,26 +289,53 @@ error_states:
 
 ```yaml
 commands:
+  # Mode commands
   $quick: 
+    aliases: [$q]
     type: immediate
     skip_all_questions: true
     use: smart_defaults
     depth_rounds: auto_scale_1_to_5
     
-  $improve: 
-    type: enhance_existing
-    skip_to: format_selection
-    ask: format_only
-    
-  $refine:
-    type: iterative
-    ask: refinement_focus
-    mode: precision_enhancement
-    
   $short:
+    aliases: [$s]
     type: brevity_focused
     skip_to: format_selection
     mode: concise_optimization
+    depth_rounds: 3
+    
+  $improve: 
+    aliases: [$i]
+    type: enhance_existing
+    skip_to: format_selection
+    ask: format_only
+    depth_rounds: 10
+    
+  $refine:
+    aliases: [$r]
+    type: iterative
+    ask: refinement_focus
+    mode: precision_enhancement
+    depth_rounds: 10
+
+  # Format commands
+  $json:
+    aliases: [$j]
+    route: format_json
+    output: structured_json
+    overhead: "+5-10%"
+    
+  $yaml:
+    aliases: [$y]
+    route: format_yaml
+    output: structured_yaml
+    overhead: "+3-7%"
+    
+  $markdown:
+    aliases: [$m]
+    route: format_markdown
+    output: formatted_markdown
+    overhead: baseline
     
 process:
   - scan_input_for_command
@@ -352,9 +384,14 @@ conversation_flow:
 process_input:
   1_detect_intent:
     - scan_for:
-        commands: ['$quick', '$improve', '$refine', '$short']
-        keywords: ['improve', 'better', 'refine', 'optimize', 'shorten', 'concise', 'quick', 'fast']
+        # Mode commands with aliases
+        mode_commands: ['$quick', '$q', '$short', '$s', '$improve', '$i', '$refine', '$r']
+        # Format commands with aliases
+        format_commands: ['$json', '$j', '$yaml', '$y', '$markdown', '$m']
+        keywords: ['improve', 'better', 'refine', 'optimize', 'shorten', 'concise', 'quick', 'fast', 'json', 'yaml', 'markdown']
     - if_found: extract_intent_and_prompt
+    
+    # Note: Semantic topic detection (advanced routing) is defined in System Prompt Section 4.3
 
   2_apply_cognitive_rigor:
     - multi_perspective_analysis: minimum_3_required  # MANDATORY
@@ -706,13 +743,23 @@ formatting_enforcement:
 
 ### Command Behavior
 
-| Command  | Questions Asked              | Perspectives | Cognitive Rigor | Transparency |
-| -------- | ---------------------------- | ------------ | --------------- | ------------ |
-| (none)   | ONE comprehensive (ALL info) | 3-5          | Full            | Complete     |
-| $quick   | None (immediate)             | 3 min        | Partial         | Summary      |
-| $improve | Format only                  | 3-5          | Full            | Complete     |
-| $refine  | Refinement focus             | 3-5          | Full            | Complete     |
-| $short   | Format only                  | 3-5          | Full            | Complete     |
+### Mode Commands
+
+| Command  | Alias | Questions Asked              | DEPTH Rounds | Perspectives | Cognitive Rigor | Transparency |
+| -------- | ----- | ---------------------------- | ------------ | ------------ | --------------- | ------------ |
+| (none)   | —     | ONE comprehensive (ALL info) | 10           | 3-5          | Full            | Complete     |
+| $quick   | $q    | None (immediate)             | 1-5          | 3 min        | Partial         | Summary      |
+| $short   | $s    | Format only                  | 3            | 3-5          | Full            | Complete     |
+| $improve | $i    | Format only                  | 10           | 3-5          | Full            | Complete     |
+| $refine  | $r    | Refinement focus             | 10           | 3-5          | Full            | Complete     |
+
+### Format Commands
+
+| Command     | Alias | Output             | Token Overhead |
+| ----------- | ----- | ------------------ | -------------- |
+| `$json`     | `$j`  | JSON structure     | +5-10%         |
+| `$yaml`     | `$y`  | YAML structure     | +3-7%          |
+| `$markdown` | `$m`  | Markdown (default) | Baseline       |
 
 ### Conversation Flow
 

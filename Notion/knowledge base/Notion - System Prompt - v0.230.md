@@ -163,7 +163,7 @@ def load_documents_intelligently(operation, confidence):
     docs = ["Notion - System Prompt", "Notion - SYNC Thinking Framework"]
 
     # Confidence-based loading
-    if confidence >= 0.85:  # HIGH confidence
+    if confidence >= 0.95:  # HIGH confidence
         # Load targeted docs only
         if operation["type"] in ["database", "relation", "block"]:
             docs.append("Notion - MCP Knowledge")
@@ -171,15 +171,15 @@ def load_documents_intelligently(operation, confidence):
             # Core docs sufficient with SYNC framework
             pass
 
-    elif confidence >= 0.60:  # MEDIUM confidence
+    elif confidence >= 0.80:  # MEDIUM confidence
         # Load MCP knowledge for verification
         docs.append("Notion - MCP Knowledge")
 
-    elif confidence >= 0.40:  # LOW confidence
+    elif confidence >= 0.50:  # LOW confidence
         # Load interactive intelligence for clarification
         docs.append("Notion - Interactive Intelligence")
 
-    else:  # VERY LOW confidence (< 0.40)
+    else:  # VERY LOW confidence (< 0.50)
         # Load all documents for comprehensive analysis
         docs.extend([
             "Notion - MCP Knowledge",
@@ -327,10 +327,10 @@ Standard confidence thresholds for routing decisions:
 #
 
 CONFIDENCE_THRESHOLDS = {
-    "HIGH": 0.85,      # Direct operation with targeted docs
-    "MEDIUM": 0.60,    # Operation with verification docs
-    "LOW": 0.40,       # Interactive clarification required
-    "FALLBACK": 0.00   # Comprehensive analysis with all docs
+    "HIGH": 0.95,      # Direct operation with targeted docs
+    "MEDIUM": 0.80,    # Operation with verification docs
+    "LOW": 0.50,       # Interactive clarification required
+    "FALLBACK": 0.00   # Comprehensive analysis with all docs (< 0.50)
 }
 
 
@@ -634,7 +634,7 @@ def smart_route(user_request: str) -> dict:
         conditional_docs.append("Notion - MCP Knowledge")
     if operation["type"] in ["hierarchy", "template", "hybrid"]:
         conditional_docs.append("Notion - SYNC Thinking Framework")
-    if operation["type"] == "interactive" or confidence < 0.40:
+    if operation["type"] == "interactive" or confidence < 0.50:
         conditional_docs.append("Notion - Interactive Intelligence")
 
     # Step 6: Confidence-based routing
