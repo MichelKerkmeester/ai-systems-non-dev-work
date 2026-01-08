@@ -282,6 +282,7 @@ intelligent_parser:
     api_hints: ['data', 'designer', 'structure', 'visual', 'content', 'style']
     structure: ['blog', 'portfolio', 'product', 'team', 'testimonial', 'gallery']
     scope: ['create', 'build', 'update', 'publish', 'manage']
+    publishing: ['publish', 'deploy', 'staging', 'live']
     
   extract_requirements:
     - operation_type
@@ -296,6 +297,21 @@ intelligent_parser:
     - companion_app_check
     
   output: parsed_context_with_sync_insights
+```
+
+### Mixed Operations
+
+When request involves both Data API and Designer API operations:
+
+```yaml
+mixed_operations:
+  keywords: ['page', 'site', 'build', 'blog', 'portfolio']
+  requirement: companion_app_needed_for_designer_api
+  process:
+    - Data API operations first (collections, fields, content)
+    - Designer API styling second (components, elements, styles)
+  route: both_apis
+  fallback: data_api_only_if_companion_unavailable
 ```
 
 ### Ambiguity Resolution
@@ -325,20 +341,16 @@ handle_ambiguity:
 
 ```yaml
 confidence_levels:
-  exact: 
-    threshold: 0.95
+  HIGH:
+    threshold: ">0.80"
     action: verify_mcp_and_execute
     
-  high:
-    threshold: 0.80
-    action: verify_mcp_one_clarification
-    
-  medium:
-    threshold: 0.50
+  MEDIUM:
+    threshold: "0.50-0.80"
     action: verify_mcp_guided_exploration
     
-  low:
-    threshold: below_0.50
+  LOW:
+    threshold: "<0.50"
     action: verify_mcp_full_discovery
 
 always_first: mcp_connection_verification

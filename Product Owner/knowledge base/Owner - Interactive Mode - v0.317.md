@@ -246,12 +246,12 @@ states:
   start:
     detect_command: true
     routes:
-      $epic: epic_context_question
-      $doc: doc_context_question
-      $task: task_format_question
-      $bug: bug_context_question
-      $story: story_context_question
-      $quick: immediate_delivery
+      $epic: epic_context_question    # alias: $e
+      $doc: doc_context_question      # alias: $d
+      $task: task_format_question     # alias: $t
+      $bug: bug_context_question      # alias: $b
+      $story: story_context_question  # alias: $s
+      $quick: immediate_delivery      # alias: $q
       default: comprehensive_question
     wait: true
     
@@ -289,36 +289,47 @@ states:
 ```yaml
 commands:
   $epic: 
+    aliases: [$e]
     type: epic
     skip_type_question: true
     ask: context_only
     mode: strategic_planning
+    depth_rounds: 10
     
   $doc: 
+    aliases: [$d]
     type: documentation
     skip_type_question: true
     ask: context_only
     mode: technical_writing
+    depth_rounds: 10
     
   $task: 
+    aliases: [$t]
     type: task
     skip_type_question: false
     ask_format: true
     mode: development_task
+    depth_rounds: 10
     
   $story: 
+    aliases: [$s]
     type: user_story
     skip_type_question: true
     ask: context_only
     mode: narrative_requirements
+    depth_rounds: 10
     
   $bug: 
+    aliases: [$b]
     type: bug_report
     skip_type_question: true
     ask: context_only
     mode: defect_resolution
+    depth_rounds: 10
     
   $quick: 
+    aliases: [$q]
     type: auto_detect
     skip_all_questions: true
     use: smart_defaults
@@ -363,22 +374,22 @@ conversation_flow:
 
 ### bug_mode
 
-**Entry Keywords:** "bug", "issue", "error", "broken", "fix", "defect"
+**Entry Keywords:** "bug", "issue", "error", "broken", "fix", "defect", "crash", "failing"
 
 **Behavior:**
-- Complexity: ALWAYS Low (fixed, not assessed)
-- DEPTH Rounds: 1-2 (abbreviated investigation)
+- Complexity: Auto-detect from keywords (same as other modes)
+- DEPTH Rounds: 10 (standard investigation)
 - Output: Bug report template
-- Bypass: Skips complexity_assessment state
+- Flow: Standard processing with bug-specific context question
 
-**Rationale:** Bug reports are time-sensitive. Unlike other task types, bugs use an abbreviated workflow to enable rapid response.
+**Rationale:** Bug reports receive full DEPTH analysis to ensure thorough root cause investigation and comprehensive reproduction steps.
 
 **State Flow:**
 ```
-initial → bug_keyword_detected → bug_mode → bug_output → complete
+initial → bug_keyword_detected → bug_context_question → wait → processing (DEPTH 10) → bug_output → complete
 ```
 
-**Note:** Bug mode does NOT go through the standard complexity assessment. All bugs are treated as Low complexity for rapid triage.
+**Note:** Bug mode uses standard DEPTH processing (10 rounds) consistent with all other modes. See System Prompt Section 3 for authoritative mode definitions.
 
 ---
 
@@ -390,9 +401,11 @@ initial → bug_keyword_detected → bug_mode → bug_output → complete
 process_input:
   1_detect_intent:
     - scan_for:
-        commands: ['$epic', '$doc', '$task', '$bug', '$story', '$quick']
-        keywords: ['epic', 'initiative', 'doc', 'documentation', 'task', 'bug', 'defect', 'issue', 'story', 'feature', 'quick']
+        commands: ['$epic', '$e', '$doc', '$d', '$task', '$t', '$bug', '$b', '$story', '$s', '$quick', '$q']
+        keywords: ['epic', 'initiative', 'program', 'strategic', 'doc', 'documentation', 'spec', 'guide', 'task', 'dev task', 'bug', 'defect', 'issue', 'error', 'broken', 'crash', 'failing', 'fix', 'story', 'feature', 'capability', 'quick']
     - if_found: extract_intent_and_requirements
+    
+    # Note: Semantic topic detection (advanced routing) is defined in System Prompt Section 4.3
 
   2_apply_cognitive_rigor:
     - multi_perspective_analysis: minimum_3_required
@@ -669,15 +682,15 @@ formatting_enforcement:
 
 ### Command Behavior
 
-| Command | Questions Asked              | Cognitive Rigor | Transparency |
-| ------- | ---------------------------- | --------------- | ------------ |
-| (none)  | ONE comprehensive (ALL info) | Full            | Complete     |
-| $epic   | Context only                 | Full            | Complete     |
-| $doc    | Context only                 | Full            | Complete     |
-| $task   | Format + context             | Full            | Complete     |
-| $bug    | Context only                 | Full            | Complete     |
-| $story  | Context only                 | Full            | Complete     |
-| $quick  | None (immediate)             | Partial         | Summary      |
+| Command | Alias | Questions Asked              | Cognitive Rigor | Transparency |
+| ------- | ----- | ---------------------------- | --------------- | ------------ |
+| (none)  | —     | ONE comprehensive (ALL info) | Full            | Complete     |
+| $epic   | $e    | Context only                 | Full            | Complete     |
+| $doc    | $d    | Context only                 | Full            | Complete     |
+| $task   | $t    | Format + context             | Full            | Complete     |
+| $bug    | $b    | Context only                 | Full            | Complete     |
+| $story  | $s    | Context only                 | Full            | Complete     |
+| $quick  | $q    | None (immediate)             | Partial         | Summary      |
 
 ### Conversation Flow
 

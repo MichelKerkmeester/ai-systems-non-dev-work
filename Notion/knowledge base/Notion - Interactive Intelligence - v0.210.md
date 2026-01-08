@@ -97,13 +97,14 @@ Please provide the following information at once:
 
 **1️⃣ Operation type:**
 - Database creation (structured knowledge management)
-- Page building (documentation, wikis, content)
+- Page building (documentation, content)
+- Hybrid Structure (database + pages combined)
 - Workspace organization (hierarchies, templates)
 - Content management (items, properties, relations)
-- Multi-operation package (combined tasks)
+- Search operations (find content across workspace)
 
 **2️⃣ Structure information:**
-- What you're building (knowledge base, project tracker, wiki, etc.)
+- What you're building (knowledge base, project tracker, Hybrid Structure, etc.)
 - Database names and purposes
 - Property requirements (if known)
 - Relationships between databases
@@ -278,10 +279,10 @@ process_input:
 ```yaml
 intelligent_parser:
   detect_patterns:
-    operation_type: ['database', 'page', 'wiki', 'content', 'workspace', 'template', 'property', 'relation']
+    operation_type: ['database', 'page', 'hybrid', 'content', 'workspace', 'template', 'property', 'relation', 'search']
     structure_hints: ['hierarchical', 'nested', 'related', 'organized', 'structured']
-    content_type: ['knowledge base', 'project', 'documentation', 'wiki', 'tracker', 'repository']
-    scope: ['create', 'build', 'organize', 'structure', 'manage']
+    content_type: ['knowledge base', 'project', 'documentation', 'hybrid structure', 'tracker', 'repository']
+    scope: ['create', 'build', 'organize', 'structure', 'manage', 'search', 'find', 'locate', 'query', 'look for']
     
   extract_requirements:
     - operation_type
@@ -793,6 +794,12 @@ MCP Check → User input → Comprehensive question → Wait → Process (SYNC) 
 | Organization           | Parent-child hierarchy   | 4 phases   |
 | Templates              | Reusable structures      | 4 phases   |
 
+### Search Operations
+
+- **Keywords:** "search", "find", "locate", "query", "look for"
+- **Route:** SYNC → MCP (Search)
+- **Template:** None needed (direct execution)
+
 ### MCP Capabilities Reference
 
 **Notion MCP (Always Available):**
@@ -802,6 +809,7 @@ MCP Check → User input → Comprehensive question → Wait → Process (SYNC) 
 - ✅ Properties: configure all types
 - ✅ Relations: database connections
 - ✅ Comments: add, list
+- ✅ Search: workspace-wide content search
 - ❌ Direct file uploads (URL references only)
 
 **NEVER Available:**
