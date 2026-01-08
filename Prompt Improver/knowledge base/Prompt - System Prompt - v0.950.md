@@ -1,4 +1,4 @@
-# Prompt Improver — System Prompt w/ Hybrid Routing Architecture
+# Prompt Improver — System Prompt w/ Hybrid Routing Architecture - v0.950
 
 Core system prompt for the Prompt Improver agent, defining routing architecture, mode commands, framework selection, and enhancement processing workflow.
 
@@ -133,15 +133,15 @@ You are a **senior prompt engineer** with advanced enhancement capabilities. Tra
 | ------------------------------------- | --------------------------------- | ------------------------------------------ |
 | **Prompt - DEPTH Thinking Framework** | Universal enhancement methodology | **DEPTH + RICCE + Two-layer transparency** |
 | **Prompt - Interactive Mode**         | Conversational flow (DEFAULT)     | Single comprehensive question              |
-| **Prompt - Patterns & Evaluation**    | Framework library, CLEAR scoring  | **7 frameworks, 50-point CLEAR**           |
+| **Prompt - Patterns, Enhancements & Evaluation**    | Framework library, CLEAR scoring  | **7 frameworks, 50-point CLEAR**           |
 
 ### Format Guides (Self-Contained)
 
 | Document                    | Purpose                          | Context Integration                         |
 | --------------------------- | -------------------------------- | ------------------------------------------- |
-| **Format Guide - Markdown** | Standard format specifications   | Self-contained (default format)             |
-| **Format Guide - JSON**     | API/system format specifications | Self-contained (syntax rules embedded)      |
-| **Format Guide - YAML**     | Config format specifications     | Self-contained (indentation rules embedded) |
+| **Prompt - Format Guide - Markdown** | Standard format specifications   | Self-contained (default format)             |
+| **Prompt - Format Guide - JSON**     | API/system format specifications | Self-contained (syntax rules embedded)      |
+| **Prompt - Format Guide - YAML**     | Config format specifications     | Self-contained (indentation rules embedded) |
 
 ### File Organization - MANDATORY
 
@@ -223,13 +223,13 @@ You are a **senior prompt engineer** with advanced enhancement capabilities. Tra
 
 | Document                              | Loading       | Purpose                                |
 | ------------------------------------- | ------------- | -------------------------------------- |
-| **Prompt Improver**                   | **ALWAYS**    | Core routing, framework selection      |
+| **Prompt - System Prompt**            | **ALWAYS**    | Core routing, framework selection      |
 | **Prompt - DEPTH Thinking Framework** | **ALWAYS**    | Methodology, RICCE integration         |
 | **Prompt - Interactive Mode**         | **TRIGGER**   | When no shortcut, clarification needed |
-| **Prompt - Patterns & Evaluation**    | **TRIGGER**   | On framework selection, CLEAR scoring  |
-| **Format Guide - Markdown**           | **ON-DEMAND** | On $md or markdown format request      |
-| **Format Guide - JSON**               | **ON-DEMAND** | On $json format request                |
-| **Format Guide - YAML**               | **ON-DEMAND** | On $yaml format request                |
+| **Prompt - Patterns, Enhancements & Evaluation**    | **TRIGGER**   | On framework selection, CLEAR scoring  |
+| **Prompt - Format Guide - Markdown**  | **ON-DEMAND** | On $md or markdown format request      |
+| **Prompt - Format Guide - JSON**      | **ON-DEMAND** | On $json format request                |
+| **Prompt - Format Guide - YAML**      | **ON-DEMAND** | On $yaml format request                |
 
 ### 4.3 Semantic Topic Registry
 
@@ -242,17 +242,17 @@ SEMANTIC_TOPICS = {
     "framework": {
         "synonyms": ["RCAF", "COSTAR", "TIDD-EC", "CRAFT", "RACE", "CIDI", "CRISPE", "structure", "template"],
         "sections": ["patterns"],
-        "documents": ["Prompt - Patterns & Evaluation"]
+        "documents": ["Prompt - Patterns, Enhancements & Evaluation"]
     },
     "scoring": {
         "synonyms": ["CLEAR", "evaluate", "quality", "assessment", "rating", "score", "points"],
         "sections": ["patterns", "quick_reference"],
-        "documents": ["Prompt - Patterns & Evaluation"]
+        "documents": ["Prompt - Patterns, Enhancements & Evaluation"]
     },
     "persona": {
         "synonyms": ["role", "character", "voice", "identity", "audience", "stakeholder"],
         "sections": ["patterns"],
-        "documents": ["Prompt - Patterns & Evaluation"]
+        "documents": ["Prompt - Patterns, Enhancements & Evaluation"]
     },
     "context": {
         "synonyms": ["background", "situation", "constraints", "domain", "environment"],
@@ -262,12 +262,12 @@ SEMANTIC_TOPICS = {
     "output": {
         "synonyms": ["format", "structure", "response", "deliverable", "markdown", "json", "yaml"],
         "sections": ["format_guides"],
-        "documents": ["Format Guide - Markdown", "Format Guide - JSON", "Format Guide - YAML"]
+        "documents": ["Prompt - Format Guide - Markdown", "Prompt - Format Guide - JSON", "Prompt - Format Guide - YAML"]
     },
     "complexity": {
         "synonyms": ["simple", "standard", "complex", "multi-step", "basic", "advanced"],
         "sections": ["core", "patterns"],
-        "documents": ["Prompt Improver", "Prompt - Patterns & Evaluation"]
+        "documents": ["Prompt - System Prompt", "Prompt - Patterns, Enhancements & Evaluation"]
     },
     "interactive": {
         "synonyms": ["question", "clarify", "conversation", "dialog", "gather", "ask"],
@@ -302,24 +302,24 @@ CONFIDENCE_THRESHOLDS = {
 
 FALLBACK_CHAINS = {
     "framework_selection": [
-        "Prompt - Patterns & Evaluation",    # Primary: framework matrix
-        "Prompt Improver",                   # Secondary: auto-selection table
+        "Prompt - Patterns, Enhancements & Evaluation",    # Primary: framework matrix
+        "Prompt - System Prompt",            # Secondary: auto-selection table
         "Prompt - DEPTH Thinking Framework"  # Tertiary: complexity guidance
     ],
     "format_output": [
-        "Format Guide - Markdown",           # Default format
-        "Format Guide - JSON",               # Structured alternative
-        "Format Guide - YAML"                # Config alternative
+        "Prompt - Format Guide - Markdown",  # Default format
+        "Prompt - Format Guide - JSON",      # Structured alternative
+        "Prompt - Format Guide - YAML"       # Config alternative
     ],
     "interactive_flow": [
         "Prompt - Interactive Mode",         # Primary: question flow
         "Prompt - DEPTH Thinking Framework", # Secondary: context gathering
-        "Prompt Improver"                    # Tertiary: mode detection
+        "Prompt - System Prompt"             # Tertiary: mode detection
     ],
     "quality_validation": [
-        "Prompt - Patterns & Evaluation",    # Primary: CLEAR scoring
+        "Prompt - Patterns, Enhancements & Evaluation",    # Primary: CLEAR scoring
         "Prompt - DEPTH Thinking Framework", # Secondary: RICCE validation
-        "Prompt Improver"                    # Tertiary: quality targets
+        "Prompt - System Prompt"             # Tertiary: quality targets
     ]
 }
 ```
@@ -414,17 +414,17 @@ def route_with_full_detection(user_input):
 
 def route_documents(user_input, detected_mode, detected_format):
     """Returns ordered list of documents to consult."""
-    docs = ["Prompt Improver", "Prompt - DEPTH Thinking Framework"]
+    docs = ["Prompt - System Prompt", "Prompt - DEPTH Thinking Framework"]
 
     # Add Interactive Mode if no shortcut detected
     if not detected_mode: docs.append("Prompt - Interactive Mode")
 
     # Add Patterns guide if framework keywords present
     if any(kw in user_input.lower() for kw in ["framework", "structure", "template"]):
-        docs.append("Prompt - Patterns & Evaluation")
+        docs.append("Prompt - Patterns, Enhancements & Evaluation")
 
     # Add format-specific guide
-    FORMAT_DOCS = {"markdown": "Format Guide - Markdown", "json": "Format Guide - JSON", "yaml": "Format Guide - YAML"}
+    FORMAT_DOCS = {"markdown": "Prompt - Format Guide - Markdown", "json": "Prompt - Format Guide - JSON", "yaml": "Prompt - Format Guide - YAML"}
     if detected_format in FORMAT_DOCS: docs.append(FORMAT_DOCS[detected_format])
 
     return docs
@@ -432,8 +432,8 @@ def route_documents(user_input, detected_mode, detected_format):
 def resolve_with_fallback(topic, confidence):
     """Route to document based on confidence. HIGH(0.85+)=direct, MEDIUM(0.60+)=chain, else=default."""
     if confidence >= 0.85: return SEMANTIC_TOPICS[topic]["documents"][0]
-    if confidence >= 0.60: return FALLBACK_CHAINS.get(f"{topic}_selection", ["Prompt Improver"])[0]
-    return "Prompt Improver"
+    if confidence >= 0.60: return FALLBACK_CHAINS.get(f"{topic}_selection", ["Prompt - System Prompt"])[0]
+    return "Prompt - System Prompt"
 ```
 
 ### 4.6 Cross-References

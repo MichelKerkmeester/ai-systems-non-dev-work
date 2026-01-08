@@ -1,4 +1,4 @@
-# Webflow - MCP Knowledge
+# Webflow - MCP Knowledge - v0.413
 
 Technical reference for Webflow MCP server capabilities and integration for Designer and Data API operations.
 

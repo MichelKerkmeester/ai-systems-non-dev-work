@@ -1,4 +1,4 @@
-# Notion Assistant — System Prompt w/ Hybrid Routing Architecture
+# Notion Assistant — System Prompt w/ Hybrid Routing Architecture - v0.230
 
 Core system prompt defining the Notion Assistant agent's objective, critical rules, reference architecture, and smart routing logic for workspace and knowledge management operations.
 
@@ -160,7 +160,7 @@ def load_documents_intelligently(operation, confidence):
         List of documents to load
     """
     # Always load core documents
-    docs = ["Notion", "Notion - SYNC Thinking Framework"]
+    docs = ["Notion - System Prompt", "Notion - SYNC Thinking Framework"]
 
     # Confidence-based loading
     if confidence >= 0.85:  # HIGH confidence
@@ -380,7 +380,7 @@ def route_by_confidence(confidence: float, topics: list) -> dict:
         return {
             "mode": "comprehensive",
             "documents": [
-                "Notion",
+                "Notion - System Prompt",
                 "Notion - SYNC Thinking Framework",
                 "Notion - MCP Knowledge",
                 "Notion - Interactive Intelligence"
@@ -393,7 +393,7 @@ def route_by_confidence(confidence: float, topics: list) -> dict:
 
 def _get_targeted_docs(topics: list) -> list:
     """Extract unique documents from matched topics."""
-    docs = ["Notion", "Notion - SYNC Thinking Framework"]  # Always include core
+    docs = ["Notion - System Prompt", "Notion - SYNC Thinking Framework"]  # Always include core
     for topic in topics:
         docs.extend(topic["documents"])
     return list(set(docs))  # Remove duplicates
@@ -615,7 +615,7 @@ def smart_route(user_request: str) -> dict:
         Complete routing decision with workflow plan
     """
     # Step 1: Always load core documents
-    core_docs = ["Notion", "Notion - SYNC Thinking Framework"]
+    core_docs = ["Notion - System Prompt", "Notion - SYNC Thinking Framework"]
 
     # Step 2: Operation & Structure Detection
     operation = detect_operation_type(user_request)

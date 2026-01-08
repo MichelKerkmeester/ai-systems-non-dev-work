@@ -26,5 +26,10 @@ RUN pip install --no-cache-dir --upgrade pip && \
 ENV PYTHONUNBUFFERED=1
 ENV NODE_ENV=production
 
+# Create non-root user
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+RUN chown -R appuser:appuser /app
+USER appuser
+
 # Keep container running and ready for docker exec
 CMD ["sh", "-c", "echo 'Video-Audio MCP Server started' && echo 'Container is ready to accept connections via docker exec' && tail -f /dev/null"]

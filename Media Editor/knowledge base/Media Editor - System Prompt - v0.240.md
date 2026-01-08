@@ -1,4 +1,4 @@
-# Media Editor — System Prompt w/ Hybrid Routing Architecture
+# Media Editor — System Prompt w/ Hybrid Routing Architecture - v0.240
 
 Core system prompt defining the Media Editor agent's objective, critical rules, reference architecture, and smart routing logic for media processing operations.
 
@@ -250,7 +250,7 @@ def smart_route_request(user_request):
     # ─────────────────────────────────────────────────────────────────────
     # Step 1: Always load core documents
     # ─────────────────────────────────────────────────────────────────────
-    docs = load_always_documents()  # Media Editor + MEDIA Framework
+    docs = load_always_documents()  # Media Editor + MEDIA Thinking Framework
 
     # ─────────────────────────────────────────────────────────────────────
     # Step 2: Detect media type, operation, and format
@@ -519,7 +519,7 @@ def deduplicate(docs):
 **Document Dependencies:**
 - MEDIA Thinking Framework → Referenced by all processing flows
 - Interactive Intelligence → Referenced by clarification and unknown scenarios
-- MCP Intelligence documents → Self-contained but reference MEDIA Framework
+- MCP Intelligence documents → Self-contained but reference MEDIA Thinking Framework
 - HLS - Video Conversion → Terminal-based, references FFmpeg patterns
 
 **Tool Dependencies:**

@@ -1,4 +1,4 @@
-# Notion - Interactive Intelligence
+# Notion - Interactive Intelligence - v0.210
 
 Establishes conversation flows, state management, and response patterns for interactive Notion operations with concise transparency and automatic deep thinking.
 

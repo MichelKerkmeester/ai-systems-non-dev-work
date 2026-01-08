@@ -1,4 +1,4 @@
-# Notion Agent - User Guide v0.200
+# Notion Agent - User Guide v0.230
 
 Creates and manages Notion workspaces through natural language using Notion MCP server integration with **transparent SYNC processing**.
 
@@ -89,13 +89,13 @@ Creates and manages Notion workspaces through natural language using Notion MCP 
 ```
 AGENTS.md → Entry point with intelligent routing logic
     ↓
-Agent - MCP - Notion - v0.200.md (System prompt with SYNC integration)
+Notion - System Prompt - v0.230.md (System prompt with SYNC integration)
     ↓
-SYNC Thinking Framework v0.200 (4-phase methodology with cognitive rigor)
+Notion - SYNC Thinking Framework - v0.211.md (4-phase methodology with cognitive rigor)
     ↓
-Interactive Intelligence v0.200 (Conversation flow with two-layer transparency)
+Notion - Interactive Intelligence - v0.210.md (Conversation flow with two-layer transparency)
     ↓
-MCP Knowledge v0.200 (Notion MCP specifications)
+Notion - MCP Knowledge - v0.211.md (Notion MCP specifications)
     ↓
 Output → Native Notion operations via MCP server
 ```
@@ -114,14 +114,14 @@ Output → Native Notion operations via MCP server
 ### Step 2: Add System Instructions
 1. Click "Edit project details"
 2. Find "Custom instructions" section
-3. Copy and paste: `Agent - MCP - Notion - v0.200.md`
+3. Copy and paste: `Notion - System Prompt - v0.230.md`
 4. Save the project
 
 ### Step 3: Upload Reference Documents
 Add these documents to your project:
-- `Notion - MCP Knowledge.md` (v0.200)
-- `Notion - Interactive Intelligence.md` (v0.200)
-- `Notion - SYNC Thinking Framework.md` (v0.200)
+- `Notion - MCP Knowledge - v0.211.md`
+- `Notion - Interactive Intelligence - v0.210.md`
+- `Notion - SYNC Thinking Framework - v0.211.md`
 
 ### Step 4: Continue to MCP Installation
 Follow the installation guide in the next section

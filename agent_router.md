@@ -72,13 +72,13 @@ $ARGUMENTS
 
 Available AI Systems for intelligent routing:
 
-| System              | Aliases                                           | Role                                                        | MCP |
-| ------------------- | ------------------------------------------------- | ----------------------------------------------------------- | --- |
-| **Media Editor**    | `media`, `image`, `video`, `audio`, `hls`         | Image/video/audio processing via MCP tools                  | Yes |
-| **Notion**          | `notion`                                          | Workspace management via native MCP (databases, pages)      | Yes |
-| **Product Owner**   | `po`, `product`, `ticket`, `story`, `epic`, `doc` | Write tickets, stories, epics focusing on WHAT and WHY      | No  |
-| **Prompt Improver** | `prompt`, `improve`, `enhance`                    | Enhance, optimize, and structure prompts                    | No  |
-| **Webflow**         | `webflow`, `wf`                                   | Site management via Data API and Designer API               | Yes |
+| System                | Aliases                                           | Role                                                        | MCP |
+| --------------------- | ------------------------------------------------- | ----------------------------------------------------------- | --- |
+| **Media Editor**      | `media`, `image`, `video`, `audio`, `hls`         | Image/video/audio processing via MCP tools                  | Yes |
+| **Notion**            | `notion`                                          | Workspace management via native MCP (databases, pages)      | Yes |
+| **Product Owner**     | `po`, `product`, `ticket`, `story`, `epic`, `doc` | Write tickets, stories, epics focusing on WHAT and WHY      | No  |
+| **Prompt Improver**   | `prompt`, `improve`, `enhance`                    | Enhance, optimize, and structure prompts                    | No  |
+| **Webflow**           | `webflow`, `wf`                                   | Site management via Data API and Designer API               | Yes |
 
 ### Registry Details
 
@@ -149,16 +149,19 @@ When system cannot be auto-detected, present:
 ```
 Which AI System should handle this request?
 
-| Option | System          | Best For                                                   |
-| ------ | --------------- | ---------------------------------------------------------- |
-| A      | Media Editor    | Image resize/compress, video convert, audio, HLS streaming |
-| B      | Notion          | Databases, pages, blocks, properties, relations            |
-| C      | Product Owner   | Tickets, user stories, epics, specifications               |
-| D      | Prompt Improver | Prompt enhancement, optimization, structuring              |
-| E      | Webflow         | CMS collections, fields, pages, components                 |
-| F      | Custom Path     | Specify path to unlisted agent folder                      |
+| Option | System            | Best For                                                   |
+| ------ | ----------------- | ---------------------------------------------------------- |
+| A      | Barter Copywriter | Copy, content, marketing, brand voice, creator campaigns   |
+| B      | Barter LinkedIn   | LinkedIn posts, Pieter's personal brand, thought leadership|
+| C      | Barter TikTok     | TikTok SEO, creative strategy, trends, hashtags            |
+| D      | Media Editor      | Image resize/compress, video convert, audio, HLS streaming |
+| E      | Notion            | Databases, pages, blocks, properties, relations            |
+| F      | Product Owner     | Tickets, user stories, epics, specifications               |
+| G      | Prompt Improver   | Prompt enhancement, optimization, structuring              |
+| H      | Webflow           | CMS collections, fields, pages, components                 |
+| I      | Custom Path       | Specify path to unlisted agent folder                      |
 
-Reply with letter (A-F):
+Reply with letter (A-I):
 ```
 
 ---
@@ -209,6 +212,9 @@ After system resolution and mode detection, execute the 7-step workflow:
 ### Step 1.1: Parse System Selector
 
 1. Check if first word of `$ARGUMENTS` matches a system alias:
+   - `barter`, `copywriter`, or `copy` → Barter Copywriter system
+   - `linkedin` or `pieter` → Barter LinkedIn system
+   - `tiktok`, `seo`, or `creative` → Barter TikTok system
    - `webflow` or `wf` → Webflow system
    - `notion` → Notion system
    - `media`, `image`, `video`, `audio`, or `hls` → Media Editor system
@@ -698,7 +704,7 @@ Search attempted:
 - ../AGENTS.md
 - ../../AGENTS.md
 
-Available systems: webflow, notion, media, po, prompt
+Available systems: barter, linkedin, tiktok, webflow, notion, media, po, prompt
 Or use: path: /custom/path
 
 STATUS=FAIL
@@ -746,6 +752,15 @@ STATUS=CANCELLED
 ### Direct System Selection
 
 ```bash
+# Barter copywriting
+/agent_router:workflow barter "Write hero copy for creator landing page"
+
+# LinkedIn content for Pieter
+/agent_router:workflow linkedin "Write a post about creator economy trends"
+
+# TikTok strategy
+/agent_router:workflow tiktok "Optimize hashtags for product review content"
+
 # Webflow CMS work (using alias)
 /agent_router:workflow wf "Add author field to blog collection"
 
@@ -762,8 +777,8 @@ STATUS=CANCELLED
 # Detects Webflow from "collection" keyword
 /agent_router:workflow "Create a new CMS collection for team members"
 
-# Detects ClickUp from "task" keyword
-/agent_router:workflow "Create a task for the API integration work"
+# Detects Barter Copywriter from "content" keyword
+/agent_router:workflow "Create marketing content for the new feature"
 
 # Detects Product Owner from "epic" keyword
 /agent_router:workflow "Write an epic for the authentication system"
@@ -776,7 +791,7 @@ STATUS=CANCELLED
 /agent_router:workflow path: ./my-custom-agent "Process this request"
 
 # Override system with custom path
-/agent_router:workflow clickup path: ./custom-clickup "Use custom ClickUp agent"
+/agent_router:workflow barter path: ./custom-barter "Use custom Barter agent"
 ```
 
 ### With Mode Selection

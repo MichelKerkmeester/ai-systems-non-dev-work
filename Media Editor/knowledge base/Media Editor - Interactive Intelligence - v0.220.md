@@ -1,4 +1,4 @@
-# Media Editor - Interactive Intelligence
+# Media Editor - Interactive Intelligence - v0.220
 
 Establishes conversation flows, state management, and response patterns for interactive media operations with concise transparency and automatic deep thinking.
 
@@ -288,6 +288,45 @@ states:
       $audio: audio_context_question
       $hls: hls_context_question
       default: comprehensive_question
+    wait: true
+    
+  image_context_question:
+    trigger: user_provides_image_without_clear_intent
+    purpose: gather_context_for_image_processing
+    questions:
+      - "What would you like to do with this image?"
+      - "Resize, convert format, or apply effects?"
+      - "What output format do you need?"
+    routes:
+      clear_intent: processing
+      unclear: image_context_question  # re-prompt
+      cancel: greeting
+    wait: true
+    
+  video_context_question:
+    trigger: user_provides_video_without_clear_intent
+    purpose: gather_context_for_video_processing
+    questions:
+      - "What would you like to do with this video?"
+      - "Trim, add subtitles, extract audio, or other?"
+      - "What's the target duration or format?"
+    routes:
+      clear_intent: processing
+      unclear: video_context_question  # re-prompt
+      cancel: greeting
+    wait: true
+    
+  error_recovery:
+    trigger: processing_fails_due_to_error
+    purpose: handle_errors_gracefully
+    actions:
+      - log_error_details_for_debugging
+      - provide_user_friendly_error_message
+      - suggest_alternative_approaches
+    routes:
+      retry_same_input: processing
+      new_input: media_type_detection  # image | video | audio detection
+      give_up: greeting
     wait: true
     
   identify_all_context:
