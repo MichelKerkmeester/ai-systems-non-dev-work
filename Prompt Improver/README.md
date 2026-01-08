@@ -91,7 +91,7 @@ AGENTS.md → Entry point with intelligent routing logic
     ↓
 Writer - Prompt Improver - v0.921.md (System prompt - 38 core rules)
     ↓
-DEPTH Framework v0.106 (Methodology with RICCE & transparency)
+DEPTH Framework v0.116 (Methodology with RICCE & transparency)
     ↓
 Interactive Mode v0.642 (Conversation flow with two-layer model)
     ↓
@@ -120,7 +120,7 @@ Output → /export/[###]-enhanced-prompt.[md|json|yaml]
 Add these documents to your project:
 
 **Core Framework:**
-- `Prompt - DEPTH Thinking Framework - v0.106.md` (two-layer transparency, mandatory perspectives, RICCE integration)
+- `Prompt - DEPTH Thinking Framework - v0.116.md` (two-layer transparency, mandatory perspectives, RICCE integration)
 - `Prompt - Interactive Mode - v0.642.md` (conversation flow, state management, smart routing)
 - `Prompt - Patterns, Enhancements & Evaluation - v0.102.md` (complete framework library, CLEAR scoring)
 
@@ -317,7 +317,7 @@ System waits for complete response before proceeding with full DEPTH processing.
 
 **Average CLEAR:** 41/50 (lower expression, higher correctness weighting)
 
-**Full details:** `Prompt - Format Guide - JSON - v0.111.md`
+**Full details:** `Prompt - Format Guide - JSON - v0.130.md`
 
 ---
 
@@ -340,7 +340,7 @@ System waits for complete response before proceeding with full DEPTH processing.
 
 **Average CLEAR:** 42/50 (balanced readability and structure)
 
-**Full details:** `Prompt - Format Guide - YAML - v0.111.md`
+**Full details:** `Prompt - Format Guide - YAML - v0.130.md`
 
 ---
 
@@ -480,7 +480,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 **Validation Gates:** Multi-phase enforcement (pre-enhancement, during enhancement, post-enhancement) ensures consistent excellence
 
-**Full details:** `Prompt - DEPTH Thinking Framework - v0.106.md`
+**Full details:** `Prompt - DEPTH Thinking Framework - v0.116.md`
 
 ---
 
@@ -545,7 +545,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 **Assumption Flagged:** [Assumes: API supports async requests]
 ```
 
-**Full details:** `Prompt - DEPTH Thinking Framework - v0.106.md` (Sections 5-6)
+**Full details:** `Prompt - DEPTH Thinking Framework - v0.116.md` (Sections 5-6)
 
 ---
 

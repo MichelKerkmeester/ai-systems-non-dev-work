@@ -9,6 +9,15 @@ import path from 'path';
 
 const IMAGE_PATH = process.env.IMAGE_PATH || '/images';
 
+function validatePath(userPath, basePath) {
+  const resolved = path.resolve(basePath, userPath);
+  const baseResolved = path.resolve(basePath);
+  if (!resolved.startsWith(baseResolved + path.sep) && resolved !== baseResolved) {
+    throw new Error('Invalid path: access denied');
+  }
+  return resolved;
+}
+
 const server = new Server(
   {
     name: 'imagician-mcp',
@@ -80,8 +89,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   
   try {
     if (name === 'resize_image') {
-      const inputPath = path.join(IMAGE_PATH, args.input);
-      const outputPath = path.join(IMAGE_PATH, args.output);
+      const inputPath = validatePath(args.input, IMAGE_PATH);
+      const outputPath = validatePath(args.output, IMAGE_PATH);
       
       // Ensure output directory exists
       await fs.mkdir(path.dirname(outputPath), { recursive: true });
@@ -102,8 +111,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     }
     
     if (name === 'convert_format') {
-      const inputPath = path.join(IMAGE_PATH, args.input);
-      const outputPath = path.join(IMAGE_PATH, args.output);
+      const inputPath = validatePath(args.input, IMAGE_PATH);
+      const outputPath = validatePath(args.output, IMAGE_PATH);
       
       // Ensure output directory exists
       await fs.mkdir(path.dirname(outputPath), { recursive: true });
@@ -129,7 +138,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           const originalFiles = await fs.readdir(path.join(IMAGE_PATH, 'Original'));
           files.push(...originalFiles.map(f => `Original/${f}`));
         } catch (e) {
-          // Directory might not exist
+          if (e.code !== 'ENOENT') console.error('Error reading directory:', e.message);
         }
       }
       
@@ -138,7 +147,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           const newFiles = await fs.readdir(path.join(IMAGE_PATH, 'New'));
           files.push(...newFiles.map(f => `New/${f}`));
         } catch (e) {
-          // Directory might not exist
+          if (e.code !== 'ENOENT') console.error('Error reading directory:', e.message);
         }
       }
       

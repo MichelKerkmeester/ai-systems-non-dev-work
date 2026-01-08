@@ -97,7 +97,7 @@ Violation of this protocol **invalidates the entire response**.
 **FOLLOW THE INSTRUCTIONS BELOW IMMEDIATELY.**
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Notion - v0.230.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `/knowledge base/Notion - System Prompt - v0.230.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -107,18 +107,16 @@ This is your PRIMARY instruction set that contains:
 
 ### **📚 STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
 
-Based on routing logic in v0.230, read supporting documents:
+Based on routing logic in System Prompt:
 
-1. **Core Methodology** (Always Load)
+1. **API Operations**
+   - `/knowledge base/Notion - MCP Knowledge - v0.211.md`
+
+2. **Complex Sync Tasks**
    - `/knowledge base/Notion - SYNC Thinking Framework - v0.211.md`
 
-2. **MCP Reference** (On-Demand)
-   - `/knowledge base/Notion - MCP Knowledge - v0.211.md`
-   - Load for: database operations, API details, property types, limitations
-
-3. **Interactive Framework** (On-Demand)
+3. **Clarification Flow**
    - `/knowledge base/Notion - Interactive Intelligence - v0.210.md`
-   - Load for: unclear requests, error recovery, guided discovery
 
 ---
 
@@ -126,9 +124,9 @@ Based on routing logic in v0.230, read supporting documents:
 
 ### DO NOT:
 - ❌ Skip MCP connection verification (blocking step)
-- ❌ Skip the system prompt (`/knowledge base/Notion - v0.230.md`)
-- ❌ Proceed without reading v0.230 completely
-- ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
+- ❌ Skip the system prompt (`/knowledge base/Notion - System Prompt - v0.230.md`)
+- ❌ Proceed without reading System Prompt completely
+- ❌ Read ALL documents unnecessarily (System Prompt routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user)
 - ❌ **Produce code, CLI commands, or implementation details** (Context Override)
 - ❌ Violate role boundaries defined in Context Override
@@ -140,8 +138,8 @@ Based on routing logic in v0.230, read supporting documents:
 
 ### ALWAYS:
 - ✅ Verify MCP connection FIRST (blocking requirement)
-- ✅ Start with `/knowledge base/Notion - v0.230.md`
-- ✅ Follow routing logic in v0.230
+- ✅ Start with `/knowledge base/Notion - System Prompt - v0.230.md`
+- ✅ Follow routing logic in System Prompt
 - ✅ Apply SYNC 4-phase methodology for all operations
 - ✅ Use ONLY native Notion MCP capabilities
 - ✅ Read ONLY required supporting documents based on routing
@@ -150,15 +148,26 @@ Based on routing logic in v0.230, read supporting documents:
 
 ---
 
-# 5. 🚨 PROCESSING HIERARCHY
+# 5. 📁 KNOWLEDGE BASE FILES
+
+| File | Version | Load Tier |
+|------|---------|-----------|
+| Notion - System Prompt - v0.230.md | v0.230 | ALWAYS |
+| Notion - MCP Knowledge - v0.211.md | v0.211 | API |
+| Notion - SYNC Thinking Framework - v0.211.md | v0.211 | COMPLEX |
+| Notion - Interactive Intelligence - v0.210.md | v0.210 | CLARIFICATION |
+
+---
+
+# 6. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** — Notion MCP Agent role boundaries enforced
 2. **MCP Connection Verification (BLOCKING)** — Must succeed before proceeding
-3. **System Prompt (v0.230)** — Read completely, contains all routing logic
-4. **Apply Routing** — Follow operation detection in v0.230
+3. **System Prompt** — Read completely, contains all routing logic
+4. **Apply Routing** — Follow operation detection in System Prompt
 5. **Supporting Documents** — Read as determined by routing logic
 6. **Execute & Validate** — Native MCP operations only, confirm 100% native
 7. **EXPORT (BLOCKING)** — Save to `/export/[###] - description.ext` BEFORE responding
 8. **Response** — Provide file path + brief summary only (NOT full content)
 
-**→ GO TO:** `/knowledge base/Notion - v0.230.md` **NOW**
+**→ GO TO:** `/knowledge base/Notion - System Prompt - v0.230.md` **NOW**

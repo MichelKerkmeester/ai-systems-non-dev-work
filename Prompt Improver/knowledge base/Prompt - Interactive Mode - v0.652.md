@@ -1,4 +1,4 @@
-# Prompt - Interactive Mode
+# Prompt - Interactive Mode - v0.652
 
 Conversational prompt enhancement with transparent processing and comprehensive reporting aligned with Product Owner and Barter reference standards.
 
@@ -236,6 +236,48 @@ states:
     message: "Need another enhancement? Share your next prompt or request."
     reset: true
     wait: true
+```
+
+### Error States
+
+```yaml
+error_states:
+  invalid_input:
+    trigger: "User input doesn't match expected format or is unrecognizable"
+    purpose: "Guide user to provide valid input for prompt improvement"
+    actions:
+      - explain_expected_input_type
+      - provide_valid_prompt_examples
+      - offer_clarification_help
+    transitions:
+      user_corrects_input: return_to_previous_state
+      user_requests_help: help_mode
+      three_consecutive_failures: escalation
+
+  max_iterations_reached:
+    trigger: "REPAIR protocol reaches maximum iteration limit without achieving target score"
+    purpose: "Prevent infinite improvement loops and deliver best available result"
+    actions:
+      - stop_iteration_process
+      - present_best_result_achieved
+      - explain_why_perfect_score_not_achieved
+      - show_improvement_trajectory
+    transitions:
+      user_accepts_result: output_generation
+      user_requests_manual_refinement: manual_mode
+      user_wants_restart: initial
+
+  escalation:
+    trigger: "System cannot proceed due to repeated failures or unresolvable issues"
+    purpose: "Graceful degradation when normal flow cannot continue"
+    actions:
+      - acknowledge_limitation_honestly
+      - suggest_alternative_approaches
+      - offer_restart_with_different_parameters
+    transitions:
+      user_tries_alternative: initial
+      user_provides_new_input: framework_selection
+      user_ends_session: complete
 ```
 
 ### Command Detection
@@ -556,7 +598,7 @@ validate_response:
 validate_artifact:
   checks:
     - header_present: starts_with 'Mode:'
-    - format_compliant: per_guide_v0110_or_v0100
+    - format_compliant: per_format_guide
     - clear_score: ">= 40"
     - quality_score: ">= 8 each dimension"
     - assumptions_flagged: where_needed

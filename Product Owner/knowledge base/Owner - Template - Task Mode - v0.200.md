@@ -1,37 +1,39 @@
-# Product Owner - Template - Ticket Mode
+# Owner - Template - Task Mode - v0.200
 
-Streamlined ticket templates aligned with real-world ClickUp usage patterns. Concise, practical format with integrated formatting rules and quality standards.
+Streamlined task templates aligned with real-world ClickUp usage patterns. Concise, practical format with integrated formatting rules and quality standards.
 
 **Loading Condition:** ON-DEMAND
-**Purpose:** Provides self-contained ticket templates with QA resolution checklists for creating development tasks when $ticket or $t command is detected
-**Scope:** Ticket mode overview, delivery standards, complexity auto-scaling (Simple/Standard/Complex), quality checklists, error recovery, complete ticket templates, quick mode variants, DEPTH methodology integration
+**Purpose:** Provides self-contained task templates with resolution checklists for creating development tasks when $task or $t command is detected
+**Scope:** Task mode overview, delivery standards, complexity auto-scaling (Simple/Standard/Complex), quality checklists, error recovery, complete task templates, parent task pattern, quick mode variants, DEPTH methodology integration
 
 ---
 
 ## 📋 TABLE OF CONTENTS
-1. [🎫 TICKET MODE OVERVIEW](#1-ticket-mode-overview)
+1. [🎫 TASK MODE OVERVIEW](#1-task-mode-overview)
 2. [📦 DELIVERY STANDARDS](#2-delivery-standards)
 3. [📏 COMPLEXITY AUTO-SCALING](#3-complexity-auto-scaling)
 4. [✅ QUALITY CHECKLIST](#4-quality-checklist)
 5. [🚨 ERROR RECOVERY](#5-error-recovery)
-6. [🔵 SIMPLE TICKET TEMPLATE](#6-simple-ticket-template)
-7. [🟠 STANDARD TICKET TEMPLATE](#7-standard-ticket-template)
-8. [🔴 COMPLEX TICKET TEMPLATE](#8-complex-ticket-template)
-9. [⚡ QUICK MODE TEMPLATES](#9-quick-mode-templates)
-10. [🎯 FINAL REMINDERS](#10-final-reminders)
+6. [🔵 SIMPLE TASK TEMPLATE](#6-simple-task-template)
+7. [🟠 STANDARD TASK TEMPLATE](#7-standard-task-template)
+8. [🔴 COMPLEX TASK TEMPLATE](#8-complex-task-template)
+9. [👨‍👩‍👧‍👦 PARENT TASK TEMPLATE](#9-parent-task-template)
+10. [⚡ QUICK MODE TEMPLATES](#10-quick-mode-templates)
+11. [🎯 FINAL REMINDERS](#11-final-reminders)
 
 ---
 
-## 1. 🎫 TICKET MODE OVERVIEW
+## 1. 🎫 TASK MODE OVERVIEW
 
-### Command: `$ticket`
+### Command: `$task`
 
-- **Purpose:** Create development tickets with QA checklists that auto-scale complexity
+- **Short Alias:** `$t`
+- **Purpose:** Create development tasks with resolution checklists that auto-scale complexity
 - **Output:** Always as `text/markdown` artifact
 - **Thinking:** 10 rounds automatic (DEPTH methodology), 1-5 auto-scaled for $quick
 - **Interactive Mode:** Handled by Interactive Mode file (all question logic lives there)
 - **Header Position:** Optional - at top as first line when included
-- **Output Constraints:** Ticket contains ONLY the requested feature/fix/change
+- **Output Constraints:** Task contains ONLY the requested feature/fix/change
 - **Key Feature:** Includes Resolution Checklist for QA verification
 
 ### Critical Rules
@@ -42,7 +44,10 @@ Streamlined ticket templates aligned with real-world ClickUp usage patterns. Con
 - **INTERACTIVE QUESTIONS:** All question logic is in Interactive Mode (not duplicated here)
 
 ### Note on User Stories
-For user story format (narrative without QA checklists), use `$story` command which references **Product Owner - Template - Story Mode**
+For user story format (narrative without resolution checklists), use `$story` command which references **Owner - Template - Story Mode**
+
+### Note on Bugs
+For isolated bug reports with reproduction steps and evidence, use `$bug` command which references **Owner - Template - Bug Mode**. For grouped bugs or refinement tasks, use this Task Mode template.
 
 ---
 
@@ -57,7 +62,7 @@ For user story format (narrative without QA checklists), use `$story` command wh
 - **Wait for Input:** NEVER proceed without user response to questions
 - **Template Compliance:** Use structure exactly
 
-### Ticket-Specific Standards
+### Task-Specific Standards
 - **Scaling:** 
   - Simple: 2-3 sections, 4-6 resolution items
   - Standard: 4-5 sections, 8-12 items
@@ -66,54 +71,72 @@ For user story format (narrative without QA checklists), use `$story` command wh
 - **No Scope Expansion:** Template scaling affects structure, not content scope
 - **Multiple Perspectives:** All analyze the SAME requirement
 - **Convergent Output:** Many approaches considered, ONE delivered
-- **Resolution Checklist:** Mandatory for all ticket templates
+- **Resolution Checklist:** Mandatory for all task templates
 
 ### Mandatory Structure Elements
 
 #### Symbol Hierarchy
 - **H2:** ⌘ (About)
 - **H3:** ⌥ (References), ❖ (Requirements), ✓ (Resolution Checklist)
-- **H4:** NOT used in Ticket mode
+- **H4:** NOT used in Task mode
 
 #### Structure Order
-1. Header (Mode | Complexity | Template) - FIRST LINE (optional)
-2. About (## ⌘) - Narrative description + Scope bullets
-3. References (### ⌥) - Flows, Components, Related Features (optional)
+1. Title (# Task Title) - FIRST LINE
+2. About (## ⌘) - Narrative description + Scope (optional for simple tasks)
+3. References (### ⌥) - Flows, Components (OPTIONAL)
 4. Requirements (### ❖) - Numbered descriptive format with embedded User Stories
 5. Resolution Checklist (### ✓) - Numbered categories with checkbox items
 
 #### Formatting Standards
 - **Dividers:** Use `---` between all major sections
 - **Lists:** Always use `-` for bullets, `[]` for checkboxes
-- **References:** Bulleted list with 3 categories: Flows, Components, Related Features
-- **Inline Images:** Supported in Requirements and References using `![alt text](image.png)`
-- **Links:** Use `[Description](URL)` format with actual URLs or `[Link - to be added]`
-- **Priority:** Format as `**→ Priority:** Critical/High/Medium/Low` in About section (optional)
-- **Status Notes:** Format as `[Status note: "description"]` when needed
+- **References:** Two patterns supported:
+  - Standard: Flows, Components (for feature development)
+  - Component Updates: Changed, Impacted (for design system changes)
+- **Inline Images:** Supported throughout using `![alt text](image.png)`
+- **Links:** Use `[Description](URL)` format with actual URLs
 - **Assumptions:** Format as `[Assumes: X]` inline within requirements
-- **Problems:** Integrated in About narrative, never listed separately
 
 ### Visual Hierarchy Rules
 - Use `---` as major section separators
 - No blank lines between dividers and section headers
 - H2 for About section (## ⌘ About)
 - H3 for other sections (### ⌥ References, ### ❖ Requirements, ### ✓ Resolution Checklist)
-- H4 NOT used in Ticket mode
+- H4 NOT used in Task mode
 - Consistent spacing throughout
 
+### User Story Format (BDD Style)
+
+**CRITICAL:** User Stories use Given/When/Then format (Behavior-Driven Development), NOT traditional "As a user, I want..." format.
+
+```markdown
+**User Story**
+- **Given:** {context or precondition}
+- **When:** {user action or trigger}
+- **Then:** {expected outcome or behavior}
+```
+
+**Example:**
+```markdown
+**User Story**
+- **Given:** Creator is viewing a Barter deal detail page
+- **When:** They scroll to bottom of page
+- **Then:** Share section is visible after hashtags, before main CTA
+```
+
+**When to include User Stories:**
+- Feature development tasks: YES
+- Technical/infrastructure tasks: NO
+- Bug fix consolidation tasks: NO
+- Design system component updates: NO
+
 ### Content Integration
-- **About Section:** Contains narrative description + Scope bullets
+- **About Section:** Contains narrative description + Scope (optional)
 - **Narrative:** 1-3 sentences explaining what and why
-- **Scope:** Bulleted list of features and changes
+- **Scope:** Bulleted list of deliverables and changes (optional for simple tasks)
 - **Practical Focus:** Implementation-ready, concise, actionable
 
-### Ticket Focus Areas
-
-**Bug Fixes:**
-- Root cause analysis
-- Impact assessment
-- Fix implementation
-- Testing requirements
+### Task Focus Areas
 
 **Feature Development:**
 - User requirements [only requested features]
@@ -121,11 +144,15 @@ For user story format (narrative without QA checklists), use `$story` command wh
 - Acceptance criteria [relevant to request]
 - Success metrics [of requested functionality]
 
-**Platform Changes:**
-- Migration strategy [for requested platform]
-- Risk assessment [within scope]
-- Rollback plans [for requested changes]
-- Performance targets [as requested]
+**Component Updates:**
+- Changed components
+- Impacted components
+- Visual/behavior changes
+
+**Technical Tasks:**
+- Token architecture
+- Integration requirements
+- Validation requirements
 
 ---
 
@@ -143,7 +170,7 @@ For user story format (narrative without QA checklists), use `$story` command wh
 
 ### DEPTH Processing Standards
 - **Multiple perspectives:** All analyze SAME requirement
-- **Single output:** One ticket covering exact request
+- **Single output:** One task covering exact request
 - **No scope expansion:** Complexity affects template size, not feature count
 
 ---
@@ -160,11 +187,11 @@ For user story format (narrative without QA checklists), use `$story` command wh
 
 ### Structure Validation
 [] About section uses H2 (## ⌘ About)?
-[] About contains narrative + Scope bullets?
+[] About contains narrative + Scope (if standard/complex)?
 [] Requirements section uses H3 (### ❖ Requirements)?
 [] Requirements use numbered descriptive format (1. **Feature: Action**)?
 [] Resolution Checklist uses H3 (### ✓ Resolution Checklist)?
-[] Resolution Checklist uses numbered categories?
+[] Resolution Checklist categories mirror requirements?
 [] Correct symbol hierarchy applied (H2 for About, H3 for others)?
 [] Dividers (---) between all sections?
 [] No H1 headers except document title?
@@ -180,14 +207,19 @@ For user story format (narrative without QA checklists), use `$story` command wh
 [] No unrequested features?
 [] Content limited to requested feature?
 
+### User Story Validation (if applicable)
+[] User Stories use Given/When/Then format?
+[] Given states the context or precondition?
+[] When states the user action or trigger?
+[] Then states the expected outcome?
+
 ### Mode-Specific Validation
-[] Header at top (if included)?
 [] About uses narrative format?
-[] Scope uses bulleted list?
+[] Scope uses bulleted list (if included)?
 [] Requirements use numbered descriptive format?
-[] User Stories embedded under requirements?
+[] User Stories embedded under requirements (Given/When/Then)?
 [] Resolution checklist scaled (4-6/8-12/12-20)?
-[] Numbered categories in checklist?
+[] Checklist categories mirror requirements structure?
 [] Separators used correctly?
 [] 10-round DEPTH applied?
 [] Only requested feature covered?
@@ -198,6 +230,9 @@ For user story format (narrative without QA checklists), use `$story` command wh
 
 ### Common Errors & Fixes
 
+#### Wrong User Story Format
+**Fix:** Change from "As a user, I want..." to Given/When/Then format
+
 #### Wrong Symbol Hierarchy
 **Fix:** Update to H2: ⌘ (About), H3: ⌥/❖/✓ (References, Requirements, Checklist)
 
@@ -207,11 +242,11 @@ For user story format (narrative without QA checklists), use `$story` command wh
 #### Requirements or Checklist Using H2
 **Fix:** Change `## ❖ Requirements` to `### ❖ Requirements` and `## ✓ Resolution Checklist` to `### ✓ Resolution Checklist` - H3 for these sections
 
-#### Missing Scope Section
+#### Missing Scope Section (Standard/Complex)
 **Fix:** Add `**Scope**` with bulleted list after narrative in About section
 
-#### Problems Listed Separately
-**Fix:** Integrate into About narrative
+#### Checklist Categories Don't Match Requirements
+**Fix:** Rename checklist categories to mirror requirement section names
 
 **Pattern:** Sequential questions
 **Fix:** Stop, apologize, ask comprehensive question (in Interactive Mode), WAIT
@@ -236,42 +271,27 @@ For user story format (narrative without QA checklists), use `$story` command wh
 2. Wait for comprehensive response
 3. Check template version
 4. Verify symbol hierarchy (H2 for About, H3 for References/Requirements/Checklist)
-5. Use narrative + Scope format in About
+5. Use narrative + Scope format in About (optional for simple)
 6. Use numbered descriptive format in Requirements
-7. Use numbered categories in Resolution Checklist
-8. Integrate problems narratively
-9. Priority label is optional
-10. Limit output to request
-11. Use correct artifact type
-12. Include inline images where relevant
-13. NEVER answer own questions
+7. Use Given/When/Then for User Stories
+8. Mirror requirement structure in Resolution Checklist categories
+9. Limit output to request
+10. Use correct artifact type
+11. Include inline images where relevant
+12. NEVER answer own questions
 
 ---
 
-## 6. 🔵 SIMPLE TICKET TEMPLATE
+## 6. 🔵 SIMPLE TASK TEMPLATE
 
 ```markdown
-# {Ticket Title}
+# {Task Title}
 
 ## ⌘ About
 
 ---
 
 {1-2 sentence narrative explaining what this change does and why it matters.}
-
-**Scope**
-
----
-
-- **{Category}:** {Details}
-
----
-
-### ⌥ References
-
----
-
-![alt text](image.png)
 
 ---
 
@@ -292,36 +312,18 @@ For user story format (narrative without QA checklists), use `$story` command wh
 
 ---
 
-2. **{Feature}: {Action}**
-
----
-
-{Description of the second requirement.}
-
-**{Subsection}**
-
-- {Detail}
-- {Detail}
-
----
-
 ### ✓ Resolution Checklist
 
 ---
 
-Complete all items below before moving to QA
+⚠️ Complete all items below before moving to QA
 
-**1. {Category}**
+**1. {Category matching Requirement 1}**
 ---
 [] {Action item}
 [] {Action item}
 
-**2. {Category}**
----
-[] {Action item}
-[] {Action item}
-
-**3. Validation**
+**2. Validation**
 ---
 [] Tested on iOS
 [] Tested on Android
@@ -330,10 +332,10 @@ Complete all items below before moving to QA
 
 ---
 
-## 7. 🟠 STANDARD TICKET TEMPLATE
+## 7. 🟠 STANDARD TASK TEMPLATE
 
 ```markdown
-# {Ticket Title}
+# {Task Title}
 
 ## ⌘ About
 
@@ -355,13 +357,12 @@ Complete all items below before moving to QA
 ---
 
 **Flows**
-- {Flow name} - [{Link - to be added}]
+
+- [{Flow name}](figma-url)
 
 **Components**
-- {Component name} - [{Link - to be added}]
 
-**Related Features**
-- {Feature name} - [{Link - to be added}]
+- [{Component name}](figma-url)
 
 ---
 
@@ -377,7 +378,11 @@ Complete all items below before moving to QA
 
 **User Story**
 
-As a {user type}, I want to {action} so that {benefit}.
+- **Given:** {context or precondition}
+- **When:** {user action or trigger}
+- **Then:** {expected outcome}
+
+![](image-url.png)
 
 **{Subsection}**
 
@@ -400,16 +405,18 @@ As a {user type}, I want to {action} so that {benefit}.
 
 ---
 
-3. **{Feature}: {Action}**
+3. **Functional Requirements**
 
 ---
 
-{Description of the third requirement.} [Assumes: {assumption}]
+**{Category}**
 
-**{Subsection}**
+- {Technical detail}
+- {Technical detail}
 
-- {Detail}
-- {Detail}
+**Error Handling**
+
+- {Error case and handling}
 
 ---
 
@@ -419,22 +426,21 @@ As a {user type}, I want to {action} so that {benefit}.
 
 ⚠️ Complete all items below before moving to QA
 
-**1. {Category}**
+**1. {Category matching Requirement 1}**
 ---
 [] {Action item}
+[] {Action item}
+[] Design & Layout matches Figma specifications
+
+**2. {Category matching Requirement 2}**
+---
 [] {Action item}
 [] {Action item}
 
-**2. {Category}**
+**3. Functionality**
 ---
-[] {Action item}
-[] {Action item}
-[] {Action item}
-
-**3. {Category}**
----
-[] {Action item}
-[] {Action item}
+[] {Functional requirement item}
+[] {Error handling verified}
 
 **4. Validation**
 ---
@@ -445,10 +451,10 @@ As a {user type}, I want to {action} so that {benefit}.
 
 ---
 
-## 8. 🔴 COMPLEX TICKET TEMPLATE
+## 8. 🔴 COMPLEX TASK TEMPLATE
 
 ```markdown
-# {Ticket Title}
+# {Task Title}
 
 ## ⌘ About
 
@@ -471,20 +477,22 @@ As a {user type}, I want to {action} so that {benefit}.
 ---
 
 **Flows**
-- {Primary flow} - [{Link - to be added}]
-- {Secondary flow} - [{Link - to be added}]
+
+- [{Primary flow}](figma-url)
+- [{Secondary flow}](figma-url)
 
 **Components**
-- {Core component} - [{Link - to be added}]
-- {Supporting component} - [{Link - to be added}]
 
-**Related Features**
-- {Dependency} - [{Link - to be added}]
-- {Related ticket} - [{Link - to be added}]
+- [{Core component}](figma-url)
+- [{Supporting component}](figma-url)
 
 ---
 
 ### ❖ Requirements
+
+---
+
+### **{Section Name}**
 
 ---
 
@@ -496,7 +504,11 @@ As a {user type}, I want to {action} so that {benefit}.
 
 **User Story**
 
-As a {user type}, I want to {action} so that {benefit}.
+- **Given:** {context or precondition}
+- **When:** {user action or trigger}
+- **Then:** {expected outcome}
+
+![](image-url.png)
 
 **{Subsection}**
 
@@ -512,16 +524,20 @@ As a {user type}, I want to {action} so that {benefit}.
 
 {Detailed description of the requirement.}
 
+**User Story**
+
+- **Given:** {context}
+- **When:** {action}
+- **Then:** {outcome}
+
 **{Subsection}**
 
 - {Detail}
 - {Detail}
-- {Detail}
 
-**{Subsection}**
+---
 
-- {Detail}
-- {Detail}
+### **{Another Section Name}**
 
 ---
 
@@ -538,30 +554,23 @@ As a {user type}, I want to {action} so that {benefit}.
 
 ---
 
-4. **{Feature}: {Action}**
+4. **Functional Requirements**
 
 ---
 
-{Description of technical implementation details.}
-
-**{Subsection}**
+**{Category}**
 
 - {Technical detail}
 - {Technical detail}
+
+**{Another Category}**
+
 - {Technical detail}
 
----
+**Error Handling**
 
-5. **{Feature}: {Action}**
-
----
-
-{Description of additional requirement.}
-
-**{Subsection}**
-
-- {Detail}
-- {Detail}
+- {Error case handling}
+- {Graceful fallback behavior}
 
 ---
 
@@ -571,35 +580,29 @@ As a {user type}, I want to {action} so that {benefit}.
 
 ⚠️ Complete all items below before moving to QA
 
-**1. {Category}**
+**1. {Section 1 - Category}**
 ---
 [] {Action item}
 [] {Action item}
-[] {Action item}
+[] Design & Layout matches Figma specifications
 
-**2. {Category}**
----
-[] {Action item}
-[] {Action item}
-[] {Action item}
-
-**3. {Category}**
----
-[] {Action item}
-[] {Action item}
-[] {Action item}
-
-**4. {Category}**
+**2. {Section 1 - Another Category}**
 ---
 [] {Action item}
 [] {Action item}
 
-**5. {Category}**
+**3. {Section 2 - Category}**
 ---
 [] {Action item}
 [] {Action item}
 
-**6. Validation**
+**4. Functionality**
+---
+[] {Functional requirement}
+[] {Error handling verified}
+[] {Edge cases handled}
+
+**5. Validation**
 ---
 [] Tested on iOS
 [] Tested on Android
@@ -610,24 +613,99 @@ As a {user type}, I want to {action} so that {benefit}.
 
 ---
 
-## 9. ⚡ QUICK MODE TEMPLATES
+## 9. 👨‍👩‍👧‍👦 PARENT TASK TEMPLATE
+
+Use this template when a task breaks down into multiple subtasks. The parent task coordinates subtasks and tracks their completion.
+
+```markdown
+# {Parent Task Title}
+
+## ⌘ About
+
+---
+
+{Overview description of the full initiative and its components.}
+
+**Scope**
+
+---
+
+- **{Subtask Area 1}:** {Brief description}
+- **{Subtask Area 2}:** {Brief description}
+- **{Subtask Area 3}:** {Brief description}
+
+---
+
+### ⌥ References
+
+---
+
+**Flows**
+
+- [{Flow name}](figma-url)
+
+**Components**
+
+- [{Component name}](figma-url)
+
+---
+
+### ❖ Requirements
+
+---
+
+1. **{Subtask 1 Name}**
+
+---
+
+[{Subtask Title}](clickup-url)
+
+---
+
+2. **{Subtask 2 Name}**
+
+---
+
+[{Subtask Title}](clickup-url)
+
+---
+
+3. **{Subtask 3 Name}**
+
+---
+
+[{Subtask Title}](clickup-url)
+
+---
+
+### ✓ Resolution Checklist
+
+---
+
+⚠️ Complete all items below before moving to QA
+
+**Subtasks**
+---
+[] Subtask 1 → {Name} = Completed
+[] Subtask 2 → {Name} = Completed
+[] Subtask 3 → {Name} = Completed
+[] QA verified
+```
+
+---
+
+## 10. ⚡ QUICK MODE TEMPLATES
 
 ### Simple Quick Mode
 
 ```markdown
-# {Ticket Title}
+# {Task Title}
 
 ## ⌘ About
 
 ---
 
 {Brief context of what changed and why.}
-
-**Scope**
-
----
-
-- **{Category}:** {Details}
 
 ---
 
@@ -661,7 +739,7 @@ As a {user type}, I want to {action} so that {benefit}.
 ### Standard Quick Mode
 
 ```markdown
-# {Ticket Title}
+# {Task Title}
 
 ## ⌘ About
 
@@ -719,30 +797,34 @@ As a {user type}, I want to {action} so that {benefit}.
 
 ---
 
-## 10. 🎯 FINAL REMINDERS
+## 11. 🎯 FINAL REMINDERS
 
 1. **Always wait** for user response (except $quick)
 2. **Never answer** own questions
-3. **About Section** uses H2 (## ⌘ About) with narrative + Scope format
+3. **About Section** uses H2 (## ⌘ About) with narrative + optional Scope
 4. **Narrative** explains WHAT and WHY (1-3 sentences)
-5. **Scope** lists features/changes as bulleted list
-6. **NO Success Criteria section** - not used in production tickets
-7. **Requirements** use H3 (### ❖ Requirements) with numbered descriptive format: `1. **Feature: Action**`
-8. **User Stories** embedded under requirements (not separate section)
-9. **Inline images** supported: `![alt text](image.png)`
-10. **[Assumes: X]** pattern for inline assumptions
-11. **References** uses H3 (### ⌥ References) with 3 categories: Flows, Components, Related Features
-12. **H2 for About only** (## ⌘ About)
-13. **H3 for other sections** (### ⌥ References, ### ❖ Requirements, ### ✓ Resolution Checklist)
-14. **Resolution Checklist** uses numbered categories with `**1. Category**` format
-15. **Use `---` dividers** between all sections
-16. **Header at top** is optional (Mode | Complexity | Template)
-17. **Priority label** is optional
-18. **No Table of Contents**
-19. **Only requested features** - no scope expansion
-20. **DEPTH methodology** applied automatically (10 rounds standard, 1-5 quick)
+5. **Scope** lists deliverables/changes as bulleted list (optional for simple tasks)
+6. **References** is OPTIONAL - use when Figma links available
+7. **Two Reference patterns:** Flows/Components OR Changed/Impacted
+8. **Requirements** use H3 (### ❖ Requirements) with numbered descriptive format: `1. **Feature: Action**`
+9. **User Stories** use **Given/When/Then** format (BDD style)
+10. **User Stories** are for FEATURE tasks, not technical/bug tasks
+11. **Inline images** supported: `![alt text](image.png)`
+12. **[Assumes: X]** pattern for inline assumptions
+13. **Functional Requirements** is optional final requirement grouping
+14. **Resolution Checklist** categories MIRROR requirement structure
+15. **H2 for About only** (## ⌘ About)
+16. **H3 for other sections** (### ⌥ References, ### ❖ Requirements, ### ✓ Resolution Checklist)
+17. **Use `---` dividers** between all sections
+18. **Validation is always last** category in checklist
+19. **Mobile validation:** Tested on iOS, Tested on Android, QA verified
+20. **Web validation:** Cross-browser testing, QA verified
+21. **No Table of Contents**
+22. **Only requested features** - no scope expansion
+23. **DEPTH methodology** applied automatically (10 rounds standard, 1-5 quick)
+24. **Parent Task pattern** available for tasks with subtasks
 
 ---
 
-*Template Version: 0.145 - Aligned with real-world ClickUp ticket patterns*
-*This template framework ensures all development tickets maintain consistent quality through DEPTH cognitive methodology while delivering actionable, implementation-ready specifications with integrated QA verification checklists.*
+*Template Version: 0.200 - Major update aligned with real-world ClickUp task patterns*
+*Key changes: Renamed from Ticket to Task Mode, Given/When/Then User Story format, Scope replaces Success Criteria, Resolution categories mirror requirements*

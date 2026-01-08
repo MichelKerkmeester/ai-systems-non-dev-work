@@ -1,4 +1,4 @@
-# Product Owner - Template - Doc Mode
+# Owner - Template - Doc Mode - v0.129
 
 Documentation templates with integrated formatting rules and quality standards. All delivery logic consolidated for self-contained operation.
 
@@ -138,7 +138,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 #### Formatting Standards
 - **Dividers:** Use `---` between major sections only (not after headers)
 - **Lists:** Always use `-` for bullets
-- **Designs & References:** Bulleted list with categories (Documentation, Flows, Related Stories/Tickets)
+- **Designs & References:** Bulleted list with categories (Documentation, Flows, Related Stories/Tasks)
 - **Tables:** For metrics and data presentation only
 - **Links:** Use `[Description](URL)` format or `[Link - to be added]` for placeholders
 - **Content:** Integrated narrative in About section
@@ -240,7 +240,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 **Fix:** Recreate with `text/markdown`
 
 #### Designs & References as Table
-**Fix:** Convert to bulleted list with categories (Documentation, Flows, Related Stories/Tickets)
+**Fix:** Convert to bulleted list with categories (Documentation, Flows, Related Stories/Tasks)
 
 #### Missing Separators
 **Fix:** Add `---` between major sections
@@ -829,7 +829,7 @@ The north star that guides all platform decisions and investments
 1. **Always wait** for user response (except $quick)
 2. **Never answer** own questions
 3. **About section first** after metadata (integrate context narratively)
-4. **Designs as bullets** organized by category (Documentation, Flows, Analytics, Research, Related Stories/Tickets/Epics)
+4. **Designs as bullets** organized by category (Documentation, Flows, Analytics, Research, Related Stories/Tasks/Epics)
 5. **Tables for metrics only** - not for References & Resources
 6. **Use H4 for subsections** - number them (#### 1. Title) only when multiple subsections exist
 7. **Single subsection** uses clean H4 (no numbers, no symbols)

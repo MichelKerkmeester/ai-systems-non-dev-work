@@ -1,4 +1,4 @@
-# Notion - MCP Knowledge
+# Notion - MCP Knowledge - v0.211
 
 Technical reference for Notion MCP server capabilities and integration for workspace, database, and content management operations.
 

@@ -1,4 +1,4 @@
-# Prompt - Patterns, Enhancements & Evaluation
+# Prompt - Patterns, Enhancements & Evaluation - v0.112
 
 Comprehensive framework library, enhancement patterns, and CLEAR evaluation methodology for systematic prompt engineering excellence.
 

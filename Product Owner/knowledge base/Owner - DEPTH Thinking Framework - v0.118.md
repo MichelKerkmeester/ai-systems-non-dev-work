@@ -1,4 +1,4 @@
-# Product Owner - DEPTH Thinking Framework
+# Owner - DEPTH Thinking Framework - v0.118
 
 A comprehensive methodology combining systematic analysis with **transparent professional excellence** for superior product deliverables.
 
@@ -55,7 +55,7 @@ A structured framework ensuring comprehensive analysis through **concise transpa
 - Focus on value AND insight without excessive detail
 
 **5. Template Compliance**
-- Use latest template versions (Ticket, Bug, Story, Epic, Doc)
+- Use latest template versions (Task, Bug, Story, Epic, Doc)
 - All formatting rules embedded in templates
 - Consistent structure across deliverables
 - No redundant rule duplication
@@ -234,7 +234,7 @@ Excellence confirmed, ready for delivery"
 #### 1. Perspective Inversion (Rounds 1-2)
 **Process:** Challenge the approach by arguing against it → Analyze why opposition has merit → Synthesize insights → Deliver strengthened solution
 
-**Application:** "Why would this ticket/story approach fail?" → Find merit in opposition → Explain why standard approach falls short and this succeeds
+**Application:** "Why would this task/story approach fail?" → Find merit in opposition → Explain why standard approach falls short and this succeeds
 
 **Output:** Integrated into "About" section • Show key insights only
 
@@ -365,10 +365,10 @@ system_state:
   
   # Template reference (updated versions)
   template_versions:
-    ticket: v0.145
-    bug: v0.100
-    story: v0.143
-    epic: v0.140
+    task: v0.200
+    bug: v0.110
+    story: v0.150
+    epic: v0.150
     doc: v0.129
 
   # Verification state (summary level)
@@ -535,7 +535,7 @@ Structure: RICCE-compliant"
 **Round 6-7: Framework Assembly**
 ```yaml
 template_application:
-  version: [v0.145, v0.100, v0.143, v0.140, v0.129]
+  version: [v0.200, v0.110, v0.150, v0.150, v0.129]
   rules: "embedded in template"
   compliance: "100%"
 
@@ -1013,7 +1013,7 @@ Selected event-driven microservices with API gateway pattern
 ---
 
 🔨 **Phase P - Prototype**
-Building ticket/bug/story/epic using template v0.145
+Building task/bug/story/epic using appropriate template version
 Mechanism-first structure validated
 
 **Technical approach confirmed:**
@@ -1083,7 +1083,7 @@ pre_creation_validation:
     - [ ] User responded to question? (or $quick mode active)
     - [ ] Requirements clear and specific?
     - [ ] Stakeholders identified (technical/UX/business)?
-    - [ ] Template type specified (ticket/bug/story/epic/doc)?
+    - [ ] Template type specified (task/bug/story/epic/doc)?
     - [ ] Success criteria provided or inferable?
   
   system_readiness:
@@ -1091,7 +1091,7 @@ pre_creation_validation:
     - [ ] Cognitive rigor techniques ready
     - [ ] RICCE validation enabled
     - [ ] Two-layer transparency enabled
-    - [ ] Template versions loaded (v0.145/v0.100/v0.143/v0.140/v0.129)
+    - [ ] Template versions loaded (v0.200/v0.110/v0.150/v0.150/v0.129)
   
   scope_discipline:
     - [ ] Scope limited to user request only
@@ -1119,7 +1119,7 @@ phase_e_gates:
   - "✅ Phase E: Optimal approach selected, reframing insight applied"
 
 phase_p_gates:
-  - [ ] Template structure correct (v0.145/v0.100/v0.143/v0.140/v0.129)
+  - [ ] Template structure correct (v0.200/v0.110/v0.150/v0.150/v0.129)
   - [ ] Mechanism-first validated (why before what)
   - [ ] RICCE Context integrated
   - "✅ Phase P: Template built, mechanism-first confirmed"
@@ -1158,7 +1158,7 @@ post_creation_checklist:
     - [ ] Examples: Template compliance validated ✅
   
   template_standards:
-    - [ ] Correct version used (Ticket v0.145/Bug v0.100/Story v0.143/Epic v0.140/Doc v0.129) ✅
+    - [ ] Correct version used (Task v0.200/Bug v0.110/Story v0.150/Epic v0.150/Doc v0.129) ✅
     - [ ] All required sections present ✅
     - [ ] Mechanism-first structure (WHY→HOW→WHAT) ✅
     - [ ] [Assumes: X] flags where relevant ✅

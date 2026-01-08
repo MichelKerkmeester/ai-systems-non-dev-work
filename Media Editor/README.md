@@ -123,11 +123,11 @@ Transforms natural language requests into optimized images, videos, audio, and H
 ```
 AGENTS.md → Entry point with intelligent routing logic
     ↓
-MCP System - Media Editor - v0.212.md (System prompt with MEDIA integration)
+Media Editor - System Prompt (System prompt with MEDIA integration)
     ↓
 MEDIA Thinking Framework v0.220 (5-phase methodology with cognitive rigor)
     ↓
-Interactive Intelligence v0.211 (Conversation flow with two-layer transparency)
+Interactive Intelligence v0.220 (Conversation flow with two-layer transparency)
     ↓
 MCP Tools:
   ├─ Imagician v0.201 (Image operations)
@@ -152,16 +152,16 @@ Output → Optimized media files via MCP servers or Terminal commands
 ### Step 2: Add System Instructions
 1. Click "Edit project details"
 2. Find "Custom instructions" section
-3. Copy and paste: `MCP - Media Editor - v0.212.md`
+3. Copy and paste: `Media Editor - System Prompt.md`
 4. Save the project
 
 ### Step 3: Upload Reference Documents
 Add these documents to your project:
-- `Media Editor - Interactive Intelligence - v0.211.md`
-- `Media Editor - MEDIA Thinking Framework - v0.211.md`
-- `Media Editor - HLS - Video Conversion - v0.100.md`
-- `Media Editor - MCP Intelligence - Imagician - v0.201.md`
-- `Media Editor - MCP Intelligence - Video, Audio - v0.202.md`
+- `Media Editor - Interactive Intelligence - v0.220.md`
+- `Media Editor - MEDIA Thinking Framework - v0.233.md`
+- `Media Editor - HLS - Video Conversion - v0.110.md`
+- `Media Editor - MCP Intelligence - Imagician - v0.211.md`
+- `Media Editor - MCP Intelligence - Video, Audio - v0.212.md`
 
 ### Step 4: Install MCP Tools
 See next section for detailed setup
