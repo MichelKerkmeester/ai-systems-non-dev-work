@@ -170,23 +170,23 @@ Based on routing logic in System Prompt:
 
 # 5. 📁 KNOWLEDGE BASE FILES
 
-| File                                                     | Version | Load Tier     |
-| -------------------------------------------------------- | ------- | ------------- |
-| Prompt - System Prompt - v0.950.md                       | v0.950  | ALWAYS        |
-| Prompt - Patterns, Enhancements & Evaluation - v0.112.md | v0.112  | ANALYSIS      |
-| Prompt - Format Guide - JSON - v0.130.md                 | v0.130  | JSON          |
-| Prompt - Format Guide - Markdown - v0.130.md             | v0.130  | MARKDOWN      |
-| Prompt - Format Guide - YAML - v0.130.md                 | v0.130  | YAML          |
-| Prompt - DEPTH Thinking Framework - v0.116.md            | v0.116  | COMPLEX       |
-| Prompt - Interactive Mode - v0.652.md                    | v0.652  | CLARIFICATION |
+| File                                                     | Load Tier     |
+| -------------------------------------------------------- | ------------- |
+| Prompt - System Prompt - v0.950.md                       | ALWAYS        |
+| Prompt - Patterns, Enhancements & Evaluation - v0.112.md | ANALYSIS      |
+| Prompt - Format Guide - JSON - v0.130.md                 | JSON          |
+| Prompt - Format Guide - Markdown - v0.130.md             | MARKDOWN      |
+| Prompt - Format Guide - YAML - v0.130.md                 | YAML          |
+| Prompt - DEPTH Thinking Framework - v0.116.md            | COMPLEX       |
+| Prompt - Interactive Mode - v0.652.md                    | CLARIFICATION |
 
 ---
 
 # 6. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** — Prompt Engineer role boundaries enforced
-2. **System Prompt (v0.950)** — Read completely, contains all routing logic
-3. **Apply Routing** — Follow command/mode detection in v0.950
+2. **System Prompt** — Read completely, contains all routing logic
+3. **Apply Routing** — Follow command/mode detection in System Prompt
 4. **Supporting Documents** — Read as determined by routing logic
 5. **Create Deliverable** — Following all rules in the System Prompt (RICCE, CLEAR, Enhancement Pipeline)
 6. **EXPORT (BLOCKING)** — Save to `/export/[###] - description.ext` BEFORE responding

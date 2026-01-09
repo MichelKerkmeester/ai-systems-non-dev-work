@@ -10,17 +10,17 @@ Formatting guide for Markdown (Standard) output structure in prompt engineering 
 
 ## 📋 Table of Contents
 
-1. [🎯 OVERVIEW & PURPOSE](#-overview--purpose)
-2. [📊 MARKDOWN FORMAT FUNDAMENTALS](#-markdown-format-fundamentals)
-3. [📦 FILE DELIVERY STANDARDS](#-file-delivery-standards)
-4. [🔧 RCAF MARKDOWN STRUCTURE](#-rcaf-markdown-structure)
-5. [🎨 CRAFT MARKDOWN STRUCTURE](#-craft-markdown-structure)
-6. [📄 ADVANCED MARKDOWN PATTERNS](#-advanced-markdown-patterns)
-7. [🔄 FORMAT CONVERSIONS](#-format-conversions)
-8. [⚖️ MARKDOWN VS OTHER FORMATS](#-markdown-vs-other-formats)
-9. [💡 EXAMPLES & TEMPLATES](#-examples--templates)
-10. [✅ SYNTAX VALIDATION](#-syntax-validation)
-11. [🎓 BEST PRACTICES](#-best-practices)
+1. [🎯 OVERVIEW & PURPOSE](#1--overview--purpose)
+2. [📊 MARKDOWN FORMAT FUNDAMENTALS](#2--markdown-format-fundamentals)
+3. [📦 FILE DELIVERY STANDARDS](#3--file-delivery-standards)
+4. [🔧 RCAF MARKDOWN STRUCTURE](#4--rcaf-markdown-structure)
+5. [🎨 CRAFT MARKDOWN STRUCTURE](#5--craft-markdown-structure)
+6. [📄 ADVANCED MARKDOWN PATTERNS](#6--advanced-markdown-patterns)
+7. [🔄 FORMAT CONVERSIONS](#7--format-conversions)
+8. [⚖️ MARKDOWN VS OTHER FORMATS](#8--markdown-vs-other-formats)
+9. [💡 EXAMPLES & TEMPLATES](#9--examples--templates)
+10. [✅ SYNTAX VALIDATION](#10--syntax-validation)
+11. [🎓 BEST PRACTICES](#11--best-practices)
 
 ---
 

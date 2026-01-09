@@ -1,4 +1,4 @@
-# Owner - DEPTH Thinking Framework - v0.118
+# Owner - DEPTH Thinking Framework - v0.120
 
 A comprehensive methodology combining systematic analysis with **transparent professional excellence** for superior product deliverables.
 
@@ -349,7 +349,7 @@ Before delivery, validate (show summary to user):
 | ------------- | -------------------- | ------------------ | ---------------------------------------- |
 | **D**iscover  | Rounds 1-2           | 0.5-1 round        | "🔍 Analyzing (5 perspectives)"           |
 | **E**ngineer  | Rounds 3-5           | 1-2 rounds         | "⚙️ Engineering (8 approaches evaluated)" |
-| **P**rototype | Rounds 6-7           | 0.5-1 round        | "🔨 Building (template v0.145)"           |
+| **P**rototype | Rounds 6-7           | 0.5-1 round        | "🔨 Building (using template)"            |
 | **T**est      | Rounds 8-9           | 0.5-1 round        | "✅ Validating (all checks passed)"       |
 | **H**armonize | Round 10             | 0.5 round          | "✨ Finalizing (excellence confirmed)"    |
 
@@ -365,11 +365,11 @@ system_state:
   
   # Template reference (updated versions)
   template_versions:
-    task: v0.200
-    bug: v0.110
-    story: v0.150
-    epic: v0.150
-    doc: v0.129
+    task:
+    bug:
+    story:
+    epic:
+    doc:
 
   # Verification state (summary level)
   verification:
@@ -525,7 +525,7 @@ solution_ranking:
 **User-Facing Update (Concise):**
 ```markdown
 "🔨 **Phase P - Prototype**
-Building framework (template v0.145)
+Building framework (using template)
 Mechanism-first validated: WHY before WHAT
 Structure: RICCE-compliant"
 ```
@@ -535,7 +535,7 @@ Structure: RICCE-compliant"
 **Round 6-7: Framework Assembly**
 ```yaml
 template_application:
-  version: [v0.200, v0.110, v0.150, v0.150, v0.129]
+  version: []
   rules: "embedded in template"
   compliance: "100%"
 
@@ -1087,11 +1087,11 @@ pre_creation_validation:
     - [ ] Success criteria provided or inferable?
   
   system_readiness:
-    - [ ] DEPTH framework loaded (v0.118)
+    - [ ] DEPTH framework loaded
     - [ ] Cognitive rigor techniques ready
     - [ ] RICCE validation enabled
     - [ ] Two-layer transparency enabled
-    - [ ] Template versions loaded (v0.200/v0.110/v0.150/v0.150/v0.129)
+    - [ ] Template versions loaded
   
   scope_discipline:
     - [ ] Scope limited to user request only
@@ -1119,7 +1119,7 @@ phase_e_gates:
   - "✅ Phase E: Optimal approach selected, reframing insight applied"
 
 phase_p_gates:
-  - [ ] Template structure correct (v0.200/v0.110/v0.150/v0.150/v0.129)
+  - [ ] Template structure correct
   - [ ] Mechanism-first validated (why before what)
   - [ ] RICCE Context integrated
   - "✅ Phase P: Template built, mechanism-first confirmed"
@@ -1158,7 +1158,7 @@ post_creation_checklist:
     - [ ] Examples: Template compliance validated ✅
   
   template_standards:
-    - [ ] Correct version used (Task v0.200/Bug v0.110/Story v0.150/Epic v0.150/Doc v0.129) ✅
+    - [ ] Correct version used ✅
     - [ ] All required sections present ✅
     - [ ] Mechanism-first structure (WHY→HOW→WHAT) ✅
     - [ ] [Assumes: X] flags where relevant ✅
@@ -1177,7 +1177,7 @@ user_communication:
     **Cognitive Rigor:** 5 perspectives, all techniques applied ✅
     **RICCE:** All elements validated ✅
     **Self-Rating:** Completeness: 9, Clarity: 9, Actionability: 9, Accuracy: 10, Relevance: 9, Mechanism Depth: 9 ✅
-    **Template:** [Type] v[Version] compliant ✅
+    **Template:** [Type] compliant ✅
     
     Deliverable ready for delivery."
 ```
@@ -1189,7 +1189,7 @@ user_communication:
 | **Completeness**    | 8+     | 6         | Add missing context, expand technical details      |
 | **Clarity**         | 8+     | 6         | Simplify language, clarify acceptance criteria     |
 | **Actionability**   | 8+     | 6         | Add concrete steps, specify implementation details |
-| **Accuracy**        | 8+     | 6         | Verify technical feasibility, validate assumptions |
+| **Accuracy**        | 9+     | 9         | Verify technical feasibility, validate assumptions |
 | **Relevance**       | 8+     | 6         | Align with stakeholder needs, refine scope         |
 | **Mechanism Depth** | 8+     | 6         | Explain WHY, document underlying principles        |
 
@@ -1313,7 +1313,7 @@ Internal Processing (Full Rigor):
 User Sees (Concise):
 "🔍 Analyzing (5 perspectives)
 ⚙️ Engineering (optimal approach selected)
-🔨 Building (template v0.145, mechanism-first)
+🔨 Building (using template, mechanism-first)
 ✅ Validating (excellence confirmed)
 ✨ Ready for delivery"
 ↓

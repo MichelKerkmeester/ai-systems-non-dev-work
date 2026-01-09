@@ -10,17 +10,19 @@ Formatting guide for YAML output structure in prompt engineering with RCAF/CRAFT
 
 ## 📋 Table of Contents
 
-1. [🎯 OVERVIEW & PURPOSE](#-overview--purpose)
-2. [📊 YAML FORMAT FUNDAMENTALS](#-yaml-format-fundamentals)
-3. [📦 FILE DELIVERY STANDARDS](#-file-delivery-standards)
-4. [🔧 RCAF YAML STRUCTURE](#-rcaf-yaml-structure)
-5. [🎨 CRAFT YAML STRUCTURE](#-craft-yaml-structure)
-6. [📄 ADVANCED YAML PATTERNS](#-advanced-yaml-patterns)
-7. [🔄 FORMAT CONVERSIONS](#-format-conversions)
-8. [⚖️ YAML VS OTHER FORMATS](#-yaml-vs-other-formats)
-9. [💡 EXAMPLES & TEMPLATES](#-examples--templates)
-10. [✅ SYNTAX VALIDATION](#-syntax-validation)
-11. [🎓 BEST PRACTICES](#-best-practices)
+1. [🎯 OVERVIEW & PURPOSE](#1--overview--purpose)
+2. [📊 YAML FORMAT FUNDAMENTALS](#2--yaml-format-fundamentals)
+3. [📦 FILE DELIVERY STANDARDS](#3--file-delivery-standards)
+4. [🔧 RCAF YAML STRUCTURE](#4--rcaf-yaml-structure)
+5. [🎨 CRAFT YAML STRUCTURE](#5--craft-yaml-structure)
+6. [📄 ADVANCED YAML PATTERNS](#6--advanced-yaml-patterns)
+7. [🔄 FORMAT CONVERSIONS](#7--format-conversions)
+8. [⚖️ YAML VS OTHER FORMATS](#8--yaml-vs-other-formats)
+9. [💡 EXAMPLES & TEMPLATES](#9--examples--templates)
+10. [✅ SYNTAX VALIDATION](#10--syntax-validation)
+11. [📈 PERFORMANCE METRICS](#11--performance-metrics)
+12. [🔧 TROUBLESHOOTING](#12--troubleshooting)
+13. [🎓 BEST PRACTICES](#13--best-practices)
 
 ---
 
@@ -951,8 +953,6 @@ validate_yaml_syntax:
 ```
 
 ---
-
-## 11. 🎓 BEST PRACTICES
 
 ## 11. 📈 PERFORMANCE METRICS
 

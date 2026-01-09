@@ -10,17 +10,17 @@ Formatting guide for JSON output structure in prompt engineering with RCAF/CRAFT
 
 ## 📋 TABLE OF CONTENTS
 
-1. 🎯 OVERVIEW & PURPOSE
-2. 📊 JSON FORMAT FUNDAMENTALS
-3. 📦 FILE DELIVERY STANDARDS
-4. 🔧 RCAF JSON STRUCTURE
-5. 🎨 CRAFT JSON STRUCTURE
-6. 📄 ADVANCED JSON PATTERNS
-7. 🔄 FORMAT CONVERSIONS
-8. ⚖️ JSON VS OTHER FORMATS
-9. 💡 EXAMPLES & TEMPLATES
-10. ✅ SYNTAX VALIDATION
-11. 🎓 BEST PRACTICES
+1. [🎯 OVERVIEW & PURPOSE](#1--overview--purpose)
+2. [📊 JSON FORMAT FUNDAMENTALS](#2--json-format-fundamentals)
+3. [📦 FILE DELIVERY STANDARDS](#3--file-delivery-standards)
+4. [🔧 RCAF JSON STRUCTURE](#4--rcaf-json-structure)
+5. [🎨 CRAFT JSON STRUCTURE](#5--craft-json-structure)
+6. [📄 ADVANCED JSON PATTERNS](#6--advanced-json-patterns)
+7. [🔄 FORMAT CONVERSIONS](#7--format-conversions)
+8. [⚖️ JSON VS OTHER FORMATS](#8-️-json-vs-other-formats)
+9. [💡 EXAMPLES & TEMPLATES](#9--examples--templates)
+10. [✅ SYNTAX VALIDATION](#10--syntax-validation)
+11. [🎓 BEST PRACTICES](#11--best-practices)
 
 ---
 

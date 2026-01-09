@@ -1,4 +1,4 @@
-# Owner - Template - Doc Mode - v0.129
+# Owner - Template - Doc Mode - v0.131
 
 Documentation templates with integrated formatting rules and quality standards. All delivery logic consolidated for self-contained operation.
 
@@ -75,7 +75,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 - Create before user responds to comprehensive question
 - Answer own questions
 - Include Table of Contents
-- Use H3/H4 symbols
+- Use symbols at wrong heading levels
 - Place header at bottom
 - Add unrequested features
 - Expand scope beyond request
@@ -89,7 +89,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 - Wait for user input on ALL content questions
 - Position About first (after header)
 - Integrate context in About narrative
-- Use clean H4 headers (H3 never used)
+- Use correct symbol hierarchy (H1: ⌘/❖, H3: ⌥)
 - Place header at top of artifact
 - Deliver exactly what was requested
 - Use `---` separators appropriately
@@ -123,17 +123,17 @@ Documentation templates with integrated formatting rules and quality standards. 
 
 #### Symbol Hierarchy
 - **H1:** ⌘ (About), ❖ (Main sections)
-- **H2:** ⌥ (References & Resources)
-- **H3:** NEVER used in Doc mode - use H4 for subsections
-- **H4:** Clean headers (no symbols) for all subsections
+- **H2:** Numbered subsections (## 1. Pattern, ## 2. Rotation)
+- **H3:** ⌥ (Designs & References), Bold subsections (### **Fixed**, ### **Dynamic**)
+- **H4:** Detail headers (#### Logic, #### Features)
 
 #### Structure Order
 1. Header (Mode | Complexity | Template) - FIRST LINE
 2. Document metadata (Parent, Version, Reading Time)
 3. About (⌘) - Purpose and context
-4. References & Resources (⌥) - Bulleted list format with categories
+4. Designs & References (⌥) - Bulleted list format with categories (at H3 level)
 5. Main sections (❖) - Scaled content
-6. Subsections - H4 headers (clean, no symbols)
+6. Subsections - H4 headers for details (#### Logic, #### Features)
 
 #### Formatting Standards
 - **Dividers:** Use `---` between major sections only (not after headers)
@@ -145,8 +145,8 @@ Documentation templates with integrated formatting rules and quality standards. 
 
 ### Visual Hierarchy Rules
 - Consistent spacing throughout
-- H4 headers: Clean (no symbols) for all subsections
-- H3 NEVER used in Doc mode
+- H3 headers: ⌥ for Designs & References, bold subsections (### **Fixed**)
+- H4 headers: Clean detail headers (#### Logic, #### Features)
 - Use `---` as section separators between major sections (not after headers)
 
 ### Content Integration
@@ -180,43 +180,43 @@ Documentation templates with integrated formatting rules and quality standards. 
 ## 5. ✅ QUALITY CHECKLIST
 
 ### Pre-Creation Validation
-- [] DEPTH methodology applied (10 rounds standard, 1-5 quick)?
-- [] User responded to comprehensive question?
-- [] System waited for response (never answered own questions)?
-- [] Complexity determined correctly?
-- [] Template version confirmed?
-- [] Output scope limited to user request?
+- [ ] DEPTH methodology applied (DEPTH Framework: 10 rounds standard, 1-5 quick)?
+- [ ] User responded to comprehensive question?
+- [ ] System waited for response (never answered own questions)?
+- [ ] Complexity determined correctly?
+- [ ] Template version confirmed?
+- [ ] Output scope limited to user request?
 
 ### Structure Validation
-- [] Header at top as first line?
-- [] Document metadata included?
-- [] About section positioned first (after metadata)?
-- [] References & Resources in table format?
-- [] Main sections properly structured?
-- [] Correct symbol hierarchy applied?
-- [] Dividers used appropriately?
-- [] Clean H4 headers (H3 never used)?
+- [ ] Header at top as first line?
+- [ ] Document metadata included?
+- [ ] About section positioned first (after metadata)?
+- [ ] Designs & References in bulleted list format with categories?
+- [ ] Main sections properly structured?
+- [ ] Correct symbol hierarchy applied (H1: ⌘/❖, H3: ⌥)?
+- [ ] Dividers used appropriately?
+- [ ] H3 for ⌥ Designs & References, H4 for detail headers?
 
 ### Format Validation
-- [] Using `text/markdown` artifact type?
-- [] Lists use `-` bullets?
-- [] Designs & References in bulleted list format with categories?
-- [] Tables used for metrics/data only (not References)?
-- [] Dividers between major sections?
-- [] Placeholder links included?
-- [] No Table of Contents?
-- [] No unrequested content?
-- [] Content limited to requested topic?
+- [ ] Using `text/markdown` artifact type?
+- [ ] Lists use `-` bullets?
+- [ ] Designs & References in bulleted list format with categories?
+- [ ] Tables used for metrics/data only (not References)?
+- [ ] Dividers between major sections?
+- [ ] Placeholder links included?
+- [ ] No Table of Contents?
+- [ ] No unrequested content?
+- [ ] Content limited to requested topic?
 
 ### Mode-Specific Validation
-- [] Header at top?
-- [] About first with purpose?
-- [] References in bulleted list format with categories?
-- [] Complexity appropriate (2-3/4-6/7+)?
-- [] Structure logical?
-- [] Separators used correctly?
-- [] 10-round DEPTH applied?
-- [] Only requested topic covered?
+- [ ] Header at top?
+- [ ] About first with purpose?
+- [ ] Designs & References at H3 level in bulleted list format?
+- [ ] Complexity appropriate (2-3/4-6/7+)?
+- [ ] Structure logical?
+- [ ] Separators used correctly?
+- [ ] 10-round DEPTH applied?
+- [ ] Only requested topic covered?
 
 ---
 
@@ -225,7 +225,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 ### Common Errors & Fixes
 
 #### Wrong Symbol Hierarchy
-**Fix:** Update to H1: ⌘/❖, H2: ⌥, H4: for subsections (H3 never used)
+**Fix:** Update to H1: ⌘/❖, H2: Numbered subsections, H3: ⌥ (Designs & References), H4: Detail headers
 
 #### About Section Not First
 **Fix:** Move About to first position after metadata
@@ -239,8 +239,8 @@ Documentation templates with integrated formatting rules and quality standards. 
 #### Wrong Artifact Type
 **Fix:** Recreate with `text/markdown`
 
-#### Designs & References as Table
-**Fix:** Convert to bulleted list with categories (Documentation, Flows, Related Stories/Tasks)
+#### Designs & References as Table or Wrong Level
+**Fix:** Convert to bulleted list with categories at H3 level (### ⌥ Designs & References)
 
 #### Missing Separators
 **Fix:** Add `---` between major sections
@@ -282,7 +282,7 @@ Covers ONLY what user requested.]
 
 ---
 
-## ⌥ References & Resources
+### ⌥ Designs & References
 
 **Documentation**
 - UI Mockups - Current - [Link - to be added]
@@ -299,18 +299,18 @@ Covers ONLY what user requested.]
 
 # ❖ Key Features
 
-### Overview
+#### Overview
 
 High-level description of the main capabilities and value proposition
 [ONLY for the requested feature/product].
 
-### Prerequisites
+#### Prerequisites
 
 - Required access or permissions
 - System requirements
 - Prior knowledge needed
 
-### Core Capabilities
+#### Core Capabilities
 
 1. **Feature One**
    - What it does [within requested scope]
@@ -328,9 +328,9 @@ High-level description of the main capabilities and value proposition
 
 # ❖ Success Metrics
 
-### Performance Indicators
+#### Performance Indicators
 
-### Key Metrics
+#### Key Metrics
 
 | Metric            | Target | Current | Status   |
 | ----------------- | ------ | ------- | -------- |
@@ -338,7 +338,7 @@ High-level description of the main capabilities and value proposition
 | Daily Usage       | >80%   | 82%     | Achieved |
 | User Satisfaction | >4.5   | 4.3     | At Risk  |
 
-### Response Protocols
+#### Response Protocols
 
 - When metrics fall below threshold
 - Escalation procedures
@@ -368,7 +368,7 @@ Covers ONLY the specific feature/product requested by user.]
 
 ---
 
-## ⌥ References & Resources
+### ⌥ Designs & References
 
 **Documentation**
 - Component Library - v2.1 - [Link - to be added]
@@ -391,7 +391,7 @@ Covers ONLY the specific feature/product requested by user.]
 
 # ❖ Product Overview
 
-### 1. Architecture & Flow
+#### 1. Architecture & Flow
 
 System components and their relationships, showing how value flows through 
 the product [limited to requested system only].
@@ -412,7 +412,7 @@ the product [limited to requested system only].
 
 ---
 
-### 2. Key Terminology
+#### 2. Key Terminology
 
 | Term         | Definition         | Context           |
 | ------------ | ------------------ | ----------------- |
@@ -424,7 +424,7 @@ the product [limited to requested system only].
 
 # ❖ Feature Specifications
 
-### 1. Core Features
+#### 1. Core Features
 
 #### Primary Feature
 
@@ -452,7 +452,7 @@ the product [limited to requested system only].
 
 ---
 
-### 2. User Scenarios
+#### 2. User Scenarios
 
 #### Happy Path
 
@@ -471,7 +471,7 @@ the product [limited to requested system only].
 
 # ❖ Performance Framework
 
-### 1. Success Metrics
+#### 1. Success Metrics
 
 #### Key Performance Indicators
 
@@ -491,7 +491,7 @@ the product [limited to requested system only].
 
 ---
 
-### 2. Business Impact
+#### 2. Business Impact
 
 #### Revenue Impact
 
@@ -533,7 +533,7 @@ Documentation covers ONLY the specific platform/ecosystem requested by user.]
 
 ---
 
-## ⌥ References & Resources
+### ⌥ Designs & References
 
 **Documentation**
 - Product Vision - Current - [Link - to be added]
@@ -564,7 +564,7 @@ Documentation covers ONLY the specific platform/ecosystem requested by user.]
 
 # ❖ Platform Strategy
 
-### 1. Vision & Mission
+#### 1. Vision & Mission
 
 The north star that guides all platform decisions and investments
 [for the requested platform only].
@@ -588,7 +588,7 @@ The north star that guides all platform decisions and investments
 
 ---
 
-### 2. Market Positioning
+#### 2. Market Positioning
 
 #### Target Segments
 
@@ -610,7 +610,7 @@ The north star that guides all platform decisions and investments
 
 # ❖ Product Architecture
 
-### 1. Core Capabilities
+#### 1. Core Capabilities
 
 #### Discovery Engine
 
@@ -646,7 +646,7 @@ The north star that guides all platform decisions and investments
 
 ---
 
-### 2. Feature Ecosystem
+#### 2. Feature Ecosystem
 
 #### Feature Map
 
@@ -662,7 +662,7 @@ The north star that guides all platform decisions and investments
 
 # ❖ Performance Metrics
 
-### 1. North Star Framework
+#### 1. North Star Framework
 
 #### Primary Metrics
 
@@ -682,7 +682,7 @@ The north star that guides all platform decisions and investments
 
 ---
 
-### 2. Operational Excellence
+#### 2. Operational Excellence
 
 #### Performance Tracking
 
@@ -713,7 +713,7 @@ The north star that guides all platform decisions and investments
 
 # ❖ User Segments
 
-### 1. Segmentation Strategy
+#### 1. Segmentation Strategy
 
 #### Power Users (Top 10%)
 
@@ -747,7 +747,7 @@ The north star that guides all platform decisions and investments
 
 ---
 
-### 2. Persona Development
+#### 2. Persona Development
 
 #### Detailed Personas
 
@@ -762,7 +762,7 @@ The north star that guides all platform decisions and investments
 
 # ❖ Growth & Scaling
 
-### 1. Growth Framework
+#### 1. Growth Framework
 
 #### Acquisition Strategy
 
@@ -797,7 +797,7 @@ The north star that guides all platform decisions and investments
 
 ---
 
-### 2. Scaling Operations
+#### 2. Scaling Operations
 
 #### Infrastructure Scaling
 
@@ -829,22 +829,21 @@ The north star that guides all platform decisions and investments
 1. **Always wait** for user response (except $quick)
 2. **Never answer** own questions
 3. **About section first** after metadata (integrate context narratively)
-4. **Designs as bullets** organized by category (Documentation, Flows, Analytics, Research, Related Stories/Tasks/Epics)
-5. **Tables for metrics only** - not for References & Resources
-6. **Use H4 for subsections** - number them (#### 1. Title) only when multiple subsections exist
+4. **Designs & References at H3** with ⌥ symbol, organized by category (Documentation, Flows, Analytics, Research, Related Stories/Tasks/Epics)
+5. **Tables for metrics only** - not for Designs & References
+6. **Use H4 for detail headers** - number them (#### 1. Title) only when multiple subsections exist
 7. **Single subsection** uses clean H4 (no numbers, no symbols)
 8. **Use `---` dividers** between all major sections
 9. **Interactive questions** handled by Interactive Mode file
 10. **Header at top** as first line (Mode | Complexity | Template)
 11. **No Table of Contents** (ClickUp/Jira provide native TOC)
 12. **Only requested topic** - no scope expansion beyond user request
-13. **DEPTH methodology** applied automatically (10 rounds standard, 1-5 quick)
+13. **DEPTH methodology** applied automatically (DEPTH Framework: 10 rounds standard, 1-5 quick)
 14. **Template version** confirmed before creation
 15. **Complexity scales structure** not content scope (Simple: 2-3 sections, Standard: 4-6, Complex: 7+)
 16. **Documentation focus** maintained throughout (product features, performance metrics, strategy docs)
-17. **H3 NEVER used** - use H4 for all subsections
-```
+17. **Symbol hierarchy** H1: ⌘/❖, H2: Numbered subsections, H3: ⌥ (Designs & References), H4: Detail headers
 
 ---
 
-*This template framework is the foundation for all Product Owner documentation deliverables. It ensures consistent excellence through auto-scaled complexity and systematic formatting standards while maintaining professional quality across all documentation types.*
+*Owner - Template - Doc Mode | This template framework is the foundation for all Product Owner documentation deliverables. It ensures consistent excellence through auto-scaled complexity and systematic formatting standards while maintaining professional quality across all documentation types.*

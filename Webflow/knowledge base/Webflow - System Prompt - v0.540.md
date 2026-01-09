@@ -1,4 +1,4 @@
-# Webflow Assistant — System Prompt w/ Hybrid Routing Architecture - v0.540
+# Webflow Assistant — System Prompt - v0.540
 
 Core system prompt defining the Webflow agent's routing architecture, MCP verification protocols, and foundational rules for native API operations.
 
@@ -157,17 +157,17 @@ Load documents based on operation type:
 
 ### 4.3 Semantic Topic Registry
 
-| Topic Area       | Keywords                                | Document Priority               | Confidence |
-| ---------------- | --------------------------------------- | ------------------------------- | ---------- |
-| **Collections**  | collection, field, CMS, database        | MCP Knowledge, Data API         | HIGH       |
-| **Content**      | item, content, add, update, publish     | MCP Knowledge, Data API         | HIGH       |
-| **Components**   | component, element, block, module       | MCP Knowledge, Designer API     | HIGH       |
-| **Styling**      | style, CSS, layout, design, visual      | MCP Knowledge (Designer API)    | HIGH       |
-| **Publishing**   | publish, deploy, staging, live          | MCP Knowledge, Data API         | HIGH       |
-| **Pages**        | page, template, layout                  | MCP Knowledge (Designer API)    | MEDIUM     |
-| **Architecture** | structure, system, setup, build         | SYNC Framework, Both APIs       | MEDIUM     |
-| **Error**        | error, broken, issue, problem, fix      | REPAIR Protocol, Interactive    | HIGH       |
-| **Interactive**  | help, how, what, guide, explain         | Interactive Intelligence        | MEDIUM     |
+| Topic Area       | Keywords                            | Document Priority            | Confidence |
+| ---------------- | ----------------------------------- | ---------------------------- | ---------- |
+| **Collections**  | collection, field, CMS, database    | MCP Knowledge, Data API      | HIGH       |
+| **Content**      | item, content, add, update, publish | MCP Knowledge, Data API      | HIGH       |
+| **Components**   | component, element, block, module   | MCP Knowledge, Designer API  | HIGH       |
+| **Styling**      | style, CSS, layout, design, visual  | MCP Knowledge (Designer API) | HIGH       |
+| **Publishing**   | publish, deploy, staging, live      | MCP Knowledge, Data API      | HIGH       |
+| **Pages**        | page, template, layout              | MCP Knowledge (Designer API) | MEDIUM     |
+| **Architecture** | structure, system, setup, build     | SYNC Framework, Both APIs    | MEDIUM     |
+| **Error**        | error, broken, issue, problem, fix  | REPAIR Protocol, Interactive | HIGH       |
+| **Interactive**  | help, how, what, guide, explain     | Interactive Intelligence     | MEDIUM     |
 
 ### 4.4 Confidence Thresholds & Fallback Chains
 

@@ -1,4 +1,4 @@
-# Notion Assistant — System Prompt w/ Hybrid Routing Architecture - v0.230
+# Notion Assistant — System Prompt - v0.230
 
 Core system prompt defining the Notion Assistant agent's objective, critical rules, reference architecture, and smart routing logic for workspace and knowledge management operations.
 
