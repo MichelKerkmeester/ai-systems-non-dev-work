@@ -9,6 +9,7 @@ node_modules/
 # IDE and AI folders (ignored at all levels)
 .vscode/
 .opencode/
+.claude/
 
 # Configuration files (ignored at all levels)
 .env

@@ -1,25 +1,26 @@
-# Owner - Template - Task Mode - v0.200
+# Owner - Template - Task Mode - v0.202
 
 Streamlined task templates aligned with real-world ClickUp usage patterns. Concise, practical format with integrated formatting rules and quality standards.
 
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides self-contained task templates with resolution checklists for creating development tasks when $task or $t command is detected
-**Scope:** Task mode overview, delivery standards, complexity auto-scaling (Simple/Standard/Complex), quality checklists, error recovery, complete task templates, parent task pattern, quick mode variants, DEPTH methodology integration
+**Scope:** Task mode overview, delivery standards, complexity auto-scaling (Simple/Standard/Complex), quality checklists, error recovery, complete task templates, parent task pattern, quick mode variants, DEPTH Framework integration
+**Output Path:** `/export/[###]-artifact.md`
 
 ---
 
 ## 📋 TABLE OF CONTENTS
-1. [🎫 TASK MODE OVERVIEW](#1-task-mode-overview)
-2. [📦 DELIVERY STANDARDS](#2-delivery-standards)
-3. [📏 COMPLEXITY AUTO-SCALING](#3-complexity-auto-scaling)
-4. [✅ QUALITY CHECKLIST](#4-quality-checklist)
-5. [🚨 ERROR RECOVERY](#5-error-recovery)
-6. [🔵 SIMPLE TASK TEMPLATE](#6-simple-task-template)
-7. [🟠 STANDARD TASK TEMPLATE](#7-standard-task-template)
-8. [🔴 COMPLEX TASK TEMPLATE](#8-complex-task-template)
-9. [👨‍👩‍👧‍👦 PARENT TASK TEMPLATE](#9-parent-task-template)
-10. [⚡ QUICK MODE TEMPLATES](#10-quick-mode-templates)
-11. [🎯 FINAL REMINDERS](#11-final-reminders)
+1. [🎫 TASK MODE OVERVIEW](#1--task-mode-overview)
+2. [📦 DELIVERY STANDARDS](#2--delivery-standards)
+3. [📏 COMPLEXITY AUTO-SCALING](#3--complexity-auto-scaling)
+4. [✅ QUALITY CHECKLIST](#4--quality-checklist)
+5. [🚨 ERROR RECOVERY](#5--error-recovery)
+6. [🔵 SIMPLE TASK TEMPLATE](#6--simple-task-template)
+7. [🟠 STANDARD TASK TEMPLATE](#7--standard-task-template)
+8. [🔴 COMPLEX TASK TEMPLATE](#8--complex-task-template)
+9. [👨‍👩‍👧‍👦 PARENT TASK TEMPLATE](#9--parent-task-template)
+10. [⚡ QUICK MODE TEMPLATES](#10--quick-mode-templates)
+11. [🎯 FINAL REMINDERS](#11--final-reminders)
 
 ---
 
@@ -30,7 +31,7 @@ Streamlined task templates aligned with real-world ClickUp usage patterns. Conci
 - **Short Alias:** `$t`
 - **Purpose:** Create development tasks with resolution checklists that auto-scale complexity
 - **Output:** Always as `text/markdown` artifact
-- **Thinking:** 10 rounds automatic (DEPTH methodology), 1-5 auto-scaled for $quick
+- **Thinking:** 10 rounds automatic (DEPTH Framework), 1-5 auto-scaled for $quick
 - **Interactive Mode:** Handled by Interactive Mode file (all question logic lives there)
 - **Header Position:** Optional - at top as first line when included
 - **Output Constraints:** Task contains ONLY the requested feature/fix/change
@@ -88,8 +89,8 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 5. Resolution Checklist (### ✓) - Numbered categories with checkbox items
 
 #### Formatting Standards
-- **Dividers:** Use `---` between all major sections
-- **Lists:** Always use `-` for bullets, `[]` for checkboxes
+- **Dividers:** Use `---` between major sections only
+- **Lists:** Always use `-` for bullets, `- [ ]` for checkboxes
 - **References:** Two patterns supported:
   - Standard: Flows, Components (for feature development)
   - Component Updates: Changed, Impacted (for design system changes)
@@ -98,7 +99,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - **Assumptions:** Format as `[Assumes: X]` inline within requirements
 
 ### Visual Hierarchy Rules
-- Use `---` as major section separators
+- Use `---` as major section separators only
 - No blank lines between dividers and section headers
 - H2 for About section (## ⌘ About)
 - H3 for other sections (### ⌥ References, ### ❖ Requirements, ### ✓ Resolution Checklist)
@@ -178,51 +179,51 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 ## 4. ✅ QUALITY CHECKLIST
 
 ### Pre-Creation Validation
-[] DEPTH methodology applied (10 rounds standard, 1-5 quick)?
-[] User responded to comprehensive question?
-[] System waited for response (never answered own questions)?
-[] Complexity determined correctly?
-[] Template version confirmed?
-[] Output scope limited to user request?
+- [ ] DEPTH Framework applied (10 rounds standard, 1-5 quick)?
+- [ ] User responded to comprehensive question?
+- [ ] System waited for response (never answered own questions)?
+- [ ] Complexity determined correctly?
+- [ ] Template version confirmed?
+- [ ] Output scope limited to user request?
 
 ### Structure Validation
-[] About section uses H2 (## ⌘ About)?
-[] About contains narrative + Scope (if standard/complex)?
-[] Requirements section uses H3 (### ❖ Requirements)?
-[] Requirements use numbered descriptive format (1. **Feature: Action**)?
-[] Resolution Checklist uses H3 (### ✓ Resolution Checklist)?
-[] Resolution Checklist categories mirror requirements?
-[] Correct symbol hierarchy applied (H2 for About, H3 for others)?
-[] Dividers (---) between all sections?
-[] No H1 headers except document title?
+- [ ] About section uses H2 (## ⌘ About)?
+- [ ] About contains narrative + Scope (if standard/complex)?
+- [ ] Requirements section uses H3 (### ❖ Requirements)?
+- [ ] Requirements use numbered descriptive format (1. **Feature: Action**)?
+- [ ] Resolution Checklist uses H3 (### ✓ Resolution Checklist)?
+- [ ] Resolution Checklist categories mirror requirements?
+- [ ] Correct symbol hierarchy applied (H2 for About, H3 for others)?
+- [ ] Dividers (---) between major sections only?
+- [ ] No H1 headers except document title?
 
 ### Format Validation
-[] Using `text/markdown` artifact type?
-[] Lists use `-` bullets?
-[] Checkboxes use `[]` format?
-[] Dividers between all sections?
-[] Numbered descriptive format for requirements?
-[] Inline images supported where relevant?
-[] No Table of Contents?
-[] No unrequested features?
-[] Content limited to requested feature?
+- [ ] Using `text/markdown` artifact type?
+- [ ] Lists use `-` bullets?
+- [ ] Checkboxes use `- [ ]` format?
+- [ ] Dividers between major sections only?
+- [ ] Numbered descriptive format for requirements?
+- [ ] Inline images supported where relevant?
+- [ ] No Table of Contents?
+- [ ] No unrequested features?
+- [ ] Content limited to requested feature?
 
 ### User Story Validation (if applicable)
-[] User Stories use Given/When/Then format?
-[] Given states the context or precondition?
-[] When states the user action or trigger?
-[] Then states the expected outcome?
+- [ ] User Stories use Given/When/Then format?
+- [ ] Given states the context or precondition?
+- [ ] When states the user action or trigger?
+- [ ] Then states the expected outcome?
 
 ### Mode-Specific Validation
-[] About uses narrative format?
-[] Scope uses bulleted list (if included)?
-[] Requirements use numbered descriptive format?
-[] User Stories embedded under requirements (Given/When/Then)?
-[] Resolution checklist scaled (4-6/8-12/12-20)?
-[] Checklist categories mirror requirements structure?
-[] Separators used correctly?
-[] 10-round DEPTH applied?
-[] Only requested feature covered?
+- [ ] About uses narrative format?
+- [ ] Scope uses bulleted list (if included)?
+- [ ] Requirements use numbered descriptive format?
+- [ ] User Stories embedded under requirements (Given/When/Then)?
+- [ ] Resolution checklist scaled (4-6/8-12/12-20)?
+- [ ] Checklist categories mirror requirements structure?
+- [ ] Separators used correctly?
+- [ ] 10-round DEPTH applied?
+- [ ] Only requested feature covered?
 
 ---
 
@@ -289,19 +290,13 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ## ⌘ About
 
----
-
 {1-2 sentence narrative explaining what this change does and why it matters.}
 
 ---
 
 ### ❖ Requirements
 
----
-
 1. **{Feature}: {Action}**
-
----
 
 {Description of what needs to be done.}
 
@@ -314,20 +309,16 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ### ✓ Resolution Checklist
 
----
-
 ⚠️ Complete all items below before moving to QA
 
 **1. {Category matching Requirement 1}**
----
-[] {Action item}
-[] {Action item}
+- [ ] {Action item}
+- [ ] {Action item}
 
 **2. Validation**
----
-[] Tested on iOS
-[] Tested on Android
-[] QA verified
+- [ ] Tested on iOS
+- [ ] Tested on Android
+- [ ] QA verified
 ```
 
 ---
@@ -339,13 +330,9 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ## ⌘ About
 
----
-
 {2-3 sentence narrative explaining what this change does, why it matters, and the expected outcome.}
 
 **Scope**
-
----
 
 - **{Category}:** {Details}
 - **{Category}:** {Details}
@@ -353,8 +340,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 ---
 
 ### ⌥ References
-
----
 
 **Flows**
 
@@ -368,11 +353,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ### ❖ Requirements
 
----
-
 1. **{Feature}: {Action}**
-
----
 
 {Description of what needs to be done.}
 
@@ -389,11 +370,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - {Detail}
 - {Detail}
 
----
-
 2. **{Feature}: {Action}**
-
----
 
 {Description of the second requirement.}
 
@@ -403,11 +380,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - {Detail}
 - {Detail}
 
----
-
 3. **Functional Requirements**
-
----
 
 **{Category}**
 
@@ -422,31 +395,25 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ### ✓ Resolution Checklist
 
----
-
 ⚠️ Complete all items below before moving to QA
 
 **1. {Category matching Requirement 1}**
----
-[] {Action item}
-[] {Action item}
-[] Design & Layout matches Figma specifications
+- [ ] {Action item}
+- [ ] {Action item}
+- [ ] Design & Layout matches Figma specifications
 
 **2. {Category matching Requirement 2}**
----
-[] {Action item}
-[] {Action item}
+- [ ] {Action item}
+- [ ] {Action item}
 
 **3. Functionality**
----
-[] {Functional requirement item}
-[] {Error handling verified}
+- [ ] {Functional requirement item}
+- [ ] {Error handling verified}
 
 **4. Validation**
----
-[] Tested on iOS
-[] Tested on Android
-[] QA verified
+- [ ] Tested on iOS
+- [ ] Tested on Android
+- [ ] QA verified
 ```
 
 ---
@@ -458,13 +425,9 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ## ⌘ About
 
----
-
 {3-4 sentence comprehensive narrative explaining the current situation, what this change does, why it matters strategically, and the expected business/user outcome.}
 
 **Scope**
-
----
 
 - **{Category}:** {Details}
 - **{Category}:** {Details}
@@ -473,8 +436,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 ---
 
 ### ⌥ References
-
----
 
 **Flows**
 
@@ -490,15 +451,9 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ### ❖ Requirements
 
----
-
 ### **{Section Name}**
 
----
-
 1. **{Feature}: {Action}**
-
----
 
 {Detailed description of the requirement.}
 
@@ -516,11 +471,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - {Detail with technical specifics}
 - {Detail with technical specifics}
 
----
-
 2. **{Feature}: {Action}**
-
----
 
 {Detailed description of the requirement.}
 
@@ -535,15 +486,9 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - {Detail}
 - {Detail}
 
----
-
 ### **{Another Section Name}**
 
----
-
 3. **{Feature}: {Action}**
-
----
 
 {Description} [Assumes: {assumption about dependencies or existing functionality}]
 
@@ -552,11 +497,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - {Detail}
 - {Detail}
 
----
-
 4. **Functional Requirements**
-
----
 
 **{Category}**
 
@@ -576,39 +517,32 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ### ✓ Resolution Checklist
 
----
-
 ⚠️ Complete all items below before moving to QA
 
 **1. {Section 1 - Category}**
----
-[] {Action item}
-[] {Action item}
-[] Design & Layout matches Figma specifications
+- [ ] {Action item}
+- [ ] {Action item}
+- [ ] Design & Layout matches Figma specifications
 
 **2. {Section 1 - Another Category}**
----
-[] {Action item}
-[] {Action item}
+- [ ] {Action item}
+- [ ] {Action item}
 
 **3. {Section 2 - Category}**
----
-[] {Action item}
-[] {Action item}
+- [ ] {Action item}
+- [ ] {Action item}
 
 **4. Functionality**
----
-[] {Functional requirement}
-[] {Error handling verified}
-[] {Edge cases handled}
+- [ ] {Functional requirement}
+- [ ] {Error handling verified}
+- [ ] {Edge cases handled}
 
 **5. Validation**
----
-[] Tested on iOS
-[] Tested on Android
-[] Visual parity confirmed
-[] Performance validated
-[] QA verified
+- [ ] Tested on iOS
+- [ ] Tested on Android
+- [ ] Visual parity confirmed
+- [ ] Performance validated
+- [ ] QA verified
 ```
 
 ---
@@ -622,13 +556,9 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 
 ## ⌘ About
 
----
-
 {Overview description of the full initiative and its components.}
 
 **Scope**
-
----
 
 - **{Subtask Area 1}:** {Brief description}
 - **{Subtask Area 2}:** {Brief description}
@@ -637,8 +567,6 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 ---
 
 ### ⌥ References
-
----
 
 **Flows**
 
@@ -652,27 +580,15 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 
 ### ❖ Requirements
 
----
-
 1. **{Subtask 1 Name}**
 
----
-
 [{Subtask Title}](clickup-url)
-
----
 
 2. **{Subtask 2 Name}**
 
----
-
 [{Subtask Title}](clickup-url)
 
----
-
 3. **{Subtask 3 Name}**
-
----
 
 [{Subtask Title}](clickup-url)
 
@@ -680,16 +596,13 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 
 ### ✓ Resolution Checklist
 
----
-
 ⚠️ Complete all items below before moving to QA
 
 **Subtasks**
----
-[] Subtask 1 → {Name} = Completed
-[] Subtask 2 → {Name} = Completed
-[] Subtask 3 → {Name} = Completed
-[] QA verified
+- [ ] Subtask 1 → {Name} = Completed
+- [ ] Subtask 2 → {Name} = Completed
+- [ ] Subtask 3 → {Name} = Completed
+- [ ] QA verified
 ```
 
 ---
@@ -703,19 +616,13 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 
 ## ⌘ About
 
----
-
 {Brief context of what changed and why.}
 
 ---
 
 ### ❖ Requirements
 
----
-
 1. **{Feature}: {Action}**
-
----
 
 - {Core requirement}
 - {Implementation detail}
@@ -724,16 +631,12 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 
 ### ✓ Resolution Checklist
 
----
-
 **1. Implementation**
----
-[] {Key action}
-[] Tested and verified
+- [ ] {Key action}
+- [ ] Tested and verified
 
 **2. Validation**
----
-[] QA approved
+- [ ] QA approved
 ```
 
 ### Standard Quick Mode
@@ -743,13 +646,9 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 
 ## ⌘ About
 
----
-
 {Context paragraph with key details.}
 
 **Scope**
-
----
 
 - **{Category}:** {Details}
 - **{Category}:** {Details}
@@ -758,20 +657,12 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 
 ### ❖ Requirements
 
----
-
 1. **{Feature}: {Action}**
 
----
-
 - {Requirement}
 - {Requirement}
-
----
 
 2. **{Feature}: {Action}**
-
----
 
 - {Requirement}
 
@@ -779,20 +670,15 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 
 ### ✓ Resolution Checklist
 
----
-
 **1. Implementation**
----
-[] Requirements implemented
-[] Testing complete
+- [ ] Requirements implemented
+- [ ] Testing complete
 
 **2. Documentation**
----
-[] Documentation updated
+- [ ] Documentation updated
 
 **3. Validation**
----
-[] QA verified
+- [ ] QA verified
 ```
 
 ---
@@ -815,16 +701,13 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 14. **Resolution Checklist** categories MIRROR requirement structure
 15. **H2 for About only** (## ⌘ About)
 16. **H3 for other sections** (### ⌥ References, ### ❖ Requirements, ### ✓ Resolution Checklist)
-17. **Use `---` dividers** between all sections
+17. **Use `---` dividers** between major sections only
 18. **Validation is always last** category in checklist
 19. **Mobile validation:** Tested on iOS, Tested on Android, QA verified
 20. **Web validation:** Cross-browser testing, QA verified
 21. **No Table of Contents**
 22. **Only requested features** - no scope expansion
-23. **DEPTH methodology** applied automatically (10 rounds standard, 1-5 quick)
+23. **DEPTH Framework** applied automatically (10 rounds standard, 1-5 quick)
 24. **Parent Task pattern** available for tasks with subtasks
 
 ---
-
-*Template Version: 0.200 - Major update aligned with real-world ClickUp task patterns*
-*Key changes: Renamed from Ticket to Task Mode, Given/When/Then User Story format, Scope replaces Success Criteria, Resolution categories mirror requirements*
