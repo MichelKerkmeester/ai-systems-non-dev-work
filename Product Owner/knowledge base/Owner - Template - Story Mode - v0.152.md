@@ -5,6 +5,7 @@ User story templates with integrated formatting rules and quality standards. All
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides self-contained user story templates in narrative format for creating user-centered requirements when $story or $s command is detected
 **Scope:** Story Mode command structure, delivery standards, complexity auto-scaling rules, quality validation checklists, error recovery protocols, template formats (Simple/Standard/Complex/Quick), formatting standards, and story-specific requirements
+**Output Path:** `/export/[###]-artifact.md`
 
 ---
 
@@ -29,9 +30,9 @@ User story templates with integrated formatting rules and quality standards. All
 
 ### Command Aliases
 
-| Command | Alias | Description |
-| ------- | ----- | ----------- |
-| `$story` | `$s` | Create user story in narrative format |
+| Command        | Alias      | Description                            |
+| -------------- | ---------- | -------------------------------------- |
+| `$story`       | `$s`       | Create user story in narrative format  |
 | `$quick story` | `$q story` | Quick mode - no questions, auto-scaled |
 
 ### Command: `$story`
@@ -1108,12 +1109,12 @@ The different statuses are indicated by separate accordions.
 
 ### Related Templates
 
-| Mode | Template | Command | Purpose |
-| ---- | -------- | ------- | ------- |
-| **Bug Mode** | Owner - Template - Bug Mode | `$bug` / `$b` | Bug reports with reproduction steps |
+| Mode          | Template                     | Command        | Purpose                                 |
+| ------------- | ---------------------------- | -------------- | --------------------------------------- |
+| **Bug Mode**  | Owner - Template - Bug Mode  | `$bug` / `$b`  | Bug reports with reproduction steps     |
 | **Epic Mode** | Owner - Template - Epic Mode | `$epic` / `$e` | Large initiatives with multiple stories |
-| **Doc Mode** | Owner - Template - Doc Mode | `$doc` / `$d` | Documentation and knowledge articles |
-| **Task Mode** | Owner - Template - Task Mode | `$task` / `$t` | Development tasks with QA checklists |
+| **Doc Mode**  | Owner - Template - Doc Mode  | `$doc` / `$d`  | Documentation and knowledge articles    |
+| **Task Mode** | Owner - Template - Task Mode | `$task` / `$t` | Development tasks with QA checklists    |
 
 ### Supporting Files
 
@@ -1125,11 +1126,11 @@ The different statuses are indicated by separate accordions.
 
 ## 13. 📝 VERSION HISTORY
 
-| Date | Changes |
-| ---- | ------- |
-| 2026-01-09 | Updated cross-references: DEPTH Framework, Interactive Mode |
+| Date       | Changes                                                                                                                                                                                                                                                                                                                                                                        |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 2026-01-09 | Updated cross-references: DEPTH Framework, Interactive Mode                                                                                                                                                                                                                                                                                                                    |
 | 2026-01-09 | Added traditional user story format (As a/I want/So that), Added BDD scenarios (Given/When/Then), Added Acceptance Criteria section, Fixed checkbox syntax (`- []` → `- [ ]`), Added DEPTH Framework version reference, Added Interactive Mode reference, Removed placeholder URL in example, Added command alias table, Added cross-references section, Added version history |
-| — | Initial consolidated story mode template |
+| —          | Initial consolidated story mode template                                                                                                                                                                                                                                                                                                                                       |
 
 ---
 

@@ -161,18 +161,7 @@ Based on routing logic in System Prompt:
 
 ---
 
-# 5. 📁 KNOWLEDGE BASE FILES
-
-| File | Version | Load Tier |
-|------|---------|-----------|
-| Webflow - System Prompt - v0.540.md | v0.540 | ALWAYS |
-| Webflow - MCP Knowledge - v0.413.md | v0.413 | API |
-| Webflow - SYNC Thinking Framework - v0.411.md | v0.411 | COMPLEX |
-| Webflow - Interactive Intelligence - v0.411.md | v0.411 | CLARIFICATION |
-
----
-
-# 6. 🚨 PROCESSING HIERARCHY
+# 5. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** — Webflow MCP specialist role boundaries enforced
 2. **System Prompt** — Read completely, contains all routing logic

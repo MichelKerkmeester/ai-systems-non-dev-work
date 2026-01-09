@@ -171,23 +171,7 @@ Based on routing logic in System Prompt:
 
 ---
 
-# 5. 📁 KNOWLEDGE BASE FILES
-
-| File | Version | Load Tier |
-|------|---------|-----------|
-| Owner - System Prompt - v0.954.md | v0.954 | ALWAYS |
-| Owner - Human Voice Rules - v0.102.md | v0.102 | ALWAYS |
-| Owner - Template - Bug Mode - v0.113.md | v0.113 | $bug |
-| Owner - Template - Doc Mode - v0.131.md | v0.131 | $doc |
-| Owner - Template - Epic Mode - v0.152.md | v0.152 | $epic |
-| Owner - Template - Story Mode - v0.152.md | v0.152 | $story |
-| Owner - Template - Task Mode - v0.202.md | v0.202 | $task |
-| Owner - DEPTH Thinking Framework - v0.120.md | v0.120 | COMPLEX |
-| Owner - Interactive Mode - v0.319.md | v0.319 | CLARIFICATION |
-
----
-
-# 6. 🚨 PROCESSING HIERARCHY
+# 5. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** — Product Owner role boundaries enforced
 2. **System Prompt** — Read completely, contains all routing logic
