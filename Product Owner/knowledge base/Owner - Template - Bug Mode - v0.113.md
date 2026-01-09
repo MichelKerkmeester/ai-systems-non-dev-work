@@ -5,6 +5,7 @@ Structured bug report templates for defect tracking and resolution. Fixed struct
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides self-contained bug report templates for filing ISOLATED defects when $bug or $b command is detected
 **Scope:** Bug mode overview, delivery standards, quality checklists, error recovery, complete bug template, DEPTH methodology integration
+**Output Path:** `/export/[###]-artifact.md`
 
 ---
 
@@ -55,14 +56,14 @@ Structured bug report templates for defect tracking and resolution. Fixed struct
 ### Difference from Task Mode
 Bug Mode differs from Task Mode in several key ways:
 
-| Aspect | Task Mode | Bug Mode |
-|--------|-----------|----------|
-| Structure | Auto-scaled (Simple/Standard/Complex) | Fixed structure |
-| Requirements | Variable features | Fixed: Observed/Expected/Steps |
-| Evidence | Optional (inline images) | Dedicated section |
-| Checklist | Categories mirror requirements | Bug-specific with root cause |
-| Quick Mode | Supported ($quick task) | Not supported |
-| User Stories | Given/When/Then for features | Not typically used |
+| Aspect       | Task Mode                             | Bug Mode                       |
+| ------------ | ------------------------------------- | ------------------------------ |
+| Structure    | Auto-scaled (Simple/Standard/Complex) | Fixed structure                |
+| Requirements | Variable features                     | Fixed: Observed/Expected/Steps |
+| Evidence     | Optional (inline images)              | Dedicated section              |
+| Checklist    | Categories mirror requirements        | Bug-specific with root cause   |
+| Quick Mode   | Supported ($quick task)               | Not supported                  |
+| User Stories | Given/When/Then for features          | Not typically used             |
 
 ### Note on Feature Requests
 For feature development (new functionality, enhancements), use `$task` command which references **Owner - Template - Task Mode**
@@ -328,16 +329,16 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 4. {Continue until bug is triggered}
 5. {Observe the bug}
 
-| Field | Value |
-|-------|-------|
-| Frequency | {Always / Sometimes / Rarely} |
-| Severity | {Critical/High/Medium/Low} |
-| Priority | {P1/P2/P3/P4} |
-| Platform | {iOS/Android/Web} |
-| Device | {Device name/model} |
-| OS Version | {OS version} |
-| Browser | {Browser name - if web} |
-| Browser Version | {Browser version - if web} |
+| Field           | Value                         |
+| --------------- | ----------------------------- |
+| Frequency       | {Always / Sometimes / Rarely} |
+| Severity        | {Critical/High/Medium/Low}    |
+| Priority        | {P1/P2/P3/P4}                 |
+| Platform        | {iOS/Android/Web}             |
+| Device          | {Device name/model}           |
+| OS Version      | {OS version}                  |
+| Browser         | {Browser name - if web}       |
+| Browser Version | {Browser version - if web}    |
 
 ---
 
