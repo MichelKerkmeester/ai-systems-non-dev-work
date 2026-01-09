@@ -158,20 +158,7 @@ Based on routing logic in System Prompt:
 
 ---
 
-# 5. 📁 KNOWLEDGE BASE FILES
-
-| File | Version | Load Tier |
-|------|---------|-----------|
-| Media Editor - System Prompt - v0.240.md | v0.240 | ALWAYS |
-| Media Editor - MCP Intelligence - Imagician - v0.211.md | v0.211 | IMAGE |
-| Media Editor - MCP Intelligence - Video, Audio - v0.212.md | v0.212 | VIDEO/AUDIO |
-| Media Editor - HLS - Video Conversion - v0.110.md | v0.110 | HLS |
-| Media Editor - MEDIA Thinking Framework - v0.233.md | v0.233 | COMPLEX |
-| Media Editor - Interactive Intelligence - v0.220.md | v0.220 | CLARIFICATION |
-
----
-
-# 6. 🚨 PROCESSING HIERARCHY
+# 5. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** — Media editing specialist role boundaries enforced
 2. **System Prompt** — Read completely, contains all routing logic

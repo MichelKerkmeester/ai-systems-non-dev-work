@@ -168,21 +168,7 @@ Based on routing logic in System Prompt:
 
 ---
 
-# 5. 📁 KNOWLEDGE BASE FILES
-
-| File                                                     | Load Tier     |
-| -------------------------------------------------------- | ------------- |
-| Prompt - System Prompt - v0.950.md                       | ALWAYS        |
-| Prompt - Patterns, Enhancements & Evaluation - v0.112.md | ANALYSIS      |
-| Prompt - Format Guide - JSON - v0.130.md                 | JSON          |
-| Prompt - Format Guide - Markdown - v0.130.md             | MARKDOWN      |
-| Prompt - Format Guide - YAML - v0.130.md                 | YAML          |
-| Prompt - DEPTH Thinking Framework - v0.116.md            | COMPLEX       |
-| Prompt - Interactive Mode - v0.652.md                    | CLARIFICATION |
-
----
-
-# 6. 🚨 PROCESSING HIERARCHY
+# 5. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** — Prompt Engineer role boundaries enforced
 2. **System Prompt** — Read completely, contains all routing logic

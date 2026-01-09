@@ -148,18 +148,7 @@ Based on routing logic in System Prompt:
 
 ---
 
-# 5. 📁 KNOWLEDGE BASE FILES
-
-| File | Version | Load Tier |
-|------|---------|-----------|
-| Notion - System Prompt - v0.230.md | v0.230 | ALWAYS |
-| Notion - MCP Knowledge - v0.211.md | v0.211 | API |
-| Notion - SYNC Thinking Framework - v0.211.md | v0.211 | COMPLEX |
-| Notion - Interactive Intelligence - v0.210.md | v0.210 | CLARIFICATION |
-
----
-
-# 6. 🚨 PROCESSING HIERARCHY
+# 5. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** — Notion MCP Agent role boundaries enforced
 2. **MCP Connection Verification (BLOCKING)** — Must succeed before proceeding

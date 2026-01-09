@@ -5,6 +5,7 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides self-contained epic templates for creating high-level initiative documentation when $epic or $e command is detected
 **Scope:** Epic mode overview and command syntax, artifact delivery standards and DEPTH methodology application, complexity auto-scaling based on project keywords, symbol hierarchy and formatting rules, quality validation checklists and error recovery protocols, unified epic template with example structure
+**Output Path:** `/export/[###]-artifact.md`
 
 ---
 
@@ -318,10 +319,10 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 ---
 
-| Milestone | Target Date | Status |
-|-----------|-------------|--------|
-| [Milestone 1] | [Date] | [Not Started/In Progress/Complete] |
-| [Milestone 2] | [Date] | [Status] |
+| Milestone     | Target Date | Status                             |
+| ------------- | ----------- | ---------------------------------- |
+| [Milestone 1] | [Date]      | [Not Started/In Progress/Complete] |
+| [Milestone 2] | [Date]      | [Status]                           |
 
 **Key Dates:**
 - Start Date: [Date]
@@ -349,9 +350,9 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 ---
 
-| Story | Status | Priority |
-|-------|--------|----------|
-| [Story 1 - Title](link) | [Status] | [P1-P4] |
+| Story                   | Status   | Priority   |
+| ----------------------- | -------- | ---------- |
+| [Story 1 - Title](link) | [Status] | [P1-P4]    |
 | [Story 2 - Title](link) | [Status] | [Priority] |
 
 > See Story Mode for story template and decomposition guidance.
@@ -462,12 +463,12 @@ The MVP prioritizes functionality over complete design alignment, get the essent
 
 ---
 
-| Milestone | Target Date | Status |
-|-----------|-------------|--------|
-| Talk.js Integration | 2024-02-15 | Complete |
-| Core Messaging MVP | 2024-03-01 | In Progress |
-| Notifications Live | 2024-03-15 | Not Started |
-| Menu Features | 2024-03-30 | Not Started |
+| Milestone           | Target Date | Status      |
+| ------------------- | ----------- | ----------- |
+| Talk.js Integration | 2024-02-15  | Complete    |
+| Core Messaging MVP  | 2024-03-01  | In Progress |
+| Notifications Live  | 2024-03-15  | Not Started |
+| Menu Features       | 2024-03-30  | Not Started |
 
 **Key Dates:**
 - Start Date: 2024-02-01
@@ -498,13 +499,13 @@ The MVP prioritizes functionality over complete design alignment, get the essent
 
 ---
 
-| Story | Status | Priority |
-|-------|--------|----------|
-| [Browser Notifications Setup](link) | In Progress | P1 |
-| [System Messages Implementation](link) | Not Started | P1 |
-| [React to Message Feature](link) | Not Started | P2 |
-| [Reply to Message Feature](link) | Not Started | P2 |
-| [Search Chat Implementation](link) | Not Started | P3 |
+| Story                                  | Status      | Priority |
+| -------------------------------------- | ----------- | -------- |
+| [Browser Notifications Setup](link)    | In Progress | P1       |
+| [System Messages Implementation](link) | Not Started | P1       |
+| [React to Message Feature](link)       | Not Started | P2       |
+| [Reply to Message Feature](link)       | Not Started | P2       |
+| [Search Chat Implementation](link)     | Not Started | P3       |
 
 > See Story Mode for story template and decomposition guidance.
 
