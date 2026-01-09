@@ -1,4 +1,4 @@
-# Owner - Template - Epic Mode - v0.150
+# Owner - Template - Epic Mode - v0.152
 
 Epic templates with integrated formatting rules and quality standards. All delivery logic consolidated for self-contained operation.
 
@@ -23,7 +23,7 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 ## 1. 📝 EPIC MODE OVERVIEW
 
-### Command: `$epic`
+### Command: `$epic` (alias: `$e`)
 
 - **Purpose:** Create Epic documents as summaries with links to related stories and tasks
 - **Output:** Always as `text/markdown` artifact
@@ -31,6 +31,7 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - **Key Focus:** High-level overview, success metrics, links to implementation details
 - **Silent Processing:** User sees simple messages, not methodology details
 - **Output Constraints:** Epic limited to user's exact request, no scope expansion
+- **Related Templates:** Story Mode for child story decomposition
 
 ### Critical Rules
 - **NEVER create artifact until user responds to comprehensive question**
@@ -69,8 +70,11 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 1. Title (`# Epic Name`) - First line
 2. About (`## ⌘ About`) - Context narrative
 3. Success Criteria (`**Success Criteria**`) - Bulleted metrics
-4. References (`**References**`) - Optional, with Flows/Components subsections
-5. Requirements (`### ❖ Requirements`) - Feature areas with numbered items
+4. Timeline & Milestones (`### ⏱ Timeline & Milestones`) - Key dates and milestones
+5. Dependencies (`### 🔗 Dependencies`) - Blocking/blocked relationships
+6. Child Stories (`### 📝 Child Stories`) - Story decomposition links
+7. References (`**References**`) - Optional, with Flows/Components subsections
+8. Requirements (`### ❖ Requirements`) - Feature areas with numbered items
 
 ### Never:
 - Use `text/plain` - Causes raw markdown display
@@ -143,11 +147,14 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 4. `**Success Criteria**` with `---` divider before
 5. Bulleted criteria list
 6. `---` divider
-7. `**References**` (optional) with `---` divider after
-8. `**Flows**` and `**Components**` subsections
-9. `---` divider
-10. `### ❖ Requirements` with `---` divider after
-11. `### [Feature Area]` sections with numbered requirements
+7. `### ⏱ Timeline & Milestones` - Key dates and milestone tracking
+8. `### 🔗 Dependencies` - Blocking and blocked-by relationships
+9. `### 📝 Child Stories` - Story decomposition with status
+10. `**References**` (optional) with `---` divider after
+11. `**Flows**` and `**Components**` subsections
+12. `---` divider
+13. `### ❖ Requirements` with `---` divider after
+14. `### [Feature Area]` sections with numbered requirements
 
 #### Formatting Standards
 - **Dividers:** Use `---` after section headers AND between major feature areas
@@ -178,38 +185,41 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 ## 5. ✅ QUALITY CHECKLIST
 
 ### Pre-Creation Validation
-- [] Complexity determined correctly?
-- [] Template version confirmed (v0.150)?
-- [] Output scope limited to user request?
+- [ ] Complexity determined correctly?
+- [ ] Template version confirmed?
+- [ ] Output scope limited to user request?
 
 ### Structure Validation
-- [] Title as H1 first line?
-- [] About section as H2 with ⌘ symbol?
-- [] About is 2-3 paragraphs narrative?
-- [] Success Criteria as bold text (not H2)?
-- [] References in bulleted list format with categories?
-- [] Requirements as H3 with ❖ symbol?
-- [] Feature areas as H3 headers?
-- [] Feature list includes story/task links?
-- [] Dividers after section headers?
+- [ ] Title as H1 first line?
+- [ ] About section as H2 with ⌘ symbol?
+- [ ] About is 2-3 paragraphs narrative?
+- [ ] Success Criteria as bold text (not H2)?
+- [ ] Timeline & Milestones section included?
+- [ ] Dependencies section included?
+- [ ] Child Stories section with status table?
+- [ ] References in bulleted list format with categories?
+- [ ] Requirements as H3 with ❖ symbol?
+- [ ] Feature areas as H3 headers?
+- [ ] Feature list includes story/task links?
+- [ ] Dividers after section headers?
 
 ### Format Validation
-- [] Using `text/markdown` artifact type?
-- [] Lists use `-` bullets?
-- [] References as bulleted list (not table)?
-- [] Dividers (`---`) after headers and between areas?
-- [] Actual or placeholder links included?
-- [] No Table of Contents?
-- [] Features limited to user's request?
-- [] Status notes use standard format?
+- [ ] Using `text/markdown` artifact type?
+- [ ] Lists use `-` bullets?
+- [ ] References as bulleted list (not table)?
+- [ ] Dividers (`---`) after headers and between areas?
+- [ ] Actual or placeholder links included?
+- [ ] No Table of Contents?
+- [ ] Features limited to user's request?
+- [ ] Status notes use standard format?
 
 ### Mode-Specific Validation
-- [] Title at top as H1?
-- [] About concise (2-3 paragraphs)?
-- [] Success Criteria after About narrative?
-- [] Feature overview includes links?
-- [] 10-round DEPTH applied?
-- [] Only requested features included?
+- [ ] Title at top as H1?
+- [ ] About concise (2-3 paragraphs)?
+- [ ] Success Criteria after About narrative?
+- [ ] Feature overview includes links?
+- [ ] 10-round DEPTH applied?
+- [ ] Only requested features included?
 
 ---
 
@@ -250,10 +260,19 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 #### Missing Feature Links
 **Fix:** Add links to related stories and tasks
 
+#### Missing Timeline/Milestones
+**Fix:** Add `### ⏱ Timeline & Milestones` section with dates table
+
+#### Missing Dependencies
+**Fix:** Add `### 🔗 Dependencies` section with blocking relationships
+
+#### Missing Child Stories
+**Fix:** Add `### 📝 Child Stories` section with story status table
+
 ### Prevention Strategies
 1. Apply DEPTH automatically (10 rounds standard, 1-5 quick)
 2. Wait for comprehensive response
-3. Check template version (v0.150)
+3. Check template version
 4. Verify symbol hierarchy (H1 title, H2 About, H3 Requirements)
 5. Position sections correctly
 6. Keep About concise (2-3 paragraphs)
@@ -263,6 +282,9 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 10. Use correct artifact type
 11. Include links to stories/tasks
 12. Add dividers after headers
+13. Include Timeline & Milestones section
+14. Include Dependencies section
+15. Include Child Stories section
 
 ---
 
@@ -289,6 +311,50 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - [Measurable outcome 2 with specific metric]
 - [Measurable outcome 3 with specific metric]
 - [Performance/adoption target if applicable]
+
+---
+
+### ⏱ Timeline & Milestones
+
+---
+
+| Milestone | Target Date | Status |
+|-----------|-------------|--------|
+| [Milestone 1] | [Date] | [Not Started/In Progress/Complete] |
+| [Milestone 2] | [Date] | [Status] |
+
+**Key Dates:**
+- Start Date: [Date]
+- Target Completion: [Date]
+- Review Checkpoints: [Dates]
+
+---
+
+### 🔗 Dependencies
+
+---
+
+**Blocking:**
+- [Epic/Feature that must complete first]
+
+**Blocked By:**
+- [Epic/Feature waiting on this]
+
+**Related Epics:**
+- [Related initiative]
+
+---
+
+### 📝 Child Stories
+
+---
+
+| Story | Status | Priority |
+|-------|--------|----------|
+| [Story 1 - Title](link) | [Status] | [P1-P4] |
+| [Story 2 - Title](link) | [Status] | [Priority] |
+
+> See Story Mode for story template and decomposition guidance.
 
 ---
 
@@ -392,6 +458,58 @@ The MVP prioritizes functionality over complete design alignment, get the essent
 
 ---
 
+### ⏱ Timeline & Milestones
+
+---
+
+| Milestone | Target Date | Status |
+|-----------|-------------|--------|
+| Talk.js Integration | 2024-02-15 | Complete |
+| Core Messaging MVP | 2024-03-01 | In Progress |
+| Notifications Live | 2024-03-15 | Not Started |
+| Menu Features | 2024-03-30 | Not Started |
+
+**Key Dates:**
+- Start Date: 2024-02-01
+- Target Completion: 2024-03-30
+- Review Checkpoints: 2024-02-15, 2024-03-01, 2024-03-15
+
+---
+
+### 🔗 Dependencies
+
+---
+
+**Blocking:**
+- User Authentication v2 must be complete
+- Talk.js SDK integration approved
+
+**Blocked By:**
+- Chat v2 - Phase 2 (Advanced Features)
+- Notification Center Epic
+
+**Related Epics:**
+- Mobile App Refresh
+- Partner Dashboard v3
+
+---
+
+### 📝 Child Stories
+
+---
+
+| Story | Status | Priority |
+|-------|--------|----------|
+| [Browser Notifications Setup](link) | In Progress | P1 |
+| [System Messages Implementation](link) | Not Started | P1 |
+| [React to Message Feature](link) | Not Started | P2 |
+| [Reply to Message Feature](link) | Not Started | P2 |
+| [Search Chat Implementation](link) | Not Started | P3 |
+
+> See Story Mode for story template and decomposition guidance.
+
+---
+
 **References**
 
 ---
@@ -487,17 +605,21 @@ Filter chat list to show only conversations from a specific company.
 3. **Title as H1** - First line, no metadata header
 4. **About as H2** with ⌘ symbol - 2-3 paragraphs narrative
 5. **Success Criteria as bold text** - After About, not a separate H2
-6. **References as bold text** - With Flows/Components subsections
-7. **Requirements as H3** with ❖ symbol
-8. **Feature areas as H3** - With numbered bold items inside
-9. **Dividers after headers** - `---` after each section header
-10. **Dividers between areas** - `---` between feature areas
-11. **No Table of Contents** (ClickUp/Jira provide native TOC)
-12. **Only requested features** - no scope expansion
-13. **DEPTH methodology** applied automatically (10 rounds standard, 1-5 quick)
-14. **Link to stories/tasks** - don't duplicate their content
-15. **Interactive questions** handled by Interactive Mode file
+6. **Timeline & Milestones section** - Key dates and milestone tracking
+7. **Dependencies section** - Blocking/blocked relationships
+8. **Child Stories section** - Story decomposition with status (see Story Mode)
+9. **References as bold text** - With Flows/Components subsections
+10. **Requirements as H3** with ❖ symbol
+11. **Feature areas as H3** - With numbered bold items inside
+12. **Dividers after headers** - `---` after each section header
+13. **Dividers between areas** - `---` between feature areas
+14. **No Table of Contents** (ClickUp/Jira provide native TOC)
+15. **Only requested features** - no scope expansion
+16. **DEPTH methodology** applied automatically (10 rounds standard, 1-5 quick) - see DEPTH Framework
+17. **Link to stories/tasks** - don't duplicate their content
+18. **Interactive questions** handled by Interactive Mode
 
 ---
 
+*Epic Mode Template - Product Owner System*
 *This template is the foundation for Epic Mode deliverables in the Product Owner system. It ensures consistent excellence through DEPTH cognitive methodology while maintaining clean, production-aligned output that matches real-world ClickUp patterns.*

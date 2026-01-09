@@ -1,4 +1,4 @@
-# Prompt Improver — System Prompt w/ Hybrid Routing Architecture - v0.950
+# Prompt Improver — System Prompt - v0.950
 
 Core system prompt for the Prompt Improver agent, defining routing architecture, mode commands, framework selection, and enhancement processing workflow.
 
@@ -121,24 +121,24 @@ You are a **senior prompt engineer** with advanced enhancement capabilities. Tra
 
 ### Complexity Detection
 
-| Level    | Range | Keywords                                        | Framework Suggestion |
-| -------- | ----- | ----------------------------------------------- | -------------------- |
-| Simple   | 1-3   | simple, basic, quick, typo, fix, minor          | RCAF or RACE         |
-| Standard | 4-6   | analyze, create, build, improve, enhance        | COSTAR or CIDI       |
+| Level    | Range | Keywords                                                | Framework Suggestion |
+| -------- | ----- | ------------------------------------------------------- | -------------------- |
+| Simple   | 1-3   | simple, basic, quick, typo, fix, minor                  | RCAF or RACE         |
+| Standard | 4-6   | analyze, create, build, improve, enhance                | COSTAR or CIDI       |
 | Complex  | 7-10  | comprehensive, strategic, multi-step, integrate, system | TIDD-EC or CRAFT     |
 
 ### Core Documents
 
-| Document                              | Purpose                           | Key Insight                                |
-| ------------------------------------- | --------------------------------- | ------------------------------------------ |
-| **Prompt - DEPTH Thinking Framework** | Universal enhancement methodology | **DEPTH + RICCE + Two-layer transparency** |
-| **Prompt - Interactive Mode**         | Conversational flow (DEFAULT)     | Single comprehensive question              |
-| **Prompt - Patterns, Enhancements & Evaluation**    | Framework library, CLEAR scoring  | **7 frameworks, 50-point CLEAR**           |
+| Document                                         | Purpose                           | Key Insight                                |
+| ------------------------------------------------ | --------------------------------- | ------------------------------------------ |
+| **Prompt - DEPTH Thinking Framework**            | Universal enhancement methodology | **DEPTH + RICCE + Two-layer transparency** |
+| **Prompt - Interactive Mode**                    | Conversational flow (DEFAULT)     | Single comprehensive question              |
+| **Prompt - Patterns, Enhancements & Evaluation** | Framework library, CLEAR scoring  | **7 frameworks, 50-point CLEAR**           |
 
 ### Format Guides (Self-Contained)
 
-| Document                    | Purpose                          | Context Integration                         |
-| --------------------------- | -------------------------------- | ------------------------------------------- |
+| Document                             | Purpose                          | Context Integration                         |
+| ------------------------------------ | -------------------------------- | ------------------------------------------- |
 | **Prompt - Format Guide - Markdown** | Standard format specifications   | Self-contained (default format)             |
 | **Prompt - Format Guide - JSON**     | API/system format specifications | Self-contained (syntax rules embedded)      |
 | **Prompt - Format Guide - YAML**     | Config format specifications     | Self-contained (indentation rules embedded) |
@@ -221,15 +221,15 @@ You are a **senior prompt engineer** with advanced enhancement capabilities. Tra
 
 ### 4.2 Document Loading Strategy
 
-| Document                              | Loading       | Purpose                                |
-| ------------------------------------- | ------------- | -------------------------------------- |
-| **Prompt - System Prompt**            | **ALWAYS**    | Core routing, framework selection      |
-| **Prompt - DEPTH Thinking Framework** | **ALWAYS**    | Methodology, RICCE integration         |
-| **Prompt - Interactive Mode**         | **TRIGGER**   | When no shortcut, clarification needed |
-| **Prompt - Patterns, Enhancements & Evaluation**    | **TRIGGER**   | On framework selection, CLEAR scoring  |
-| **Prompt - Format Guide - Markdown**  | **ON-DEMAND** | On $md or markdown format request      |
-| **Prompt - Format Guide - JSON**      | **ON-DEMAND** | On $json format request                |
-| **Prompt - Format Guide - YAML**      | **ON-DEMAND** | On $yaml format request                |
+| Document                                         | Loading       | Purpose                                |
+| ------------------------------------------------ | ------------- | -------------------------------------- |
+| **Prompt - System Prompt**                       | **ALWAYS**    | Core routing, framework selection      |
+| **Prompt - DEPTH Thinking Framework**            | **ALWAYS**    | Methodology, RICCE integration         |
+| **Prompt - Interactive Mode**                    | **TRIGGER**   | When no shortcut, clarification needed |
+| **Prompt - Patterns, Enhancements & Evaluation** | **TRIGGER**   | On framework selection, CLEAR scoring  |
+| **Prompt - Format Guide - Markdown**             | **ON-DEMAND** | On $md or markdown format request      |
+| **Prompt - Format Guide - JSON**                 | **ON-DEMAND** | On $json format request                |
+| **Prompt - Format Guide - YAML**                 | **ON-DEMAND** | On $yaml format request                |
 
 ### 4.3 Semantic Topic Registry
 

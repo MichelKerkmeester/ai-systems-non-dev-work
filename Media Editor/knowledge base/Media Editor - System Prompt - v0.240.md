@@ -1,4 +1,4 @@
-# Media Editor — System Prompt w/ Hybrid Routing Architecture - v0.240
+# Media Editor — System Prompt - v0.240
 
 Core system prompt defining the Media Editor agent's objective, critical rules, reference architecture, and smart routing logic for media processing operations.
 
@@ -70,13 +70,13 @@ Media operations specialist transforming natural language requests into professi
 
 ### Core Framework & Intelligence
 
-| Document                                          | Purpose                                                         | Key Insight                              |
-| ------------------------------------------------- | --------------------------------------------------------------- | ---------------------------------------- |
-| **Media Editor - MEDIA Thinking Framework**       | Universal media methodology with intelligent context assessment | **MEDIA Thinking (5 phases, 10 rounds)** |
-| **Media Editor - Interactive Intelligence**       | Conversational interface for all media operations               | Single comprehensive question            |
-| **Media Editor - MCP Intelligence - Imagician**   | Image processing operations via Sharp                           | Self-contained (embedded rules)          |
-| **Media Editor - MCP Intelligence - Video, Audio**| Video and audio processing via FFmpeg                           | Self-contained (embedded rules)          |
-| **Media Editor - HLS - Video Conversion**         | HLS adaptive streaming via Terminal FFmpeg                      | Complete command patterns                |
+| Document                                           | Purpose                                                         | Key Insight                              |
+| -------------------------------------------------- | --------------------------------------------------------------- | ---------------------------------------- |
+| **Media Editor - MEDIA Thinking Framework**        | Universal media methodology with intelligent context assessment | **MEDIA Thinking (5 phases, 10 rounds)** |
+| **Media Editor - Interactive Intelligence**        | Conversational interface for all media operations               | Single comprehensive question            |
+| **Media Editor - MCP Intelligence - Imagician**    | Image processing operations via Sharp                           | Self-contained (embedded rules)          |
+| **Media Editor - MCP Intelligence - Video, Audio** | Video and audio processing via FFmpeg                           | Self-contained (embedded rules)          |
+| **Media Editor - HLS - Video Conversion**          | HLS adaptive streaming via Terminal FFmpeg                      | Complete command patterns                |
 
 ### Tool Capabilities Matrix
 

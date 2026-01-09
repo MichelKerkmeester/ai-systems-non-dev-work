@@ -111,8 +111,8 @@ Violation of this protocol **invalidates the entire response**.
 ### **✅ STEP 1: READ CORE DOCUMENTS FIRST**
 **MANDATORY:** Read these documents **COMPLETELY** before proceeding:
 
-1. `/knowledge base/Owner - System Prompt - v0.952.md` (PRIMARY instruction set)
-2. `/knowledge base/Owner - Human Voice Rules - v0.100.md` (Voice and clarity rules)
+1. `/knowledge base/Owner - System Prompt - v0.954.md` (PRIMARY instruction set)
+2. `/knowledge base/Owner - Human Voice Rules - v0.102.md` (Voice and clarity rules)
 
 **System Prompt contains:**
 - Smart routing logic with conditional document loading
@@ -131,24 +131,24 @@ Violation of this protocol **invalidates the entire response**.
 Based on routing logic in System Prompt:
 
 1. **Templates** (Load per Command)
-   - `/knowledge base/Owner - Template - Bug Mode - v0.110.md` ($bug)
-   - `/knowledge base/Owner - Template - Doc Mode - v0.129.md` ($doc)
-   - `/knowledge base/Owner - Template - Epic Mode - v0.150.md` ($epic)
-   - `/knowledge base/Owner - Template - Story Mode - v0.150.md` ($story)
-   - `/knowledge base/Owner - Template - Task Mode - v0.200.md` ($task)
+   - `/knowledge base/Owner - Template - Bug Mode - v0.113.md` ($bug)
+   - `/knowledge base/Owner - Template - Doc Mode - v0.131.md` ($doc)
+   - `/knowledge base/Owner - Template - Epic Mode - v0.152.md` ($epic)
+   - `/knowledge base/Owner - Template - Story Mode - v0.152.md` ($story)
+   - `/knowledge base/Owner - Template - Task Mode - v0.202.md` ($task)
 
 2. **Complex Tasks**
-   - `/knowledge base/Owner - DEPTH Thinking Framework - v0.118.md`
+   - `/knowledge base/Owner - DEPTH Thinking Framework - v0.120.md`
 
 3. **Clarification Flow**
-   - `/knowledge base/Owner - Interactive Mode - v0.317.md`
+   - `/knowledge base/Owner - Interactive Mode - v0.319.md`
 
 ---
 
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- Skip the system prompt (`/knowledge base/Owner - System Prompt - v0.952.md`)
+- Skip the system prompt (`/knowledge base/Owner - System Prompt - v0.954.md`)
 - Proceed without reading the System Prompt completely
 - Read ALL documents unnecessarily (routing logic determines what's needed)
 - Answer your own questions (always wait for user, except $quick)
@@ -161,7 +161,7 @@ Based on routing logic in System Prompt:
 - **Use code blocks or inline text to paste deliverable content in chat**
 
 ### ALWAYS:
-- Start with `/knowledge base/Owner - System Prompt - v0.952.md` and `/knowledge base/Owner - Human Voice Rules - v0.100.md`
+- Start with `/knowledge base/Owner - System Prompt - v0.954.md` and `/knowledge base/Owner - Human Voice Rules - v0.102.md`
 - Follow routing logic in System Prompt (Section 4)
 - **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - description.ext` BEFORE responding — never display content in chat
 - Respect processing hierarchy
@@ -175,15 +175,15 @@ Based on routing logic in System Prompt:
 
 | File | Version | Load Tier |
 |------|---------|-----------|
-| Owner - System Prompt - v0.952.md | v0.952 | ALWAYS |
-| Owner - Human Voice Rules - v0.100.md | v0.100 | ALWAYS |
-| Owner - Template - Bug Mode - v0.110.md | v0.110 | $bug |
-| Owner - Template - Doc Mode - v0.129.md | v0.129 | $doc |
-| Owner - Template - Epic Mode - v0.150.md | v0.150 | $epic |
-| Owner - Template - Story Mode - v0.150.md | v0.150 | $story |
-| Owner - Template - Task Mode - v0.200.md | v0.200 | $task |
-| Owner - DEPTH Thinking Framework - v0.118.md | v0.118 | COMPLEX |
-| Owner - Interactive Mode - v0.317.md | v0.317 | CLARIFICATION |
+| Owner - System Prompt - v0.954.md | v0.954 | ALWAYS |
+| Owner - Human Voice Rules - v0.102.md | v0.102 | ALWAYS |
+| Owner - Template - Bug Mode - v0.113.md | v0.113 | $bug |
+| Owner - Template - Doc Mode - v0.131.md | v0.131 | $doc |
+| Owner - Template - Epic Mode - v0.152.md | v0.152 | $epic |
+| Owner - Template - Story Mode - v0.152.md | v0.152 | $story |
+| Owner - Template - Task Mode - v0.202.md | v0.202 | $task |
+| Owner - DEPTH Thinking Framework - v0.120.md | v0.120 | COMPLEX |
+| Owner - Interactive Mode - v0.319.md | v0.319 | CLARIFICATION |
 
 ---
 
@@ -200,4 +200,4 @@ Based on routing logic in System Prompt:
 
 ---
 
-**→ GO TO:** `/knowledge base/Owner - System Prompt - v0.952.md` and `/knowledge base/Owner - Human Voice Rules - v0.100.md` **NOW**
+**→ GO TO:** `/knowledge base/Owner - System Prompt - v0.954.md` and `/knowledge base/Owner - Human Voice Rules - v0.102.md` **NOW**

@@ -1,4 +1,4 @@
-# Owner - Template - Bug Mode - v0.110
+# Owner - Template - Bug Mode - v0.113
 
 Structured bug report templates for defect tracking and resolution. Fixed structure with Evidence capture, reproduction steps, and root cause analysis requirements.
 
@@ -9,12 +9,12 @@ Structured bug report templates for defect tracking and resolution. Fixed struct
 ---
 
 ## 📋 TABLE OF CONTENTS
-1. [🐛 BUG MODE OVERVIEW](#1-bug-mode-overview)
-2. [📦 DELIVERY STANDARDS](#2-delivery-standards)
-3. [✅ QUALITY CHECKLIST](#3-quality-checklist)
-4. [🚨 ERROR RECOVERY](#4-error-recovery)
-5. [🔴 BUG REPORT TEMPLATE](#5-bug-report-template)
-6. [🎯 FINAL REMINDERS](#6-final-reminders)
+1. [🐛 BUG MODE OVERVIEW](#1--bug-mode-overview)
+2. [📦 DELIVERY STANDARDS](#2--delivery-standards)
+3. [✅ QUALITY CHECKLIST](#3--quality-checklist)
+4. [🚨 ERROR RECOVERY](#4--error-recovery)
+5. [📝 BUG REPORT TEMPLATE](#5--bug-report-template)
+6. [🎯 FINAL REMINDERS](#6--final-reminders)
 
 ---
 
@@ -25,7 +25,7 @@ Structured bug report templates for defect tracking and resolution. Fixed struct
 - **Short Alias:** `$b`
 - **Purpose:** Create bug reports with reproduction steps and evidence capture
 - **Output:** Always as `text/markdown` artifact
-- **Thinking:** 10 rounds automatic (DEPTH methodology)
+- **Thinking:** 10 rounds automatic (DEPTH Framework)
 - **Interactive Mode:** Handled by Interactive Mode file (all question logic lives there)
 - **Structure:** Fixed (no complexity scaling like Task Mode)
 - **Key Feature:** Includes Evidence section and Root Cause tracking in Resolution Checklist
@@ -88,20 +88,20 @@ For feature development (new functionality, enhancements), use `$task` command w
 ### Mandatory Structure Elements
 
 #### Symbol Hierarchy
-- **H2:** ⌘ (About)
-- **H3:** ⌥ (Evidence), ❖ (Requirements), ✓ (Resolution Checklist)
+- **H2:** (About)
+- **H3:** (Evidence), (Requirements), (Resolution Checklist)
 - **H4:** NOT used in Bug mode
 
 #### Structure Order
 1. Title (# Bug Title) - FIRST LINE
-2. About (## ⌘) - Bug description and location
-3. Evidence (### ⌥) - Screenshots and Logs (logs optional)
-4. Requirements (### ❖) - Observed/Expected/Steps to Reproduce (FIXED)
-5. Resolution Checklist (### ✓) - Fix/Regression Prevention/Validation
+2. About (##) - Bug description and location
+3. Evidence (###) - Screenshots and Logs (logs optional)
+4. Requirements (###) - Observed/Expected/Steps to Reproduce (FIXED)
+5. Resolution Checklist (###) - Fix/Regression Prevention/Validation
 
 #### Formatting Standards
 - **Dividers:** Use `---` between all major sections
-- **Lists:** Always use `-` for bullets, `[]` for checkboxes
+- **Lists:** Always use `-` for bullets, `- [ ]` for checkboxes
 - **Images:** Inline using `![alt text](image.png)` in Evidence section
 - **Code Blocks:** Use fenced code blocks for error messages and logs
 - **Steps:** Numbered list for reproduction steps
@@ -109,8 +109,8 @@ For feature development (new functionality, enhancements), use `$task` command w
 ### Visual Hierarchy Rules
 - Use `---` as major section separators
 - No blank lines between dividers and section headers
-- H2 for About section (## ⌘ About)
-- H3 for other sections (### ⌥ Evidence, ### ❖ Requirements, ### ✓ Resolution Checklist)
+- H2 for About section (## About)
+- H3 for other sections (### Evidence, ### Requirements, ### Resolution Checklist)
 - H4 NOT used in Bug mode
 - Consistent spacing throughout
 
@@ -132,7 +132,9 @@ For feature development (new functionality, enhancements), use `$task` command w
 2. **Expected Behavior** - What should happen
 3. **Steps to Reproduce** - Numbered steps to trigger the bug
 4. **Frequency** - Always / Sometimes / Rarely
-5. **Environment** - Platform, device, OS version (when relevant)
+5. **Severity** - Critical / High / Medium / Low
+6. **Priority** - P1 / P2 / P3 / P4
+7. **Environment** - Platform, device, OS version, Browser, Browser version (when relevant)
 
 **Resolution Checklist:**
 - Fix category with root cause identification
@@ -155,43 +157,46 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 ## 3. ✅ QUALITY CHECKLIST
 
 ### Pre-Creation Validation
-[] DEPTH methodology applied (10 rounds)?
-[] User responded to comprehensive question?
-[] System waited for response (never answered own questions)?
-[] Bug description clear and specific?
-[] Location of bug identified?
+- [ ] DEPTH Framework applied (10 rounds)?
+- [ ] User responded to comprehensive question?
+- [ ] System waited for response (never answered own questions)?
+- [ ] Bug description clear and specific?
+- [ ] Location of bug identified?
 
 ### Structure Validation
-[] About section uses H2 (## ⌘ About)?
-[] Evidence section uses H3 (### ⌥ Evidence)?
-[] Requirements section uses H3 (### ❖ Requirements)?
-[] Resolution Checklist uses H3 (### ✓ Resolution Checklist)?
-[] Correct symbol hierarchy applied (H2 for About, H3 for others)?
-[] Dividers (---) between all sections?
-[] No H1 headers except bug title?
+- [ ] About section uses H2 (## About)?
+- [ ] Evidence section uses H3 (### Evidence)?
+- [ ] Requirements section uses H3 (### Requirements)?
+- [ ] Resolution Checklist uses H3 (### Resolution Checklist)?
+- [ ] Correct symbol hierarchy applied (H2 for About, H3 for others)?
+- [ ] Dividers (---) between all sections?
+- [ ] No H1 headers except bug title?
 
 ### Format Validation
-[] Using `text/markdown` artifact type?
-[] Lists use `-` bullets?
-[] Checkboxes use `[]` format?
-[] Steps use numbered list?
-[] Code blocks for error messages (if applicable)?
-[] Inline images for screenshots?
-[] No Table of Contents?
+- [ ] Using `text/markdown` artifact type?
+- [ ] Lists use `-` bullets?
+- [ ] Checkboxes use `- [ ]` format?
+- [ ] Steps use numbered list?
+- [ ] Code blocks for error messages (if applicable)?
+- [ ] Inline images for screenshots?
+- [ ] No Table of Contents?
 
 ### Bug-Specific Validation
-[] Evidence section has Screenshots (when available)?
-[] Evidence section has Logs/Error Messages (if applicable)?
-[] Requirements has Observed Behavior?
-[] Requirements has Expected Behavior?
-[] Requirements has Steps to Reproduce?
-[] Steps are numbered and reproducible?
-[] Frequency indicated?
-[] Environment specified (when relevant)?
-[] Resolution Checklist includes root cause item?
-[] Resolution Checklist has Fix category?
-[] Resolution Checklist has Regression Prevention?
-[] Resolution Checklist has Validation?
+- [ ] Evidence section has Screenshots (when available)?
+- [ ] Evidence section has Logs/Error Messages (if applicable)?
+- [ ] Requirements has Observed Behavior?
+- [ ] Requirements has Expected Behavior?
+- [ ] Requirements has Steps to Reproduce?
+- [ ] Steps are numbered and reproducible?
+- [ ] Frequency indicated?
+- [ ] Severity indicated (Critical/High/Medium/Low)?
+- [ ] Priority indicated (P1/P2/P3/P4)?
+- [ ] Environment specified (when relevant)?
+- [ ] Browser/Browser Version specified (for web bugs)?
+- [ ] Resolution Checklist includes root cause item?
+- [ ] Resolution Checklist has Fix category?
+- [ ] Resolution Checklist has Regression Prevention?
+- [ ] Resolution Checklist has Validation?
 
 ---
 
@@ -206,13 +211,13 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 **Fix:** Replace "it doesn't work" with specific description of what happens (error message, incorrect output, crash, etc.)
 
 #### Missing Evidence
-**Fix:** Add `### ⌥ Evidence` section with screenshots and/or error logs (logs optional if not applicable)
+**Fix:** Add `### Evidence` section with screenshots and/or error logs (logs optional if not applicable)
 
 #### Wrong Symbol Hierarchy
-**Fix:** Update to H2: ⌘ (About), H3: ⌥/❖/✓ (Evidence, Requirements, Checklist)
+**Fix:** Update to H2: (About), H3: (Evidence, Requirements, Checklist)
 
 #### Using H1 for About Section
-**Fix:** Change `# ⌘ About` to `## ⌘ About` - H1 reserved for bug title only
+**Fix:** Change `# About` to `## About` - H1 reserved for bug title only
 
 #### Missing Root Cause Item
 **Fix:** Add "Root cause identified" checkbox in Fix category
@@ -232,28 +237,32 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 #### Using Bug Mode for Grouped Bugs
 **Fix:** Use Task Mode instead for grouped bugs or refinement tasks
 
+#### Missing Severity/Priority
+**Fix:** Add Severity (Critical/High/Medium/Low) and Priority (P1/P2/P3/P4) fields
+
 ### Prevention Strategies
-1. Apply DEPTH automatically (10 rounds)
+1. Apply DEPTH Framework automatically (10 rounds)
 2. Wait for comprehensive response
 3. Verify symbol hierarchy (H2 for About, H3 for Evidence/Requirements/Checklist)
 4. Ensure Evidence section exists (logs optional)
 5. Use FIXED Requirements structure (Observed/Expected/Steps)
-6. Include Frequency and Environment fields
-7. Include root cause in Resolution Checklist
-8. Use numbered steps for reproduction
-9. Use correct artifact type
-10. Include screenshots where available
-11. NEVER answer own questions
-12. Redirect grouped bugs to Task Mode
+6. Include Frequency, Severity, and Priority fields
+7. Include Environment fields (Platform, OS, Browser, Browser Version)
+8. Include root cause in Resolution Checklist
+9. Use numbered steps for reproduction
+10. Use correct artifact type
+11. Include screenshots where available
+12. NEVER answer own questions
+13. Redirect grouped bugs to Task Mode
 
 ---
 
-## 5. 🔴 BUG REPORT TEMPLATE
+## 5. 📝 BUG REPORT TEMPLATE
 
-```markdown
+````markdown
 # {Bug Title}
 
-## ⌘ About
+## About
 
 ---
 
@@ -263,7 +272,7 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 
 ---
 
-### ⌥ Evidence
+### Evidence
 
 ---
 
@@ -283,7 +292,7 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 
 ---
 
-### ❖ Requirements
+### Requirements
 
 ---
 
@@ -319,39 +328,46 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 4. {Continue until bug is triggered}
 5. {Observe the bug}
 
-**Frequency:** {Always / Sometimes / Rarely}
-
-**Environment:** {Platform (iOS/Android/Web), Device, OS version - if relevant}
+| Field | Value |
+|-------|-------|
+| Frequency | {Always / Sometimes / Rarely} |
+| Severity | {Critical/High/Medium/Low} |
+| Priority | {P1/P2/P3/P4} |
+| Platform | {iOS/Android/Web} |
+| Device | {Device name/model} |
+| OS Version | {OS version} |
+| Browser | {Browser name - if web} |
+| Browser Version | {Browser version - if web} |
 
 ---
 
-### ✓ Resolution Checklist
+### Resolution Checklist
 
 ---
 
-⚠️ Complete all items below before moving to QA
+Complete all items below before moving to QA
 
 **1. Fix**
 ---
-[] Root cause identified
-[] Fix implemented
-[] Fix addresses root cause (not just symptom)
-[] Code reviewed
+- [ ] Root cause identified
+- [ ] Fix implemented
+- [ ] Fix addresses root cause (not just symptom)
+- [ ] Code reviewed
 
 **2. Regression Prevention**
 ---
-[] Related areas reviewed for similar issues
-[] Test case added for this bug
-[] Edge cases considered
+- [ ] Related areas reviewed for similar issues
+- [ ] Test case added for this bug
+- [ ] Edge cases considered
 
 **3. Validation**
 ---
-[] Fix verified in development environment
-[] Tested on iOS
-[] Tested on Android
-[] No new issues introduced
-[] QA verified
-```
+- [ ] Fix verified in development environment
+- [ ] Tested on iOS
+- [ ] Tested on Android
+- [ ] No new issues introduced
+- [ ] QA verified
+````
 
 ---
 
@@ -360,29 +376,30 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 1. **Always wait** for user response before creating artifact
 2. **Never answer** own questions
 3. **Use Task Mode** for grouped bugs or refinement tasks
-4. **About Section** uses H2 (## ⌘ About) with bug description + location
-5. **Evidence Section** uses H3 (### ⌥ Evidence) - ALWAYS INCLUDE
+4. **About Section** uses H2 (## About) with bug description + location
+5. **Evidence Section** uses H3 (### Evidence) - ALWAYS INCLUDE
 6. **Screenshots** support diagnosis - request if not provided
 7. **Logs/Error Messages** are OPTIONAL - include when relevant
-8. **Requirements** uses H3 (### ❖ Requirements) with FIXED structure
+8. **Requirements** uses H3 (### Requirements) with FIXED structure
 9. **FIXED structure:** Observed Behavior, Expected Behavior, Steps to Reproduce
 10. **Steps to Reproduce** must be numbered and specific
 11. **Frequency** indicates how often bug occurs (Always/Sometimes/Rarely)
-12. **Environment** specifies platform, device, OS when relevant
-13. **Resolution Checklist** uses H3 (### ✓ Resolution Checklist)
-14. **Root cause** must be identified before marking resolved
-15. **H2 for About only** (## ⌘ About)
-16. **H3 for other sections** (### ⌥ Evidence, ### ❖ Requirements, ### ✓ Resolution Checklist)
-17. **Use `---` dividers** between all sections
-18. **No Table of Contents** - rely on ClickUp native TOC
-19. **No complexity scaling** - bugs use single fixed template
-20. **No Quick mode** - bugs require full DEPTH analysis
-21. **Checkbox format:** `[]` (not `- [ ]`)
-22. **DEPTH methodology** applied automatically (10 rounds)
-23. **One bug per report** - unless explicitly reporting multiple related bugs
-24. **User Stories** use Given/When/Then format if included
+12. **Severity** indicates impact level (Critical/High/Medium/Low)
+13. **Priority** indicates fix urgency (P1/P2/P3/P4)
+14. **Environment** specifies platform, device, OS, browser when relevant
+15. **Resolution Checklist** uses H3 (### Resolution Checklist)
+16. **Root cause** must be identified before marking resolved
+17. **H2 for About only** (## About)
+18. **H3 for other sections** (### Evidence, ### Requirements, ### Resolution Checklist)
+19. **Use `---` dividers** between all sections
+20. **No Table of Contents** - rely on ClickUp native TOC
+21. **No complexity scaling** - bugs use single fixed template
+22. **No Quick mode** - bugs require full DEPTH Framework analysis
+23. **Checkbox format:** `- [ ]` (standard markdown)
+24. **DEPTH Framework** applied automatically (10 rounds)
+25. **One bug per report** - unless explicitly reporting multiple related bugs
+26. **User Stories** use Given/When/Then format if included
 
 ---
 
-*Template Version: 0.110 - Updated with optional logs, explicit Frequency/Environment fields, Task Mode guidance for grouped bugs*
-*This template ensures all bug reports maintain consistent quality through DEPTH cognitive methodology while capturing evidence, reproduction steps, and root cause analysis for effective defect resolution.*
+*This template ensures all bug reports maintain consistent quality through DEPTH Framework cognitive methodology while capturing evidence, reproduction steps, and root cause analysis for effective defect resolution.*

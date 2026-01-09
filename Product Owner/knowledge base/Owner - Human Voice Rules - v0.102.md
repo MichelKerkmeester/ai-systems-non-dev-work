@@ -1,4 +1,4 @@
-# Owner - Human Voice Rules - v0.100
+# Owner - Human Voice Rules - v0.102
 
 Rules to eliminate AI-detectable patterns and ensure clear, direct, human-sounding requirements documentation.
 
@@ -96,16 +96,12 @@ Use simple words. Choose the shorter, clearer option.
 
 | Complex | Simple |
 |---------|--------|
-| utilize | use |
 | implement | build, create |
-| functionality | feature |
-| leverage | use, build on |
 | facilitate | help, enable |
 | commence | start, begin |
 | terminate | end, stop |
 | subsequent | next, following |
 | prior to | before |
-| in order to | to |
 | due to the fact that | because |
 | at this point in time | now |
 | in the event that | if |
@@ -160,7 +156,7 @@ These punctuation marks are AI signals. Do not use them.
 |-------------|------|-------------|
 | Em dash (—) | Never use | BLOCKING |
 | Semicolon (;) | Never use | BLOCKING |
-| Asterisk (*) | Never use for emphasis | BLOCKING |
+| Single Asterisk (*) for italics | Never use for italic emphasis in prose | BLOCKING |
 
 ### Em Dash Detection
 
@@ -236,15 +232,19 @@ Remove these phrases entirely:
 - "Here's the thing"
 - "The thing is"
 
-### 3-Item Lists: ALLOWED
+---
 
-Unlike marketing copy, 3-item lists are acceptable in Product Owner context.
+## 7a. ✅ Patterns ALLOWED
+
+### Structured Lists: ALLOWED
+
+Unlike marketing copy, structured lists with common patterns are acceptable in Product Owner context.
 
 **Acceptable:**
-- High, Medium, Low priority
-- Create, Read, Update, Delete
-- Frontend, Backend, Database
-- Must have, Should have, Nice to have
+- High, Medium, Low (priority levels)
+- Create, Read, Update, Delete (CRUD operations)
+- Frontend, Backend, Database (architecture layers)
+- Must have, Should have, Nice to have (MoSCoW priorities)
 
 **Still avoid in narrative prose** where it signals templated AI writing.
 
@@ -264,7 +264,6 @@ Patterns specific to requirements documentation.
 | there is a need for | [subject] needs |
 | has the ability to | can |
 | is responsible for | [verb directly] |
-| in order to | to |
 | for the purpose of | to, for |
 | with regard to | about, regarding |
 | in the event that | if |
@@ -384,9 +383,6 @@ Corporate speak that weakens requirements.
 
 | Jargon | Preferred |
 |--------|-----------|
-| utilize | use |
-| leverage | use, build on |
-| functionality | feature, capability |
 | paradigm | approach, method |
 | synergy | works together |
 | stakeholder buy-in | stakeholder agreement |
@@ -408,7 +404,15 @@ Corporate speak that weakens requirements.
 
 ## 12. 🔗 DEPTH Integration
 
-Human Voice Rules integrate with DEPTH methodology at the Test phase.
+Human Voice Rules integrate with DEPTH methodology at the Test phase. See **Owner - DEPTH** for the complete DEPTH workflow.
+
+### Edge Cases
+
+**Contractions:** Use contractions naturally (don't, can't, won't) for conversational tone in documentation and instructions. Avoid in formal acceptance criteria.
+
+**Numbers:** Write numbers 1-9 as words in prose, use digits for 10+ and all technical values (IDs, measurements, counts).
+
+**Acronyms:** Define on first use, then use freely. Common acronyms (API, URL, ID) need no definition.
 
 ```yaml
 depth_human_voice_checkpoint:
@@ -475,9 +479,9 @@ depth_human_voice_checkpoint:
 | utilize | use |
 | leverage | use, build on |
 | functionality | feature |
+| in order to | to |
 | should be able to | can |
 | will need to | needs |
-| in order to | to |
 | due to the fact that | because |
 | at this point in time | now |
 | In conclusion, | [Delete, state directly] |
@@ -578,4 +582,4 @@ more options.
 
 ---
 
-*This document ensures all Product Owner deliverables sound human, direct and actionable. Load alongside System Prompt for every content creation request.*
+*Owner - Human Voice Rules | This document ensures all Product Owner deliverables sound human, direct and actionable. Load alongside System Prompt for every content creation request.*
