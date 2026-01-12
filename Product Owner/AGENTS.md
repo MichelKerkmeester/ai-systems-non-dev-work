@@ -131,11 +131,11 @@ Violation of this protocol **invalidates the entire response**.
 Based on routing logic in System Prompt:
 
 1. **Templates** (Load per Command)
-   - `/knowledge base/Owner - Template - Bug Mode - v0.113.md` ($bug)
-   - `/knowledge base/Owner - Template - Doc Mode - v0.131.md` ($doc)
+   - `/knowledge base/Owner - Template - Bug Mode - v0.114.md` ($bug)
+   - `/knowledge base/Owner - Template - Doc Mode - v0.132.md` ($doc)
    - `/knowledge base/Owner - Template - Epic Mode - v0.152.md` ($epic)
    - `/knowledge base/Owner - Template - Story Mode - v0.152.md` ($story)
-   - `/knowledge base/Owner - Template - Task Mode - v0.202.md` ($task)
+   - `/knowledge base/Owner - Template - Task Mode - v0.203.md` ($task)
 
 2. **Complex Tasks**
    - `/knowledge base/Owner - DEPTH Thinking Framework - v0.120.md`

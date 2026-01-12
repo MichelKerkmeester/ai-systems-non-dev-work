@@ -1,4 +1,4 @@
-# Owner - Template - Doc Mode - v0.131
+# Owner - Template - Doc Mode - v0.132
 
 Documentation templates with integrated formatting rules and quality standards. All delivery logic consolidated for self-contained operation.
 
@@ -132,14 +132,14 @@ Documentation templates with integrated formatting rules and quality standards. 
 1. Header (Mode | Complexity | Template) - FIRST LINE
 2. Document metadata (Parent, Version, Reading Time)
 3. About (⌘) - Purpose and context
-4. Designs & References (⌥) - Bulleted list format with categories (at H3 level)
+4. Designs & References (⌥) - H3 with Flows and Components subsections
 5. Main sections (❖) - Scaled content
 6. Subsections - H4 headers for details (#### Logic, #### Features)
 
 #### Formatting Standards
 - **Dividers:** Use `---` between major sections only (not after headers)
 - **Lists:** Always use `-` for bullets
-- **Designs & References:** Bulleted list with categories (Documentation, Flows, Related Stories/Tasks)
+- **Designs & References:** H3 section (### ⌥) with intro text, then **Flows** and **Components** subsections
 - **Tables:** For metrics and data presentation only
 - **Links:** Use `[Description](URL)` format or `[Link - to be added]` for placeholders
 - **Content:** Integrated narrative in About section
@@ -192,16 +192,16 @@ Documentation templates with integrated formatting rules and quality standards. 
 - [ ] Header at top as first line?
 - [ ] Document metadata included?
 - [ ] About section positioned first (after metadata)?
-- [ ] Designs & References in bulleted list format with categories?
+- [ ] Designs & References at H3 level (### ⌥) with Flows and Components subsections?
 - [ ] Main sections properly structured?
 - [ ] Correct symbol hierarchy applied (H1: ⌘/❖, H3: ⌥)?
 - [ ] Dividers used appropriately?
-- [ ] H3 for ⌥ Designs & References, H4 for detail headers?
+- [ ] H4 for detail headers?
 
 ### Format Validation
 - [ ] Using `text/markdown` artifact type?
 - [ ] Lists use `-` bullets?
-- [ ] Designs & References in bulleted list format with categories?
+- [ ] Designs & References at H3 level with Flows and Components subsections?
 - [ ] Tables used for metrics/data only (not References)?
 - [ ] Dividers between major sections?
 - [ ] Placeholder links included?
@@ -212,7 +212,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 ### Mode-Specific Validation
 - [ ] Header at top?
 - [ ] About first with purpose?
-- [ ] Designs & References at H3 level in bulleted list format?
+- [ ] Designs & References at H3 level with Flows and Components?
 - [ ] Complexity appropriate (2-3/4-6/7+)?
 - [ ] Structure logical?
 - [ ] Separators used correctly?
@@ -226,7 +226,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 ### Common Errors & Fixes
 
 #### Wrong Symbol Hierarchy
-**Fix:** Update to H1: ⌘/❖, H2: Numbered subsections, H3: ⌥ (Designs & References), H4: Detail headers
+**Fix:** Update to H1: ⌘/❖, H2: Numbered subsections, H3: ⌥ (Designs & References) / Bold subsections, H4: Detail headers
 
 #### About Section Not First
 **Fix:** Move About to first position after metadata
@@ -240,8 +240,8 @@ Documentation templates with integrated formatting rules and quality standards. 
 #### Wrong Artifact Type
 **Fix:** Recreate with `text/markdown`
 
-#### Designs & References as Table or Wrong Level
-**Fix:** Convert to bulleted list with categories at H3 level (### ⌥ Designs & References)
+#### Designs & References as Table or Bold Label
+**Fix:** Convert to H3 heading (### ⌥ Designs & References) with Flows and Components subsections
 
 #### Missing Separators
 **Fix:** Add `---` between major sections
@@ -285,16 +285,21 @@ Covers ONLY what user requested.]
 
 ### ⌥ Designs & References
 
-**Documentation**
-- UI Mockups - Current - [Link - to be added]
-- Requirements Doc - Latest - [Link - to be added]
+---
 
-**Analytics**
-- Performance Dashboard - Live - [Link - to be added]
+Here's where you'll find all the related designs:
 
-**Related Stories**
-- [Story 1] - [Link - to be added]
-- [Story 2] - [Link - to be added]
+---
+
+**Flows**
+
+- [Flow name] - [Link - to be added]
+
+---
+
+**Components**
+
+- [Component name] - [Link - to be added]
 
 ---
 
@@ -371,22 +376,23 @@ Covers ONLY the specific feature/product requested by user.]
 
 ### ⌥ Designs & References
 
-**Documentation**
-- Component Library - v2.1 - [Link - to be added]
-- Product Requirements - Current - [Link - to be added]
+---
+
+Here's where you'll find all the related designs and documentation:
+
+---
 
 **Flows**
-- User Journey - Latest - [Link - to be added]
 
-**Analytics**
-- Performance Dashboard - Live - [Link - to be added]
+- [User Journey] - [Link - to be added]
+- [Feature Flow] - [Link - to be added]
 
-**Research**
-- User Studies - Latest - [Link - to be added]
+---
 
-**Related Stories**
-- [Story 1] - [Link - to be added]
-- [Story 2] - [Link - to be added]
+**Components**
+
+- [Component Library] - v2.1 - [Link - to be added]
+- [Page Component] - [Link - to be added]
 
 ---
 
@@ -536,30 +542,25 @@ Documentation covers ONLY the specific platform/ecosystem requested by user.]
 
 ### ⌥ Designs & References
 
-**Documentation**
-- Product Vision - Current - [Link - to be added]
-- Design System - v3.0 - [Link - to be added]
-- Feature Specifications - Latest - [Link - to be added]
+---
+
+Here's where you'll find all the platform-related designs and documentation:
+
+---
 
 **Flows**
-- User Journey Map - Current - [Link - to be added]
 
-**Analytics**
-- Platform Metrics Dashboard - Live - [Link - to be added]
+- [User Journey Map] - Current - [Link - to be added]
+- [Feature Flow] - [Link - to be added]
+- [Onboarding Flow] - [Link - to be added]
 
-**Research**
-- Market Analysis - Recent - [Link - to be added]
+---
 
-**Roadmap**
-- Product Planning - Active - [Link - to be added]
+**Components**
 
-**Related Epics**
-- [Epic 1] - [Link - to be added]
-- [Epic 2] - [Link - to be added]
-
-**Related Stories**
-- [Story 1] - [Link - to be added]
-- [Story 2] - [Link - to be added]
+- [Design System] - v3.0 - [Link - to be added]
+- [Page Components] - [Link - to be added]
+- [Modal Components] - [Link - to be added]
 
 ---
 
@@ -830,8 +831,8 @@ The north star that guides all platform decisions and investments
 1. **Always wait** for user response (except $quick)
 2. **Never answer** own questions
 3. **About section first** after metadata (integrate context narratively)
-4. **Designs & References at H3** with ⌥ symbol, organized by category (Documentation, Flows, Analytics, Research, Related Stories/Tasks/Epics)
-5. **Tables for metrics only** - not for Designs & References
+4. **Designs & References at H3** (### ⌥) with intro text, then **Flows** and **Components** subsections
+5. **Tables for metrics only** - not for References
 6. **Use H4 for detail headers** - number them (#### 1. Title) only when multiple subsections exist
 7. **Single subsection** uses clean H4 (no numbers, no symbols)
 8. **Use `---` dividers** between all major sections
@@ -843,7 +844,7 @@ The north star that guides all platform decisions and investments
 14. **Template version** confirmed before creation
 15. **Complexity scales structure** not content scope (Simple: 2-3 sections, Standard: 4-6, Complex: 7+)
 16. **Documentation focus** maintained throughout (product features, performance metrics, strategy docs)
-17. **Symbol hierarchy** H1: ⌘/❖, H2: Numbered subsections, H3: ⌥ (Designs & References), H4: Detail headers
+17. **Symbol hierarchy** H1: ⌘/❖, H2: Numbered subsections, H3: ⌥ (Designs & References) / Bold subsections, H4: Detail headers
 
 ---
 
