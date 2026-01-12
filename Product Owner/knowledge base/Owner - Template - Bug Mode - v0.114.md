@@ -1,4 +1,4 @@
-# Owner - Template - Bug Mode - v0.113
+# Owner - Template - Bug Mode - v0.114
 
 Structured bug report templates for defect tracking and resolution. Fixed structure with Evidence capture, reproduction steps, and root cause analysis requirements.
 
@@ -109,7 +109,7 @@ For feature development (new functionality, enhancements), use `$task` command w
 
 ### Visual Hierarchy Rules
 - Use `---` as major section separators
-- No blank lines between dividers and section headers
+- Blank line before and after `---` separators
 - H2 for About section (## About)
 - H3 for other sections (### Evidence, ### Requirements, ### Resolution Checklist)
 - H4 NOT used in Bug mode
@@ -349,20 +349,26 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 Complete all items below before moving to QA
 
 **1. Fix**
+
 ---
+
 - [ ] Root cause identified
 - [ ] Fix implemented
 - [ ] Fix addresses root cause (not just symptom)
 - [ ] Code reviewed
 
 **2. Regression Prevention**
+
 ---
+
 - [ ] Related areas reviewed for similar issues
 - [ ] Test case added for this bug
 - [ ] Edge cases considered
 
 **3. Validation**
+
 ---
+
 - [ ] Fix verified in development environment
 - [ ] Tested on iOS
 - [ ] Tested on Android

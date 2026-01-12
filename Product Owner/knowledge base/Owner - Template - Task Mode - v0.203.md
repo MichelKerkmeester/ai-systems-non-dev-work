@@ -1,4 +1,4 @@
-# Owner - Template - Task Mode - v0.202
+# Owner - Template - Task Mode - v0.203
 
 Streamlined task templates aligned with real-world ClickUp usage patterns. Concise, practical format with integrated formatting rules and quality standards.
 
@@ -78,22 +78,23 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 #### Symbol Hierarchy
 - **H2:** ⌘ (About)
-- **H3:** ⌥ (References), ❖ (Requirements), ✓ (Resolution Checklist)
+- **H3:** ❖ (Requirements), ✓ (Resolution Checklist)
+- **Bold:** — (References, Scope, Flows, Components, User Story)
 - **H4:** NOT used in Task mode
 
 #### Structure Order
 1. Title (# Task Title) - FIRST LINE
-2. About (## ⌘) - Narrative description + Scope (optional for simple tasks)
-3. References (### ⌥) - Flows, Components (OPTIONAL)
+2. About (## ⌘) - Narrative description + Scope (bold label, optional)
+3. References (**bold**) - Flows, Components (after Scope, OPTIONAL)
 4. Requirements (### ❖) - Numbered descriptive format with embedded User Stories
 5. Resolution Checklist (### ✓) - Numbered categories with checkbox items
 
 #### Formatting Standards
 - **Dividers:** Use `---` between major sections only
 - **Lists:** Always use `-` for bullets, `- [ ]` for checkboxes
-- **References:** Two patterns supported:
-  - Standard: Flows, Components (for feature development)
-  - Component Updates: Changed, Impacted (for design system changes)
+- **Bold Labels:** Use `**Label**` followed by `---` for: Scope, References, Flows, Components, User Story, Checklist Categories
+- **Separators:** Use `---` after H2/H3 headers AND after bold section labels
+- **References:** Bold label (`**References**`) with subsections **Flows** and **Components**, each followed by `---`
 - **Inline Images:** Supported throughout using `![alt text](image.png)`
 - **Links:** Use `[Description](URL)` format with actual URLs
 - **Assumptions:** Format as `[Assumes: X]` inline within requirements
@@ -102,7 +103,8 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - Use `---` as major section separators only
 - No blank lines between dividers and section headers
 - H2 for About section (## ⌘ About)
-- H3 for other sections (### ⌥ References, ### ❖ Requirements, ### ✓ Resolution Checklist)
+- H3 for Requirements and Checklist (### ❖ Requirements, ### ✓ Resolution Checklist)
+- Bold labels for References, Scope, Flows, Components, Checklist Categories (followed by `---`)
 - H4 NOT used in Task mode
 - Consistent spacing throughout
 
@@ -189,6 +191,8 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 ### Structure Validation
 - [ ] About section uses H2 (## ⌘ About)?
 - [ ] About contains narrative + Scope (if standard/complex)?
+- [ ] References uses bold label format (**References**)?
+- [ ] Bold labels (Scope, References, Flows, etc.) followed by ---?
 - [ ] Requirements section uses H3 (### ❖ Requirements)?
 - [ ] Requirements use numbered descriptive format (1. **Feature: Action**)?
 - [ ] Resolution Checklist uses H3 (### ✓ Resolution Checklist)?
@@ -235,7 +239,10 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 **Fix:** Change from "As a user, I want..." to Given/When/Then format
 
 #### Wrong Symbol Hierarchy
-**Fix:** Update to H2: ⌘ (About), H3: ⌥/❖/✓ (References, Requirements, Checklist)
+**Fix:** Update to H2: ⌘ (About), H3: ❖/✓ (Requirements, Checklist), Bold: References
+
+#### Wrong References Format
+**Fix:** Change from `### ⌥ References` to `**References**` with `---` separator
 
 #### Using H1 for About Section
 **Fix:** Change `# ⌘ About` to `## ⌘ About` - H1 reserved for document title only
@@ -271,7 +278,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 1. Apply DEPTH automatically (10 rounds standard, 1-5 quick)
 2. Wait for comprehensive response
 3. Check template version
-4. Verify symbol hierarchy (H2 for About, H3 for References/Requirements/Checklist)
+4. Verify symbol hierarchy (H2 for About, H3 for Requirements/Checklist, Bold for References)
 5. Use narrative + Scope format in About (optional for simple)
 6. Use numbered descriptive format in Requirements
 7. Use Given/When/Then for User Stories
@@ -312,10 +319,12 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 ⚠️ Complete all items below before moving to QA
 
 **1. {Category matching Requirement 1}**
+---
 - [ ] {Action item}
 - [ ] {Action item}
 
 **2. Validation**
+---
 - [ ] Tested on iOS
 - [ ] Tested on Android
 - [ ] QA verified
@@ -334,16 +343,22 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 **Scope**
 
+---
+
 - **{Category}:** {Details}
 - **{Category}:** {Details}
 
 ---
 
-### ⌥ References
+**References**
+
+---
 
 **Flows**
 
 - [{Flow name}](figma-url)
+
+---
 
 **Components**
 
@@ -398,19 +413,23 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 ⚠️ Complete all items below before moving to QA
 
 **1. {Category matching Requirement 1}**
+---
 - [ ] {Action item}
 - [ ] {Action item}
 - [ ] Design & Layout matches Figma specifications
 
 **2. {Category matching Requirement 2}**
+---
 - [ ] {Action item}
 - [ ] {Action item}
 
 **3. Functionality**
+---
 - [ ] {Functional requirement item}
 - [ ] {Error handling verified}
 
 **4. Validation**
+---
 - [ ] Tested on iOS
 - [ ] Tested on Android
 - [ ] QA verified
@@ -429,18 +448,24 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 **Scope**
 
+---
+
 - **{Category}:** {Details}
 - **{Category}:** {Details}
 - **{Category}:** {Details}
 
 ---
 
-### ⌥ References
+**References**
+
+---
 
 **Flows**
 
 - [{Primary flow}](figma-url)
 - [{Secondary flow}](figma-url)
+
+---
 
 **Components**
 
@@ -520,24 +545,29 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 ⚠️ Complete all items below before moving to QA
 
 **1. {Section 1 - Category}**
+---
 - [ ] {Action item}
 - [ ] {Action item}
 - [ ] Design & Layout matches Figma specifications
 
 **2. {Section 1 - Another Category}**
+---
 - [ ] {Action item}
 - [ ] {Action item}
 
 **3. {Section 2 - Category}**
+---
 - [ ] {Action item}
 - [ ] {Action item}
 
 **4. Functionality**
+---
 - [ ] {Functional requirement}
 - [ ] {Error handling verified}
 - [ ] {Edge cases handled}
 
 **5. Validation**
+---
 - [ ] Tested on iOS
 - [ ] Tested on Android
 - [ ] Visual parity confirmed
@@ -560,17 +590,23 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 
 **Scope**
 
+---
+
 - **{Subtask Area 1}:** {Brief description}
 - **{Subtask Area 2}:** {Brief description}
 - **{Subtask Area 3}:** {Brief description}
 
 ---
 
-### ⌥ References
+**References**
+
+---
 
 **Flows**
 
 - [{Flow name}](figma-url)
+
+---
 
 **Components**
 
@@ -599,6 +635,7 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 ⚠️ Complete all items below before moving to QA
 
 **Subtasks**
+---
 - [ ] Subtask 1 → {Name} = Completed
 - [ ] Subtask 2 → {Name} = Completed
 - [ ] Subtask 3 → {Name} = Completed
@@ -632,10 +669,12 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 ### ✓ Resolution Checklist
 
 **1. Implementation**
+---
 - [ ] {Key action}
 - [ ] Tested and verified
 
 **2. Validation**
+---
 - [ ] QA approved
 ```
 
@@ -649,6 +688,8 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 {Context paragraph with key details.}
 
 **Scope**
+
+---
 
 - **{Category}:** {Details}
 - **{Category}:** {Details}
@@ -671,13 +712,16 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 ### ✓ Resolution Checklist
 
 **1. Implementation**
+---
 - [ ] Requirements implemented
 - [ ] Testing complete
 
 **2. Documentation**
+---
 - [ ] Documentation updated
 
 **3. Validation**
+---
 - [ ] QA verified
 ```
 
@@ -690,24 +734,25 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 3. **About Section** uses H2 (## ⌘ About) with narrative + optional Scope
 4. **Narrative** explains WHAT and WHY (1-3 sentences)
 5. **Scope** lists deliverables/changes as bulleted list (optional for simple tasks)
-6. **References** is OPTIONAL - use when Figma links available
+6. **References** uses bold label format (`**References**`), not a heading - OPTIONAL
 7. **Two Reference patterns:** Flows/Components OR Changed/Impacted
-8. **Requirements** use H3 (### ❖ Requirements) with numbered descriptive format: `1. **Feature: Action**`
-9. **User Stories** use **Given/When/Then** format (BDD style)
-10. **User Stories** are for FEATURE tasks, not technical/bug tasks
-11. **Inline images** supported: `![alt text](image.png)`
-12. **[Assumes: X]** pattern for inline assumptions
-13. **Functional Requirements** is optional final requirement grouping
-14. **Resolution Checklist** categories MIRROR requirement structure
-15. **H2 for About only** (## ⌘ About)
-16. **H3 for other sections** (### ⌥ References, ### ❖ Requirements, ### ✓ Resolution Checklist)
-17. **Use `---` dividers** between major sections only
-18. **Validation is always last** category in checklist
-19. **Mobile validation:** Tested on iOS, Tested on Android, QA verified
-20. **Web validation:** Cross-browser testing, QA verified
-21. **No Table of Contents**
-22. **Only requested features** - no scope expansion
-23. **DEPTH Framework** applied automatically (10 rounds standard, 1-5 quick)
-24. **Parent Task pattern** available for tasks with subtasks
+8. **Bold labels** (Scope, References, Flows, Components, Checklist Categories) use `---` separator after each
+9. **Requirements** use H3 (### ❖ Requirements) with numbered descriptive format: `1. **Feature: Action**`
+10. **User Stories** use **Given/When/Then** format (BDD style)
+11. **User Stories** are for FEATURE tasks, not technical/bug tasks
+12. **Inline images** supported: `![alt text](image.png)`
+13. **[Assumes: X]** pattern for inline assumptions
+14. **Functional Requirements** is optional final requirement grouping
+15. **Resolution Checklist** categories MIRROR requirement structure
+16. **H2 for About only** (## ⌘ About)
+17. **H3 for Requirements/Checklist** (### ❖ Requirements, ### ✓ Resolution Checklist)
+18. **Use `---` dividers** between major sections only
+19. **Validation is always last** category in checklist
+20. **Mobile validation:** Tested on iOS, Tested on Android, QA verified
+21. **Web validation:** Cross-browser testing, QA verified
+22. **No Table of Contents**
+23. **Only requested features** - no scope expansion
+24. **DEPTH Framework** applied automatically (10 rounds standard, 1-5 quick)
+25. **Parent Task pattern** available for tasks with subtasks
 
 ---
