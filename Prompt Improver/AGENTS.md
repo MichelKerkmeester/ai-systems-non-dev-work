@@ -75,6 +75,13 @@ All deliverables MUST be saved to `/export/` BEFORE any response is sent to the 
 4. ONLY THEN respond to user with file path
 5. Provide brief summary (2-3 sentences max), NOT full content
 
+**Sequential Numbering Protocol:**
+- Check existing files in `/export/` directory
+- Find highest existing number (e.g., if 005 exists, next is 006)
+- Use 3-digit zero-padded format (001, 002, ..., 999)
+- If starting fresh, begin with 001
+- Example: `/export/007 - enhanced-user-auth-prompt.md`
+
 ### PROHIBITED BEHAVIORS
 - ❌ Displaying deliverable content in chat (code blocks, markdown, inline text)
 - ❌ Showing output first, saving later (wrong order)
@@ -90,6 +97,15 @@ All deliverables MUST be saved to `/export/` BEFORE any response is sent to the 
 ### ENFORCEMENT LEVEL
 This protocol has the **SAME authority level** as Context Override.
 Violation of this protocol **invalidates the entire response**.
+
+### Authority Resolution
+
+**When Export Protocol and ask_user conflict:**
+1. **EXPORT FIRST** - Save deliverable to `/export/` immediately after generation
+2. **THEN ask_user** - Confirm with user that deliverable meets requirements
+3. **Sequence:** Generate → Save → Confirm → Respond with file path
+
+**Rationale:** Deliverables must exist before confirmation. ask_user validates the saved deliverable, not a preview.
 
 ---
 
@@ -110,7 +126,7 @@ Violation of this protocol **invalidates the entire response**.
 - **NO:** Proceed directly to Step 1
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.950.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.960.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -132,17 +148,22 @@ Based on routing logic in System Prompt:
    - `/knowledge base/Prompt - Format Guide - YAML - v0.130.md`
 
 3. **Complex Tasks**
-   - `/knowledge base/Prompt - DEPTH Thinking Framework - v0.116.md`
+   - `/knowledge base/Prompt - DEPTH Thinking Framework - v0.117.md`
 
 4. **Clarification Flow**
-   - `/knowledge base/Prompt - Interactive Mode - v0.652.md`
+   - `/knowledge base/Prompt - Interactive Mode - v0.660.md`
+
+5. **Visual Mode**
+   - `/knowledge base/Prompt - Visual Mode - v0.100.md`
+   - Uses VIBE framework (not RCAF/COSTAR) and EVOKE scoring (not CLEAR)
+   - 5 DEPTH rounds instead of 10
 
 ---
 
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.950.md`)
+- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.960.md`)
 - ❌ Proceed without reading the System Prompt completely
 - ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user, except $quick)
@@ -156,7 +177,7 @@ Based on routing logic in System Prompt:
 - ❌ **Use code blocks or inline text to paste deliverable content in chat**
 
 ### ALWAYS:
-- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.950.md`
+- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.960.md`
 - ✅ Follow routing logic in the System Prompt
 - ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - description.ext` BEFORE responding — never display content in chat
 - ✅ Respect processing hierarchy
@@ -179,4 +200,24 @@ Based on routing logic in System Prompt:
 7. **Response** — Provide file path + brief summary only (NOT full content)
 8. **Confirm with ask_user tool** — Verify the request was fulfilled correctly
 
-**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.950.md` **NOW**
+**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.960.md` **NOW**
+
+---
+
+# 6. 🔧 TOOL SPECIFICATIONS
+
+### ask_user Tool Specification
+
+**Purpose:** Confirm task fulfillment with user before marking complete
+
+**Invocation:**
+```
+ask_user(question: "Does this deliverable meet your requirements?",
+         options: ["Yes, looks good", "No, needs changes", "Questions about the output"])
+```
+
+**Behavior:**
+- Waits for user response (no timeout)
+- On "Yes": Mark task complete
+- On "No": Return to processing with user feedback
+- On "Questions": Provide clarification, then re-ask
