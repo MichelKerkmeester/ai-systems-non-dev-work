@@ -1,65 +1,108 @@
-# Prompt Engineering Assistant - User Guide  v0.921
+# Prompt Engineering Assistant - User Guide  v0.960
 
 Transforms vague requests into clear, effective AI prompts using proven frameworks, systematic evaluation, and **concise transparent DEPTH processing**.
 
 ## 📋 TABLE OF CONTENTS
 
-1. [🆕 WHAT'S NEW IN V0.921](#1-whats-new-in-v0921)
+1. [🆕 WHAT'S NEW IN V0.960](#1-whats-new-in-v0960)
 2. [✨ KEY FEATURES](#2-key-features)
 3. [🌳 SYSTEM ARCHITECTURE](#3-system-architecture)
 4. [🚀 QUICK SETUP](#4-quick-setup)
 5. [🎛️ OPERATING MODES](#5-operating-modes)
 6. [📋 MODE DETAILS](#6-mode-details)
-7. [💬 INTERACTIVE MODE](#7-interactive-mode)
-8. [🧠 DEPTH THINKING FRAMEWORK](#8-depth-thinking-framework)
-9. [🏗️ RICCE FRAMEWORK](#9-ricce-framework)
-10. [🎯 FRAMEWORK INTELLIGENCE](#10-framework-intelligence)
-11. [📊 ENHANCEMENT SYSTEM](#11-enhancement-system)
-12. [📈 CLEAR EVALUATION](#12-clear-evaluation)
+7. [🎨 VISUAL MODE (NEW)](#7-visual-mode-new)
+8. [💬 INTERACTIVE MODE](#8-interactive-mode)
+9. [🧠 DEPTH THINKING FRAMEWORK](#9-depth-thinking-framework)
+10. [🏗️ RICCE FRAMEWORK](#10-ricce-framework)
+11. [🎯 FRAMEWORK INTELLIGENCE](#11-framework-intelligence)
+12. [📊 ENHANCEMENT SYSTEM](#12-enhancement-system)
+13. [📈 CLEAR EVALUATION](#13-clear-evaluation)
 
 ---
 
-<a id="1-whats-new-in-v0921"></a>
-## 1. 🆕 WHAT'S NEW IN V0.921
+<a id="1-whats-new-in-v0960"></a>
+## 1. 🆕 WHAT'S NEW IN V0.960
 
-### 🎯 Major Update: Format Guides Refactored (v0.120)
+### 🎨 MAJOR UPDATE: Visual Mode for AI Design Tools
 
-**All Three Format Guides Completely Restructured:**
+**Brand New Mode for UI Concepting** — Transform technical specifications into evocative, inspiration-based prompts optimized for AI design tools like **Lovable**, **Aura**, **Bolt**, and **v0.dev**.
 
-The JSON, YAML, and Markdown format guides underwent comprehensive refactoring to eliminate redundancy and focus purely on format specifications:
+| Feature | Description |
+|---------|-------------|
+| **Commands** | `$visual`, `$vibe`, `$v` |
+| **Framework** | VIBE (Vision, Inspiration, Behavior, Experience) |
+| **Scoring** | EVOKE (not CLEAR) — 50 points, 40+ threshold |
+| **DEPTH Rounds** | 5 rounds (creative iteration) |
+| **Philosophy** | "Specification constrains. Inspiration liberates." |
 
-**Core Improvements Across All Guides:**
-- **Pure Format Focus** - Removed all processing logic, quality evaluation, and workflow details
-- **Single Source of Truth** - Delegated cognitive processing to DEPTH v0.106, evaluation to Patterns v0.102
-- **Streamlined Structure** - Reduced from 13 sections to 11 focused sections
+**The VIBE Framework:**
+```
+V — Vision      → Core aesthetic direction ("What should this look like?")
+I — Inspiration → Reference points ("What should this feel like?")
+B — Behavior    → Interaction feel ("How should this move?")
+E — Experience  → Emotional journey ("How should users feel?")
+```
 
-**What Was Removed:**
-- ❌ Transparency Reporting section (now in DEPTH v0.106)
-- ❌ Performance Metrics section (now in Patterns v0.102)
-- ❌ Troubleshooting section (merged into validation)
-- ❌ Python pseudo code (replaced with YAML)
-- ❌ CLEAR scores in file headers (reported separately in chat)
-- ❌ Duplicate processing logic from DEPTH/Interactive Mode
+**The EVOKE Scoring System (replaces CLEAR for visual prompts):**
+| Dimension | Points | Focus |
+|-----------|--------|-------|
+| **E**vocative | 15 | Creates vivid mental imagery |
+| **V**isual | 10 | Paints a picture AI can render |
+| **O**pen | 10 | Leaves room for creativity |
+| **K**inetic | 10 | Suggests motion and life |
+| **E**motional | 5 | Conveys experiential goals |
 
-**What Was Enhanced:**
-- ✨ File delivery methods clearly documented (Desktop vs CLI/Agent)
-- ✨ Syntax validation with YAML-based validation rules
-- ✨ Format-specific best practices with Do's/Don'ts categories
-- ✨ Token efficiency sections with practical optimization tips
-- ✨ Format quality checklists for each output type
+**Key Capabilities:**
+- ✨ **Screenshot Analysis** — Extract VIBE elements from visual references
+- ✨ **Six Design Directions** — Auto-detect: Precision, Warmth, Sophistication, Boldness, Utility, Data
+- ✨ **Technical-to-Evocative Transformation** — Convert specs to feelings
+- ✨ **Platform Optimization** — Tailored prompts for Lovable, Aura, Bolt, v0.dev
+- ✨ **Evocative Vocabulary Banks** — Rich word libraries for spatial, color, motion, typography
 
-**Benefits:**
-- 📉 Reduced maintenance burden (no duplicate logic)
-- 📈 Improved clarity (pure format specifications)
-- 🎯 Better separation of concerns (format vs processing)
-- 🔄 Easier updates (change logic once, not in 4 files)
-- 📚 Cleaner documentation (focused and concise)
+**Example Transformation:**
+```
+❌ BEFORE: "Create a dashboard with 240px sidebar, #3B82F6 primary color,
+           8px border-radius, React with Tailwind CSS"
 
-### 📊 Evolution: v0.921 → v0.920 → v0.910 → v0.900
+✅ AFTER:  "A clean, spacious dashboard that feels organized and calm.
+           Sidebar navigation that's present but doesn't overwhelm—more
+           like a trusted guide than a feature menu. Professional blue
+           accents that pop against a light, airy background. Cards with
+           softened corners that feel modern and approachable.
 
-**v0.921:** Format guides refactored (v0.120) - pure format focus, YAML pseudo code, file delivery standards  
-**v0.920:** New Thinking Framework (RICCE integration, cognitive rigor), and Interactive Mode (two-layer transparency)
-**v0.910:** Architecture standardization with YAML processing structure  
+           Think: Notion's clarity meets Linear's polish."
+```
+
+---
+
+### 🔧 System-Wide Improvements (v0.960)
+
+**Bug Fixes & Alignments (27 fixes across 6 files):**
+- ✅ Implemented `detect_complexity()` function (was empty stub)
+- ✅ Fixed Quick Mode perspective requirement (now enforces minimum 3)
+- ✅ Added 5 missing state definitions in Interactive Mode
+- ✅ Removed circular fallback references
+- ✅ Added infinite loop protection with `max_total_iterations`
+- ✅ Fixed RICCE timing paradox with progressive population
+- ✅ Added unified severity scale across CLEAR and EVOKE
+
+**Version Updates:**
+| Component | Previous | Current |
+|-----------|----------|---------|
+| System Prompt | v0.950 | **v0.960** |
+| DEPTH Framework | v0.117 | **v0.117** |
+| Interactive Mode | v0.660 | **v0.660** |
+| Patterns & Evaluation | v0.112 | **v0.112** |
+| Format Guides | v0.120 | **v0.130** |
+| Visual Mode | — | **v0.100** (NEW) |
+
+---
+
+### 📊 Evolution: v0.960 → v0.921 → v0.920 → v0.900
+
+**v0.960:** Visual Mode with VIBE/EVOKE, 27 bug fixes, system-wide alignment
+**v0.921:** Format guides refactored (v0.130) - pure format focus, YAML pseudo code
+**v0.920:** DEPTH Framework (RICCE integration, cognitive rigor), Interactive Mode (two-layer transparency)
 **v0.900:** Foundation with framework intelligence and comprehensive patterns
 
 ---
@@ -67,16 +110,17 @@ The JSON, YAML, and Markdown format guides underwent comprehensive refactoring t
 <a id="2-key-features"></a>
 ## 2. ✨ KEY FEATURES
 
-- **🎯 Seven Frameworks**: RCAF, COSTAR, RACE, CIDI, TIDD-EC, CRISPE, CRAFT with intelligent auto-selection
-- **🧠 DEPTH Framework**: 10-round methodology with two-layer transparency and RICCE integration
+- **🎯 Eight Frameworks**: RCAF, COSTAR, RACE, CIDI, TIDD-EC, CRISPE, CRAFT, **VIBE** (visual) with intelligent auto-selection
+- **🎨 Visual Mode (NEW)**: Transform technical specs into evocative prompts for AI design tools (Lovable, Aura, Bolt, v0.dev)
+- **🧠 DEPTH Framework**: 10-round methodology with two-layer transparency and RICCE integration (5 rounds for Visual Mode)
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement), target 5
 - **🔬 Enhanced Cognitive Rigor**: 6 techniques (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first, RICCE compliance)
 - **📊 Two-Layer Model**: Full rigor internally, concise updates externally
 - **🏗️ RICCE Framework**: Role, Instructions, Context, Constraints, Examples validation integrated throughout
-- **🚀 Seven Operating Modes**: Interactive (default), Quick, Short, Improve, Refine, JSON, YAML
+- **🚀 Eight Operating Modes**: Interactive (default), Quick, Short, Improve, Refine, JSON, YAML, **Visual**
 - **⚡ Quick Mode**: Auto-scaled 1-5 rounds based on complexity
 - **💬 Single Question**: All info gathered at once (except $quick)
-- **📈 CLEAR Scoring**: 50-point context-aware evaluation (target 40+)
+- **📈 Dual Scoring Systems**: CLEAR (precision prompts) + EVOKE (visual prompts) — both 50-point, 40+ threshold
 - **📄 Three Output Formats**: Standard/Markdown, JSON, YAML with format-specific optimization
 - **🛠️ REPAIR+ Protocol**: Advanced error detection and recovery
 - **✅ Quality Gates**: Multi-phase validation ensuring consistent excellence
@@ -89,15 +133,19 @@ The JSON, YAML, and Markdown format guides underwent comprehensive refactoring t
 ```
 AGENTS.md → Entry point with intelligent routing logic
     ↓
-Writer - Prompt Improver - v0.921.md (System prompt - 38 core rules)
+System Prompt v0.960 (Core routing, 38 rules, framework selection)
     ↓
-DEPTH Framework v0.116 (Methodology with RICCE & transparency)
-    ↓
-Interactive Mode v0.642 (Conversation flow with two-layer model)
-    ↓
-Patterns & Evaluation v0.102 (7 frameworks + CLEAR scoring)
-    ↓
-Format Guides v0.120 (Markdown, JSON, YAML - pure format specs)
+┌─────────────────────────────────────────────────────────────┐
+│                    SUPPORTING DOCUMENTS                      │
+├─────────────────────────────────────────────────────────────┤
+│  DEPTH Framework v0.117    │  Interactive Mode v0.660       │
+│  (Methodology, RICCE)      │  (Conversation flow)           │
+├─────────────────────────────────────────────────────────────┤
+│  Patterns v0.112           │  🎨 Visual Mode v0.100 (NEW)   │
+│  (8 frameworks, CLEAR)     │  (VIBE framework, EVOKE score) │
+├─────────────────────────────────────────────────────────────┤
+│  Format Guides v0.130 (Markdown, JSON, YAML)                │
+└─────────────────────────────────────────────────────────────┘
     ↓
 Output → /export/[###]-enhanced-prompt.[md|json|yaml]
 ```
@@ -112,7 +160,7 @@ Output → /export/[###]-enhanced-prompt.[md|json|yaml]
 
 ### Step 2: Add System Instructions
 1. Edit project details → Custom instructions
-2. Copy and paste: `Writer - Prompt Improver - v0.921.md`
+2. Copy and paste: `Prompt - System Prompt - v0.960.md`
 3. Save the project
 
 ### Step 3: Upload Supporting Documents
@@ -120,46 +168,28 @@ Output → /export/[###]-enhanced-prompt.[md|json|yaml]
 Add these documents to your project:
 
 **Core Framework:**
-- `Prompt - DEPTH Thinking Framework - v0.116.md` (two-layer transparency, mandatory perspectives, RICCE integration)
-- `Prompt - Interactive Mode - v0.642.md` (conversation flow, state management, smart routing)
-- `Prompt - Patterns, Enhancements & Evaluation - v0.102.md` (complete framework library, CLEAR scoring)
+- `Prompt - DEPTH Thinking Framework - v0.117.md` (two-layer transparency, mandatory perspectives, RICCE integration)
+- `Prompt - Interactive Mode - v0.660.md` (conversation flow, state management, smart routing)
+- `Prompt - Patterns, Enhancements & Evaluation - v0.112.md` (complete framework library, CLEAR scoring)
+- 🎨 `Prompt - Visual Mode - v0.100.md` **(NEW)** — VIBE framework, EVOKE scoring for AI design tools
 
 **Format Specifications:**
-Each format guide (v0.120) is fully self-contained with pure format focus:
+Each format guide (v0.130) is fully self-contained with pure format focus:
 
-- **`Prompt - Format Guide - Markdown - v0.120.md`**
+- **`Prompt - Format Guide - Markdown - v0.130.md`**
   - Natural language prompt structure (DEFAULT FORMAT)
   - RCAF/CRAFT framework integration
   - Baseline token usage, optimal human readability
-  - File delivery standards (Desktop vs CLI/Agent modes)
-  - YAML-based syntax validation
-  
-- **`Prompt - Format Guide - JSON - v0.120.md`**
+
+- **`Prompt - Format Guide - JSON - v0.130.md`**
   - Structured data for API/system integration
   - Schema validation and type safety
   - Token overhead: +5-10%
-  - File delivery with validation rules
-  - YAML pseudo code for conversions
-  
-- **`Prompt - Format Guide - YAML - v0.120.md`**
+
+- **`Prompt - Format Guide - YAML - v0.130.md`**
   - Human-friendly configuration format
   - Minimal syntax overhead, clear hierarchy
   - Token overhead: +3-7%
-  - Configuration-ready format specifications
-  - YAML-native validation examples
-
-**Key Advantages of v0.120 Refactor:**
-- Pure format specifications (no processing logic duplication)
-- Clear file delivery standards aligned with system prompt
-- YAML pseudo code throughout for consistency
-- Streamlined 11-section structure
-- Token efficiency guidance
-- Format quality checklists
-- Complete framework library (7 frameworks with 87-94% success rates)
-- Automatic complexity detection and scaling
-- Context-aware CLEAR evaluation with dimension weighting
-- Comprehensive pattern library (20+ enhancement patterns)
-- Consistent DEPTH v0.106 integration across all operations
 
 ### Step 4: Start Enhancing
 ```
@@ -168,6 +198,8 @@ $quick fix grammar              # Fast 1-5 round enhancement
 $improve generate report        # Standard 10-round DEPTH processing
 $json api endpoint              # JSON format with structure optimization
 $yaml config template           # YAML format with hierarchy optimization
+$visual dashboard concept       # 🎨 NEW: Visual mode for AI design tools
+$vibe landing page             # 🎨 NEW: Evocative prompts for Lovable/v0.dev
 ```
 
 ---
@@ -177,15 +209,16 @@ $yaml config template           # YAML format with hierarchy optimization
 
 **Default Mode:** The system defaults to `$interactive` with automatic 10-round DEPTH unless specified.
 
-| Mode            | Command           | Purpose              | Questions       | DEPTH Processing            | Transparency    | Output      |
-| --------------- | ----------------- | -------------------- | --------------- | --------------------------- | --------------- | ----------- |
-| **Interactive** | (default)         | Guided enhancement   | 1 comprehensive | 10 rounds (concise updates) | Two-layer       | User choice |
-| **$quick**      | `$quick` / `$q`   | Fast processing      | NONE            | 1-5 auto-scaled             | Summary         | Auto-format |
-| **$short**      | `$short` / `$s`   | Minimal refinement   | 1 comprehensive | 3 rounds                    | Key changes     | Auto-format |
-| **$improve**    | `$improve` / `$i` | Standard enhancement | 1 comprehensive | 10 rounds (concise updates) | Two-layer       | Auto-format |
-| **$refine**     | `$refine` / `$r`  | Maximum optimization | 1 comprehensive | 10 rounds (concise updates) | Deep analysis   | Auto-format |
-| **$json**       | `$json` / `$j`    | API format           | 1 comprehensive | 10 rounds (concise updates) | Structure focus | JSON only   |
-| **$yaml**       | `$yaml` / `$y`    | Config format        | 1 comprehensive | 10 rounds (concise updates) | Template focus  | YAML only   |
+| Mode            | Command               | Purpose                | Questions       | DEPTH Rounds   | Scoring | Output      |
+| --------------- | --------------------- | ---------------------- | --------------- | -------------- | ------- | ----------- |
+| **Interactive** | (default)             | Guided enhancement     | 1 comprehensive | 10 rounds      | CLEAR   | User choice |
+| **$quick**      | `$quick` / `$q`       | Fast processing        | NONE            | 1-5 auto-scale | CLEAR   | Auto-format |
+| **$short**      | `$short` / `$s`       | Minimal refinement     | 1 comprehensive | 3 rounds       | CLEAR   | Auto-format |
+| **$improve**    | `$improve` / `$i`     | Standard enhancement   | 1 comprehensive | 10 rounds      | CLEAR   | Auto-format |
+| **$refine**     | `$refine` / `$r`      | Maximum optimization   | 1 comprehensive | 10 rounds      | CLEAR   | Auto-format |
+| **$json**       | `$json` / `$j`        | API format             | 1 comprehensive | 10 rounds      | CLEAR   | JSON only   |
+| **$yaml**       | `$yaml` / `$y`        | Config format          | 1 comprehensive | 10 rounds      | CLEAR   | YAML only   |
+| 🎨 **$visual** | `$visual`/`$vibe`/`$v` | **UI concepting (NEW)** | 1 comprehensive | **5 rounds**   | **EVOKE** | Evocative   |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question to understand your enhancement needs:
@@ -196,6 +229,13 @@ System asks one comprehensive question to understand your enhancement needs:
 System waits for complete response before proceeding with full DEPTH processing.
 
 **Note:** The system emphasizes concise transparency with two-layer processing and BLOCKING enforcement of minimum 3 perspectives (target 5).
+
+### 🎨 Visual Mode Highlights
+Visual Mode (`$visual`, `$vibe`, `$v`) uses a completely different approach:
+- **VIBE Framework** instead of RCAF/COSTAR — focuses on Vision, Inspiration, Behavior, Experience
+- **EVOKE Scoring** instead of CLEAR — measures evocativeness, not precision
+- **5 DEPTH Rounds** instead of 10 — optimized for creative iteration
+- **Target Platforms** — Lovable, Aura, Bolt, v0.dev and other AI design tools
 
 ---
 
@@ -221,7 +261,7 @@ System waits for complete response before proceeding with full DEPTH processing.
 - Full 10-round DEPTH processing
 - Complete transparency report after delivery
 
-**Full details:** `Prompt - Interactive Mode - v0.642.md`
+**Full details:** `Prompt - Interactive Mode - v0.660.md`
 
 ---
 
@@ -344,8 +384,109 @@ System waits for complete response before proceeding with full DEPTH processing.
 
 ---
 
-<a id="7-interactive-mode"></a>
-## 7. 💬 INTERACTIVE MODE
+<a id="7-visual-mode-new"></a>
+## 7. 🎨 VISUAL MODE (NEW)
+
+### Transform Technical Specs into Evocative Prompts
+
+**Purpose:** Create inspiration-based prompts for AI design tools that maximize creative output.
+
+**Commands:** `$visual`, `$vibe`, `$v`
+
+**Key Difference:** Visual Mode inverts traditional prompt engineering — instead of adding specificity, it removes constraints to inspire AI creativity.
+
+| Traditional Prompts | Visual Mode |
+|---------------------|-------------|
+| Add specificity | Remove specificity |
+| Include technical details | Transform to feelings |
+| Constrain interpretation | Enable exploration |
+| CLEAR scoring | EVOKE scoring |
+| RCAF/COSTAR framework | VIBE framework |
+
+### The VIBE Framework
+
+| Element | Focus | Core Question |
+|---------|-------|---------------|
+| **V**ision | Core aesthetic direction | "What should this look like?" |
+| **I**nspiration | Reference points | "What should this feel like?" |
+| **B**ehavior | Interaction feel | "How should this move?" |
+| **E**xperience | Emotional journey | "How should users feel?" |
+
+### The EVOKE Scoring System
+
+| Dimension | Points | Threshold | What It Measures |
+|-----------|--------|-----------|------------------|
+| **E**vocative | 15 | 12+ | Creates vivid mental imagery |
+| **V**isual | 10 | 8+ | Paints a picture AI can render |
+| **O**pen | 10 | 8+ | Leaves room for creativity |
+| **K**inetic | 10 | 8+ | Suggests motion and life |
+| **E**motional | 5 | 4+ | Conveys experiential goals |
+| **Total** | 50 | 40+ | Quality threshold |
+
+### Six Design Directions
+
+Visual Mode auto-detects which direction fits your prompt:
+
+| Direction | Reference Products | Emotional Core |
+|-----------|-------------------|----------------|
+| **Precision & Density** | Linear, Raycast | Efficiency, power, mastery |
+| **Warmth & Approachability** | Notion, Coda | Comfort, collaboration |
+| **Sophistication & Trust** | Stripe, Mercury | Trust, security, professionalism |
+| **Boldness & Clarity** | Vercel | Decisiveness, modernity |
+| **Utility & Function** | GitHub, VS Code | Focus, productivity |
+| **Data & Analysis** | Mixpanel, Amplitude | Understanding, insight |
+
+### Screenshot Analysis
+
+Visual Mode can analyze screenshots and images to extract VIBE elements:
+
+```
+FIRST IMPRESSION (3 seconds):
+"Clean, professional, data-focused. Feels like a power tool for experts."
+
+VIBE EXTRACTION:
+- Vision: Dense but organized. Cool blue-gray palette. Sharp, precise aesthetic.
+- Inspiration: "Like Linear meets a Bloomberg terminal—efficient but beautiful"
+- Behavior: Likely snappy interactions, minimal animation, immediate feedback
+- Experience: Makes users feel capable and in control. Expert tool energy.
+
+DESIGN DIRECTION:
+Primary: Precision & Density
+Secondary: Data & Analysis
+```
+
+### Target Platform Optimization
+
+| Platform | Strength | Prompt Length | Key Buzzwords |
+|----------|----------|---------------|---------------|
+| **Lovable** | Full-stack apps | 100-250 words | glassmorphism, micro-interactions, bouncy |
+| **Aura** | No-code/no-design | 50-150 words | modern SaaS, rounded-xl, soft shadows |
+| **Bolt** | Rapid prototyping | 50-150 words | neumorphism, cyberpunk, material design |
+| **v0.dev** | UI components | 100-300 words | shadcn components, Tailwind classes |
+
+### Visual Mode Process (5 DEPTH Rounds)
+
+```
+Round 1 (Discover): Screenshot Analysis + Technical Constraint Detection + Direction Detection
+Round 2 (Engineer): VIBE Extraction (Vision, Inspiration, Behavior, Experience)
+Round 3 (Prototype): Vocabulary Transformation + Evocative Prompt Construction
+Round 4 (Test): EVOKE Scoring (all 5 dimensions, 40+ threshold)
+Round 5 (Harmonize): Final Polish + Platform Optimization
+```
+
+**Example Usage:**
+```
+$visual Create a dashboard for monitoring server health metrics
+$vibe Design a landing page for a meditation app
+$v Build a settings panel for a developer tool
+```
+
+**Full details:** `Prompt - Visual Mode - v0.100.md`
+
+---
+
+<a id="8-interactive-mode"></a>
+## 8. 💬 INTERACTIVE MODE
 
 ### Conversational Guidance Flow
 
@@ -360,7 +501,7 @@ Single Comprehensive Question
      ↓
 Wait for Complete User Response
      ↓
-Apply DEPTH v0.106 (10 rounds with concise updates)
+Apply DEPTH v0.117 (10 rounds with concise updates)
      ↓
 Deliver Enhanced Prompt + Transparency Report
 ```
@@ -391,7 +532,7 @@ To create the best enhancement, please provide:
     User Clarity, Framework Selection, Token Efficiency
 **Key Insight:** Technical documentation needs precision framework
 
-⚙️ **Engineering solution** (7 frameworks evaluated)
+⚙️ **Engineering solution** (8 frameworks evaluated)
 **Selected:** TIDD-EC (93% success rate, precision-critical tasks)
 
 🔨 **Building** (TIDD-EC structure, RICCE-compliant)
@@ -407,12 +548,12 @@ Ready for delivery
 [Enhanced prompt delivered + full transparency report]
 ```
 
-**Full details:** `Prompt - Interactive Mode - v0.642.md`
+**Full details:** `Prompt - Interactive Mode - v0.660.md`
 
 ---
 
-<a id="8-depth-thinking-framework"></a>
-## 8. 🧠 DEPTH THINKING FRAMEWORK
+<a id="9-depth-thinking-framework"></a>
+## 9. 🧠 DEPTH THINKING FRAMEWORK
 
 ### Two-Layer Transparency Model
 
@@ -427,12 +568,12 @@ A structured 5-phase methodology ensuring comprehensive prompt enhancement throu
 | **$quick**   | 1-5 auto-scaled | Summary at completion    | Complexity-based       |
 | **$short**   | 3 rounds        | Key changes only         | Focused refinement     |
 
-### DEPTH Phases (v0.106 with RICCE Integration)
+### DEPTH Phases (v0.117 with RICCE Integration)
 
 | Phase         | Purpose             | Internal Processing                                                           | User Sees                                    |
 | ------------- | ------------------- | ----------------------------------------------------------------------------- | -------------------------------------------- |
 | **D**iscover  | Deep understanding  | 5 perspectives, assumption audit, complexity analysis, RICCE Role & Context   | "🔍 Analyzing (5 perspectives)"               |
-| **E**ngineer  | Solution generation | 7 frameworks evaluated, constraint analysis, RICCE Constraints & Instructions | "⚙️ Engineering (optimal framework selected)" |
+| **E**ngineer  | Solution generation | 8 frameworks evaluated, constraint analysis, RICCE Constraints & Instructions | "⚙️ Engineering (optimal framework selected)" |
 | **P**rototype | Build framework     | Template application, RICCE validation, mechanism-first structure             | "🔨 Building (RCAF/framework structure)"      |
 | **T**est      | Validate quality    | CLEAR scoring (5 dimensions), quality gates, RICCE Examples validation        | "✅ Validating (CLEAR 42/50)"                 |
 | **H**armonize | Final polish        | Final verification, cognitive rigor check, RICCE completeness                 | "✨ Finalizing (excellence confirmed)"        |
@@ -445,7 +586,7 @@ A structured 5-phase methodology ensuring comprehensive prompt enhancement throu
     User Clarity, Framework Specialist, Token Efficiency
 **Key Insight:** Content creation task benefits from audience-focused approach
 
-⚙️ **Engineering solution** (7 frameworks evaluated)
+⚙️ **Engineering solution** (8 frameworks evaluated)
 **Selected:** COSTAR (94% success rate, content creation champion)
 **Alternative:** RCAF (92% - considered for simpler approach)
 
@@ -480,12 +621,12 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 **Validation Gates:** Multi-phase enforcement (pre-enhancement, during enhancement, post-enhancement) ensures consistent excellence
 
-**Full details:** `Prompt - DEPTH Thinking Framework - v0.116.md`
+**Full details:** `Prompt - DEPTH Thinking Framework - v0.117.md`
 
 ---
 
-<a id="9-ricce-framework"></a>
-## 9. 🏗️ RICCE FRAMEWORK
+<a id="10-ricce-framework"></a>
+## 10. 🏗️ RICCE FRAMEWORK
 
 ### Structural Validation Checklist
 
@@ -545,12 +686,12 @@ Six mandatory frameworks applied internally (users see key insights only):
 **Assumption Flagged:** [Assumes: API supports async requests]
 ```
 
-**Full details:** `Prompt - DEPTH Thinking Framework - v0.116.md` (Sections 5-6)
+**Full details:** `Prompt - DEPTH Thinking Framework - v0.117.md` (Sections 5-6)
 
 ---
 
-<a id="10-framework-intelligence"></a>
-## 10. 🎯 FRAMEWORK INTELLIGENCE
+<a id="11-framework-intelligence"></a>
+## 11. 🎯 FRAMEWORK INTELLIGENCE
 
 ### Automatic Framework Selection
 
@@ -587,6 +728,7 @@ framework_selection:
 | **5-7**    | Creativity    | CRISPE    | 87%          | Strategy, exploration           |
 | **6-8**    | Precision     | TIDD-EC   | 93%          | Compliance, quality-critical    |
 | **7-10**   | Comprehensive | CRAFT     | 91%          | Complex projects, planning      |
+| 🎨 **Any** | Visual/UI     | **VIBE**  | 90%          | AI design tools, UI concepting  |
 
 ### Framework Descriptions
 
@@ -625,6 +767,12 @@ framework_selection:
 - **Strengths:** Comprehensive coverage, planning depth
 - **Use when:** High complexity (7+) with multiple stakeholders
 
+🎨 **VIBE (Vision, Inspiration, Behavior, Experience)** - 90% Success
+- **Best for:** Visual UI concepting, AI design tool prompts
+- **Strengths:** Evocative language, creative freedom, platform-optimized
+- **Use when:** Creating prompts for Lovable, Aura, Bolt, v0.dev
+- **Note:** Uses EVOKE scoring instead of CLEAR
+
 ### Power Combinations
 
 **For Complex Scenarios:**
@@ -634,12 +782,12 @@ framework_selection:
 - **RACE + ToT (Tree of Thoughts)**: Rapid decision trees
 - **Master-Detail Pattern**: Nested framework hierarchies
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.102.md` (Sections 1-4)
+**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.112.md` (Sections 1-4)
 
 ---
 
-<a id="11-enhancement-system"></a>
-## 11. 📊 ENHANCEMENT SYSTEM
+<a id="12-enhancement-system"></a>
+## 12. 📊 ENHANCEMENT SYSTEM
 
 ### Systematic Enhancement Pipeline
 
@@ -686,12 +834,12 @@ by_score:
 - Adaptive response formats (quick review vs comprehensive)
 - Self-documenting structure (what, why, how, example)
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.102.md` (Sections 5-7)
+**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.112.md` (Sections 5-7)
 
 ---
 
-<a id="12-clear-evaluation"></a>
-## 12. 📈 CLEAR EVALUATION
+<a id="13-clear-evaluation"></a>
+## 13. 📈 CLEAR EVALUATION
 
 ### Context-Aware Scoring System
 
@@ -741,4 +889,4 @@ contextual_clear_scoring:
 2. **Deep Pass**: Ambiguity detection, assumption analysis
 3. **Interaction Pass**: AI interpretation testing, failure mode analysis
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.102.md` (Sections 9-11)
+**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.112.md` (Sections 9-11)
