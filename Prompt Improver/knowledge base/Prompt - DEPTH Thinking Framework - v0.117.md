@@ -1,10 +1,10 @@
-# Prompt - DEPTH Thinking Framework - v0.116
+# Prompt - DEPTH Thinking Framework - v0.117
 
 A comprehensive methodology combining systematic analysis with **transparent professional excellence** for superior prompt engineering deliverables.
 
 **Loading Condition:** ALWAYS
 **Purpose:** Establishes the comprehensive DEPTH methodology (Discover, Engineer, Prototype, Test, Harmonize) combined with RICCE structural validation and cognitive rigor techniques for superior prompt engineering deliverables through transparent professional excellence.
-**Scope:** Multi-perspective analysis framework (minimum 3, target 5 perspectives), cognitive rigor techniques (perspective inversion, constraint reversal, assumption audit, mechanism-first), RICCE completeness validation (Role, Instructions, Context, Constraints, Examples), two-layer transparency model, CLEAR quality scoring (40+/50 target), framework integration patterns, and quality assurance protocols.
+**Scope:** Multi-perspective analysis framework (minimum 3, target 5 perspectives), cognitive rigor techniques (perspective inversion, constraint reversal, assumption audit, mechanism-first), RICCE completeness validation (Role, Instructions, Context, Constraints, Examples), two-layer transparency model, CLEAR quality scoring (40+/50 target), **Visual Mode with VIBE framework and EVOKE scoring (5-round processing)**, framework integration patterns, and quality assurance protocols.
 
 ---
 
@@ -18,7 +18,8 @@ A comprehensive methodology combining systematic analysis with **transparent pro
 6. [🔗 RICCE-DEPTH INTEGRATION](#6--ricce-depth-integration)
 7. [🔄 TRANSPARENCY MODEL](#7--transparency-model)
 8. [✅ QUALITY ASSURANCE](#8--quality-assurance)
-9. [🏎️ QUICK REFERENCE](#9-️-quick-reference)
+9. [🎨 VISUAL MODE CONFIGURATION](#9--visual-mode-configuration)
+10. [🏎️ QUICK REFERENCE](#10-️-quick-reference)
 
 ---
 
@@ -225,7 +226,7 @@ Excellence confirmed, ready for delivery"
 
 **Required Perspectives:** Prompt Engineering, AI Interpretation, User Clarity, Framework Specialist, Token Efficiency
 
-**Validation Gates:** Round 2 (BLOCKING) → Round 3 (BLOCKING) → Round 6 (VALIDATION) → Round 10 (CONFIRMATION)
+**Validation Gates:** Round 2 (INITIAL CHECK - minimum 3 perspectives started) → Round 5 (PROGRESS CHECK - perspectives analyzed) → Round 10 (FINAL CONFIRMATION - all perspectives integrated)
 
 **User Communication:** Show perspective count and key insights only (not full transcripts)
 
@@ -352,6 +353,32 @@ Before delivery, validate (show summary to user):
 | **P**rototype | Rounds 6-7           | 0.5-1 round        | "🔨 Building (framework selected)"        |
 | **T**est      | Rounds 8-9           | 0.5-1 round        | "✅ Validating (CLEAR 40+)"               |
 | **H**armonize | Round 10             | 0.5 round          | "✨ Finalizing (excellence confirmed)"    |
+
+### Quick Mode Phase Mapping
+
+```yaml
+quick_mode_distribution:
+  description: "How 1-5 rounds map to DEPTH phases in Quick Mode"
+
+  1_round:
+    discover: "0.5 (essential perspective analysis only)"
+    harmonize: "0.5 (basic validation)"
+    skipped: [engineer, prototype, test]  # Use smart defaults
+
+  3_rounds:
+    discover: "1.0 (3 perspectives minimum)"
+    engineer: "1.0 (framework selection)"
+    harmonize: "1.0 (validation + delivery)"
+    compressed: [prototype, test]  # Merged into engineer/harmonize
+
+  5_rounds:
+    discover: "1.0"
+    engineer: "1.5"
+    prototype: "1.0"
+    test: "1.0"
+    harmonize: "0.5"
+    note: "All phases executed but compressed"
+```
 
 ### State Management (Transparent & Intelligent)
 
@@ -697,6 +724,46 @@ final_polish:
     - "List perspectives applied"
 ```
 
+### Phase Exit Criteria (MANDATORY)
+
+```yaml
+phase_exit_conditions:
+  discover_complete:
+    - "Minimum 3 perspectives analyzed and documented"
+    - "Perspective inversion applied with insights synthesized"
+    - "Critical assumptions identified and classified"
+    - "RICCE Role element populated"
+    gate_check: "All conditions met → proceed to Engineer"
+
+  engineer_complete:
+    - "Framework selected with reasoning documented"
+    - "Constraint reversal applied with non-obvious insights"
+    - "8+ approaches evaluated"
+    - "RICCE Instructions element structured"
+    gate_check: "All conditions met → proceed to Prototype"
+
+  prototype_complete:
+    - "Enhanced prompt structure built"
+    - "Mechanism-first validated (WHY before WHAT)"
+    - "RICCE Context integrated"
+    - "Format guide applied correctly"
+    gate_check: "All conditions met → proceed to Test"
+
+  test_complete:
+    - "CLEAR score calculated (must be 40+)"
+    - "All dimensions meet thresholds (8+)"
+    - "Self-rating complete across 6 dimensions"
+    - "RICCE Constraints validated"
+    gate_check: "All conditions met → proceed to Harmonize"
+
+  harmonize_complete:
+    - "Final perspective count verified (>=3)"
+    - "All cognitive rigor gates passed"
+    - "RICCE Examples complete"
+    - "Deliverable ready for export"
+    gate_check: "All conditions met → DELIVER"
+```
+
 ---
 
 ## 5. 🏗️ RICCE FRAMEWORK
@@ -1012,7 +1079,13 @@ harmonize_to_examples:
 ```yaml
 ricce_depth_integration_check:
   before_delivery:
-    role_present: "Perspectives and AI role defined?"
+    role_present: "Role IDENTIFIED in Phase D and COMPLETED in Phase P?"
+    # Note: RICCE elements are progressively populated across phases:
+    # - Phase D: Role IDENTIFIED (perspectives, target audience)
+    # - Phase E: Instructions STRUCTURED (framework, requirements)
+    # - Phase P: Context INTEGRATED, Role COMPLETED (full definition)
+    # - Phase T: Constraints VALIDATED (CLEAR scored)
+    # - Phase H: Examples COMPLETE (validation mechanisms)
     instructions_clear: "Requirements actionable and complete?"
     context_comprehensive: "All relevant context included?"
     constraints_explicit: "Boundaries and CLEAR metrics clear?"
@@ -1338,7 +1411,13 @@ improvement_cycle:
       - apply_all_improvements
       - final_score_validation
       - deliver_best_version
-  
+
+      max_total_iterations:
+        limit: 3
+        on_exceed: "Deliver current best version with quality note"
+        message: "Quality target not fully met after 3 iterations. Delivering best achieved result with improvement suggestions."
+        prevent_phase_return: true  # Do NOT return to Phase D after iteration limit
+
   user_communication:
     show: "Applied [X] improvement cycles to reach CLEAR [score]"
     hide: "Detailed iteration tracking and scoring calculations"
@@ -1346,7 +1425,261 @@ improvement_cycle:
 
 ---
 
-## 9. 🏎️ QUICK REFERENCE
+## 9. 🎨 VISUAL MODE CONFIGURATION
+
+### Overview
+
+When processing **Visual Mode** requests (UI concepting, design prompts, visual system briefs), DEPTH adapts its methodology to work with **VIBE Framework** and **EVOKE Scoring** instead of the standard RICCE/CLEAR approach.
+
+**Trigger:** `$visual`, `$vibe`, or `$v` command, or detected visual/UI concepting intent
+
+**Core Philosophy:** "Specification constrains. Inspiration liberates."
+
+### Visual Mode vs Standard Mode
+
+| Aspect | Standard Mode | Visual Mode |
+|--------|---------------|-------------|
+| **Rounds** | 10 (full DEPTH) | 5 (compressed) |
+| **Framework** | RCAF/COSTAR/RACE | VIBE |
+| **Scoring** | CLEAR (40+/50) | EVOKE (40+/50) |
+| **Validation** | RICCE | Design Direction + Style |
+| **Output Style** | Precise, technical | Evocative, inspirational |
+| **Perspectives** | 3-5 technical | 3-5 design-focused |
+
+### VIBE Framework Integration
+
+**V**ision **I**nspiration **B**ehavior **E**xperience
+
+```yaml
+vibe_framework:
+  vision:
+    purpose: "Capture the overall aesthetic direction"
+    focus: [modern_vs_classic, minimal_vs_rich, light_vs_dark]
+    output: "High-level visual personality"
+
+  inspiration:
+    purpose: "Identify design reference points"
+    focus: [product_echoes, brand_similarities, visual_genres]
+    output: "Design lineage and influences"
+
+  behavior:
+    purpose: "Describe interaction personality"
+    focus: [animation_style, hover_states, transition_feel]
+    output: "Kinetic and interactive character"
+
+  experience:
+    purpose: "Define emotional journey"
+    focus: [user_feeling, cognitive_load, emotional_arc]
+    output: "Experience-level description"
+```
+
+### EVOKE Scoring System
+
+**E**vocative **V**isual **O**pen **K**inetic **E**motional
+
+```yaml
+evoke_scoring:
+  dimensions:
+    evocative_language:
+      weight: 15
+      threshold: 12
+      criteria: "Does the prompt paint pictures with words?"
+
+    visual_clarity:
+      weight: 10
+      threshold: 8
+      criteria: "Can the AI envision the design from description?"
+
+    open_interpretation:
+      weight: 10
+      threshold: 8
+      criteria: "Does it allow creative exploration?"
+
+    kinetic_description:
+      weight: 10
+      threshold: 8
+      criteria: "Are movements and interactions conveyed?"
+
+    emotional_resonance:
+      weight: 5
+      threshold: 4
+      criteria: "Does it convey the intended feeling?"
+
+  total: 50
+  passing_threshold: 40
+```
+
+### Visual Mode Round Distribution
+
+| Round | Phase | Focus | User Update |
+|-------|-------|-------|-------------|
+| **1** | **D**iscover | VIBE extraction, design direction detection | "🎨 Analyzing visual essence..." |
+| **2** | **E**ngineer | Evocative vocabulary generation, style keywords | "✨ Crafting visual language..." |
+| **3** | **P**rototype | Build evocative prompt, apply platform optimization | "🔨 Shaping the vision..." |
+| **4** | **T**est | EVOKE scoring, transformation validation | "✅ Validating evocative quality..." |
+| **5** | **H**armonize | Final polish, design direction confirmation | "🌟 Finalizing visual concept..." |
+
+### Visual Mode State Management
+
+```yaml
+visual_mode_state:
+  # Mode detection
+  mode: visual
+  framework: VIBE
+  scoring_system: EVOKE
+  total_rounds: 5
+
+  # VIBE state
+  vibe_extracted:
+    vision: string
+    inspiration: string
+    behavior: string
+    experience: string
+
+  # Design direction (6 types)
+  design_direction:
+    detected: string  # One of: precision_density, warmth_approachability,
+                      # sophistication_trust, boldness_clarity,
+                      # utility_function, data_analysis
+    confidence: float
+    reference_products: []
+
+  # Visual style
+  visual_style:
+    keywords: []  # From 10-keyword vocabulary
+    platform_target: string  # lovable, aura, bolt, v0, midjourney
+
+  # EVOKE scores
+  evoke_scores:
+    evocative: {score: 0, threshold: 12, max: 15}
+    visual: {score: 0, threshold: 8, max: 10}
+    open: {score: 0, threshold: 8, max: 10}
+    kinetic: {score: 0, threshold: 8, max: 10}
+    emotional: {score: 0, threshold: 4, max: 5}
+    total: {score: 0, threshold: 40, max: 50}
+
+  # Screenshot analysis (if applicable)
+  screenshot_analysis:
+    first_impression: string
+    dominant_elements: []
+    emotional_response: string
+    design_echoes: []
+```
+
+### Visual Mode Perspectives
+
+**Replace standard perspectives with design-focused analysis:**
+
+```yaml
+visual_perspectives:
+  minimum: 3
+  target: 5
+  blocking: true
+
+  perspective_types:
+    - visual_designer      # Aesthetics, composition, visual hierarchy
+    - interaction_designer # Motion, transitions, micro-interactions
+    - brand_strategist     # Emotional resonance, market positioning
+    - user_researcher      # Experience clarity, cognitive load
+    - platform_specialist  # Target platform conventions, constraints
+```
+
+### Design Directions Reference
+
+```yaml
+design_directions:
+  precision_density:
+    reference_products: [Linear, Raycast, Superhuman]
+    signals: [dashboard, analytics, power_user, professional]
+    vibe: "Surgical precision, information-dense, engineer-focused"
+
+  warmth_approachability:
+    reference_products: [Notion, Coda, Craft]
+    signals: [collaboration, team, friendly, creative]
+    vibe: "Welcoming, creative energy, collaborative spirit"
+
+  sophistication_trust:
+    reference_products: [Stripe, Mercury, Ramp]
+    signals: [payment, banking, finance, enterprise]
+    vibe: "Quietly confident, trustworthy, premium understated"
+
+  boldness_clarity:
+    reference_products: [Vercel, Linear, Arc]
+    signals: [startup, developer, modern, cutting_edge]
+    vibe: "Confident statements, clear hierarchy, bold choices"
+
+  utility_function:
+    reference_products: [GitHub, VS_Code, Figma]
+    signals: [code, repository, design_tool, workflow]
+    vibe: "Tool-first, functional beauty, expert efficiency"
+
+  data_analysis:
+    reference_products: [Mixpanel, Amplitude, Tableau]
+    signals: [charts, metrics, dashboard, visualization]
+    vibe: "Clear insights, data storytelling, analytical clarity"
+```
+
+### Visual Mode Quality Gates
+
+```yaml
+visual_quality_gates:
+  round_1_discover:
+    - [ ] First impression captured (3-second rule)
+    - [ ] VIBE framework extracted
+    - [ ] Design direction detected
+    - [ ] Reference products identified
+    - "🎨 Design direction: [direction], echoes [products]"
+
+  round_2_engineer:
+    - [ ] Evocative vocabulary generated
+    - [ ] Technical specs transformed to feelings
+    - [ ] Visual style keywords selected
+    - [ ] Platform optimization identified
+    - "✨ Visual language crafted, [N] style keywords applied"
+
+  round_3_prototype:
+    - [ ] Evocative prompt built
+    - [ ] No hex codes or pixel values
+    - [ ] Spatial feelings (not dimensions)
+    - [ ] Motion personality (not timing specs)
+    - "🔨 Vision shaped with evocative language"
+
+  round_4_test:
+    - [ ] EVOKE scored (40+ threshold)
+    - [ ] All dimensions meet thresholds
+    - [ ] Transformation principles applied
+    - [ ] Anti-patterns avoided
+    - "✅ EVOKE: [score]/50, all thresholds met"
+
+  round_5_harmonize:
+    - [ ] Design direction confirmed
+    - [ ] Platform optimization verified
+    - [ ] Evocative language polished
+    - [ ] Ready for target platform
+    - "🌟 Visual concept complete, optimized for [platform]"
+```
+
+### Transformation Principles (Visual Mode)
+
+**Core Rule:** Transform technical specifications to evocative descriptions.
+
+| Technical Spec | Evocative Transformation |
+|----------------|--------------------------|
+| Dimensions (px) | Spatial feelings (cozy, expansive, breathing room) |
+| Colors (hex) | Mood and emotion (trust, energy, calm) |
+| Animation (ms) | Motion personality (snappy, graceful, playful) |
+| Typography | Voice and character (confident, approachable, refined) |
+| Spacing | Relationship language (intimate, connected, independent) |
+
+**Anti-Patterns to Avoid:**
+- Hex codes: `#3B82F6` → "a professional blue that builds trust"
+- Pixel values: `16px` → "comfortable breathing room"
+- Timing specs: `200ms` → "responds with satisfying immediacy"
+- Font names: `Inter` → "clean, modern voice"
+
+---
+
+## 10. 🏎️ QUICK REFERENCE
 
 ### DEPTH Phase Summary
 

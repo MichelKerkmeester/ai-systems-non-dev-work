@@ -50,6 +50,7 @@ Comprehensive framework library, enhancement patterns, and CLEAR evaluation meth
 | **TIDD-EC** | Task, Instructions, Do's, Don'ts, Examples, Context   | Quality-critical, compliance     | Brainstorming            | 93%          | Medium - pairs with CoT      |
 | **CRISPE**  | Capacity, Insight, Statement, Personality, Experiment | Strategy, exploration            | Routine tasks            | 87%          | High - good for iteration    |
 | **CRAFT**   | Context, Role, Action, Format, Target                 | Complex projects, planning       | Simple queries           | 91%          | Low - already comprehensive  |
+| **VIBE**    | Vision, Inspiration, Behavior, Experience             | Visual UI concepting, design     | Precision/specification  | 90%          | Low - specialized for visual |
 
 #### Intelligent Framework Selection Algorithm
 
@@ -125,6 +126,18 @@ select_optimal_framework:
             add: 5
           - if: "complexity >= 6"
             add: 3
+
+      vibe:
+        base_score: 2  # Adjusted to be selectable when visual triggers present
+        modifiers:
+          - if: visual_ui_concepting
+            add: 10
+          - if: creative_element
+            add: 5
+          - if: targets_design_tools
+            add: 5
+          - if: precision_critical
+            subtract: 10  # VIBE is wrong for precision work
 
     select_best:
       method: highest_score
@@ -408,6 +421,19 @@ efficiency_switching:
       then:
         switch: "TIDD-EC → RCAF"
         savings: "12-15%"
+
+  rule_precedence:
+    description: "When multiple rules match, apply in this order"
+    priority:
+      1: "complexity < 2 rules (most restrictive)"
+      2: "complexity < 4 rules"
+      3: "precision not critical rules (least restrictive)"
+    conflict_resolution: "Apply highest priority rule only"
+    example: |
+      If token_count > threshold AND complexity = 2 AND precision not critical:
+      → Rule 2 matches (complexity < 4, switch CRAFT → RCAF)
+      → Rule 3 matches (precision not critical, switch TIDD-EC → RCAF)
+      → Apply Rule 2 first (higher priority due to lower complexity match)
 ```
 
 ---
@@ -801,6 +827,20 @@ repair_framework:
 ## PART 3: EVALUATION & SCORING
 
 ### 9. ✅ CLEAR EVALUATION MASTERY
+
+> **Note:** For Visual UI Concepting prompts (triggered by `$visual`, `$vibe`, `$v`), use **EVOKE scoring** instead of CLEAR. See the Visual Mode document for EVOKE details. EVOKE prioritizes evocativeness over completeness, designed for AI design tools.
+
+#### CLEAR vs EVOKE: When to Use Each
+
+| Criteria | CLEAR | EVOKE |
+|----------|-------|-------|
+| **Use When** | Precision prompts, specifications | Visual concepting, design tools |
+| **Philosophy** | Completeness over ambiguity | Evocativeness over completeness |
+| **Goal** | Constrain AI behavior | Inspire AI creativity |
+| **Language** | Specific, logical | Metaphorical, sensory |
+| **Dimensions** | Correctness, Logic, Expression, Arrangement, Reuse | Evocative, Visual, Open, Kinetic, Emotional |
+| **Total Points** | 50 | 50 |
+| **Threshold** | 40+ | 40+ |
 
 #### Advanced CLEAR Scoring Methodology
 
@@ -1285,6 +1325,7 @@ framework_selection:
   complexity_5_7_creative: CRISPE
   complexity_6_8_precision: TIDD-EC
   complexity_7_10_comprehensive: CRAFT
+  visual_ui_concepting: VIBE  # For $visual/$vibe/$v mode
 ```
 
 ### Enhancement Priority
@@ -1307,6 +1348,7 @@ common_fixes:
   missing_metrics: "Add success criteria"
   poor_expression: "Simplify language"
   not_reusable: "Extract parameters"
+  visual_ui: "Switch to VIBE framework"
 ```
 
 ### Power Combinations
@@ -1317,6 +1359,23 @@ power_combinations:
   learning_examples: "TIDD-EC + Few-Shot"
   quick_decisions: "RACE + ToT"
   maximum_power: "CRAFT + All"
+```
+
+### Unified Severity Scale
+
+```yaml
+severity_mapping:
+  description: "Consistent severity levels across CLEAR and EVOKE scoring"
+
+  score_ranges:
+    excellent: {range: "45-50", action: "Ship immediately", urgency: "none"}
+    good: {range: "40-44", action: "Minor polish optional", urgency: "low"}
+    adequate: {range: "35-39", action: "Targeted improvements", urgency: "medium"}
+    weak: {range: "30-34", action: "Significant iteration needed", urgency: "high"}
+    insufficient: {range: "0-29", action: "Major rework or restart", urgency: "critical"}
+
+  applies_to: [CLEAR, EVOKE]
+  note: "Both scoring systems use 50-point scale with 40+ threshold"
 ```
 
 ---
