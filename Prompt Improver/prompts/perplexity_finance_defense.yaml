@@ -151,6 +151,7 @@ output:
 perplexity_settings:
   api_parameters:
     model: "sonar-pro"
+    search_type: "pro"
     search_recency_filter: "day" # aligns with 72_hours lookback
     max_sources: 40 # breadth across defense + macro
     max_results_per_query: 10 # avoid geopolitics dominating

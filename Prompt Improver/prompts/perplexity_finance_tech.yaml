@@ -164,6 +164,7 @@ output:
 perplexity_settings:
   api_parameters:
     model: "sonar-pro"
+    search_type: "pro"
     search_recency_filter: "day" # align with 72_hours lookback
     max_sources: 32 # 4 scans + catalysts need more breadth than defense ETF analysis
     max_results_per_query: 8 # balance across sectors
