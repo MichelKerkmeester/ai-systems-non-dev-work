@@ -1,444 +1,219 @@
 # --- FINANCE ---
-
-# --- Portfolio: Tech ---
-# --- Holdings: iShares MSCI Global Semiconductors + VanEck Semiconductor + iShares S&P 500 IT ---
+# --- Portfolio: Deep Tech & Semis (PIE) ---
+# --- Holdings: iShares MSCI Global Semis (SECO) + VanEck Semi (SMH) + VanEck Space (JEDI) + iShares Quantum (QOMP) ---
 
 # --- IDENTITY & CONTEXT ---
 identity:
-  role: Technology and semiconductor sector analyst
+  role: Deep Tech and Semiconductor Sector Analyst
   expertise:
-    - Semiconductor cycle dynamics and inventory patterns
-    - AI/ML compute demand and data center buildout
-    - Chip fabrication capacity and geopolitics
-    - Consumer electronics demand cycles
-    - Technology earnings and guidance analysis
-  objective: Generate actionable intelligence for a concentrated semiconductor and technology portfolio
+  - Semiconductor cycle dynamics (Inventory, Capex, AI Demand)
+  - Aerospace & Defense (Commercial Space, Gov Contracts)
+  - Quantum Computing (Qubit Modalities, Gov Funding)
+  - Macro-tech trends
+  objective: Generate actionable intelligence for a high-beta, future-infrastructure portfolio
 
 context:
-  execution_timestamp: "{{CURRENT_DATETIME}}"
-  lookback_period: 72_hours
-  forward_horizon: 14_days
+  execution_timestamp: "{{CURRENT_DATETIME}}" # runtime injection
+  lookback_period: 72_hours # tactical scan window
+  forward_horizon: 14_days # catalyst horizon
 
 portfolio:
-  name: tech
-  thesis: "Semiconductor Supercycle + AI Compute — Concentrated bet on AI-driven chip demand and secular digitization"
-  concentration_note: "Heavy semiconductor exposure — high conviction, high beta portfolio"
-  
-  holdings:
-    - ticker: SEMI
-      name: iShares MSCI Global Semiconductors ETF
-      focus: "Global semiconductor exposure — US, Taiwan, Korea, Europe, Japan"
-      drivers:
-        - AI_compute_demand
-        - data_center_capex
-        - memory_pricing_cycles
-        - foundry_utilization
-        - automotive_chip_demand
-      top_holdings_proxy: [NVDA, TSM, ASML, AVGO, AMD, QCOM, TXN, MU, INTC, LRCX]
-      geographic_exposure: [US, Taiwan, Netherlands, Korea, Japan]
-      
-    - ticker: SMH
-      name: VanEck Semiconductor ETF (Acc)
-      focus: "US-centric semiconductor exposure — equipment, fabless, memory, foundry"
-      drivers:
-        - AI_accelerator_demand_NVDA
-        - equipment_spending_cycle
-        - HBM_memory_demand
-        - fab_expansion_announcements
-        - CHIPS_Act_subsidies
-      top_holdings_proxy: [NVDA, TSM, AVGO, AMD, ASML, QCOM, TXN, AMAT, LRCX, KLAC]
-      overlap_note: "High overlap with SEMI — intentional concentration on semiconductor thesis"
-      
-    - ticker: QDVE
-      name: iShares S&P 500 Information Technology
-      focus: "Broader IT sector — software, services, hardware diversification"
-      drivers:
-        - enterprise_software_spending
-        - cloud_growth_rates
-        - tech_earnings_momentum
-        - AI_software_monetization
-      top_holdings_proxy: [AAPL, MSFT, NVDA, AVGO, ORCL, CRM, ADBE, ACN, AMD, CSCO]
-      diversification_note: "Reduces pure-play semiconductor concentration; adds software/services"
+  name: deep_tech_infrastructure
+  thesis: "The Compute & Frontier Barbell — Heavy allocation to current AI engines (Semis) paired with future infrastructure (Space/Quantum)."
+  concentration_note: "High Beta / Risk-On. Heavy correlation to risk appetite and government defense/science spending."
 
-# --- SOURCE HIERARCHY (Perplexity Domain Filter Optimized) ---
+  holdings:
+  - ticker: SECO
+    name: iShares MSCI Global Semiconductors (Acc)
+    focus: "Broad global semi exposure (Foundry, IDM, Equipment)"
+    drivers:
+    - Global foundry utilization (TSMC, Samsung)
+    - Memory pricing (DRAM/NAND cycles)
+    - Automotive & Industrial recovery
+    top_holdings_proxy: [ NVDA, TSM, ASML, AVGO, AMD, QCOM ]
+
+  - ticker: SMH
+    name: VanEck Semiconductor ETF (Acc)
+    focus: "Concentrated US-listed semi leaders (Heavier NVDA weighting)"
+    drivers:
+    - Hyperscaler AI Capex (Microsoft, Meta, Google)
+    - AI Accelerator roadmaps (Blackwell, Rubin, MI325)
+    - US Export Controls & CHIPS Act
+    overlap_note: "High correlation with SECO, but acts as the 'Aggressive Growth' lever."
+
+  - ticker: JEDI
+    name: VanEck Space Innovators
+    focus: "Orbital infrastructure, comms, and defense"
+    drivers:
+    - Defense contracts (SDA, NRO, NASA)
+    - Launch milestones (Starship progress)
+    - Satellite constellation buildouts (LEO/MEO)
+    top_holdings_proxy: [ RKLB, PL, IRDM, MAXR, LMT, NOC ]
+
+  - ticker: QOMP
+    name: iShares Quantum Computing
+    focus: "Quantum hardware, sensing, and cryptography"
+    drivers:
+    - Government funding bills (National Quantum Initiatives)
+    - Technical milestones (Error correction, Qubit counts)
+    - Post-Quantum Cryptography (PQC) standards
+    top_holdings_proxy: [ IONQ, RGTI, QBTS, IBM, HON, GOOGL ]
+
+# --- SOURCE HIERARCHY ---
 sources:
   primary:
-    description: "Company filings, official announcements, regulatory"
+    description: "Filings, Gov Contracts, Official Roadmaps"
     domains:
-      regulatory:
-        - sec.gov
-        - commerce.gov
-        - ustr.gov
-      company_ir:
-        - "investor relations pages (NVDA, TSM, ASML, AMD, INTC, MU)"
-      industry_associations:
-        - semiconductors.org  # SIA
-        - semi.org
+      regulatory: [ sec.gov, defense.gov, nasa.gov, sam.gov ]
+      industry: [ semiconductors.org, sia.org, nist.gov ]
     priority: 1
-    
   secondary:
-    description: "Quality technology and semiconductor media"
+    description: "Specialized Sector Media + Wires"
     domains:
-      - reuters.com
-      - bloomberg.com
-      - wsj.com
-      - ft.com
-      - theregister.com
-      - tomshardware.com
-      - anandtech.com
-      - semianalysis.com
+      semi: [ anandtech.com, tomshardware.com, semianalysis.com ]
+      space: [ spacenews.com, space.com, spaceflightnow.com ]
+      quantum: [ quantumcomputingreport.com, phys.org ]
+      finance: [ bloomberg.com, reuters.com, ft.com ]
     priority: 2
-    
   tertiary:
-    description: "Industry research and analysis"
-    domains:
-      - gartner.com
-      - idc.com
-      - trendforce.com
-      - omdia.com
-      - yolegroup.com
+    description: "Think tanks / long-form analysis"
+    domains: [ csis.org, rusi.org, atlanticcouncil.org ]
     priority: 3
-    
-  excluded:
-    domains: [reddit.com, quora.com, seekingalpha.com, fool.com, wccftech.com]
-    reason: "Speculation-heavy, low signal for institutional intelligence"
-
-  conflict_resolution:
-    - "Company guidance supersedes analyst estimates"
-    - "SEC filings supersede press releases"
-    - "Primary data (SIA, SEMI) supersedes media interpretation"
-    - "If conflict: cite both with dates"
-
-# --- MATERIALITY CRITERIA ---
-materiality:
-  include_if:
-    quantitative:
-      - "Semiconductor company guidance revision (any direction)"
-      - "Fab capex announcement: >$1B investment"
-      - "Memory price change: >5% spot or contract"
-      - "Order magnitude: design win >$500M implied revenue"
-      - "Market share shift: >2% in segment"
-      - "Export restriction: any new entity listing or license denial"
-    qualitative:
-      - "AI compute demand signal from hyperscaler"
-      - "Inventory correction signal (build or depletion)"
-      - "Geopolitical development (Taiwan, China export controls)"
-      - "Technology node advancement (N3, N2, GAA)"
-      - "HBM capacity expansion or constraint"
-      - "CHIPS Act funding milestone"
-      
-  exclude:
-    - "Rumor without official confirmation"
-    - "Analyst price target changes without fundamental basis"
-    - "Social media hype cycles"
-    - "Consumer product reviews"
 
 # --- QUERY ARCHITECTURE ---
 queries:
   # =========================================================================
-  # PHASE 1: Independent Queries (Parallel Execution)
+  # PHASE 1: Independent Queries (Sector Specific)
   # =========================================================================
-  
   phase_1_independent:
     execution: parallel
-    
-    Q1_ai_compute_demand:
-      search_terms: "AI chips GPU demand NVIDIA data center {{LAST_72H}} hyperscaler Microsoft Google Amazon Meta AI infrastructure"
-      recency_filter: 72_hours
-      focus:
-        - Hyperscaler AI capex guidance
-        - GPU allocation and lead times
-        - AI accelerator design wins
-        - Data center buildout announcements
-        - Cloud AI service launches
-      output_slot: "[[AI_DEMAND]]"
-      etf_impact: [SEMI, SMH, QDVE]
-      primary_beneficiary: "NVDA, AMD, AVGO — core holdings in both semi ETFs"
-      format: bullet_list
-      
-    Q2_semiconductor_earnings:
-      search_terms: "semiconductor earnings guidance {{LAST_72H}} NVIDIA AMD Intel Micron TSMC ASML revenue margin outlook"
-      recency_filter: 72_hours
-      focus:
-        - Earnings vs consensus (beat/miss magnitude)
-        - Forward guidance (revenue, margin, capex)
-        - Inventory commentary (days on hand, channel)
-        - Segment breakdown (data center, client, auto, industrial)
-        - Book-to-bill ratios
-      output_slot: "[[SEMI_EARNINGS]]"
-      etf_impact: [SEMI, SMH]
-      format: table
-      columns: [Company, Metric, Actual, vs_Consensus, Guidance, Key_Quote]
-      
-    Q3_memory_market:
-      search_terms: "DRAM NAND memory price {{LAST_72H}} Micron Samsung SK Hynix HBM supply demand"
-      recency_filter: 72_hours
-      focus:
-        - DRAM/NAND spot and contract pricing
-        - HBM supply constraints and pricing
-        - Memory company guidance
-        - Inventory levels (supplier and customer)
-        - Demand by segment (server, mobile, PC)
-      output_slot: "[[MEMORY]]"
-      etf_impact: [SEMI, SMH]
-      memory_exposure: "MU, Samsung (via SEMI geographic), SK Hynix exposure"
-      format: bullet_list
-      
-    Q4_equipment_cycle:
-      search_terms: "semiconductor equipment wafer fab expansion {{LAST_72H}} ASML Applied Materials Lam Research KLAC Tokyo Electron"
-      recency_filter: 72_hours
-      focus:
-        - Equipment orders and backlog
-        - Fab expansion announcements
-        - Litho tool demand (EUV, High-NA)
-        - Utilization rates by node
-        - CHIPS Act funded projects
-      output_slot: "[[EQUIPMENT]]"
-      etf_impact: [SEMI, SMH]
-      format: bullet_list
-      
-    Q5_geopolitical_supply:
-      search_terms: "semiconductor China Taiwan export controls {{LAST_72H}} CHIPS Act entity list trade restriction"
-      recency_filter: 72_hours
-      focus:
-        - US-China semiconductor restrictions
-        - Entity list additions
-        - Taiwan supply chain risk signals
-        - CHIPS Act funding disbursements
-        - Reshoring announcements
-      output_slot: "[[GEOPOLITICAL]]"
-      etf_impact: [SEMI, SMH]
-      risk_note: "Supply disruption risk to both ETFs; potential beneficiary of reshoring"
-      format: bullet_list
-      
-    Q6_software_tech:
-      search_terms: "software earnings cloud growth {{LAST_72H}} Microsoft Azure Google Cloud AWS enterprise IT spending"
-      recency_filter: 72_hours
-      focus:
-        - Cloud revenue growth rates
-        - Enterprise software demand
-        - AI software monetization signals
-        - Tech sector earnings themes
-        - Margin trends
-      output_slot: "[[SOFTWARE]]"
-      etf_impact: [QDVE]
-      format: bullet_list
+
+    Q1_semi_supercycle:
+      search_terms: >
+        (SMH OR SECO OR "VanEck Semiconductor" OR "MSCI Global Semiconductors" OR NVDA OR TSMC OR ASML OR AMD) AND (capex OR guidance OR "AI demand" OR hyperscaler OR "HBM" OR "foundry utilization" OR "memory pricing" OR DRAM OR NAND) AND (last 72 hours OR {{LAST_72H}}) -rumor -unconfirmed -speculation
+      focus: [ Hyperscaler Capex, Foundry Utilization, Memory Spot Prices ]
+      etf_impact: [ SECO, SMH ]
+
+    Q2_space_defense:
+      search_terms: >
+        (JEDI OR "VanEck Space" OR SDA OR NRO OR NASA OR "Space Force" OR RKLB OR IRDM OR LMT OR NOC) AND (contract OR award OR launch OR milestone OR constellation OR satellite) AND (last 72 hours OR {{LAST_72H}}) -rumor -unconfirmed -speculation
+      focus: [ Gov Contracts (DoD/NRO/NASA), Launch milestones, M&A activity ]
+      etf_impact: [ JEDI ]
+
+    Q3_quantum_developments:
+      search_terms: >
+        (QOMP OR "iShares Quantum" OR IonQ OR IONQ OR Rigetti OR RGTI OR D-Wave OR QBTS OR IBM OR Google) AND (earnings OR guidance OR "error correction" OR milestone OR qubit OR partnership OR funding OR NIST OR PQC) AND (last 72 hours OR {{LAST_72H}}) -rumor -unconfirmed -speculation
+      focus: [ Technical milestones, Gov funding rounds, Strategic partnerships ]
+      etf_impact: [ QOMP ]
+
+    Q4_macro_risk:
+      search_terms: >
+        ("tech sector rotation" OR "growth vs value" OR "Nasdaq" OR "real yields" OR "rates higher for longer" OR "USD strength") AND (last 72 hours OR {{LAST_72H}})
+      focus: [ Risk-on/off sentiment, Yield curve impact on growth stocks ]
 
   # =========================================================================
-  # PHASE 2: Dependent Query (Requires Phase 1)
+  # PHASE 2: Synthesis & Catalysts
   # =========================================================================
-  
-  phase_2_dependent:
+  phase_2_synthesis:
     execution: after_phase_1
-    
-    Q7_forward_catalysts:
-      search_terms: "semiconductor earnings date NVIDIA AMD TSMC Intel investor day {{NEXT_14D}} product launch"
-      recency_filter: none
-      dependencies: [Q2, Q3, Q4]
-      focus:
-        - Upcoming earnings dates (consensus estimates)
-        - Product announcements (new chips, process nodes)
-        - Investor days and analyst events
-        - Trade show presentations (CES, Computex, GTC)
-        - Memory contract negotiation periods
-      output_slot: "[[FORWARD_CATALYSTS]]"
-      etf_impact: [SEMI, SMH, QDVE]
-      format: table
-      columns: [Date, Event, Company, ETF_Impact, Consensus_or_Expectation]
 
-  # =========================================================================
-  # PHASE 3: Synthesis (Requires Phase 1 + 2)
-  # =========================================================================
-  
-  phase_3_synthesis:
-    execution: after_phase_2
-    
-    Q8_cross_reference:
-      instruction: |
-        Using [[AI_DEMAND]], [[SEMI_EARNINGS]], [[MEMORY]], [[EQUIPMENT]], 
-        [[GEOPOLITICAL]], [[SOFTWARE]], and [[FORWARD_CATALYSTS]]:
-        
-        1. AI DEMAND TRAJECTORY:
-           - Hyperscaler capex commentary alignment
-           - GPU supply vs demand balance
-           - Implication for NVDA, AMD weight in SEMI/SMH
-           
-        2. CYCLE POSITION ASSESSMENT:
-           - Memory pricing trajectory (early/mid/late cycle)
-           - Equipment order momentum (leading indicator)
-           - Inventory health across supply chain
-           
-        3. SEMI vs SMH DIFFERENTIATION:
-           - Geographic exposure difference (Taiwan, Korea in SEMI)
-           - Performance divergence drivers
-           - Geopolitical risk differential
-           
-        4. QDVE DIVERSIFICATION VALUE:
-           - Software/services offsetting semi volatility?
-           - AI software monetization as secondary play
-           
-        5. CONCENTRATION RISK:
-           - Heavy semiconductor exposure — appropriate given signals?
-           - NVDA single-name concentration (largest in both)
-           
-        6. CONVICTION SCORING:
-           - HIGH: Multiple earnings beats, capex acceleration, tight supply
-           - MEDIUM: Mixed signals or single data point
-           - LOW: Conflicting indicators or geopolitical uncertainty
-      output_slot: "[[CROSS_REFERENCE]]"
-      format: narrative_with_bullets
-      
-    Q9_portfolio_synthesis:
-      instruction: |
-        Generate stance for each ETF:
-        
-        For SEMI (Global Semiconductors):
-        - Stance: [BULLISH/NEUTRAL/BEARISH]
-        - Confidence: [High/Medium/Low]
-        - Key 72h catalyst (company or segment)
-        - 14d risk/opportunity
-        - Geographic risk assessment (Taiwan exposure)
-        
-        For SMH (US Semiconductors):
-        - Stance: [BULLISH/NEUTRAL/BEARISH]
-        - Confidence: [High/Medium/Low]
-        - Key 72h catalyst
-        - 14d risk/opportunity
-        - NVDA dependency assessment
-        
-        For QDVE (Broad IT):
-        - Stance: [BULLISH/NEUTRAL/BEARISH]
-        - Confidence: [High/Medium/Low]
-        - Diversification value in current environment
-        - Software vs hardware relative momentum
-        
-        OVERALL TECH THESIS:
-        - Is heavy semiconductor concentration justified by current signals?
-        - Key risk to monitor
-      output_slot: "[[FINAL_SYNTHESIS]]"
-      format: structured_report
+    Q5_forward_catalysts:
+      search_terms: >
+        ("earnings calendar" OR earnings date OR guidance) AND (NVDA OR TSM OR ASML OR AMD OR RKLB OR IONQ OR RGTI OR QBTS) AND (next 14 days OR {{NEXT_14D}})
+      dependencies: [ Q1_semi_supercycle, Q2_space_defense, Q3_quantum_developments ]
+      output_slot: "[[CATALYSTS]]"
 
-# --- STANCE DEFINITIONS ---
-stance_definitions:
-  BULLISH:
-    criteria:
-      - "AI demand signals accelerating (hyperscaler capex, GPU lead times)"
-      - "Memory pricing inflecting higher"
-      - "Equipment orders expanding"
-      - "Earnings beats with raised guidance"
-      - "Inventory normalization complete"
-    implication: "Favorable positioning"
-    
-  NEUTRAL:
-    criteria:
-      - "Mixed demand signals"
-      - "Memory pricing stable"
-      - "Guidance in line with expectations"
-      - "Normal inventory levels"
-    implication: "Hold current positioning"
-    
-  BEARISH:
-    criteria:
-      - "Demand deceleration signals"
-      - "Memory pricing declining"
-      - "Inventory building at customers"
-      - "Guidance cuts"
-      - "Geopolitical escalation (Taiwan, export controls)"
-    implication: "Caution warranted"
+    Q6_portfolio_strategy:
+      instruction: |
+        Synthesize for a Deep Tech portfolio:
+        1. SEMIS (SECO/SMH): Expansion vs Correction (inventory, pricing, capex).
+        2. SPACE (JEDI): Commercial momentum vs defense-driven backlog.
+        3. QUANTUM (QOMP): Material event vs speculation (milestones, funding, NIST/PQC).
+        4. CORRELATION CHECK: Distinct drivers or just Nasdaq beta?
+      output_slot: "[[STRATEGY]]"
 
 # --- OUTPUT SPECIFICATION ---
 output:
-  format: tech_portfolio_brief
-  word_limit: 450
-  
+  format: portfolio_brief
+  word_limit: 500
+
   sections:
-    - title: "SEMICONDUCTOR CYCLE SNAPSHOT (72H)"
-      source_slots: ["[[AI_DEMAND]]", "[[MEMORY]]", "[[EQUIPMENT]]"]
-      template: |
-        **AI/Data Center:** [Demand signal + key datapoint]
-        **Memory:** [DRAM/NAND/HBM pricing direction]
-        **Equipment:** [Order momentum + utilization]
-        **Cycle Position:** [Early/Mid/Late + rationale]
-        
-    - title: "ETF STANCE SUMMARY"
-      format: table
-      columns: [ETF, Stance, Confidence, Key_Catalyst, Outlook_14D]
-      required: true
-      
-    - title: "EARNINGS & GUIDANCE TRACKER"
-      source_slot: "[[SEMI_EARNINGS]]"
-      format: table
-      max_rows: 6
-      focus: "Companies with material impact on SEMI/SMH"
-      
-    - title: "AI DEMAND SIGNALS"
-      source_slot: "[[AI_DEMAND]]"
-      template: |
-        **Hyperscaler Capex:** [Trend + specific commentary]
-        **GPU Supply/Demand:** [Balance assessment]
-        **NVDA Exposure Impact:** [Significance to portfolio]
-        
-    - title: "GEOPOLITICAL RISK MONITOR"
-      source_slot: "[[GEOPOLITICAL]]"
-      template: |
-        **Export Controls:** [New developments]
-        **Taiwan:** [Supply chain risk level]
-        **CHIPS Act:** [Funding milestones]
-        **Risk Level:** [Low/Medium/High/Elevated]
-        
-    - title: "CROSS-REFERENCE INSIGHTS"
-      source_slot: "[[CROSS_REFERENCE]]"
-      format: bullet_list
-      max_items: 4
-      
-    - title: "FORWARD CATALYSTS (14D)"
-      source_slot: "[[FORWARD_CATALYSTS]]"
-      format: table
-      columns: [Date, Event, Company, Consensus, ETF_Impact]
-      max_rows: 8
-      
-    - title: "CONCENTRATION RISK ASSESSMENT"
-      template: |
-        **NVDA Exposure:** [Significance across SEMI + SMH]
-        **Semiconductor Beta:** Heavy portfolio exposure
-        **Risk Justified:** [Yes/No based on current signals]
-        **Key Hedge Trigger:** [Conditions that would warrant reducing exposure]
+  - title: "PORTFOLIO DASHBOARD (72H)"
+    template: |
+      **Semiconductors (SMH/SECO):** [Bull/Bear/Neutral] - [Key Driver]
+      **Space (JEDI):** [Bull/Bear/Neutral] - [Key Contract/Launch]
+      **Quantum (QOMP):** [Bull/Bear/Neutral] - [Key News]
 
-# --- ERROR HANDLING ---
-error_handling:
-  data_unavailable:
-    action: "State 'DATA GAP: [element]' and continue"
-    do_not: "Fabricate earnings or pricing data"
-    
-  conflicting_sources:
-    action: "Present both — company guidance > analyst estimates"
-    
-  no_material_events:
-    action: "Note 'Quiet period' — maintain prior stance"
+  - title: "KEY FUNDAMENTAL DEVELOPMENTS"
+    source_slots: [ "[[AI_DEMAND]]", "[[SPACE_CONTRACTS]]", "[[QUANTUM_NEWS]]" ]
+    format: bullet_list
+    focus: "Material impact only (Revenue >$100M or Strategic Shift)."
 
-# --- VALIDATION CHECKLIST ---
-validation:
-  required_elements:
-    - "Stance for all 3 ETFs"
-    - "Confidence level for each"
-    - "Source citation per section"
-    - "Earnings data with vs consensus"
-    - "Cycle position assessment"
-    - "Concentration risk commentary"
-  
-  quality_gates:
-    - "No URL requests"
-    - "Company data from SEC or IR sources"
-    - "Memory pricing from industry sources"
-    - "Geopolitical claims from official sources"
+  - title: "RISK RADAR"
+    template: |
+      **Geopolitical:** [Taiwan Strait / Export Controls]
+      **Gov Budget:** [Defense/science spending bill status impact on JEDI/QOMP]
+      **Valuation:** [Sector compression risks]
 
-# --- PERPLEXITY OPTIMIZATION ---
-perplexity_optimization:
+  - title: "UPCOMING CATALYSTS (14D)"
+    source_slot: "[[CATALYSTS]]"
+    format: table
+    columns: [ Date, Ticker/Event, Impact_Level, What_To_Watch ]
+
+# --- PERPLEXITY Settings ---
+perplexity_settings:
   api_parameters:
     model: "sonar-pro"
-    search_recency_filter: "week"
+    search_recency_filter: "day" # align with 72_hours lookback
+    max_sources: 32 # 4 scans + catalysts need more breadth than defense ETF analysis
+    max_results_per_query: 8 # balance across sectors
+    domain_priority_mode: "balanced" # specialized media matters here; still prefer primary when present
+    use_recent_news_cluster: true # dedupe repeats
+    quote_extraction: true # pull exact guidance/contract language
+
+  source_policy:
+    primary_domains:
+    - "sec.gov"
+    - "sam.gov"
+    - "defense.gov"
+    - "nasa.gov"
+    - "nist.gov"
+    - "s ia.org" # if you keep this, fix to "sia.org" in your implementation
+    - "semiconductors.org"
+    - "federalreserve.gov"
+    - "ecb.europa.eu"
+    secondary_domains:
+    - "reuters.com"
+    - "bloomberg.com"
+    - "ft.com"
+    - "anandtech.com"
+    - "tomshardware.com"
+    - "semianalysis.com"
+    - "spacenews.com"
+    - "spaceflightnow.com"
+    - "quantumcomputingreport.com"
+    - "phys.org"
+    tertiary_domains:
+    - "csis.org"
+    - "rusi.org"
+    - "atlanticcouncil.org"
+
   query_design:
-    - "Company ticker symbols in queries"
-    - "Specific metric names (HBM, EUV, etc.)"
-    - "No URL requests"
-    - "Phase 1 parallelizable"
+    principles:
+    - "Ticker-first, then fund name, then proxy holdings, then driver keywords (capex/guidance/contracts/milestones)."
+    - "Hard-separate: (1) filings/guidance, (2) contracts/awards, (3) technical milestones, (4) market regime."
+    - "Prefer numbers: capex $, revenue impact, contract value, shipment/wafer/HBM constraints."
+    global_negatives: [ "rumor", "unconfirmed", "speculation", "forum", "reddit" ] # suppress low-signal
+
+    include_specific_tickers: [ "SMH", "SECO", "JEDI", "QOMP" ]
+
+    filters_by_query_type:
+      semi_capex_guidance:
+        required_terms: [ "capex", "guidance", "order", "backlog", "shipments", "HBM", "foundry utilization" ]
+        prefer_sources: [ "sec.gov", "reuters.com", "bloomberg.com", "ft.com" ]
+      space_contract_awards:
+        required_terms: [ "contract", "award", "SDA", "NRO", "NASA", "Space Force", "launch" ]
+        prefer_sources: [ "sam.gov", "defense.gov", "nasa.gov", "spacenews.com", "reuters.com" ]
+      quantum_milestones:
+        required_terms: [ "error correction", "qubit", "milestone", "NIST", "PQC", "standard" ]
+        prefer_sources: [ "nist.gov", "phys.org", "quantumcomputingreport.com", "reuters.com" ]
