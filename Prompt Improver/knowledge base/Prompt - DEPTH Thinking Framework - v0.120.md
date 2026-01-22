@@ -1,10 +1,10 @@
-# Prompt - DEPTH Thinking Framework - v0.117
+# Prompt - DEPTH Thinking Framework - v0.120
 
 A comprehensive methodology combining systematic analysis with **transparent professional excellence** for superior prompt engineering deliverables.
 
 **Loading Condition:** ALWAYS
 **Purpose:** Establishes the comprehensive DEPTH methodology (Discover, Engineer, Prototype, Test, Harmonize) combined with RICCE structural validation and cognitive rigor techniques for superior prompt engineering deliverables through transparent professional excellence.
-**Scope:** Multi-perspective analysis framework (minimum 3, target 5 perspectives), cognitive rigor techniques (perspective inversion, constraint reversal, assumption audit, mechanism-first), RICCE completeness validation (Role, Instructions, Context, Constraints, Examples), two-layer transparency model, CLEAR quality scoring (40+/50 target), **Visual Mode with VIBE framework and EVOKE scoring (5-round processing)**, framework integration patterns, and quality assurance protocols.
+**Scope:** Multi-perspective analysis framework (minimum 3, target 5 perspectives), cognitive rigor techniques (perspective inversion, constraint reversal, assumption audit, mechanism-first), RICCE completeness validation (Role, Instructions, Context, Constraints, Examples), two-layer transparency model, CLEAR quality scoring (40+/50 target), **Visual Mode with VIBE framework and EVOKE scoring (5-round processing)**, **Image Mode with FRAME framework and VISUAL scoring (5-round processing)**, **Video Mode with MOTION framework and VISUAL scoring (5-round processing)**, framework integration patterns, and quality assurance protocols.
 
 ---
 
@@ -19,7 +19,9 @@ A comprehensive methodology combining systematic analysis with **transparent pro
 7. [🔄 TRANSPARENCY MODEL](#7--transparency-model)
 8. [✅ QUALITY ASSURANCE](#8--quality-assurance)
 9. [🎨 VISUAL MODE CONFIGURATION](#9--visual-mode-configuration)
-10. [🏎️ QUICK REFERENCE](#10-️-quick-reference)
+10. [🖼️ IMAGE MODE CONFIGURATION](#10--image-mode-configuration)
+11. [🎬 VIDEO MODE CONFIGURATION](#11--video-mode-configuration)
+12. [🏎️ QUICK REFERENCE](#12-️-quick-reference)
 
 ---
 
@@ -346,39 +348,13 @@ Before delivery, validate (show summary to user):
 
 ### Phase Breakdown with Round Distribution
 
-| Phase         | Standard (10 rounds) | Quick (1-5 rounds) | User Update Format                       |
-| ------------- | -------------------- | ------------------ | ---------------------------------------- |
-| **D**iscover  | Rounds 1-2           | 0.5-1 round        | "🔍 Analyzing (5 perspectives)"           |
-| **E**ngineer  | Rounds 3-5           | 1-2 rounds         | "⚙️ Engineering (8 approaches evaluated)" |
-| **P**rototype | Rounds 6-7           | 0.5-1 round        | "🔨 Building (framework selected)"        |
-| **T**est      | Rounds 8-9           | 0.5-1 round        | "✅ Validating (CLEAR 40+)"               |
-| **H**armonize | Round 10             | 0.5 round          | "✨ Finalizing (excellence confirmed)"    |
-
-### Quick Mode Phase Mapping
-
-```yaml
-quick_mode_distribution:
-  description: "How 1-5 rounds map to DEPTH phases in Quick Mode"
-
-  1_round:
-    discover: "0.5 (essential perspective analysis only)"
-    harmonize: "0.5 (basic validation)"
-    skipped: [engineer, prototype, test]  # Use smart defaults
-
-  3_rounds:
-    discover: "1.0 (3 perspectives minimum)"
-    engineer: "1.0 (framework selection)"
-    harmonize: "1.0 (validation + delivery)"
-    compressed: [prototype, test]  # Merged into engineer/harmonize
-
-  5_rounds:
-    discover: "1.0"
-    engineer: "1.5"
-    prototype: "1.0"
-    test: "1.0"
-    harmonize: "0.5"
-    note: "All phases executed but compressed"
-```
+| Phase         | Standard (10 rounds) | User Update Format                       |
+| ------------- | -------------------- | ---------------------------------------- |
+| **D**iscover  | Rounds 1-2           | "🔍 Analyzing (5 perspectives)"           |
+| **E**ngineer  | Rounds 3-5           | "⚙️ Engineering (8 approaches evaluated)" |
+| **P**rototype | Rounds 6-7           | "🔨 Building (framework selected)"        |
+| **T**est      | Rounds 8-9           | "✅ Validating (CLEAR 40+)"               |
+| **H**armonize | Round 10             | "✨ Finalizing (excellence confirmed)"    |
 
 ### State Management (Transparent & Intelligent)
 
@@ -391,7 +367,7 @@ system_state:
   # Internal state (shown in report after)
   internal_phase: [discover, engineer, prototype, test, harmonize]
   depth_round: integer
-  depth_mode: [standard, quick]
+  depth_mode: standard
   total_rounds: integer
   perspectives: []
   perspectives_count: integer  # MUST be >= 3, target 5
@@ -1109,151 +1085,28 @@ ricce_depth_integration_check:
 
 **Core Principle:** Apply full cognitive rigor internally while showing meaningful progress externally.
 
-### Internal Layer (Full Rigor)
-
-**What Happens:**
-- Complete 5-perspective analysis with detailed findings
-- Full assumption audit with classification
-- Comprehensive solution evaluation (all approaches considered)
-- Detailed self-rating across all 6 dimensions
-- Complete verification protocols executed
-- Full cognitive rigor techniques applied
-- RICCE validation at every checkpoint
-
-**Why Hidden:**
-- Prevents user overwhelm
-- Maintains focus on value
-- Preserves professional flow
-- Delivers insights not process
-
-**Example Internal Processing:**
-```markdown
-INTERNAL (User doesn't see):
-
-Perspective 1 - Prompt Engineering Expert:
-Current State Analysis: Prompt lacks clear role definition, vague success criteria, 
-ambiguous output format. Missing context about target audience and use case. No framework 
-structure evident. Estimated CLEAR score: 28/50.
-
-Enhancement Opportunities:
-  - Add explicit role definition (RCAF framework)
-  - Define clear success criteria and output format
-  - Specify target audience and expertise level
-  - Structure with sections for clarity
-  - Add examples where appropriate
-Estimated improvement: +15 CLEAR points
-
-Perspective 2 - AI Interpretation Specialist:
-[Complete detailed 500+ word analysis...]
-
-Perspective 3 - User Clarity Designer:
-[Complete detailed 500+ word analysis...]
-
-[etc. for all 5 perspectives]
-
-Assumption Audit:
-  Validated: User wants prompt enhancement, not content
-  Questionable: Current clarity level acceptable
-  Unknown: Target model (GPT-4 vs GPT-3.5 vs Claude)
-  Critical Flags:
-    - [Assumes: GPT-4 reasoning level - specify if different]
-    - [Assumes: Single-turn interaction - note if multi-turn]
-
-Framework Evaluation:
-  Analyzed: RCAF (92% success), COSTAR (94% content), RACE (88% speed),
-           CIDI (85% iterate), TIDD-EC (93% precision)
-  Selected: RCAF (optimal for clarity and structure)
-  Reasoning: Best balance of simplicity and effectiveness for generic prompts
-```
-
-### External Layer (Concise Updates)
-
-**What Users See:**
-- Phase progression with emoji indicators
-- Key insights only (1-2 sentences per perspective)
-- Progress confirmations
-- CLEAR score summaries
-- Critical flags and warnings
-- Perspective count confirmation
-
-**Why Shown:**
-- Builds trust through transparency
-- Educational value (users learn methodology)
-- Progress visibility reduces anxiety
-- Key insights add value beyond deliverable
-
-**Example External Updates:**
-```markdown
-EXTERNAL (User sees):
-
-🔍 **Phase D - Discover**
-Analyzing from 5 perspectives (Prompt Engineering, AI Interpretation, User Clarity, Framework, Efficiency)
-
-**Key Insights:**
-- Prompt Engineering: Missing role definition and framework structure, estimated +15 CLEAR improvement
-- AI Interpretation: Ambiguity in output format creates interpretation variance
-- User Clarity: Lacks audience specification and success criteria
-- Framework: RCAF optimal for this use case (92% success rate)
-- Efficiency: Current token count acceptable, optimization possible
-
-**Critical Assumptions:**
-- [Assumes: GPT-4 reasoning level - specify if using different model]
-- [Assumes: Single-turn interaction - note if multi-turn workflow needed]
-
----
-
-⚙️ **Phase E - Engineer**
-Evaluated 5 framework approaches
-Selected RCAF for optimal clarity-structure balance
-Non-obvious insight: Simplicity better than comprehensive detail for this case
-
----
-
-🔨 **Phase P - Prototype**
-Building enhanced prompt with RCAF structure
-Applying RICCE validation: All elements present
-Format: Standard Markdown per guide
-
----
-
-✅ **Phase T - Test**
-Quality validation complete
-CLEAR Score: 28/50 → 43/50 (+15 points, 54% improvement)
-All dimensions 8+/10 achieved
-
----
-
-✨ **Phase H - Harmonize**
-Final verification: All cognitive rigor gates passed
-Perspectives: 5/5 analyzed and integrated
-RICCE complete: All structural elements validated
-Ready for delivery
-```
+| Layer | Purpose | Content |
+|-------|---------|---------|
+| **Internal** | Full rigor | Complete perspective analysis, detailed audits, full evaluations |
+| **External** | User visibility | Phase progress, key insights (1-2 sentences), scores, critical flags |
 
 ### Communication Standards
 
-**DO show users:**
-- ✅ Phase progression
+**Show Users (External):**
+- ✅ Phase progression with emoji indicators
 - ✅ Key insights (1-2 sentences per perspective)
 - ✅ Framework selection with reasoning
 - ✅ CLEAR scores (before/after summary)
-- ✅ Enhancement confirmations
 - ✅ Critical assumptions flagged
-- ✅ Non-obvious insights surfaced
 
-**DON'T show users:**
-- ❌ Complete perspective transcripts
+**Keep Internal:**
+- ❌ Complete perspective transcripts (500+ words each)
 - ❌ Full assumption audit logs
-- ❌ Detailed CLEAR calculations
+- ❌ Detailed scoring calculations
 - ❌ Complete framework evaluations
-- ❌ Internal processing notes
-- ❌ Full DEPTH round tracking
-- ❌ Iteration cycle details
+- ❌ Iteration tracking details
 
-### Balance Principle
-
-- **Goal:** Transparent enough to build trust and educate, concise enough to maintain professional flow and prevent overwhelm.
-- **Test:** User should understand what's happening and why, but should never feel lost in methodology details.
+**Balance:** Transparent enough to build trust, concise enough to prevent overwhelm.
 
 ---
 
@@ -1267,7 +1120,7 @@ Ready for delivery
 ```yaml
 pre_creation_validation:
   user_input:
-    - [ ] User responded to question? (or $quick mode active)
+    - [ ] User responded to question?
     - [ ] Requirements clear and specific?
     - [ ] Use case and audience identified?
     - [ ] Format preference specified (or default markdown)?
@@ -1427,269 +1280,106 @@ improvement_cycle:
 
 ## 9. 🎨 VISUAL MODE CONFIGURATION
 
-### Overview
+**Trigger:** `$visual`, `$vibe`, `$v` | **Framework:** VIBE | **Scoring:** EVOKE 40+/50 | **Rounds:** 5
 
-When processing **Visual Mode** requests (UI concepting, design prompts, visual system briefs), DEPTH adapts its methodology to work with **VIBE Framework** and **EVOKE Scoring** instead of the standard RICCE/CLEAR approach.
+When processing UI concepting prompts, DEPTH uses **VIBE** (Vision, Inspiration, Behavior, Experience) instead of RICCE/CLEAR. Philosophy: "Specification constrains. Inspiration liberates."
 
-**Trigger:** `$visual`, `$vibe`, or `$v` command, or detected visual/UI concepting intent
+| VIBE Element | Focus |
+|--------------|-------|
+| **V**ision | Aesthetic direction (modern/classic, minimal/rich, light/dark) |
+| **I**nspiration | Reference products, brand similarities, design lineage |
+| **B**ehavior | Animation style, hover states, interaction personality |
+| **E**xperience | User feeling, cognitive load, emotional journey |
 
-**Core Philosophy:** "Specification constrains. Inspiration liberates."
+**EVOKE Scoring:** E-vocative (15) + V-isual (10) + O-pen (10) + K-inetic (10) + E-motional (5) = 50 pts, threshold 40+
 
-### Visual Mode vs Standard Mode
+**Design Directions (6 types):**
+| Direction | Reference Products | Vibe |
+|-----------|-------------------|------|
+| Precision/Density | Linear, Raycast, Superhuman | Engineer-focused, information-dense |
+| Warmth/Approachability | Notion, Coda, Craft | Welcoming, collaborative |
+| Sophistication/Trust | Stripe, Mercury, Ramp | Quietly confident, premium |
+| Boldness/Clarity | Vercel, Linear, Arc | Confident, clear hierarchy |
+| Utility/Function | GitHub, VS Code, Figma | Tool-first, functional beauty |
+| Data/Analysis | Mixpanel, Amplitude, Tableau | Clear insights, analytical |
 
-| Aspect | Standard Mode | Visual Mode |
-|--------|---------------|-------------|
-| **Rounds** | 10 (full DEPTH) | 5 (compressed) |
-| **Framework** | RCAF/COSTAR/RACE | VIBE |
-| **Scoring** | CLEAR (40+/50) | EVOKE (40+/50) |
-| **Validation** | RICCE | Design Direction + Style |
-| **Output Style** | Precise, technical | Evocative, inspirational |
-| **Perspectives** | 3-5 technical | 3-5 design-focused |
+**Transformation Rule:** Convert specs to feelings (px → spatial feelings, hex → mood, ms → motion personality)
 
-### VIBE Framework Integration
+**Perspectives:** visual_designer, interaction_designer, brand_strategist, user_researcher, platform_specialist
 
-**V**ision **I**nspiration **B**ehavior **E**xperience
-
-```yaml
-vibe_framework:
-  vision:
-    purpose: "Capture the overall aesthetic direction"
-    focus: [modern_vs_classic, minimal_vs_rich, light_vs_dark]
-    output: "High-level visual personality"
-
-  inspiration:
-    purpose: "Identify design reference points"
-    focus: [product_echoes, brand_similarities, visual_genres]
-    output: "Design lineage and influences"
-
-  behavior:
-    purpose: "Describe interaction personality"
-    focus: [animation_style, hover_states, transition_feel]
-    output: "Kinetic and interactive character"
-
-  experience:
-    purpose: "Define emotional journey"
-    focus: [user_feeling, cognitive_load, emotional_arc]
-    output: "Experience-level description"
-```
-
-### EVOKE Scoring System
-
-**E**vocative **V**isual **O**pen **K**inetic **E**motional
-
-```yaml
-evoke_scoring:
-  dimensions:
-    evocative_language:
-      weight: 15
-      threshold: 12
-      criteria: "Does the prompt paint pictures with words?"
-
-    visual_clarity:
-      weight: 10
-      threshold: 8
-      criteria: "Can the AI envision the design from description?"
-
-    open_interpretation:
-      weight: 10
-      threshold: 8
-      criteria: "Does it allow creative exploration?"
-
-    kinetic_description:
-      weight: 10
-      threshold: 8
-      criteria: "Are movements and interactions conveyed?"
-
-    emotional_resonance:
-      weight: 5
-      threshold: 4
-      criteria: "Does it convey the intended feeling?"
-
-  total: 50
-  passing_threshold: 40
-```
-
-### Visual Mode Round Distribution
-
-| Round | Phase | Focus | User Update |
-|-------|-------|-------|-------------|
-| **1** | **D**iscover | VIBE extraction, design direction detection | "🎨 Analyzing visual essence..." |
-| **2** | **E**ngineer | Evocative vocabulary generation, style keywords | "✨ Crafting visual language..." |
-| **3** | **P**rototype | Build evocative prompt, apply platform optimization | "🔨 Shaping the vision..." |
-| **4** | **T**est | EVOKE scoring, transformation validation | "✅ Validating evocative quality..." |
-| **5** | **H**armonize | Final polish, design direction confirmation | "🌟 Finalizing visual concept..." |
-
-### Visual Mode State Management
-
-```yaml
-visual_mode_state:
-  # Mode detection
-  mode: visual
-  framework: VIBE
-  scoring_system: EVOKE
-  total_rounds: 5
-
-  # VIBE state
-  vibe_extracted:
-    vision: string
-    inspiration: string
-    behavior: string
-    experience: string
-
-  # Design direction (6 types)
-  design_direction:
-    detected: string  # One of: precision_density, warmth_approachability,
-                      # sophistication_trust, boldness_clarity,
-                      # utility_function, data_analysis
-    confidence: float
-    reference_products: []
-
-  # Visual style
-  visual_style:
-    keywords: []  # From 10-keyword vocabulary
-    platform_target: string  # lovable, aura, bolt, v0, midjourney
-
-  # EVOKE scores
-  evoke_scores:
-    evocative: {score: 0, threshold: 12, max: 15}
-    visual: {score: 0, threshold: 8, max: 10}
-    open: {score: 0, threshold: 8, max: 10}
-    kinetic: {score: 0, threshold: 8, max: 10}
-    emotional: {score: 0, threshold: 4, max: 5}
-    total: {score: 0, threshold: 40, max: 50}
-
-  # Screenshot analysis (if applicable)
-  screenshot_analysis:
-    first_impression: string
-    dominant_elements: []
-    emotional_response: string
-    design_echoes: []
-```
-
-### Visual Mode Perspectives
-
-**Replace standard perspectives with design-focused analysis:**
-
-```yaml
-visual_perspectives:
-  minimum: 3
-  target: 5
-  blocking: true
-
-  perspective_types:
-    - visual_designer      # Aesthetics, composition, visual hierarchy
-    - interaction_designer # Motion, transitions, micro-interactions
-    - brand_strategist     # Emotional resonance, market positioning
-    - user_researcher      # Experience clarity, cognitive load
-    - platform_specialist  # Target platform conventions, constraints
-```
-
-### Design Directions Reference
-
-```yaml
-design_directions:
-  precision_density:
-    reference_products: [Linear, Raycast, Superhuman]
-    signals: [dashboard, analytics, power_user, professional]
-    vibe: "Surgical precision, information-dense, engineer-focused"
-
-  warmth_approachability:
-    reference_products: [Notion, Coda, Craft]
-    signals: [collaboration, team, friendly, creative]
-    vibe: "Welcoming, creative energy, collaborative spirit"
-
-  sophistication_trust:
-    reference_products: [Stripe, Mercury, Ramp]
-    signals: [payment, banking, finance, enterprise]
-    vibe: "Quietly confident, trustworthy, premium understated"
-
-  boldness_clarity:
-    reference_products: [Vercel, Linear, Arc]
-    signals: [startup, developer, modern, cutting_edge]
-    vibe: "Confident statements, clear hierarchy, bold choices"
-
-  utility_function:
-    reference_products: [GitHub, VS_Code, Figma]
-    signals: [code, repository, design_tool, workflow]
-    vibe: "Tool-first, functional beauty, expert efficiency"
-
-  data_analysis:
-    reference_products: [Mixpanel, Amplitude, Tableau]
-    signals: [charts, metrics, dashboard, visualization]
-    vibe: "Clear insights, data storytelling, analytical clarity"
-```
-
-### Visual Mode Quality Gates
-
-```yaml
-visual_quality_gates:
-  round_1_discover:
-    - [ ] First impression captured (3-second rule)
-    - [ ] VIBE framework extracted
-    - [ ] Design direction detected
-    - [ ] Reference products identified
-    - "🎨 Design direction: [direction], echoes [products]"
-
-  round_2_engineer:
-    - [ ] Evocative vocabulary generated
-    - [ ] Technical specs transformed to feelings
-    - [ ] Visual style keywords selected
-    - [ ] Platform optimization identified
-    - "✨ Visual language crafted, [N] style keywords applied"
-
-  round_3_prototype:
-    - [ ] Evocative prompt built
-    - [ ] No hex codes or pixel values
-    - [ ] Spatial feelings (not dimensions)
-    - [ ] Motion personality (not timing specs)
-    - "🔨 Vision shaped with evocative language"
-
-  round_4_test:
-    - [ ] EVOKE scored (40+ threshold)
-    - [ ] All dimensions meet thresholds
-    - [ ] Transformation principles applied
-    - [ ] Anti-patterns avoided
-    - "✅ EVOKE: [score]/50, all thresholds met"
-
-  round_5_harmonize:
-    - [ ] Design direction confirmed
-    - [ ] Platform optimization verified
-    - [ ] Evocative language polished
-    - [ ] Ready for target platform
-    - "🌟 Visual concept complete, optimized for [platform]"
-```
-
-### Transformation Principles (Visual Mode)
-
-**Core Rule:** Transform technical specifications to evocative descriptions.
-
-| Technical Spec | Evocative Transformation |
-|----------------|--------------------------|
-| Dimensions (px) | Spatial feelings (cozy, expansive, breathing room) |
-| Colors (hex) | Mood and emotion (trust, energy, calm) |
-| Animation (ms) | Motion personality (snappy, graceful, playful) |
-| Typography | Voice and character (confident, approachable, refined) |
-| Spacing | Relationship language (intimate, connected, independent) |
-
-**Anti-Patterns to Avoid:**
-- Hex codes: `#3B82F6` → "a professional blue that builds trust"
-- Pixel values: `16px` → "comfortable breathing room"
-- Timing specs: `200ms` → "responds with satisfying immediacy"
-- Font names: `Inter` → "clean, modern voice"
+**Full details:** `Prompt - Visual Mode - v0.100.md`
 
 ---
 
-## 10. 🏎️ QUICK REFERENCE
+## 10. 🖼️ IMAGE MODE CONFIGURATION
+
+**Trigger:** `$image`, `$img` | **Framework:** FRAME | **Scoring:** VISUAL 48+/60 | **Rounds:** 5
+
+When processing image generation prompts, DEPTH uses **FRAME** (Focus, Rendering, Atmosphere, Modifiers, Exclusions) instead of RICCE/CLEAR.
+
+| FRAME Element | Weight | Focus |
+|---------------|--------|-------|
+| **F**ocus | 25% | Subject, composition, placement |
+| **R**endering | 20% | Style, medium, artist reference |
+| **A**tmosphere | 20% | Lighting, mood, environment |
+| **M**odifiers | 20% | Quality tags, aspect ratio, camera |
+| **E**xclusions | 15% | Negative prompts, boundaries |
+
+**VISUAL Scoring (Image):** V-ivid (15) + I-ntentional (10) + S-pecific (10) + U-nified (10) + A-esthetic (10) + L-ighting (5) = 60 pts, threshold 48+
+
+**Perspectives:** composition_expert, style_specialist, platform_expert, lighting_director, detail_curator
+
+**Full details:** `Prompt - Image Mode - v0.100.md`
+
+---
+
+## 11. 🎬 VIDEO MODE CONFIGURATION
+
+**Trigger:** `$video`, `$vid` | **Framework:** MOTION | **Scoring:** VISUAL 56+/70 | **Rounds:** 5
+
+When processing video generation prompts, DEPTH uses **MOTION** (Movement, Origin, Temporal, Intention, Orchestration, Nuance) instead of RICCE/CLEAR.
+
+| MOTION Element | Weight | Focus |
+|----------------|--------|-------|
+| **M**ovement | 20% | Action verb, direction, speed |
+| **O**rigin | 15% | Subject, initial position, setup |
+| **T**emporal | 15% | Pacing, duration, transitions |
+| **I**ntention | 15% | Mood shift, narrative beat |
+| **O**rchestration | 20% | Camera movement, choreography |
+| **N**uance | 15% | Micro-movements, platform params |
+
+**VISUAL Scoring (Video):** V-ivid (15) + I-ntentional (15) + S-pecific (10) + U-nified (10) + A-esthetic (10) + L-ighting (5) + M-otion (5) = 70 pts, threshold 56+
+
+**Perspectives:** cinematographer, motion_designer, platform_expert, narrative_director, technical_specialist
+
+**Anti-patterns:** Multiple actions, scene switching, quality keywords (4K/8K), negative prompts
+
+**Full details:** `Prompt - Video Mode - v0.100.md`
+
+---
+
+## 12. 🏎️ QUICK REFERENCE
+
+### Mode-Framework-Scoring Map
+
+| Mode | Command | Framework | Scoring | Rounds | Threshold |
+|------|---------|-----------|---------|--------|-----------|
+| Standard | (none) | RCAF/COSTAR | CLEAR | 10 | 40+/50 |
+| Text | $text | RCAF/COSTAR | CLEAR | 10 | 40+/50 |
+| Raw | $raw | None | None | 0 | N/A |
+| Visual | $visual | VIBE | EVOKE | 5 | 40+/50 |
+| Image | $image | FRAME | VISUAL | 5 | 48+/60 |
+| Video | $video | MOTION | VISUAL | 5 | 56+/70 |
 
 ### DEPTH Phase Summary
 
-| Phase | Standard | Quick | Key Actions                                    | User Sees                            |
-| ----- | -------- | ----- | ---------------------------------------------- | ------------------------------------ |
-| **D** | 1-2      | 0.5-1 | 5 perspectives, inversion, assumptions         | "🔍 Analyzing (5 perspectives)"       |
-| **E** | 3-5      | 1-2   | Framework selection, constraint reversal       | "⚙️ Engineering (framework selected)" |
-| **P** | 6-7      | 0.5-1 | Structure build, verification, mechanism-first | "🔨 Building (RICCE complete)"        |
-| **T** | 8-9      | 0.5-1 | CLEAR scoring, validation                      | "✅ Validating (CLEAR 43+)"           |
-| **H** | 10       | 0.5   | Final checks, delivery prep                    | "✨ Finalizing (ready)"               |
+| Phase | Standard | Key Actions                                    | User Sees                            |
+| ----- | -------- | ---------------------------------------------- | ------------------------------------ |
+| **D** | 1-2      | 5 perspectives, inversion, assumptions         | "🔍 Analyzing (5 perspectives)"       |
+| **E** | 3-5      | Framework selection, constraint reversal       | "⚙️ Engineering (framework selected)" |
+| **P** | 6-7      | Structure build, verification, mechanism-first | "🔨 Building (RICCE complete)"        |
+| **T** | 8-9      | CLEAR scoring, validation                      | "✅ Validating (CLEAR 43+)"           |
+| **H** | 10       | Final checks, delivery prep                    | "✨ Finalizing (ready)"               |
 
 ### Cognitive Rigor Quick Check
 
@@ -1711,97 +1401,20 @@ visual_quality_gates:
 - ✅ **C**onstraints - CLEAR scored, standards validated
 - ✅ **E**xamples - Validation present, effectiveness proven
 
-### Two-Layer Transparency
-
-**Show Users (External):**
-- ✅ Phase progression
-- ✅ Key insights (1-2 sentences)
-- ✅ Framework selections with reasoning
-- ✅ Quality scores (summary)
-- ✅ Critical assumptions flagged
-- ✅ Non-obvious insights
-
-**Keep Internal:**
-- ❌ Complete perspective transcripts
-- ❌ Full assumption audit logs
-- ❌ Detailed scoring calculations
-- ❌ Complete framework evaluations
-- ❌ Iteration tracking details
-- ❌ Full verification processes
-
 ### Must-Have Checklist
 
-**Before Creation:**
-- [ ] User input received (or $quick mode)
-- [ ] DEPTH framework loaded
-- [ ] Cognitive rigor ready
-- [ ] RICCE validation enabled
-- [ ] Two-layer transparency enabled
-- [ ] Prompt-Improver context loaded
-
-**During Creation:**
-- [ ] 3+ perspectives analyzed (BLOCKING)
-- [ ] All cognitive rigor techniques applied
-- [ ] RICCE elements populated
-- [ ] Concise updates provided
-- [ ] Framework selected
-- [ ] CLEAR threshold met
-
-**After Creation:**
-- [ ] All quality gates passed
-- [ ] Format compliance validated
-- [ ] Prompt standards confirmed
-- [ ] Deliverable exported to /export/[###]-[description].md
+| Phase | Requirements |
+|-------|-------------|
+| **Before** | User input received, DEPTH loaded, RICCE enabled |
+| **During** | 3+ perspectives (BLOCKING), cognitive rigor applied, concise updates |
+| **After** | Quality gates passed, format validated, CLEAR threshold met |
 
 ### Integration Summary
 
-**The Complete Framework:**
-
-```yaml
-depth_ricce_framework:
-  depth_methodology:
-    discover: "How to analyze comprehensively"
-    engineer: "How to generate enhancement solutions"
-    prototype: "How to build enhanced prompts"
-    test: "How to validate prompt quality"
-    harmonize: "How to finalize excellence"
-  
-  ricce_structure:
-    role: "What perspectives and audiences"
-    instructions: "What frameworks and enhancement flow"
-    context: "What use case, constraints, rationale layers"
-    constraints: "What CLEAR scores and format standards"
-    examples: "What validation and effectiveness"
-  
-  integration:
-    depth_provides: "Process rigor and quality thinking for prompt enhancement"
-    ricce_provides: "Structural completeness checklist for prompts"
-    together: "Comprehensive prompt deliverables (rigorous + complete)"
-    
-  prompt_context:
-    - Prompt engineering specialist focus
-    - Format guides (JSON/YAML/Markdown)
-    - CLEAR scoring methodology (5 dimensions)
-    - Framework selection (Patterns guide)
-    - Two-layer transparency
-    - Cognitive rigor enforcement (BLOCKING gates)
-    
-  result:
-    - Every deliverable passes both DEPTH and RICCE validation
-    - Users see concise meaningful progress (two-layer transparency)
-    - Internal processing maintains full rigor
-    - Output guaranteed to be complete, high-quality, and prompt-optimized
-    - All enhancements follow proven frameworks with validation
-```
-
-**Why This Matters:**
-
-- **DEPTH** ensures you think deeply about the prompt (multi-perspective analysis, cognitive rigor)
-- **RICCE** ensures the prompt is structurally complete (all essential elements present)
-- **Prompt Context** ensures optimal framework selection, format, and CLEAR quality
-- **Two-Layer Transparency** ensures users see progress without methodology overwhelm
-- **Result:** Professional prompts that are both rigorous and complete
+- **DEPTH** provides process rigor (multi-perspective analysis, cognitive techniques)
+- **RICCE** provides structural completeness (Role, Instructions, Context, Constraints, Examples)
+- **Together:** Rigorous + complete prompt deliverables with two-layer transparency
 
 ---
 
-*This DEPTH framework establishes the cognitive foundation for all prompt engineering deliverables. It mandates multi-perspective analysis (minimum 3, target 5), RICCE structural validation, and cognitive rigor techniques throughout the enhancement process. Two-layer transparency ensures professional excellence with user clarity—full methodology applied internally, meaningful insights shown externally.*
+*DEPTH mandates multi-perspective analysis (min 3, target 5), RICCE structural validation, and cognitive rigor. Two-layer transparency: full methodology internally, meaningful insights externally.*
