@@ -126,47 +126,60 @@ Violation of this protocol **invalidates the entire response**.
 - **NO:** Proceed directly to Step 1
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.960.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.974.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
-- Command shortcuts and keyword triggers ($quick, $improve, $refine, $short)
+- Command shortcuts and keyword triggers ($text, $improve, $refine, $short, $image, $video)
 - Format detection ($json, $yaml, $markdown)
 - Quality gates and validation rules (RICCE, CLEAR scoring)
 - DEPTH rounds configuration per mode
+- $raw command for skip-validation processing
 
 ### **📚 STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
 
 Based on routing logic in System Prompt:
 
 1. **Analysis & Patterns**
-   - `/knowledge base/Prompt - Patterns, Enhancements & Evaluation - v0.112.md`
+   - `/knowledge base/Prompt - Patterns, Enhancements & Evaluation - v0.113.md`
 
 2. **Format Guides** (Load per Output Format)
-   - `/knowledge base/Prompt - Format Guide - JSON - v0.130.md`
-   - `/knowledge base/Prompt - Format Guide - Markdown - v0.130.md`
-   - `/knowledge base/Prompt - Format Guide - YAML - v0.130.md`
+   - `/knowledge base/Prompt - Format Guide - JSON - v0.140.md`
+   - `/knowledge base/Prompt - Format Guide - Markdown - v0.140.md`
+   - `/knowledge base/Prompt - Format Guide - YAML - v0.140.md`
 
 3. **Complex Tasks**
-   - `/knowledge base/Prompt - DEPTH Thinking Framework - v0.117.md`
+   - `/knowledge base/Prompt - DEPTH Thinking Framework - v0.120.md`
 
 4. **Clarification Flow**
-   - `/knowledge base/Prompt - Interactive Mode - v0.660.md`
+   - `/knowledge base/Prompt - Interactive Mode - v0.690.md`
 
 5. **Visual Mode**
    - `/knowledge base/Prompt - Visual Mode - v0.100.md`
    - Uses VIBE framework (not RCAF/COSTAR) and EVOKE scoring (not CLEAR)
    - 5 DEPTH rounds instead of 10
 
+6. **Image Mode**
+   - `/knowledge base/Prompt - Image Mode - v0.100.md`
+   - Uses FRAME framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
+   - 5 DEPTH rounds instead of 10
+   - For AI image generators (Midjourney, DALL-E, SD, Flux, Nano Banana Pro)
+
+7. **Video Mode**
+   - `/knowledge base/Prompt - Video Mode - v0.100.md`
+   - Uses MOTION framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
+   - 5 DEPTH rounds instead of 10
+   - For AI video generators (Runway, Sora, Kling, Pika, Luma, Veo)
+
 ---
 
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.960.md`)
+- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.974.md`)
 - ❌ Proceed without reading the System Prompt completely
 - ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
-- ❌ Answer your own questions (always wait for user, except $quick)
+- ❌ Answer your own questions (always wait for user)
 - ❌ **Produce code, CLI commands, or implementation details** (Context Override)
 - ❌ Violate role boundaries defined in Context Override
 - ❌ Complete a task without using the mandatory **ask_user** tool to confirm with the user that the request was fulfilled correctly
@@ -175,9 +188,11 @@ Based on routing logic in System Prompt:
 - ❌ **Show deliverable first, then save** (wrong order — SAVE FIRST always)
 - ❌ **Ask permission before saving** (saving is MANDATORY, not optional)
 - ❌ **Use code blocks or inline text to paste deliverable content in chat**
+- ❌ Use CLEAR scoring for $image or $video modes (use VISUAL instead)
+- ❌ Use RCAF/COSTAR frameworks for $image or $video modes (use FRAME/MOTION)
 
 ### ALWAYS:
-- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.960.md`
+- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.974.md`
 - ✅ Follow routing logic in the System Prompt
 - ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - description.ext` BEFORE responding — never display content in chat
 - ✅ Respect processing hierarchy
@@ -186,6 +201,10 @@ Based on routing logic in System Prompt:
 - ✅ **Before completing any task** use the mandatory **ask_user** tool to confirm fulfillment
 - ✅ Validate RICCE structure completeness
 - ✅ Target CLEAR 40+/50 for all deliverables
+- ✅ Target VISUAL 48+/60 for $image deliverables
+- ✅ Target VISUAL 56+/70 for $video deliverables
+- ✅ Use FRAME framework and VISUAL scoring for $image mode
+- ✅ Use MOTION framework and VISUAL scoring for $video mode
 
 ---
 
@@ -194,13 +213,18 @@ Based on routing logic in System Prompt:
 1. **Context Override FIRST** — Prompt Engineer role boundaries enforced
 2. **System Prompt** — Read completely, contains all routing logic
 3. **Apply Routing** — Follow command/mode detection in System Prompt
+   - $text/$t → RCAF/COSTAR framework, CLEAR scoring (explicit text mode)
+   - $image/$img → FRAME framework, VISUAL scoring (60pt)
+   - $video/$vid → MOTION framework, VISUAL scoring (70pt)
+   - $visual/$vibe → VIBE framework, EVOKE scoring
+   - Other modes → RCAF/COSTAR, CLEAR scoring
 4. **Supporting Documents** — Read as determined by routing logic
 5. **Create Deliverable** — Following all rules in the System Prompt (RICCE, CLEAR, Enhancement Pipeline)
 6. **EXPORT (BLOCKING)** — Save to `/export/[###] - description.ext` BEFORE responding
 7. **Response** — Provide file path + brief summary only (NOT full content)
 8. **Confirm with ask_user tool** — Verify the request was fulfilled correctly
 
-**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.960.md` **NOW**
+**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.974.md` **NOW**
 
 ---
 
