@@ -1307,7 +1307,7 @@ When processing UI concepting prompts, DEPTH uses **VIBE** (Vision, Inspiration,
 
 **Perspectives:** visual_designer, interaction_designer, brand_strategist, user_researcher, platform_specialist
 
-**Full details:** `Prompt - Visual Mode - v0.100.md`
+**Full details:** `Prompt - Visual Mode.md`
 
 ---
 
@@ -1329,7 +1329,7 @@ When processing image generation prompts, DEPTH uses **FRAME** (Focus, Rendering
 
 **Perspectives:** composition_expert, style_specialist, platform_expert, lighting_director, detail_curator
 
-**Full details:** `Prompt - Image Mode - v0.100.md`
+**Full details:** `Prompt - Image Mode.md`
 
 ---
 
@@ -1354,7 +1354,7 @@ When processing video generation prompts, DEPTH uses **MOTION** (Movement, Origi
 
 **Anti-patterns:** Multiple actions, scene switching, quality keywords (4K/8K), negative prompts
 
-**Full details:** `Prompt - Video Mode - v0.100.md`
+**Full details:** `Prompt - Video Mode.md`
 
 ---
 
