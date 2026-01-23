@@ -1,4 +1,4 @@
-# Prompt Engineering Assistant - User Guide  v0.974
+# Prompt Engineering Assistant - User Guide  v0.975
 
 Transforms vague requests into clear, effective AI prompts using proven frameworks, systematic evaluation, and **concise transparent DEPTH processing**.
 
@@ -47,7 +47,7 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 ### 🖼️ NEW: Image Mode for AI Image Generators
 
-**Transform vague descriptions into optimized prompts** for Midjourney, DALL-E, Stable Diffusion, Flux, Nano Banana Pro, and more.
+**Transform vague descriptions into optimized prompts** for Midjourney, DALL-E, Stable Diffusion, Flux, Flux 2 Pro, Imagen 4, Seedream, and more.
 
 | Feature          | Description                                                 |
 | ---------------- | ----------------------------------------------------------- |
@@ -57,7 +57,7 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 | **DEPTH Rounds** | 5 rounds (creative iteration)                               |
 
 **Key Capabilities:**
-- ✨ **Platform Detection** — Auto-detect Midjourney, DALL-E, SD, Flux, Nano Banana Pro
+- ✨ **Platform Detection** — Auto-detect Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram
 - ✨ **Anti-Pattern Removal** — Eliminate tag soup, quality spam
 - ✨ **Vocabulary Banks** — Rich libraries for lighting, composition, styles
 - ✨ **Nano Banana Pro** — Special Six-Factor handling for Google Gemini 3 Pro Image
@@ -66,7 +66,7 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 ### 🎬 NEW: Video Mode for AI Video Generators
 
-**Transform static descriptions into motion-focused prompts** for Runway, Sora, Kling, Pika, Luma, Veo, and more.
+**Transform static descriptions into motion-focused prompts** for Runway, Sora, Kling, Pika, Luma, Veo, Minimax, Seedance, OmniHuman, Wan, and more.
 
 | Feature          | Description                                                           |
 | ---------------- | --------------------------------------------------------------------- |
@@ -97,14 +97,14 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 **Version Updates:**
 | Component             | Previous | Current          |
 | --------------------- | -------- | ---------------- |
-| System Prompt         | v0.970   | **v0.974**       |
+| System Prompt         | v0.970   | **v0.975**       |
 | DEPTH Framework       | v0.119   | **v0.120**       |
 | Interactive Mode      | v0.680   | **v0.690**       |
 | Patterns & Evaluation | v0.112   | **v0.113**       |
 | Format Guides         | v0.130   | **v0.140**       |
 | Visual Mode           | —        | **v0.100** (NEW) |
-| Image Mode            | —        | **v0.100** (NEW) |
-| Video Mode            | —        | **v0.100** (NEW) |
+| Image Mode            | —        | **v0.110** (NEW) |
+| Video Mode            | —        | **v0.110** (NEW) |
 
 ---
 
@@ -136,7 +136,7 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 ```
 AGENTS.md → Entry point with intelligent routing logic
     ↓
-System Prompt v0.974 (Core routing, 38 rules, framework selection)
+System Prompt v0.975 (Core routing, 38 rules, framework selection)
     ↓
 ┌─────────────────────────────────────────────────────────────┐
 │                    SUPPORTING DOCUMENTS                     │
@@ -147,7 +147,7 @@ System Prompt v0.974 (Core routing, 38 rules, framework selection)
 │  Patterns v0.113           │  🎨 Visual Mode v0.100 (NEW)   │
 │  (10 frameworks, CLEAR)    │  (VIBE framework, EVOKE score) │
 ├─────────────────────────────────────────────────────────────┤
-│  🖼️ Image Mode v0.100 (NEW)  │  🎬 Video Mode v0.100 (NEW)  │
+│  🖼️ Image Mode v0.110 (NEW)  │  🎬 Video Mode v0.110 (NEW)  │
 │  (FRAME framework, VISUAL)   │  (MOTION framework, VISUAL)  │
 ├─────────────────────────────────────────────────────────────┤
 │  Format Guides v0.140 (Markdown, JSON, YAML)                │
@@ -166,7 +166,7 @@ Output → /export/[###]-enhanced-prompt.[md|json|yaml]
 
 ### Step 2: Add System Instructions
 1. Edit project details → Custom instructions
-2. Copy and paste: `Prompt - System Prompt - v0.974.md`
+2. Copy and paste: `Prompt - System Prompt - v0.975.md`
 3. Save the project
 
 ### Step 3: Upload Supporting Documents
@@ -781,12 +781,12 @@ framework_selection:
 - **Note:** Uses EVOKE scoring instead of CLEAR
 
 🖼️ **FRAME (Focus, Rendering, Atmosphere, Modifiers, Exclusions)** - 90% Success
-- **Best for:** AI image generators (Midjourney, DALL-E, SD, Flux, Nano Banana Pro)
+- **Best for:** AI image generators (Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram)
 - **Strengths:** Platform-aware, anti-pattern detection, vocabulary banks
 - **Use when:** Creating prompts for image generation
 
 🎬 **MOTION (Movement, Origin, Temporal, Intention, Orchestration, Nuance)** - 90% Success
-- **Best for:** AI video generators (Runway, Sora, Kling, Pika, Luma, Veo)
+- **Best for:** AI video generators (Runway, Sora, Kling, Pika, Luma, Veo, Minimax, Seedance, OmniHuman, Wan)
 - **Strengths:** Motion-first, temporal consistency, platform syntax
 - **Use when:** Creating prompts for video generation
 
