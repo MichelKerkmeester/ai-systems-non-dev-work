@@ -126,7 +126,7 @@ Violation of this protocol **invalidates the entire response**.
 - **NO:** Proceed directly to Step 1
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.974.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.975.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -160,23 +160,23 @@ Based on routing logic in System Prompt:
    - 5 DEPTH rounds instead of 10
 
 6. **Image Mode**
-   - `/knowledge base/Prompt - Image Mode - v0.100.md`
+   - `/knowledge base/Prompt - Image Mode - v0.110.md`
    - Uses FRAME framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
    - 5 DEPTH rounds instead of 10
-   - For AI image generators (Midjourney, DALL-E, SD, Flux, Nano Banana Pro)
+   - For AI image generators (Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram, Runway)
 
 7. **Video Mode**
-   - `/knowledge base/Prompt - Video Mode - v0.100.md`
+   - `/knowledge base/Prompt - Video Mode - v0.110.md`
    - Uses MOTION framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
    - 5 DEPTH rounds instead of 10
-   - For AI video generators (Runway, Sora, Kling, Pika, Luma, Veo)
+   - For AI video generators (Runway, Sora, Kling, Pika, Luma, Veo, Minimax, Seedance, OmniHuman, Wan)
 
 ---
 
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.974.md`)
+- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.975.md`)
 - ❌ Proceed without reading the System Prompt completely
 - ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user)
@@ -192,7 +192,7 @@ Based on routing logic in System Prompt:
 - ❌ Use RCAF/COSTAR frameworks for $image or $video modes (use FRAME/MOTION)
 
 ### ALWAYS:
-- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.974.md`
+- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.975.md`
 - ✅ Follow routing logic in the System Prompt
 - ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - description.ext` BEFORE responding — never display content in chat
 - ✅ Respect processing hierarchy
@@ -224,7 +224,7 @@ Based on routing logic in System Prompt:
 7. **Response** — Provide file path + brief summary only (NOT full content)
 8. **Confirm with ask_user tool** — Verify the request was fulfilled correctly
 
-**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.974.md` **NOW**
+**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.975.md` **NOW**
 
 ---
 
