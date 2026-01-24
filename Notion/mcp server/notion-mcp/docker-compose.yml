@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  notion-mcp:
+    build: .
+    image: notion-mcp:latest
+    container_name: notion-mcp
+
+    # Provide ONE of these:
+    # - NOTION_TOKEN (recommended)
+    # - OPENAPI_MCP_HEADERS (advanced)
+    environment:
+      - NOTION_TOKEN=${NOTION_TOKEN}
+      - OPENAPI_MCP_HEADERS=${OPENAPI_MCP_HEADERS}
+
+    # Keep container running for `docker exec -i`
+    stdin_open: true
+    tty: true
+
+    # Resource limits (Docker Desktop)
+    mem_limit: 1g
+    cpus: 1
+
+    restart: unless-stopped

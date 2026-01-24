@@ -158,7 +158,7 @@ Docker provides isolated, reproducible environments with minimal setup.
 #### Step 1: Navigate to Repository
 
 ```bash
-cd "/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/mcp servers/jianying-mcp"
+cd "/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/mcp server/jianying-mcp"
 ```
 
 #### Step 2: Configure Docker Desktop File Sharing
