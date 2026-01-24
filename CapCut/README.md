@@ -148,7 +148,7 @@ The CapCut system requires the JianYing MCP server.
 
 ```bash
 # Navigate to MCP server folder
-cd "CapCut/mcp servers/jianying-mcp"
+cd "CapCut/mcp server/jianying-mcp"
 
 # Build and start container
 docker-compose up -d --build
@@ -339,7 +339,7 @@ System: Adding video segment to timeline...
 docker ps | grep jianying-mcp
 
 # Start container if stopped
-cd "CapCut/mcp servers/jianying-mcp"
+cd "CapCut/mcp server/jianying-mcp"
 docker-compose up -d
 
 # Rebuild if needed
@@ -419,7 +419,7 @@ output_path: %USERPROFILE%\Documents\JianYing\Drafts
 
 - [INSTALL_GUIDE.md](INSTALL_GUIDE.md) - Detailed installation instructions
 - `knowledge base/` - Technical reference documents
-- `mcp servers/jianying-mcp/` - MCP server files
+- `mcp server/jianying-mcp/` - MCP server files
 
 ---
 

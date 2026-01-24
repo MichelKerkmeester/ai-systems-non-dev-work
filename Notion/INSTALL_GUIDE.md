@@ -41,7 +41,7 @@ My preferred install method is: [Docker / NPX]
 
 The Notion MCP server lets MCP-compatible clients (Claude Desktop, OpenCode, etc.) perform native Notion operations (search, pages, databases/data sources, blocks) using your Notion integration token.
 
-This repo includes a Docker Compose setup in `Notion/mcp servers/notion-mcp`.
+This repo includes a Docker Compose setup in `Notion/mcp server/notion-mcp`.
 
 ---
 
@@ -92,7 +92,7 @@ This method keeps a container running in the background, which is faster for rep
 
 1. Navigate to the server directory:
    ```bash
-   cd "Notion/mcp servers/notion-mcp"
+   cd "Notion/mcp server/notion-mcp"
    ```
 
 2. Create environment file:
