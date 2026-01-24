@@ -140,44 +140,34 @@ The CapCut system requires the JianYing MCP server.
 
 ### Prerequisites
 
-- **Python 3.13+** (required by pyJianYingDraft)
-- **uv** package manager
+- **Docker Desktop** (recommended) OR Python 3.13+ with uv
 - **JianYing Pro** desktop application (Chinese version of CapCut)
 - **Claude Desktop** or compatible MCP client
 
-### Quick Installation
+### Quick Installation (Docker - Recommended)
 
 ```bash
-# Clone repository
-git clone https://github.com/hey-jian-wei/jianying-mcp.git
-cd jianying-mcp
+# Navigate to MCP server folder
+cd "CapCut/mcp servers/jianying-mcp"
 
-# Install with uv
-uv sync
+# Build and start container
+docker-compose up -d --build
 
-# Set environment variables
-export SAVE_PATH="/path/to/jianying/data"
-export OUTPUT_PATH="/path/to/jianying/drafts"
-
-# Start server
-uv run server.py
+# Verify container is running
+docker ps | grep jianying-mcp
 ```
 
-### MCP Configuration
+### MCP Configuration (Docker)
 
 Add to Claude Desktop config (`claude_desktop_config.json`):
 
 ```json
 {
   "mcpServers": {
-    "jianying-mcp": {
-      "command": "uv",
-      "args": ["run", "server.py"],
-      "cwd": "/path/to/jianying-mcp",
-      "env": {
-        "SAVE_PATH": "/path/to/jianying/data",
-        "OUTPUT_PATH": "/path/to/jianying/drafts"
-      }
+    "jianying": {
+      "command": "docker",
+      "args": ["exec", "-i", "jianying-mcp", "uv", "run", "python", "-m", "jianyingdraft.server"],
+      "env": {}
     }
   }
 }
@@ -188,7 +178,11 @@ Add to Claude Desktop config (`claude_desktop_config.json`):
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 - Linux: `~/.config/claude/claude_desktop_config.json`
 
-For complete installation instructions, see [INSTALL_GUIDE.md](INSTALL_GUIDE.md).
+### Alternative: Native Installation
+
+For native installation without Docker, see [INSTALL_GUIDE.md](INSTALL_GUIDE.md) Option B.
+
+For complete installation instructions including troubleshooting, see [INSTALL_GUIDE.md](INSTALL_GUIDE.md).
 
 ---
 
@@ -337,11 +331,31 @@ System: Adding video segment to timeline...
 <a id="8-troubleshooting"></a>
 ## 8. 🔧 TROUBLESHOOTING
 
-### MCP Connection Issues
+### MCP Connection Issues (Docker)
+
+**Container not running:**
+```bash
+# Check container status
+docker ps | grep jianying-mcp
+
+# Start container if stopped
+cd "CapCut/mcp servers/jianying-mcp"
+docker-compose up -d
+
+# Rebuild if needed
+docker-compose up -d --build
+```
+
+**Volume mount permission denied:**
+1. Open Docker Desktop → Settings → Resources → File Sharing
+2. Add the CapCut data/export/media paths
+3. Restart Docker Desktop
+4. Rebuild: `docker-compose up -d --build`
+
+### MCP Connection Issues (Native)
 
 **Server not running:**
 ```bash
-# Start the server
 cd /path/to/jianying-mcp
 uv run server.py
 ```
@@ -354,10 +368,7 @@ export OUTPUT_PATH="/path/to/jianying/drafts"
 
 **Python version error:**
 ```bash
-# Check Python version (requires 3.13+)
-python --version
-
-# Use pyenv to install 3.13+
+python --version  # Requires 3.13+
 pyenv install 3.13.0
 pyenv local 3.13.0
 ```
