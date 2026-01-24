@@ -87,6 +87,7 @@ $ARGUMENTS
 | Barter Copywriter | `barter`, `copywriter`, `copy` | Barter - Copywriter |
 | Barter LinkedIn | `linkedin`, `pieter` | Barter - LinkedIn/Pieter Bertram |
 | Barter TikTok | `tiktok`, `seo`, `creative` | Barter - TikTok SEO & Creative Strategy |
+| CapCut | `capcut`, `jianying`, `draft` | CapCut |
 | Media Editor | `media`, `image`, `video`, `audio`, `hls` | Media Editor |
 | Notion | `notion` | Notion |
 | Product Owner | `po`, `product`, `ticket`, `story`, `epic`, `doc` | Product Owner |
@@ -107,6 +108,7 @@ $ARGUMENTS
 | Barter Copywriter | copy, content, marketing, brand voice, creator, campaign, UGC |
 | Barter LinkedIn | linkedin, post, pieter, personal brand, thought leadership |
 | Barter TikTok | tiktok, trend, hashtag, algorithm, video strategy |
+| CapCut | video project, timeline, segment, animation, transition, jianying, capcut |
 | Media Editor | resize, compress, convert, thumbnail, watermark, transcode, ffmpeg |
 | Notion | database, page, block, property, relation, rollup, template |
 | Product Owner | user story, acceptance criteria, epic, specification, requirements |
@@ -126,6 +128,7 @@ $ARGUMENTS
     │   ├─► "barter" | "copywriter" | "copy"                       → BARTER COPYWRITER
     │   ├─► "linkedin" | "pieter"                                  → BARTER LINKEDIN
     │   ├─► "tiktok" | "seo" | "creative"                          → BARTER TIKTOK
+    │   ├─► "capcut" | "jianying" | "draft"                        → CAPCUT
     │   ├─► "webflow" | "wf"                                       → WEBFLOW
     │   ├─► "notion"                                               → NOTION
     │   ├─► "media" | "image" | "video" | "audio" | "hls"          → MEDIA EDITOR
@@ -161,14 +164,15 @@ Which AI System should handle this request?
 | A      | Barter Copywriter | Copy, content, marketing, brand voice, campaigns |
 | B      | Barter LinkedIn   | LinkedIn posts, Pieter's personal brand          |
 | C      | Barter TikTok     | TikTok SEO, creative strategy, trends            |
-| D      | Media Editor      | Image/video/audio processing, HLS streaming      |
-| E      | Notion            | Databases, pages, blocks, properties             |
-| F      | Product Owner     | Tickets, user stories, epics, specifications     |
-| G      | Prompt Improver   | Prompt enhancement, optimization, structuring    |
-| H      | Webflow           | CMS collections, fields, pages, components       |
-| I      | Custom Path       | Specify path to unlisted agent folder            |
+| D      | CapCut            | Video projects, timelines, animations, JianYing  |
+| E      | Media Editor      | Image/video/audio processing, HLS streaming      |
+| F      | Notion            | Databases, pages, blocks, properties             |
+| G      | Product Owner     | Tickets, user stories, epics, specifications     |
+| H      | Prompt Improver   | Prompt enhancement, optimization, structuring    |
+| I      | Webflow           | CMS collections, fields, pages, components       |
+| J      | Custom Path       | Specify path to unlisted agent folder            |
 
-Reply with letter (A-I):
+Reply with letter (A-J):
 ```
 
 ---
@@ -386,6 +390,7 @@ Available systems:
 - barter, copywriter, copy     → Barter Copywriter
 - linkedin, pieter             → Barter LinkedIn
 - tiktok, seo, creative        → Barter TikTok
+- capcut, jianying, draft      → CapCut
 - media, image, video, audio   → Media Editor
 - notion                       → Notion
 - po, product, ticket, story   → Product Owner
@@ -454,6 +459,9 @@ STATUS=OK
 
 # Barter Copywriter
 /agent_router barter "Write hero copy for creator landing page"
+
+# CapCut - video project
+/agent_router capcut "Create a TikTok video project with transitions"
 
 # Media Editor
 /agent_router media "Convert video to HLS format"

@@ -6,7 +6,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/MichelKerkmeester/AI_Systems?style=for-the-badge&logo=github&color=fce566&labelColor=222222)](https://github.com/MichelKerkmeester/AI_Systems/stargazers)
 [![License](https://img.shields.io/github/license/MichelKerkmeester/AI_Systems?style=for-the-badge&color=7bd88f&labelColor=222222)](LICENSE)
-[![Systems](https://img.shields.io/badge/Systems-6_Total-5ad4e6?style=for-the-badge&labelColor=222222)](#-table-of-contents)
+[![Systems](https://img.shields.io/badge/Systems-7_Total-5ad4e6?style=for-the-badge&labelColor=222222)](#-table-of-contents)
 
 > - 99.999% of people won't try these systems. Beat the odds?
 > - Don't reward me with unwanted coffee: https://buymeacoffee.com/michelkerkmeester
@@ -25,6 +25,7 @@
 3. [Media Editor Agent](#3-media-editor-agent)
 4. [Webflow Agent](#4-webflow-agent)
 5. [Notion Agent](#5-notion-agent)
+6. [CapCut Agent](#6-capcut-agent)
 
 #### 📚 Resources
 - [Claude Desktop](https://claude.ai/desktop)
@@ -137,3 +138,22 @@ Automate Notion workspace operations through natural language.
   - **Page Management**: Build hierarchical pages, nested structures, rich content blocks
   - **Search & Collaboration**: Workspace search, comments, page sharing
   - **Smart Structure Selection**: Auto-balance database vs page hierarchies based on use case
+
+---
+
+<a id="6-capcut-agent"></a>
+### 🎬 6. CapCut Agent
+
+Create professional video projects through natural language with JianYing MCP integration.
+
+**Smart MCP agent focused on video editing**:
+  - Up to date with all 18 JianYing MCP tools
+  - Interactive mode helps you build video projects
+  - VIDEO Thinking Framework (Visualize → Investigate → Design → Execute → Output)
+
+**Capabilities**:
+  - **Draft Management**: Create projects with custom resolution/framerate for any platform
+  - **Video Operations**: Add segments, animations, transitions, filters, masks, keyframes
+  - **Audio Operations**: Add audio/music, effects, fades, keyframe volume/pan
+  - **Text Operations**: Add titles, captions with entrance/exit/loop animations
+  - **Platform Presets**: YouTube (16:9), TikTok/Reels (9:16), Instagram (1:1), 4K
