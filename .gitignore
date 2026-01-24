@@ -19,6 +19,7 @@ opencode.json
 mcp_servers.json
 settings.local.json
 
+
 # Database files (contain personal memory/session data)
 memory/database/*.sqlite
 memory/database/*.sqlite-shm
@@ -29,6 +30,7 @@ context/
 export/
 memory/
 specs/
+data/
 
 # Archive folder (root level only)
 /z — Archive/
