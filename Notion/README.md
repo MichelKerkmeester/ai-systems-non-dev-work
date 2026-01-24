@@ -97,6 +97,10 @@ Notion - Interactive Intelligence - v0.210.md (Conversation flow with two-layer 
     ↓
 Notion - MCP Knowledge - v0.211.md (Notion MCP specifications)
     ↓
+INSTALL_GUIDE.md (Install/configure Notion MCP server)
+    ↓
+mcp servers/notion-mcp/ (Repo-local Docker setup)
+    ↓
 Output → Native Notion operations via MCP server
 ```
 
@@ -124,7 +128,7 @@ Add these documents to your project:
 - `Notion - SYNC Thinking Framework - v0.211.md`
 
 ### Step 4: Continue to MCP Installation
-Follow the installation guide in the next section
+See `INSTALL_GUIDE.md` for detailed setup (Docker or NPX).
 
 ### Step 5: Start Building!
 ```
@@ -140,25 +144,45 @@ Setup content calendar with relations
 
 ## 5. 🔧 INSTALLING NOTION MCP
 
-### Recommended: NPM with Environment Variable
+Full setup guide: `INSTALL_GUIDE.md`.
 
-**Config Location:**
-- Mac/Linux: `~/.config/claude/claude_desktop_config.json`
-- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+### Quick Option A: Docker (Recommended)
+
+Add to your MCP client config:
+
+```json
+{
+  "mcpServers": {
+    "notion": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "-e", "NOTION_TOKEN", "mcp/notion"],
+      "env": {
+        "NOTION_TOKEN": "ntn_..."
+      }
+    }
+  }
+}
+```
+
+### Quick Option B: NPX
 
 ```json
 {
   "mcpServers": {
     "notion": {
       "command": "npx",
-      "args": ["-y", "@makenotion/notion-mcp-server"],
+      "args": ["-y", "@notionhq/notion-mcp-server"],
       "env": {
-        "NOTION_TOKEN": "your-integration-token-here"
+        "NOTION_TOKEN": "ntn_..."
       }
     }
   }
 }
 ```
+
+### Repo-Local Docker Setup
+
+This repository also ships a Docker Compose setup in `mcp servers/notion-mcp`.
 
 ### Getting Your Integration Token
 
@@ -180,10 +204,11 @@ Setup content calendar with relations
    - Restart Claude Desktop (Cmd/Ctrl + R)
    - System verifies connection automatically
 
-### Alternative: Docker Deployment
-```bash
-docker run -e NOTION_TOKEN=your-token-here makenotion/notion-mcp-server
-```
+### Important Notes
+
+- Token starts with `ntn_`.
+- Notion requires explicitly sharing pages/databases with the integration.
+- Restart your MCP client after config changes.
 
 ---
 
