@@ -99,7 +99,7 @@ Notion - MCP Knowledge - v0.211.md (Notion MCP specifications)
     ↓
 INSTALL_GUIDE.md (Install/configure Notion MCP server)
     ↓
-mcp servers/notion-mcp/ (Repo-local Docker setup)
+mcp server/notion-mcp/ (Repo-local Docker setup)
     ↓
 Output → Native Notion operations via MCP server
 ```
@@ -182,7 +182,7 @@ Add to your MCP client config:
 
 ### Repo-Local Docker Setup
 
-This repository also ships a Docker Compose setup in `mcp servers/notion-mcp`.
+This repository also ships a Docker Compose setup in `mcp server/notion-mcp`.
 
 ### Getting Your Integration Token
 

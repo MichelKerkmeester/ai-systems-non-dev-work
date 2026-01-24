@@ -1,0 +1,34 @@
+services:
+  jianying-mcp:
+    build: .
+    container_name: jianying-mcp
+    volumes:
+      # Data storage for draft operations (read-write)
+      - type: bind
+        source: /Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/data
+        target: /data
+        read_only: false
+      # Output path for exported JianYing drafts (read-write)
+      - type: bind
+        source: /Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/export
+        target: /output
+        read_only: false
+      # Media files for video processing (read-only)
+      - type: bind
+        source: /Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/media
+        target: /media
+        read_only: true
+    environment:
+      - SAVE_PATH=/data
+      - OUTPUT_PATH=/output
+      - PYTHONUNBUFFERED=1
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    # Docker Desktop resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 512M
