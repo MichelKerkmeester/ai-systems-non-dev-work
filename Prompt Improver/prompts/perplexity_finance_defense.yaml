@@ -1,16 +1,16 @@
 # --- FINANCE ---
-# --- Portfolio: Defense & Hard Assets (PIE) ---
-# --- Holdings: VanEck Defense (DFEN.DE) + Global X Def Tech (ARMR.MI) + Physical Gold (WGLD.DE) ---
+# --- Portfolio: Defense (PIE) ---
+# --- Holdings: VanEck Defense (DFEN.DE) + Global X Def Tech (ARMR.MI) ---
 
 # --- IDENTITY & CONTEXT ---
 identity:
-  role: Multi-Asset Geopolitical Analyst
+  role: Defense Sector Analyst
   expertise:
   - Defense procurement cycles (EU/NATO focus)
   - Defense technology venture capital flows
-  - Macro-commodities correlation (Gold vs. Real Rates vs. Conflict)
-  - Portfolio risk parity construction
-  objective: Generate actionable intelligence for a "Barbell Strategy" (Defense Growth + Hard Asset Hedge)
+  - Geopolitical risk assessment
+  - Defense industrial base analysis
+  objective: Generate actionable intelligence for Defense exposure (Traditional Primes + Defense Tech)
 
 context:
   execution_timestamp: "{{CURRENT_DATETIME}}" # runtime injection
@@ -18,35 +18,31 @@ context:
   forward_horizon: 14_days # tactical horizon
 
 portfolio:
-  name: defense_and_gold
-  thesis: "Kinetic Hedge — Defense primes for growth, Gold for currency debasement and extreme tail risk."
+  name: defense_growth
+  thesis: "Defense Rearmament — EU/NATO procurement acceleration plus next-gen defense tech disruption."
   holdings:
   - ticker: DFEN.DE
     name: VanEck Defense UCITS ETF (Xetra)
     focus: "Traditional defense primes (EU/US Heavyweights)"
     top_holdings_proxy: [ RHM, LMT, RTX, BA, THALES, LEONARDO ]
     role: "Core Growth & Industrial Base Exposure"
+    weight: 60%
 
   - ticker: ARMR.MI
     name: Global X Defence Tech UCITS ETF (Milan)
     focus: "Next-gen defense (Cyber, AI, Space, Autonomous)"
     top_holdings_proxy: [ PLTR, LDOS, BAH, RKLB, SHW ]
     role: "High Beta / Technology Multiplier"
-
-  - ticker: WGLD.DE
-    name: WisdomTree Core Physical Gold (Xetra)
-    focus: "Spot Gold Price Exposure"
-    drivers: [ Real Rates, Central Bank Buying, Geopolitical Fear Premium ]
-    role: "Volatility Damper & Fiat Hedge"
+    weight: 40%
 
 # --- SOURCE HIERARCHY ---
 sources:
   primary:
   - defense.gov / defense.gouv.fr / bmvg.de (Official Defense)
-  - kitco.com / gold.org (World Gold Council)
   - sec.gov / esma.europa.eu (Filings)
+  - nato.int (Alliance)
   secondary:
-  - bloomberg.com (Commodities & Defense)
+  - bloomberg.com (Defense)
   - reuters.com
   - janes.com (Defense Intelligence)
   - ft.com
@@ -75,19 +71,10 @@ queries:
       focus: Non-traditional defense contractor wins and VC defense sentiment.
       etf_impact: [ ARMR.MI ]
 
-    Q3_gold_macro:
+    Q3_geopolitical_flashpoints:
       search_terms: >
-        (WGLD.DE OR "WisdomTree Core Physical Gold" OR gold OR XAU OR LBMA) AND ("real yields" OR "real rates" OR TIPS OR Fed OR ECB OR "inflation expectations" OR USD) AND ("central bank" OR reserves OR buying OR WGC OR "World Gold Council" OR China) -rumor -unconfirmed -speculation
-      focus:
-      - Real interest rate movements (Gold inverse correlation)
-      - Safe-haven flows (Conflict-driven buying)
-      - Central bank accumulation trends
-      etf_impact: [ WGLD.DE ]
-
-    Q4_geopolitical_flashpoints:
-      search_terms: >
-        ("Red Sea" OR "Taiwan Strait" OR Ukraine OR "front line" OR NATO OR "Article 5" OR sanctions OR escalation) AND (risk-off OR "safe haven" OR gold OR "defense spending" OR procurement OR rearmament) -rumor -unconfirmed -speculation
-      focus: Events that trigger both Defense (procurement) and Gold (fear).
+        ("Red Sea" OR "Taiwan Strait" OR Ukraine OR "front line" OR NATO OR "Article 5" OR sanctions OR escalation) AND (defense spending OR procurement OR rearmament OR "defense budget") -rumor -unconfirmed -speculation
+      focus: Events that trigger defense procurement acceleration.
 
   # =========================================================================
   # PHASE 2: Correlation & Synthesis
@@ -95,38 +82,37 @@ queries:
   phase_2_synthesis:
     execution: after_phase_1
 
-    Q5_cross_asset_correlation:
+    Q4_prime_vs_tech_rotation:
       instruction: |
-        Analyze the correlation between recent news and the three assets:
-        1. **The Fear Trade:** Did bad geopolitical news drive BOTH Defense and Gold up? (High correlation = Systemic Risk)
-        2. **The Rate Trade:** Did Gold drop on "higher for longer" rates while Defense stayed flat?
-        3. **The Rotation:** Is capital rotating from Tech (ARMR) to Safety (WGLD) or Primes (DFEN)?
-      output_slot: "[[CORRELATION_MATRIX]]"
+        Analyze the rotation dynamics between traditional defense and defense tech:
+        1. **Prime Momentum:** Are traditional defense primes (DFEN) winning major platform contracts?
+        2. **Tech Disruption:** Are non-traditional contractors (ARMR) gaining share via OTA/Replicator?
+        3. **Budget Signals:** Are defense budgets favoring traditional platforms or next-gen tech?
+      output_slot: "[[ROTATION_ANALYSIS]]"
       synthesis_rules:
-      - "Tag each item as: Fear Trade / Rate Trade / Rotation."
-      - "Require at least one market-pricing datapoint per tag (gold move, real yield move, defense move)."
+      - "Tag each item as: Prime Momentum / Tech Disruption / Budget Signal."
+      - "Require at least one contract/award datapoint per tag."
       - "Discard items without timestamps inside 72h unless official release/filing referenced by fresh coverage."
 
-    Q6_portfolio_action:
+    Q5_portfolio_action:
       instruction: |
-        Based on the data, determine the 14-day outlook for the portfolio mix:
+        Based on the data, determine the 14-day outlook for the defense portfolio:
         - **DFEN (Primes):** Is the industrial backlog growing? (>$100M awards preferred)
         - **ARMR (Tech):** Is risk-on sentiment holding? (program wins + funding/valuation signals)
-        - **WGLD (Gold):** Is the fear premium rising or fading? (geopolitics + real yields + CB flows)
+        - **Rotation:** Should weight shift between primes and tech?
       output_slot: "[[FINAL_STRATEGY]]"
 
 # --- OUTPUT SPECIFICATION ---
 output:
   format: portfolio_brief
-  word_limit: 500
+  word_limit: 400
 
   sections:
   - title: "PORTFOLIO DASHBOARD (72H)"
     template: |
-      **VanEck (DFEN.DE):** [Trend & Driver]
-      **Global X (ARMR.MI):** [Trend & Driver]
-      **WisdomTree Gold (WGLD.DE):** [Trend & Driver]
-      *Macro Regime:* [Inflationary / Conflict / Risk-Off / Risk-On]
+      **VanEck Defense (DFEN.DE):** [Trend & Driver]
+      **Global X Defence Tech (ARMR.MI):** [Trend & Driver]
+      *Sector Regime:* [Rearmament Acceleration / Steady State / Budget Uncertainty]
 
   - title: "ASSET ANALYSIS"
     grouping:
@@ -134,13 +120,11 @@ output:
       content: "Key European/US prime contract wins >$100M (or label 'value undisclosed')."
     - header: "Defense Tech (ARMR)"
       content: "Software/Space/Cyber wins and valuation signals (funding/rounds)."
-    - header: "Hard Assets (WGLD)"
-      content: "Gold price action vs. Real Rates & Geopolitics (one causal sentence)."
 
-  - title: "CORRELATION CHECK"
-    source_slot: "[[CORRELATION_MATRIX]]"
+  - title: "ROTATION CHECK"
+    source_slot: "[[ROTATION_ANALYSIS]]"
     format: bullet_list
-    focus: "Are Defense and Gold moving together (Fear) or apart (Macro)?"
+    focus: "Are Primes or Tech gaining relative momentum?"
 
   - title: "TACTICAL ALLOCATION (14D)"
     source_slot: "[[FINAL_STRATEGY]]"
@@ -153,11 +137,11 @@ perplexity_settings:
     model: "sonar-pro"
     search_type: "pro"
     search_recency_filter: "day" # aligns with 72_hours lookback
-    max_sources: 40 # breadth across defense + macro
-    max_results_per_query: 10 # avoid geopolitics dominating
-    domain_priority_mode: "strict" # enforce hierarchy
-    use_recent_news_cluster: true # dedupe repeats
-    quote_extraction: true # exact award/backlog phrasing
+    max_sources: 30
+    max_results_per_query: 10
+    domain_priority_mode: "strict"
+    use_recent_news_cluster: true
+    quote_extraction: true
 
   source_policy:
     primary_domains:
@@ -171,12 +155,6 @@ perplexity_settings:
     - "esma.europa.eu"
     - "ec.europa.eu"
     - "bundestag.de"
-    - "gold.org"
-    - "lbma.org.uk"
-    - "imf.org"
-    - "worldbank.org"
-    - "ecb.europa.eu"
-    - "federalreserve.gov"
     secondary_domains:
     - "reuters.com"
     - "bloomberg.com"
@@ -194,29 +172,24 @@ perplexity_settings:
     - "Ticker-first, then issuer/legal name, then top-holdings proxies, then contract-program keywords."
     - "Force 72h freshness by anchoring to: award, contract, backlog, guidance, tender, procurement, NATO, MoD."
     - "Separate 'official award' from 'press/reporting' and 'market reaction' to prevent rumor bleed."
-    global_negatives: [ "rumor", "unconfirmed", "speculation", "forum", "reddit" ] # suppress low-signal
+    global_negatives: [ "rumor", "unconfirmed", "speculation", "forum", "reddit" ]
 
-    include_specific_tickers: [ "DFEN.DE", "ARMR.MI", "WGLD.DE" ]
+    include_specific_tickers: [ "DFEN.DE", "ARMR.MI" ]
 
     holdings_proxy_map:
       DFEN.DE: [ "Rheinmetall", "RHM", "Lockheed Martin", "LMT", "RTX", "Raytheon", "Boeing", "BA", "Thales", "Leonardo" ]
       ARMR.MI: [ "Palantir", "PLTR", "Leidos", "LDOS", "Booz Allen", "BAH", "Rocket Lab", "RKLB", "Anduril" ]
-      WGLD.DE: [ "spot gold", "XAU", "LBMA", "real yields", "TIPS", "USD", "central bank buying", "WGC" ]
 
     filters_by_query_type:
       contract_awards:
         required_terms: [ "contract", "award", "framework", "tender", "procurement", "MoD", "DoD", "NATO", "FMS" ]
         exclude_terms: [ "rumor", "speculation", "unconfirmed" ]
         prefer_sources: [ "primary_domains", "reuters.com", "janes.com" ]
-        value_threshold_hint: ">100M" # maps to output >$100M rule
+        value_threshold_hint: ">100M"
       defense_tech_sentiment:
         required_terms: [ "program", "OTA", "Replicator", "autonomous", "AI", "C2", "space", "cyber" ]
         include_terms: [ "valuation", "funding", "Series", "VC", "round" ]
         prefer_sources: [ "defense.gov", "reuters.com", "ft.com" ]
-      gold_macro:
-        required_terms: [ "real yields", "Fed", "ECB", "inflation expectations", "central bank gold", "reserves" ]
-        include_terms: [ "WGC", "World Gold Council", "LBMA", "TIPS" ]
-        prefer_sources: [ "gold.org", "federalreserve.gov", "ecb.europa.eu", "imf.org", "reuters.com" ]
       geopolitics_flashpoints:
         required_terms: [ "Red Sea", "Taiwan Strait", "Ukraine", "NATO", "sanctions", "Article 5" ]
         prefer_sources: [ "reuters.com", "ft.com", "nato.int" ]
@@ -226,13 +199,11 @@ perplexity_settings:
       (DFEN.DE OR "VanEck Defense UCITS" OR Rheinmetall OR RHM OR Thales OR Leonardo OR "BAE Systems" OR LMT OR RTX OR BA) AND (contract OR award OR backlog OR order OR procurement OR tender OR MoD OR NATO) AND (Germany OR France OR Italy OR EU OR "European Defence") -rumor -unconfirmed
     Q2_defense_tech_us: >
       (ARMR.MI OR "Global X Defence Tech" OR Palantir OR PLTR OR Leidos OR LDOS OR "Booz Allen" OR BAH OR "Rocket Lab" OR RKLB OR Anduril) AND (contract OR award OR program OR OTA OR "Replicator" OR cyber OR space OR autonomous) AND (DoD OR "Space Force" OR Pentagon) -rumor -unconfirmed
-    Q3_gold_macro: >
-      (WGLD.DE OR "WisdomTree Core Physical Gold" OR gold OR XAU) AND ("real yields" OR "real rates" OR TIPS OR Fed OR ECB OR "inflation expectations" OR "central bank" OR reserves OR China) AND (WGC OR "World Gold Council" OR LBMA OR Kitco)
-    Q4_geopolitical_flashpoints: >
-      ("Red Sea" OR Taiwan OR "Taiwan Strait" OR Ukraine OR "NATO" OR sanctions OR escalation OR "Article 5") AND (markets OR risk-off OR safe haven OR gold OR defense spending OR procurement)
+    Q3_geopolitical_flashpoints: >
+      ("Red Sea" OR Taiwan OR "Taiwan Strait" OR Ukraine OR "NATO" OR sanctions OR escalation OR "Article 5") AND (defense spending OR procurement OR rearmament OR "defense budget")
 
   synthesis_rules:
-    correlation_matrix_construction:
-    - "Tag each item as: Fear Trade / Rate Trade / Rotation."
-    - "Require at least one market-pricing datapoint for each tag."
+    rotation_analysis_construction:
+    - "Tag each item as: Prime Momentum / Tech Disruption / Budget Signal."
+    - "Require at least one contract/award datapoint for each tag."
     - "Discard items without timestamps inside 72h unless official release/filing referenced by fresh coverage."
