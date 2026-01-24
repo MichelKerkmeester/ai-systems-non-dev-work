@@ -1,6 +1,6 @@
 # CapCut MCP Server Installation Guide
 
-A comprehensive guide to installing, configuring, and using the JianYing MCP server for AI-powered video editing automation.
+A comprehensive guide to installing the JianYing MCP server for AI-powered video editing automation.
 
 ---
 
@@ -12,31 +12,17 @@ A comprehensive guide to installing, configuring, and using the JianYing MCP ser
 I want to install the JianYing MCP server for CapCut/JianYing video editing automation.
 
 Please help me:
-1. Check if I have Python 3.13+ installed
-2. Install uv package manager if needed
-3. Clone the jianying-mcp repository
-4. Configure SAVE_PATH and OUTPUT_PATH environment variables
-5. Install dependencies with uv sync
-6. Configure the MCP server for my environment (I'm using: [Claude Desktop / OpenCode / VS Code Copilot])
-7. Verify the server is working with test commands
-8. Ensure JianYing Pro is properly configured
+1. Choose between Docker (recommended) or native installation
+2. Set up the environment and dependencies
+3. Configure the MCP server for my environment (I'm using: [Claude Desktop / OpenCode / VS Code Copilot])
+4. Verify the server is working
+5. Ensure JianYing Pro is properly configured
 
 My operating system is: [macOS / Windows / Linux]
-My preferred workspace location is: [your path]
+My preferred installation method is: [Docker / Native]
 
 Guide me through each step with the exact commands I need to run.
 ```
-
-**What the AI will do:**
-- Verify Python 3.13+ is installed (or help install it)
-- Install uv package manager
-- Clone and configure the MCP server repository
-- Set up environment variables for JianYing integration
-- Configure MCP for your AI platform
-- Test video editing capabilities
-- Show you how to use the available tools effectively
-
-**Expected setup time:** 10-15 minutes
 
 ---
 
@@ -45,6 +31,8 @@ Guide me through each step with the exact commands I need to run.
 1. [📖 OVERVIEW](#1-overview)
 2. [📋 PREREQUISITES](#2-prerequisites)
 3. [📥 INSTALLATION](#3-installation)
+   - [Option A: Docker (Recommended)](#option-a-docker-recommended)
+   - [Option B: Native Installation](#option-b-native-installation)
 4. [⚙️ CONFIGURATION](#4-configuration)
 5. [✅ VERIFICATION](#5-verification)
 6. [🚀 USAGE](#6-usage)
@@ -79,7 +67,7 @@ The JianYing MCP server provides AI-powered video editing automation through the
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                  JianYing MCP Server                        │
-│   (Python + pyJianYingDraft)                                │
+│   (Python 3.13 + pyJianYingDraft)                           │
 │   • 18 video editing tools                                  │
 │   • Draft creation and export                               │
 │   • Effect and resource management                          │
@@ -103,13 +91,36 @@ The JianYing MCP server provides AI-powered video editing automation through the
 
 > **Note:** JianYing and CapCut are the same product by ByteDance. The MCP server works with JianYing Pro desktop application.
 
+### Installation Methods Comparison
+
+| Feature          | Docker (Recommended)     | Native                      |
+| ---------------- | ------------------------ | --------------------------- |
+| Setup complexity | Low                      | Medium                      |
+| Dependencies     | Docker Desktop only      | Python 3.13+, uv, mediainfo |
+| Isolation        | Full container isolation | Shared system environment   |
+| Portability      | High                     | Medium                      |
+| Updates          | Rebuild container        | uv sync                     |
+
 ---
 
 ## 2. 📋 PREREQUISITES
 
-Before installing the JianYing MCP server, ensure you have:
+### For Both Methods
 
-### Required
+- **JianYing Pro** desktop application
+  - Download from: https://www.capcut.cn/
+  - Install and launch at least once
+
+### For Docker Installation (Recommended)
+
+- **Docker Desktop** installed and running
+  ```bash
+  # Check Docker is running
+  docker --version
+  docker ps
+  ```
+
+### For Native Installation
 
 - **Python 3.13+** (required by pyJianYingDraft)
   ```bash
@@ -131,29 +142,73 @@ Before installing the JianYing MCP server, ensure you have:
   uv --version
   ```
 
-- **JianYing Pro** desktop application
-  ```bash
-  # Download from: https://www.capcut.cn/
-  # Install and launch at least once
-  ```
-
 - **Git** for cloning repositories
   ```bash
   git --version
   ```
 
-### Recommended
-
-- **Claude Desktop** (or other MCP-compatible client)
-  - Download from: https://claude.ai/download
-- **At least 4GB RAM** available
-- **5GB+ free disk space** for video projects
-
 ---
 
 ## 3. 📥 INSTALLATION
 
-### Step 1: Create Folder Structure
+### Option A: Docker (Recommended)
+
+Docker provides isolated, reproducible environments with minimal setup.
+
+#### Step 1: Navigate to Repository
+
+```bash
+cd "/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/mcp servers/jianying-mcp"
+```
+
+#### Step 2: Configure Docker Desktop File Sharing
+
+Open **Docker Desktop → Settings → Resources → File Sharing** and add:
+
+- `/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/data`
+- `/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/export`
+- `/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/media`
+
+> **Important:** Docker Desktop must have permission to access these paths for volume mounts to work.
+
+#### Step 3: Build and Start Container
+
+```bash
+docker-compose up -d --build
+```
+
+This will:
+1. Build the Docker image with Python 3.13 + mediainfo
+2. Install pyJianYingDraft dependencies
+3. Start the container in detached mode
+
+#### Step 4: Verify Container is Running
+
+```bash
+docker ps | grep jianying-mcp
+```
+
+Expected output:
+```
+CONTAINER ID   IMAGE           STATUS      NAMES
+abc123...      jianying-mcp    Up 2 min    jianying-mcp
+```
+
+#### Volume Paths (Docker)
+
+| Container Path | Host Path       | Purpose                                 |
+| -------------- | --------------- | --------------------------------------- |
+| `/data`        | `CapCut/data`   | Draft operation data (read-write)       |
+| `/output`      | `CapCut/export` | Exported JianYing projects (read-write) |
+| `/media`       | `CapCut/media`  | Source video/audio files (read-only)    |
+
+---
+
+### Option B: Native Installation
+
+Native installation runs directly on your system without Docker.
+
+#### Step 1: Create Folder Structure
 
 ```bash
 # Create main directory
@@ -163,9 +218,10 @@ cd ~/MCP\ Servers
 # Create JianYing working directories
 mkdir -p ~/MCP\ Servers/CapCut/data
 mkdir -p ~/MCP\ Servers/CapCut/drafts
+mkdir -p ~/MCP\ Servers/CapCut/media
 ```
 
-### Step 2: Clone Repository
+#### Step 2: Clone Repository
 
 ```bash
 # Clone JianYing MCP
@@ -174,7 +230,7 @@ git clone https://github.com/hey-jian-wei/jianying-mcp.git
 cd jianying-mcp
 ```
 
-### Step 3: Install Dependencies
+#### Step 3: Install Dependencies
 
 ```bash
 # Install with uv
@@ -184,7 +240,7 @@ uv sync
 uv run python -c "import pyJianYingDraft; print('OK')"
 ```
 
-### Step 4: Set Environment Variables
+#### Step 4: Set Environment Variables
 
 **macOS/Linux (add to ~/.zshrc or ~/.bashrc):**
 ```bash
@@ -203,7 +259,7 @@ export OUTPUT_PATH="$HOME/MCP Servers/CapCut/drafts"
 source ~/.zshrc  # or ~/.bashrc
 ```
 
-### Step 5: Test Server Locally
+#### Step 5: Test Server Locally
 
 ```bash
 # Start the server
@@ -219,9 +275,66 @@ uv run server.py
 
 Configure the MCP server for your AI platform:
 
-### Option A: Configure for Claude Desktop
+### For Docker Installation
 
-Open the Claude Desktop configuration file:
+#### Claude Desktop (Docker)
+
+```json
+{
+  "mcpServers": {
+    "jianying": {
+      "command": "docker",
+      "args": ["exec", "-i", "jianying-mcp", "uv", "run", "python", "-m", "jianyingdraft.server"],
+      "env": {}
+    }
+  }
+}
+```
+
+#### OpenCode via Code Mode (Docker)
+
+Add to `.utcp_config.json`:
+
+```json
+{
+  "name": "jianying",
+  "call_template_type": "mcp",
+  "config": {
+    "mcpServers": {
+      "jianying": {
+        "transport": "stdio",
+        "command": "docker",
+        "args": ["exec", "-i", "jianying-mcp", "uv", "run", "python", "-m", "jianyingdraft.server"],
+        "env": {}
+      }
+    }
+  }
+}
+```
+
+#### VS Code Copilot (Docker)
+
+Create `.vscode/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "jianying": {
+      "command": "docker",
+      "args": ["exec", "-i", "jianying-mcp", "uv", "run", "python", "-m", "jianyingdraft.server"],
+      "env": {}
+    }
+  }
+}
+```
+
+---
+
+### For Native Installation
+
+#### Claude Desktop (Native)
+
+Open the configuration file:
 
 ```bash
 # macOS
@@ -232,12 +345,12 @@ mkdir -p ~/Library/Application\ Support/Claude/
 touch ~/Library/Application\ Support/Claude/claude_desktop_config.json
 ```
 
-Add the MCP server configuration:
+Add:
 
 ```json
 {
   "mcpServers": {
-    "jianying-mcp": {
+    "jianying": {
       "command": "uv",
       "args": ["run", "server.py"],
       "cwd": "/Users/yourusername/MCP Servers/CapCut/jianying-mcp",
@@ -250,16 +363,14 @@ Add the MCP server configuration:
 }
 ```
 
-**Restart Claude Desktop** (⌘Q then reopen).
+#### OpenCode (Native)
 
-### Option B: Configure for OpenCode
-
-Add to `opencode.json` in your project root:
+Add to `opencode.json`:
 
 ```json
 {
   "mcp": {
-    "jianying-mcp": {
+    "jianying": {
       "type": "local",
       "command": ["uv", "run", "server.py"],
       "cwd": "/Users/yourusername/MCP Servers/CapCut/jianying-mcp",
@@ -272,14 +383,14 @@ Add to `opencode.json` in your project root:
 }
 ```
 
-### Option C: Configure for VS Code Copilot
+#### VS Code Copilot (Native)
 
-Create `.vscode/mcp.json` in your workspace:
+Create `.vscode/mcp.json`:
 
 ```json
 {
   "mcpServers": {
-    "jianying-mcp": {
+    "jianying": {
       "command": "uv",
       "args": ["run", "server.py"],
       "cwd": "/path/to/jianying-mcp",
@@ -292,32 +403,39 @@ Create `.vscode/mcp.json` in your workspace:
 }
 ```
 
+**Restart your AI client** after configuration changes.
+
 ---
 
 ## 5. ✅ VERIFICATION
 
-### Check 1: Verify Server Starts
+### Docker Verification
 
 ```bash
+# Check 1: Container running
+docker ps | grep jianying-mcp
+
+# Check 2: Container logs
+docker logs jianying-mcp
+
+# Check 3: Test MCP directly
+docker exec -i jianying-mcp uv run python -m jianyingdraft.server
+# Press Ctrl+C to exit
+```
+
+### Native Verification
+
+```bash
+# Check 1: Server starts
 cd ~/MCP\ Servers/CapCut/jianying-mcp
 uv run server.py
-```
 
-Expected output:
-```
-JianYing MCP Server running...
-```
-
-### Check 2: Verify Environment Variables
-
-```bash
+# Check 2: Environment variables
 echo $SAVE_PATH
 echo $OUTPUT_PATH
 ```
 
-Both should return valid paths.
-
-### Check 3: Test in Claude Desktop
+### Test in AI Client
 
 Open Claude Desktop and try:
 
@@ -336,18 +454,19 @@ Expected response:
 Ready for video editing operations!
 ```
 
-### Check 4: Verify JianYing Pro
-
-1. Launch JianYing Pro desktop app
-2. Check that the drafts folder is accessible
-3. Create a test draft via MCP
-
-```
-Create a test video project named "MCP Test"
-```
-
 ### Verification Checklist
 
+**Docker:**
+- [ ] Docker Desktop installed and running
+- [ ] File sharing enabled for required paths
+- [ ] Container built (`docker-compose up -d --build`)
+- [ ] Container running (`docker ps`)
+- [ ] MCP configuration added
+- [ ] AI client restarted
+- [ ] Connection test passed
+- [ ] JianYing Pro installed
+
+**Native:**
 - [ ] Python 3.13+ installed
 - [ ] uv package manager installed
 - [ ] Repository cloned
@@ -376,8 +495,6 @@ Create a test video project named "MCP Test"
 
 ### Quick Commands
 
-The CapCut system supports these command shortcuts:
-
 | Command                 | Function           |
 | ----------------------- | ------------------ |
 | `$draft`                | Create new project |
@@ -393,6 +510,11 @@ All time parameters use string format:
 - `"1.5s"` - 1.5 seconds
 - `"0s-10s"` - Range from 0 to 10 seconds
 - `"2s-4.5s"` - Range from 2 to 4.5 seconds
+
+### Media File Access
+
+- **Docker:** Place files in `CapCut/media/` → accessible at `/media/` in container
+- **Native:** Use full paths or relative paths from your working directory
 
 ---
 
@@ -481,7 +603,7 @@ System: Adding video segment...
 🎬 Video Added
 
 **Segment:**
-- Source: product.mp4
+- Source: /media/product.mp4
 - Position: 0s-10s
 - Animation: Fade in (500ms)
 
@@ -516,7 +638,45 @@ Use effect IDs with add_video_transition
 
 ## 9. 🔧 TROUBLESHOOTING
 
-### Python Version Error
+### Docker Issues
+
+#### Container Won't Start
+
+```bash
+# Check logs
+docker logs jianying-mcp
+
+# Check compose file
+docker-compose config
+```
+
+#### Volume Mount Permission Denied
+
+**Solution:** Enable file sharing in Docker Desktop:
+1. Open Docker Desktop → Settings → Resources → File Sharing
+2. Add the required paths
+3. Restart Docker Desktop
+4. Rebuild container: `docker-compose up -d --build`
+
+#### Container Memory Issues
+
+The docker-compose.yml sets memory limits:
+- **Limit:** 2GB
+- **Reservation:** 512MB
+
+Adjust in docker-compose.yml if needed:
+```yaml
+deploy:
+  resources:
+    limits:
+      memory: 4G
+```
+
+---
+
+### Native Issues
+
+#### Python Version Error
 
 ```
 Error: Python 3.13+ required
@@ -532,7 +692,7 @@ pyenv local 3.13.0
 python --version
 ```
 
-### uv Not Found
+#### uv Not Found
 
 ```
 Error: uv: command not found
@@ -547,7 +707,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 source ~/.zshrc
 ```
 
-### Environment Variables Not Set
+#### Environment Variables Not Set
 
 ```
 Error: SAVE_PATH/OUTPUT_PATH undefined
@@ -563,21 +723,31 @@ export OUTPUT_PATH="$HOME/MCP Servers/CapCut/drafts"
 source ~/.zshrc
 ```
 
-### Draft Not Appearing in JianYing
+---
 
-**Solutions:**
-1. Verify OUTPUT_PATH matches JianYing's draft folder location
-2. Restart JianYing Pro
-3. Check file permissions on the drafts folder
-4. Look in JianYing's "Local" drafts section
+### Common Issues (Both Methods)
 
-### MCP Connection Refused
+#### MCP Connection Refused
 
-**Solutions:**
+**Docker:**
+1. Ensure container is running: `docker ps | grep jianying-mcp`
+2. Restart container: `docker-compose restart`
+3. Check MCP config uses `docker exec -i jianying-mcp`
+
+**Native:**
 1. Ensure server is running: `uv run server.py`
 2. Check the cwd path in MCP config is correct
 3. Verify environment variables are set in config
-4. Restart Claude Desktop completely (⌘Q)
+
+**Both:** Restart Claude Desktop completely (⌘Q)
+
+#### Draft Not Appearing in JianYing
+
+**Solutions:**
+1. Check the export folder location
+2. Verify volume mounts (Docker) or OUTPUT_PATH (Native)
+3. Restart JianYing Pro
+4. Look in JianYing's "Local" drafts section
 
 ---
 
@@ -592,20 +762,19 @@ source ~/.zshrc
 
 - **JianYing Pro**: https://www.capcut.cn/ (Chinese)
 - **CapCut**: https://www.capcut.com/ (International)
+- **Docker Desktop**: https://www.docker.com/products/docker-desktop
 - **uv Package Manager**: https://astral.sh/uv
 - **Claude Desktop**: https://claude.ai/download
 
-### Quick Start Checklist
+### Docker Commands Reference
 
-- [ ] Python 3.13+ installed
-- [ ] uv package manager installed
-- [ ] Repository cloned
-- [ ] Dependencies installed (uv sync)
-- [ ] Environment variables set
-- [ ] MCP config added
-- [ ] Claude Desktop restarted
-- [ ] JianYing Pro installed
-- [ ] Test connection passed
+| Command                             | Purpose                   |
+| ----------------------------------- | ------------------------- |
+| `docker-compose up -d --build`      | Build and start container |
+| `docker-compose down`               | Stop and remove container |
+| `docker-compose restart`            | Restart container         |
+| `docker logs jianying-mcp`          | View container logs       |
+| `docker exec -it jianying-mcp bash` | Shell into container      |
 
 ---
 
@@ -614,9 +783,11 @@ source ~/.zshrc
 Your CapCut MCP system is now configured. Start creating video projects with AI!
 
 **Quick Test:**
-1. Open Claude Desktop
-2. Ask: "Check JianYing MCP connection"
-3. If connected: "Create a test video project"
-4. Open JianYing Pro and find your draft
+1. **Docker:** Verify container: `docker ps | grep jianying-mcp`
+   **Native:** Start server: `uv run server.py`
+2. Open Claude Desktop
+3. Ask: "Check JianYing MCP connection"
+4. If connected: "Create a test video project"
+5. Open JianYing Pro and find your draft
 
 Enjoy AI-powered video editing! 🎬
