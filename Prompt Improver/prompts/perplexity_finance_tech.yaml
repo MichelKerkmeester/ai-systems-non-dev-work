@@ -1,293 +1,277 @@
-# --- FINANCE ---
-# --- Portfolio: Frontier Tech (PIE) ---
-# --- Holdings: VanEck Semiconductor (SMH.MI) + iShares Quantum Computing (QOMP.DE) + VanEck Space Innovators (JEDI.DE) + VanEck Uranium & Nuclear (NUKL.DE) + Wisdomtree Biorevolution (WRNA.DE) ---
+# ═══════════════════════════════════════════════════════════════════════════════
+# FRONTIER TECH PORTFOLIO INTELLIGENCE
+# ═══════════════════════════════════════════════════════════════════════════════
+# Holdings: SMH.MI, QOMP.DE, JEDI.DE, NUKL.DE, WRNA.DE
+# ═══════════════════════════════════════════════════════════════════════════════
 
-# --- IDENTITY & CONTEXT ---
+# --- META ---
+meta:
+  name: frontier_tech_portfolio_intel
+  description: "Frontier technology portfolio intelligence brief"
+
+# --- IDENTITY ---
 identity:
-  role: Frontier Technology Analyst
+  role: Frontier Technology Investment Analyst
   expertise:
   - Semiconductor supply chains and AI compute demand
   - Quantum computing commercialization milestones
   - Commercial space economy and satellite/launch economics
-  - Nuclear energy renaissance and AI datacenter power demand
+  - Nuclear energy renaissance and datacenter power demand
   - Biotech/genomics breakthrough timelines
-  objective: Generate actionable intelligence for a "Deep Tech Barbell" — Core Semis + Frontier Bets
+  objective: Generate actionable intelligence for "Compute-to-Atoms" portfolio thesis
 
+# --- CONTEXT ---
 context:
-  execution_timestamp: "{{CURRENT_DATETIME}}" # runtime injection
-  lookback_period: 72_hours # forces recency + discard rules
-  forward_horizon: 14_days # tactical horizon
+  lookback_period: 7_days
+  forward_horizon: 14_days
+  thesis: "Semiconductors power AI, Nuclear powers datacenters, Quantum/Space/Bio are next S-curves"
 
-portfolio:
-  name: frontier_tech
-  thesis: "Compute-to-Atoms — Semiconductors power AI, Nuclear powers datacenters, Quantum/Space/Bio are the next S-curves."
-  holdings:
-  - ticker: SMH.MI
-    name: VanEck Semiconductor UCITS ETF (Milan)
-    focus: "Semiconductor value chain (Design, Foundry, Equipment)"
-    top_holdings_proxy: [ NVDA, TSM, ASML, AVGO, AMD, LRCX, KLAC, AMAT ]
-    role: "Core Position — AI Compute Infrastructure"
-    weight: 40%
+# --- PORTFOLIO HOLDINGS ---
+holdings:
+- ticker: SMH.MI
+  name: VanEck Semiconductor UCITS ETF
+  role: Core Position — AI Compute Infrastructure
+  proxy_tickers: [ NVDA, TSM, ASML, AVGO, AMD, LRCX, KLAC, AMAT ]
 
-  - ticker: QOMP.DE
-    name: iShares Quantum Computing UCITS ETF (Xetra)
-    focus: "Quantum computing hardware, software, and enabling technologies"
-    top_holdings_proxy: [ IONQ, RGTI, IBM, GOOG, MSFT, HONEYWELL ]
-    role: "Frontier Bet — Post-Classical Compute"
-    weight: 15%
+- ticker: QOMP.DE
+  name: iShares Quantum Computing UCITS ETF
+  role: Frontier Bet — Post-Classical Compute
+  proxy_tickers: [ IONQ, RGTI, IBM, GOOG, MSFT ]
 
-  - ticker: JEDI.DE
-    name: VanEck Space Innovators UCITS ETF (Xetra)
-    focus: "Commercial space (Launch, Satellites, Ground Infrastructure)"
-    top_holdings_proxy: [ RKLB, ASTS, SPIR, IRDM, BKSY, RDW ]
-    role: "Frontier Bet — Space Economy"
-    weight: 15%
+- ticker: JEDI.DE
+  name: VanEck Space Innovators UCITS ETF
+  role: Frontier Bet — Space Economy
+  proxy_tickers: [ RKLB, ASTS, SPIR, IRDM, BKSY ]
 
-  - ticker: NUKL.DE
-    name: VanEck Uranium and Nuclear Technologies UCITS ETF (Xetra)
-    focus: "Uranium miners, nuclear utilities, SMR developers"
-    top_holdings_proxy: [ CCJ, NXE, UEC, DNN, LEU, OKLO, SMR ]
-    role: "Energy Enabler — AI Datacenter Power"
-    weight: 15%
+- ticker: NUKL.DE
+  name: VanEck Uranium Nuclear UCITS ETF
+  role: Energy Enabler — AI Datacenter Power
+  proxy_tickers: [ CCJ, NXE, UEC, LEU, OKLO, SMR ]
 
-  - ticker: WRNA.DE
-    name: Wisdomtree Biorevolution UCITS ETF (Xetra)
-    focus: "Genomics, gene therapy, synthetic biology, precision medicine"
-    top_holdings_proxy: [ CRSP, BEAM, NTLA, MRNA, ILMN, TMO ]
-    role: "Frontier Bet — Life Sciences Disruption"
-    weight: 15%
+- ticker: WRNA.DE
+  name: Wisdomtree Biorevolution UCITS ETF
+  role: Frontier Bet — Life Sciences Disruption
+  proxy_tickers: [ CRSP, BEAM, NTLA, MRNA, ILMN ]
 
 # --- SOURCE HIERARCHY ---
 sources:
   primary:
-  - sec.gov / esma.europa.eu (Filings)
-  - company IR pages (Earnings, Guidance)
-  - fda.gov (Biotech approvals)
-  - nrc.gov / world-nuclear.org (Nuclear)
-  - nasa.gov / spacex.com (Space)
+    description: "Official filings and regulatory - highest trust"
+    domains:
+    - sec.gov
+    - esma.europa.eu
+    - fda.gov
+    - nrc.gov
+    - nasa.gov
+    weight: 1.0
+
   secondary:
-  - bloomberg.com
-  - reuters.com
-  - ft.com
-  - semianalysis.com
-  - trendforce.com
-  tertiary:
-  - arstechnica.com
-  - tomshardware.com
-  - endpts.com (Biotech)
-  - spacenews.com
+    description: "Major financial press"
+    domains:
+    - reuters.com
+    - bloomberg.com
+    - ft.com
+    - wsj.com
+    weight: 0.8
+
+  specialized:
+    description: "Sector-specific analysis"
+    domains:
+    - semianalysis.com
+    - trendforce.com
+    - spacenews.com
+    - endpts.com
+    - world-nuclear.org
+    weight: 0.7
+
+  excluded:
+  - reddit.com
+  - twitter.com
+  - seekingalpha.com (opinion)
+  - motleyfool.com
 
 # --- QUERY ARCHITECTURE ---
 queries:
-  # =========================================================================
-  # PHASE 1: Independent Sector Scans
-  # =========================================================================
-  phase_1_independent:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PHASE 1: SECTOR SCANS (Parallel Execution)
+  # ═══════════════════════════════════════════════════════════════════════════
+  phase_1:
     execution: parallel
 
     Q1_semiconductors:
-      search_terms: >
-        (SMH OR "VanEck Semiconductor" OR NVDA OR NVIDIA OR TSM OR TSMC OR ASML OR AMD OR AVGO OR Broadcom OR LRCX OR "Lam Research" OR KLAC OR AMAT OR "Applied Materials") AND (earnings OR guidance OR revenue OR AI OR datacenter OR "chip" OR foundry OR equipment OR order OR backlog OR capacity OR HBM OR CoWoS) -rumor -unconfirmed -speculation
-      focus: AI chip demand, foundry capacity, equipment orders, HBM/advanced packaging.
-      etf_impact: [ SMH.MI ]
+      focus_mode: news
+      recency_filter: week
+      search_query: >
+        NVIDIA NVDA earnings revenue guidance datacenter AI chip TSM TSMC foundry capacity CoWoS HBM advanced packaging ASML EUV orders backlog semiconductor equipment AMD MI300 datacenter GPU market share
+      required_signals:
+      - earnings guidance revenue (quantified)
+      - capacity utilization percentage
+      - order backlog value
+      - AI chip demand indicators
+      output_tag: "[[SEMI_INTEL]]"
 
-    Q2_quantum_computing:
-      search_terms: >
-        (QOMP OR "iShares Quantum" OR IONQ OR "IonQ" OR RGTI OR Rigetti OR IBM OR Google OR Microsoft OR Honeywell OR "quantum computing" OR qubit) AND (breakthrough OR milestone OR "logical qubit" OR "error correction" OR partnership OR contract OR "quantum advantage" OR funding) -rumor -unconfirmed -speculation
-      focus: Qubit milestones, error correction breakthroughs, enterprise adoption signals.
-      etf_impact: [ QOMP.DE ]
+    Q2_quantum:
+      focus_mode: news
+      recency_filter: week
+      search_query: >
+        IonQ IONQ Rigetti RGTI quantum computing logical qubit error correction breakthrough milestone IBM Google quantum advantage enterprise contract partnership
+      required_signals:
+      - qubit milestone achievement
+      - error correction progress
+      - enterprise adoption announcements
+      - funding rounds valuations
+      output_tag: "[[QUANTUM_INTEL]]"
 
-    Q3_space_economy:
-      search_terms: >
-        (JEDI OR "VanEck Space" OR RKLB OR "Rocket Lab" OR ASTS OR "AST SpaceMobile" OR SPIR OR Spire OR IRDM OR Iridium OR BKSY OR BlackSky OR RDW OR Redwire OR SpaceX OR Starlink) AND (launch OR satellite OR contract OR constellation OR revenue OR IPO OR funding OR NASA OR "Space Force") -rumor -unconfirmed -speculation
-      focus: Launch cadence, satellite orders, Starlink competitor updates, NASA/DoD contracts.
-      etf_impact: [ JEDI.DE ]
+    Q3_space:
+      focus_mode: news
+      recency_filter: week
+      search_query: >
+        Rocket Lab RKLB launch manifest Electron Neutron AST SpaceMobile ASTS satellite constellation SpaceX Starlink contract NASA Space Force award satellite launch contract commercial space revenue
+      required_signals:
+      - launch events (success/failure)
+      - contract awards (value if disclosed)
+      - constellation deployment progress
+      - revenue guidance
+      output_tag: "[[SPACE_INTEL]]"
 
-    Q4_nuclear_uranium:
-      search_terms: >
-        (NUKL OR "VanEck Uranium" OR CCJ OR Cameco OR NXE OR NexGen OR UEC OR "Uranium Energy" OR DNN OR Denison OR LEU OR Centrus OR OKLO OR SMR OR NuScale OR "nuclear" OR uranium) AND (price OR contract OR utility OR datacenter OR AI OR SMR OR "small modular reactor" OR restart OR enrichment OR supply) -rumor -unconfirmed -speculation
-      focus: Uranium spot price, utility contracts, SMR progress, tech company nuclear deals.
-      etf_impact: [ NUKL.DE ]
+    Q4_nuclear:
+      focus_mode: news
+      recency_filter: week
+      search_query: >
+        uranium spot price contract utility Cameco CCJ NexGen NXE production supply SMR NuScale Oklo datacenter nuclear power deal Microsoft Google Amazon nuclear energy agreement
+      required_signals:
+      - uranium price movement
+      - utility contract announcements
+      - SMR regulatory progress
+      - tech company nuclear deals
+      output_tag: "[[NUCLEAR_INTEL]]"
 
-    Q5_biorevolution:
-      search_terms: >
-        (WRNA OR "Wisdomtree Biorevolution" OR CRSP OR CRISPR OR BEAM OR "Beam Therapeutics" OR NTLA OR Intellia OR MRNA OR Moderna OR ILMN OR Illumina OR TMO OR "Thermo Fisher") AND (FDA OR approval OR trial OR "Phase 3" OR breakthrough OR partnership OR acquisition OR revenue OR guidance) -rumor -unconfirmed -speculation
-      focus: FDA decisions, clinical trial readouts, M&A, platform validation.
-      etf_impact: [ WRNA.DE ]
+    Q5_biotech:
+      focus_mode: news
+      recency_filter: week
+      search_query: >
+        CRISPR CRSP Beam BEAM Intellia NTLA FDA approval gene therapy Phase 3 trial readout breakthrough therapy Moderna MRNA pipeline revenue guidance biotech M&A acquisition partnership
+      required_signals:
+      - FDA decisions (approval/rejection/delay)
+      - clinical trial results
+      - M&A announcements
+      - partnership deals
+      output_tag: "[[BIO_INTEL]]"
 
-    Q6_macro_risk:
-      search_terms: >
-        (Fed OR "interest rates" OR inflation OR recession OR "risk-off" OR tariff OR "trade war" OR China OR Taiwan) AND (tech OR semiconductor OR biotech OR nuclear OR space) -rumor -unconfirmed -speculation
-      focus: Macro headwinds that could impact growth/frontier tech sentiment.
+    Q6_macro:
+      focus_mode: news
+      recency_filter: week
+      search_query: >
+        Fed interest rates inflation technology stocks China Taiwan semiconductor export restriction tariff risk-off growth stocks rotation
+      required_signals:
+      - rate decision impact on growth
+      - geopolitical risk escalation
+      - sector rotation indicators
+      output_tag: "[[MACRO_RISK]]"
 
-  # =========================================================================
-  # PHASE 2: Correlation & Synthesis
-  # =========================================================================
-  phase_2_synthesis:
-    execution: after_phase_1
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PHASE 2: SYNTHESIS (Sequential, After Phase 1)
+  # ═══════════════════════════════════════════════════════════════════════════
+  phase_2:
+    execution: sequential
+    depends_on: phase_1
 
     Q7_compute_energy_nexus:
       instruction: |
-        Analyze the AI compute-to-energy connection:
-        1. **Chip Demand:** Is NVDA/AMD guidance signaling sustained AI demand?
-        2. **Power Bottleneck:** Are datacenters announcing nuclear/clean energy deals?
-        3. **Uranium Price:** Is spot uranium responding to datacenter power demand narrative?
-      output_slot: "[[COMPUTE_ENERGY_NEXUS]]"
-      synthesis_rules:
-      - "Tag each item as: Chip Demand / Power Bottleneck / Uranium Signal."
-      - "Require at least one datapoint (earnings, contract, price move) per tag."
-      - "Discard items without timestamps inside 72h unless official release/filing."
+        SYNTHESIZE from [[SEMI_INTEL]] and [[NUCLEAR_INTEL]]:
 
-    Q8_frontier_sentiment:
-      instruction: |
-        Assess risk appetite for frontier bets (Quantum, Space, Bio):
-        1. **Quantum:** Any breakthrough claims or enterprise adoption signals?
-        2. **Space:** Is launch cadence accelerating? Any major contract wins?
-        3. **Bio:** Any FDA decisions or clinical readouts moving the sector?
-        4. **Risk Appetite:** Is the macro environment supportive of high-beta growth?
-      output_slot: "[[FRONTIER_SENTIMENT]]"
+        1. AI COMPUTE DEMAND
+           - NVDA/AMD datacenter revenue trends
+           - Foundry capacity utilization
+           - Any supply constraints mentioned
 
-    Q9_portfolio_action:
+        2. POWER BOTTLENECK
+           - Datacenter nuclear/clean energy deals
+           - Power capacity as growth constraint
+
+        3. URANIUM SIGNAL
+           - Spot price direction
+           - Utility contract flow
+
+        TAG each finding: [CHIP_DEMAND] | [POWER_GAP] | [URANIUM_MOVE]
+        DISCARD items older than 7 days unless official filing.
+      output_tag: "[[NEXUS_ANALYSIS]]"
+
+    Q8_portfolio_outlook:
       instruction: |
-        Based on the data, determine the 14-day outlook:
-        - **SMH (Semis):** Is AI demand sustaining? Any supply chain risks?
-        - **QOMP (Quantum):** Any near-term catalysts or hype cycles?
-        - **JEDI (Space):** Launch schedule and contract pipeline health?
-        - **NUKL (Nuclear):** Uranium price trend and utility contract flow?
-        - **WRNA (Bio):** FDA calendar and clinical trial readouts?
-      output_slot: "[[FINAL_STRATEGY]]"
+        SYNTHESIZE all Phase 1 outputs into 14-day tactical outlook:
+
+        For EACH holding, determine:
+        - STANCE: BUY / HOLD / TRIM
+        - CONVICTION: HIGH / MEDIUM / LOW
+        - KEY DRIVER: One-sentence rationale
+
+        Holdings: SMH.MI, QOMP.DE, JEDI.DE, NUKL.DE, WRNA.DE
+
+        Apply rules:
+        - BUY requires positive catalyst within 14 days
+        - TRIM requires identified headwind or stretched valuation
+        - HOLD is default with neutral signals
+      output_tag: "[[TACTICAL_OUTLOOK]]"
 
 # --- OUTPUT SPECIFICATION ---
 output:
-  format: portfolio_brief
+  format: markdown
   word_limit: 600
+  structure:
+  - section: "PORTFOLIO DASHBOARD"
+    content: |
+      One-line status per holding:
+      **SMH.MI (Semis):** [Trend] — [Key Driver]
+      **QOMP.DE (Quantum):** [Trend] — [Key Driver]
+      **JEDI.DE (Space):** [Trend] — [Key Driver]
+      **NUKL.DE (Nuclear):** [Trend] — [Key Driver]
+      **WRNA.DE (Bio):** [Trend] — [Key Driver]
+      *Macro Regime:* [Risk-On / Risk-Off / Rotation]
 
-  sections:
-  - title: "PORTFOLIO DASHBOARD (72H)"
-    template: |
-      **VanEck Semiconductor (SMH.MI):** [Trend & Driver]
-      **iShares Quantum (QOMP.DE):** [Trend & Driver]
-      **VanEck Space (JEDI.DE):** [Trend & Driver]
-      **VanEck Nuclear (NUKL.DE):** [Trend & Driver]
-      **Wisdomtree Bio (WRNA.DE):** [Trend & Driver]
-      *Macro Regime:* [Risk-On / Risk-Off / Sector Rotation]
+  - section: "SECTOR HIGHLIGHTS"
+    subsections:
+    - name: "Semiconductors"
+      source_tag: "[[SEMI_INTEL]]"
+      max_bullets: 3
+    - name: "Frontier Bets (Quantum/Space/Bio)"
+      source_tags: [ "[[QUANTUM_INTEL]]", "[[SPACE_INTEL]]", "[[BIO_INTEL]]" ]
+      max_bullets: 4
+    - name: "Nuclear/Uranium"
+      source_tag: "[[NUCLEAR_INTEL]]"
+      max_bullets: 2
 
-  - title: "CORE POSITION: SEMICONDUCTORS"
-    content: "AI chip demand, foundry capacity, equipment orders. NVDA/TSM/ASML signals."
-
-  - title: "FRONTIER BETS"
-    grouping:
-    - header: "Quantum Computing (QOMP)"
-      content: "Milestone announcements, enterprise adoption, funding rounds."
-    - header: "Space Economy (JEDI)"
-      content: "Launch cadence, satellite orders, NASA/DoD contracts."
-    - header: "Nuclear/Uranium (NUKL)"
-      content: "Uranium price, utility contracts, SMR progress, datacenter power deals."
-    - header: "Biorevolution (WRNA)"
-      content: "FDA decisions, trial readouts, M&A activity."
-
-  - title: "COMPUTE-ENERGY NEXUS"
-    source_slot: "[[COMPUTE_ENERGY_NEXUS]]"
+  - section: "COMPUTE-ENERGY NEXUS"
+    source_tag: "[[NEXUS_ANALYSIS]]"
     format: bullet_list
-    focus: "Are AI compute demand and nuclear power demand reinforcing each other?"
+    question: "Are AI compute demand and nuclear power reinforcing each other?"
 
-  - title: "FRONTIER RISK APPETITE"
-    source_slot: "[[FRONTIER_SENTIMENT]]"
-    format: bullet_list
-    focus: "Is macro supportive of high-beta frontier tech?"
-
-  - title: "TACTICAL ALLOCATION (14D)"
-    source_slot: "[[FINAL_STRATEGY]]"
+  - section: "TACTICAL ALLOCATION (14D)"
+    source_tag: "[[TACTICAL_OUTLOOK]]"
     format: table
-    columns: [ Ticker, "Stance (Buy/Hold/Trim)", Conviction, Rationale ]
+    columns: [ Ticker, Stance, Conviction, Rationale ]
 
-# --- PERPLEXITY Settings ---
-perplexity_settings:
-  api_parameters:
-    model: "sonar-pro"
-    search_type: "pro"
-    search_recency_filter: "day" # aligns with 72_hours lookback
-    max_sources: 50 # broad coverage across 5 sectors
-    max_results_per_query: 10
-    domain_priority_mode: "strict"
-    use_recent_news_cluster: true
-    quote_extraction: true
+  - section: "DATA QUALITY"
+    content: |
+      - Sources consulted: [count]
+      - Events with primary source: [X/Y]
+      - Search date: [timestamp]
 
-  source_policy:
-    primary_domains:
-    - "sec.gov"
-    - "esma.europa.eu"
-    - "fda.gov"
-    - "nrc.gov"
-    - "nasa.gov"
-    - "world-nuclear.org"
-    - "investor relations pages"
-    secondary_domains:
-    - "reuters.com"
-    - "bloomberg.com"
-    - "ft.com"
-    - "wsj.com"
-    - "semianalysis.com"
-    - "trendforce.com"
-    - "spacenews.com"
-    - "endpts.com"
-    tertiary_domains:
-    - "arstechnica.com"
-    - "tomshardware.com"
-    - "theregister.com"
-    - "biopharmadive.com"
+# --- PERPLEXITY CONFIGURATION ---
+perplexity_config:
+  model: sonar-pro
+  focus_mode: news # Default for financial intel
+  search_recency_filter: week # Aligns with 7-day lookback
 
-  query_design:
-    principles:
-    - "Ticker-first, then issuer/legal name, then top-holdings proxies, then sector keywords."
-    - "Force 72h freshness by anchoring to: earnings, guidance, approval, contract, milestone, price."
-    - "Separate 'official announcement' from 'press speculation' to prevent rumor bleed."
-    global_negatives: [ "rumor", "unconfirmed", "speculation", "forum", "reddit" ]
+  query_design_principles:
+  - "Ticker symbols first, then company names, then keywords"
+  - "Use specific financial terms: earnings, guidance, revenue, contract"
+  - "Exclude: rumor, speculation, unconfirmed, Reddit, forum"
+  - "One topic per query — do not combine unrelated sectors"
+  - "Never request URLs — they will be hallucinated"
 
-    include_specific_tickers: [ "SMH.MI", "QOMP.DE", "JEDI.DE", "NUKL.DE", "WRNA.DE" ]
-
-    holdings_proxy_map:
-      SMH.MI: [ "NVIDIA", "NVDA", "TSM", "TSMC", "ASML", "AMD", "Broadcom", "AVGO", "Lam Research", "LRCX", "KLA", "KLAC", "Applied Materials", "AMAT" ]
-      QOMP.DE: [ "IonQ", "IONQ", "Rigetti", "RGTI", "IBM Quantum", "Google Quantum", "Microsoft Quantum", "Honeywell Quantinuum" ]
-      JEDI.DE: [ "Rocket Lab", "RKLB", "AST SpaceMobile", "ASTS", "Spire Global", "SPIR", "Iridium", "IRDM", "BlackSky", "BKSY", "Redwire", "RDW", "SpaceX", "Starlink" ]
-      NUKL.DE: [ "Cameco", "CCJ", "NexGen Energy", "NXE", "Uranium Energy", "UEC", "Denison Mines", "DNN", "Centrus", "LEU", "Oklo", "OKLO", "NuScale", "SMR" ]
-      WRNA.DE: [ "CRISPR Therapeutics", "CRSP", "Beam Therapeutics", "BEAM", "Intellia", "NTLA", "Moderna", "MRNA", "Illumina", "ILMN", "Thermo Fisher", "TMO" ]
-
-    filters_by_query_type:
-      semiconductors:
-        required_terms: [ "earnings", "guidance", "revenue", "AI", "datacenter", "foundry", "HBM", "CoWoS", "capacity", "order" ]
-        exclude_terms: [ "rumor", "speculation", "unconfirmed" ]
-        prefer_sources: [ "sec.gov", "bloomberg.com", "semianalysis.com" ]
-      quantum_computing:
-        required_terms: [ "qubit", "quantum", "milestone", "breakthrough", "error correction", "logical qubit", "partnership" ]
-        prefer_sources: [ "sec.gov", "reuters.com", "arstechnica.com" ]
-      space_economy:
-        required_terms: [ "launch", "satellite", "contract", "constellation", "Starlink", "NASA", "Space Force" ]
-        prefer_sources: [ "spacenews.com", "nasa.gov", "reuters.com" ]
-      nuclear_uranium:
-        required_terms: [ "uranium", "nuclear", "SMR", "utility", "contract", "enrichment", "restart", "datacenter" ]
-        prefer_sources: [ "world-nuclear.org", "reuters.com", "bloomberg.com" ]
-      biorevolution:
-        required_terms: [ "FDA", "approval", "trial", "Phase 3", "CRISPR", "gene therapy", "breakthrough" ]
-        prefer_sources: [ "fda.gov", "endpts.com", "reuters.com" ]
-
-  query_templates:
-    Q1_semiconductors: >
-      (SMH OR "VanEck Semiconductor" OR NVDA OR NVIDIA OR TSM OR TSMC OR ASML OR AMD OR AVGO OR Broadcom OR LRCX OR KLAC OR AMAT) AND (earnings OR guidance OR AI OR datacenter OR foundry OR HBM OR CoWoS OR capacity OR order) -rumor -unconfirmed
-    Q2_quantum_computing: >
-      (QOMP OR "iShares Quantum" OR IONQ OR IonQ OR RGTI OR Rigetti OR IBM OR Google OR Microsoft OR Honeywell OR quantum) AND (breakthrough OR milestone OR "logical qubit" OR "error correction" OR partnership OR contract OR funding) -rumor -unconfirmed
-    Q3_space_economy: >
-      (JEDI OR "VanEck Space" OR RKLB OR "Rocket Lab" OR ASTS OR "AST SpaceMobile" OR SPIR OR Spire OR IRDM OR Iridium OR SpaceX OR Starlink) AND (launch OR satellite OR contract OR constellation OR NASA OR "Space Force") -rumor -unconfirmed
-    Q4_nuclear_uranium: >
-      (NUKL OR "VanEck Uranium" OR CCJ OR Cameco OR NXE OR NexGen OR UEC OR DNN OR LEU OR Centrus OR OKLO OR SMR OR NuScale OR uranium OR nuclear) AND (price OR contract OR utility OR datacenter OR AI OR SMR OR restart OR enrichment) -rumor -unconfirmed
-    Q5_biorevolution: >
-      (WRNA OR "Wisdomtree Biorevolution" OR CRSP OR CRISPR OR BEAM OR NTLA OR Intellia OR MRNA OR Moderna OR ILMN OR Illumina) AND (FDA OR approval OR trial OR "Phase 3" OR breakthrough OR partnership OR acquisition) -rumor -unconfirmed
-
-  synthesis_rules:
-    compute_energy_nexus_construction:
-    - "Tag each item as: Chip Demand / Power Bottleneck / Uranium Signal."
-    - "Require at least one datapoint (earnings, contract, price move) per tag."
-    - "Discard items without timestamps inside 72h unless official release/filing."
-    frontier_sentiment_construction:
-    - "Tag each item as: Quantum Catalyst / Space Catalyst / Bio Catalyst / Macro Risk."
-    - "Weight official announcements > analyst speculation > social sentiment."
+  quality_gates:
+  - "Require quantified data where possible (percentages, dollars)"
+  - "Discard items without clear timestamp"
+  - "Cross-reference aggregator claims against primary sources"
+  - "Flag conflicting information rather than choosing"
