@@ -1,226 +1,345 @@
-# FRONTIER TECH PORTFOLIO INTELLIGENCE
-# ───────────────────────────────────────────────────────────────────
-# Holdings: SMH.MI, QOMP.DE, JEDI.DE, NUKL.DE, WRNA.DE
-# ───────────────────────────────────────────────────────────────────
-
-# --- META ---
-meta:
-  name: frontier_tech_portfolio_intel
-  description: "Frontier technology portfolio intelligence brief"
-
 # --- IDENTITY ---
 identity:
   role: Frontier Technology Investment Analyst
   expertise:
-  - Semiconductor supply chains and AI compute demand
-  - Quantum computing commercialization milestones
+  - Semiconductor supply chains and AI compute demand modeling
+  - Quantum computing commercialization and qubit milestones
   - Commercial space economy and satellite/launch economics
-  - Nuclear energy renaissance and datacenter power demand
-  - Biotech/genomics breakthrough timelines
-  objective: Generate actionable intelligence for "Compute-to-Atoms" portfolio thesis
+  - Nuclear energy renaissance and datacenter power convergence
+  - Biotech/genomics breakthrough timelines and FDA pathways
+  objective: Generate actionable weekly intelligence briefing for "Compute-to-Atoms" portfolio positioning decisions
 
 # --- CONTEXT ---
 context:
   lookback_period: 7_days
   forward_horizon: 14_days
-  thesis: "Semiconductors power AI, Nuclear powers datacenters, Quantum/Space/Bio are next S-curves"
+  thesis: >
+    Semiconductors power AI, Nuclear powers datacenters, Quantum/Space/Bio are next S-curves. Portfolio combines AI compute infrastructure (SMH) with frontier technology bets (QOMP, JEDI, WRNA) and the critical energy enabler for AI scaling (NUKL).
 
 # --- PORTFOLIO HOLDINGS ---
 holdings:
 - ticker: SMH.MI
   name: VanEck Semiconductor UCITS ETF
-  role: Core Position — AI Compute Infrastructure
-  proxy_tickers: [ NVDA, TSM, ASML, AVGO, AMD, LRCX, KLAC, AMAT ]
+  isin: IE00BMC38736
+  index: MVIS US Listed Semiconductor 25 Index
+  aum: EUR 3.42B
+  ter: 0.35%
+  total_holdings: 26
+  focus: Core Position — AI Compute Infrastructure
+  top_10_concentration: 75.03%
+  holdings_verified_date: "2026-01-25"
+  data_source: stockanalysis.com
+  verified_holdings:
+  - { rank: 1, symbol: ASML, name: ASML Holding NV, exchange: NASDAQ, weight_pct: 11.06, sector: Equipment, flag: NL }
+  - { rank: 2, symbol: TSM, name: Taiwan Semiconductor, exchange: NYSE, weight_pct: 9.68, sector: Foundry, flag: TW }
+  - { rank: 3, symbol: NVDA, name: NVIDIA Corporation, exchange: NASDAQ, weight_pct: 9.27, sector: Fabless, flag: US }
+  - { rank: 4, symbol: AVGO, name: Broadcom Inc, exchange: NASDAQ, weight_pct: 8.35, sector: Fabless, flag: US }
+  - { rank: 5, symbol: AMD, name: Advanced Micro Devices, exchange: NASDAQ, weight_pct: 8.20, sector: Fabless, flag: US }
+  - { rank: 6, symbol: QCOM, name: Qualcomm Inc, exchange: NASDAQ, weight_pct: 5.50, sector: Fabless, flag: US }
+  - { rank: 7, symbol: LRCX, name: Lam Research Corp, exchange: NASDAQ, weight_pct: 4.80, sector: Equipment, flag: US }
+  - { rank: 8, symbol: KLAC, name: KLA Corporation, exchange: NASDAQ, weight_pct: 4.60, sector: Equipment, flag: US }
+  - { rank: 9, symbol: AMAT, name: Applied Materials, exchange: NASDAQ, weight_pct: 4.50, sector: Equipment, flag: US }
+  - { rank: 10, symbol: MRVL, name: Marvell Technology, exchange: NASDAQ, weight_pct: 4.20, sector: Fabless, flag: US }
 
 - ticker: QOMP.DE
   name: iShares Quantum Computing UCITS ETF
-  role: Frontier Bet — Post-Classical Compute
-  proxy_tickers: [ IONQ, RGTI, IBM, GOOG, MSFT ]
+  isin: IE000C6ITGC8
+  index: STOXX Global Quantum Computing Index USD NR
+  aum: EUR 12.6M
+  ter: 0.50%
+  total_holdings: 30
+  focus: Frontier Bet — Post-Classical Compute
+  top_10_concentration: 71.84%
+  holdings_verified_date: "2026-01-22"
+  data_source: ishares.com
+  verified_holdings:
+  - { rank: 1, symbol: GOOGL, name: Alphabet Inc Class A, exchange: NASDAQ, weight_pct: 8.44, sector: Quantum Software/Cloud, flag: US }
+  - { rank: 2, symbol: MSFT, name: Microsoft Corp, exchange: NASDAQ, weight_pct: 8.43, sector: Quantum Software/Cloud, flag: US }
+  - { rank: 3, symbol: IBM, name: International Business Machines, exchange: NYSE, weight_pct: 8.03, sector: Quantum Hardware, flag: US }
+  - { rank: 4, symbol: QBTS, name: D-Wave Quantum Inc, exchange: NYSE, weight_pct: 7.87, sector: Quantum Hardware, flag: US }
+  - { rank: 5, symbol: INTC, name: Intel Corporation, exchange: NASDAQ, weight_pct: 7.87, sector: Enabling Tech, flag: US }
+  - { rank: 6, symbol: IONQ, name: IonQ Inc, exchange: NYSE, weight_pct: 7.19, sector: Quantum Hardware, flag: US }
+  - { rank: 7, symbol: RGTI, name: Rigetti Computing Inc, exchange: NASDAQ, weight_pct: 6.94, sector: Quantum Hardware, flag: US }
+  - { rank: 8, symbol: QUBT, name: Quantum Computing Inc, exchange: NASDAQ, weight_pct: 6.74, sector: Quantum Software, flag: US }
+  - { rank: 9, symbol: NOKIA, name: Nokia Oyj, exchange: Helsinki, weight_pct: 6.13, sector: Enabling Tech, flag: FI }
+  - { rank: 10, symbol: HON, name: Honeywell International, exchange: NASDAQ, weight_pct: 4.20, sector: Quantum Hardware, flag: US }
 
 - ticker: JEDI.DE
   name: VanEck Space Innovators UCITS ETF
-  role: Frontier Bet — Space Economy
-  proxy_tickers: [ RKLB, ASTS, SPIR, IRDM, BKSY ]
+  isin: IE000YU9K6K2
+  index: MVIS Global Space Industry ESG Index
+  aum: EUR 753M
+  ter: 0.55%
+  total_holdings: 35
+  focus: Frontier Bet — Space Economy
+  top_10_concentration: 58.50%
+  holdings_verified_date: "2026-01-25"
+  data_source: justetf.com
+  verified_holdings:
+  - { rank: 1, symbol: RKLB, name: Rocket Lab USA Inc, exchange: NASDAQ, weight_pct: 9.29, sector: Launch Services, flag: US }
+  - { rank: 2, symbol: ASTS, name: AST SpaceMobile Inc, exchange: NASDAQ, weight_pct: 7.80, sector: Satellite Ops, flag: US }
+  - { rank: 3, symbol: IRDM, name: Iridium Communications, exchange: NASDAQ, weight_pct: 6.50, sector: Satellite Ops, flag: US }
+  - { rank: 4, symbol: SPIR, name: Spire Global Inc, exchange: NYSE, weight_pct: 5.80, sector: Satellite Data, flag: US }
+  - { rank: 5, symbol: BKSY, name: BlackSky Technology, exchange: NYSE, weight_pct: 5.20, sector: Satellite Imagery, flag: US }
+  - { rank: 6, symbol: RDW, name: Redwire Corporation, exchange: NYSE, weight_pct: 4.90, sector: Space Infrastructure, flag: US }
+  - { rank: 7, symbol: LUNR, name: Intuitive Machines, exchange: NASDAQ, weight_pct: 4.80, sector: Lunar Services, flag: US }
+  - { rank: 8, symbol: PL, name: Planet Labs PBC, exchange: NYSE, weight_pct: 4.70, sector: Satellite Imagery, flag: US }
+  - { rank: 9, symbol: MNTS, name: Momentus Inc, exchange: NASDAQ, weight_pct: 4.60, sector: Space Transport, flag: US }
+  - { rank: 10, symbol: SATL, name: Satellogic Inc, exchange: NASDAQ, weight_pct: 4.50, sector: Satellite Imagery, flag: US }
 
 - ticker: NUKL.DE
-  name: VanEck Uranium Nuclear UCITS ETF
-  role: Energy Enabler — AI Datacenter Power
-  proxy_tickers: [ CCJ, NXE, UEC, LEU, OKLO, SMR ]
+  name: VanEck Uranium and Nuclear Technologies UCITS ETF
+  isin: IE000M7V94E1
+  index: MarketVector Global Uranium and Nuclear Energy Infrastructure
+  aum: EUR 1.87B
+  ter: 0.55%
+  total_holdings: 34
+  focus: Energy Enabler — AI Datacenter Power
+  top_10_concentration: 62.50%
+  holdings_verified_date: "2026-01-25"
+  data_source: stockanalysis.com
+  verified_holdings:
+  - { rank: 1, symbol: CCJ, name: Cameco Corporation, exchange: NYSE, weight_pct: 15.68, sector: Uranium Mining, flag: CA }
+  - { rank: 2, symbol: OKLO, name: Oklo Inc, exchange: NYSE, weight_pct: 10.00, sector: SMR/Advanced Nuclear, flag: US }
+  - { rank: 3, symbol: NXE, name: NexGen Energy Ltd, exchange: NYSE, weight_pct: 5.94, sector: Uranium Mining, flag: CA }
+  - { rank: 4, symbol: "028260.KS", name: Samsung C&T Corp, exchange: KRX, weight_pct: 5.84, sector: Nuclear Construction, flag: KR }
+  - { rank: 5, symbol: "7013.T", name: IHI Corporation, exchange: TSE, weight_pct: 5.46, sector: Nuclear Equipment, flag: JP }
+  - { rank: 6, symbol: LEU, name: Centrus Energy Corp, exchange: NYSE, weight_pct: 4.80, sector: Enrichment, flag: US }
+  - { rank: 7, symbol: UEC, name: Uranium Energy Corp, exchange: NYSE, weight_pct: 4.50, sector: Uranium Mining, flag: US }
+  - { rank: 8, symbol: SMR, name: NuScale Power Corp, exchange: NYSE, weight_pct: 4.20, sector: SMR/Advanced Nuclear, flag: US }
+  - { rank: 9, symbol: DNN, name: Denison Mines Corp, exchange: NYSE, weight_pct: 3.80, sector: Uranium Mining, flag: CA }
+  - { rank: 10, symbol: CEG, name: Constellation Energy, exchange: NASDAQ, weight_pct: 3.50, sector: Nuclear Utilities, flag: US }
 
 - ticker: WRNA.DE
-  name: Wisdomtree Biorevolution UCITS ETF
-  role: Frontier Bet — Life Sciences Disruption
-  proxy_tickers: [ CRSP, BEAM, NTLA, MRNA, ILMN ]
+  name: WisdomTree BioRevolution UCITS ETF
+  isin: IE000O8KMPM1
+  index: WisdomTree BioRevolution ESG Screened Index
+  aum: EUR 7.97M
+  ter: 0.45%
+  total_holdings: 83
+  focus: Frontier Bet — Life Sciences Disruption
+  top_10_concentration: 27.01%
+  holdings_verified_date: "2026-01-15"
+  data_source: stockanalysis.com
+  verified_holdings:
+  - { rank: 1, symbol: GPCR, name: Structure Therapeutics Inc, exchange: NASDAQ, weight_pct: 3.71, sector: Tools/Drug Discovery, flag: US }
+  - { rank: 2, symbol: MRNA, name: Moderna Inc, exchange: NASDAQ, weight_pct: 3.35, sector: mRNA/Vaccines, flag: US }
+  - { rank: 3, symbol: QURE, name: uniQure NV, exchange: NASDAQ, weight_pct: 3.23, sector: Gene Therapy, flag: NL }
+  - { rank: 4, symbol: NTRA, name: Natera Inc, exchange: NASDAQ, weight_pct: 2.90, sector: Genomics/Sequencing, flag: US }
+  - { rank: 5, symbol: STOK, name: Stoke Therapeutics Inc, exchange: NASDAQ, weight_pct: 2.85, sector: Gene Therapy, flag: US }
+  - { rank: 6, symbol: LLY, name: Eli Lilly and Company, exchange: NYSE, weight_pct: 2.85, sector: Large Pharma, flag: US }
+  - { rank: 7, symbol: JNJ, name: Johnson & Johnson, exchange: NYSE, weight_pct: 2.69, sector: Large Pharma, flag: US }
+  - { rank: 8, symbol: CRSP, name: CRISPR Therapeutics AG, exchange: NASDAQ, weight_pct: 2.65, sector: Gene Editing, flag: CH }
+  - { rank: 9, symbol: BNTX, name: BioNTech SE, exchange: NASDAQ, weight_pct: 2.57, sector: mRNA/Vaccines, flag: DE }
+  - { rank: 10, symbol: PFE, name: Pfizer Inc, exchange: NYSE, weight_pct: 2.48, sector: Large Pharma, flag: US }
 
 # --- SOURCE HIERARCHY ---
 sources:
   primary:
-    description: "Official filings and regulatory - highest trust"
-    domains:
-    - sec.gov
-    - esma.europa.eu
-    - fda.gov
-    - nrc.gov
-    - nasa.gov
+    description: Government and regulatory - highest authority
     weight: 1.0
+    domains:
+      semiconductors: [ sec.gov, semiconductors.org, commerce.gov ]
+      quantum: [ nist.gov, nsf.gov, arxiv.org ]
+      space: [ nasa.gov, faa.gov/space, esa.int ]
+      nuclear: [ nrc.gov, iaea.org, oecd-nea.org, eia.gov ]
+      biotech: [ fda.gov, clinicaltrials.gov, ema.europa.eu ]
 
   secondary:
-    description: "Major financial press"
-    domains:
-    - reuters.com
-    - bloomberg.com
-    - ft.com
-    - wsj.com
-    weight: 0.8
+    description: Financial wire services and major press
+    weight: 0.85
+    domains: [ reuters.com, bloomberg.com, ft.com, wsj.com ]
 
   specialized:
-    description: "Sector-specific analysis"
+    description: Sector-specific trade press and analysts
+    weight: 0.75
     domains:
-    - semianalysis.com
-    - trendforce.com
-    - spacenews.com
-    - endpts.com
-    - world-nuclear.org
-    weight: 0.7
+      semiconductors: [ semianalysis.com, trendforce.com, eetimes.com, anandtech.com ]
+      quantum: [ quantumcomputingreport.com, thequantuminsider.com ]
+      space: [ spacenews.com, nasaspaceflight.com, spaceflightnow.com ]
+      nuclear: [ world-nuclear.org, nucnet.org, uxc.com ]
+      biotech: [ statnews.com, endpoints.news, fiercebiotech.com ]
+
+  financial:
+    description: ETF and market data providers
+    weight: 0.90
+    domains: [ stockanalysis.com, justetf.com, morningstar.com, vaneck.com, ishares.com, wisdomtree.eu ]
 
   excluded:
-  - reddit.com
-  - twitter.com
-  - seekingalpha.com (opinion)
-  - motleyfool.com
+    domains: [ reddit.com, twitter.com, seekingalpha.com, motleyfool.com, stocktwits.com ]
+    reason: Opinion-based, low signal-to-noise ratio
 
 # --- QUERY ARCHITECTURE ---
 queries:
-  # ═══════════════════════════════════════════════════════════════════════════
-  # PHASE 1: SECTOR SCANS (Parallel Execution)
-  # ═══════════════════════════════════════════════════════════════════════════
   phase_1:
     execution: parallel
+    max_agents: 6
+    instruction: >
+      EXECUTE ALL 6 QUERIES SIMULTANEOUSLY using maximum parallel search agents. Do NOT run sequentially. Each query targets different sources for comprehensive coverage. Wait for ALL results before proceeding to Phase 2 synthesis.
 
     Q1_semiconductors:
       focus_mode: news
       recency_filter: week
       search_query: >
-        NVIDIA NVDA earnings revenue guidance datacenter AI chip TSM TSMC foundry capacity CoWoS HBM advanced packaging ASML EUV orders backlog semiconductor equipment AMD MI300 datacenter GPU market share
-      required_signals:
-      - earnings guidance revenue (quantified)
-      - capacity utilization percentage
-      - order backlog value
+        NVIDIA NVDA earnings revenue guidance datacenter AI chip TSM TSMC foundry capacity CoWoS HBM advanced packaging ASML EUV orders backlog AMD MI300 semiconductor equipment utilization China export control
+      signals:
+      - Earnings guidance revenue (quantified)
+      - Capacity utilization percentage
+      - Order backlog value changes
       - AI chip demand indicators
+      - Export control developments
       output_tag: "[[SEMI_INTEL]]"
 
     Q2_quantum:
       focus_mode: news
       recency_filter: week
       search_query: >
-        IonQ IONQ Rigetti RGTI quantum computing logical qubit error correction breakthrough milestone IBM Google quantum advantage enterprise contract partnership
-      required_signals:
-      - qubit milestone achievement
-      - error correction progress
-      - enterprise adoption announcements
-      - funding rounds valuations
+        IonQ IONQ Rigetti RGTI D-Wave QBTS quantum computing logical qubit error correction breakthrough milestone IBM Google quantum advantage enterprise contract partnership funding Honeywell Quantinuum
+      signals:
+      - Qubit milestone achievements
+      - Error correction progress (below threshold)
+      - Enterprise adoption announcements
+      - Funding rounds and valuations
+      - Government contract awards
       output_tag: "[[QUANTUM_INTEL]]"
 
     Q3_space:
       focus_mode: news
       recency_filter: week
       search_query: >
-        Rocket Lab RKLB launch manifest Electron Neutron AST SpaceMobile ASTS satellite constellation SpaceX Starlink contract NASA Space Force award satellite launch contract commercial space revenue
-      required_signals:
-      - launch events (success/failure)
-      - contract awards (value if disclosed)
-      - constellation deployment progress
-      - revenue guidance
+        Rocket Lab RKLB launch manifest Electron Neutron AST SpaceMobile ASTS satellite constellation SpaceX Starlink contract NASA Space Force award Iridium Planet Labs commercial space revenue guidance
+      signals:
+      - Launch events (success/failure/cadence)
+      - Contract awards (value if disclosed)
+      - Constellation deployment progress
+      - Revenue guidance changes
+      - Government procurement
       output_tag: "[[SPACE_INTEL]]"
 
     Q4_nuclear:
       focus_mode: news
       recency_filter: week
       search_query: >
-        uranium spot price contract utility Cameco CCJ NexGen NXE production supply SMR NuScale Oklo datacenter nuclear power deal Microsoft Google Amazon nuclear energy agreement
-      required_signals:
-      - uranium price movement
-      - utility contract announcements
-      - SMR regulatory progress
-      - tech company nuclear deals
+        uranium spot price contract Cameco CCJ NexGen NXE production SMR NuScale Oklo OKLO datacenter nuclear power deal Microsoft Google Amazon Meta nuclear energy agreement Three Mile Island restart Kairos TerraPower
+      signals:
+      - Uranium price movement (spot and contract)
+      - Tech company nuclear PPAs
+      - SMR regulatory progress (NRC approvals)
+      - Reactor restart milestones
+      - Enrichment capacity updates
       output_tag: "[[NUCLEAR_INTEL]]"
 
     Q5_biotech:
       focus_mode: news
       recency_filter: week
       search_query: >
-        CRISPR CRSP Beam BEAM Intellia NTLA FDA approval gene therapy Phase 3 trial readout breakthrough therapy Moderna MRNA pipeline revenue guidance biotech M&A acquisition partnership
-      required_signals:
+        CRISPR CRSP Beam BEAM Intellia NTLA FDA approval gene therapy Phase 3 trial readout breakthrough therapy Moderna MRNA pipeline guidance biotech M&A acquisition partnership clinical data
+      signals:
       - FDA decisions (approval/rejection/delay)
-      - clinical trial results
+      - Clinical trial results (Phase 2/3)
       - M&A announcements
-      - partnership deals
+      - Partnership deals (value if disclosed)
+      - Pipeline updates
       output_tag: "[[BIO_INTEL]]"
 
     Q6_macro:
       focus_mode: news
       recency_filter: week
       search_query: >
-        Fed interest rates inflation technology stocks China Taiwan semiconductor export restriction tariff risk-off growth stocks rotation
-      required_signals:
-      - rate decision impact on growth
-      - geopolitical risk escalation
-      - sector rotation indicators
+        Fed interest rates inflation technology stocks growth rotation China Taiwan semiconductor geopolitical risk tariff AI bubble datacenter power demand grid constraint
+      signals:
+      - Rate decision impact on growth stocks
+      - Geopolitical risk escalation
+      - Sector rotation indicators
+      - AI/tech valuation concerns
+      - Power infrastructure bottlenecks
       output_tag: "[[MACRO_RISK]]"
 
-  # ═══════════════════════════════════════════════════════════════════════════
-  # PHASE 2: SYNTHESIS (Sequential, After Phase 1)
-  # ═══════════════════════════════════════════════════════════════════════════
   phase_2:
     execution: sequential
     depends_on: phase_1
 
     Q7_compute_energy_nexus:
-      instruction: |
-        SYNTHESIZE from [[SEMI_INTEL]] and [[NUCLEAR_INTEL]]:
-
-        1. AI COMPUTE DEMAND
-           - NVDA/AMD datacenter revenue trends
-           - Foundry capacity utilization
-           - Any supply constraints mentioned
-
-        2. POWER BOTTLENECK
-           - Datacenter nuclear/clean energy deals
-           - Power capacity as growth constraint
-
-        3. URANIUM SIGNAL
-           - Spot price direction
-           - Utility contract flow
-
-        TAG each finding: [CHIP_DEMAND] | [POWER_GAP] | [URANIUM_MOVE]
-        DISCARD items older than 7 days unless official filing.
+      instruction: >
+        SYNTHESIZE from [[SEMI_INTEL]] and [[NUCLEAR_INTEL]]: 1. AI COMPUTE DEMAND — NVDA/AMD datacenter revenue, foundry utilization, supply constraints 2. POWER BOTTLENECK — Datacenter nuclear deals, grid interconnection, power as growth constraint 3. URANIUM SIGNAL — Spot price direction, utility contracts, enrichment capacity TAG each finding: [CHIP_DEMAND] | [POWER_GAP] | [URANIUM_MOVE] DISCARD items older than 7 days unless official filing.
+      search_query: >
+        AI datacenter nuclear power demand hyperscaler Microsoft Google Amazon Meta nuclear PPA baseload power constraint uranium demand
       output_tag: "[[NEXUS_ANALYSIS]]"
 
-    Q8_portfolio_outlook:
-      instruction: |
-        SYNTHESIZE all Phase 1 outputs into 14-day tactical outlook:
+    Q8_frontier_rotation:
+      instruction: >
+        SYNTHESIZE [[QUANTUM_INTEL]], [[SPACE_INTEL]], [[BIO_INTEL]]: 1. FRONTIER MOMENTUM — Which sector showing strongest near-term catalysts? 2. RISK/REWARD — Valuation concerns vs breakthrough potential 3. CAPITAL FLOWS — VC activity, institutional interest, insider transactions TAG: [QUANTUM_CATALYST] | [SPACE_CATALYST] | [BIO_CATALYST] DETERMINE: Which frontier sector has best 14-day risk/reward?
+      output_tag: "[[FRONTIER_ROTATION]]"
 
-        For EACH holding, determine:
-        - STANCE: BUY / HOLD / TRIM
-        - CONVICTION: HIGH / MEDIUM / LOW
-        - KEY DRIVER: One-sentence rationale
+    Q9_final_synthesis:
+      instruction: >
+        Synthesize ALL Phase 1 and Phase 2 findings into final portfolio stance. Cross-reference verified holdings against news flow. Flag any holdings with material developments.
 
-        Holdings: SMH.MI, QOMP.DE, JEDI.DE, NUKL.DE, WRNA.DE
+        For each ETF assign: - Stance: BUY / HOLD / TRIM - Conviction: HIGH / MEDIUM / LOW - Key catalyst from 7-day lookback - Primary risk for 14-day forward period
+      output_tag: "[[FINAL_SYNTHESIS]]"
 
-        Apply rules:
-        - BUY requires positive catalyst within 14 days
-        - TRIM requires identified headwind or stretched valuation
-        - HOLD is default with neutral signals
-      output_tag: "[[TACTICAL_OUTLOOK]]"
+# --- PERPLEXITY CONFIGURATION ---
+perplexity_config:
+  model: sonar-pro
+  search_parameters:
+    search_type: auto
+    search_recency_filter: week
+
+  parallel_search:
+    enabled: true
+    max_parallel_agents: 6
+    description: >
+      Deploy maximum parallel search agents for comprehensive coverage. Each Phase 1 query runs simultaneously, not sequentially.
+    synthesis_timing: >
+      Wait for ALL six parallel queries to complete before beginning Phase 2. Phase 2 synthesis requires full context from all Phase 1 results.
+
+  domain_filters:
+    mode: allowlist
+    max_domains: 25
+    government: [ sec.gov, fda.gov, nasa.gov, nrc.gov, faa.gov, commerce.gov, nist.gov ]
+    financial: [ bloomberg.com, reuters.com, ft.com, stockanalysis.com, justetf.com ]
+    specialized: [ semianalysis.com, spacenews.com, statnews.com, world-nuclear.org, quantumcomputingreport.com ]
+
+  sec_filings_filter:
+    enabled: true
+    search_domain: sec
+    filing_types: [ 10-K, 10-Q, 8-K, S-1 ]
+
+  query_principles:
+  - Use keyword-rich terms optimized for web retrieval
+  - Include company names AND ticker symbols for comprehensive matching
+  - Avoid few-shot examples within search queries
+  - Never request specific URLs (will be hallucinated)
+  - Let Perplexity determine optimal sources within domain constraints
+  - One topic per query — do not combine unrelated sectors
+
+  verification:
+    holdings_verification:
+      method: Cross-reference ETF provider data against search results
+      frequency: weekly
+      flag_discrepancies: true
+      minimum_per_etf: 10
+
+  quality_gates:
+  - Every factual claim must have numbered citation
+  - No news source older than 14 days for time-sensitive claims
+  - Earnings/guidance verified against SEC filings when possible
+  - Flag any unverified or single-source claims
+  - Cross-reference holdings changes against ETF provider data
 
 # --- OUTPUT SPECIFICATION ---
 output:
   format: markdown
-  word_limit: 600
-  structure:
-  - section: "PORTFOLIO DASHBOARD"
-    content: |
-      One-line status per holding:
+  word_limit: 700
+  word_limit_note: Excludes tables
+
+  sections:
+  - name: PORTFOLIO DASHBOARD
+    content:
+    - Overall sector sentiment (BULLISH/NEUTRAL/BEARISH) with rationale
+    - One-line status per holding with trend and key driver
+    - Macro regime assessment
+    example: |
       **SMH.MI (Semis):** [Trend] — [Key Driver]
       **QOMP.DE (Quantum):** [Trend] — [Key Driver]
       **JEDI.DE (Space):** [Trend] — [Key Driver]
@@ -228,49 +347,135 @@ output:
       **WRNA.DE (Bio):** [Trend] — [Key Driver]
       *Macro Regime:* [Risk-On / Risk-Off / Rotation]
 
-  - section: "SECTOR HIGHLIGHTS"
+  - name: SECTOR HIGHLIGHTS
     subsections:
-    - name: "Semiconductors"
+    - name: Semiconductors
       source_tag: "[[SEMI_INTEL]]"
-      max_bullets: 3
-    - name: "Frontier Bets (Quantum/Space/Bio)"
-      source_tags: [ "[[QUANTUM_INTEL]]", "[[SPACE_INTEL]]", "[[BIO_INTEL]]" ]
       max_bullets: 4
-    - name: "Nuclear/Uranium"
+    - name: Frontier Bets (Quantum/Space/Bio)
+      source_tags: [ "[[QUANTUM_INTEL]]", "[[SPACE_INTEL]]", "[[BIO_INTEL]]" ]
+      max_bullets: 5
+    - name: Nuclear/Uranium
       source_tag: "[[NUCLEAR_INTEL]]"
-      max_bullets: 2
+      max_bullets: 3
 
-  - section: "COMPUTE-ENERGY NEXUS"
+  - name: COMPUTE-ENERGY NEXUS
     source_tag: "[[NEXUS_ANALYSIS]]"
     format: bullet_list
-    question: "Are AI compute demand and nuclear power reinforcing each other?"
+    question: Are AI compute demand and nuclear power reinforcing each other?
 
-  - section: "TACTICAL ALLOCATION (14D)"
-    source_tag: "[[TACTICAL_OUTLOOK]]"
-    format: table
-    columns: [ Ticker, Stance, Conviction, Rationale ]
+  - name: FRONTIER ROTATION CHECK
+    source_tag: "[[FRONTIER_ROTATION]]"
+    format: bullet_list
+    question: Which frontier sector has best near-term risk/reward?
 
-  - section: "DATA QUALITY"
-    content: |
-      - Sources consulted: [count]
-      - Events with primary source: [X/Y]
-      - Search date: [timestamp]
+  - name: ETF STANCE SUMMARY
+    format: markdown_table
+    required: true
+    position: end_section_1
 
-# --- PERPLEXITY CONFIGURATION ---
-perplexity_config:
-  model: sonar-pro
-  focus_mode: news # Default for financial intel
-  search_recency_filter: week # Aligns with 7-day lookback
+  - name: HOLDINGS DETAIL
+    format: markdown_table
+    required: true
+    position: end_section_2
 
-  query_design_principles:
-  - "Ticker symbols first, then company names, then keywords"
-  - "Use specific financial terms: earnings, guidance, revenue, contract"
-  - "Exclude: rumor, speculation, unconfirmed, Reddit, forum"
-  - "One topic per query — do not combine unrelated sectors"
-  - "Never request URLs — they will be hallucinated"
+  - name: DATA QUALITY
+    content:
+    - Source count and recency
+    - Confidence level (HIGH/MEDIUM/LOW)
+    - Data gaps or limitations
 
-  quality_gates:
-  - "Require quantified data where possible (percentages, dollars)"
-  - "Discard items without clear timestamp"
-  - "Cross-reference aggregator claims against primary sources"
-  - "Flag conflicting information rather than choosing"
+# --- MANDATORY TABLES ---
+mandatory_tables:
+  table_1_etf_stance:
+    title: ETF STANCE SUMMARY
+    columns: [ ETF, Ticker, 7D_Return, Catalyst_Outlook, Stance, Conviction ]
+    stance_options: [ Buy, Hold, Trim ]
+    conviction_options: [ HIGH, MEDIUM, LOW ]
+    required: true
+    example: |
+      | ETF                                | Ticker   | 7D_Return | Catalyst_Outlook                      | Stance | Conviction |
+      |------------------------------------|----------|-----------|---------------------------------------|--------|------------|
+      | VanEck Semiconductor UCITS ETF     | SMH.MI   | +3.2%     | NVDA earnings beat, TSMC guidance up  | Hold   | HIGH       |
+      | iShares Quantum Computing UCITS    | QOMP.DE  | +8.5%     | Google Willow milestone               | Hold   | MEDIUM     |
+      | VanEck Space Innovators UCITS ETF  | JEDI.DE  | +2.1%     | RKLB launch cadence strong            | Hold   | MEDIUM     |
+      | VanEck Uranium Nuclear UCITS ETF   | NUKL.DE  | +1.8%     | Tech nuclear PPAs continue            | Buy    | HIGH       |
+      | WisdomTree BioRevolution UCITS ETF | WRNA.DE  | -1.2%     | Awaiting FDA decisions                | Hold   | LOW        |
+
+  table_2_holdings_detail:
+    title: HOLDINGS DETAIL (Material Movers)
+    columns: [ Company, Ticker, ETF, Sector, Weight %, 24h %, 7d %, Flag ]
+    sector_taxonomy: [ Fabless, Foundry, Equipment, Memory, Quantum Hardware, Quantum Software, Launch Services, Satellite Ops, Uranium Mining, SMR, Gene Editing, mRNA ]
+    flag_codes: [ US, NL, TW, CA, JP, KR, DE, CH, FI ]
+    minimum_rows: 15
+    required: true
+
+    verification_flags:
+      WEIGHT_CHANGE: Weight shifted >1% from baseline
+      NEWS_EVENT: Material news in past 7 days
+      MOVERS: 24h move >+/-5% or 7d move >+/-15%
+      EARNINGS: Reported or reporting within 14 days
+      REGULATORY: FDA/NRC/FCC decision pending
+      NEW_HOLDING: Not in baseline top 10
+      DROPPED: Was in baseline but no longer top 10
+
+    performance_thresholds:
+      volatile: "24h move > +/-5%"
+      momentum: "7d move > +/-15%"
+      trend: "30d move > +/-25%"
+
+# --- STANCE DEFINITIONS ---
+stance_definitions:
+  BUY:
+    criteria:
+    - Multiple material positive catalysts in lookback period
+    - Breakthrough demonstration or major milestone
+    - Regulatory approval or favorable policy development
+    - Forward catalyst calendar strongly favorable
+    implication: Consider increasing tactical allocation
+
+  HOLD:
+    criteria:
+    - Mixed signals or offsetting positives/negatives
+    - Performance in line with expectations
+    - No material change to investment thesis
+    implication: Maintain current allocation
+
+  TRIM:
+    criteria:
+    - Material negative catalysts (delays, failures, misses)
+    - Earnings miss or guidance reduction
+    - Regulatory setback or policy headwind
+    - Valuation stretched relative to near-term catalysts
+    implication: Consider reducing tactical allocation
+
+# --- CONVICTION DEFINITIONS ---
+conviction_definitions:
+  HIGH:
+    criteria:
+    - 3+ primary sources corroborate
+    - Official company or government confirmation
+    - Consistent signal across multiple queries
+    threshold: ">80% source agreement"
+
+  MEDIUM:
+    criteria:
+    - 2 sources corroborate
+    - Mix of primary and secondary sources
+    - Minor signal inconsistencies
+    threshold: "60-80% source agreement"
+
+  LOW:
+    criteria:
+    - Single source only
+    - Secondary/tertiary sources only
+    - Conflicting signals or high uncertainty
+    threshold: "<60% source agreement"
+
+# --- SOURCE QUALITY INDICATORS ---
+source_quality_indicators:
+  tier_1: { description: "Government, regulatory, peer-reviewed", weight: 1.0 }
+  tier_2: { description: "Major wire services, official company IR", weight: 0.85 }
+  tier_3: { description: "Sector trade press, industry analysts", weight: 0.75 }
+  tier_4: { description: "General financial news", weight: 0.60 }
+  excluded: { description: "Social media, forums, opinion sites", weight: 0 }
