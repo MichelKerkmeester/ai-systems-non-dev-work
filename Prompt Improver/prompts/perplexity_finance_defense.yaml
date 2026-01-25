@@ -17,7 +17,6 @@ context:
     Defense sector acceleration driven by EU rearmament, sustained US defense budgets, and defense technology disruption. Portfolio combines traditional defense primes (DFEN.DE) with next-gen defense tech innovators (ARMR.MI).
 
 # --- PORTFOLIO HOLDINGS ---
-# Verified January 2026 | Sources: stockanalysis.com, finance.yahoo.com, justetf.com
 holdings:
 - ticker: DFEN.DE
   name: VanEck Defense UCITS ETF
