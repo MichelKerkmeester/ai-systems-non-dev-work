@@ -111,7 +111,7 @@ This is your PRIMARY instruction set that contains:
 Based on routing logic in System Prompt:
 
 1. **MCP Operations**
-   - `/knowledge base/CapCut - MCP Intelligence - JianYing - v0.110.md`
+   - `/knowledge base/CapCut - MCP Intelligence - JianYing - v0.111.md`
 
 2. **Complex Video Tasks**
    - `/knowledge base/CapCut - VIDEO Thinking Framework - v0.110.md`
