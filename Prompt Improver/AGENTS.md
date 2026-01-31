@@ -126,11 +126,11 @@ Violation of this protocol **invalidates the entire response**.
 - **NO:** Proceed directly to Step 1
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.975.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.980.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
-- Command shortcuts and keyword triggers ($text, $improve, $refine, $short, $image, $video)
+- Command shortcuts and keyword triggers ($text, $improve, $refine, $short, $deep, $vibe, $image, $video)
 - Format detection ($json, $yaml, $markdown)
 - Quality gates and validation rules (RICCE, CLEAR scoring)
 - DEPTH rounds configuration per mode
@@ -141,7 +141,7 @@ This is your PRIMARY instruction set that contains:
 Based on routing logic in System Prompt:
 
 1. **Analysis & Patterns**
-   - `/knowledge base/Prompt - Patterns, Enhancements & Evaluation - v0.113.md`
+   - `/knowledge base/Prompt - Patterns, Enhancements & Evaluation - v0.115.md`
 
 2. **Format Guides** (Load per Output Format)
    - `/knowledge base/Prompt - Format Guide - JSON - v0.140.md`
@@ -152,12 +152,15 @@ Based on routing logic in System Prompt:
    - `/knowledge base/Prompt - DEPTH Thinking Framework - v0.120.md`
 
 4. **Clarification Flow**
-   - `/knowledge base/Prompt - Interactive Mode - v0.690.md`
+   - `/knowledge base/Prompt - Interactive Mode - v0.700.md`
 
 5. **Visual Mode**
-   - `/knowledge base/Prompt - Visual Mode - v0.100.md`
+   - `/knowledge base/Prompt - Visual Mode - v0.200.md`
    - Uses VIBE framework (not RCAF/COSTAR) and EVOKE scoring (not CLEAR)
    - 5 DEPTH rounds instead of 10
+   - **MagicPath.ai support**: Context detection triggers Creative Director voice
+   - **Component Library Question (MANDATORY)**: Always ask user to choose between Untitled UI, shadcn/ui, or no library
+   - For AI UI generators (MagicPath.ai, Lovable, Aura, Bolt, v0.dev)
 
 6. **Image Mode**
    - `/knowledge base/Prompt - Image Mode - v0.110.md`
@@ -176,7 +179,7 @@ Based on routing logic in System Prompt:
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.975.md`)
+- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.980.md`)
 - ❌ Proceed without reading the System Prompt completely
 - ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user)
@@ -192,7 +195,7 @@ Based on routing logic in System Prompt:
 - ❌ Use RCAF/COSTAR frameworks for $image or $video modes (use FRAME/MOTION)
 
 ### ALWAYS:
-- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.975.md`
+- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.980.md`
 - ✅ Follow routing logic in the System Prompt
 - ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - description.ext` BEFORE responding — never display content in chat
 - ✅ Respect processing hierarchy
@@ -216,7 +219,7 @@ Based on routing logic in System Prompt:
    - $text/$t → RCAF/COSTAR framework, CLEAR scoring (explicit text mode)
    - $image/$img → FRAME framework, VISUAL scoring (60pt)
    - $video/$vid → MOTION framework, VISUAL scoring (70pt)
-   - $visual/$vibe → VIBE framework, EVOKE scoring
+   - $vibe/$v → VIBE framework, EVOKE scoring (40+)
    - Other modes → RCAF/COSTAR, CLEAR scoring
 4. **Supporting Documents** — Read as determined by routing logic
 5. **Create Deliverable** — Following all rules in the System Prompt (RICCE, CLEAR, Enhancement Pipeline)
@@ -224,7 +227,7 @@ Based on routing logic in System Prompt:
 7. **Response** — Provide file path + brief summary only (NOT full content)
 8. **Confirm with ask_user tool** — Verify the request was fulfilled correctly
 
-**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.975.md` **NOW**
+**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.980.md` **NOW**
 
 ---
 
