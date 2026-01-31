@@ -160,18 +160,21 @@ Based on routing logic in System Prompt:
    - 5 DEPTH rounds instead of 10
    - **MagicPath.ai support**: Context detection triggers Creative Director voice
    - **Component Library Question (MANDATORY)**: Always ask user to choose between Untitled UI, shadcn/ui, or no library
+   - **Iterative Refinement (MANDATORY)**: Always ask user to share result for prompt refinement
    - For AI UI generators (MagicPath.ai, Lovable, Aura, Bolt, v0.dev)
 
 6. **Image Mode**
    - `/knowledge base/Prompt - Image Mode - v0.110.md`
    - Uses FRAME framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
    - 5 DEPTH rounds instead of 10
+   - **Iterative Refinement (MANDATORY)**: Always ask user to share result for prompt refinement
    - For AI image generators (Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram, Runway)
 
 7. **Video Mode**
    - `/knowledge base/Prompt - Video Mode - v0.110.md`
    - Uses MOTION framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
    - 5 DEPTH rounds instead of 10
+   - **Iterative Refinement (MANDATORY)**: Always ask user to share result for prompt refinement
    - For AI video generators (Runway, Sora, Kling, Pika, Luma, Veo, Minimax, Seedance, OmniHuman, Wan)
 
 ---

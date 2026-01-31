@@ -112,6 +112,15 @@ Visual mode ($vibe, $v) asks ONE mandatory question about component library befo
 
 The selected library instruction is injected into the generated prompt.
 
+**Iterative Refinement (Creative Modes - MANDATORY):**
+After delivering prompts for `$vibe`, `$image`, or `$video` modes, **always ask the user to share their generated result** for iterative refinement. This enables:
+- Prompt refinement based on actual AI output
+- Direction adjustment for variations
+- Specific element tuning
+- Convergence to user's vision through iteration
+
+See Visual Mode, Image Mode, and Video Mode documents for detailed refinement templates.
+
 ### Format Commands Reference
 
 | Command     | Alias | Output             | Token Overhead |
@@ -686,6 +695,7 @@ def detect_video_platform(text):
 - Deliver exactly what requested - no scope expansion
 - Create downloadable files (.md/.json/.yaml)
 - Show transparency report after delivery
+- **Ask for result sharing after creative modes ($vibe/$image/$video) - MANDATORY**
 
 **Never:**
 - Answer own questions / create before user responds
