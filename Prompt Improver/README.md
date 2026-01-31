@@ -1,10 +1,10 @@
-# Prompt Engineering Assistant - User Guide  v0.975
+# Prompt Engineering Assistant - User Guide  v0.980
 
 Transforms vague requests into clear, effective AI prompts using proven frameworks, systematic evaluation, and **concise transparent DEPTH processing**.
 
 ## 📋 TABLE OF CONTENTS
 
-1. [🆕 WHAT'S NEW IN V0.970](#1-whats-new-in-v0970)
+1. [🆕 WHAT'S NEW IN V0.980](#1-whats-new-in-v0980)
 2. [✨ KEY FEATURES](#2-key-features)
 3. [🌳 SYSTEM ARCHITECTURE](#3-system-architecture)
 4. [🚀 QUICK SETUP](#4-quick-setup)
@@ -20,8 +20,8 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 ---
 
-<a id="1-whats-new-in-v0970"></a>
-## 1. 🆕 WHAT'S NEW IN V0.970
+<a id="1-whats-new-in-v0980"></a>
+## 1. 🆕 WHAT'S NEW IN V0.980
 
 ### 🎨 MAJOR UPDATE: Visual Mode for AI Design Tools
 
@@ -29,18 +29,20 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 | Feature          | Description                                        |
 | ---------------- | -------------------------------------------------- |
-| **Commands**     | `$visual`, `$vibe`, `$v`                           |
-| **Framework**    | VIBE (Vision, Inspiration, Behavior, Experience)   |
-| **Scoring**      | EVOKE (not CLEAR) — 50 points, 40+ threshold       |
+| **Commands**     | `$vibe`, `$v`                                           |
+| **Framework**    | VIBE / VIBE-MP (MagicPath-calibrated)              |
+| **Scoring**      | EVOKE — 50 points, 40+ (42+ for MagicPath)         |
 | **DEPTH Rounds** | 5 rounds (creative iteration)                      |
-| **Philosophy**   | "Specification constrains. Inspiration liberates." |
+| **Philosophy**   | "Think like a Creative Director briefing a talented UI designer" |
 
 
 **Key Capabilities:**
+- ✨ **MagicPath.ai Specialization** — Creative Director voice, 150-400 word narrative prompts
 - ✨ **Screenshot Analysis** — Extract VIBE elements from visual references
-- ✨ **Six Design Directions** — Auto-detect: Precision, Warmth, Sophistication, Boldness, Utility, Data
+- ✨ **Eight Design Directions** — Precision, Warmth, Sophistication, Boldness, Utility, Data, **Journey & Flow**, **Narrative & Story**
 - ✨ **Technical-to-Evocative Transformation** — Convert specs to feelings
-- ✨ **Platform Optimization** — Tailored prompts for Lovable, Aura, Bolt, v0.dev
+- ✨ **Platform Optimization** — Tailored prompts for MagicPath.ai, Lovable, Aura, Bolt, v0.dev
+- ✨ **Quality Spam Detection** — Remove non-directional words (beautiful, modern, trending)
 - ✨ **Evocative Vocabulary Banks** — Rich word libraries for spatial, color, motion, typography
 
 ---
@@ -97,14 +99,14 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 **Version Updates:**
 | Component             | Previous | Current          |
 | --------------------- | -------- | ---------------- |
-| System Prompt         | v0.970   | **v0.975**       |
+| System Prompt         | v0.975   | **v0.980**       |
 | DEPTH Framework       | v0.119   | **v0.120**       |
-| Interactive Mode      | v0.680   | **v0.690**       |
-| Patterns & Evaluation | v0.112   | **v0.113**       |
+| Interactive Mode      | v0.690   | **v0.700**       |
+| Patterns & Evaluation | v0.113   | **v0.115**       |
 | Format Guides         | v0.130   | **v0.140**       |
-| Visual Mode           | —        | **v0.100** (NEW) |
-| Image Mode            | —        | **v0.110** (NEW) |
-| Video Mode            | —        | **v0.110** (NEW) |
+| Visual Mode           | v0.100   | **v0.200** (MagicPath.ai) |
+| Image Mode            | —        | **v0.110**       |
+| Video Mode            | —        | **v0.110**       |
 
 ---
 
@@ -136,18 +138,18 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 ```
 AGENTS.md → Entry point with intelligent routing logic
     ↓
-System Prompt v0.975 (Core routing, 38 rules, framework selection)
+System Prompt v0.980 (Core routing, 38 rules, framework selection)
     ↓
 ┌─────────────────────────────────────────────────────────────┐
 │                    SUPPORTING DOCUMENTS                     │
 ├─────────────────────────────────────────────────────────────┤
-│  DEPTH Framework v0.120    │  Interactive Mode v0.690       │
+│  DEPTH Framework v0.120    │  Interactive Mode v0.700       │
 │  (Methodology, RICCE)      │  (Conversation flow)            │
 ├─────────────────────────────────────────────────────────────┤
-│  Patterns v0.113           │  🎨 Visual Mode v0.100 (NEW)   │
-│  (10 frameworks, CLEAR)    │  (VIBE framework, EVOKE score) │
+│  Patterns v0.115           │  🎨 Visual Mode v0.200         │
+│  (11 frameworks, CLEAR)    │  (VIBE/VIBE-MP, MagicPath.ai)  │
 ├─────────────────────────────────────────────────────────────┤
-│  🖼️ Image Mode v0.110 (NEW)  │  🎬 Video Mode v0.110 (NEW)  │
+│  🖼️ Image Mode v0.110       │  🎬 Video Mode v0.110          │
 │  (FRAME framework, VISUAL)   │  (MOTION framework, VISUAL)  │
 ├─────────────────────────────────────────────────────────────┤
 │  Format Guides v0.140 (Markdown, JSON, YAML)                │
@@ -166,7 +168,7 @@ Output → /export/[###]-enhanced-prompt.[md|json|yaml]
 
 ### Step 2: Add System Instructions
 1. Edit project details → Custom instructions
-2. Copy and paste: `Prompt - System Prompt - v0.975.md`
+2. Copy and paste: `Prompt - System Prompt - v0.980.md`
 3. Save the project
 
 ### Step 3: Upload Supporting Documents
@@ -175,9 +177,9 @@ Add these documents to your project:
 
 **Core Framework:**
 - `Prompt - DEPTH Thinking Framework - v0.120.md` (two-layer transparency, mandatory perspectives, RICCE integration)
-- `Prompt - Interactive Mode - v0.690.md` (conversation flow, state management, smart routing)
-- `Prompt - Patterns, Enhancements & Evaluation - v0.113.md` (complete framework library, CLEAR scoring)
-- 🎨 `Prompt - Visual Mode - v0.100.md` **(NEW)** — VIBE framework, EVOKE scoring for AI design tools
+- `Prompt - Interactive Mode - v0.700.md` (conversation flow, state management, smart routing, MagicPath support)
+- `Prompt - Patterns, Enhancements & Evaluation - v0.115.md` (complete framework library, CLEAR scoring, 8 design directions)
+- 🎨 `Prompt - Visual Mode - v0.200.md` — VIBE/VIBE-MP framework, EVOKE scoring, **MagicPath.ai specialization**
 
 **Format Specifications:**
 Each format guide (v0.140) is fully self-contained with pure format focus:
@@ -205,8 +207,8 @@ $raw fix grammar                # Skip DEPTH, fast pass-through
 $improve generate report        # Standard 10-round DEPTH processing
 $json api endpoint              # JSON format with structure optimization
 $yaml config template           # YAML format with hierarchy optimization
-$visual dashboard concept       # 🎨 NEW: Visual mode for AI design tools
-$vibe landing page             # 🎨 NEW: Evocative prompts for Lovable/v0.dev
+$vibe dashboard concept         # 🎨 Visual mode for AI design tools
+$v landing page                # 🎨 Evocative prompts for Lovable/v0.dev/MagicPath.ai
 $image portrait lighting       # 🖼️ NEW: Image mode for AI image generators
 $img landscape midjourney     # 🖼️ NEW: Optimized for Midjourney
 $video car chase action       # 🎬 NEW: Video mode for AI video generators
@@ -230,7 +232,7 @@ $vid dance sequence runway    # 🎬 NEW: Optimized for Runway
 | **$refine**     | `$refine` / `$r`       | Maximum optimization       | 1 comprehensive | 10 rounds    | CLEAR      | Auto-format  |
 | **$json**       | `$json` / `$j`         | API format                 | 1 comprehensive | 10 rounds    | CLEAR      | JSON only    |
 | **$yaml**       | `$yaml` / `$y`         | Config format              | 1 comprehensive | 10 rounds    | CLEAR      | YAML only    |
-| 🎨 **$visual**   | `$visual`/`$vibe`/`$v` | **UI concepting (NEW)**    | 1 comprehensive | **5 rounds** | **EVOKE**  | Evocative    |
+| 🎨 **$vibe**     | `$vibe`/`$v`           | **UI concepting**          | 1 comprehensive | **5 rounds** | **EVOKE 40+**  | Evocative    |
 | 🖼️ **$image**    | `$image`/`$img`        | **Image generation (NEW)** | 1 comprehensive | **5 rounds** | **VISUAL** | Platform-opt |
 | 🎬 **$video**    | `$video`/`$vid`        | **Video generation (NEW)** | 1 comprehensive | **5 rounds** | **VISUAL** | Platform-opt |
 
@@ -245,7 +247,7 @@ System waits for complete response before proceeding with full DEPTH processing.
 **Note:** The system emphasizes concise transparency with two-layer processing and BLOCKING enforcement of minimum 3 perspectives (target 5).
 
 ### 🎨 Visual Mode Highlights
-Visual Mode (`$visual`, `$vibe`, `$v`) uses a completely different approach:
+Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 - **VIBE Framework** instead of RCAF/COSTAR — focuses on Vision, Inspiration, Behavior, Experience
 - **EVOKE Scoring** instead of CLEAR — measures evocativeness, not precision
 - **5 DEPTH Rounds** instead of 10 — optimized for creative iteration
@@ -275,7 +277,7 @@ Visual Mode (`$visual`, `$vibe`, `$v`) uses a completely different approach:
 - Full 10-round DEPTH processing
 - Complete transparency report after delivery
 
-**Full details:** `Prompt - Interactive Mode - v0.690.md`
+**Full details:** `Prompt - Interactive Mode - v0.700.md`
 
 ---
 
@@ -396,7 +398,7 @@ Visual Mode (`$visual`, `$vibe`, `$v`) uses a completely different approach:
 
 **Purpose:** Create inspiration-based prompts for AI design tools that maximize creative output.
 
-**Commands:** `$visual`, `$vibe`, `$v`
+**Commands:** `$vibe`, `$v`
 
 **Key Difference:** Visual Mode inverts traditional prompt engineering — instead of adding specificity, it removes constraints to inspire AI creativity.
 
@@ -428,18 +430,20 @@ Visual Mode (`$visual`, `$vibe`, `$v`) uses a completely different approach:
 | **E**motional | 5      | 4+        | Conveys experiential goals     |
 | **Total**     | 50     | 40+       | Quality threshold              |
 
-### Six Design Directions
+### Eight Design Directions
 
 Visual Mode auto-detects which direction fits your prompt:
 
-| Direction                    | Reference Products  | Emotional Core                   |
-| ---------------------------- | ------------------- | -------------------------------- |
-| **Precision & Density**      | Linear, Raycast     | Efficiency, power, mastery       |
-| **Warmth & Approachability** | Notion, Coda        | Comfort, collaboration           |
-| **Sophistication & Trust**   | Stripe, Mercury     | Trust, security, professionalism |
-| **Boldness & Clarity**       | Vercel              | Decisiveness, modernity          |
-| **Utility & Function**       | GitHub, VS Code     | Focus, productivity              |
-| **Data & Analysis**          | Mixpanel, Amplitude | Understanding, insight           |
+| Direction                    | Reference Products       | Emotional Core                   |
+| ---------------------------- | ------------------------ | -------------------------------- |
+| **Precision & Density**      | Linear, Raycast          | Efficiency, power, mastery       |
+| **Warmth & Approachability** | Notion, Coda             | Comfort, collaboration           |
+| **Sophistication & Trust**   | Stripe, Mercury          | Trust, security, professionalism |
+| **Boldness & Clarity**       | Vercel                   | Decisiveness, modernity          |
+| **Utility & Function**       | GitHub, VS Code          | Focus, productivity              |
+| **Data & Analysis**          | Mixpanel, Amplitude      | Understanding, insight           |
+| **Journey & Flow**           | Duolingo, Headspace      | Progress, achievement, discovery |
+| **Narrative & Story**        | Apple Pages, Stripe Atlas| Storytelling, revelation         |
 
 ### Screenshot Analysis
 
@@ -462,12 +466,13 @@ Secondary: Data & Analysis
 
 ### Target Platform Optimization
 
-| Platform    | Strength          | Prompt Length | Key Buzzwords                             |
-| ----------- | ----------------- | ------------- | ----------------------------------------- |
-| **Lovable** | Full-stack apps   | 100-250 words | glassmorphism, micro-interactions, bouncy |
-| **Aura**    | No-code/no-design | 50-150 words  | modern SaaS, rounded-xl, soft shadows     |
-| **Bolt**    | Rapid prototyping | 50-150 words  | neumorphism, cyberpunk, material design   |
-| **v0.dev**  | UI components     | 100-300 words | shadcn components, Tailwind classes       |
+| Platform       | Strength          | Prompt Length | Key Approach                              |
+| -------------- | ----------------- | ------------- | ----------------------------------------- |
+| **MagicPath.ai** | Multi-page flows | 150-400 words | Creative Director voice, journey mapping  |
+| **Lovable**    | Full-stack apps   | 100-250 words | glassmorphism, micro-interactions, bouncy |
+| **Aura**       | No-code/no-design | 50-150 words  | modern SaaS, rounded-xl, soft shadows     |
+| **Bolt**       | Rapid prototyping | 50-150 words  | neumorphism, cyberpunk, material design   |
+| **v0.dev**     | UI components     | 100-300 words | shadcn components, Tailwind classes       |
 
 ### Visual Mode Process (5 DEPTH Rounds)
 
@@ -481,12 +486,12 @@ Round 5 (Harmonize): Final Polish + Platform Optimization
 
 **Example Usage:**
 ```
-$visual Create a dashboard for monitoring server health metrics
+$vibe Create a dashboard for monitoring server health metrics
 $vibe Design a landing page for a meditation app
 $v Build a settings panel for a developer tool
 ```
 
-**Full details:** `Prompt - Visual Mode - v0.100.md`
+**Full details:** `Prompt - Visual Mode - v0.200.md`
 
 ---
 
@@ -553,7 +558,7 @@ Ready for delivery
 [Enhanced prompt delivered + full transparency report]
 ```
 
-**Full details:** `Prompt - Interactive Mode - v0.690.md`
+**Full details:** `Prompt - Interactive Mode - v0.700.md`
 
 ---
 
@@ -778,7 +783,13 @@ framework_selection:
 - **Best for:** Visual UI concepting, AI design tool prompts
 - **Strengths:** Evocative language, creative freedom, platform-optimized
 - **Use when:** Creating prompts for Lovable, Aura, Bolt, v0.dev
-- **Note:** Uses EVOKE scoring instead of CLEAR
+- **Note:** Uses EVOKE scoring (40+ threshold)
+
+🎨 **VIBE-MP (MagicPath-Calibrated VIBE)** - 92% Success
+- **Best for:** MagicPath.ai UI design with multi-page flows
+- **Strengths:** Creative Director voice, journey mapping, iterative refinement
+- **Use when:** `$vibe` with MagicPath context (e.g., "magicpath", "multi-page flow")
+- **Note:** Uses EVOKE scoring with higher threshold (42+) and reweighted dimensions (K=13, V=12)
 
 🖼️ **FRAME (Focus, Rendering, Atmosphere, Modifiers, Exclusions)** - 90% Success
 - **Best for:** AI image generators (Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram)
@@ -799,7 +810,7 @@ framework_selection:
 - **RACE + ToT (Tree of Thoughts)**: Rapid decision trees
 - **Master-Detail Pattern**: Nested framework hierarchies
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.113.md` (Sections 1-4)
+**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.115.md` (Sections 1-4)
 
 ---
 
@@ -851,7 +862,7 @@ by_score:
 - Adaptive response formats (quick review vs comprehensive)
 - Self-documenting structure (what, why, how, example)
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.113.md` (Sections 5-7)
+**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.115.md` (Sections 5-7)
 
 ---
 
@@ -906,4 +917,4 @@ contextual_clear_scoring:
 2. **Deep Pass**: Ambiguity detection, assumption analysis
 3. **Interaction Pass**: AI interpretation testing, failure mode analysis
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.113.md` (Sections 9-11)
+**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.115.md` (Sections 9-11)
