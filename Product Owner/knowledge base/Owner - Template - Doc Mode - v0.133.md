@@ -1,4 +1,4 @@
-# Owner - Template - Doc Mode - v0.132
+# Owner - Template - Doc Mode - v0.133
 
 Documentation templates with integrated formatting rules and quality standards. All delivery logic consolidated for self-contained operation.
 
@@ -90,7 +90,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 - Wait for user input on ALL content questions
 - Position About first (after header)
 - Integrate context in About narrative
-- Use correct symbol hierarchy (H1: ⌘/❖, H3: ⌥)
+- Use correct symbol hierarchy (H1: ⌘/❖, Bold: Designs & References)
 - Place header at top of artifact
 - Deliver exactly what was requested
 - Use `---` separators appropriately
@@ -125,28 +125,30 @@ Documentation templates with integrated formatting rules and quality standards. 
 #### Symbol Hierarchy
 - **H1:** ⌘ (About), ❖ (Main sections)
 - **H2:** Numbered subsections (## 1. Pattern, ## 2. Rotation)
-- **H3:** ⌥ (Designs & References), Bold subsections (### **Fixed**, ### **Dynamic**)
+- **H3:** Bold subsections (### **Fixed**, ### **Dynamic**)
 - **H4:** Detail headers (#### Logic, #### Features)
+- **Bold:** Designs & References, Flows, Components
 
 #### Structure Order
 1. Header (Mode | Complexity | Template) - FIRST LINE
 2. Document metadata (Parent, Version, Reading Time)
 3. About (⌘) - Purpose and context
-4. Designs & References (⌥) - H3 with Flows and Components subsections
+4. Designs & References - Bold label with Flows and Components subsections
 5. Main sections (❖) - Scaled content
 6. Subsections - H4 headers for details (#### Logic, #### Features)
 
 #### Formatting Standards
 - **Dividers:** Use `---` between major sections only (not after headers)
 - **Lists:** Always use `-` for bullets
-- **Designs & References:** H3 section (### ⌥) with intro text, then **Flows** and **Components** subsections
+- **Designs & References:** Bold label (`**Designs & References**`) with intro text, then **Flows** and **Components** subsections
 - **Tables:** For metrics and data presentation only
 - **Links:** Use `[Description](URL)` format or `[Link - to be added]` for placeholders
 - **Content:** Integrated narrative in About section
 
 ### Visual Hierarchy Rules
 - Consistent spacing throughout
-- H3 headers: ⌥ for Designs & References, bold subsections (### **Fixed**)
+- Bold labels: Designs & References, Flows, Components (with `---` divider after each)
+- H3 headers: Bold subsections (### **Fixed**)
 - H4 headers: Clean detail headers (#### Logic, #### Features)
 - Use `---` as section separators between major sections (not after headers)
 
@@ -192,16 +194,16 @@ Documentation templates with integrated formatting rules and quality standards. 
 - [ ] Header at top as first line?
 - [ ] Document metadata included?
 - [ ] About section positioned first (after metadata)?
-- [ ] Designs & References at H3 level (### ⌥) with Flows and Components subsections?
+- [ ] Designs & References as bold label with Flows and Components subsections?
 - [ ] Main sections properly structured?
-- [ ] Correct symbol hierarchy applied (H1: ⌘/❖, H3: ⌥)?
+- [ ] Correct symbol hierarchy applied (H1: ⌘/❖, Bold: Designs & References)?
 - [ ] Dividers used appropriately?
 - [ ] H4 for detail headers?
 
 ### Format Validation
 - [ ] Using `text/markdown` artifact type?
 - [ ] Lists use `-` bullets?
-- [ ] Designs & References at H3 level with Flows and Components subsections?
+- [ ] Designs & References as bold label with Flows and Components subsections?
 - [ ] Tables used for metrics/data only (not References)?
 - [ ] Dividers between major sections?
 - [ ] Placeholder links included?
@@ -212,7 +214,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 ### Mode-Specific Validation
 - [ ] Header at top?
 - [ ] About first with purpose?
-- [ ] Designs & References at H3 level with Flows and Components?
+- [ ] Designs & References as bold label with Flows and Components?
 - [ ] Complexity appropriate (2-3/4-6/7+)?
 - [ ] Structure logical?
 - [ ] Separators used correctly?
@@ -226,7 +228,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 ### Common Errors & Fixes
 
 #### Wrong Symbol Hierarchy
-**Fix:** Update to H1: ⌘/❖, H2: Numbered subsections, H3: ⌥ (Designs & References) / Bold subsections, H4: Detail headers
+**Fix:** Update to H1: ⌘/❖, H2: Numbered subsections, H3: Bold subsections, H4: Detail headers, Bold labels: Designs & References, Flows, Components
 
 #### About Section Not First
 **Fix:** Move About to first position after metadata
@@ -240,8 +242,8 @@ Documentation templates with integrated formatting rules and quality standards. 
 #### Wrong Artifact Type
 **Fix:** Recreate with `text/markdown`
 
-#### Designs & References as Table or Bold Label
-**Fix:** Convert to H3 heading (### ⌥ Designs & References) with Flows and Components subsections
+#### Designs & References as Heading
+**Fix:** Convert to bold label (`**Designs & References**`) with Flows and Components subsections
 
 #### Missing Separators
 **Fix:** Add `---` between major sections
@@ -283,7 +285,7 @@ Covers ONLY what user requested.]
 
 ---
 
-### ⌥ Designs & References
+**Designs & References**
 
 ---
 
@@ -374,7 +376,7 @@ Covers ONLY the specific feature/product requested by user.]
 
 ---
 
-### ⌥ Designs & References
+**Designs & References**
 
 ---
 
@@ -540,7 +542,7 @@ Documentation covers ONLY the specific platform/ecosystem requested by user.]
 
 ---
 
-### ⌥ Designs & References
+**Designs & References**
 
 ---
 
@@ -831,7 +833,7 @@ The north star that guides all platform decisions and investments
 1. **Always wait** for user response (except $quick)
 2. **Never answer** own questions
 3. **About section first** after metadata (integrate context narratively)
-4. **Designs & References at H3** (### ⌥) with intro text, then **Flows** and **Components** subsections
+4. **Designs & References as bold label** (`**Designs & References**`) with intro text, then **Flows** and **Components** subsections
 5. **Tables for metrics only** - not for References
 6. **Use H4 for detail headers** - number them (#### 1. Title) only when multiple subsections exist
 7. **Single subsection** uses clean H4 (no numbers, no symbols)
@@ -844,7 +846,7 @@ The north star that guides all platform decisions and investments
 14. **Template version** confirmed before creation
 15. **Complexity scales structure** not content scope (Simple: 2-3 sections, Standard: 4-6, Complex: 7+)
 16. **Documentation focus** maintained throughout (product features, performance metrics, strategy docs)
-17. **Symbol hierarchy** H1: ⌘/❖, H2: Numbered subsections, H3: ⌥ (Designs & References) / Bold subsections, H4: Detail headers
+17. **Symbol hierarchy** H1: ⌘/❖, H2: Numbered subsections, H3: Bold subsections, H4: Detail headers, Bold labels: Designs & References, Flows, Components
 
 ---
 
