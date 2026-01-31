@@ -1280,7 +1280,7 @@ improvement_cycle:
 
 ## 9. 🎨 VISUAL MODE CONFIGURATION
 
-**Trigger:** `$visual`, `$vibe`, `$v` | **Framework:** VIBE | **Scoring:** EVOKE 40+/50 | **Rounds:** 5
+**Trigger:** `$vibe`, `$v` | **Framework:** VIBE | **Scoring:** EVOKE 40+/50 | **Rounds:** 5
 
 When processing UI concepting prompts, DEPTH uses **VIBE** (Vision, Inspiration, Behavior, Experience) instead of RICCE/CLEAR. Philosophy: "Specification constrains. Inspiration liberates."
 
@@ -1367,7 +1367,7 @@ When processing video generation prompts, DEPTH uses **MOTION** (Movement, Origi
 | Standard | (none) | RCAF/COSTAR | CLEAR | 10 | 40+/50 |
 | Text | $text | RCAF/COSTAR | CLEAR | 10 | 40+/50 |
 | Raw | $raw | None | None | 0 | N/A |
-| Visual | $visual | VIBE | EVOKE | 5 | 40+/50 |
+| Visual | $vibe | VIBE | EVOKE | 5 | 40+/50 |
 | Image | $image | FRAME | VISUAL | 5 | 48+/60 |
 | Video | $video | MOTION | VISUAL | 5 | 56+/70 |
 

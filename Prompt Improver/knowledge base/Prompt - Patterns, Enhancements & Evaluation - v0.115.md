@@ -1,4 +1,4 @@
-# Prompt - Patterns, Enhancements & Evaluation - v0.113
+# Prompt - Patterns, Enhancements & Evaluation - v0.115
 
 Comprehensive framework library, enhancement patterns, and CLEAR evaluation methodology for systematic prompt engineering excellence.
 
@@ -51,6 +51,7 @@ Comprehensive framework library, enhancement patterns, and CLEAR evaluation meth
 | **CRISPE** | Capacity, Insight, Statement, Personality, Experiment | Strategy, exploration | Routine tasks | 87% |
 | **CRAFT** | Context, Role, Action, Format, Target | Complex projects, planning | Simple queries | 91% |
 | **VIBE** | Vision, Inspiration, Behavior, Experience | Visual UI concepting, design | Precision/specification | 90% |
+| **VIBE-MP** | VIBE + MagicPath calibration | MagicPath.ai UI design | Non-MagicPath platforms | 92% |
 | **FRAME** | Focus, Rendering, Atmosphere, Modifiers, Exclusions | Image generation optimization | Precision/text prompts | 90% |
 | **MOTION** | Movement, Origin, Temporal, Intention, Orchestration, Nuance | Video generation | Static/image prompts | 90% |
 
@@ -101,6 +102,14 @@ select_optimal_framework:
         - if: "visual_ui_concepting" → add: 10
         - if: "precision_critical" → subtract: 10
 
+    vibe_mp:
+      base_score: 2
+      modifiers:
+        - if: "magicpath_detected" → add: 12
+        - if: "multi_page_flow" → add: 5
+        - if: "user_journey_design" → add: 3
+        - if: "precision_critical" → subtract: 10
+
   select_best:
     method: highest_score
     output: [primary, confidence, alternative, reasoning]
@@ -116,8 +125,24 @@ select_optimal_framework:
 | 6+ | No | No | No | Yes | **TIDD-EC** |
 | 7-10 | No | Yes | No | Yes | **CRAFT** |
 | Visual UI | - | - | Yes | No | **VIBE** |
+| MagicPath | - | - | Yes | No | **VIBE-MP** |
 | Image gen | - | - | Yes | No | **FRAME** |
 | Video gen | - | - | Yes | No | **MOTION** |
+
+#### Design Directions (8 Total)
+
+Used with VIBE/VIBE-MP frameworks for UI concepting:
+
+| Direction | Reference Products | Emotional Core |
+|-----------|-------------------|----------------|
+| **Precision & Density** | Linear, Raycast | Efficiency, power, mastery |
+| **Warmth & Approachability** | Notion, Coda | Comfort, collaboration |
+| **Sophistication & Trust** | Stripe, Mercury | Trust, security, professionalism |
+| **Boldness & Clarity** | Vercel | Decisiveness, modernity |
+| **Utility & Function** | GitHub, VS Code | Focus, productivity |
+| **Data & Analysis** | Mixpanel, Amplitude | Understanding, insight |
+| **Journey & Flow** | Duolingo, Headspace | Progress, achievement, discovery |
+| **Narrative & Story** | Apple Pages, Stripe Atlas | Storytelling, revelation |
 
 ---
 
@@ -648,7 +673,7 @@ repair_framework:
 
 ### 9. ✅ CLEAR EVALUATION MASTERY
 
-> **Note:** For Visual UI Concepting (`$visual`, `$vibe`), use **EVOKE scoring**. For Image/Video (`$image`, `$video`), use **VISUAL scoring**.
+> **Note:** For Visual UI Concepting (`$vibe`, `$v`), use **EVOKE scoring**. For Image/Video (`$image`, `$video`), use **VISUAL scoring**.
 
 #### CLEAR Dimensions (50 points)
 
@@ -696,13 +721,27 @@ contextual_clear_scoring:
 
 #### CLEAR vs EVOKE vs VISUAL
 
-| Criteria | CLEAR | EVOKE | VISUAL |
-|----------|-------|-------|--------|
-| **Use When** | Precision prompts | Visual UI concepting | Image/video generation |
-| **Modes** | $improve, $refine | $visual, $vibe | $image, $video |
-| **Philosophy** | Completeness & logic | Evocativeness | Specificity & atmosphere |
-| **Total Points** | 50 | 50 | 60 (image) / 70 (video) |
-| **Threshold** | 40+ | 40+ | 48+ / 56+ |
+| Criteria | CLEAR | EVOKE | EVOKE-MP | VISUAL |
+|----------|-------|-------|----------|--------|
+| **Use When** | Precision prompts | Visual UI concepting | MagicPath.ai UI | Image/video generation |
+| **Modes** | $improve, $refine | $vibe, $v | $vibe + magicpath context | $image, $video |
+| **Philosophy** | Completeness & logic | Evocativeness | Creative Director brief | Specificity & atmosphere |
+| **Total Points** | 50 | 50 | 50 | 60 (image) / 70 (video) |
+| **Threshold** | 40+ | 40+ | 42+ | 48+ / 56+ |
+
+**Standard EVOKE Weights (50 points):**
+- Evocative: 15pts - Creates vivid mental imagery
+- Visual: 10pts - Paints a picture AI can render
+- Open: 10pts - Leaves room for creativity
+- Kinetic: 10pts - Suggests motion and life
+- Emotional: 5pts - Conveys experiential goals
+
+**EVOKE-MP Weight Calibration (MagicPath.ai):**
+- Kinetic: 13pts (vs 10 standard) - Critical for pathfinding
+- Visual: 12pts (vs 10 standard) - Higher spatial clarity
+- Evocative: 12pts (vs 15 standard) - Clear directional language
+- Open: 8pts (vs 10 standard) - More structured flows
+- Emotional: 5pts (same)
 
 ---
 
@@ -1006,6 +1045,7 @@ excellence_formula:
 | 6-8, precision | TIDD-EC |
 | 7-10, comprehensive | CRAFT |
 | Visual UI | VIBE |
+| MagicPath.ai | VIBE-MP |
 | Image generation | FRAME |
 | Video generation | MOTION |
 
