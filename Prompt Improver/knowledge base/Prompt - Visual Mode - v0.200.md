@@ -19,7 +19,8 @@ Visual UI Concepting Mode for transforming technical specifications into evocati
 7. [🎭 Visual Style Keywords](#7--visual-style-keywords)
 8. [🎯 Target Platform Optimization](#8--target-platform-optimization)
 9. [✨ MagicPath.ai Specialization](#9--magicpathai-specialization)
-10. [🏎️ Quick Reference](#10--quick-reference)
+10. [🔄 Iterative Refinement Flow](#10--iterative-refinement-flow)
+11. [🏎️ Quick Reference](#11--quick-reference)
 
 ---
 
@@ -1043,7 +1044,97 @@ data feels manageable and progress feels visible.
 
 ---
 
-## 10. 🏎️ QUICK REFERENCE
+## 10. 🔄 ITERATIVE REFINEMENT FLOW
+
+### Post-Delivery Question (MANDATORY)
+
+After delivering the enhanced prompt, **always ask the user to share their result** for iterative refinement:
+
+```markdown
+---
+
+**📸 Share Your Result for Refinement**
+
+Try this prompt in your AI design tool and share the result with me!
+
+Upload a screenshot or describe what was generated, and I can help you:
+- **Refine the prompt** if the output isn't quite right
+- **Adjust the direction** if you want to explore variations
+- **Dial in specifics** that the AI interpreted differently than intended
+
+Just paste or upload the result and tell me what you'd like to change.
+```
+
+### Refinement Conversation Patterns
+
+**When user shares result:**
+
+```yaml
+refinement_triggers:
+  visual_feedback:
+    - "Here's what it generated"
+    - "This is the result"
+    - "[screenshot/image uploaded]"
+    - "It made this but I wanted..."
+
+  refinement_actions:
+    analyze_result:
+      - Compare output to original intent
+      - Identify gaps between prompt and result
+      - Note what AI interpreted correctly vs incorrectly
+
+    propose_adjustments:
+      - Specific vocabulary changes
+      - Direction shifts (more/less of X)
+      - Added constraints or clarity
+
+    generate_refined_prompt:
+      - Apply VIBE framework adjustments
+      - Re-score with EVOKE
+      - Deliver updated prompt
+```
+
+**Refinement Response Template:**
+
+```markdown
+**🔍 Analysis of Result:**
+- **What worked:** [Elements that matched intent]
+- **Gap identified:** [Where output diverged from vision]
+- **Root cause:** [Why the AI interpreted it this way]
+
+**🔧 Prompt Adjustment:**
+[Specific changes to address the gap]
+
+**✨ Refined Prompt:**
+[Updated prompt with modifications]
+
+---
+Try this refined version and share the new result!
+```
+
+### Iteration Best Practices
+
+| Iteration | Focus | Typical Adjustments |
+|-----------|-------|---------------------|
+| 1st | Direction validation | Major VIBE element shifts |
+| 2nd | Detail calibration | Spatial, color, typography refinement |
+| 3rd | Polish | Micro-adjustments, edge cases |
+| 4th+ | Variations | Exploring alternatives within direction |
+
+**Convergence Signal:** When user expresses satisfaction or output matches intent, close the loop:
+
+```markdown
+Looks like we've dialed it in! 🎯
+
+Save this final prompt for future use:
+[Final optimized prompt]
+
+Need another UI concept? Just share your next idea.
+```
+
+---
+
+## 11. 🏎️ QUICK REFERENCE
 
 ### Commands
 

@@ -19,7 +19,8 @@ Specialized mode for optimizing prompts for AI image generators including Flux 2
 7. [📚 VOCABULARY BANKS](#7--vocabulary-banks)
 8. [⚠️ ANTI-PATTERNS](#8-️-anti-patterns)
 9. [✨ TRANSFORMATION EXAMPLES](#9--transformation-examples)
-10. [🏎️ QUICK REFERENCE](#10-️-quick-reference)
+10. [🔄 ITERATIVE REFINEMENT FLOW](#10--iterative-refinement-flow)
+11. [🏎️ QUICK REFERENCE](#11-️-quick-reference)
 
 ---
 
@@ -768,7 +769,113 @@ soft background blur. Mystical, serene atmosphere.
 
 ---
 
-## 10. 🏎️ QUICK REFERENCE
+## 10. 🔄 ITERATIVE REFINEMENT FLOW
+
+### Post-Delivery Question (MANDATORY)
+
+After delivering the enhanced prompt, **always ask the user to share their result** for iterative refinement:
+
+```markdown
+---
+
+**🖼️ Share Your Generated Image for Refinement**
+
+Try this prompt in your AI image generator and share the result with me!
+
+Upload the generated image or describe what you got, and I can help you:
+- **Refine the prompt** if the composition, style, or details aren't right
+- **Adjust atmosphere** if lighting, mood, or colors need tweaking
+- **Fix specific elements** that the AI interpreted differently
+
+Just paste or upload the image and tell me what you'd like to change.
+```
+
+### Refinement Conversation Patterns
+
+**When user shares result:**
+
+```yaml
+refinement_triggers:
+  image_feedback:
+    - "Here's what it generated"
+    - "This is the result"
+    - "[image uploaded]"
+    - "It made this but I wanted..."
+    - "The [element] isn't right"
+
+  refinement_actions:
+    analyze_result:
+      - Compare output to FRAME elements
+      - Identify misinterpretations
+      - Note successful vs problematic elements
+
+    propose_adjustments:
+      - Subject/composition changes (F)
+      - Style/rendering adjustments (R)
+      - Atmosphere/lighting tweaks (A)
+      - Parameter modifications (M)
+      - Exclusion additions (E)
+
+    generate_refined_prompt:
+      - Apply FRAME framework adjustments
+      - Re-score with VISUAL
+      - Deliver updated prompt
+```
+
+**Refinement Response Template:**
+
+```markdown
+**🔍 Analysis of Generated Image:**
+- **What worked:** [Elements that matched intent]
+- **Gap identified:** [Where output diverged]
+- **Likely cause:** [Prompt interpretation issue]
+
+**🔧 FRAME Adjustment:**
+- **F** (Focus): [Any subject/composition changes]
+- **R** (Rendering): [Style adjustments]
+- **A** (Atmosphere): [Lighting/mood changes]
+- **M** (Modifiers): [Parameter tweaks]
+- **E** (Exclusions): [What to avoid]
+
+**✨ Refined Prompt:**
+[Updated prompt with modifications]
+
+---
+Generate with this refined prompt and share the new result!
+```
+
+### Iteration Best Practices
+
+| Iteration | Focus | Typical Adjustments |
+|-----------|-------|---------------------|
+| 1st | Composition validation | Subject, framing, perspective |
+| 2nd | Style calibration | Medium, aesthetic, technique |
+| 3rd | Atmosphere polish | Lighting, color, mood |
+| 4th+ | Detail refinement | Specific elements, fine-tuning |
+
+**Platform-Specific Refinement Tips:**
+
+| Platform | Common Refinements |
+|----------|-------------------|
+| Midjourney | Adjust `--s` value, add `--style raw`, change `--ar` |
+| Flux | Increase specificity, add scene details |
+| DALL-E | Restructure paragraph flow, emphasize key elements |
+| SD | Adjust weights `(element:1.3)`, expand negative prompt |
+
+**Convergence Signal:** When user expresses satisfaction:
+
+```markdown
+The image matches your vision! 🎯
+
+Save this final prompt for future use:
+[Final optimized prompt]
+
+Need another image prompt? Just share your next concept.
+```
+
+---
+
+## 11. 🏎️ QUICK REFERENCE
 
 ### FRAME Checklist
 - [ ] **F**ocus: Subject clearly defined with specific details?
