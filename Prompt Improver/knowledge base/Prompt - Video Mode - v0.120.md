@@ -1,4 +1,4 @@
-# Prompt - Video Mode - v0.110
+# Prompt - Video Mode - v0.120
 
 Specialized mode for optimizing prompts for AI video generators including Runway Gen-4/4.5, Sora, Kling 2.5/2.6, Veo 3.1+, Pika 2.5, Luma Ray3, Minimax, Seedance, OmniHuman, and Wan 2.1.
 
@@ -14,13 +14,14 @@ Specialized mode for optimizing prompts for AI video generators including Runway
 2. [🎬 MOTION FRAMEWORK](#2--motion-framework)
 3. [📊 VISUAL SCORING (VIDEO)](#3--visual-scoring-video)
 4. [🎥 PLATFORM OPTIMIZATION](#4--platform-optimization)
-5. [⏱️ TEMPORAL CONSISTENCY](#5-️-temporal-consistency)
-6. [🔊 AUDIO INTEGRATION](#6--audio-integration)
-7. [📚 VOCABULARY BANKS](#7--vocabulary-banks)
-8. [⚠️ ANTI-PATTERNS](#8-️-anti-patterns)
-9. [✨ TRANSFORMATION EXAMPLES](#9--transformation-examples)
-10. [🔄 ITERATIVE REFINEMENT FLOW](#10--iterative-refinement-flow)
-11. [🏎️ QUICK REFERENCE](#11-️-quick-reference)
+5. [🧠 PLATFORM MENTAL MODELS](#5--platform-mental-models)
+6. [⏱️ TEMPORAL CONSISTENCY](#6-️-temporal-consistency)
+7. [🔊 AUDIO INTEGRATION](#7--audio-integration)
+8. [📚 VOCABULARY BANKS](#8--vocabulary-banks)
+9. [⚠️ ANTI-PATTERNS](#9-️-anti-patterns)
+10. [✨ TRANSFORMATION EXAMPLES](#10--transformation-examples)
+11. [🔄 ITERATIVE REFINEMENT FLOW](#11--iterative-refinement-flow)
+12. [🏎️ QUICK REFERENCE](#12-️-quick-reference)
 
 ---
 
@@ -411,7 +412,103 @@ Prompt Structure (80-120 words):
 
 ---
 
-## 5. ⏱️ TEMPORAL CONSISTENCY
+## 5. 🧠 PLATFORM MENTAL MODELS
+
+Understanding how each AI video platform "thinks" helps craft prompts that align with its internal logic.
+
+| Platform | Metaphor | Thinking Style | Prompt Focus | Example |
+|----------|----------|----------------|--------------|---------|
+| **Runway Gen-4.5** | Kinetic Sculptor | Physics, forces, motion vectors | Describe forces acting on objects, motion paths | "The car accelerates forward with increasing momentum, wheels gripping the wet asphalt" |
+| **Sora 2** | Physics Simulator | Cause-and-effect, world logic, physics | Describe causal chains, realistic interactions | "Water splashes as the ball impacts the surface, ripples spreading outward" |
+| **Kling 2.6** | Audio-Visual Choreographer | Timeline, beats, synchronization | Timeline structure, beat markers, audio sync | "On the first beat, the dancer spins. On the second, arms extend outward." |
+| **Veo 3.1** | Rendering Engine | Structured data, references, parameters | Clear specifications, reference-style data | "CAMERA: dolly forward. SUBJECT: woman walking. LIGHTING: golden hour. AUDIO: ambient street sounds" |
+
+### Applying Mental Models
+
+```yaml
+runway_gen4.5:
+  metaphor: "Kinetic Sculptor"
+  thinking: "Physics, forces, motion vectors"
+  prompt_strategy:
+    - Lead with force descriptions (acceleration, momentum, resistance)
+    - Describe how objects interact with their environment
+    - Specify material properties that affect motion
+    - Use physical verbs: grips, propels, resists, rebounds
+  example_application: |
+    Instead of: "Car drives fast"
+    Use: "The car accelerates forward with increasing momentum,
+    wheels gripping the wet asphalt, suspension compressing through the turn"
+
+sora_2:
+  metaphor: "Physics Simulator"
+  thinking: "Cause-and-effect, world logic, physics"
+  prompt_strategy:
+    - Describe causal chains (action leads to reaction)
+    - Emphasize realistic world interactions
+    - Let physics drive the narrative
+    - Describe consequences of actions
+  example_application: |
+    Instead of: "Ball falls in water"
+    Use: "Water splashes as the ball impacts the surface,
+    ripples spreading outward, droplets arcing upward momentarily
+    before gravity pulls them back down"
+
+kling_2.6:
+  metaphor: "Audio-Visual Choreographer"
+  thinking: "Timeline, beats, synchronization"
+  prompt_strategy:
+    - Structure prompts with timeline markers
+    - Align visual actions to audio beats
+    - Use sequential phrasing (first, then, finally)
+    - Describe rhythm and timing explicitly
+  example_application: |
+    Instead of: "Dancer performs routine"
+    Use: "On the first beat, the dancer spins. On the second,
+    arms extend outward. On the third, a dramatic leap,
+    landing precisely as the bass drops"
+
+veo_3.1:
+  metaphor: "Rendering Engine"
+  thinking: "Structured data, references, parameters"
+  prompt_strategy:
+    - Use clear categorical labels (CAMERA, SUBJECT, LIGHTING)
+    - Provide specification-style descriptions
+    - Structure data hierarchically
+    - Include all rendering parameters explicitly
+  example_application: |
+    Instead of: "Woman walking at sunset with city sounds"
+    Use: "CAMERA: dolly forward. SUBJECT: woman walking,
+    mid-30s, navy coat. LIGHTING: golden hour, warm.
+    SETTING: cobblestone street. AUDIO: ambient street sounds,
+    distant traffic, footsteps on stone"
+```
+
+### Mental Model Selection Guide
+
+| Scenario | Best Mental Model | Why |
+|----------|-------------------|-----|
+| Action sequences, vehicles, sports | Runway (Kinetic Sculptor) | Excels at force and momentum |
+| Natural phenomena, cause-effect chains | Sora (Physics Simulator) | Strong world simulation |
+| Music videos, dance, rhythmic content | Kling (Audio-Visual Choreographer) | Timeline-based thinking |
+| Structured scenes, multi-element shots | Veo (Rendering Engine) | Handles complex specifications |
+
+---
+
+## 6. ⏱️ TEMPORAL CONSISTENCY
+
+### Pacing Vocabulary
+
+| Term | Speed | Use Case |
+|------|-------|----------|
+| **Slow motion** | 0.25-0.5x | Dramatic emphasis, beauty shots, action highlights |
+| **Gradually** | Natural progression | Smooth transitions, environmental changes |
+| **Slowly** | Deliberate pace | Contemplative mood, reveal shots |
+| **Briskly** | Quick but controlled | Energetic scenes, urgency |
+| **Suddenly** | Abrupt | Surprise, action beats, impact moments |
+| **Seamlessly** | Invisible transition | Professional flow, continuous motion |
+| **Rhythmically** | To beat | Music-driven content, dance, synchronized action |
+| **Accelerating** | Building speed | Tension building, pursuit sequences |
+| **Decelerating** | Slowing down | Resolution, landing moments, dramatic pause |
 
 ### Duration Guidelines by Platform
 
@@ -460,7 +557,7 @@ temporal_consistency:
 
 ---
 
-## 6. 🔊 AUDIO INTEGRATION
+## 7. 🔊 AUDIO INTEGRATION
 
 ### Platforms with Native Audio
 
@@ -470,6 +567,24 @@ temporal_consistency:
 | **Kling 2.6**        | Ambient and effects                 | "with the sound of..."               |
 | **Seedance 1.5 Pro** | Full audio + lip-sync               | Inline descriptions + Audio: section |
 | **OmniHuman 1.5**    | Audio-driven (input required)       | Upload audio file                    |
+
+### Platform-Specific Audio Syntax
+
+| Platform | Syntax Style | Position | Example |
+|----------|--------------|----------|---------|
+| **Veo 3.1+** | Labeled section | End of prompt | `Audio: Deep rumble of thunder, rain pattering on windows, distant traffic` |
+| **Kling 2.6** | Natural language inline | End of scene description | `...with the sound of coffee grinding, milk frothing, and soft jazz playing` |
+| **Seedance 1.5 Pro** | Labeled section | After visual description | `Audio: Piano melody, dancer's footfalls on wood, fabric rustling with movement` |
+
+### Audio Categories with Examples
+
+| Category | Description | Examples |
+|----------|-------------|----------|
+| **Ambient** | Environmental background sounds | Wind rustling leaves, distant traffic hum, ocean waves, forest birds, rain on roof |
+| **Action** | Sounds triggered by visual events | Footsteps on gravel, door creaking, glass breaking, car engine revving, splash |
+| **Music** | Background or featured music | Soft piano melody, upbeat electronic, orchestral crescendo, lo-fi beats, jazz |
+| **Speech** | Dialogue or vocal elements | Character speaks warmly, narrator describes, crowd murmurs, laughter |
+| **Silence** | Intentional absence of sound | Quiet tension, muffled world, vacuum of space |
 
 ### Audio Description Best Practices
 
@@ -528,7 +643,32 @@ concert hall acoustics with natural reverb.
 
 ---
 
-## 7. 📚 VOCABULARY BANKS
+## 8. 📚 VOCABULARY BANKS
+
+### Physics Descriptors
+
+| Descriptor | Description | Example |
+|------------|-------------|---------|
+| **Rigidity** | Object maintains shape during motion | "The car remains rigid and solid throughout the turn" |
+| **Gravity** | Objects obey gravitational physics | "No floating, no defiance of gravity" |
+| **Impact** | Collision effects are realistic | "Collision creates debris, dust, appropriate sound" |
+| **Momentum** | Motion continues naturally | "Gradual acceleration, natural deceleration" |
+| **Inertia** | Objects resist changes in motion | "The cape continues swinging after she stops" |
+| **Friction** | Surface interaction affects motion | "Tires grip the wet asphalt, slight skid on corners" |
+| **Elasticity** | Bounce and deformation behavior | "The ball compresses slightly on impact, rebounds" |
+| **Fluid dynamics** | Liquid and gas motion behavior | "Smoke billows and disperses naturally, water flows around obstacles" |
+
+### Motion Troubleshooting Guide
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| **Object morphing** | Insufficient rigidity description | Add rigidity descriptors, specify material properties ("solid metal frame", "rigid structure") |
+| **Floating objects** | Missing gravity anchoring | Add gravity cues, ground contact descriptions ("feet planted firmly", "tires gripping road") |
+| **Jittery motion** | Too many rapid changes | Add smooth motion qualifiers, longer transitions ("smoothly", "continuously", "fluid motion") |
+| **Unrealistic physics** | Missing cause-effect chain | Describe physical consequences ("impact creates dust", "momentum carries forward") |
+| **Limbs/parts detaching** | Body coherence not specified | Add structural integrity cues ("body moves as one unit", "connected, coordinated movement") |
+| **Unnatural speed** | Vague pacing instructions | Add explicit timing ("over 3 seconds", "gradually accelerating") |
+| **Objects passing through** | Missing collision description | Describe physical interaction ("bounces off", "deflects", "stops against") |
 
 ### Camera Movement
 
@@ -560,15 +700,19 @@ concert hall acoustics with natural reverb.
 
 ### Pacing & Speed Descriptors
 
-| Term             | Effect               | Use Case                  |
-| ---------------- | -------------------- | ------------------------- |
-| **Slow motion**  | 0.25-0.5x speed      | Dramatic emphasis, beauty |
-| **Gradually**    | Smooth transition    | Natural progression       |
-| **Slowly**       | Deliberate pace      | Contemplative mood        |
-| **Briskly**      | Quick but controlled | Energetic scenes          |
-| **Suddenly**     | Abrupt change        | Surprise, action beats    |
-| **Seamlessly**   | Invisible transition | Professional flow         |
-| **Rhythmically** | To a beat            | Music-driven content      |
+| Term | Speed | Use Case |
+|------|-------|----------|
+| **Slow motion** | 0.25-0.5x | Dramatic emphasis, beauty shots, action highlights |
+| **Gradually** | Natural progression | Smooth transitions, environmental changes |
+| **Slowly** | Deliberate pace | Contemplative mood, reveal shots |
+| **Briskly** | Quick but controlled | Energetic scenes, urgency |
+| **Suddenly** | Abrupt | Surprise, action beats, impact moments |
+| **Seamlessly** | Invisible transition | Professional flow, continuous motion |
+| **Rhythmically** | To beat | Music-driven content, dance, synchronized action |
+| **Accelerating** | Building speed | Tension building, pursuit sequences |
+| **Decelerating** | Slowing down | Resolution, landing moments, dramatic pause |
+| **Continuously** | Unbroken flow | Long takes, uninterrupted motion |
+| **Intermittently** | Start-stop | Flickering, pulsing, rhythmic pauses |
 
 ### Atmospheric Descriptors
 
@@ -581,7 +725,7 @@ concert hall acoustics with natural reverb.
 
 ---
 
-## 8. ⚠️ ANTI-PATTERNS
+## 9. ⚠️ ANTI-PATTERNS
 
 ### Universal Anti-Patterns (All Platforms)
 
@@ -633,7 +777,7 @@ static_to_dynamic:
 
 ---
 
-## 9. ✨ TRANSFORMATION EXAMPLES
+## 10. ✨ TRANSFORMATION EXAMPLES
 
 ### Example 1: Basic Scene (Runway Gen-4)
 
@@ -805,7 +949,7 @@ Ends as: Clock at 12:00:00 with celebration text overlay.
 
 ---
 
-## 10. 🔄 ITERATIVE REFINEMENT FLOW
+## 11. 🔄 ITERATIVE REFINEMENT FLOW
 
 ### Post-Delivery Question (MANDATORY)
 
@@ -927,7 +1071,7 @@ Need another video prompt? Just share your next concept.
 
 ---
 
-## 11. 🏎️ QUICK REFERENCE
+## 12. 🏎️ QUICK REFERENCE
 
 ### MOTION Checklist
 - [ ] **M**ovement: Camera AND subject motion defined?
