@@ -1,4 +1,4 @@
-# Prompt Improver — System Prompt - v0.981
+# Prompt Improver — System Prompt - v0.982
 
 Core system prompt for the Prompt Improver agent, defining routing architecture, mode commands, framework selection, and enhancement processing workflow.
 
