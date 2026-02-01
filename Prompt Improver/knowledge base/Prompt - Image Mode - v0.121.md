@@ -1,4 +1,4 @@
-# Prompt - Image Mode - v0.120
+# Prompt - Image Mode - v0.121
 
 Specialized mode for optimizing prompts for AI image generators including Flux 2 Pro, Google Imagen 4 (Nano Banana Pro), Runway, Midjourney, DALL-E 3, Stable Diffusion, Seedream, Leonardo, and Ideogram.
 
@@ -228,11 +228,13 @@ The Atmosphere component defines the FEELING and MOOD of the image.
 | **Sunrise/Sunset**  | 3500-4500K    | Warm to neutral transition    | Hopeful, transitional       |
 | **Studio Softbox**  | 5000-5500K    | Neutral, balanced, clean      | Professional, commercial    |
 | **Daylight**        | 5500-6500K    | Neutral to cool, clear        | Natural, fresh, honest      |
+| **Harsh Midday**    | 5500-6000K    | Direct, high contrast         | Documentary, intense        |
 | **Blue Hour**       | 5600-9000K+   | Cool blue, twilight           | Mysterious, melancholic     |
 | **Overcast**        | 6500-7500K    | Soft, diffused, cool          | Subdued, peaceful, even     |
 | **Shade**           | 7000-8000K    | Cool, soft, open              | Gentle, calm                |
 | **Chiaroscuro**     | Variable      | Dramatic light/shadow         | Dramatic, classical, moody  |
 | **Volumetric**      | Variable      | Visible light rays/god rays   | Atmospheric, divine, epic   |
+| **Neon**            | Variable      | Colorful artificial           | Cyberpunk, urban, edgy      |
 
 #### A2. Mood Vocabulary Bank
 
@@ -254,6 +256,8 @@ The Atmosphere component defines the FEELING and MOOD of the image.
 | **Warm Earth**    | Terracotta, ochre, sienna, umber| Organic, natural, grounded   | #CC7351, #D4A574, #8B4513    |
 | **Cool Nordic**   | Slate, ice blue, white, grey   | Clean, minimal, Scandinavian  | #708090, #B0E0E6, #F5F5F5    |
 | **Sunset**        | Orange, coral, pink, purple    | Romantic, dramatic, warm      | #FF6B6B, #FF8C69, #C06C84    |
+| **Forest**        | Deep green, brown, gold        | Natural, grounded, organic    | #228B22, #8B4513, #DAA520    |
+| **Ocean**         | Teal, navy, seafoam            | Calm, depth, serene           | #008080, #000080, #98FF98    |
 | **Neon Cyber**    | Hot pink, electric blue, lime  | Futuristic, edgy, urban       | #FF00FF, #00FFFF, #39FF14    |
 | **Vintage Muted** | Faded tones, sepia hints, cream| Nostalgic, timeless, soft     | #D4C5B2, #A89F91, #F5F0E6    |
 | **Pastel Dream**  | Soft pink, lavender, mint, peach| Gentle, whimsical, delicate  | #FFB6C1, #E6E6FA, #98FB98    |
@@ -916,32 +920,6 @@ composition_techniques:
 | **Pose**       | standing, seated, reclining, dynamic, contemplative |
 | **Attire**     | elegant, casual, formal, bohemian, vintage          |
 | **Features**   | sharp cheekbones, soft features, striking eyes      |
-
-### Lighting Vocabulary
-
-| Type               | Description              | Mood                 |
-| ------------------ | ------------------------ | -------------------- |
-| **Golden Hour**    | Warm, soft, directional  | Romantic, dreamy     |
-| **Blue Hour**      | Cool, ethereal, twilight | Mysterious, calm     |
-| **Harsh Midday**   | Direct, high contrast    | Documentary, intense |
-| **Soft Diffused**  | Even, flattering         | Studio, commercial   |
-| **Rembrandt**      | Triangle under eye       | Dramatic, classic    |
-| **Rim/Back Light** | Edge separation          | Dramatic, cinematic  |
-| **Volumetric**     | Visible light rays       | Atmospheric, divine  |
-| **Neon**           | Colorful artificial      | Cyberpunk, urban     |
-
-### Color Palettes
-
-| Palette           | Colors                    | Mood                |
-| ----------------- | ------------------------- | ------------------- |
-| **Warm Earth**    | Terracotta, ochre, sienna | Organic, natural    |
-| **Cool Nordic**   | Slate, ice blue, white    | Clean, minimal      |
-| **Sunset**        | Orange, pink, purple      | Romantic, dramatic  |
-| **Forest**        | Deep green, brown, gold   | Natural, grounded   |
-| **Ocean**         | Teal, navy, seafoam       | Calm, depth         |
-| **Neon Cyber**    | Hot pink, electric blue   | Futuristic, edgy    |
-| **Vintage Muted** | Faded tones, sepia hints  | Nostalgic, timeless |
-| **Pastel Dream**  | Soft pink, lavender, mint | Gentle, whimsical   |
 
 ### Texture & Material
 

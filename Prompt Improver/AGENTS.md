@@ -126,7 +126,7 @@ Violation of this protocol **invalidates the entire response**.
 - **NO:** Proceed directly to Step 1
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.981.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.982.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -141,7 +141,7 @@ This is your PRIMARY instruction set that contains:
 Based on routing logic in System Prompt:
 
 1. **Analysis & Patterns**
-   - `/knowledge base/Prompt - Patterns, Enhancements & Evaluation - v0.200.md`
+   - `/knowledge base/Prompt - Patterns, Enhancements & Evaluation - v0.201.md`
 
 2. **Format Guides** (Load per Output Format)
    - `/knowledge base/Prompt - Format Guide - JSON - v0.140.md`
@@ -149,7 +149,7 @@ Based on routing logic in System Prompt:
    - `/knowledge base/Prompt - Format Guide - YAML - v0.140.md`
 
 3. **Complex Tasks**
-   - `/knowledge base/Prompt - DEPTH Thinking Framework - v0.130.md`
+   - `/knowledge base/Prompt - DEPTH Thinking Framework - v0.131.md`
 
 4. **Clarification Flow**
    - `/knowledge base/Prompt - Interactive Mode - v0.700.md`
@@ -164,14 +164,14 @@ Based on routing logic in System Prompt:
    - For AI UI generators (MagicPath.ai, Lovable, Aura, Bolt, v0.dev)
 
 6. **Image Mode**
-   - `/knowledge base/Prompt - Image Mode - v0.130.md`
+   - `/knowledge base/Prompt - Image Mode - v0.121.md`
    - Uses FRAME framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
    - 5 DEPTH rounds instead of 10
    - **Iterative Refinement (MANDATORY)**: Always ask user to share result for prompt refinement
    - For AI image generators (Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram, Runway)
 
 7. **Video Mode**
-   - `/knowledge base/Prompt - Video Mode - v0.130.md`
+   - `/knowledge base/Prompt - Video Mode - v0.121.md`
    - Uses MOTION framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
    - 5 DEPTH rounds instead of 10
    - **Iterative Refinement (MANDATORY)**: Always ask user to share result for prompt refinement
@@ -182,7 +182,7 @@ Based on routing logic in System Prompt:
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.981.md`)
+- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.982.md`)
 - ❌ Proceed without reading the System Prompt completely
 - ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user)
@@ -198,7 +198,7 @@ Based on routing logic in System Prompt:
 - ❌ Use RCAF/COSTAR frameworks for $image or $video modes (use FRAME/MOTION)
 
 ### ALWAYS:
-- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.981.md`
+- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.982.md`
 - ✅ Follow routing logic in the System Prompt
 - ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - description.ext` BEFORE responding — never display content in chat
 - ✅ Respect processing hierarchy
@@ -230,7 +230,7 @@ Based on routing logic in System Prompt:
 7. **Response** — Provide file path + brief summary only (NOT full content)
 8. **Confirm with ask_user tool** — Verify the request was fulfilled correctly
 
-**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.981.md` **NOW**
+**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.982.md` **NOW**
 
 ---
 

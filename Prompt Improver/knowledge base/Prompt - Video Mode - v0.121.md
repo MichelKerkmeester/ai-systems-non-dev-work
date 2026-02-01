@@ -1,4 +1,4 @@
-# Prompt - Video Mode - v0.120
+# Prompt - Video Mode - v0.121
 
 Specialized mode for optimizing prompts for AI video generators including Runway Gen-4/4.5, Sora, Kling 2.5/2.6, Veo 3.1+, Pika 2.5, Luma Ray3, Minimax, Seedance, OmniHuman, and Wan 2.1.
 
@@ -496,20 +496,6 @@ veo_3.1:
 
 ## 6. ⏱️ TEMPORAL CONSISTENCY
 
-### Pacing Vocabulary
-
-| Term | Speed | Use Case |
-|------|-------|----------|
-| **Slow motion** | 0.25-0.5x | Dramatic emphasis, beauty shots, action highlights |
-| **Gradually** | Natural progression | Smooth transitions, environmental changes |
-| **Slowly** | Deliberate pace | Contemplative mood, reveal shots |
-| **Briskly** | Quick but controlled | Energetic scenes, urgency |
-| **Suddenly** | Abrupt | Surprise, action beats, impact moments |
-| **Seamlessly** | Invisible transition | Professional flow, continuous motion |
-| **Rhythmically** | To beat | Music-driven content, dance, synchronized action |
-| **Accelerating** | Building speed | Tension building, pursuit sequences |
-| **Decelerating** | Slowing down | Resolution, landing moments, dramatic pause |
-
 ### Duration Guidelines by Platform
 
 | Platform      | Optimal Clip | Extended         | Word Count               |
@@ -576,43 +562,15 @@ temporal_consistency:
 | **Kling 2.6** | Natural language inline | End of scene description | `...with the sound of coffee grinding, milk frothing, and soft jazz playing` |
 | **Seedance 1.5 Pro** | Labeled section | After visual description | `Audio: Piano melody, dancer's footfalls on wood, fabric rustling with movement` |
 
-### Audio Categories with Examples
+### Audio Categories & Best Practices
 
-| Category | Description | Examples |
-|----------|-------------|----------|
-| **Ambient** | Environmental background sounds | Wind rustling leaves, distant traffic hum, ocean waves, forest birds, rain on roof |
-| **Action** | Sounds triggered by visual events | Footsteps on gravel, door creaking, glass breaking, car engine revving, splash |
-| **Music** | Background or featured music | Soft piano melody, upbeat electronic, orchestral crescendo, lo-fi beats, jazz |
-| **Speech** | Dialogue or vocal elements | Character speaks warmly, narrator describes, crowd murmurs, laughter |
-| **Silence** | Intentional absence of sound | Quiet tension, muffled world, vacuum of space |
-
-### Audio Description Best Practices
-
-```yaml
-audio_categories:
-  ambient:
-    - "gentle wind rustling through leaves"
-    - "distant city traffic hum"
-    - "quiet office with keyboard typing"
-    - "ocean waves lapping against shore"
-
-  action_sounds:
-    - "footsteps on gravel path"
-    - "door creaking open slowly"
-    - "car engine revving"
-    - "glass clinking"
-
-  music:
-    - "upbeat electronic music"
-    - "soft piano melody"
-    - "orchestral crescendo"
-    - "lo-fi beats"
-
-  speech_presence:
-    - "character speaks with [emotion]"
-    - "narrator describes scene"
-    - "crowd murmurs in background"
-```
+| Category | Description | Prompt Examples |
+|----------|-------------|-----------------|
+| **Ambient** | Environmental background sounds | "gentle wind rustling through leaves", "distant city traffic hum", "ocean waves lapping against shore", "quiet office with keyboard typing" |
+| **Action** | Sounds triggered by visual events | "footsteps on gravel path", "door creaking open slowly", "car engine revving", "glass clinking" |
+| **Music** | Background or featured music | "soft piano melody", "upbeat electronic music", "orchestral crescendo", "lo-fi beats" |
+| **Speech** | Dialogue or vocal elements | "character speaks with [emotion]", "narrator describes scene", "crowd murmurs in background" |
+| **Silence** | Intentional absence of sound | "quiet tension", "muffled world", "vacuum of space" |
 
 ### Audio Prompt Examples
 
