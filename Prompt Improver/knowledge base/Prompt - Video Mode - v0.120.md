@@ -1106,9 +1106,13 @@ Need another video prompt? Just share your next concept.
 | **Audio-driven**    | 30-50 words + audio | OmniHuman, audio input   |
 
 ### Score Targets
-- **VISUAL 56+**: Ready for generation
-- **VISUAL 49-55**: Minor refinements needed
-- **VISUAL <49**: Significant enhancement required
+
+| Score | Grade | Action |
+|-------|-------|--------|
+| **63-70** | Excellent | Ship immediately |
+| **56-62** | Good | Ready for generation |
+| **49-55** | Adequate | Minor refinements needed |
+| **<49** | Needs work | Significant enhancement required |
 
 ### Audio Integration Checklist (Audio-Enabled Platforms)
 - [ ] Platform supports native audio? (Veo 3.1+, Kling 2.6, Seedance)
