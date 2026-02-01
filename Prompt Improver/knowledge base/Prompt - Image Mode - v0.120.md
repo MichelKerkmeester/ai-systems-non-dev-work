@@ -1325,9 +1325,13 @@ Need another image prompt? Just share your next concept.
 | Runway           | 30-80 words          |
 
 ### Score Targets
-- **VISUAL 48+**: Ready for generation
-- **VISUAL 40-47**: Minor refinements needed
-- **VISUAL <40**: Significant enhancement required
+
+| Score | Grade | Action |
+|-------|-------|--------|
+| **54-60** | Excellent | Ship immediately |
+| **48-53** | Good | Ready for generation |
+| **40-47** | Adequate | Minor refinements needed |
+| **<40** | Needs work | Significant enhancement required |
 
 ### Quick Fixes
 

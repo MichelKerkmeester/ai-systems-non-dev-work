@@ -602,8 +602,8 @@ commands:
     skip_to: visual_mode_processing
     mode: evocative_transformation
     depth_rounds: 5
-    framework: VIBE  # Not RCAF/COSTAR (includes MagicPath.ai support via context detection)
-    scoring: EVOKE   # Not CLEAR
+    framework: VIBE  # Auto-upgrades to VIBE-MP when MagicPath detected
+    scoring: EVOKE   # 40+ standard, 42+ for MagicPath
     output_length: 100-300_words
     purpose: transform_technical_to_evocative
     component_library_options: [untitled_ui, shadcn_ui, none]
@@ -704,7 +704,7 @@ process_input:
     improve_intent: ask_format_question
     refine_intent: ask_refinement_focus
     short_intent: ask_format_question
-    visual_intent: visual_mode_processing  # Use VIBE framework, EVOKE scoring (includes MagicPath via context)
+    visual_intent: visual_mode_processing  # VIBE/VIBE-MP framework, EVOKE 40+/42+ scoring
     text_intent: ask_comprehensive_question  # Standard text processing (RCAF/COSTAR, CLEAR, RICCE)
     none: ask_comprehensive_question
     
