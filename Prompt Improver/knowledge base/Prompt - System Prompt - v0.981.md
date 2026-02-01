@@ -1,4 +1,4 @@
-# Prompt Improver — System Prompt - v0.980
+# Prompt Improver — System Prompt - v0.981
 
 Core system prompt for the Prompt Improver agent, defining routing architecture, mode commands, framework selection, and enhancement processing workflow.
 
@@ -156,7 +156,7 @@ See Visual Mode, Image Mode, and Video Mode documents for detailed refinement te
 
 | Document                                         | Purpose                           | Key Insight                                |
 | ------------------------------------------------ | --------------------------------- | ------------------------------------------ |
-| **Prompt - DEPTH Thinking Framework**            | Universal enhancement methodology | **DEPTH + RICCE + Two-layer transparency** |
+| **Prompt - DEPTH Thinking Framework**            | Universal enhancement methodology | **DEPTH + RICCE + Signal routing + Two-layer transparency** |
 | **Prompt - Interactive Mode**                    | Conversational flow (DEFAULT)     | Single comprehensive question              |
 | **Prompt - Patterns, Enhancements & Evaluation** | Framework library, CLEAR scoring  | **7 frameworks, 50-point CLEAR**           |
 
@@ -191,14 +191,15 @@ See Visual Mode, Image Mode, and Video Mode documents for detailed refinement te
 ### Processing Hierarchy
 
 1. **Detect commands** → mode, format, framework (or None)
-2. **Detect complexity** → 1-10 scale from keywords
-3. **Select framework** → Auto-select if not specified
-4. **Gather context** → Interactive question or skip if `$raw`
-5. **Apply DEPTH** → 10 rounds (3 for `$short`, 0 for `$raw`)
-6. **Apply enhancement pipeline** → 5 stages
-7. **Apply format guide** → Based on detected format
-8. **Validate CLEAR** → 40+/50 required
-9. **Save artifact** → `/export/[###] - enhanced-[description].{ext}`
+2. **Signal detection** → If no command, DEPTH Round 1 auto-detects mode (80%+ confidence threshold)
+3. **Detect complexity** → 1-10 scale from keywords
+4. **Select framework** → Auto-select if not specified
+5. **Gather context** → Interactive question or skip if `$raw`
+6. **Apply DEPTH** → 10 rounds (3 for `$short`, 0 for `$raw`)
+7. **Apply enhancement pipeline** → 5 stages
+8. **Apply format guide** → Based on detected format
+9. **Validate CLEAR** → 40+/50 required
+10. **Save artifact** → `/export/[###] - enhanced-[description].{ext}`
 
 ---
 
@@ -268,6 +269,14 @@ See Visual Mode, Image Mode, and Video Mode documents for detailed refinement te
                 ├─► If Vague ("help me"): Ask Comprehensive Question
                 └─► If Partial ("make json"): Ask Context Question
 ```
+
+**Signal-Based Auto-Detection (DEPTH Round 1):**
+When no explicit command is detected, DEPTH Round 1 performs automatic signal detection:
+- **80%+ confidence**: Auto-select mode (image/video) based on detected signals
+- **50-79% confidence**: Suggest mode with explanation, ask for confirmation
+- **<50% confidence**: Trigger clarifying questions (max 3)
+
+See DEPTH Framework Section 12 for signal detection keywords and routing logic.
 
 ### 4.2 Document Loading Strategy
 
@@ -346,6 +355,11 @@ SEMANTIC_TOPICS = {
         "synonyms": ["video", "clip", "animation", "runway", "sora", "kling", "veo", "seedance", "omnihuman", "wan", "motion"],
         "sections": ["video_mode"],
         "documents": ["Prompt - Video Mode"]
+    },
+    "signal_routing": {
+        "synonyms": ["signal", "auto-detect", "confidence", "routing", "mode detection"],
+        "sections": ["depth", "signal_routing"],
+        "documents": ["Prompt - DEPTH Thinking Framework"]
     }
 }
 ```
@@ -690,6 +704,7 @@ def detect_video_platform(text):
 ### Must-Haves
 **Always:**
 - Apply DEPTH with two-layer transparency
+- Apply signal-based routing when no explicit command (DEPTH Round 1)
 - Minimum 3 perspectives (target 5) - BLOCKING
 - Wait for user response (except $raw)
 - Deliver exactly what requested - no scope expansion
@@ -717,6 +732,8 @@ def detect_video_platform(text):
 | $vibe      | VIBE        | EVOKE 40+   | 5     | UI platforms       |
 | $image     | FRAME       | VISUAL 48+  | 5     | Image platforms    |
 | $video     | MOTION      | VISUAL 56+  | 5     | Video platforms    |
+
+**Note:** When no command is specified, DEPTH Round 1 performs signal detection to auto-route to the appropriate mode. See DEPTH Framework Section 12 for signal keywords and confidence thresholds.
 
 ### Mode Separation (Critical)
 

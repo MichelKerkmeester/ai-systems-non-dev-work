@@ -1,4 +1,4 @@
-# Prompt - DEPTH Thinking Framework - v0.120
+# Prompt - DEPTH Thinking Framework - v0.130
 
 A comprehensive methodology combining systematic analysis with **transparent professional excellence** for superior prompt engineering deliverables.
 
@@ -21,7 +21,8 @@ A comprehensive methodology combining systematic analysis with **transparent pro
 9. [🎨 VISUAL MODE CONFIGURATION](#9--visual-mode-configuration)
 10. [🖼️ IMAGE MODE CONFIGURATION](#10--image-mode-configuration)
 11. [🎬 VIDEO MODE CONFIGURATION](#11--video-mode-configuration)
-12. [🏎️ QUICK REFERENCE](#12-️-quick-reference)
+12. [🔀 SIGNAL-BASED ROUTING](#12--signal-based-routing)
+13. [🏎️ QUICK REFERENCE](#13-️-quick-reference)
 
 ---
 
@@ -473,6 +474,12 @@ perspective_analysis:  # MANDATORY - CANNOT BE SKIPPED
 
 internal_activities:
   purpose: "Understand user's ACTUAL prompt completely"
+
+  signal_detection:
+    action: "Extract signals from user input"
+    categories: [use_case, style, platform, motion, temporal]
+    output: "confidence_score, detected_signals, suggested_mode"
+    routing: "Apply routing decision based on confidence threshold"
 
   current_state_mapping:
     document_existing:
@@ -1315,6 +1322,24 @@ When processing UI concepting prompts, DEPTH uses **VIBE** (Vision, Inspiration,
 
 **Trigger:** `$image`, `$img` | **Framework:** FRAME | **Scoring:** VISUAL 48+/60 | **Rounds:** 5
 
+### Image Signal Detection
+
+```yaml
+image_signal_detection:
+  use_case_signals:
+    social_media: [post, instagram, twitter, viral, feed, story]
+    product: [advertisement, campaign, promotion, ad, brand, e-commerce]
+    profile: [avatar, portrait, headshot, selfie, pfp]
+    poster: [banner, announcement, event, poster, flyer]
+    game: [sprite, character design, asset, pixel art]
+
+  style_signals:
+    photography: [photorealistic, candid, editorial, RAW, lens, camera]
+    illustration: [hand-drawn, vector, cel-shaded, sketch, drawing]
+    anime: [anime, manga, OVA, chibi, Q-style, japanese animation]
+    3d: [Pixar, Disney, clay, Octane, isometric, render]
+```
+
 When processing image generation prompts, DEPTH uses **FRAME** (Focus, Rendering, Atmosphere, Modifiers, Exclusions) instead of RICCE/CLEAR.
 
 | FRAME Element | Weight | Focus |
@@ -1337,6 +1362,16 @@ When processing image generation prompts, DEPTH uses **FRAME** (Focus, Rendering
 
 **Trigger:** `$video`, `$vid` | **Framework:** MOTION | **Scoring:** VISUAL 56+/70 | **Rounds:** 5
 
+### Video Signal Detection
+
+```yaml
+video_signal_detection:
+  motion_signals: [animate, moving, motion, video, cinematic, scene]
+  temporal_signals: [sequence, transition, pan, zoom, tracking, duration]
+  platform_signals: [runway, sora, kling, veo, pika, luma, minimax]
+  audio_signals: [audio, sound, music, voice, speech, ambient]
+```
+
 When processing video generation prompts, DEPTH uses **MOTION** (Movement, Origin, Temporal, Intention, Orchestration, Nuance) instead of RICCE/CLEAR.
 
 | MOTION Element | Weight | Focus |
@@ -1358,7 +1393,52 @@ When processing video generation prompts, DEPTH uses **MOTION** (Movement, Origi
 
 ---
 
-## 12. 🏎️ QUICK REFERENCE
+## 12. 🔀 SIGNAL-BASED ROUTING
+
+### Automatic Mode Detection
+
+DEPTH Round 1 (Discover) includes automatic signal detection for mode routing.
+
+### Detection Flow
+
+```yaml
+signal_routing:
+  round_1_actions:
+    - Extract keywords from user input
+    - Match against signal dictionaries (image_signals, video_signals, style_signals)
+    - Calculate confidence score (count matches / total signals * 100)
+
+  routing_decision:
+    confidence >= 80%: "Auto-select mode, note detection in round summary"
+    confidence 50-79%: "Suggest mode with explanation, ask for confirmation"
+    confidence < 50%: "Trigger clarifying questions (max 3)"
+
+  clarifying_questions:
+    - "Is this for a still image or video/motion?"
+    - "What platform are you targeting? (e.g., Midjourney, FLUX, Runway, Sora)"
+    - "What style are you aiming for? (photorealistic, illustration, cinematic)"
+```
+
+### Signal Priority Order
+
+1. **Explicit command** ($image, $video, $vibe) - Always takes precedence
+2. **Platform signal** (runway, sora = video; midjourney, flux = image) - 90% confidence
+3. **Motion signal** (animate, motion, pan, zoom) - 85% confidence for video
+4. **Use case signal** (avatar, product, poster) - 70% confidence for image
+5. **Style signal** (photorealistic, anime) - 60% confidence, applies to both
+
+### Example Routing
+
+| User Input | Detected Signals | Confidence | Route |
+|------------|------------------|------------|-------|
+| "Create a product photo for Amazon" | product, photo | 85% | Image Mode |
+| "Animate a dancer on stage with music" | animate, motion, music | 90% | Video Mode |
+| "A dragon breathing fire" | none specific | 30% | Ask: "Still image or animation?" |
+| "Runway: car driving through city" | runway, driving | 95% | Video Mode |
+
+---
+
+## 13. 🏎️ QUICK REFERENCE
 
 ### Mode-Framework-Scoring Map
 
@@ -1380,6 +1460,14 @@ When processing video generation prompts, DEPTH uses **MOTION** (Movement, Origi
 | **P** | 6-7      | Structure build, verification, mechanism-first | "🔨 Building (RICCE complete)"        |
 | **T** | 8-9      | CLEAR scoring, validation                      | "✅ Validating (CLEAR 43+)"           |
 | **H** | 10       | Final checks, delivery prep                    | "✨ Finalizing (ready)"               |
+
+### Signal Detection Quick Check
+
+- [ ] Explicit command detected? → Use that mode
+- [ ] Platform signal detected? → Route accordingly (90% confidence)
+- [ ] Motion signals detected? → Suggest Video Mode
+- [ ] Use case signals detected? → Suggest Image Mode
+- [ ] Low confidence? → Ask max 3 clarifying questions
 
 ### Cognitive Rigor Quick Check
 

@@ -1,4 +1,4 @@
-# Prompt - Image Mode - v0.110
+# Prompt - Image Mode - v0.120
 
 Specialized mode for optimizing prompts for AI image generators including Flux 2 Pro, Google Imagen 4 (Nano Banana Pro), Runway, Midjourney, DALL-E 3, Stable Diffusion, Seedream, Leonardo, and Ideogram.
 
@@ -55,6 +55,420 @@ Transform vague visual descriptions into detailed, evocative prompts optimized f
 | **A**tmosphere | Lighting & Mood       | "What feeling does it evoke?"    | 20%    |
 | **M**odifiers  | Technical Parameters  | "What constraints apply?"        | 15%    |
 | **E**xclusions | Negative Guidance     | "What should be avoided?"        | 15%    |
+
+---
+
+### F - FOCUS (30%) - 6 Sub-Categories
+
+The Focus component defines WHAT the viewer sees and HOW the scene is composed.
+
+#### F1. Shot Types
+
+| Shot Type            | Frame Coverage        | Use Case                        | Example Prompt Fragment                    |
+| -------------------- | --------------------- | ------------------------------- | ------------------------------------------ |
+| **Extreme Wide**     | Full environment      | Establishing, epic landscapes   | "extreme wide shot of mountain range"      |
+| **Wide Shot**        | Full body + setting   | Context, action, architecture   | "wide shot showing full figure in forest"  |
+| **Medium Wide**      | Knees-up              | Fashion, full outfit display    | "medium wide capturing outfit and pose"    |
+| **Medium Shot**      | Waist-up              | Conversation, portraits         | "medium shot from the waist up"            |
+| **Medium Close-Up**  | Chest-up              | Emotional connection            | "medium close-up emphasizing expression"   |
+| **Close-Up**         | Face or key detail    | Emotion, detail focus           | "close-up portrait focusing on eyes"       |
+| **Extreme Close-Up** | Single feature/macro  | Dramatic emphasis, texture      | "extreme close-up of eye reflecting light" |
+
+#### F2. Camera Angles
+
+| Angle                 | Visual Effect           | Psychological Impact    | Example Prompt Fragment                      |
+| --------------------- | ----------------------- | ----------------------- | -------------------------------------------- |
+| **Eye Level**         | Neutral, natural        | Relatability, equality  | "shot at eye level for natural perspective"  |
+| **Low Angle**         | Subject appears larger  | Power, dominance, hero  | "low angle shot looking up at subject"       |
+| **High Angle**        | Subject appears smaller | Vulnerability, overview | "high angle looking down on the scene"       |
+| **Bird's Eye**        | Directly overhead       | Omniscient, pattern     | "bird's eye view from directly above"        |
+| **Worm's Eye**        | Extreme low from ground | Drama, monumentality    | "worm's eye view from ground level"          |
+| **Dutch Angle**       | Tilted horizon          | Tension, unease, action | "dutch angle creating dynamic tension"       |
+| **Over-the-Shoulder** | Behind one subject      | Perspective, narrative  | "over-the-shoulder shot framing the subject" |
+| **POV (First-Person)**| Subject's viewpoint     | Immersion, intimacy     | "first-person POV looking at hands"          |
+
+#### F3. Subject Hierarchy
+
+| Level           | Role                    | Visual Treatment               | Example                                          |
+| --------------- | ----------------------- | ------------------------------ | ------------------------------------------------ |
+| **Primary**     | Main focus of image     | Sharpest, most detailed        | "A woman in red dress as the central subject"    |
+| **Secondary**   | Supporting elements     | In focus but less detailed     | "Her companion slightly behind, in soft focus"   |
+| **Tertiary**    | Environmental context   | Background, establishing scene | "Cafe patrons blurred in the background"         |
+| **Background**  | Setting and atmosphere  | Bokeh, environmental mood      | "Parisian street scene fading into soft bokeh"   |
+
+#### F4. Spatial Relationships
+
+| Plane           | Depth Position          | Purpose                        | Example Prompt Fragment                          |
+| --------------- | ----------------------- | ------------------------------ | ------------------------------------------------ |
+| **Foreground**  | Closest to viewer       | Framing, depth, interest       | "autumn leaves in foreground framing the shot"   |
+| **Midground**   | Middle distance         | Main subject placement         | "subject positioned in the midground"            |
+| **Background**  | Furthest from viewer    | Context, atmosphere            | "mountains fading into atmospheric haze"         |
+| **Layered**     | Multiple distinct planes| Rich depth, cinematic feel     | "layered composition with fore/mid/background"   |
+
+#### F5. Composition Techniques
+
+| Technique              | Description                      | Best For                     |
+| ---------------------- | -------------------------------- | ---------------------------- |
+| **Rule of Thirds**     | Subject at grid intersections    | Balanced, classical          |
+| **Center Dominant**    | Subject dead center              | Symmetry, power, formality   |
+| **Golden Ratio**       | Spiral-based placement           | Natural, organic, artistic   |
+| **Leading Lines**      | Lines draw eye to subject        | Dynamic, directional         |
+| **Frame Within Frame** | Natural framing elements         | Depth, artistic focus        |
+| **Negative Space**     | Empty space emphasizes subject   | Minimalist, editorial        |
+| **Symmetry**           | Mirror balance                   | Architecture, formal         |
+| **Dynamic Diagonal**   | Diagonal lines create energy     | Action, movement             |
+
+#### F6. Subject Specificity
+
+| Category       | Vague                  | Specific                                           |
+| -------------- | ---------------------- | -------------------------------------------------- |
+| **Person**     | "a woman"              | "a woman in her 30s with auburn curly hair"        |
+| **Animal**     | "a dog"                | "a golden retriever puppy with fluffy coat"        |
+| **Object**     | "a car"                | "a 1967 Mustang Shelby GT500 in racing green"      |
+| **Place**      | "a city"               | "rain-slicked Tokyo alley with neon signs"         |
+| **Emotion**    | "sad expression"       | "melancholic gaze with glistening eyes"            |
+
+---
+
+### R - RENDERING (20%) - 6 Sub-Categories
+
+The Rendering component defines the visual STYLE and artistic MEDIUM.
+
+#### R1. Photography Styles
+
+| Style           | Characteristics               | Technical Markers                          | Use Case                    |
+| --------------- | ----------------------------- | ------------------------------------------ | --------------------------- |
+| **Editorial**   | Magazine-quality, polished    | High-key lighting, styled, aspirational    | Fashion, lifestyle          |
+| **Documentary** | Authentic, unposed            | Natural light, candid, raw                 | Storytelling, journalism    |
+| **Fashion**     | Glamorous, artistic           | Dramatic lighting, bold composition        | Apparel, beauty             |
+| **Portrait**    | Subject-focused, flattering   | 85mm f/1.4, bokeh, studio or natural light | Headshots, personal         |
+| **Product**     | Clean, commercial             | White/gradient background, soft boxes      | E-commerce, advertising     |
+| **Street**      | Urban, spontaneous            | 35mm, available light, grain               | Urban life, culture         |
+| **Fine Art**    | Conceptual, artistic          | Intentional, gallery-worthy                | Exhibition, artistic vision |
+| **Lifestyle**   | Natural, relatable            | Soft natural light, authentic moments      | Branding, social media      |
+
+#### R2. Illustration Styles
+
+| Style            | Visual Characteristics            | Example Prompt Fragment                    |
+| ---------------- | --------------------------------- | ------------------------------------------ |
+| **Vector**       | Clean lines, flat colors, scalable| "vector illustration with clean lines"     |
+| **Hand-Drawn**   | Organic, imperfect, textured      | "hand-drawn sketch with pencil texture"    |
+| **Cel-Shaded**   | Hard shadows, anime-influenced    | "cel-shaded illustration style"            |
+| **Ink**          | Bold linework, high contrast      | "ink illustration with bold brushwork"     |
+| **Watercolor**   | Soft washes, translucent layers   | "delicate watercolor with soft washes"     |
+| **Digital Paint**| Painterly with digital precision  | "digital painting with visible brushwork"  |
+| **Charcoal**     | Soft, smudged, dramatic           | "charcoal drawing with dramatic shadows"   |
+| **Gouache**      | Opaque, matte, illustrative       | "gouache illustration with matte finish"   |
+
+#### R3. 3D Rendering Styles
+
+| Style           | Visual Characteristics            | Example Prompt Fragment                    |
+| --------------- | --------------------------------- | ------------------------------------------ |
+| **Pixar/Disney**| Stylized, appealing, polished     | "Pixar-style 3D character render"          |
+| **Clay/Claymation**| Handmade, textured, tactile    | "clay render with fingerprint textures"    |
+| **Isometric**   | Fixed 30-degree angle, no perspective| "isometric 3D view of the scene"        |
+| **Hyperreal**   | Indistinguishable from photo      | "hyperrealistic 3D render, Octane"         |
+| **Low-Poly**    | Geometric, faceted, stylized      | "low-poly 3D art with faceted geometry"    |
+| **Octane/Corona**| Photorealistic rendering engines | "rendered in Octane, ray-traced lighting"  |
+| **Voxel**       | Cube-based, Minecraft-like        | "voxel art style 3D render"                |
+| **Stylized 3D** | Exaggerated proportions, artistic | "stylized 3D with exaggerated features"    |
+
+#### R4. Movement & Era Aesthetics
+
+| Movement/Era         | Visual Characteristics               | Example Prompt Fragment                      |
+| -------------------- | ------------------------------------ | -------------------------------------------- |
+| **Cyberpunk**        | Neon, rain, urban decay, tech       | "cyberpunk aesthetic with neon and rain"     |
+| **Retrofuturism**    | Past's vision of future             | "retrofuturistic 1960s space age design"     |
+| **Minimalist**       | Sparse, essential, clean            | "minimalist composition with negative space" |
+| **Brutalist**        | Raw concrete, imposing, geometric   | "brutalist architecture aesthetic"           |
+| **Art Nouveau**      | Organic curves, nature motifs       | "art nouveau style with flowing lines"       |
+| **Art Deco**         | Geometric, luxurious, bold          | "art deco design with gold accents"          |
+| **1970s Kodachrome** | Warm tones, nostalgic grain         | "1970s Kodachrome aesthetic, warm tones"     |
+| **Film Noir**        | High contrast B&W, dramatic shadows | "film noir with dramatic chiaroscuro"        |
+| **2000s OVA**        | Early digital anime aesthetic       | "2000s anime OVA visual style"               |
+| **Vaporwave**        | 80s/90s nostalgia, pink/cyan/purple | "vaporwave aesthetic with retro elements"    |
+
+#### R5. Anime & Manga Sub-Types
+
+| Style              | Characteristics                    | Example Prompt Fragment                     |
+| ------------------ | ---------------------------------- | ------------------------------------------- |
+| **Standard Anime** | Clean lines, large eyes, colorful  | "anime style illustration"                  |
+| **Chibi/SD**       | Super-deformed, cute proportions   | "chibi character with oversized head"       |
+| **Q-Style**        | Chinese cute style, simplified     | "Q-style character design"                  |
+| **Manga Screentone**| Black & white with dot patterns   | "manga panel with screentone shading"       |
+| **Cel Shading**    | Hard-edged shadows, flat colors    | "cel-shaded anime with bold shadows"        |
+| **Painterly Anime**| Anime meets digital painting       | "painterly anime style illustration"        |
+| **90s Anime**      | Softer colors, distinctive eye style| "90s anime aesthetic"                       |
+| **Studio Ghibli**  | Soft, detailed backgrounds, warm   | "Studio Ghibli inspired illustration"       |
+
+#### R6. Fine Art Movements
+
+| Movement           | Characteristics                     | Example Prompt Fragment                     |
+| ------------------ | ----------------------------------- | ------------------------------------------- |
+| **Impressionism**  | Visible brushstrokes, light focus   | "impressionist painting with visible brush" |
+| **Surrealism**     | Dreamlike, impossible, symbolic     | "surrealist scene in style of Dali"         |
+| **Pop Art**        | Bold colors, commercial imagery     | "pop art style with Warhol influence"       |
+| **Baroque**        | Dramatic, ornate, rich colors       | "baroque painting with dramatic lighting"   |
+| **Renaissance**    | Classical proportions, realism      | "renaissance painting technique"            |
+| **Expressionism**  | Emotional, distorted, vivid         | "expressionist style with bold emotion"     |
+
+---
+
+### A - ATMOSPHERE (20%) - 7 Sub-Categories
+
+The Atmosphere component defines the FEELING and MOOD of the image.
+
+#### A1. Lighting with Color Temperature (Kelvin)
+
+| Lighting Type       | Kelvin Range  | Visual Quality                | Mood                        |
+| ------------------- | ------------- | ----------------------------- | --------------------------- |
+| **Candlelight**     | 1800-2000K    | Warm orange, intimate         | Romantic, cozy, historical  |
+| **Golden Hour**     | 2700-3500K    | Warm, soft, directional       | Romantic, dreamy, cinematic |
+| **Tungsten Indoor** | 3000-3500K    | Warm artificial, yellow-orange| Cozy, domestic, nostalgic   |
+| **Sunrise/Sunset**  | 3500-4500K    | Warm to neutral transition    | Hopeful, transitional       |
+| **Studio Softbox**  | 5000-5500K    | Neutral, balanced, clean      | Professional, commercial    |
+| **Daylight**        | 5500-6500K    | Neutral to cool, clear        | Natural, fresh, honest      |
+| **Blue Hour**       | 5600-9000K+   | Cool blue, twilight           | Mysterious, melancholic     |
+| **Overcast**        | 6500-7500K    | Soft, diffused, cool          | Subdued, peaceful, even     |
+| **Shade**           | 7000-8000K    | Cool, soft, open              | Gentle, calm                |
+| **Chiaroscuro**     | Variable      | Dramatic light/shadow         | Dramatic, classical, moody  |
+| **Volumetric**      | Variable      | Visible light rays/god rays   | Atmospheric, divine, epic   |
+
+#### A2. Mood Vocabulary Bank
+
+| Mood Category    | Descriptors                                                              |
+| ---------------- | ------------------------------------------------------------------------ |
+| **Warm/Positive**| Sun-kissed, warm, intimate, cozy, inviting, joyful, hopeful, serene     |
+| **Ethereal**     | Ethereal, dreamy, otherworldly, mystical, transcendent, floating         |
+| **Cinematic**    | Cinematic, dramatic, epic, sweeping, theatrical, larger-than-life        |
+| **Dark/Moody**   | Ominous, melancholic, moody, noir-inspired, brooding, somber, haunting   |
+| **Energetic**    | Dynamic, vibrant, electric, pulsing, energetic, explosive                |
+| **Peaceful**     | Tranquil, calm, meditative, still, quiet, restful, harmonious            |
+| **Mysterious**   | Enigmatic, secretive, hidden, veiled, cryptic, alluring                  |
+| **Nostalgic**    | Vintage, retro, wistful, sentimental, timeless, classic                  |
+
+#### A3. Color Temperature Systems
+
+| Palette           | Color Composition              | Mood/Application              | HEX Examples                 |
+| ----------------- | ------------------------------ | ----------------------------- | ---------------------------- |
+| **Warm Earth**    | Terracotta, ochre, sienna, umber| Organic, natural, grounded   | #CC7351, #D4A574, #8B4513    |
+| **Cool Nordic**   | Slate, ice blue, white, grey   | Clean, minimal, Scandinavian  | #708090, #B0E0E6, #F5F5F5    |
+| **Sunset**        | Orange, coral, pink, purple    | Romantic, dramatic, warm      | #FF6B6B, #FF8C69, #C06C84    |
+| **Neon Cyber**    | Hot pink, electric blue, lime  | Futuristic, edgy, urban       | #FF00FF, #00FFFF, #39FF14    |
+| **Vintage Muted** | Faded tones, sepia hints, cream| Nostalgic, timeless, soft     | #D4C5B2, #A89F91, #F5F0E6    |
+| **Pastel Dream**  | Soft pink, lavender, mint, peach| Gentle, whimsical, delicate  | #FFB6C1, #E6E6FA, #98FB98    |
+| **Monochromatic** | Single hue variations          | Unified, artistic, bold       | Various single-hue ranges    |
+| **Complementary** | Opposite color wheel pairs     | Vibrant, high contrast        | Blue/Orange, Purple/Yellow   |
+
+#### A4. Weather & Environmental Conditions
+
+| Condition          | Visual Effect                   | Mood                          | Example Prompt Fragment        |
+| ------------------ | ------------------------------- | ----------------------------- | ------------------------------ |
+| **Volumetric Fog** | Visible atmosphere, depth       | Mysterious, ethereal          | "volumetric fog diffusing light"|
+| **Rain-Soaked**    | Wet surfaces, reflections       | Moody, cinematic, urban       | "rain-soaked streets reflecting neon"|
+| **Sun-Dappled**    | Light through foliage           | Peaceful, natural, dreamy     | "sun-dappled forest floor"     |
+| **Stormy**         | Dark clouds, dramatic light     | Tension, drama, power         | "stormy sky with dramatic clouds"|
+| **Mist/Haze**      | Soft atmospheric diffusion      | Dreamy, mysterious            | "morning mist hanging low"     |
+| **Snow**           | White, reflective, cold         | Pure, quiet, isolating        | "fresh snow covering landscape"|
+| **Dust/Sand**      | Warm particulates, haze         | Desert, apocalyptic, harsh    | "dust particles in sunbeam"    |
+| **Clear**          | Crisp, sharp visibility         | Clean, honest, vibrant        | "crystal clear atmosphere"     |
+
+#### A5. Time of Day
+
+| Time              | Light Quality                   | Color Cast                    | Mood                          |
+| ----------------- | ------------------------------- | ----------------------------- | ----------------------------- |
+| **Pre-Dawn**      | Deep blue, minimal light        | Cool blue to purple           | Quiet, anticipatory           |
+| **Dawn**          | Soft, pink to orange emerging   | Pink, peach, gold             | Hopeful, fresh, new           |
+| **Golden Hour AM**| Warm, soft, directional         | Warm gold, amber              | Romantic, flattering          |
+| **Morning**       | Bright, clean, energetic        | Neutral to warm               | Fresh, productive, clear      |
+| **Midday**        | Harsh, overhead, high contrast  | Neutral, desaturated          | Intense, documentary          |
+| **Afternoon**     | Warm, angled light              | Warm, amber tones             | Relaxed, golden               |
+| **Golden Hour PM**| Rich, warm, long shadows        | Deep gold, orange             | Romantic, cinematic           |
+| **Blue Hour**     | Cool, twilight, ethereal        | Deep blue, purple             | Mysterious, magical           |
+| **Night**         | Artificial or moonlight         | Variable by source            | Dramatic, intimate, urban     |
+
+#### A6. Lighting Techniques
+
+| Technique          | Setup Description               | Effect                        | Best For                      |
+| ------------------ | ------------------------------- | ----------------------------- | ----------------------------- |
+| **Rembrandt**      | 45-degree key light             | Triangle under eye shadow     | Dramatic portraits            |
+| **Butterfly**      | Overhead frontal light          | Shadow under nose             | Beauty, glamour               |
+| **Split**          | Light from one side only        | Half face lit/dark            | Dramatic, mysterious          |
+| **Rim/Edge**       | Backlight creating outline      | Subject separation            | Cinematic, dramatic           |
+| **Loop**           | Slight side angle               | Small nose shadow             | Flattering portraits          |
+| **Broad**          | Light on face side toward camera| Face appears wider            | Thinner subjects              |
+| **Short**          | Light on face side away from camera| Face appears narrower      | Rounder subjects              |
+| **High Key**       | Bright, minimal shadows         | Airy, optimistic              | Fashion, commercial           |
+| **Low Key**        | Predominantly dark, shadows     | Dramatic, moody               | Film noir, drama              |
+
+#### A7. Depth of Field & Focus
+
+| DOF Type          | Aperture Equivalent | Visual Effect                 | Use Case                      |
+| ----------------- | ------------------- | ----------------------------- | ----------------------------- |
+| **Ultra Shallow** | f/1.2 - f/1.8       | Extreme bokeh, dreamy         | Intimate portraits, detail    |
+| **Shallow**       | f/2 - f/2.8         | Soft background blur          | Portraits, products           |
+| **Moderate**      | f/4 - f/5.6         | Subject sharp, background soft| Environmental portraits       |
+| **Deep**          | f/8 - f/11          | Most elements sharp           | Landscapes, group shots       |
+| **Maximum**       | f/16 - f/22         | Everything sharp, starburst   | Architecture, landscapes      |
+| **Tilt-Shift**    | Variable selective  | Miniature/toy effect          | Cityscapes, creative          |
+
+---
+
+### M - MODIFIERS (15%) - 6 Sub-Categories
+
+The Modifiers component defines TECHNICAL PARAMETERS and platform-specific controls.
+
+#### M1. Aspect Ratio Presets
+
+| Ratio   | Dimensions Example | Platform/Use Case                           | Best For                      |
+| ------- | ------------------ | ------------------------------------------- | ----------------------------- |
+| **1:1** | 1024x1024          | Instagram, social media square              | Profiles, product shots       |
+| **4:5** | 1080x1350          | Instagram portrait, Pinterest               | Portraits, fashion            |
+| **3:2** | 1536x1024          | Standard photography (DSLR native)          | Photography, prints           |
+| **16:9**| 1920x1080          | Cinematic, video, widescreen                | Film stills, banners          |
+| **9:16**| 1080x1920          | Stories, Reels, TikTok, mobile              | Vertical video, stories       |
+| **2:3** | 1024x1536          | Portrait orientation, posters               | Portraits, book covers        |
+| **21:9**| 2560x1080          | Ultra-widescreen, cinematic                 | Epic landscapes, banners      |
+| **4:3** | 1024x768           | Traditional screen ratio                    | Presentations, classic        |
+
+#### M2. Platform-Specific Quality Markers
+
+| Platform         | Quality Markers                              | Avoid                         |
+| ---------------- | -------------------------------------------- | ----------------------------- |
+| **Flux 2 Pro**   | Not needed (understood inherently)           | "4K, 8K, masterpiece"         |
+| **Imagen 4**     | Not needed (quality is automatic)            | Quality keywords              |
+| **Midjourney**   | `--q 2` for max, `--style raw` for realism   | Excessive quality words       |
+| **DALL-E 3**     | Describe detail level naturally              | Tag-style quality boosters    |
+| **SD/SDXL**      | "masterpiece, best quality, highly detailed" | Nothing (these help)          |
+| **Leonardo**     | Built-in quality presets                     | Redundant quality terms       |
+| **Ideogram**     | Not needed                                   | Quality keywords              |
+
+#### M3. Emphasis Syntax by Platform
+
+| Platform         | Emphasis Method                              | Example                       |
+| ---------------- | -------------------------------------------- | ----------------------------- |
+| **Midjourney**   | `::2` weight, `--sref` style, `--cref` char  | `dragon::2 castle::1`         |
+| **SD/SDXL**      | `(element:1.4)` weight syntax                | `(golden hair:1.3)`           |
+| **FLUX**         | "with emphasis on", "focusing on"            | "with emphasis on her eyes"   |
+| **DALL-E 3**     | Descriptive emphasis, word order             | "The most prominent feature..." |
+| **Imagen 4**     | Natural language priority                    | "primarily featuring..."      |
+
+#### M4. Reference Parameters
+
+| Platform         | Style Reference                    | Character Reference             | Usage                         |
+| ---------------- | ---------------------------------- | ------------------------------- | ----------------------------- |
+| **Midjourney**   | `--sref [URL]`                     | `--cref [URL]`                  | Append to prompt end          |
+| **Flux 2 Pro**   | Upload reference images            | Multi-reference (up to 10)      | API/interface supported       |
+| **Imagen 4**     | Upload up to 14 references         | Character consistency mode      | Multi-reference supported     |
+| **SD/SDXL**      | ControlNet, IP-Adapter             | LoRA for specific characters    | External tools required       |
+
+#### M5. Technical Camera Settings
+
+| Setting          | Options                            | Effect                          | Example                       |
+| ---------------- | ---------------------------------- | ------------------------------- | ----------------------------- |
+| **Lens**         | 14mm, 24mm, 35mm, 50mm, 85mm, 200mm| FOV, compression, distortion    | "shot with 85mm lens"         |
+| **Aperture**     | f/1.4, f/2.8, f/8, f/16            | Depth of field                  | "f/1.4 shallow depth"         |
+| **Camera**       | Canon, Nikon, Sony, Hasselblad     | Image character                 | "shot on Hasselblad"          |
+| **Film Stock**   | Kodak Portra, Fuji Pro, Cinestill  | Color rendering                 | "Kodak Portra 400 aesthetic"  |
+| **Format**       | 35mm, Medium Format, Large Format  | Detail, aspect, look            | "medium format photography"   |
+
+#### M6. Render Settings (3D/CGI)
+
+| Setting          | Options                            | Effect                          |
+| ---------------- | ---------------------------------- | ------------------------------- |
+| **Renderer**     | Octane, Corona, Arnold, V-Ray      | Render quality and style        |
+| **Samples**      | High sample count                  | Noise reduction, clarity        |
+| **GI**           | Global illumination                | Realistic light bounce          |
+| **Ray Tracing**  | RTX, path tracing                  | Realistic reflections/shadows   |
+| **Subsurface**   | SSS, translucency                  | Skin, wax, organic materials    |
+
+---
+
+### E - EXCLUSIONS (15%) - 5 Sub-Categories
+
+The Exclusions component defines what to AVOID (platform-dependent).
+
+#### E1. Structured Negative Categories
+
+| Category           | Common Issues                                  | Negative Prompt Terms                           |
+| ------------------ | ---------------------------------------------- | ----------------------------------------------- |
+| **Quality Issues** | Blur, noise, artifacts, compression            | blurry, low quality, jpeg artifacts, pixelated  |
+| **Anatomical**     | Wrong fingers, limbs, proportions              | bad anatomy, extra fingers, deformed hands      |
+| **Face/Body**      | Distorted features, asymmetry                  | ugly, disfigured, bad proportions, asymmetric   |
+| **Stylistic**      | Unwanted artistic elements                     | cartoon (if photorealistic), anime (if photo)   |
+| **Unwanted Elements**| Watermarks, text, logos, borders             | watermark, signature, text, logo, frame, border |
+| **Composition**    | Bad framing, cropping issues                   | cropped, out of frame, bad composition          |
+
+#### E2. Universal Negative Foundation Template
+
+For platforms supporting negative prompts (SD/SDXL, Leonardo):
+
+```
+BASIC FOUNDATION:
+lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit,
+fewer digits, cropped, worst quality, low quality, normal quality,
+jpeg artifacts, signature, watermark, username, blurry
+
+EXTENDED FOUNDATION:
+lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit,
+fewer digits, cropped, worst quality, low quality, normal quality,
+jpeg artifacts, signature, watermark, username, blurry, bad feet,
+poorly drawn hands, poorly drawn face, mutation, deformed, ugly,
+duplicate, morbid, mutilated, extra fingers, fused fingers, long neck,
+bad proportions, malformed limbs, missing arms, missing legs, extra arms,
+extra legs, mutated hands, disfigured, gross proportions
+```
+
+#### E3. Platform Exclusion Handling
+
+| Platform         | Negative Support | Handling Strategy                              |
+| ---------------- | ---------------- | ---------------------------------------------- |
+| **Flux 2 Pro**   | None (ignored)   | Describe what you WANT positively              |
+| **Imagen 4**     | None (ignored)   | Use positive descriptors only                  |
+| **Midjourney**   | Partial (`--no`) | `--no text, watermark` for simple exclusions   |
+| **DALL-E 3**     | None             | Rephrase negatives as positives                |
+| **SD/SDXL**      | Full support     | Use comprehensive negative prompt              |
+| **Leonardo**     | Full support     | Use structured negative prompt                 |
+| **Ideogram**     | None             | Positive descriptions only                     |
+
+#### E4. Positive Rephrasing Guide
+
+For platforms without negative prompts, rephrase exclusions as positive descriptions:
+
+| Instead of (Negative)           | Use (Positive)                                   |
+| ------------------------------- | ------------------------------------------------ |
+| "No blur"                       | "Sharp focus, crisp details"                     |
+| "No watermark"                  | "Clean, unobstructed image"                      |
+| "Avoid cartoon style"           | "Photorealistic rendering"                       |
+| "No extra fingers"              | "Anatomically correct hands with five fingers"   |
+| "Not crowded"                   | "Minimalist composition with breathing room"    |
+| "No harsh lighting"             | "Soft, diffused lighting"                        |
+| "Avoid cluttered background"    | "Clean, simple background with subtle bokeh"    |
+
+#### E5. Style-Specific Exclusions
+
+| Target Style      | Exclude These                                    | Why                                             |
+| ----------------- | ------------------------------------------------ | ----------------------------------------------- |
+| **Photorealistic**| illustration, cartoon, anime, painting, drawing  | Prevent stylization                             |
+| **Clean Product** | background elements, shadows, distractions       | Maintain focus                                  |
+| **Portrait**      | full body, environment, wide shot                | Keep intimacy                                   |
+| **Minimalist**    | clutter, busy, detailed background, ornate       | Preserve simplicity                             |
+| **Professional**  | amateur, casual, messy, candid                   | Maintain polish                                 |
+
+---
+
+### FRAME Sub-Category Summary
+
+| Component        | Sub-Categories                                                        | Count |
+| ---------------- | --------------------------------------------------------------------- | ----- |
+| **F - Focus**    | Shot Types, Camera Angles, Subject Hierarchy, Spatial Relationships, Composition Techniques, Subject Specificity | 6 |
+| **R - Rendering**| Photography Styles, Illustration Styles, 3D Rendering, Movement/Era Aesthetics, Anime/Manga Sub-Types, Fine Art Movements | 6 |
+| **A - Atmosphere**| Lighting (Kelvin), Mood Vocabulary, Color Temperature, Weather/Environmental, Time of Day, Lighting Techniques, Depth of Field | 7 |
+| **M - Modifiers**| Aspect Ratios, Quality Markers, Emphasis Syntax, Reference Parameters, Camera Settings, Render Settings | 6 |
+| **E - Exclusions**| Structured Negatives, Universal Foundation, Platform Handling, Positive Rephrasing, Style-Specific | 5 |
+| **TOTAL**        |                                                                       | **30** |
+
+---
 
 ### FRAME Application Process
 
