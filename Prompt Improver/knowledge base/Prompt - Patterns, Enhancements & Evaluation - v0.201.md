@@ -1,37 +1,37 @@
-# Prompt - Patterns, Enhancements & Evaluation - v0.200
+# Prompt - Patterns, Enhancements & Evaluation - v0.201
 
 Comprehensive framework library, enhancement patterns, and CLEAR evaluation methodology for systematic prompt engineering excellence.
 
 **Loading Condition:** TRIGGER
 **Purpose:** Provides the complete knowledge base for prompt engineering excellence through framework selection, systematic enhancement patterns, and CLEAR evaluation methodology.
-**Scope:** Framework library (RCAF, COSTAR, RACE, CIDI, TIDD-EC, CRISPE, CRAFT, VIBE, FRAME, MOTION) with selection algorithms, enhancement patterns, CLEAR/EVOKE/VISUAL scoring methodologies, recovery protocols, and mastery principles.
+**Scope:** Framework library (RCAF, COSTAR, RACE, CIDI, TIDD-EC, CRISPE, CRAFT, VIBE, VIBE-MP, FRAME, MOTION) with selection algorithms, enhancement patterns, CLEAR/EVOKE/VISUAL scoring methodologies, recovery protocols, and mastery principles.
 
 ---
 
 ## 📋 TABLE OF CONTENTS
 
 ### PART 1: FRAMEWORKS & PATTERNS
-1. [🎯 FRAMEWORK LIBRARY & SELECTION](#1--framework-library--selection)
-2. [🔧 FRAMEWORK DEEP DIVES](#2--framework-deep-dives)
-3. [🧠 ADVANCED PATTERN COMBINATIONS](#3--advanced-pattern-combinations)
-4. [🎨 FRAMEWORK OPTIMIZATION STRATEGIES](#4--framework-optimization-strategies)
+1. [FRAMEWORK LIBRARY & SELECTION](#1--framework-library--selection)
+2. [FRAMEWORK DEEP DIVES](#2--framework-deep-dives)
+3. [ADVANCED PATTERN COMBINATIONS](#3--advanced-pattern-combinations)
+4. [FRAMEWORK OPTIMIZATION STRATEGIES](#4--framework-optimization-strategies)
 
 ### PART 2: ENHANCEMENT PATTERNS
-5. [🚀 SYSTEMATIC ENHANCEMENT METHODOLOGY](#5--systematic-enhancement-methodology)
-6. [🔄 PATTERN-BASED REFINEMENTS](#6--pattern-based-refinements)
-7. [💎 EXCELLENCE PATTERNS](#7--excellence-patterns)
-8. [🛠️ RECOVERY & REPAIR PROTOCOLS](#8-️-recovery--repair-protocols)
+5. [SYSTEMATIC ENHANCEMENT METHODOLOGY](#5--systematic-enhancement-methodology)
+6. [PATTERN-BASED REFINEMENTS](#6--pattern-based-refinements)
+7. [EXCELLENCE PATTERNS](#7--excellence-patterns)
+8. [RECOVERY & REPAIR PROTOCOLS](#8-️-recovery--repair-protocols)
 
 ### PART 3: EVALUATION & SCORING
-9. [✅ CLEAR EVALUATION MASTERY](#9--clear-evaluation-mastery)
-10. [🖼️ VISUAL SCORING FOR IMAGE & VIDEO](#10-️-visual-scoring-for-image--video)
-11. [📈 ADVANCED SCORING TECHNIQUES](#11--advanced-scoring-techniques)
-12. [🔍 WEAKNESS DETECTION & ANALYSIS](#12--weakness-detection--analysis)
+9. [CLEAR EVALUATION MASTERY](#9--clear-evaluation-mastery)
+10. [VISUAL SCORING FOR IMAGE & VIDEO](#10-️-visual-scoring-for-image--video)
+11. [ADVANCED SCORING TECHNIQUES](#11--advanced-scoring-techniques)
+12. [WEAKNESS DETECTION & ANALYSIS](#12--weakness-detection--analysis)
 
 ### PART 4: PRACTICAL IMPLEMENTATION
-13. [📊 USE CASE TEMPLATES](#13--use-case-templates)
-14. [🎓 MASTERY PRINCIPLES](#14--mastery-principles)
-15. [🏎️ QUICK REFERENCE CARD](#15-️-quick-reference-card)
+13. [USE CASE TEMPLATES](#13--use-case-templates)
+14. [MASTERY PRINCIPLES](#14--mastery-principles)
+15. [QUICK REFERENCE CARD](#15-️-quick-reference-card)
 
 ---
 
@@ -150,7 +150,7 @@ Used with VIBE/VIBE-MP frameworks for UI concepting:
 
 #### RCAF Mastery Patterns
 
-**Pattern 1: Layered RCAF**
+**Pattern 1: Layered RCAF** (Representative Example)
 ```yaml
 layered_rcaf:
   role:
@@ -171,44 +171,15 @@ layered_rcaf:
     deliverables: "[Specific outputs]"
 ```
 
-**Pattern 2: RCAF with Embedded Metrics**
-```yaml
-metric_rcaf:
-  role: "[Expert] measured by [KPI]"
-  context: "[Situation] with success defined as [metric]"
-  action: "[Task] achieving minimum [threshold]"
-  format: "[Output] demonstrating [measurable quality]"
-```
+**RCAF Pattern Summary:**
 
-**Pattern 3: Conditional RCAF**
-```yaml
-conditional_rcaf:
-  role: "[Expert who adapts based on conditions]"
-  context:
-    if_condition_a: "[context variant A]"
-    else: "[context variant B]"
-  action:
-    when_trigger: "[action variant A]"
-    otherwise: "[action variant B]"
-  format: "Adapt output based on [criteria]"
-```
+| Pattern | Key Feature | When to Use |
+|---------|-------------|-------------|
+| Layered RCAF | Multi-level context stacking | Complex multi-audience prompts |
+| RCAF + Metrics | Embedded success criteria | Measurable outcome prompts |
+| Conditional RCAF | If-then role variations | Context-dependent responses |
 
 #### COSTAR Enhancement Techniques
-
-**Audience Layering:**
-```yaml
-audience_layers:
-  primary:
-    profile: "[Main reader detailed description]"
-    concerns: "[Primary interests]"
-    knowledge: "[Technical level]"
-  secondary:
-    stakeholders: "[Other involved parties]"
-    influence: "[Decision power]"
-  adaptation:
-    content: "Tailor to primary while acknowledging secondary"
-    tone: "Balance formality levels"
-```
 
 **Style-Tone Matrix:**
 
@@ -221,28 +192,13 @@ audience_layers:
 
 #### TIDD-EC Excellence: Cascading Examples
 
-```yaml
-cascading_examples:
-  basic:
-    description: "Simple case"
-    input: "[basic input]"
-    output: "[basic output]"
-    explanation: "[why this works]"
-  intermediate:
-    description: "Typical case"
-    input: "[standard input]"
-    output: "[standard output]"
-  advanced:
-    description: "Complex case"
-    input: "[complex input]"
-    output: "[complex output]"
-  edge_case:
-    description: "Unusual scenario"
-    handling: "[special considerations]"
-  anti_pattern:
-    description: "What not to do"
-    explanation: "[why to avoid]"
-```
+| Level | Description | Key Elements |
+|-------|-------------|--------------|
+| Basic | Simple case | Input → output with explanation |
+| Intermediate | Typical case | Standard input → output |
+| Advanced | Complex case | Complex input → output |
+| Edge Case | Unusual scenario | Special handling considerations |
+| Anti-Pattern | What to avoid | Why to avoid (explanation) |
 
 #### FRAME Framework (Image Generation)
 
@@ -340,27 +296,9 @@ motion_structure:
 4. Camera movement first
 5. Image-to-video: 20-40 words; Text-to-video: 50-80 words
 
-**Platform Mental Models:**
-
-| Platform | Metaphor | Thinking Style | Prompt Focus |
-|----------|----------|----------------|--------------|
-| **Runway Gen-4.5** | Kinetic Sculptor | Physics, forces, motion vectors | Describe forces acting on objects, motion paths |
-| **Sora** | Physics Simulator | Cause-and-effect, world logic | Describe causal chains, realistic interactions |
-| **Kling 2.6** | Audio-Visual Choreographer | Timeline, beats, synchronization | Timeline structure, beat markers, audio sync |
-| **Veo 3.1** | Rendering Engine | Structured data, references | Clear specifications, reference-style data |
-
-**Physics Language:**
-
-| Descriptor | Use For |
-|------------|---------|
-| Rigidity | Object maintains shape during motion |
-| Gravity | Objects obey gravitational physics |
-| Impact | Collision effects are realistic |
-| Momentum | Motion continues naturally |
-
 **See Prompt - Video Mode for complete platform mental models, physics vocabulary, and audio integration guidance.**
 
-**Platform Syntax:**
+**Platform Syntax (Top 5):**
 
 | Platform | Max Duration | Key Features | Audio |
 |----------|--------------|--------------|-------|
@@ -369,22 +307,13 @@ motion_structure:
 | **Kling 2.5/2.6** | 5 min | Motion brush, reversed pan/tilt terminology | Yes (2.6) |
 | **Veo 3.1+** | 148 sec | Native audio, cinematography | Yes |
 | **Pika 2.5** | 10 sec | Pikaswaps, lip sync | No |
-| **Luma Ray3** | 10 sec | Keyframe control, draft mode | No |
-| **Minimax** | 6 sec | Director mode, high consistency | No |
-| **Seedance 1.5** | 10 sec | Audio-visual sync, multi-shot | Yes |
-| **OmniHuman 1.5** | 30 sec | Audio-driven avatar animation | Input |
-| **Wan 2.1** | 5 sec | Text rendering, FLF2V | No |
 
 **Master Prompt Formula:**
-
-Quick-reference patterns for rapid prompting:
 
 | Mode | Formula |
 |------|---------|
 | **Image** | Subject → Setting → Lighting → Style → Camera → Technical |
 | **Video** | Camera Movement → Subject → Action → Setting → Atmosphere → Style → Audio |
-
-These complement FRAME/MOTION for quick starts; use full frameworks for refinement.
 
 ---
 
@@ -416,12 +345,11 @@ costar_react_fusion:
   audience: "[Stakeholders needing transparency]"
   response:
     cycle_format:
-      iteration:
-        thought: "[Current reasoning]"
-        action: "[What to do]"
-        observation: "[Result]"
-      repeat_until: "[Success criteria met]"
-      max_iterations: 5
+      thought: "[Current reasoning]"
+      action: "[What to do]"
+      observation: "[Result]"
+    repeat_until: "[Success criteria met]"
+    max_iterations: 5
 ```
 
 **TIDD-EC + Few-Shot**
@@ -433,8 +361,8 @@ tidd_ec_fewshot:
   donts: ["Deviate from patterns", "Ignore edge cases"]
   examples:
     case_1: {input: "[ex1]", output: "[out1]", explanation: "[pattern]"}
-    case_2: {input: "[ex2]", output: "[out2]", explanation: "[reinforce]"}
-    case_3: {input: "[ex3]", output: "[out3]", explanation: "[variation]"}
+    case_2: {input: "[ex2]", output: "[out2]"}
+    case_3: {input: "[ex3]", output: "[out3]"}
   context: "Apply learned patterns to new inputs"
 ```
 
@@ -462,12 +390,10 @@ optimize_framework_tokens:
       context: {method: filter_essential_only, remove: non_critical_details}
       action: {method: single_clear_verb, remove: multiple_actions}
       format: {method: structure_only, remove: style_descriptions}
-
     costar_optimization:
       merge_overlapping: {combine: [style, tone], into: style_tone}
       audience: {limit: 3_essential_characteristics}
       response: {remove: redundant_specifications}
-
     race_optimization:
       ultra_minimal: true
       single_line_per_element: true
@@ -530,67 +456,36 @@ enhancement_pipeline:
 
 #### Vague to Specific Transformation
 
-```yaml
-vague_to_specific:
-  detection:
-    triggers:
-      - vague_verbs: ["help", "assist", "handle", "deal with"]
-      - vague_nouns: ["things", "stuff", "data", "information"]
-      - missing_metrics: no_measurable_outcomes
-      - missing_scope: no_boundaries_defined
+| Detection | Transformation | Example |
+|-----------|----------------|---------|
+| Vague verbs: help, assist, handle | Add specific role | "Help analyze" → "Data analyst specializing in [domain]" |
+| Vague nouns: things, stuff, data | Specify context | "customer data" → "[Platform] data, [Time period], [N] records" |
+| Missing metrics | Define action | "analyze" → "Identify [X] patterns, segment by [criteria]" |
+| Missing scope | Clarify format | "provide results" → "[Format type] with [specific sections]" |
 
-  transformation:
-    add_role: "Help analyze" → "Data analyst specializing in [domain]"
-    specify_context: "customer data" → "[Platform] data, [Time period], [N] records"
-    define_action: "analyze and provide insights" → "Identify [X] patterns, segment by [criteria]"
-    clarify_format: "provide results" → "[Format type] with [specific sections]"
-
-  impact:
-    clear_score_gain: "+15 to +20"
-    primary_dimension: "Expression and Logic"
-```
+**Impact:** CLEAR +15 to +20 | Primary: Expression and Logic
 
 #### Assumption Elimination
 
-```yaml
-assumption_elimination:
-  detection:
-    implicit_references:
-      - "our system"      # What system?
-      - "the usual format" # What format?
-      - "standard approach" # What standard?
-      - "as discussed"     # When discussed?
+| Implicit Reference | Replacement |
+|-------------------|-------------|
+| "our system" | [Specific tech stack description] |
+| "the usual format" | [Exact format specification] |
+| "standard approach" | [Specific methodology] |
+| "as discussed" | [Reference or full context] |
 
-  replacement_map:
-    our_system: "[Specific tech stack description]"
-    usual_format: "[Exact format specification]"
-    standard_approach: "[Specific methodology]"
-    as_discussed: "[Reference or full context]"
-
-  impact:
-    clear_score_gain: "+3 to +5"
-    primary_dimension: "Correctness"
-```
+**Impact:** CLEAR +3 to +5 | Primary: Correctness
 
 #### Scope Boundary Definition
 
 ```yaml
 scope_boundaries:
-  additions:
-    included:
-      prefix: "This includes:"
-      items: "[Explicit list of what's in scope]"
-    excluded:
-      prefix: "This excludes:"
-      items: "[Explicit list of what's out of scope]"
-    edge_cases:
-      prefix: "Edge cases:"
-      handling: "[How to handle boundary scenarios]"
-
-  impact:
-    clear_score_gain: "+4 to +6"
-    primary_dimension: "Logic/Coverage"
+  included: {prefix: "This includes:", items: "[Explicit list of what's in scope]"}
+  excluded: {prefix: "This excludes:", items: "[Explicit list of what's out of scope]"}
+  edge_cases: {prefix: "Edge cases:", handling: "[How to handle boundary scenarios]"}
 ```
+
+**Impact:** CLEAR +4 to +6 | Primary: Logic/Coverage
 
 ---
 
@@ -598,57 +493,30 @@ scope_boundaries:
 
 #### Complete Context Layering (45+ CLEAR)
 
-```yaml
-complete_context_layering:
-  layers:
-    environmental:
-      description: "Where/when this happens"
-      elements: [location, timing, platform, environment]
-    historical:
-      description: "What led to this"
-      elements: [background, previous_attempts, lessons_learned]
-    constraints:
-      description: "Limitations"
-      elements: [technical, resource, time, regulatory]
-    resources:
-      description: "Available assets"
-      elements: [tools, data, team, budget]
-    dependencies:
-      description: "What this relies on"
-      elements: [upstream, downstream, external, internal]
-    stakeholders:
-      description: "Who's involved"
-      elements: [users, approvers, implementers, affected_parties]
+| Layer | Description | Elements |
+|-------|-------------|----------|
+| Environmental | Where/when this happens | location, timing, platform, environment |
+| Historical | What led to this | background, previous_attempts, lessons_learned |
+| Constraints | Limitations | technical, resource, time, regulatory |
+| Resources | Available assets | tools, data, team, budget |
+| Dependencies | What this relies on | upstream, downstream, external, internal |
+| Stakeholders | Who's involved | users, approvers, implementers, affected_parties |
 
-  implementation:
-    for_each_layer: assess_relevance
-    if_relevant: add_to_context
-    organize: hierarchical_structure
-```
+**Implementation:** For each layer → assess relevance → if relevant, add to context → organize hierarchically
 
 #### Multi-Level Success Criteria
 
-```yaml
-multi_level_success:
-  levels:
-    minimum_viable:
-      description: "Baseline acceptability"
-      threshold: "[Specific minimum requirements]"
-      measurement: "[How to measure]"
-    target:
-      description: "Expected outcome"
-      threshold: "[Standard success level]"
-      measurement: "[Metrics and KPIs]"
-    excellence:
-      description: "Exceptional result"
-      threshold: "[Stretch goals]"
-      measurement: "[Advanced metrics]"
+| Level | Description | Threshold | Measurement |
+|-------|-------------|-----------|-------------|
+| Minimum Viable | Baseline acceptability | [Specific minimum requirements] | [How to measure] |
+| Target | Expected outcome | [Standard success level] | [Metrics and KPIs] |
+| Excellence | Exceptional result | [Stretch goals] | [Advanced metrics] |
 
-  timeline:
-    immediate: "[Quick wins]"
-    short_term: "[30-day goals]"
-    long_term: "[90+ day goals]"
-```
+| Timeline | Goals |
+|----------|-------|
+| Immediate | [Quick wins] |
+| Short-term | [30-day goals] |
+| Long-term | [90+ day goals] |
 
 ---
 
@@ -659,29 +527,16 @@ multi_level_success:
 ```yaml
 repair_framework:
   recognize:
-    description: "Identify all issues"
-    issue_categories:
-      critical: []  # Must fix
-      major: []     # Should fix
-      minor: []     # Nice to fix
-      style: []     # Optional
+    description: "Identify all issues by category (critical, major, minor, style)"
     process: "Load error patterns, match against prompt, categorize"
 
   explain:
     description: "Explain impact with examples"
-    for_each_issue:
-      - what: issue_description
-      - why_matters: impact_explanation
-      - example_failure: failure_scenario
-      - fix_preview: solution_preview
+    for_each_issue: [what, why_matters, example_failure, fix_preview]
 
   propose:
     description: "Generate fix proposals"
-    for_each_issue:
-      - solutions: generate_solution_options
-      - effort: estimate_effort_required
-      - impact: estimate_improvement_gain
-      - priority: calculate_priority_score
+    for_each_issue: [solutions, effort, impact, priority]
     sort_by: priority_descending
 
   apply:
@@ -694,19 +549,12 @@ repair_framework:
 
   iterate:
     description: "Iterate until quality target met"
-    configuration:
-      max_iterations: 5
-      target_clear_score: target_score
+    config: {max_iterations: 5, target_clear_score: target_score}
     process: "while iterations < max AND score < target: calculate → recognize → propose → apply"
 
   record:
     description: "Record for pattern learning"
-    learning_record:
-      - original_prompt
-      - final_prompt
-      - improvement_delta
-      - successful_patterns
-      - iterations_needed
+    learning_record: [original_prompt, final_prompt, improvement_delta, successful_patterns, iterations_needed]
 ```
 
 ---
@@ -844,28 +692,13 @@ calculate_visual_score:
 
 #### Multi-Pass Scoring
 
-```yaml
-multi_pass_scoring:
-  pass_1_surface:
-    name: "Surface Evaluation"
-    checks: [framework_presence, basic_completeness, obvious_issues]
-    depth: shallow
-    weight: 0.25
+| Pass | Name | Checks | Depth | Weight |
+|------|------|--------|-------|--------|
+| 1 | Surface Evaluation | Framework presence, basic completeness, obvious issues | Shallow | 0.25 |
+| 2 | Deep Analysis | Ambiguity detection, hidden assumptions, edge case coverage | Thorough | 0.40 |
+| 3 | Interaction Testing | AI interpretation, failure modes, output predictability | Comprehensive | 0.35 |
 
-  pass_2_deep:
-    name: "Deep Analysis"
-    checks: [ambiguity_detection, hidden_assumptions, edge_case_coverage]
-    depth: thorough
-    weight: 0.40
-
-  pass_3_interaction:
-    name: "Interaction Testing"
-    checks: [ai_interpretation, failure_modes, output_predictability]
-    depth: comprehensive
-    weight: 0.35
-
-  aggregation: weighted_average
-```
+**Aggregation:** Weighted average of pass scores
 
 #### Comparative Scoring
 
@@ -892,40 +725,31 @@ comparative_scoring:
 detect_prompt_weaknesses:
   weakness_detectors:
     vagueness:
-      checks:
-        - word_list: ["help", "assist", "some", "various"]
-        - unmeasurable_outcomes: no_metrics
-        - missing_specifics: lacks_detail
+      - word_list: ["help", "assist", "some", "various"]
+      - unmeasurable_outcomes
+      - missing_specifics
 
     incompleteness:
-      checks:
-        - missing_framework_elements
-        - undefined_terms
-        - assumed_knowledge
+      - missing_framework_elements
+      - undefined_terms
+      - assumed_knowledge
 
     ambiguity:
-      checks:
-        - multiple_interpretations
-        - pronoun_clarity
-        - modifier_attachment
+      - multiple_interpretations
+      - pronoun_clarity
+      - modifier_attachment
 
     structure:
-      checks:
-        - logical_flow
-        - element_organization
-        - hierarchy_clarity
+      - logical_flow
+      - element_organization
+      - hierarchy_clarity
 
     efficiency:
-      checks:
-        - redundancy
-        - token_waste
-        - unnecessary_complexity
+      - redundancy
+      - token_waste
+      - unnecessary_complexity
 
-  output:
-    weaknesses: categorized_issues
-    severity: calculated_severity
-    priority_fixes: prioritized_list
-    estimated_improvement: potential_clear_gain
+  output: [categorized_issues, severity_scores, priority_fixes, estimated_improvement]
 ```
 
 ---
@@ -969,29 +793,11 @@ code_review_template:
 ```yaml
 exploratory_data_analysis:
   framework: COSTAR
-  context: "Dataset with [N] records, [M] features, [quality issues]"
-  objective: "Understand data patterns and prepare for modeling"
-  style: "Technical but accessible to stakeholders"
-  tone: "Objective and data-driven"
+  context: "Dataset: [N] records, [M] features, [quality issues]"
+  objective: "Understand patterns, prepare for modeling"
+  style: "Technical but stakeholder-accessible"
   audience: "Data team and business analysts"
-  response:
-    format: "Jupyter notebook"
-    sections:
-      - "Data quality report"
-      - "Statistical summaries"
-      - "Visualization gallery"
-      - "Next steps recommendations"
-
-ab_test_analysis:
-  framework: CRAFT
-  context:
-    test: "[Control vs variant description]"
-    duration: "[Time period]"
-    sample_size: "[N per group]"
-  role: "Statistical analyst with experimentation expertise"
-  action: ["Validate setup", "Check power", "Analyze results", "Segment", "Conclude"]
-  format: ["Executive summary (1 page)", "Statistical details", "Recommendations"]
-  target: ["95% confidence", "Clear go/no-go decision"]
+  response: "Jupyter notebook with: data quality, stats, visualizations, recommendations"
 ```
 
 ---
@@ -1000,48 +806,18 @@ ab_test_analysis:
 
 #### Ten Commandments of Prompt Excellence
 
-```yaml
-prompt_excellence_commandments:
-  1_start_simple:
-    principle: "Start Simple, Enhance Gradually"
-    guidelines: ["Begin with RACE/RCAF", "Add complexity only when needed", "Stop when good enough"]
-
-  2_clarity_first:
-    principle: "Clarity Trumps Completeness"
-    guidelines: ["Better clear about less", "Than comprehensive but confusing", "Expression = 30% of CLEAR"]
-
-  3_right_tool:
-    principle: "Framework Fit Over Fancy"
-    guidelines: ["Right tool for job", "Not most sophisticated", "RCAF works for 80%"]
-
-  4_measure_everything:
-    principle: "Measure, Don't Guess"
-    guidelines: ["CLEAR score everything", "Track improvements", "Learn from patterns"]
-
-  5_show_dont_tell:
-    principle: "Examples Beat Explanations"
-    guidelines: ["One example > paragraph", "Show good and bad", "Include edge cases"]
-
-  6_constraints_liberate:
-    principle: "Constraints Liberate Creativity"
-    guidelines: ["Define boundaries", "Include what's NOT wanted", "Specify limits"]
-
-  7_token_economy:
-    principle: "Token Economy Matters"
-    guidelines: ["Every token has cost", "Balance detail/efficiency", "Optimize high-frequency"]
-
-  8_test_pessimistic:
-    principle: "Test with Pessimism"
-    guidelines: ["Assume misinterpretation", "Check edge cases", "Verify with variations"]
-
-  9_iterate_output:
-    principle: "Iterate Based on Output"
-    guidelines: ["Start with v1", "Refine based on results", "Stop at diminishing returns"]
-
-  10_document_reuse:
-    principle: "Document for Reuse"
-    guidelines: ["Build templates not one-offs", "Extract patterns", "Share knowledge"]
-```
+| # | Principle | Key Guidance |
+|---|-----------|--------------|
+| 1 | Start Simple, Enhance Gradually | Begin RACE/RCAF → Add complexity only when needed → Stop when good enough |
+| 2 | Clarity Trumps Completeness | Better clear about less than comprehensive but confusing → Expression = 30% of CLEAR |
+| 3 | Framework Fit Over Fancy | Right tool for job, not most sophisticated → RCAF works for 80% |
+| 4 | Measure, Don't Guess | CLEAR score everything → Track improvements → Learn from patterns |
+| 5 | Examples Beat Explanations | One example > paragraph → Show good and bad → Include edge cases |
+| 6 | Constraints Liberate Creativity | Define boundaries → Include what's NOT wanted → Specify limits |
+| 7 | Token Economy Matters | Every token has cost → Balance detail/efficiency → Optimize high-frequency |
+| 8 | Test with Pessimism | Assume misinterpretation → Check edge cases → Verify with variations |
+| 9 | Iterate Based on Output | Start with v1 → Refine based on results → Stop at diminishing returns |
+| 10 | Document for Reuse | Build templates not one-offs → Extract patterns → Share knowledge |
 
 #### Excellence Formula
 
