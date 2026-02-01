@@ -1,4 +1,4 @@
-# Prompt - Patterns, Enhancements & Evaluation - v0.115
+# Prompt - Patterns, Enhancements & Evaluation - v0.200
 
 Comprehensive framework library, enhancement patterns, and CLEAR evaluation methodology for systematic prompt engineering excellence.
 
@@ -273,24 +273,30 @@ frame_structure:
     negative: "[Elements to avoid]"
 ```
 
-**FRAME Vocabulary Banks:**
+**FRAME Vocabulary Banks (30 Sub-Categories):**
 
-| Category | Terms |
-|----------|-------|
-| **Shot Types** | Extreme wide, wide, medium, close-up, extreme close-up, macro, portrait |
-| **Camera Angles** | Eye-level, low angle, high angle, bird's eye, Dutch angle |
-| **Lighting** | Golden hour, Rembrandt, butterfly, rim light, volumetric, god rays |
-| **Styles** | Photorealistic, editorial, cinematic, anime, concept art, minimalist |
-| **Mood** | Serene, melancholic, energetic, mysterious, ethereal, dramatic |
+| Component | Sub-Categories | Examples |
+|-----------|---------------|----------|
+| **F - Focus** | Shot Types, Camera Angles, Subject Hierarchy, Spatial Relationships, Composition Techniques, Subject Specificity | Extreme wide, eye-level, primary/secondary/background, rule of thirds |
+| **R - Rendering** | Photography Styles, Illustration Styles, 3D Rendering, Movement & Era Aesthetics, Anime Sub-Types, Fine Art | Editorial, cel-shaded, Pixar, cyberpunk, chibi, impressionist |
+| **A - Atmosphere** | Lighting (Kelvin), Mood Vocabulary, Color Temperature, Weather/Environmental, Time of Day, Lighting Techniques, Depth of Field | Golden hour (2700K), ethereal, warm earth palette, volumetric fog |
+| **M - Modifiers** | Aspect Ratios, Quality Markers, Emphasis Syntax, Reference Parameters, Camera Settings, Render Settings | 16:9, --sref, (element:1.4), f/1.4 |
+| **E - Exclusions** | Negative Categories, Universal Foundation, Platform Handling, Positive Rephrasing, Style-Specific | Quality issues, anatomical flaws, DALL-E rephrasing |
+
+**See Prompt - Image Mode for complete sub-category details and examples.**
 
 **Platform Modifiers:**
 
-| Platform | Key Parameters |
-|----------|----------------|
-| **Midjourney** | `--ar`, `--s`, `--chaos`, `--q`, `--style raw`, `--sref` |
-| **DALL-E 3** | Size (1024x1024, 1792x1024), Style (vivid/natural) |
-| **Stable Diffusion** | `(weight:1.5)`, negative prompts, CFG scale |
-| **Flux** | Guidance scale, aspect ratio (no negatives) |
+| Platform | Key Parameters | Negatives |
+|----------|----------------|-----------|
+| **Midjourney** | `--ar`, `--s`, `--chaos`, `--sref`, `--cref`, `--no` | Partial (`--no`) |
+| **DALL-E 3** | Size, Style (vivid/natural) | No (rephrase positively) |
+| **Stable Diffusion** | `(weight:1.5)`, CFG scale, steps | Yes (dedicated field) |
+| **Flux** | Guidance scale, HEX colors | No (ignored) |
+| **Imagen 4** | Aspect ratio, multi-reference | No |
+| **Ideogram** | Text rendering focus | No |
+| **Leonardo** | Style presets | Yes |
+| **Seedream** | Speed optimization | No |
 
 #### MOTION Framework (Video Generation)
 
@@ -334,15 +340,51 @@ motion_structure:
 4. Camera movement first
 5. Image-to-video: 20-40 words; Text-to-video: 50-80 words
 
+**Platform Mental Models:**
+
+| Platform | Metaphor | Thinking Style | Prompt Focus |
+|----------|----------|----------------|--------------|
+| **Runway Gen-4.5** | Kinetic Sculptor | Physics, forces, motion vectors | Describe forces acting on objects, motion paths |
+| **Sora** | Physics Simulator | Cause-and-effect, world logic | Describe causal chains, realistic interactions |
+| **Kling 2.6** | Audio-Visual Choreographer | Timeline, beats, synchronization | Timeline structure, beat markers, audio sync |
+| **Veo 3.1** | Rendering Engine | Structured data, references | Clear specifications, reference-style data |
+
+**Physics Language:**
+
+| Descriptor | Use For |
+|------------|---------|
+| Rigidity | Object maintains shape during motion |
+| Gravity | Objects obey gravitational physics |
+| Impact | Collision effects are realistic |
+| Momentum | Motion continues naturally |
+
+**See Prompt - Video Mode for complete platform mental models, physics vocabulary, and audio integration guidance.**
+
 **Platform Syntax:**
 
-| Platform | Max Duration | Key Features |
-|----------|--------------|--------------|
-| **Runway Gen-3/4** | 10 sec | 6 camera movement types |
-| **Sora** | 60 sec | Natural language, no negatives |
-| **Kling 2.5** | 5 min | Motion brush, point-to-point |
-| **Luma Ray3** | 10 sec | Start/end keyframes |
-| **Veo 3** | 60 sec | Native audio cues |
+| Platform | Max Duration | Key Features | Audio |
+|----------|--------------|--------------|-------|
+| **Runway Gen-4/4.5** | 10 sec | 6 camera movement types, Motion Brush | No |
+| **Sora** | 20 sec | Natural language, physics simulation | No |
+| **Kling 2.5/2.6** | 5 min | Motion brush, reversed pan/tilt terminology | Yes (2.6) |
+| **Veo 3.1+** | 148 sec | Native audio, cinematography | Yes |
+| **Pika 2.5** | 10 sec | Pikaswaps, lip sync | No |
+| **Luma Ray3** | 10 sec | Keyframe control, draft mode | No |
+| **Minimax** | 6 sec | Director mode, high consistency | No |
+| **Seedance 1.5** | 10 sec | Audio-visual sync, multi-shot | Yes |
+| **OmniHuman 1.5** | 30 sec | Audio-driven avatar animation | Input |
+| **Wan 2.1** | 5 sec | Text rendering, FLF2V | No |
+
+**Master Prompt Formula:**
+
+Quick-reference patterns for rapid prompting:
+
+| Mode | Formula |
+|------|---------|
+| **Image** | Subject → Setting → Lighting → Style → Camera → Technical |
+| **Video** | Camera Movement → Subject → Action → Setting → Atmosphere → Style → Audio |
+
+These complement FRAME/MOTION for quick starts; use full frameworks for refinement.
 
 ---
 

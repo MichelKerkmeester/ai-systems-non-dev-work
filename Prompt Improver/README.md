@@ -1,4 +1,4 @@
-# Prompt Engineering Assistant - User Guide  v0.980
+# Prompt Engineering Assistant - User Guide  v0.981
 
 Transforms vague requests into clear, effective AI prompts using proven frameworks, systematic evaluation, and **concise transparent DEPTH processing**.
 
@@ -59,6 +59,7 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 | **DEPTH Rounds** | 5 rounds (creative iteration)                               |
 
 **Key Capabilities:**
+- ✨ **30 FRAME Sub-Categories** — Focus(6), Rendering(6), Atmosphere(7), Modifiers(6), Exclusions(5)
 - ✨ **Platform Detection** — Auto-detect Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram
 - ✨ **Anti-Pattern Removal** — Eliminate tag soup, quality spam
 - ✨ **Vocabulary Banks** — Rich libraries for lighting, composition, styles
@@ -79,6 +80,8 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 **Key Capabilities:**
 - ✨ **Motion-First** — Camera movement + subject motion
+- ✨ **Platform Mental Models** — Kinetic Sculptor (Runway), Physics Simulator (Sora), Audio-Visual Choreographer (Kling), Rendering Engine (Veo)
+- ✨ **Physics Language** — Rigidity, gravity, momentum, impact vocabulary for realistic motion
 - ✨ **Platform Syntax** — Runway camera control, Sora cinematography, Veo audio
 - ✨ **Temporal Consistency** — Duration, pacing, continuous motion
 - ✨ **Static-to-Dynamic** — Transform descriptions into motion
@@ -99,14 +102,14 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 **Version Updates:**
 | Component             | Previous | Current          |
 | --------------------- | -------- | ---------------- |
-| System Prompt         | v0.975   | **v0.980**       |
-| DEPTH Framework       | v0.119   | **v0.120**       |
+| System Prompt         | v0.980   | **v0.981**       |
+| DEPTH Framework       | v0.120   | **v0.130**       |
 | Interactive Mode      | v0.690   | **v0.700**       |
-| Patterns & Evaluation | v0.113   | **v0.115**       |
+| Patterns & Evaluation | v0.115   | **v0.200**       |
 | Format Guides         | v0.130   | **v0.140**       |
 | Visual Mode           | v0.100   | **v0.200** (MagicPath.ai) |
-| Image Mode            | —        | **v0.110**       |
-| Video Mode            | —        | **v0.110**       |
+| Image Mode            | v0.110   | **v0.120**       |
+| Video Mode            | v0.110   | **v0.120**       |
 
 ---
 
@@ -117,7 +120,8 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 - **🎨 Visual Mode (NEW)**: Transform technical specs into evocative prompts for AI design tools (Lovable, Aura, Bolt, v0.dev)
 - **🖼️ Image Mode (NEW)**: Transform descriptions into optimized prompts for AI image generators (FRAME framework, VISUAL scoring)
 - **🎬 Video Mode (NEW)**: Transform static descriptions into motion-focused prompts for AI video generators (MOTION framework, VISUAL scoring)
-- **🧠 DEPTH Framework**: 10-round methodology with two-layer transparency and RICCE integration (5 rounds for Visual Mode)
+- **🧠 DEPTH Framework**: 10-round methodology with two-layer transparency and RICCE integration (5 rounds for Visual, Image, and Video Modes)
+- **🎯 Signal-Based Routing**: Auto-detect mode from keywords (80%+ confidence auto-routes, <80% triggers clarifying questions)
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement), target 5
 - **🔬 Enhanced Cognitive Rigor**: 6 techniques (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first, RICCE compliance)
 - **📊 Two-Layer Model**: Full rigor internally, concise updates externally
@@ -138,18 +142,18 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 ```
 AGENTS.md → Entry point with intelligent routing logic
     ↓
-System Prompt v0.980 (Core routing, 38 rules, framework selection)
+System Prompt v0.981 (Core routing, 38 rules, framework selection)
     ↓
 ┌─────────────────────────────────────────────────────────────┐
 │                    SUPPORTING DOCUMENTS                     │
 ├─────────────────────────────────────────────────────────────┤
-│  DEPTH Framework v0.120    │  Interactive Mode v0.700       │
+│  DEPTH Framework v0.130    │  Interactive Mode v0.700       │
 │  (Methodology, RICCE)      │  (Conversation flow)            │
 ├─────────────────────────────────────────────────────────────┤
-│  Patterns v0.115           │  🎨 Visual Mode v0.200         │
+│  Patterns v0.200           │  🎨 Visual Mode v0.200         │
 │  (11 frameworks, CLEAR)    │  (VIBE/VIBE-MP, MagicPath.ai)  │
 ├─────────────────────────────────────────────────────────────┤
-│  🖼️ Image Mode v0.110       │  🎬 Video Mode v0.110          │
+│  🖼️ Image Mode v0.120       │  🎬 Video Mode v0.120          │
 │  (FRAME framework, VISUAL)   │  (MOTION framework, VISUAL)  │
 ├─────────────────────────────────────────────────────────────┤
 │  Format Guides v0.140 (Markdown, JSON, YAML)                │
@@ -168,7 +172,7 @@ Output → /export/[###]-enhanced-prompt.[md|json|yaml]
 
 ### Step 2: Add System Instructions
 1. Edit project details → Custom instructions
-2. Copy and paste: `Prompt - System Prompt - v0.980.md`
+2. Copy and paste: `Prompt - System Prompt - v0.981.md`
 3. Save the project
 
 ### Step 3: Upload Supporting Documents
@@ -176,10 +180,12 @@ Output → /export/[###]-enhanced-prompt.[md|json|yaml]
 Add these documents to your project:
 
 **Core Framework:**
-- `Prompt - DEPTH Thinking Framework - v0.120.md` (two-layer transparency, mandatory perspectives, RICCE integration)
+- `Prompt - DEPTH Thinking Framework - v0.130.md` (two-layer transparency, mandatory perspectives, RICCE integration, **signal-based routing**)
 - `Prompt - Interactive Mode - v0.700.md` (conversation flow, state management, smart routing, MagicPath support)
-- `Prompt - Patterns, Enhancements & Evaluation - v0.115.md` (complete framework library, CLEAR scoring, 8 design directions)
+- `Prompt - Patterns, Enhancements & Evaluation - v0.200.md` (complete framework library, CLEAR scoring, 8 design directions)
 - 🎨 `Prompt - Visual Mode - v0.200.md` — VIBE/VIBE-MP framework, EVOKE scoring, **MagicPath.ai specialization**
+- 🖼️ `Prompt - Image Mode - v0.120.md` — FRAME framework (30 sub-categories), VISUAL scoring, platform optimization
+- 🎬 `Prompt - Video Mode - v0.120.md` — MOTION framework, platform mental models, physics language, audio integration
 
 **Format Specifications:**
 Each format guide (v0.140) is fully self-contained with pure format focus:
@@ -511,7 +517,7 @@ Single Comprehensive Question
      ↓
 Wait for Complete User Response
      ↓
-Apply DEPTH v0.120 (10 rounds with concise updates)
+Apply DEPTH v0.130 (10 rounds with concise updates)
      ↓
 Deliver Enhanced Prompt + Transparency Report
 ```
@@ -575,14 +581,27 @@ A structured 5-phase methodology ensuring comprehensive prompt enhancement throu
 | Mode         | Rounds    | User Visibility          | Application            |
 | ------------ | --------- | ------------------------ | ---------------------- |
 | **Standard** | 10 rounds | Concise progress updates | Real-time transparency |
+| **Visual/Image/Video** | 5 rounds | Creative iteration | Creative modes |
 | **$raw**     | 0 rounds  | Pass-through             | Skip DEPTH             |
 | **$short**   | 3 rounds  | Key changes only         | Focused refinement     |
 
-### DEPTH Phases (v0.120 with RICCE Integration)
+### Signal-Based Routing (v0.130)
+
+DEPTH now includes automatic mode detection in Round 1:
+
+| Confidence | Action | Example |
+|------------|--------|---------|
+| **≥80%** | Auto-select mode | "midjourney portrait" → Image Mode |
+| **50-79%** | Suggest with confirmation | "animated logo" → "Did you mean Video Mode?" |
+| **<50%** | Ask clarifying questions | "make it better" → "What type of content?" |
+
+**Signal Categories:** use_case, style, platform, motion, temporal
+
+### DEPTH Phases (v0.130 with RICCE Integration + Signal Routing)
 
 | Phase         | Purpose             | Internal Processing                                                           | User Sees                                    |
 | ------------- | ------------------- | ----------------------------------------------------------------------------- | -------------------------------------------- |
-| **D**iscover  | Deep understanding  | 5 perspectives, assumption audit, complexity analysis, RICCE Role & Context   | "🔍 Analyzing (5 perspectives)"               |
+| **D**iscover  | Deep understanding  | Signal detection, 5 perspectives, assumption audit, RICCE Role & Context      | "🔍 Analyzing (5 perspectives)"               |
 | **E**ngineer  | Solution generation | 8 frameworks evaluated, constraint analysis, RICCE Constraints & Instructions | "⚙️ Engineering (optimal framework selected)" |
 | **P**rototype | Build framework     | Template application, RICCE validation, mechanism-first structure             | "🔨 Building (RCAF/framework structure)"      |
 | **T**est      | Validate quality    | CLEAR scoring (5 dimensions), quality gates, RICCE Examples validation        | "✅ Validating (CLEAR 42/50)"                 |
@@ -631,7 +650,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 **Validation Gates:** Multi-phase enforcement (pre-enhancement, during enhancement, post-enhancement) ensures consistent excellence
 
-**Full details:** `Prompt - DEPTH Thinking Framework - v0.120.md`
+**Full details:** `Prompt - DEPTH Thinking Framework - v0.130.md`
 
 ---
 
@@ -696,7 +715,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 **Assumption Flagged:** [Assumes: API supports async requests]
 ```
 
-**Full details:** `Prompt - DEPTH Thinking Framework - v0.120.md` (Sections 5-6)
+**Full details:** `Prompt - DEPTH Thinking Framework - v0.130.md` (Sections 5-6)
 
 ---
 
@@ -810,7 +829,7 @@ framework_selection:
 - **RACE + ToT (Tree of Thoughts)**: Rapid decision trees
 - **Master-Detail Pattern**: Nested framework hierarchies
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.115.md` (Sections 1-4)
+**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.200.md` (Sections 1-4)
 
 ---
 
@@ -862,7 +881,7 @@ by_score:
 - Adaptive response formats (quick review vs comprehensive)
 - Self-documenting structure (what, why, how, example)
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.115.md` (Sections 5-7)
+**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.200.md` (Sections 5-7)
 
 ---
 
@@ -917,4 +936,4 @@ contextual_clear_scoring:
 2. **Deep Pass**: Ambiguity detection, assumption analysis
 3. **Interaction Pass**: AI interpretation testing, failure mode analysis
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.115.md` (Sections 9-11)
+**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.200.md` (Sections 9-11)
