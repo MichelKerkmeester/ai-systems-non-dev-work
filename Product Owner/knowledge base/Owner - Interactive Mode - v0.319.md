@@ -1,4 +1,4 @@
-# Owner - Interactive Mode - v0.319
+# Owner - Interactive Mode - v0.320
 
 Establishes conversation flows, state management, and response patterns for interactive guidance with concise transparency.
 
@@ -112,6 +112,8 @@ Please provide the following information at once:
 - Technical constraints
 - Dependencies or integrations
 - Any specific format needs
+- Do you have Figma references?
+- Which platforms are in scope? (iOS / Android / Web / All)
 
 **5. Assumptions to challenge:**
 - What am I likely to assume incorrectly?
@@ -134,6 +136,13 @@ I'll create your task. Quick questions:
 - What needs to be built/fixed?
 - Acceptance criteria
 - Technical constraints
+
+**Design & platform:**
+- Do you have Figma flow or component links to reference?
+- Which platforms does this apply to? (iOS / Android / Web / All)
+
+**Dependencies:**
+- Are there any related or dependent tickets?
 
 **Validation:**
 - What am I likely misunderstanding about the technical context?
@@ -179,15 +188,20 @@ I'll create your bug report. Quick questions:
 
 **Environment & context:**
 - Where does this occur? (page, component, feature)
+- Which platform(s) is this affecting? (iOS / Android / Web / All)
 - Backend/Frontend/Mobile/Full-stack/DevOps/QA
+
+**Design reference:**
+- Do you have Figma references showing the expected design?
 
 **Evidence:**
 - Screenshots, error logs, or console output?
 - When was this first noticed?
+- Is there a known workaround?
 
 **Validation:**
 - What should I NOT assume about the root cause?
-- Are there related issues or dependencies?
+- Are there related bug reports or tickets?
 
 Please provide details.
 ```
