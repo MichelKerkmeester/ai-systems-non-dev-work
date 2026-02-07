@@ -51,8 +51,9 @@ Transforms requests into professional tickets, bugs, stories, epics, and documen
 - Epic Mode: v0.140 → v0.150 (production alignment, scale variants removed)
 - Story Mode: v0.143 → v0.150 (production alignment, sections simplified)
 
-### 📊 Evolution: v0.952 → v0.951 → v0.950 → v0.922 → v0.921 → v0.920 → v0.915
+### 📊 Evolution: v0.955 → v0.952 → v0.951 → v0.950 → v0.922 → v0.921 → v0.920 → v0.915
 
+**v0.955:** Task/Bug/Interactive/DEPTH updates, Subtask Template, Figma references, context folder integration
 **v0.952:** Epic & Story production alignment, new symbol hierarchy, simplified templates
 **v0.951:** Ticket→Task rename, BDD User Story format (Given/When/Then), all path references aligned
 **v0.950:** Bug Mode addition, 5-mode architecture, comprehensive version updates
@@ -101,6 +102,18 @@ Templates:
     ↓
 Output → /export/[###]-artifact.md
 ```
+
+### Context Folder
+The `/context/` directory contains real project artifacts organized by type:
+- `1. Tasks & Subtasks/` — Task definitions by project and role
+- `2. Epics & Stories/` — Epic and story definitions
+- `3. Documentation/` — Product and marketing documentation
+- `4. DS Variables/` — Design system tokens (CSS/TypeScript)
+
+Context files are loaded on demand when referenced by the user.
+
+### Export Protocol
+All deliverables are saved to `/export/[###]-description.md` before being referenced in chat.
 
 ---
 
@@ -158,7 +171,7 @@ Each template is fully self-contained with embedded rules, quality checks, and f
 - No external rule dependencies - everything embedded in each template
 - Automatic complexity scaling based on request keywords
 - Complete quality checklists and error recovery built-in
-- Consistent DEPTH v0.118 integration across all templates
+- Consistent DEPTH v0.121 integration across all templates
 
 ### Step 4: Start Creating
 ```
@@ -181,11 +194,11 @@ $story user login               # Direct story mode (10 rounds auto)
 | --------------- | ------------------------ | --------------- | --------------------------- | ------------ | ---------------- | --------------------- |
 | **Interactive** | Determine what to create | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | Auto-selected    | Exact request         |
 | **$quick**      | Fast creation            | NONE            | 1-5 auto-scaled             | Summary      | Auto-selected    | Exact request         |
-| **$task**       | Dev tasks                | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.200           | Requested task only   |
-| **$bug**        | Bug reports              | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.110           | Requested bug only    |
-| **$story**      | User stories             | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.150           | Requested story only  |
-| **$epic**       | Epics                    | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.150           | Requested epic only   |
-| **$doc**        | Documentation            | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.129           | Requested doc only    |
+| **$task**       | Dev tasks                | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.204           | Requested task only   |
+| **$bug**        | Bug reports              | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.115           | Requested bug only    |
+| **$story**      | User stories             | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.152           | Requested story only  |
+| **$epic**       | Epics                    | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.152           | Requested epic only   |
+| **$doc**        | Documentation            | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.133           | Requested doc only    |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question gathering all info at once:
@@ -224,7 +237,7 @@ System waits for complete response before proceeding.
 
 ---
 
-### 🐛 $bug Mode (v0.110)
+### 🐛 $bug Mode (v0.115)
 
 **Purpose:** Bug reports with evidence tracking, reproduction steps, and root cause analysis
 
@@ -244,7 +257,7 @@ System waits for complete response before proceeding.
 ```
 
 **Bug vs Task Comparison:**
-| Feature              | Bug (v0.110)             | Task (v0.200)            |
+| Feature              | Bug (v0.115)             | Task (v0.204)            |
 | -------------------- | ------------------------ | ------------------------ |
 | **Command**          | `$bug` or `$b`           | `$task` or `$t`          |
 | **Purpose**          | Defect tracking          | Feature development      |
@@ -262,7 +275,7 @@ System waits for complete response before proceeding.
 
 ---
 
-### 📖 Story Mode (v0.150)
+### 📖 Story Mode (v0.152)
 
 **Purpose:** User stories in narrative format focusing on user journey and experience
 
@@ -281,7 +294,7 @@ System waits for complete response before proceeding.
 | **Complex**  | platform, system, ecosystem | 6-8      | Multi-step scenarios  | Complex user workflows   |
 
 **Story vs Task vs Bug Comparison:**
-| Feature          | Story (v0.150)             | Task (v0.200)            | Bug (v0.110)             |
+| Feature          | Story (v0.152)             | Task (v0.204)            | Bug (v0.115)             |
 | ---------------- | -------------------------- | ------------------------ | ------------------------ |
 | **Command**      | `$story`                   | `$task`                  | `$bug`                   |
 | **Focus**        | User journey & experience  | Technical implementation | Defect tracking          |
@@ -293,7 +306,7 @@ System waits for complete response before proceeding.
 
 ---
 
-### 🚀 Epic Mode (v0.150)
+### 🚀 Epic Mode (v0.152)
 
 **Purpose:** Epics as high-level overviews with links to stories and tasks
 
@@ -319,7 +332,7 @@ System waits for complete response before proceeding.
 
 ---
 
-### 📄 Doc Mode (v0.129)
+### 📄 Doc Mode (v0.133)
 
 **Purpose:** Technical documentation and user guides
 
@@ -362,7 +375,7 @@ Single Comprehensive Question
      ↓
 Wait for Complete User Response
      ↓
-Apply DEPTH v0.118 (10 rounds with concise updates)
+Apply DEPTH v0.121 (10 rounds with concise updates)
      ↓
 Deliver Exact Request
 ```
@@ -374,7 +387,7 @@ Deliver Exact Request
 - Applies full DEPTH with two-layer transparency
 - Routes to appropriate template based on user's answer
 
-**Full details:** `Product Owner - Interactive Mode - v0.317.md`
+**Full details:** `Product Owner - Interactive Mode - v0.320.md`
 
 ---
 
@@ -393,7 +406,7 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 | **Standard** | 10 rounds       | Concise progress updates | Real-time transparency |
 | **$Quick**   | 1-5 auto-scaled | Summary at completion    | Complexity-based       |
 
-### DEPTH Phases (v0.118 with RICCE Integration)
+### DEPTH Phases (v0.121 with RICCE Integration)
 
 | Phase         | Purpose             | Internal Processing                                                         | User Sees                             |
 | ------------- | ------------------- | --------------------------------------------------------------------------- | ------------------------------------- |
@@ -438,7 +451,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 **Validation Gates:** Three-phase enforcement (pre-creation, during creation, post-creation) ensures consistent excellence
 
-**Full details:** `Product Owner - DEPTH Thinking Framework - v0.118.md`
+**Full details:** `Product Owner - DEPTH Thinking Framework - v0.121.md`
 
 ---
 
@@ -502,4 +515,4 @@ Six mandatory frameworks applied internally (users see key insights only):
 **Assumption Flagged:** [Assumes: SSO integration available by Sprint 3]
 ```
 
-**Full details:** `Product Owner - DEPTH Thinking Framework - v0.118.md` (Section 5-6)
+**Full details:** `Product Owner - DEPTH Thinking Framework - v0.121.md` (Section 5-6)
