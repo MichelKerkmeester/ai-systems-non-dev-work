@@ -136,8 +136,8 @@ Based on routing logic in System Prompt:
    - `/knowledge base/Owner - Template - Doc Mode - v0.133.md` ($doc)
    - `/knowledge base/Owner - Template - Epic Mode - v0.152.md` ($epic)
    - `/knowledge base/Owner - Template - Story Mode - v0.152.md` ($story)
-   - `/knowledge base/Owner - Template - Task Mode - v0.204.md` ($task)
-   - Task Mode now includes a dedicated Subtask Template (v0.204+) for parent-child task decomposition.
+   - `/knowledge base/Owner - Template - Task Mode - v0.205.md` ($task)
+   - Task Mode now includes a dedicated Subtask Template (v0.205+) for parent-child task decomposition.
 
 2. **Complex Tasks**
    - `/knowledge base/Owner - DEPTH Thinking Framework - v0.121.md`

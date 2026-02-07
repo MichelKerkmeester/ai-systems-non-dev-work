@@ -19,8 +19,11 @@ Transforms requests into professional tickets, bugs, stories, epics, and documen
 <a id="1-whats-new-in-v0955"></a>
 ## 1. 🆕 WHAT'S NEW IN V0.955
 
+### v0.205 Task Mode Format Update (February 2026)
+- **Task Mode v0.205:** Requirements sections now use production-grade checkbox format (`- [ ]`) across all template tiers (Simple, Standard, Complex, Subtask, Quick). Each numbered item includes a `**Requirements**` sub-label with literal checkbox items. Resolution Checklists use `⚠️` intro line and `---` dividers between groups. Matches the exact format used in real ClickUp tasks.
+
 ### v0.955 System Update (February 2026)
-- **Task Mode v0.204:** Added References section (Figma flows/components), Subtask Template, platform-specific validation (iOS/Android/Web), design token guidance, `[Optional for MVP]` tier marking, decomposition guidance
+- **Task Mode v0.205:** Added References section (Figma flows/components), Subtask Template, platform-specific validation (iOS/Android/Web), design token guidance, `[Optional for MVP]` tier marking, decomposition guidance
 - **Bug Mode v0.115:** Added References section, cross-browser validation, Related Issues field, Workaround field, ClickUp ID field, Figma evidence links
 - **Interactive Mode v0.320:** Added Figma reference questions, platform scope questions, dependency questions to all command templates
 - **System Prompt v0.955:** Added UI refinement routing (feedback/polish → Task Mode), multi-deliverable handling, context folder integration, $quick exception for min-perspectives rule
@@ -67,7 +70,7 @@ Transforms requests into professional tickets, bugs, stories, epics, and documen
 <a id="2-key-features"></a>
 ## 2. ✨ KEY FEATURES
 
-- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.204, Bug v0.115, Story v0.152, Epic v0.152, Doc v0.133)
+- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.205, Bug v0.115, Story v0.152, Epic v0.152, Doc v0.133)
 - **🧠 DEPTH Framework v0.121**: 10-round methodology with two-layer transparency and RICCE integration
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
 - **🔬 Enhanced Cognitive Rigor**: 6 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first, RICCE compliance)
@@ -94,7 +97,7 @@ DEPTH Framework v0.121 (Methodology with RICCE)
 Interactive Mode v0.320 (Conversation flow)
     ↓
 Templates:
-├── Task Mode v0.204 (Development tasks)
+├── Task Mode v0.205 (Development tasks)
 ├── Bug Mode v0.115 (Defect tracking)
 ├── Story Mode v0.152 (User stories)
 ├── Epic Mode v0.152 (Initiatives)
@@ -139,11 +142,11 @@ Add these documents to your project:
 **Self-Contained Templates:**
 Each template is fully self-contained with embedded rules, quality checks, and formatting standards:
 
-- **`Product Owner - Template - Task Mode - v0.204.md`**
+- **`Product Owner - Template - Task Mode - v0.205.md`**
   - Development tasks with detailed QA Resolution Checklists
   - Auto-scaling: Simple (4-6 items), Standard (8-12), Complex (12-20)
   - Includes mechanism-first validation and scope discipline
-  - **Subtask Template:** Dedicated template for parent-child task decomposition (v0.204+)
+  - **Subtask Template:** Dedicated template for parent-child task decomposition (v0.205+)
 
 - **`Product Owner - Template - Bug Mode - v0.115.md`**
   - Bug reports with evidence tracking and reproduction steps
@@ -194,7 +197,7 @@ $story user login               # Direct story mode (10 rounds auto)
 | --------------- | ------------------------ | --------------- | --------------------------- | ------------ | ---------------- | --------------------- |
 | **Interactive** | Determine what to create | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | Auto-selected    | Exact request         |
 | **$quick**      | Fast creation            | NONE            | 1-5 auto-scaled             | Summary      | Auto-selected    | Exact request         |
-| **$task**       | Dev tasks                | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.204           | Requested task only   |
+| **$task**       | Dev tasks                | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.205           | Requested task only   |
 | **$bug**        | Bug reports              | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.115           | Requested bug only    |
 | **$story**      | User stories             | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.152           | Requested story only  |
 | **$epic**       | Epics                    | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.152           | Requested epic only   |
@@ -257,7 +260,7 @@ System waits for complete response before proceeding.
 ```
 
 **Bug vs Task Comparison:**
-| Feature              | Bug (v0.115)             | Task (v0.204)            |
+| Feature              | Bug (v0.115)             | Task (v0.205)            |
 | -------------------- | ------------------------ | ------------------------ |
 | **Command**          | `$bug` or `$b`           | `$task` or `$t`          |
 | **Purpose**          | Defect tracking          | Feature development      |
@@ -266,6 +269,8 @@ System waits for complete response before proceeding.
 | **Complexity**       | Fixed (no scaling)       | Auto-scaled (3 levels)   |
 | **Resolution List**  | ✅ Yes (✓)                | ✅ Yes (✓)                |
 | **Use Case**         | Bug fixes, defects       | New features, tasks      |
+
+**Bug vs Task Comparison** table references: Bug v0.115, Task v0.205
 
 **When to Use Bug Mode:**
 - Reporting defects or unexpected behavior
@@ -294,7 +299,7 @@ System waits for complete response before proceeding.
 | **Complex**  | platform, system, ecosystem | 6-8      | Multi-step scenarios  | Complex user workflows   |
 
 **Story vs Task vs Bug Comparison:**
-| Feature          | Story (v0.152)             | Task (v0.204)            | Bug (v0.115)             |
+| Feature          | Story (v0.152)             | Task (v0.205)            | Bug (v0.115)             |
 | ---------------- | -------------------------- | ------------------------ | ------------------------ |
 | **Command**      | `$story`                   | `$task`                  | `$bug`                   |
 | **Focus**        | User journey & experience  | Technical implementation | Defect tracking          |
@@ -303,6 +308,8 @@ System waits for complete response before proceeding.
 | **Checklist**    | ❌ No Resolution Checklist  | ✅ Detailed QA Checklist  | ✅ Resolution + Root Cause|
 | **Complexity**   | Auto-scaled (3 levels)     | Auto-scaled (3 levels)   | Fixed                    |
 | **Use Case**     | Requirements definition    | Implementation tracking  | Bug fixes, defects       |
+
+**Story vs Task vs Bug Comparison** table references: Story v0.152, Task v0.205, Bug v0.115
 
 ---
 
