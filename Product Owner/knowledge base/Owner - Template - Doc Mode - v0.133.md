@@ -29,7 +29,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 
 - **Purpose:** Create product documentation that auto-scales complexity
 - **Output:** Always as `text/markdown` artifact
-- **Thinking:** 10 rounds automatic (DEPTH methodology), 1-5 auto-scaled for $quick
+- **Thinking:** 10 rounds automatic (DEPTH Framework), 1-5 auto-scaled for $quick
 - **Interactive Mode:** Handled by Interactive Mode
 - **Key Focus:** Product features, performance metrics, strategy docs - ONLY what user requests
 - **Header Position:** Always at top as first line
@@ -51,7 +51,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 - **Single Artifact:** All content delivered as one artifact
 - **DEPTH Processing:** 
   - Standard modes: 10 rounds automatic (not user choice)
-  - Quick mode: 1-5 rounds auto-scaled based on complexity
+  - $quick: 1-5 rounds auto-scaled based on complexity
 - **Wait for Input:** NEVER proceed without user response to questions
 - **Template Compliance:** Use structure exactly
 
@@ -86,11 +86,11 @@ Documentation templates with integrated formatting rules and quality standards. 
 - Document mode and scaling applied
 - Use dash bullet formatting vertically
 - Note template version compliance
-- Apply DEPTH methodology consistently
+- Apply DEPTH Framework consistently
 - Wait for user input on ALL content questions
 - Position About first (after header)
 - Integrate context in About narrative
-- Use correct symbol hierarchy (H1: ⌘/❖, Bold: Designs & References)
+- Use correct symbol hierarchy (H2: ⌘/❖, Bold: Designs & References)
 - Place header at top of artifact
 - Deliver exactly what was requested
 - Use `---` separators appropriately
@@ -123,8 +123,8 @@ Documentation templates with integrated formatting rules and quality standards. 
 ### Mandatory Structure Elements
 
 #### Symbol Hierarchy
-- **H1:** ⌘ (About), ❖ (Main sections)
-- **H2:** Numbered subsections (## 1. Pattern, ## 2. Rotation)
+- **H2:** ⌘ (About), ❖ (Main sections)
+- **H3:** Numbered subsections (### 1. Pattern, ### 2. Rotation)
 - **H3:** Bold subsections (### **Fixed**, ### **Dynamic**)
 - **H4:** Detail headers (#### Logic, #### Features)
 - **Bold:** Designs & References, Flows, Components
@@ -183,7 +183,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 ## 5. ✅ QUALITY CHECKLIST
 
 ### Pre-Creation Validation
-- [ ] DEPTH methodology applied (DEPTH Framework: 10 rounds standard, 1-5 quick)?
+- [ ] DEPTH Framework applied (10 rounds standard, 1-5 $quick)?
 - [ ] User responded to comprehensive question?
 - [ ] System waited for response (never answered own questions)?
 - [ ] Complexity determined correctly?
@@ -196,7 +196,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 - [ ] About section positioned first (after metadata)?
 - [ ] Designs & References as bold label with Flows and Components subsections?
 - [ ] Main sections properly structured?
-- [ ] Correct symbol hierarchy applied (H1: ⌘/❖, Bold: Designs & References)?
+- [ ] Correct symbol hierarchy applied (H2: ⌘/❖, Bold: Designs & References)?
 - [ ] Dividers used appropriately?
 - [ ] H4 for detail headers?
 
@@ -228,7 +228,7 @@ Documentation templates with integrated formatting rules and quality standards. 
 ### Common Errors & Fixes
 
 #### Wrong Symbol Hierarchy
-**Fix:** Update to H1: ⌘/❖, H2: Numbered subsections, H3: Bold subsections, H4: Detail headers, Bold labels: Designs & References, Flows, Components
+**Fix:** Update to H2: ⌘/❖, H3: Numbered subsections, H3: Bold subsections, H4: Detail headers, Bold labels: Designs & References, Flows, Components
 
 #### About Section Not First
 **Fix:** Move About to first position after metadata
@@ -276,7 +276,7 @@ Mode: $doc | Complexity: Simple | Template: Doc
 
 ---
 
-# ⌘ About
+## ⌘ About
 
 [Brief description of what this document covers and why it's important. 
 This includes context about the feature/product being documented and 
@@ -305,7 +305,7 @@ Here's where you'll find all the related designs:
 
 ---
 
-# ❖ Key Features
+## ❖ Key Features
 
 #### Overview
 
@@ -334,7 +334,7 @@ High-level description of the main capabilities and value proposition
 
 ---
 
-# ❖ Success Metrics
+## ❖ Success Metrics
 
 #### Performance Indicators
 
@@ -366,7 +366,7 @@ Mode: $doc | Complexity: Standard | Template: Doc
 
 ---
 
-# ⌘ About
+## ⌘ About
 
 [Detailed description of the documented feature or product, incorporating
 the business context, user needs, market positioning, and value 
@@ -398,7 +398,7 @@ Here's where you'll find all the related designs and documentation:
 
 ---
 
-# ❖ Product Overview
+## ❖ Product Overview
 
 #### 1. Architecture & Flow
 
@@ -431,7 +431,7 @@ the product [limited to requested system only].
 
 ---
 
-# ❖ Feature Specifications
+## ❖ Feature Specifications
 
 #### 1. Core Features
 
@@ -478,7 +478,7 @@ the product [limited to requested system only].
 
 ---
 
-# ❖ Performance Framework
+## ❖ Performance Framework
 
 #### 1. Success Metrics
 
@@ -530,7 +530,7 @@ Mode: $doc | Complexity: Complex | Template: Doc
 
 ---
 
-# ⌘ About
+## ⌘ About
 
 [Comprehensive overview of the documented platform, incorporating its 
 evolution, current state, strategic importance, and future roadmap. 
@@ -566,7 +566,7 @@ Here's where you'll find all the platform-related designs and documentation:
 
 ---
 
-# ❖ Platform Strategy
+## ❖ Platform Strategy
 
 #### 1. Vision & Mission
 
@@ -612,7 +612,7 @@ The north star that guides all platform decisions and investments
 
 ---
 
-# ❖ Product Architecture
+## ❖ Product Architecture
 
 #### 1. Core Capabilities
 
@@ -664,7 +664,7 @@ The north star that guides all platform decisions and investments
 
 ---
 
-# ❖ Performance Metrics
+## ❖ Performance Metrics
 
 #### 1. North Star Framework
 
@@ -715,7 +715,7 @@ The north star that guides all platform decisions and investments
 
 ---
 
-# ❖ User Segments
+## ❖ User Segments
 
 #### 1. Segmentation Strategy
 
@@ -764,7 +764,7 @@ The north star that guides all platform decisions and investments
 
 ---
 
-# ❖ Growth & Scaling
+## ❖ Growth & Scaling
 
 #### 1. Growth Framework
 
@@ -842,11 +842,11 @@ The north star that guides all platform decisions and investments
 10. **Header at top** as first line (Mode | Complexity | Template)
 11. **No Table of Contents** (ClickUp/Jira provide native TOC)
 12. **Only requested topic** - no scope expansion beyond user request
-13. **DEPTH methodology** applied automatically (DEPTH Framework: 10 rounds standard, 1-5 quick)
+13. **DEPTH Framework** applied automatically (10 rounds standard, 1-5 $quick)
 14. **Template version** confirmed before creation
 15. **Complexity scales structure** not content scope (Simple: 2-3 sections, Standard: 4-6, Complex: 7+)
 16. **Documentation focus** maintained throughout (product features, performance metrics, strategy docs)
-17. **Symbol hierarchy** H1: ⌘/❖, H2: Numbered subsections, H3: Bold subsections, H4: Detail headers, Bold labels: Designs & References, Flows, Components
+17. **Symbol hierarchy** H2: ⌘/❖, H3: Numbered subsections, H3: Bold subsections, H4: Detail headers, Bold labels: Designs & References, Flows, Components
 
 ---
 

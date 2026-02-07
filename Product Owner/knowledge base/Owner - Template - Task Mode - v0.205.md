@@ -10,18 +10,18 @@ Streamlined task templates aligned with real-world ClickUp usage patterns. Conci
 ---
 
 ## 📋 TABLE OF CONTENTS
-1. [🎫 TASK MODE OVERVIEW](#1--task-mode-overview)
-2. [📦 DELIVERY STANDARDS](#2--delivery-standards)
-3. [📏 COMPLEXITY AUTO-SCALING](#3--complexity-auto-scaling)
-4. [✅ QUALITY CHECKLIST](#4--quality-checklist)
-5. [🚨 ERROR RECOVERY](#5--error-recovery)
-6. [🔵 SIMPLE TASK TEMPLATE](#6--simple-task-template)
-7. [🟠 STANDARD TASK TEMPLATE](#7--standard-task-template)
-8. [🔴 COMPLEX TASK TEMPLATE](#8--complex-task-template)
-9. [👨‍👩‍👧‍👦 PARENT TASK TEMPLATE](#9--parent-task-template)
-10. [🧩 SUBTASK TEMPLATE](#10--subtask-template)
-11. [⚡ QUICK MODE TEMPLATES](#11--quick-mode-templates)
-12. [🎯 FINAL REMINDERS](#12--final-reminders)
+1. [🎫 TASK MODE OVERVIEW](#1-task-mode-overview)
+2. [📦 DELIVERY STANDARDS](#2-delivery-standards)
+3. [📏 COMPLEXITY AUTO-SCALING](#3-complexity-auto-scaling)
+4. [✅ QUALITY CHECKLIST](#4-quality-checklist)
+5. [🚨 ERROR RECOVERY](#5-error-recovery)
+6. [🔵 SIMPLE TASK TEMPLATE](#6-simple-task-template)
+7. [🟠 STANDARD TASK TEMPLATE](#7-standard-task-template)
+8. [🔴 COMPLEX TASK TEMPLATE](#8-complex-task-template)
+9. [👨‍👩‍👧‍👦 PARENT TASK TEMPLATE](#9-parent-task-template)
+10. [🧩 SUBTASK TEMPLATE](#10-subtask-template)
+11. [⚡ QUICK MODE TEMPLATES](#11-quick-mode-templates)
+12. [🎯 FINAL REMINDERS](#12-final-reminders)
 
 ---
 
@@ -105,7 +105,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - **Numbered Items:** Use `1.   **{Item Title}**` (3 spaces after period, bold title)
 - **Requirements Sub-label:** Use `**Requirements**` (bold, not a heading) before each checkbox group
 - **Bold Labels:** Use `**Label**` followed by `---` for: Scope, References, Flows, Components, User Story, Checklist Categories
-- **Separators:** Use `---` after H2/H3 headers, after bold section labels, after numbered item titles, and between groups
+- **Separators:** Use `---` after H2/H3 headers, after bold section labels, after numbered item titles, and between groups. Always include a blank line before and after `---`
 - **References:** Bold label (`**References**`) with subsections **Flows** and **Components**, each followed by `---`
 - **Inline Images:** Supported throughout using `![alt text](image.png)` — placed after requirements checkboxes
 - **Links:** Use `[Description](URL)` format with actual URLs
@@ -113,7 +113,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ### Visual Hierarchy Rules
 - Use `---` as section separators after headings, numbered items, and between groups
-- No blank lines between dividers and section headers
+- One blank line before and one blank line after `---` dividers
 - H2 for About section (## ⌘ About)
 - H3 for Requirements and Checklist (### ❖ Requirements, ### ✓ Resolution Checklist)
 - `### **{Group Name}**` for area/group headings within Requirements
@@ -223,11 +223,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - [ ] Using `text/markdown` artifact type?
 - [ ] Lists use `-` bullets?
 - [ ] Checkboxes use `- [ ]` format?
-- [ ] All literal requirement items use `- [ ]` checkbox format?
-- [ ] Each numbered item has a `**Requirements**` sub-label with checkboxes?
-- [ ] Resolution Checklist mirrors requirement checkbox items?
-- [ ] `---` dividers present after headings and between items?
-- [ ] Resolution Checklist begins with `⚠️ Complete all items below before moving to QA`?
 - [ ] Numbered items use production format with checkboxes?
 - [ ] Inline images supported where relevant?
 - [ ] No Table of Contents?

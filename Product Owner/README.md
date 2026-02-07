@@ -1,77 +1,24 @@
-# Product Owner System - User Guide v0.955
+# Product Owner System - User Guide v0.096
 
 Transforms requests into professional tickets, bugs, stories, epics, and documentation with **concise transparent DEPTH processing**.
 
 ## 📋 TABLE OF CONTENTS
 
-1. [🆕 WHAT'S NEW IN V0.955](#1-whats-new-in-v0955)
-2. [✨ KEY FEATURES](#2-key-features)
-3. [🌳 SYSTEM ARCHITECTURE](#3-system-architecture)
-4. [🚀 QUICK SETUP](#4-quick-setup)
-5. [🎛️ OPERATING MODES](#5-operating-modes)
-6. [📋 MODE DETAILS](#6-mode-details)
-7. [💬 INTERACTIVE MODE](#7-interactive-mode)
-8. [🧠 DEPTH THINKING FRAMEWORK](#8-depth-thinking-framework)
-9. [🏗️ RICCE FRAMEWORK](#9-ricce-framework)
+1. [✨ KEY FEATURES](#2-key-features)
+2. [🌳 SYSTEM ARCHITECTURE](#3-system-architecture)
+3. [🚀 QUICK SETUP](#4-quick-setup)
+4. [🎛️ OPERATING MODES](#5-operating-modes)
+5. [📋 MODE DETAILS](#6-mode-details)
+6. [💬 INTERACTIVE MODE](#7-interactive-mode)
+7. [🧠 DEPTH THINKING FRAMEWORK](#8-depth-thinking-framework)
+8. [🏗️ RICCE FRAMEWORK](#9-ricce-framework)
 
 ---
 
-<a id="1-whats-new-in-v0955"></a>
-## 1. 🆕 WHAT'S NEW IN V0.955
-
-### v0.205 Task Mode Format Update (February 2026)
-- **Task Mode v0.205:** Requirements sections now use production-grade checkbox format (`- [ ]`) across all template tiers (Simple, Standard, Complex, Subtask, Quick). Each numbered item includes a `**Requirements**` sub-label with literal checkbox items. Resolution Checklists use `⚠️` intro line and `---` dividers between groups. Matches the exact format used in real ClickUp tasks.
-
-### v0.955 System Update (February 2026)
-- **Task Mode v0.205:** Added References section (Figma flows/components), Subtask Template, platform-specific validation (iOS/Android/Web), design token guidance, `[Optional for MVP]` tier marking, decomposition guidance
-- **Bug Mode v0.115:** Added References section, cross-browser validation, Related Issues field, Workaround field, ClickUp ID field, Figma evidence links
-- **Interactive Mode v0.320:** Added Figma reference questions, platform scope questions, dependency questions to all command templates
-- **System Prompt v0.955:** Added UI refinement routing (feedback/polish → Task Mode), multi-deliverable handling, context folder integration, $quick exception for min-perspectives rule
-- **DEPTH Framework v0.121:** Acronym consistency fix, reduced repetition
-
-### Previous: v0.952
-
-**Epic & Story Template Alignment - v0.952:**
-- Complete rewrite of Epic Template (v0.140 → v0.150) based on production patterns
-- Complete rewrite of Story Template (v0.143 → v0.150) based on production patterns
-- New symbol hierarchy matching ClickUp production usage
-- Removed Initiative/Program/Strategic scale variants from Epic
-- Simplified Story structure (removed Features, User Need, Business Value, Change Summary sections)
-- Added Human Voice Rules v0.100 (eliminates AI-detectable patterns)
-
-**System Prompt v0.952:**
-- Updated Epic template description (removed scale variants)
-- All template version references updated
-
-**Key Structural Changes:**
-- **Symbol Hierarchy:** H1 for title only, H2 for About/Requirements, H3 for subsections
-- **Success Criteria:** Now bold text (not H2 section)
-- **Dividers:** After headers AND between numbered items
-- **Epic:** Single unified template (no more scale variants)
-- **Story:** Streamlined structure matching production patterns
-
-**Template Updates:**
-- Epic Mode: v0.140 → v0.150 (production alignment, scale variants removed)
-- Story Mode: v0.143 → v0.150 (production alignment, sections simplified)
-
-### 📊 Evolution: v0.955 → v0.952 → v0.951 → v0.950 → v0.922 → v0.921 → v0.920 → v0.915
-
-**v0.955:** Task/Bug/Interactive/DEPTH updates, Subtask Template, Figma references, context folder integration
-**v0.952:** Epic & Story production alignment, new symbol hierarchy, simplified templates
-**v0.951:** Ticket→Task rename, BDD User Story format (Given/When/Then), all path references aligned
-**v0.950:** Bug Mode addition, 5-mode architecture, comprehensive version updates
-**v0.922:** Refined cognitive rigor enforcement and quality validation structure  
-**v0.921:** RICCE framework integration and comprehensive definition  
-**v0.920:** Readability improvements and transparency model alignment  
-**v0.915:** Template separation (dedicated story mode)
-
----
-
-<a id="2-key-features"></a>
-## 2. ✨ KEY FEATURES
+## 1. ✨ KEY FEATURES
 
 - **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.205, Bug v0.115, Story v0.152, Epic v0.152, Doc v0.133)
-- **🧠 DEPTH Framework v0.121**: 10-round methodology with two-layer transparency and RICCE integration
+- **🧠 DEPTH Framework**: 10-round methodology with two-layer transparency and RICCE integration
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
 - **🔬 Enhanced Cognitive Rigor**: 6 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first, RICCE compliance)
 - **📊 Two-Layer Model**: Full rigor internally, concise updates externally with improved transparency guidelines
@@ -84,8 +31,7 @@ Transforms requests into professional tickets, bugs, stories, epics, and documen
 
 ---
 
-<a id="3-system-architecture"></a>
-## 3. 🌳 SYSTEM ARCHITECTURE
+## 2. 🌳 SYSTEM ARCHITECTURE
 
 ```
 AGENTS.md → Entry point with routing logic
@@ -120,8 +66,7 @@ All deliverables are saved to `/export/[###]-description.md` before being refere
 
 ---
 
-<a id="4-quick-setup"></a>
-## 4. 🚀 QUICK SETUP
+## 3. 🚀 QUICK SETUP
 
 ### Step 1: Create Claude Project
 1. Go to claude.ai → Projects → Create "Product Owner"
@@ -188,20 +133,19 @@ $story user login               # Direct story mode (10 rounds auto)
 
 ---
 
-<a id="5-operating-modes"></a>
-## 5. 🎛️ OPERATING MODES
+## 4. 🎛️ OPERATING MODES
 
 **Default Mode:** The system defaults to `$interactive` with automatic 10-round DEPTH unless specified.
 
-| Mode            | Purpose                  | Questions       | DEPTH Processing            | Transparency | Template Version | Output                |
-| --------------- | ------------------------ | --------------- | --------------------------- | ------------ | ---------------- | --------------------- |
-| **Interactive** | Determine what to create | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | Auto-selected    | Exact request         |
-| **$quick**      | Fast creation            | NONE            | 1-5 auto-scaled             | Summary      | Auto-selected    | Exact request         |
-| **$task**       | Dev tasks                | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.205           | Requested task only   |
-| **$bug**        | Bug reports              | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.115           | Requested bug only    |
-| **$story**      | User stories             | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.152           | Requested story only  |
-| **$epic**       | Epics                    | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.152           | Requested epic only   |
-| **$doc**        | Documentation            | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.133           | Requested doc only    |
+| Mode            | Purpose                  | Questions       | DEPTH Processing            | Transparency | Template Version | Output               |
+| --------------- | ------------------------ | --------------- | --------------------------- | ------------ | ---------------- | -------------------- |
+| **Interactive** | Determine what to create | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | Auto-selected    | Exact request        |
+| **$quick**      | Fast creation            | NONE            | 1-5 auto-scaled             | Summary      | Auto-selected    | Exact request        |
+| **$task**       | Dev tasks                | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.205           | Requested task only  |
+| **$bug**        | Bug reports              | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.115           | Requested bug only   |
+| **$story**      | User stories             | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.152           | Requested story only |
+| **$epic**       | Epics                    | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.152           | Requested epic only  |
+| **$doc**        | Documentation            | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.133           | Requested doc only   |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question gathering all info at once:
@@ -215,8 +159,7 @@ System waits for complete response before proceeding.
 
 ---
 
-<a id="6-mode-details"></a>
-## 6. 📋 MODE DETAILS
+## 5. 📋 MODE DETAILS
 
 ### 🎫 $task Mode
 
@@ -260,15 +203,15 @@ System waits for complete response before proceeding.
 ```
 
 **Bug vs Task Comparison:**
-| Feature              | Bug (v0.115)             | Task (v0.205)            |
-| -------------------- | ------------------------ | ------------------------ |
-| **Command**          | `$bug` or `$b`           | `$task` or `$t`          |
-| **Purpose**          | Defect tracking          | Feature development      |
-| **Evidence Section** | ✅ Yes (⌥)                | ❌ No                     |
-| **Root Cause**       | ✅ Yes (in checklist)     | ❌ No                     |
-| **Complexity**       | Fixed (no scaling)       | Auto-scaled (3 levels)   |
-| **Resolution List**  | ✅ Yes (✓)                | ✅ Yes (✓)                |
-| **Use Case**         | Bug fixes, defects       | New features, tasks      |
+| Feature              | Bug (v0.115)         | Task (v0.205)          |
+| -------------------- | -------------------- | ---------------------- |
+| **Command**          | `$bug` or `$b`       | `$task` or `$t`        |
+| **Purpose**          | Defect tracking      | Feature development    |
+| **Evidence Section** | ✅ Yes (⌥)            | ❌ No                   |
+| **Root Cause**       | ✅ Yes (in checklist) | ❌ No                   |
+| **Complexity**       | Fixed (no scaling)   | Auto-scaled (3 levels) |
+| **Resolution List**  | ✅ Yes (✓)            | ✅ Yes (✓)              |
+| **Use Case**         | Bug fixes, defects   | New features, tasks    |
 
 **Bug vs Task Comparison** table references: Bug v0.115, Task v0.205
 
@@ -299,15 +242,15 @@ System waits for complete response before proceeding.
 | **Complex**  | platform, system, ecosystem | 6-8      | Multi-step scenarios  | Complex user workflows   |
 
 **Story vs Task vs Bug Comparison:**
-| Feature          | Story (v0.152)             | Task (v0.205)            | Bug (v0.115)             |
-| ---------------- | -------------------------- | ------------------------ | ------------------------ |
-| **Command**      | `$story`                   | `$task`                  | `$bug`                   |
-| **Focus**        | User journey & experience  | Technical implementation | Defect tracking          |
-| **Evidence**     | ❌ No                       | ❌ No                     | ✅ Yes (⌥)                |
-| **Root Cause**   | ❌ No                       | ❌ No                     | ✅ Yes                    |
-| **Checklist**    | ❌ No Resolution Checklist  | ✅ Detailed QA Checklist  | ✅ Resolution + Root Cause|
-| **Complexity**   | Auto-scaled (3 levels)     | Auto-scaled (3 levels)   | Fixed                    |
-| **Use Case**     | Requirements definition    | Implementation tracking  | Bug fixes, defects       |
+| Feature        | Story (v0.152)            | Task (v0.205)            | Bug (v0.115)              |
+| -------------- | ------------------------- | ------------------------ | ------------------------- |
+| **Command**    | `$story`                  | `$task`                  | `$bug`                    |
+| **Focus**      | User journey & experience | Technical implementation | Defect tracking           |
+| **Evidence**   | ❌ No                      | ❌ No                     | ✅ Yes (⌥)                 |
+| **Root Cause** | ❌ No                      | ❌ No                     | ✅ Yes                     |
+| **Checklist**  | ❌ No Resolution Checklist | ✅ Detailed QA Checklist  | ✅ Resolution + Root Cause |
+| **Complexity** | Auto-scaled (3 levels)    | Auto-scaled (3 levels)   | Fixed                     |
+| **Use Case**   | Requirements definition   | Implementation tracking  | Bug fixes, defects        |
 
 **Story vs Task vs Bug Comparison** table references: Story v0.152, Task v0.205, Bug v0.115
 
@@ -331,11 +274,11 @@ System waits for complete response before proceeding.
 - **Requirements** - H3 with ❖ symbol, feature areas with numbered items
 
 **Complexity Levels:**
-| Level        | Feature Areas | Features | Focus                    | Use Case                     |
-| ------------ | ------------- | -------- | ------------------------ | ---------------------------- |
-| **Simple**   | 1-2           | 5-10     | Single team deliverables | Focused features             |
-| **Standard** | 2-4           | 10-20    | Multi-area coordination  | Cross-area initiatives       |
-| **Complex**  | 4+            | 20+      | Platform transformation  | Company-wide changes         |
+| Level        | Feature Areas | Features | Focus                    | Use Case               |
+| ------------ | ------------- | -------- | ------------------------ | ---------------------- |
+| **Simple**   | 1-2           | 5-10     | Single team deliverables | Focused features       |
+| **Standard** | 2-4           | 10-20    | Multi-area coordination  | Cross-area initiatives |
+| **Complex**  | 4+            | 20+      | Platform transformation  | Company-wide changes   |
 
 ---
 
@@ -366,8 +309,7 @@ System waits for complete response before proceeding.
 
 ---
 
-<a id="7-interactive-mode"></a>
-## 7. 💬 INTERACTIVE MODE
+## 6. 💬 INTERACTIVE MODE
 
 ### Conversational Guidance Flow
 
@@ -398,8 +340,7 @@ Deliver Exact Request
 
 ---
 
-<a id="8-depth-thinking-framework"></a>
-## 8. 🧠 DEPTH THINKING FRAMEWORK
+## 7. 🧠 DEPTH THINKING FRAMEWORK
 
 ### Two-Layer Transparency Model
 
@@ -462,8 +403,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 ---
 
-<a id="9-ricce-framework"></a>
-## 9. 🏗️ RICCE FRAMEWORK
+## 8. 🏗️ RICCE FRAMEWORK
 
 ### Structural Validation Checklist
 
