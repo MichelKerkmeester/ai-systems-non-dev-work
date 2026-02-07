@@ -4,7 +4,7 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides self-contained epic templates for creating high-level initiative documentation when $epic or $e command is detected
-**Scope:** Epic mode overview and command syntax, artifact delivery standards and DEPTH methodology application, complexity auto-scaling based on project keywords, symbol hierarchy and formatting rules, quality validation checklists and error recovery protocols, unified epic template with example structure
+**Scope:** Epic mode overview and command syntax, artifact delivery standards and DEPTH Framework application, complexity auto-scaling based on project keywords, symbol hierarchy and formatting rules, quality validation checklists and error recovery protocols, unified epic template with example structure
 **Output Path:** `/export/[###]-artifact.md`
 
 ---
@@ -28,7 +28,7 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 - **Purpose:** Create Epic documents as summaries with links to related stories and tasks
 - **Output:** Always as `text/markdown` artifact
-- **Thinking:** 10 rounds automatic (DEPTH methodology), 1-5 auto-scaled for $quick
+- **Thinking:** 10 rounds automatic (DEPTH Framework), 1-5 auto-scaled for $quick
 - **Key Focus:** High-level overview, success metrics, links to implementation details
 - **Silent Processing:** User sees simple messages, not methodology details
 - **Output Constraints:** Epic limited to user's exact request, no scope expansion
@@ -56,7 +56,7 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - **Single Artifact:** All content delivered as one artifact
 - **DEPTH Processing:** 
   - Standard modes: 10 rounds automatic (not user choice)
-  - Quick mode: 1-5 rounds auto-scaled based on complexity
+  - $quick: 1-5 rounds auto-scaled based on complexity
 - **Wait for Input:** NEVER proceed without user response to questions
 - **Template Compliance:** Use structure exactly
 
@@ -97,7 +97,7 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - Document mode and scaling applied
 - Use dash bullet formatting vertically
 - Note template version compliance
-- Apply DEPTH methodology consistently
+- Apply DEPTH Framework consistently
 - Wait for user input on ALL content questions
 - Position About section first (after title)
 - Position Success Criteria after About narrative
@@ -186,6 +186,12 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 ## 5. ✅ QUALITY CHECKLIST
 
 ### Pre-Creation Validation
+- [ ] Problem statement defined?
+- [ ] Success criteria measurable?
+- [ ] Scope boundaries clear?
+- [ ] Dependencies identified?
+- [ ] Stakeholders identified?
+- [ ] DEPTH analysis complete?
 - [ ] Complexity determined correctly?
 - [ ] Template version confirmed?
 - [ ] Output scope limited to user request?
@@ -616,11 +622,11 @@ Filter chat list to show only conversations from a specific company.
 13. **Dividers between areas** - `---` between feature areas
 14. **No Table of Contents** (ClickUp/Jira provide native TOC)
 15. **Only requested features** - no scope expansion
-16. **DEPTH methodology** applied automatically (10 rounds standard, 1-5 quick) - see DEPTH Framework
+16. **DEPTH Framework** applied automatically (10 rounds standard, 1-5 $quick)
 17. **Link to stories/tasks** - don't duplicate their content
 18. **Interactive questions** handled by Interactive Mode
 
 ---
 
 *Epic Mode Template - Product Owner System*
-*This template is the foundation for Epic Mode deliverables in the Product Owner system. It ensures consistent excellence through DEPTH cognitive methodology while maintaining clean, production-aligned output that matches real-world ClickUp patterns.*
+*This template is the foundation for Epic Mode deliverables in the Product Owner system. It ensures consistent excellence through DEPTH Framework while maintaining clean, production-aligned output that matches real-world ClickUp patterns.*
