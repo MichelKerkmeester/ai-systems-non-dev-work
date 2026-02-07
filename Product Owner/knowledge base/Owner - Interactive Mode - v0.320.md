@@ -41,7 +41,7 @@ Start → Single Question (ALL info) → Wait → Process (DEPTH) → Deliver
 
 **Internal (Applied Fully):**
 - Multi-perspective analysis (minimum 3, target 5) - MANDATORY
-- Complete DEPTH methodology (10 rounds standard)
+- Complete DEPTH Framework (10 rounds standard)
 - All cognitive rigor techniques
 - Quality self-rating (target 8+)
 
@@ -94,13 +94,11 @@ Please provide the following information at once:
 - User Story - Narrative format requirements
 - Epic - Summary with links to stories and tasks
 - Documentation - Technical or user guides
-- Analysis - Research or strategy document
 
 **2. Scope & complexity:**
 - For tasks: Backend/Frontend/Mobile/Full-stack/DevOps/QA
 - For epics: Initiative/Program/Strategic scope
 - For docs: Quick (2-3 sections)/Standard (4-6)/Comprehensive (7+)
-- For analysis: Strategic/Technical/Market/Competitive
 
 **3. Requirements:**
 - What needs to be built/fixed
@@ -331,11 +329,11 @@ states:
     nextState: delivery
     waitForInput: false
     internalActions:
-      - multi_perspective_analysis
-      - assumption_audit
-      - perspective_inversion
-      - mechanism_first_validation
-      - quality_self_rating
+      - assumption_check
+      - edge_case_probe
+      - perspective_shift
+      - pre_mortem
+      - constraint_reversal
 
   delivery:
     action: create_artifact
@@ -358,7 +356,7 @@ commands:
     type: epic
     skip_type_question: true
     ask: context_only
-    mode: strategic_planning
+    mode: epic
     depth_rounds: 10
     
   $doc: 
@@ -366,7 +364,7 @@ commands:
     type: documentation
     skip_type_question: true
     ask: context_only
-    mode: technical_writing
+    mode: doc
     depth_rounds: 10
     
   $task: 
@@ -374,7 +372,7 @@ commands:
     type: task
     skip_type_question: false
     ask_format: true
-    mode: development_task
+    mode: task
     depth_rounds: 10
     
   $story: 
@@ -382,7 +380,7 @@ commands:
     type: user_story
     skip_type_question: true
     ask: context_only
-    mode: narrative_requirements
+    mode: story
     depth_rounds: 10
     
   $bug: 
@@ -390,7 +388,7 @@ commands:
     type: bug_report
     skip_type_question: true
     ask: context_only
-    mode: defect_resolution
+    mode: bug
     depth_rounds: 10
     
   $quick: 
@@ -603,11 +601,11 @@ quality_dimensions:
     
   assumption_challenge:
     question: "Have I challenged key assumptions?"
-    threshold: 7
+    threshold: 8
     
   perspective_diversity:
     question: "Have I considered opposing viewpoints?"
-    threshold: 7
+    threshold: 8
     
   mechanism_depth:
     question: "Do I understand WHY the user wants this?"
@@ -637,7 +635,7 @@ validate_artifact:
   checks:
     - header_present: starts_with 'Mode:'
     - format_compliant: per_template
-    - quality_score: ">= 90"
+    - quality_score: "each dimension >= 8 on 10-point scale"
     - assumptions_flagged: where_needed
     - mechanism_first: WHY_before_WHAT
     - perspectives_minimum: ">= 3"
@@ -752,7 +750,7 @@ formatting_enforcement:
 
 | Command | Alias | Questions Asked              | Cognitive Rigor | Transparency |
 | ------- | ----- | ---------------------------- | --------------- | ------------ |
-| (none)  | —     | ONE comprehensive (ALL info) | Full            | Complete     |
+| (none)  | -     | ONE comprehensive (ALL info) | Full            | Complete     |
 | $epic   | $e    | Context only                 | Full            | Complete     |
 | $doc    | $d    | Context only                 | Full            | Complete     |
 | $task   | $t    | Format + context             | Full            | Complete     |
@@ -824,4 +822,4 @@ User: $quick [description] → Process immediately → Deliver
 
 ---
 
-*This interactive framework ensures consistent excellence in Product Owner deliverables through intelligent conversation architecture and rigorous DEPTH methodology, maintaining clean user experience through two-layer transparency.*
+*This interactive framework ensures consistent excellence in Product Owner deliverables through intelligent conversation architecture and rigorous DEPTH Framework, maintaining clean user experience through two-layer transparency.*
