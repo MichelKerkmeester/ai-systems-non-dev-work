@@ -22,7 +22,8 @@ User story templates with integrated formatting rules and quality standards. All
 10. [📄 TEMPLATE EXAMPLE](#10-template-example-production-style)
 11. [🎯 FINAL REMINDERS](#11-final-reminders)
 12. [📚 CROSS-REFERENCES](#12-cross-references)
-13. [📝 VERSION HISTORY](#13-version-history)
+13. [📎 REFERENCES](#13-references)
+14. [📝 VERSION HISTORY](#14-version-history)
 
 ---
 
@@ -85,10 +86,11 @@ For development tasks with QA checklists and resolution tracking, use `$task` co
 1. Title (`# Story Name`) - First line
 2. User Story Statement - Traditional Agile format
 3. About (`## ⌘ About`) - Context narrative with `---` divider after header
-4. Success Criteria (`### **Success Criteria**`) - Numbered items with sub-bullets
-5. Acceptance Criteria (`### **Acceptance Criteria**`) - Testable requirements
-6. Acceptance Scenarios (BDD) (`### **Acceptance Scenarios (BDD)**`) - Given/When/Then
-7. Requirements (`## ❖ Requirements`) - Section headers with numbered items
+4. Ticket (`**Ticket:**`) - Link to external ticket system (ClickUp/Jira)
+5. Success Criteria (`### **Success Criteria**`) - Numbered items with sub-bullets
+6. Acceptance Criteria (`### **Acceptance Criteria**`) - Testable requirements
+7. Acceptance Scenarios (BDD) (`### **Acceptance Scenarios (BDD)**`) - Given/When/Then
+8. Requirements (`## ❖ Requirements`) - Section headers with numbered items
 
 ### Mandatory Structure Elements
 
@@ -221,7 +223,7 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 ## 4. ✅ QUALITY CHECKLIST
 
 ### Pre-Creation Validation
-- [ ] DEPTH Framework methodology applied (10 rounds standard, 1-5 quick)?
+- [ ] DEPTH Framework applied (10 rounds standard, 1-5 quick)?
 - [ ] User responded to comprehensive question?
 - [ ] System waited for response (never answered own questions)?
 - [ ] Complexity determined correctly?
@@ -360,6 +362,8 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 
 [Second paragraph expanding on the approach, expected value, or additional context as needed.]
 
+**Ticket:** [LINK]
+
 ### **Success Criteria**
 
 ---
@@ -451,6 +455,8 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 [Second paragraph: What is being built or changed and why it matters. The approach and expected value.]
 
 [Optional third paragraph: Additional context about scope, timeline, or strategic alignment if needed.]
+
+**Ticket:** [LINK]
 
 ### **Success Criteria**
 
@@ -604,6 +610,8 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 [Second paragraph: What is being built or changed, the approach being taken, and the expected outcomes. How this addresses the identified needs.]
 
 [Third paragraph: Additional context about scope, strategic alignment, timeline considerations, or related initiatives. Dependencies and relationships to other work.]
+
+**Ticket:** [LINK]
 
 ### **Success Criteria**
 
@@ -835,6 +843,8 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 
 [1-2 paragraphs describing the context, what is being changed, and why it matters]
 
+**Ticket:** [LINK]
+
 ### **Success Criteria**
 
 ---
@@ -909,6 +919,8 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 The Partner App is transitioning from a top-header navigation to a robust, resizable sidebar system to improve scalability and multi-company management.
 
 This new sidebar provides a persistent workspace for partners to navigate core features while maintaining a real-time overview of their Barter deals. It supports dynamic resizing and collapsed states to give users control over their screen real estate.
+
+**Ticket:** {ClickUp ID}
 
 ### **Success Criteria**
 
@@ -1119,12 +1131,18 @@ The different statuses are indicated by separate accordions.
 ### Supporting Files
 
 - **Interactive Mode** - Handles comprehensive question gathering
-- **DEPTH Framework** - Cognitive processing methodology
+- **DEPTH Framework** - Cognitive processing framework
 - **Design System** - Visual and component standards
 
 ---
 
-## 13. 📝 VERSION HISTORY
+## 13. 📎 REFERENCES
+
+- [Related documents, designs, or specs]
+
+---
+
+## 14. 📝 VERSION HISTORY
 
 | Date       | Changes                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -1134,4 +1152,4 @@ The different statuses are indicated by separate accordions.
 
 ---
 
-*Owner - Template - Story Mode — This template is the foundation for Story Mode deliverables in the Product Owner system. It ensures consistent excellence through DEPTH Framework cognitive methodology while maintaining clean, production-aligned output that matches real-world ClickUp patterns.*
+*Owner - Template - Story Mode — This template is the foundation for Story Mode deliverables in the Product Owner system. It ensures consistent excellence through DEPTH Framework cognitive processing while maintaining clean, production-aligned output that matches real-world ClickUp patterns.*

@@ -404,11 +404,11 @@ Corporate speak that weakens requirements.
 
 ## 12. 🔗 DEPTH Integration
 
-Human Voice Rules integrate with DEPTH methodology at the Test phase. See **Owner - DEPTH** for the complete DEPTH workflow.
+Human Voice Rules integrate with the DEPTH Framework at the Test phase. See **Owner - DEPTH Thinking Framework - v0.121.md** for the complete DEPTH workflow.
 
 ### Edge Cases
 
-**Contractions:** Use contractions naturally (don't, can't, won't) for conversational tone in documentation and instructions. Avoid in formal acceptance criteria.
+**Contractions:** Use contractions naturally (don't, can't, won't) for conversational tone in documentation and instructions. Do not use contractions in formal acceptance criteria sections. Acceptance criteria must use full forms (do not, cannot, will not) to maintain precision and avoid ambiguity.
 
 **Numbers:** Write numbers 1-9 as words in prose, use digits for 10+ and all technical values (IDs, measurements, counts).
 
@@ -471,22 +471,22 @@ depth_human_voice_checkpoint:
 
 ## 14. 🔧 Quick Fix Table
 
-| If You See | Replace With |
-|------------|--------------|
-| — (em dash) | , (comma) or . (period) |
-| ; (semicolon) | . (period) |
-| delve into | explore, examine |
-| utilize | use |
-| leverage | use, build on |
-| functionality | feature |
-| in order to | to |
-| should be able to | can |
-| will need to | needs |
-| due to the fact that | because |
-| at this point in time | now |
-| In conclusion, | [Delete, state directly] |
-| not just X, but also Y | X and Y |
-| it is recommended | [direct statement] |
+| If You See | Replace With | Severity |
+|------------|--------------|----------|
+| — (em dash) | , (comma) or . (period) | BLOCKING |
+| ; (semicolon) | . (period) | BLOCKING |
+| delve into | explore, examine | BLOCKING |
+| utilize | use | WARNING |
+| leverage | use, build on | WARNING |
+| functionality | feature | WARNING |
+| in order to | to | WARNING |
+| should be able to | can | WARNING |
+| will need to | needs | WARNING |
+| due to the fact that | because | WARNING |
+| at this point in time | now | WARNING |
+| In conclusion, | [Delete, state directly] | WARNING |
+| not just X, but also Y | X and Y | WARNING |
+| it is recommended | [direct statement] | WARNING |
 
 ---
 
