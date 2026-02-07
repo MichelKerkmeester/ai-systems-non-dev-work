@@ -100,6 +100,7 @@ Violation of this protocol **invalidates the entire response**.
 **Trigger Conditions (if ANY apply):**
 1. This is the **first message** of the session
 2. Query suggests context is needed (keywords: "based on", "using", "reference", "example", "previous", "existing", "similar to", "continue", or mentions specific files/projects)
+3. User provides file paths from `/context/` folder, creates subtasks for existing parent tasks, or references known project names (e.g., Chat v2, Feed v3)
 
 **When triggered, ask the user:**
 > "Would you like me to check the `/context` folder for reference materials before proceeding?"
@@ -111,7 +112,7 @@ Violation of this protocol **invalidates the entire response**.
 ### **✅ STEP 1: READ CORE DOCUMENTS FIRST**
 **MANDATORY:** Read these documents **COMPLETELY** before proceeding:
 
-1. `/knowledge base/Owner - System Prompt - v0.954.md` (PRIMARY instruction set)
+1. `/knowledge base/Owner - System Prompt - v0.955.md` (PRIMARY instruction set)
 2. `/knowledge base/Owner - Human Voice Rules - v0.102.md` (Voice and clarity rules)
 
 **System Prompt contains:**
@@ -131,24 +132,25 @@ Violation of this protocol **invalidates the entire response**.
 Based on routing logic in System Prompt:
 
 1. **Templates** (Load per Command)
-   - `/knowledge base/Owner - Template - Bug Mode - v0.114.md` ($bug)
+   - `/knowledge base/Owner - Template - Bug Mode - v0.115.md` ($bug)
    - `/knowledge base/Owner - Template - Doc Mode - v0.133.md` ($doc)
    - `/knowledge base/Owner - Template - Epic Mode - v0.152.md` ($epic)
    - `/knowledge base/Owner - Template - Story Mode - v0.152.md` ($story)
-   - `/knowledge base/Owner - Template - Task Mode - v0.203.md` ($task)
+   - `/knowledge base/Owner - Template - Task Mode - v0.204.md` ($task)
+   - Task Mode now includes a dedicated Subtask Template (v0.204+) for parent-child task decomposition.
 
 2. **Complex Tasks**
-   - `/knowledge base/Owner - DEPTH Thinking Framework - v0.120.md`
+   - `/knowledge base/Owner - DEPTH Thinking Framework - v0.121.md`
 
 3. **Clarification Flow**
-   - `/knowledge base/Owner - Interactive Mode - v0.319.md`
+   - `/knowledge base/Owner - Interactive Mode - v0.320.md`
 
 ---
 
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- Skip the system prompt (`/knowledge base/Owner - System Prompt - v0.954.md`)
+- Skip the system prompt (`/knowledge base/Owner - System Prompt - v0.955.md`)
 - Proceed without reading the System Prompt completely
 - Read ALL documents unnecessarily (routing logic determines what's needed)
 - Answer your own questions (always wait for user, except $quick)
@@ -161,7 +163,7 @@ Based on routing logic in System Prompt:
 - **Use code blocks or inline text to paste deliverable content in chat**
 
 ### ALWAYS:
-- Start with `/knowledge base/Owner - System Prompt - v0.954.md` and `/knowledge base/Owner - Human Voice Rules - v0.102.md`
+- Start with `/knowledge base/Owner - System Prompt - v0.955.md` and `/knowledge base/Owner - Human Voice Rules - v0.102.md`
 - Follow routing logic in System Prompt (Section 4)
 - **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - description.ext` BEFORE responding — never display content in chat
 - Respect processing hierarchy
@@ -184,4 +186,4 @@ Based on routing logic in System Prompt:
 
 ---
 
-**→ GO TO:** `/knowledge base/Owner - System Prompt - v0.954.md` and `/knowledge base/Owner - Human Voice Rules - v0.102.md` **NOW**
+**→ GO TO:** `/knowledge base/Owner - System Prompt - v0.955.md` and `/knowledge base/Owner - Human Voice Rules - v0.102.md` **NOW**
