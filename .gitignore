@@ -6,24 +6,8 @@
 # Development
 node_modules/
 
-# IDE and AI folders (ignored at all levels)
-.vscode/
-.opencode/
-.claude/
-
 # Configuration files (ignored at all levels)
 .env
-.mcp.json
-.utcp_config.json
-opencode.json
-mcp_servers.json
-settings.local.json
-
-
-# Database files (contain personal memory/session data)
-memory/database/*.sqlite
-memory/database/*.sqlite-shm
-memory/database/*.sqlite-wal
 
 # Working directories (ignored at all levels)
 context/
@@ -34,6 +18,3 @@ data/
 
 # Archive folder (root level only)
 /z — Archive/
-
-# Complete folder ignore
-Barter
