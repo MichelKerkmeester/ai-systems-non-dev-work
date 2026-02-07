@@ -2,9 +2,11 @@
 
 Structured bug report templates for defect tracking and resolution. Fixed structure with Evidence capture, reproduction steps, and root cause analysis requirements.
 
+> **Note:** Bug Mode intentionally omits decorative symbols for clinical clarity (ADR-005).
+
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides self-contained bug report templates for filing ISOLATED defects when $bug or $b command is detected
-**Scope:** Bug mode overview, delivery standards, quality checklists, error recovery, complete bug template, DEPTH methodology integration
+**Scope:** Bug mode overview, delivery standards, quality checklists, error recovery, complete bug template, DEPTH Framework integration
 **Output Path:** `/export/[###]-artifact.md`
 
 ---
@@ -103,7 +105,7 @@ For feature development (new functionality, enhancements), use `$task` command w
 5. Resolution Checklist (###) - Fix/Regression Prevention/Validation
 
 #### Formatting Standards
-- **Dividers:** Use `---` between all major sections
+- **Dividers:** Use `---` between all major sections, with a blank line before and after the `---`
 - **Lists:** Always use `-` for bullets, `- [ ]` for checkboxes
 - **Images:** Inline using `![alt text](image.png)` in Evidence section
 - **Code Blocks:** Use fenced code blocks for error messages and logs
@@ -277,7 +279,7 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 
 **Ticket:** {ClickUp ID}
 
-**References**
+**References:**
 
 **Flows:**
 - [{Flow name}]({figma-url})
@@ -362,6 +364,20 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 
 ---
 
+<!-- IF BDD applicable -->
+### BDD Scenarios
+
+---
+
+**Scenario:** [Bug behavior scenario]
+- **Given** [precondition describing the buggy state]
+- **When** [action that triggers the bug]
+- **Then** [expected correct behavior after fix]
+
+<!-- END IF -->
+
+---
+
 ### Resolution Checklist
 
 ---
@@ -432,4 +448,4 @@ Complete all items below before moving to QA
 
 ---
 
-*This template ensures all bug reports maintain consistent quality through DEPTH Framework cognitive methodology while capturing evidence, reproduction steps, and root cause analysis for effective defect resolution.*
+*This template ensures all bug reports maintain consistent quality through DEPTH Framework cognitive processing while capturing evidence, reproduction steps, and root cause analysis for effective defect resolution.*

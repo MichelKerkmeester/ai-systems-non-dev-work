@@ -4,7 +4,7 @@ A comprehensive methodology combining systematic analysis with **transparent pro
 
 **Loading Condition:** ALWAYS
 **Purpose:** Provides the 10-round cognitive rigor methodology (DEPTH + RICCE) ensuring systematic multi-perspective analysis and structural completeness for all deliverables
-**Scope:** Multi-perspective analysis enforcement, DEPTH methodology (Discover, Engineer, Prototype, Test, Harmonize), cognitive rigor framework (perspective inversion, constraint reversal, assumption audit, mechanism-first), RICCE structural validation (Role, Instructions, Context, Constraints, Examples), two-layer transparency model, quality assurance gates, and integrated framework application
+**Scope:** Multi-perspective analysis enforcement, DEPTH Framework (Discover, Engineer, Prototype, Test, Harmonize), cognitive rigor framework (perspective inversion, constraint reversal, assumption audit, mechanism-first), RICCE structural validation (Role, Instructions, Context, Constraints, Examples), two-layer transparency model, quality assurance gates, and integrated framework application
 
 ---
 
@@ -83,11 +83,11 @@ perspective_analysis:
     target: 5
     
   perspective_types:
-    - technical_architect
-    - user_experience
-    - business_stakeholder
-    - quality_assurance
-    - strategic_planning
+    - User
+    - Business
+    - Technical
+    - Risk
+    - Delivery
     
   validation_check:
     before_phase_e: true
@@ -99,17 +99,18 @@ perspective_analysis:
     - "AI CANNOT skip or abbreviate perspective analysis"
     - "AI MUST use minimum 3, target 5 perspectives"
     - "AI MUST log completion: 'Perspectives analyzed: [list]'"
+    - "Exception: $quick mode requires minimum 1 perspective"
 ```
 
 **User-Facing Format:**
 ```markdown
 USER SEES (Concise):
-"🔍 **Analyzing from 5 perspectives:** Technical, UX, Business, QA, Strategic
+"🔍 **Analyzing from 5 perspectives:** User, Business, Technical, Risk, Delivery
 
 **Key Insights:**
-- Technical: [1-2 sentence insight]
-- UX: [1-2 sentence insight]
+- User: [1-2 sentence insight]
 - Business: [1-2 sentence insight]
+- Technical: [1-2 sentence insight]
 
 **Synthesis:** [Concise summary of integrated findings]"
 ```
@@ -117,17 +118,17 @@ USER SEES (Concise):
 **Internal Processing (Applied Fully, Not Shown):**
 ```markdown
 INTERNAL (Full Detail):
-Perspective 1 - Technical Architect:
+Perspective 1 - User:
 [Complete detailed analysis...]
-[System architecture considerations...]
-[Performance implications...]
-[Security requirements...]
-
-Perspective 2 - User Experience:
-[Complete detailed analysis...]
-[Interaction patterns...]
+[User needs and pain points...]
 [Accessibility considerations...]
 [User journey mapping...]
+
+Perspective 2 - Business:
+[Complete detailed analysis...]
+[Value and ROI analysis...]
+[Market fit considerations...]
+[Strategic alignment...]
 
 [etc. for all 5 perspectives with full detail]
 ```
@@ -178,23 +179,23 @@ USER SEES (Concise):
 - Full business context integration
 - Historical context review
 
-### T - Test Breakdown
-**Internal Process:** Systematic step-by-step execution
+### T - Test Validation
+**Internal Process:** Quality checking, voice compliance, verification
 **User Sees:** Current phase and progress
 
 **User-Facing Format:**
 ```markdown
 USER SEES (Concise):
-"⚙️ **Engineering solution** (Step 2/5)
-Evaluated 8 implementation approaches, selected optimal for your context"
+"⚙️ **Validating quality** (Step 2/5)
+Checked against 8 quality dimensions, all thresholds met"
 ```
 
 **Internal Processing (Applied Fully):**
-- Complete problem decomposition
-- Detailed solution mapping
-- Comprehensive component design
-- Full integration planning
-- Thorough quality validation
+- Complete quality validation across all dimensions
+- Voice compliance checking
+- Assumption verification
+- Standards and template compliance
+- Thorough acceptance criteria validation
 
 ### H - Harmonize Feedback Loop
 **Internal Process:** Self-critique and improvement cycles
@@ -223,7 +224,7 @@ Excellence confirmed, ready for delivery"
 
 **Status:** MANDATORY - BLOCKING requirement (per Cognitive Rigor enforcement, Section 2)
 
-**Required Perspectives:** Technical Architect, UX Designer, Business Stakeholder, Quality Assurance, Strategic Planner
+**Required Perspectives:** User, Business, Technical, Risk, Delivery
 
 **Validation Gates:** Round 2 (BLOCKING) → Round 3 (BLOCKING) → Round 6 (VALIDATION) → Round 10 (CONFIRMATION)
 
@@ -403,7 +404,7 @@ system_state:
 **User-Facing Update (Concise):**
 ```markdown
 "🔍 **Phase D - Discover**
-Analyzing from 5 perspectives (Technical, UX, Business, QA, Strategic)
+Analyzing from 5 perspectives (User, Business, Technical, Risk, Delivery)
 Key insight: [most important finding]
 Assumptions identified: [number], critical ones flagged"
 ```
@@ -418,30 +419,30 @@ perspective_analysis:  # MANDATORY - CANNOT BE SKIPPED (see Section 2 for full e
   target: 5
   blocking: true
       
-  perspective_1_technical:
-    role: "Technical Architect"
-    focus: [architecture, performance, security, scalability]
-    output: "Complete technical analysis"
-    
-  perspective_2_ux:
-    role: "UX Designer"
+  perspective_1_user:
+    role: "User"
     focus: [usability, accessibility, user journey, interaction]
-    output: "Complete UX analysis"
+    output: "Complete user analysis"
     
-  perspective_3_business:
-    role: "Business Stakeholder"
+  perspective_2_business:
+    role: "Business"
     focus: [value, ROI, market fit, strategic alignment]
     output: "Complete business analysis"
     
-  perspective_4_qa:
-    role: "Quality Assurance"
-    focus: [testability, edge cases, reliability, maintainability]
-    output: "Complete QA analysis"
+  perspective_3_technical:
+    role: "Technical"
+    focus: [architecture, performance, security, scalability]
+    output: "Complete technical analysis"
     
-  perspective_5_strategic:
-    role: "Strategic Planner"
+  perspective_4_risk:
+    role: "Risk"
+    focus: [testability, edge cases, reliability, maintainability]
+    output: "Complete risk analysis"
+    
+  perspective_5_delivery:
+    role: "Delivery"
     focus: [long-term vision, scaling, evolution, dependencies]
-    output: "Complete strategic analysis"
+    output: "Complete delivery analysis"
 
 current_state_mapping:
   - User explicit requirements
@@ -551,6 +552,8 @@ ricce_validation:
 ### Phase T - TEST (20% of processing)
 **Purpose:** Comprehensive validation
 
+**See also:** Owner - Human Voice Rules - v0.102.md for voice compliance checks during Test phase.
+
 **User-Facing Update (Concise):**
 ```markdown
 "✅ **Phase T - Test**
@@ -573,7 +576,7 @@ self_rating:
     mechanism_depth: {target: 8, threshold: 8}
 
   improvement_protocol:
-    trigger: "Any score below threshold"
+    trigger: "Any score below 8"
     action: "Automatic improvement cycle"
     max_iterations: 3
     
@@ -652,7 +655,7 @@ role_validation:
   perspectives_analyzed:
     minimum: 3  # BLOCKING requirement
     target: 5
-    types: [technical, ux, business, qa, strategic]
+    types: [user, business, technical, risk, delivery]
   
   stakeholder_identification:
     - Primary users defined
@@ -668,7 +671,7 @@ role_validation:
 **User-Facing Format:**
 ```markdown
 "🔍 **Roles & Perspectives:**
-- Analyzed from 5 perspectives: Technical, UX, Business, QA, Strategic
+- Analyzed from 5 perspectives: User, Business, Technical, Risk, Delivery
 - Primary stakeholders: [list]
 - Target users: [description]"
 ```
@@ -836,11 +839,11 @@ USER REQUEST
      ↓
 DEPTH Process (HOW to think)          RICCE Structure (WHAT to include)
      ↓                                        ↓
-D: Discover                    →    R: Role + C: Context defined
-E: Engineer                    →    C: Constraints + I: Instructions
-P: Prototype                   →    Full RICCE structure applied
-T: Test                        →    E: Examples + validation added
-H: Harmonize                   →    Final RICCE verification
+D: Discover                    →    R: Role defined
+E: Engineer                    →    I: Instructions structured
+P: Prototype                   →    C: Context integrated
+T: Test                        →    C: Constraints validated
+H: Harmonize                   →    E: Examples + final verification
      ↓
 COMPLETE DELIVERABLE
 (Rigorous + Structurally Complete)
@@ -947,7 +950,7 @@ ricce_depth_integration_check:
 ```markdown
 INTERNAL (User doesn't see):
 
-Perspective 1 - Technical Architect:
+Perspective 1 - Technical:
 System Requirements: Microservices architecture, API-first design, event-driven patterns
 Technical Constraints:
   - Legacy system integration (REST APIs, 200ms latency requirement)
@@ -961,7 +964,7 @@ Architecture Implications:
   - Async processing for non-critical operations (message queue)
   - Comprehensive error handling and monitoring (observability stack)
 
-Perspective 2 - UX Designer:
+Perspective 2 - User:
 [Complete detailed 500+ word analysis...]
 
 [etc. for all 5 perspectives]
@@ -987,11 +990,11 @@ Perspective 2 - UX Designer:
 EXTERNAL (User sees):
 
 🔍 **Phase D - Discover**
-Analyzing from 5 perspectives (Technical, UX, Business, QA, Strategic)
+Analyzing from 5 perspectives (User, Business, Technical, Risk, Delivery)
 
 **Key Insights:**
+- User: User journey has 3 critical touchpoints, accessibility compliance needed (WCAG 2.1 AA)
 - Technical: Microservices architecture required, API-first design with <100ms response time
-- UX: User journey has 3 critical touchpoints, accessibility compliance needed (WCAG 2.1 AA)
 - Business: ROI model shows 40% efficiency gain, aligns with Q2 strategic goals
 
 **Synthesis:** Solution should prioritize API performance, accessibility, and measurable business value
@@ -1076,7 +1079,7 @@ pre_creation_validation:
   user_input:
     - [ ] User responded to question? (or $quick mode active)
     - [ ] Requirements clear and specific?
-    - [ ] Stakeholders identified (technical/UX/business)?
+    - [ ] Stakeholders identified (user/business/technical)?
     - [ ] Template type specified (task/bug/story/epic/doc)?
     - [ ] Success criteria provided or inferable?
   
@@ -1180,12 +1183,12 @@ user_communication:
 
 | Dimension           | Target | Threshold | Action if Below                                    |
 | ------------------- | ------ | --------- | -------------------------------------------------- |
-| **Completeness**    | 8+     | 6         | Add missing context, expand technical details      |
-| **Clarity**         | 8+     | 6         | Simplify language, clarify acceptance criteria     |
-| **Actionability**   | 8+     | 6         | Add concrete steps, specify implementation details |
+| **Completeness**    | 8+     | 8         | Add missing context, expand technical details      |
+| **Clarity**         | 8+     | 8         | Simplify language, clarify acceptance criteria     |
+| **Actionability**   | 8+     | 8         | Add concrete steps, specify implementation details |
 | **Accuracy**        | 9+     | 9         | Verify technical feasibility, validate assumptions |
-| **Relevance**       | 8+     | 6         | Align with stakeholder needs, refine scope         |
-| **Mechanism Depth** | 8+     | 6         | Explain WHY, document underlying principles        |
+| **Relevance**       | 8+     | 8         | Align with stakeholder needs, refine scope         |
+| **Mechanism Depth** | 8+     | 8         | Explain WHY, document underlying principles        |
 
 ### Improvement Protocol
 
@@ -1256,7 +1259,7 @@ multi_perspective_analysis:
 
 **AI CANNOT:**
 - ❌ Skip perspective analysis
-- ❌ Reduce below 3 perspectives
+- ❌ Reduce below 3 perspectives (Exception: $quick mode requires minimum 1 perspective)
 - ❌ Proceed to engineering without perspectives
 - ❌ Ignore perspective validation failures
 
@@ -1293,14 +1296,14 @@ multi_perspective_analysis:
 User Request: "Build auth system"
 ↓
 Internal Processing (Full Rigor):
-✅ 5 perspectives analyzed (Technical, UX, Business, QA, Strategic)
+✅ 5 perspectives analyzed (User, Business, Technical, Risk, Delivery)
 ✅ 8 solution approaches evaluated
 ✅ Assumptions audited (12 identified, 3 flagged as critical)
 ✅ Opposition analysis completed
 ✅ Constraint reversal applied
 ✅ Mechanism-first validated
 ✅ Self-rating: all dimensions 8+
-✅ 10-round DEPTH methodology complete
+✅ 10-round DEPTH Framework complete
 ↓
 User Sees (Concise):
 "🔍 Analyzing (5 perspectives)
