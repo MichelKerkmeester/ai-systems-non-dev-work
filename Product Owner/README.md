@@ -1,10 +1,10 @@
-# Product Owner System - User Guide v0.952
+# Product Owner System - User Guide v0.955
 
 Transforms requests into professional tickets, bugs, stories, epics, and documentation with **concise transparent DEPTH processing**.
 
 ## 📋 TABLE OF CONTENTS
 
-1. [🆕 WHAT'S NEW IN V0.952](#1-whats-new-in-v0952)
+1. [🆕 WHAT'S NEW IN V0.955](#1-whats-new-in-v0955)
 2. [✨ KEY FEATURES](#2-key-features)
 3. [🌳 SYSTEM ARCHITECTURE](#3-system-architecture)
 4. [🚀 QUICK SETUP](#4-quick-setup)
@@ -16,10 +16,17 @@ Transforms requests into professional tickets, bugs, stories, epics, and documen
 
 ---
 
-<a id="1-whats-new-in-v0952"></a>
-## 1. 🆕 WHAT'S NEW IN V0.952
+<a id="1-whats-new-in-v0955"></a>
+## 1. 🆕 WHAT'S NEW IN V0.955
 
-### Major Additions
+### v0.955 System Update (February 2026)
+- **Task Mode v0.204:** Added References section (Figma flows/components), Subtask Template, platform-specific validation (iOS/Android/Web), design token guidance, `[Optional for MVP]` tier marking, decomposition guidance
+- **Bug Mode v0.115:** Added References section, cross-browser validation, Related Issues field, Workaround field, ClickUp ID field, Figma evidence links
+- **Interactive Mode v0.320:** Added Figma reference questions, platform scope questions, dependency questions to all command templates
+- **System Prompt v0.955:** Added UI refinement routing (feedback/polish → Task Mode), multi-deliverable handling, context folder integration, $quick exception for min-perspectives rule
+- **DEPTH Framework v0.121:** Acronym consistency fix, reduced repetition
+
+### Previous: v0.952
 
 **Epic & Story Template Alignment - v0.952:**
 - Complete rewrite of Epic Template (v0.140 → v0.150) based on production patterns
@@ -59,8 +66,8 @@ Transforms requests into professional tickets, bugs, stories, epics, and documen
 <a id="2-key-features"></a>
 ## 2. ✨ KEY FEATURES
 
-- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.200, Bug v0.110, Story v0.150, Epic v0.150, Doc v0.129)
-- **🧠 DEPTH Framework v0.118**: 10-round methodology with two-layer transparency and RICCE integration
+- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.204, Bug v0.115, Story v0.152, Epic v0.152, Doc v0.133)
+- **🧠 DEPTH Framework v0.121**: 10-round methodology with two-layer transparency and RICCE integration
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
 - **🔬 Enhanced Cognitive Rigor**: 6 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first, RICCE compliance)
 - **📊 Two-Layer Model**: Full rigor internally, concise updates externally with improved transparency guidelines
@@ -81,16 +88,16 @@ AGENTS.md → Entry point with routing logic
     ↓
 Product Owner - System Prompt.md (System prompt - routing & rules)
     ↓
-DEPTH Framework v0.118 (Methodology with RICCE)
+DEPTH Framework v0.121 (Methodology with RICCE)
     ↓
-Interactive Mode v0.317 (Conversation flow)
+Interactive Mode v0.320 (Conversation flow)
     ↓
 Templates:
-├── Task Mode v0.200 (Development tasks)
-├── Bug Mode v0.110 (Defect tracking) ← NEW
-├── Story Mode v0.150 (User stories)
-├── Epic Mode v0.150 (Initiatives)
-└── Doc Mode v0.129 (Documentation)
+├── Task Mode v0.204 (Development tasks)
+├── Bug Mode v0.115 (Defect tracking)
+├── Story Mode v0.152 (User stories)
+├── Epic Mode v0.152 (Initiatives)
+└── Doc Mode v0.133 (Documentation)
     ↓
 Output → /export/[###]-artifact.md
 ```
@@ -112,35 +119,37 @@ Output → /export/[###]-artifact.md
 Add these documents to your project:
 
 **Core Framework:**
-- `Product Owner - DEPTH Thinking Framework - v0.118.md` (two-layer transparency, mandatory perspectives, & RICCE integration)
-- `Product Owner - Interactive Mode - v0.317.md` (conversation flow & smart routing)
-- `Owner - Human Voice Rules - v0.100.md` (eliminates AI-detectable patterns, enforced at DEPTH Test phase)
+- `Product Owner - DEPTH Thinking Framework - v0.121.md` (two-layer transparency, mandatory perspectives, & RICCE integration)
+- `Product Owner - Interactive Mode - v0.320.md` (conversation flow & smart routing)
+- `Owner - Human Voice Rules - v0.102.md` (eliminates AI-detectable patterns, enforced at DEPTH Test phase)
 
 **Self-Contained Templates:**
 Each template is fully self-contained with embedded rules, quality checks, and formatting standards:
 
-- **`Product Owner - Template - Task Mode - v0.200.md`**
+- **`Product Owner - Template - Task Mode - v0.204.md`**
   - Development tasks with detailed QA Resolution Checklists
   - Auto-scaling: Simple (4-6 items), Standard (8-12), Complex (12-20)
   - Includes mechanism-first validation and scope discipline
+  - **Subtask Template:** Dedicated template for parent-child task decomposition (v0.204+)
 
-- **`Product Owner - Template - Bug Mode - v0.110.md`** ← NEW
+- **`Product Owner - Template - Bug Mode - v0.115.md`**
   - Bug reports with evidence tracking and reproduction steps
   - Fixed complexity (no scaling - bugs have consistent structure)
   - Evidence section for screenshots/logs/error output
   - Root cause tracking in Resolution Checklist
-  
-- **`Product Owner - Template - Story Mode - v0.150.md`**
+  - References section with Figma evidence links
+   
+- **`Product Owner - Template - Story Mode - v0.152.md`**
   - User stories in narrative format (no QA checklist)
   - Focus on user journey and requirements
   - Production-aligned structure with H2 About, H3 Success Criteria
    
-- **`Product Owner - Template - Epic Mode - v0.150.md`**
+- **`Product Owner - Template - Epic Mode - v0.152.md`**
   - High-level summaries with links to stories/tasks
   - Single unified template (production-aligned)
   - Includes success criteria and requirements structure
   
-- **`Product Owner - Template - Doc Mode - v0.129.md`**
+- **`Product Owner - Template - Doc Mode - v0.133.md`**
   - Technical and user documentation
   - Complexity levels: Simple (2-3), Standard (4-6), Complex (7+)
   - Tool-agnostic design principles
