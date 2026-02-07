@@ -39,7 +39,7 @@
       "type": "local",
       "command": [
         "node",
-        "/Users/michelkerkmeester/MEGA/MCP Servers/code-mode/code-mode-mcp/dist/index.js"
+        ".opencode/skill/mcp-code-mode/mcp_server/dist/index.js"
       ],
       "environment": {
         "UTCP_CONFIG_FILE": ".utcp_config.json"
