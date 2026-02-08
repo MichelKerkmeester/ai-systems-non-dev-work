@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)](https://python.org)
 [![MCP](https://img.shields.io/badge/MCP-Compatible-green.svg)](https://modelcontextprotocol.io)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) <!-- upstream license; no local LICENSE file in this repo -->
 
 A video production automation tool based on Model Context Protocol (MCP) that enables AI assistants to create professional video content through natural language.
 
@@ -60,7 +60,8 @@ JianYing MCP is a powerful video production automation tool that allows AI to:
 ### Step 1: Build and Start Container
 
 ```bash
-cd jianying-mcp
+# From the repo root:
+cd "CapCut/mcp server/jianying-mcp"
 docker-compose up -d --build
 ```
 
@@ -88,10 +89,10 @@ Add to your MCP configuration:
 
 ### Step 4: Configure Docker Desktop Paths
 
-In **Docker Desktop → Settings → Resources → File Sharing**, add:
-- `/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/data`
-- `/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/export`
-- `/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/media`
+In **Docker Desktop → Settings → Resources → File Sharing**, add (local-only, adjust to your machine):
+- `/Users/<you>/.../CapCut/data`
+- `/Users/<you>/.../CapCut/export`
+- `/Users/<you>/.../CapCut/media`
 
 ### Volume Paths
 

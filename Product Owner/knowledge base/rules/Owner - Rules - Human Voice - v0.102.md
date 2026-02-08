@@ -1,0 +1,1 @@
+/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/z — Global (Shared)/Rules - Human Voice - v0.100.md

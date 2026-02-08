@@ -66,7 +66,7 @@ Video-Audio is a comprehensive Model Context Protocol (MCP) server that provides
 
 ```bash
 # 1. Navigate to the server directory
-cd "/Users/michelkerkmeester/MEGA/AI Systems/Media Editor/mcp servers/video-audio"
+cd "/Users/<you>/.../Media Editor/mcp servers/video-audio"  # local-only example
 
 # 2. Build and start the container
 docker-compose up -d --build
@@ -326,7 +326,7 @@ services:
     image: video-audio:latest
     container_name: video-audio
     volumes:
-      - /Users/michelkerkmeester/MEGA/AI Systems/Media Editor/export/videos:/videos:rw
+      - /Users/<you>/.../Media Editor/export/videos:/videos:rw  # local-only example
     environment:
       - PYTHONUNBUFFERED=1
       - NODE_ENV=production
@@ -468,11 +468,11 @@ docker exec video-audio ffmpeg -codecs | grep -i "codec-name"
 **Solution**:
 ```bash
 # Check host directory permissions
-ls -la "/Users/michelkerkmeester/MEGA/AI Systems/Media Editor/export/videos"
+ls -la "/Users/<you>/.../Media Editor/export/videos"  # local-only example
 
 # Ensure directory exists and is writable
-mkdir -p "/Users/michelkerkmeester/MEGA/AI Systems/Media Editor/export/videos"
-chmod 755 "/Users/michelkerkmeester/MEGA/AI Systems/Media Editor/export/videos"
+mkdir -p "/Users/<you>/.../Media Editor/export/videos"  # local-only example
+chmod 755 "/Users/<you>/.../Media Editor/export/videos"  # local-only example
 ```
 
 #### Processing Takes Too Long
@@ -536,7 +536,7 @@ A: Limited by available disk space in the mounted volume. Processing time increa
 
 **Q: Where should I place videos for processing?**
 
-A: Place videos in the mounted volume directory: `/Users/michelkerkmeester/MEGA/AI Systems/Media Editor/export/videos`. They will be accessible at `/videos` inside the container.
+A: Place videos in the mounted volume directory: `/Users/<you>/.../Media Editor/export/videos` (local-only example). They will be accessible at `/videos` inside the container.
 
 ---
 

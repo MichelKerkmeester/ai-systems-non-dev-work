@@ -159,7 +159,7 @@ System Prompt v0.982 (Core routing, 38 rules, framework selection)
 │  Format Guides v0.140 (Markdown, JSON, YAML)                │
 └─────────────────────────────────────────────────────────────┘
     ↓
-Output → /export/[###]-enhanced-prompt.[md|json|yaml]
+Output → ./export/[###]-enhanced-prompt.[md|json|yaml]
 ```
 
 ---
@@ -172,7 +172,7 @@ Output → /export/[###]-enhanced-prompt.[md|json|yaml]
 
 ### Step 2: Add System Instructions
 1. Edit project details → Custom instructions
-2. Copy and paste: `Prompt - System Prompt - v0.982.md`
+2. Copy and paste: `./knowledge base/system/Prompt - System - Prompt - v0.982.md`
 3. Save the project
 
 ### Step 3: Upload Supporting Documents
@@ -180,27 +180,27 @@ Output → /export/[###]-enhanced-prompt.[md|json|yaml]
 Add these documents to your project:
 
 **Core Framework:**
-- `Prompt - DEPTH Thinking Framework - v0.131.md` (two-layer transparency, mandatory perspectives, RICCE integration, **signal-based routing**)
-- `Prompt - Interactive Mode - v0.700.md` (conversation flow, state management, smart routing, MagicPath support)
-- `Prompt - Patterns, Enhancements & Evaluation - v0.201.md` (complete framework library, CLEAR scoring, 8 design directions)
-- 🎨 `Prompt - Visual Mode - v0.200.md` — VIBE/VIBE-MP framework, EVOKE scoring, **MagicPath.ai specialization**
-- 🖼️ `Prompt - Image Mode - v0.121.md` — FRAME framework (30 sub-categories), VISUAL scoring, platform optimization
-- 🎬 `Prompt - Video Mode - v0.121.md` — MOTION framework, platform mental models, physics language, audio integration
+- `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md` (two-layer transparency, mandatory perspectives, RICCE integration, **signal-based routing**)
+- `./knowledge base/system/Prompt - System - Interactive Mode - v0.700.md` (conversation flow, state management, smart routing, MagicPath support)
+- `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` (complete framework library, CLEAR scoring, 8 design directions)
+- 🎨 `./knowledge base/templates/Prompt - Templates - Visual Mode - v0.200.md` — VIBE/VIBE-MP framework, EVOKE scoring, **MagicPath.ai specialization**
+- 🖼️ `./knowledge base/templates/Prompt - Templates - Image Mode - v0.121.md` — FRAME framework (30 sub-categories), VISUAL scoring, platform optimization
+- 🎬 `./knowledge base/templates/Prompt - Templates - Video Mode - v0.121.md` — MOTION framework, platform mental models, physics language, audio integration
 
 **Format Specifications:**
 Each format guide (v0.140) is fully self-contained with pure format focus:
 
-- **`Prompt - Format Guide - Markdown - v0.140.md`**
+- **`./knowledge base/reference/Prompt - Reference - Format Guide Markdown - v0.140.md`**
   - Natural language prompt structure (DEFAULT FORMAT)
   - RCAF/CRAFT framework integration
   - Baseline token usage, optimal human readability
 
-- **`Prompt - Format Guide - JSON - v0.140.md`**
+- **`./knowledge base/reference/Prompt - Reference - Format Guide JSON - v0.140.md`**
   - Structured data for API/system integration
   - Schema validation and type safety
   - Token overhead: +5-10%
 
-- **`Prompt - Format Guide - YAML - v0.140.md`**
+- **`./knowledge base/reference/Prompt - Reference - Format Guide YAML - v0.140.md`**
   - Human-friendly configuration format
   - Minimal syntax overhead, clear hierarchy
   - Token overhead: +3-7%
@@ -283,7 +283,7 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 - Full 10-round DEPTH processing
 - Complete transparency report after delivery
 
-**Full details:** `Prompt - Interactive Mode - v0.700.md`
+**Full details:** `./knowledge base/system/Prompt - System - Interactive Mode - v0.700.md`
 
 ---
 
@@ -370,7 +370,7 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 **Average CLEAR:** 41/50 (lower expression, higher correctness weighting)
 
-**Full details:** `Prompt - Format Guide - JSON - v0.140.md`
+**Full details:** `./knowledge base/reference/Prompt - Reference - Format Guide JSON - v0.140.md`
 
 ---
 
@@ -393,7 +393,7 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 **Average CLEAR:** 42/50 (balanced readability and structure)
 
-**Full details:** `Prompt - Format Guide - YAML - v0.140.md`
+**Full details:** `./knowledge base/reference/Prompt - Reference - Format Guide YAML - v0.140.md`
 
 ---
 
@@ -497,7 +497,7 @@ $vibe Design a landing page for a meditation app
 $v Build a settings panel for a developer tool
 ```
 
-**Full details:** `Prompt - Visual Mode - v0.200.md`
+**Full details:** `./knowledge base/templates/Prompt - Templates - Visual Mode - v0.200.md`
 
 ---
 
@@ -564,7 +564,7 @@ Ready for delivery
 [Enhanced prompt delivered + full transparency report]
 ```
 
-**Full details:** `Prompt - Interactive Mode - v0.700.md`
+**Full details:** `./knowledge base/system/Prompt - System - Interactive Mode - v0.700.md`
 
 ---
 
@@ -650,7 +650,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 **Validation Gates:** Multi-phase enforcement (pre-enhancement, during enhancement, post-enhancement) ensures consistent excellence
 
-**Full details:** `Prompt - DEPTH Thinking Framework - v0.131.md`
+**Full details:** `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md`
 
 ---
 
@@ -715,7 +715,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 **Assumption Flagged:** [Assumes: API supports async requests]
 ```
 
-**Full details:** `Prompt - DEPTH Thinking Framework - v0.131.md` (Sections 5-6)
+**Full details:** `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md` (Sections 5-6)
 
 ---
 
@@ -829,7 +829,7 @@ framework_selection:
 - **RACE + ToT (Tree of Thoughts)**: Rapid decision trees
 - **Master-Detail Pattern**: Nested framework hierarchies
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.201.md` (Sections 1-4)
+**Full details:** `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` (Sections 1-4)
 
 ---
 
@@ -881,7 +881,7 @@ by_score:
 - Adaptive response formats (quick review vs comprehensive)
 - Self-documenting structure (what, why, how, example)
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.201.md` (Sections 5-7)
+**Full details:** `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` (Sections 5-7)
 
 ---
 
@@ -936,4 +936,4 @@ contextual_clear_scoring:
 2. **Deep Pass**: Ambiguity detection, assumption analysis
 3. **Interaction Pass**: AI interpretation testing, failure mode analysis
 
-**Full details:** `Prompt - Patterns, Enhancements & Evaluation - v0.201.md` (Sections 9-11)
+**Full details:** `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` (Sections 9-11)

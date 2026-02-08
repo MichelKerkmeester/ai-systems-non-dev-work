@@ -65,7 +65,7 @@ Imagician is a Model Context Protocol (MCP) server that provides comprehensive i
 
 ```bash
 # 1. Navigate to the server directory
-cd "/Users/michelkerkmeester/MEGA/AI Systems/Media Editor/mcp servers/imagician"
+cd "/Users/<you>/.../Media Editor/mcp servers/imagician"  # local-only example
 
 # 2. Build and start the container
 docker-compose up -d --build
@@ -207,7 +207,7 @@ services:
     image: imagician:latest
     container_name: imagician
     volumes:
-      - /Users/michelkerkmeester/MEGA/AI Systems/Media Editor/export/images:/images:rw
+      - /Users/<you>/.../Media Editor/export/images:/images:rw  # local-only example
     environment:
       - IMAGE_PATH=/images
       - NODE_ENV=production
@@ -312,11 +312,11 @@ docker-compose up -d
 **Solution**:
 ```bash
 # Check host directory permissions
-ls -la "/Users/michelkerkmeester/MEGA/AI Systems/Media Editor/export/images"
+ls -la "/Users/<you>/.../Media Editor/export/images"  # local-only example
 
 # Ensure directory exists and is writable
-mkdir -p "/Users/michelkerkmeester/MEGA/AI Systems/Media Editor/export/images"
-chmod 755 "/Users/michelkerkmeester/MEGA/AI Systems/Media Editor/export/images"
+mkdir -p "/Users/<you>/.../Media Editor/export/images"  # local-only example
+chmod 755 "/Users/<you>/.../Media Editor/export/images"  # local-only example
 ```
 
 #### Unsupported Format Error
@@ -369,7 +369,7 @@ A: Input supports JPEG, PNG, WebP, AVIF, GIF, BMP, and TIFF. Output supports JPE
 
 **Q: Where should I place images for processing?**
 
-A: Place images in the mounted volume directory: `/Users/michelkerkmeester/MEGA/AI Systems/Media Editor/export/images`. They will be accessible at `/images` inside the container.
+A: Place images in the mounted volume directory: `/Users/<you>/.../Media Editor/export/images` (local-only example). They will be accessible at `/images` inside the container.
 
 ---
 
