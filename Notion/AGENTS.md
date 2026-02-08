@@ -65,11 +65,11 @@ Use `generate_summary` to review the thinking process before taking action.
 **BLOCKING requirement — NON-NEGOTIABLE.**
 
 ### MANDATORY BEHAVIOR
-All deliverables MUST be saved to `/export/` BEFORE any response is sent to the user.
+All deliverables MUST be saved to `export/` BEFORE any response is sent to the user.
 
 ### SEQUENCE (STRICT ORDER)
 1. Generate deliverable internally
-2. Save to `/export/[###] - description.ext` **(BLOCKING)**
+2. Save to `export/[###] - description.ext` **(BLOCKING)**
 3. Verify file saved successfully
 4. ONLY THEN respond to user with file path
 5. Provide brief summary (2-3 sentences max), NOT full content
@@ -81,7 +81,7 @@ All deliverables MUST be saved to `/export/` BEFORE any response is sent to the 
 - ❌ Pasting full deliverable text then mentioning the file
 
 ### WHAT TO SHOW IN CHAT
-- ✅ File path confirmation: "Saved to `/export/[###] - filename.ext`"
+- ✅ File path confirmation: "Saved to `export/[###] - filename.ext`"
 - ✅ Brief summary (2-3 sentences describing what was created)
 - ✅ Next steps or clarifying questions
 - ❌ NOT the full deliverable content
@@ -97,7 +97,7 @@ Violation of this protocol **invalidates the entire response**.
 **FOLLOW THE INSTRUCTIONS BELOW IMMEDIATELY.**
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Notion - System Prompt - v0.230.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `knowledge base/system/Notion - System - Prompt - v0.230.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -110,13 +110,13 @@ This is your PRIMARY instruction set that contains:
 Based on routing logic in System Prompt:
 
 1. **API Operations**
-   - `/knowledge base/Notion - MCP Knowledge - v0.211.md`
+   - `knowledge base/integrations/Notion - Integrations - MCP Knowledge - v0.211.md`
 
 2. **Complex Sync Tasks**
-   - `/knowledge base/Notion - SYNC Thinking Framework - v0.211.md`
+   - `knowledge base/system/Notion - Thinking - SYNC Framework - v0.211.md`
 
 3. **Clarification Flow**
-   - `/knowledge base/Notion - Interactive Intelligence - v0.210.md`
+   - `knowledge base/system/Notion - System - Interactive Intelligence - v0.210.md`
 
 ---
 
@@ -124,27 +124,27 @@ Based on routing logic in System Prompt:
 
 ### DO NOT:
 - ❌ Skip MCP connection verification (blocking step)
-- ❌ Skip the system prompt (`/knowledge base/Notion - System Prompt - v0.230.md`)
+- ❌ Skip the system prompt (`knowledge base/system/Notion - System - Prompt - v0.230.md`)
 - ❌ Proceed without reading System Prompt completely
 - ❌ Read ALL documents unnecessarily (System Prompt routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user)
 - ❌ **Produce code, CLI commands, or implementation details** (Context Override)
 - ❌ Violate role boundaries defined in Context Override
 - ❌ Suggest manual workflows or external tools (native MCP only)
-- ❌ **Display deliverable content in chat instead of saving to /export/** (BLOCKING violation)
+- ❌ **Display deliverable content in chat instead of saving to export/** (BLOCKING violation)
 - ❌ **Show deliverable first, then save** (wrong order — SAVE FIRST always)
 - ❌ **Ask permission before saving** (saving is MANDATORY, not optional)
 - ❌ **Use code blocks or inline text to paste deliverable content in chat**
 
 ### ALWAYS:
 - ✅ Verify MCP connection FIRST (blocking requirement)
-- ✅ Start with `/knowledge base/Notion - System Prompt - v0.230.md`
+- ✅ Start with `knowledge base/system/Notion - System - Prompt - v0.230.md`
 - ✅ Follow routing logic in System Prompt
 - ✅ Apply SYNC 4-phase methodology for all operations
 - ✅ Use ONLY native Notion MCP capabilities
 - ✅ Read ONLY required supporting documents based on routing
 - ✅ **Refuse code requests and reframe as native Notion MCP deliverables** (Context Override)
-- ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - description.ext` BEFORE responding — never display content in chat
+- ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `export/[###] - description.ext` BEFORE responding — never display content in chat
 
 ---
 
@@ -156,7 +156,7 @@ Based on routing logic in System Prompt:
 4. **Apply Routing** — Follow operation detection in System Prompt
 5. **Supporting Documents** — Read as determined by routing logic
 6. **Execute & Validate** — Native MCP operations only, confirm 100% native
-7. **EXPORT (BLOCKING)** — Save to `/export/[###] - description.ext` BEFORE responding
+7. **EXPORT (BLOCKING)** — Save to `export/[###] - description.ext` BEFORE responding
 8. **Response** — Provide file path + brief summary only (NOT full content)
 
-**→ GO TO:** `/knowledge base/Notion - System Prompt - v0.230.md` **NOW**
+**→ GO TO:** `knowledge base/system/Notion - System - Prompt - v0.230.md` **NOW**

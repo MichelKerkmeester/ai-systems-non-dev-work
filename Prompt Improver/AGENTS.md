@@ -66,21 +66,21 @@ Use `generate_summary` to review the thinking process before taking action.
 **BLOCKING requirement — NON-NEGOTIABLE.**
 
 ### MANDATORY BEHAVIOR
-All deliverables MUST be saved to `/export/` BEFORE any response is sent to the user.
+All deliverables MUST be saved to `./export/` BEFORE any response is sent to the user.
 
 ### SEQUENCE (STRICT ORDER)
 1. Generate deliverable internally
-2. Save to `/export/[###] - description.ext` **(BLOCKING)**
+2. Save to `./export/[###] - description.ext` **(BLOCKING)**
 3. Verify file saved successfully
 4. ONLY THEN respond to user with file path
 5. Provide brief summary (2-3 sentences max), NOT full content
 
 **Sequential Numbering Protocol:**
-- Check existing files in `/export/` directory
+- Check existing files in `./export/` directory
 - Find highest existing number (e.g., if 005 exists, next is 006)
 - Use 3-digit zero-padded format (001, 002, ..., 999)
 - If starting fresh, begin with 001
-- Example: `/export/007 - enhanced-user-auth-prompt.md`
+- Example: `./export/007 - enhanced-user-auth-prompt.md`
 
 ### PROHIBITED BEHAVIORS
 - ❌ Displaying deliverable content in chat (code blocks, markdown, inline text)
@@ -89,7 +89,7 @@ All deliverables MUST be saved to `/export/` BEFORE any response is sent to the 
 - ❌ Pasting full deliverable text then mentioning the file
 
 ### WHAT TO SHOW IN CHAT
-- ✅ File path confirmation: "Saved to `/export/[###] - filename.ext`"
+- ✅ File path confirmation: "Saved to `./export/[###] - filename.ext`"
 - ✅ Brief summary (2-3 sentences describing what was created)
 - ✅ Next steps or clarifying questions
 - ❌ NOT the full deliverable content
@@ -101,7 +101,7 @@ Violation of this protocol **invalidates the entire response**.
 ### Authority Resolution
 
 **When Export Protocol and ask_user conflict:**
-1. **EXPORT FIRST** - Save deliverable to `/export/` immediately after generation
+1. **EXPORT FIRST** - Save deliverable to `./export/` immediately after generation
 2. **THEN ask_user** - Confirm with user that deliverable meets requirements
 3. **Sequence:** Generate → Save → Confirm → Respond with file path
 
@@ -119,14 +119,14 @@ Violation of this protocol **invalidates the entire response**.
 2. Query suggests context is needed (keywords: "based on", "using", "reference", "example", "previous", "existing", "similar to", "continue", or mentions specific files/projects)
 
 **When triggered, ask the user:**
-> "Would you like me to check the `/context` folder for reference materials before proceeding?"
+> "Would you like me to check the `./context/` folder for reference materials before proceeding?"
 
 **Response Handling:**
-- **YES:** Read relevant files from `/context/` and incorporate into task understanding
+- **YES:** Read relevant files from `./context/` and incorporate into task understanding
 - **NO:** Proceed directly to Step 1
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/Prompt - System Prompt - v0.982.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `./knowledge base/system/Prompt - System - Prompt - v0.982.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -141,21 +141,21 @@ This is your PRIMARY instruction set that contains:
 Based on routing logic in System Prompt:
 
 1. **Analysis & Patterns**
-   - `/knowledge base/Prompt - Patterns, Enhancements & Evaluation - v0.201.md`
+   - `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md`
 
 2. **Format Guides** (Load per Output Format)
-   - `/knowledge base/Prompt - Format Guide - JSON - v0.140.md`
-   - `/knowledge base/Prompt - Format Guide - Markdown - v0.140.md`
-   - `/knowledge base/Prompt - Format Guide - YAML - v0.140.md`
+   - `./knowledge base/reference/Prompt - Reference - Format Guide JSON - v0.140.md`
+   - `./knowledge base/reference/Prompt - Reference - Format Guide Markdown - v0.140.md`
+   - `./knowledge base/reference/Prompt - Reference - Format Guide YAML - v0.140.md`
 
 3. **Complex Tasks**
-   - `/knowledge base/Prompt - DEPTH Thinking Framework - v0.131.md`
+   - `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md`
 
 4. **Clarification Flow**
-   - `/knowledge base/Prompt - Interactive Mode - v0.700.md`
+   - `./knowledge base/system/Prompt - System - Interactive Mode - v0.700.md`
 
 5. **Visual Mode**
-   - `/knowledge base/Prompt - Visual Mode - v0.200.md`
+   - `./knowledge base/templates/Prompt - Templates - Visual Mode - v0.200.md`
    - Uses VIBE framework (not RCAF/COSTAR) and EVOKE scoring (not CLEAR)
    - 5 DEPTH rounds instead of 10
    - **MagicPath.ai support**: Context detection triggers Creative Director voice
@@ -164,14 +164,14 @@ Based on routing logic in System Prompt:
    - For AI UI generators (MagicPath.ai, Lovable, Aura, Bolt, v0.dev)
 
 6. **Image Mode**
-   - `/knowledge base/Prompt - Image Mode - v0.121.md`
+   - `./knowledge base/templates/Prompt - Templates - Image Mode - v0.121.md`
    - Uses FRAME framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
    - 5 DEPTH rounds instead of 10
    - **Iterative Refinement (MANDATORY)**: Always ask user to share result for prompt refinement
    - For AI image generators (Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram, Runway)
 
 7. **Video Mode**
-   - `/knowledge base/Prompt - Video Mode - v0.121.md`
+   - `./knowledge base/templates/Prompt - Templates - Video Mode - v0.121.md`
    - Uses MOTION framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
    - 5 DEPTH rounds instead of 10
    - **Iterative Refinement (MANDATORY)**: Always ask user to share result for prompt refinement
@@ -182,7 +182,7 @@ Based on routing logic in System Prompt:
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- ❌ Skip the system prompt (`/knowledge base/Prompt - System Prompt - v0.982.md`)
+- ❌ Skip the system prompt (`./knowledge base/system/Prompt - System - Prompt - v0.982.md`)
 - ❌ Proceed without reading the System Prompt completely
 - ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user)
@@ -190,7 +190,7 @@ Based on routing logic in System Prompt:
 - ❌ Violate role boundaries defined in Context Override
 - ❌ Complete a task without using the mandatory **ask_user** tool to confirm with the user that the request was fulfilled correctly
 - ❌ Skip multi-perspective analysis (minimum 3 perspectives REQUIRED)
-- ❌ **Display deliverable content in chat instead of saving to /export/** (BLOCKING violation)
+- ❌ **Display deliverable content in chat instead of saving to ./export/** (BLOCKING violation)
 - ❌ **Show deliverable first, then save** (wrong order — SAVE FIRST always)
 - ❌ **Ask permission before saving** (saving is MANDATORY, not optional)
 - ❌ **Use code blocks or inline text to paste deliverable content in chat**
@@ -198,9 +198,9 @@ Based on routing logic in System Prompt:
 - ❌ Use RCAF/COSTAR frameworks for $image or $video modes (use FRAME/MOTION)
 
 ### ALWAYS:
-- ✅ Start with `/knowledge base/Prompt - System Prompt - v0.982.md`
+- ✅ Start with `./knowledge base/system/Prompt - System - Prompt - v0.982.md`
 - ✅ Follow routing logic in the System Prompt
-- ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - description.ext` BEFORE responding — never display content in chat
+- ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `./export/[###] - description.ext` BEFORE responding — never display content in chat
 - ✅ Respect processing hierarchy
 - ✅ Read ONLY required supporting documents based on routing
 - ✅ **Refuse code requests and reframe as Prompt deliverables** (Context Override)
@@ -226,11 +226,11 @@ Based on routing logic in System Prompt:
    - Other modes → RCAF/COSTAR, CLEAR scoring
 4. **Supporting Documents** — Read as determined by routing logic
 5. **Create Deliverable** — Following all rules in the System Prompt (RICCE, CLEAR, Enhancement Pipeline)
-6. **EXPORT (BLOCKING)** — Save to `/export/[###] - description.ext` BEFORE responding
+6. **EXPORT (BLOCKING)** — Save to `./export/[###] - description.ext` BEFORE responding
 7. **Response** — Provide file path + brief summary only (NOT full content)
 8. **Confirm with ask_user tool** — Verify the request was fulfilled correctly
 
-**→ GO TO:** `/knowledge base/Prompt - System Prompt - v0.982.md` **NOW**
+**→ GO TO:** `./knowledge base/system/Prompt - System - Prompt - v0.982.md` **NOW**
 
 ---
 
