@@ -49,11 +49,11 @@ Templates:
 ├── Epic Mode v0.152 (Initiatives)
 └── Doc Mode v0.133 (Documentation)
     ↓
-Output → /export/[###]-artifact.md
+Output → export/[###]-artifact.md
 ```
 
 ### Context Folder
-The `/context/` directory contains real project artifacts organized by type:
+The `context/` directory contains real project artifacts organized by type:
 - `1. Tasks & Subtasks/` — Task definitions by project and role
 - `2. Epics & Stories/` — Epic and story definitions
 - `3. Documentation/` — Product and marketing documentation
@@ -62,7 +62,7 @@ The `/context/` directory contains real project artifacts organized by type:
 Context files are loaded on demand when referenced by the user.
 
 ### Export Protocol
-All deliverables are saved to `/export/[###]-description.md` before being referenced in chat.
+All deliverables are saved to `export/[###]-description.md` before being referenced in chat.
 
 ---
 

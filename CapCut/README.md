@@ -70,11 +70,11 @@ Transforms natural language requests into professional video projects with **aut
 ```
 AGENTS.md → Entry point with intelligent routing logic
     ↓
-CapCut - System Prompt (System prompt with VIDEO integration)
-    ↓
-VIDEO Thinking Framework v0.110 (5-phase methodology)
-    ↓
-Interactive Intelligence v0.110 (Conversation flow with transparency)
+CapCut - System - Prompt v0.110 (System prompt with VIDEO integration)
+     ↓
+CapCut - Thinking - VIDEO Framework v0.110 (5-phase methodology)
+     ↓
+CapCut - System - Interactive Intelligence v0.110 (Conversation flow with transparency)
     ↓
 MCP Tool:
   └─ JianYing MCP v0.111 (18 video editing tools)
@@ -108,15 +108,15 @@ Output → Rendered video files
 
 1. Click "Edit project details"
 2. Find "Custom instructions" section
-3. Copy and paste: `CapCut - System Prompt.md`
+3. Copy and paste: `CapCut - System - Prompt - v0.110.md`
 4. Save the project
 
 ### Step 3: Upload Reference Documents
 
 Add these documents to your project:
-- `CapCut - Interactive Intelligence - v0.110.md`
-- `CapCut - VIDEO Thinking Framework - v0.110.md`
-- `CapCut - MCP Intelligence - JianYing - v0.111.md`
+- `CapCut - System - Interactive Intelligence - v0.110.md`
+- `CapCut - Thinking - VIDEO Framework - v0.110.md`
+- `CapCut - Integrations - MCP JianYing - v0.111.md`
 
 ### Step 4: Install MCP Tools
 
@@ -206,7 +206,7 @@ System always verifies connections first:
 All video operations available.
 ```
 
-### VIDEO Thinking Framework
+### Thinking - VIDEO Framework
 
 The system applies the VIDEO methodology automatically:
 

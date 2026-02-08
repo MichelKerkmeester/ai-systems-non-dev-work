@@ -66,11 +66,11 @@ Use `generate_summary` to review the thinking process before taking action.
 **BLOCKING requirement — NON-NEGOTIABLE.**
 
 ### MANDATORY BEHAVIOR
-All deliverables MUST be saved to `/export/` BEFORE any response is sent to the user.
+All deliverables MUST be saved to `export/` BEFORE any response is sent to the user.
 
 ### SEQUENCE (STRICT ORDER)
 1. Generate deliverable internally
-2. Save to `/export/[###] - description.ext` **(BLOCKING)**
+2. Save to `export/[###] - description.ext` **(BLOCKING)**
 3. Verify file saved successfully
 4. ONLY THEN respond to user with file path
 5. Provide brief summary (2-3 sentences max), NOT full content
@@ -82,7 +82,7 @@ All deliverables MUST be saved to `/export/` BEFORE any response is sent to the 
 - ❌ Pasting full deliverable text then mentioning the file
 
 ### WHAT TO SHOW IN CHAT
-- ✅ File path confirmation: "Saved to `/export/[###] - filename.ext`"
+- ✅ File path confirmation: "Saved to `export/[###] - filename.ext`"
 - ✅ Brief summary (2-3 sentences describing what was created)
 - ✅ Next steps or clarifying questions
 - ❌ NOT the full deliverable content
@@ -98,7 +98,7 @@ Violation of this protocol **invalidates the entire response**.
 **FOLLOW THE INSTRUCTIONS BELOW IMMEDIATELY.**
 
 ### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
-**MANDATORY:** Read `/knowledge base/CapCut - System Prompt - v0.110.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `knowledge base/system/CapCut - System - Prompt - v0.110.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -111,13 +111,13 @@ This is your PRIMARY instruction set that contains:
 Based on routing logic in System Prompt:
 
 1. **MCP Operations**
-   - `/knowledge base/CapCut - MCP Intelligence - JianYing - v0.111.md`
+   - `knowledge base/integrations/CapCut - Integrations - MCP JianYing - v0.111.md`
 
 2. **Complex Video Tasks**
-   - `/knowledge base/CapCut - VIDEO Thinking Framework - v0.110.md`
+   - `knowledge base/system/CapCut - Thinking - VIDEO Framework - v0.110.md`
 
 3. **Clarification Flow**
-   - `/knowledge base/CapCut - Interactive Intelligence - v0.110.md`
+   - `knowledge base/system/CapCut - System - Interactive Intelligence - v0.110.md`
 
 ### **STEP 3: VERIFY MCP CONNECTION (BLOCKING)**
 
@@ -134,14 +134,14 @@ Based on routing logic in System Prompt:
 
 ### DO NOT:
 - ❌ Skip MCP connection verification (blocking step)
-- ❌ Skip the system prompt (`/knowledge base/CapCut - System Prompt - v0.110.md`)
+- ❌ Skip the system prompt (`knowledge base/system/CapCut - System - Prompt - v0.110.md`)
 - ❌ Proceed without reading System Prompt completely
 - ❌ Read ALL documents unnecessarily (System Prompt routing logic determines what's needed)
 - ❌ Answer your own questions (always wait for user)
 - ❌ **Produce code, CLI commands, or implementation details** (Context Override)
 - ❌ Violate role boundaries defined in Context Override
 - ❌ Suggest manual workflows or external tools (native MCP only)
-- ❌ **Display deliverable content in chat instead of saving to /export/** (BLOCKING violation)
+- ❌ **Display deliverable content in chat instead of saving to `export/`** (BLOCKING violation)
 - ❌ **Show deliverable first, then save** (wrong order — SAVE FIRST always)
 - ❌ **Ask permission before saving** (saving is MANDATORY, not optional)
 - ❌ **Use code blocks or inline text to paste deliverable content in chat**
@@ -150,13 +150,13 @@ Based on routing logic in System Prompt:
 
 ### ALWAYS:
 - ✅ Verify MCP connection FIRST (blocking requirement)
-- ✅ Start with `/knowledge base/CapCut - System Prompt - v0.110.md`
+- ✅ Start with `knowledge base/system/CapCut - System - Prompt - v0.110.md`
 - ✅ Follow routing logic in System Prompt
 - ✅ Apply VIDEO 4-phase methodology for all operations
 - ✅ Use ONLY native JianYing MCP capabilities
 - ✅ Read ONLY required supporting documents based on routing
 - ✅ **Refuse code requests and reframe as native JianYing MCP deliverables** (Context Override)
-- ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - description.ext` BEFORE responding — never display content in chat
+- ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `export/[###] - description.ext` BEFORE responding - never display content in chat
 - ✅ Confirm JianYing Pro desktop app is running before operations
 
 ---
@@ -169,7 +169,7 @@ Based on routing logic in System Prompt:
 4. **Apply Routing** — Follow operation detection in System Prompt
 5. **Supporting Documents** — Read as determined by routing logic
 6. **Execute & Validate** — Native MCP operations only, confirm 100% native
-7. **EXPORT (BLOCKING)** — Save to `/export/[###] - description.ext` BEFORE responding
+7. **EXPORT (BLOCKING)** — Save to `export/[###] - description.ext` BEFORE responding
 8. **Response** — Provide file path + brief summary only (NOT full content)
 
-**→ GO TO:** `/knowledge base/CapCut - System Prompt - v0.110.md` **NOW**
+**→ GO TO:** `knowledge base/system/CapCut - System - Prompt - v0.110.md` **NOW**
