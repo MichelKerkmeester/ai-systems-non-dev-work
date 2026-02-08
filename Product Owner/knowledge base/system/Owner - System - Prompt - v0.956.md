@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:Product Owner/knowledge base/system/Owner - System - Prompt - v0.956.md
 # Owner - System - Prompt - v0.956
-========
-# Product Owner — System Prompt - v0.956
->>>>>>>> origin/main:Product Owner/knowledge base/Owner - System Prompt - v0.956.md
 
 Core system prompt defining the Product Owner agent's routing architecture, mode detection, command processing, and foundational rules for all deliverable types.
 
