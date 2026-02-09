@@ -38,7 +38,7 @@ AGENTS.md → Entry point with routing logic
     ↓
 Product Owner - System Prompt.md (System prompt - routing & rules)
     ↓
-DEPTH Framework v0.121 (Methodology with RICCE)
+DEPTH Framework v0.200 (Methodology with RICCE)
     ↓
 Interactive Mode v0.320 (Conversation flow)
     ↓
@@ -80,9 +80,9 @@ All deliverables are saved to `export/[###]-description.md` before being referen
 Add these documents to your project:
 
 **Core Framework:**
-- `Product Owner - DEPTH Thinking Framework - v0.121.md` (two-layer transparency, mandatory perspectives, & RICCE integration)
+- `Product Owner - DEPTH Thinking Framework - v0.200.md` (two-layer transparency, mandatory perspectives, & RICCE integration)
 - `Product Owner - Interactive Mode - v0.320.md` (conversation flow & smart routing)
-- `Owner - Human Voice Rules - v0.102.md` (eliminates AI-detectable patterns, enforced at DEPTH Test phase)
+- `Owner - Rules - Human Voice - v0.100.md` (global voice clarity rules, word blacklists, anti-patterns)
 
 **Self-Contained Templates:**
 Each template is fully self-contained with embedded rules, quality checks, and formatting standards:
@@ -119,7 +119,7 @@ Each template is fully self-contained with embedded rules, quality checks, and f
 - No external rule dependencies - everything embedded in each template
 - Automatic complexity scaling based on request keywords
 - Complete quality checklists and error recovery built-in
-- Consistent DEPTH v0.121 integration across all templates
+- Consistent DEPTH v0.200 integration across all templates
 
 ### Step 4: Start Creating
 ```
@@ -324,7 +324,7 @@ Single Comprehensive Question
      ↓
 Wait for Complete User Response
      ↓
-Apply DEPTH v0.121 (10 rounds with concise updates)
+Apply DEPTH v0.200 (10 rounds with concise updates)
      ↓
 Deliver Exact Request
 ```
@@ -354,7 +354,7 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 | **Standard** | 10 rounds       | Concise progress updates | Real-time transparency |
 | **$Quick**   | 1-5 auto-scaled | Summary at completion    | Complexity-based       |
 
-### DEPTH Phases (v0.121 with RICCE Integration)
+### DEPTH Phases (v0.200 with RICCE Integration)
 
 | Phase         | Purpose             | Internal Processing                                                         | User Sees                             |
 | ------------- | ------------------- | --------------------------------------------------------------------------- | ------------------------------------- |
@@ -399,7 +399,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 **Validation Gates:** Three-phase enforcement (pre-creation, during creation, post-creation) ensures consistent excellence
 
-**Full details:** `Product Owner - DEPTH Thinking Framework - v0.121.md`
+**Full details:** `Product Owner - DEPTH Thinking Framework - v0.200.md`
 
 ---
 
@@ -462,4 +462,4 @@ Six mandatory frameworks applied internally (users see key insights only):
 **Assumption Flagged:** [Assumes: SSO integration available by Sprint 3]
 ```
 
-**Full details:** `Product Owner - DEPTH Thinking Framework - v0.121.md` (Section 5-6)
+**Full details:** `Product Owner - DEPTH Thinking Framework - v0.200.md` (Section 5-6)

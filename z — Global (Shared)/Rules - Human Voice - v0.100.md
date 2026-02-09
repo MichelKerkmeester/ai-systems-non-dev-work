@@ -3,9 +3,7 @@
 The Human Voice Rules (HVR) define the global linguistic standards that govern all AI-generated content across the Barter ecosystem. These rules eliminate detectable AI patterns, enforce natural human writing conventions and ensure every piece of output reads as if written by a knowledgeable human professional. This document is the canonical, system-agnostic superset. Individual content systems inherit these rules and may extend them with system-specific overrides.
 
 **Loading Condition:** Always active for any content generation, editing or review task across all Barter AI systems.
-
 **Purpose:** Eliminate AI-detectable writing patterns, enforce punctuation discipline, ban overused words and phrases, and establish a consistent human voice across all output.
-
 **Scope:** Global. Applies to all 6 Barter content systems (MEQT, DEAL, CONTENT, LinkedIn, Email, Web). System-specific scoring integrations and additional rules are defined in each system's Human Voice Rules Extensions file.
 
 ---

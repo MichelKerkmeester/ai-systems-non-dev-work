@@ -239,7 +239,7 @@ The `/context/` folder contains real project artifacts (tasks, epics, stories, d
 | Document                             | Loading       | Purpose                                      |
 | ------------------------------------ | ------------- | -------------------------------------------- |
 | **Owner - System - Prompt**            | **ALWAYS**    | Core routing, complexity detection, rules    |
-| **Owner - Rules - Human Voice Extensions** | **ALWAYS** | Voice clarity, word blacklist, anti-patterns |
+| **Owner - Rules - Human Voice**        | **ALWAYS**    | Voice clarity, word blacklist, anti-patterns |
 | **Owner - Thinking - DEPTH Framework** | **ALWAYS**    | Methodology, RICCE integration               |
 | **Owner - System - Interactive Mode**  | **TRIGGER**   | When no shortcut, clarification needed       |
 | **Owner - Templates - Task Mode**      | **ON-DEMAND** | On `$task` or `$t` command                   |
@@ -478,7 +478,7 @@ DOCUMENT_MAP = {
     "Doc Mode": "Owner - Templates - Doc Mode",
     "Interactive Mode": "Owner - System - Interactive Mode",
     "DEPTH Framework": "Owner - Thinking - DEPTH Framework",
-    "Human Voice Rules": "Owner - Rules - Human Voice Extensions"
+    "Human Voice Rules": "Owner - Rules - Human Voice"
 }
 
 CONFIDENCE_THRESHOLDS = {"HIGH": 0.85, "MEDIUM": 0.60, "LOW": 0.40}
@@ -510,7 +510,7 @@ def smart_route(user_input: str):
         return {"mode": mode_name, "confidence": best.score}
     elif best.score >= 0.40:    # LOW - suggest and clarify
         load_document(DOCUMENT_MAP["Interactive Mode"])
-        return ask_clarification(FALLBACK_CHAINS[context["complexity"]["level"]]["primary"])
+        return {"mode": "interactive", "confidence": best.score, "clarify": FALLBACK_CHAINS[context["complexity"]["level"]]["primary"]}
     else:                        # FALLBACK
         load_document(DOCUMENT_MAP["Interactive Mode"])
         return {"mode": "interactive", "source": "fallback"}

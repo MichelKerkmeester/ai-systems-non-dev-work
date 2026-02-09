@@ -281,10 +281,10 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 
 **References:**
 
-**Flows:**
+**Flows**
 - [{Flow name}]({figma-url})
 
-**Components:**
+**Components**
 - [{Component name}]({figma-url})
 
 ---
