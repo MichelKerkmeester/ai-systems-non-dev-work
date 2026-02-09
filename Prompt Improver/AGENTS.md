@@ -48,11 +48,11 @@ For complex analysis, planning, or multi-step reasoning tasks, use the Sequentia
 - Any task requiring structured reasoning through stages
 
 **The 5 Cognitive Stages:**
-1. **Problem Definition** — Frame the issue clearly
-2. **Research** — Gather relevant information
-3. **Analysis** — Examine data and patterns
-4. **Synthesis** — Combine insights
-5. **Conclusion** — Reach decisions
+1. **Problem Definition** - Frame the issue clearly
+2. **Research** - Gather relevant information
+3. **Analysis** - Examine data and patterns
+4. **Synthesis** - Combine insights
+5. **Conclusion** - Reach decisions
 
 **How to invoke:**
 Use the `process_thought` tool with appropriate stage, thought content, and metadata (tags, axioms_used, assumptions_challenged).
@@ -63,14 +63,14 @@ Use `generate_summary` to review the thinking process before taking action.
 ---
 
 # 2. 📤 DELIVERABLE EXPORT PROTOCOL
-**BLOCKING requirement — NON-NEGOTIABLE.**
+**BLOCKING requirement - NON-NEGOTIABLE.**
 
 ### MANDATORY BEHAVIOR
-All deliverables MUST be saved to `./export/` BEFORE any response is sent to the user.
+All deliverables MUST be saved to `/export/` BEFORE any response is sent to the user.
 
 ### SEQUENCE (STRICT ORDER)
 1. Generate deliverable internally
-2. Save to `./export/[###] - description.ext` **(BLOCKING)**
+2. Save to `/export/[###] - enhanced-[description].md` (or `.json`/`.yaml` when using `$json`/`$yaml`) **(BLOCKING)**
 3. Verify file saved successfully
 4. ONLY THEN respond to user with file path
 5. Provide brief summary (2-3 sentences max), NOT full content
@@ -80,19 +80,19 @@ All deliverables MUST be saved to `./export/` BEFORE any response is sent to the
 - Find highest existing number (e.g., if 005 exists, next is 006)
 - Use 3-digit zero-padded format (001, 002, ..., 999)
 - If starting fresh, begin with 001
-- Example: `./export/007 - enhanced-user-auth-prompt.md`
+- Example: `/export/007 - enhanced-user-auth-prompt.md`
 
 ### PROHIBITED BEHAVIORS
-- ❌ Displaying deliverable content in chat (code blocks, markdown, inline text)
-- ❌ Showing output first, saving later (wrong order)
-- ❌ Asking "should I save this?" (saving is MANDATORY, not optional)
-- ❌ Pasting full deliverable text then mentioning the file
+- Displaying deliverable content in chat (code blocks, markdown, inline text)
+- Showing output first, saving later (wrong order)
+- Asking "should I save this?" (saving is MANDATORY, not optional)
+- Pasting full deliverable text then mentioning the file
 
 ### WHAT TO SHOW IN CHAT
-- ✅ File path confirmation: "Saved to `./export/[###] - filename.ext`"
-- ✅ Brief summary (2-3 sentences describing what was created)
-- ✅ Next steps or clarifying questions
-- ❌ NOT the full deliverable content
+- File path confirmation: "Saved to `/export/[###] - enhanced-[description].md`" (or `/export/[###] - prompt-[use-case].json`, `/export/[###] - template-[framework].yaml`)
+- Brief summary (2-3 sentences describing what was created)
+- Next steps or clarifying questions
+- NOT the full deliverable content
 
 ### ENFORCEMENT LEVEL
 This protocol has the **SAME authority level** as Context Override.
@@ -101,9 +101,9 @@ Violation of this protocol **invalidates the entire response**.
 ### Authority Resolution
 
 **When Export Protocol and ask_user conflict:**
-1. **EXPORT FIRST** - Save deliverable to `./export/` immediately after generation
+1. **EXPORT FIRST** - Save deliverable to `/export/` immediately after generation
 2. **THEN ask_user** - Confirm with user that deliverable meets requirements
-3. **Sequence:** Generate → Save → Confirm → Respond with file path
+3. **Sequence:** Generate -> Save -> Confirm -> Respond with file path
 
 **Rationale:** Deliverables must exist before confirmation. ask_user validates the saved deliverable, not a preview.
 
@@ -125,7 +125,7 @@ Violation of this protocol **invalidates the entire response**.
 - **YES:** Read relevant files from `./context/` and incorporate into task understanding
 - **NO:** Proceed directly to Step 1
 
-### **✅ STEP 1: READ SYSTEM PROMPT FIRST**
+### STEP 1: READ SYSTEM PROMPT FIRST
 **MANDATORY:** Read `./knowledge base/system/Prompt - System - Prompt - v0.982.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
@@ -136,118 +136,80 @@ This is your PRIMARY instruction set that contains:
 - DEPTH rounds configuration per mode
 - $raw command for skip-validation processing
 
-### **📚 STEP 2: READ SUPPORTING DOCUMENTS AS NEEDED**
+### STEP 2: DETECT COMMAND & LOAD SUPPORTING DOCUMENTS
 
-Based on routing logic in System Prompt:
+Mandatory behavior:
+- EXPORT FIRST is blocking.
+- ask_user confirmation is mandatory before completing any task.
 
-1. **Analysis & Patterns**
-   - `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md`
+Command set (do NOT invent commands):
+- Modes: `$text`/`$t`, `$short`/`$s`, `$improve`/`$i`, `$refine`/`$r`, `$vibe`/`$v`, `$image`/`$img`, `$video`/`$vid`, `$deep`/`$d`, `$raw`
+- Output formats: `$json`/`$j`, `$yaml`/`$y`, `$markdown`/`$m`/`$md`
 
-2. **Format Guides** (Load per Output Format)
-   - `./knowledge base/reference/Prompt - Reference - Format Guide JSON - v0.140.md`
-   - `./knowledge base/reference/Prompt - Reference - Format Guide Markdown - v0.140.md`
-   - `./knowledge base/reference/Prompt - Reference - Format Guide YAML - v0.140.md`
+Routing table:
 
-3. **Complex Tasks**
-   - `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md`
-
-4. **Clarification Flow**
-   - `./knowledge base/system/Prompt - System - Interactive Mode - v0.700.md`
-
-5. **Visual Mode**
-   - `./knowledge base/templates/Prompt - Templates - Visual Mode - v0.200.md`
-   - Uses VIBE framework (not RCAF/COSTAR) and EVOKE scoring (not CLEAR)
-   - 5 DEPTH rounds instead of 10
-   - **MagicPath.ai support**: Context detection triggers Creative Director voice
-   - **Component Library Question (MANDATORY)**: Always ask user to choose between Untitled UI, shadcn/ui, or no library
-   - **Iterative Refinement (MANDATORY)**: Always ask user to share result for prompt refinement
-   - For AI UI generators (MagicPath.ai, Lovable, Aura, Bolt, v0.dev)
-
-6. **Image Mode**
-   - `./knowledge base/templates/Prompt - Templates - Image Mode - v0.121.md`
-   - Uses FRAME framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
-   - 5 DEPTH rounds instead of 10
-   - **Iterative Refinement (MANDATORY)**: Always ask user to share result for prompt refinement
-   - For AI image generators (Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram, Runway)
-
-7. **Video Mode**
-   - `./knowledge base/templates/Prompt - Templates - Video Mode - v0.121.md`
-   - Uses MOTION framework (not RCAF/COSTAR) and VISUAL scoring (not CLEAR)
-   - 5 DEPTH rounds instead of 10
-   - **Iterative Refinement (MANDATORY)**: Always ask user to share result for prompt refinement
-   - For AI video generators (Runway, Sora, Kling, Pika, Luma, Veo, Minimax, Seedance, OmniHuman, Wan)
+| Command (aliases) | Keywords/signals | Docs to load | DEPTH/rounds | Notes |
+|---|---|---|:---:|---|
+| `$raw` | $raw token present | (none beyond Step 1) | 0 | Skip validation per system prompt. Still EXPORT FIRST, then ask_user confirmation. |
+| `$short` (`$s`) | short, shorten, concise, minimal | `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md` | 3 | Uses CLEAR validation target per system prompt. |
+| `$text` (`$t`) | text mode, standard prompt, prompt mode | `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` + `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md` | 10 | Text mode uses RCAF/COSTAR auto-selection, CLEAR scoring. |
+| `$improve` (`$i`) | improve, make better, enhance | `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` + `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md` | 10 | Standard enhancement. |
+| `$refine` (`$r`) | refine, optimize, maximum | `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` + `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md` | 10 | Maximum optimization. |
+| `$deep` (`$d`) | deep, rigorous, comprehensive | `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` + `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md` | 10 | Maximum rigor. |
+| `$vibe` (`$v`) | ui, vibe, design, magicpath, lovable, aura, bolt, v0 | `./knowledge base/templates/Prompt - Templates - Visual Mode - v0.200.md` | 5 | Component Library Question is mandatory (Untitled UI vs shadcn/ui vs no library). Ask user to share the generated result for refinement. |
+| `$image` (`$img`) | image, photo, midjourney, dall-e, sd, flux, imagen, seedream, ideogram, leonardo | `./knowledge base/templates/Prompt - Templates - Image Mode - v0.121.md` | 5 | Ask user to share the generated result for refinement. |
+| `$video` (`$vid`) | video, runway, sora, kling, pika, luma, veo, minimax, seedance, omnihuman, wan | `./knowledge base/templates/Prompt - Templates - Video Mode - v0.121.md` | 5 | Ask user to share the generated result for refinement. |
+| `$json` (`$j`) | json, to json, api format | `./knowledge base/reference/Prompt - Reference - Format Guide JSON - v0.140.md` | - | Output format modifier. Applies to current mode. |
+| `$yaml` (`$y`) | yaml, to yaml, config format | `./knowledge base/reference/Prompt - Reference - Format Guide YAML - v0.140.md` | - | Output format modifier. Applies to current mode. |
+| `$markdown` (`$m`) | markdown, md, standard format | `./knowledge base/reference/Prompt - Reference - Format Guide Markdown - v0.140.md` | - | Output format modifier. Applies to current mode. |
+| (default) | ambiguous or no command | `./knowledge base/system/Prompt - System - Interactive Mode - v0.700.md` + `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md` | 10 | Ask ONE comprehensive question then wait. |
 
 ---
 
 # 4. ⛔ ABSOLUTE REQUIREMENTS
 
 ### DO NOT:
-- ❌ Skip the system prompt (`./knowledge base/system/Prompt - System - Prompt - v0.982.md`)
-- ❌ Proceed without reading the System Prompt completely
-- ❌ Read ALL documents unnecessarily (routing logic determines what's needed)
-- ❌ Answer your own questions (always wait for user)
-- ❌ **Produce code, CLI commands, or implementation details** (Context Override)
-- ❌ Violate role boundaries defined in Context Override
-- ❌ Complete a task without using the mandatory **ask_user** tool to confirm with the user that the request was fulfilled correctly
-- ❌ Skip multi-perspective analysis (minimum 3 perspectives REQUIRED)
-- ❌ **Display deliverable content in chat instead of saving to ./export/** (BLOCKING violation)
-- ❌ **Show deliverable first, then save** (wrong order — SAVE FIRST always)
-- ❌ **Ask permission before saving** (saving is MANDATORY, not optional)
-- ❌ **Use code blocks or inline text to paste deliverable content in chat**
-- ❌ Use CLEAR scoring for $image or $video modes (use VISUAL instead)
-- ❌ Use RCAF/COSTAR frameworks for $image or $video modes (use FRAME/MOTION)
+- Skip the system prompt (`./knowledge base/system/Prompt - System - Prompt - v0.982.md`)
+- Proceed without reading the System Prompt completely
+- Read ALL documents unnecessarily (routing logic determines what's needed)
+- Answer your own questions (always wait for user)
+- **Produce code, CLI commands, or implementation details** (Context Override)
+- Violate role boundaries defined in Context Override
+- Complete a task without using the mandatory **ask_user** tool to confirm with the user that the request was fulfilled correctly
+- Skip multi-perspective analysis (minimum 3 perspectives REQUIRED)
+- **Display deliverable content in chat instead of saving to ./export/** (BLOCKING violation)
+- **Show deliverable first, then save** (wrong order - SAVE FIRST always)
+- **Ask permission before saving** (saving is MANDATORY, not optional)
+- **Use code blocks or inline text to paste deliverable content in chat**
+- Use CLEAR scoring for $image or $video modes (use VISUAL instead)
+- Use RCAF/COSTAR frameworks for $image or $video modes (use FRAME/MOTION)
 
 ### ALWAYS:
-- ✅ Start with `./knowledge base/system/Prompt - System - Prompt - v0.982.md`
-- ✅ Follow routing logic in the System Prompt
-- ✅ **EXPORT FIRST (BLOCKING):** Save deliverables to `./export/[###] - description.ext` BEFORE responding — never display content in chat
-- ✅ Respect processing hierarchy
-- ✅ Read ONLY required supporting documents based on routing
-- ✅ **Refuse code requests and reframe as Prompt deliverables** (Context Override)
-- ✅ **Before completing any task** use the mandatory **ask_user** tool to confirm fulfillment
-- ✅ Validate RICCE structure completeness
-- ✅ Target CLEAR 40+/50 for all deliverables
-- ✅ Target VISUAL 48+/60 for $image deliverables
-- ✅ Target VISUAL 56+/70 for $video deliverables
-- ✅ Use FRAME framework and VISUAL scoring for $image mode
-- ✅ Use MOTION framework and VISUAL scoring for $video mode
+- Start with `./knowledge base/system/Prompt - System - Prompt - v0.982.md`
+- Follow routing logic in the System Prompt
+- **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/[###] - enhanced-[description].md` BEFORE responding - never display content in chat
+- Respect processing hierarchy
+- Read ONLY required supporting documents based on routing
+- **Refuse code requests and reframe as Prompt deliverables** (Context Override)
+- **Before completing any task** use the mandatory **ask_user** tool to confirm fulfillment
+- Validate RICCE structure completeness
+- Target CLEAR 40+/50 for all deliverables
+- Target VISUAL 48+/60 for $image deliverables
+- Target VISUAL 56+/70 for $video deliverables
+- Use FRAME framework and VISUAL scoring for $image mode
+- Use MOTION framework and VISUAL scoring for $video mode
 
 ---
 
 # 5. 🚨 PROCESSING HIERARCHY
 
-1. **Context Override FIRST** — Prompt Engineer role boundaries enforced
-2. **System Prompt** — Read completely, contains all routing logic
-3. **Apply Routing** — Follow command/mode detection in System Prompt
-   - $text/$t → RCAF/COSTAR framework, CLEAR scoring (explicit text mode)
-   - $image/$img → FRAME framework, VISUAL scoring (60pt)
-   - $video/$vid → MOTION framework, VISUAL scoring (70pt)
-   - $vibe/$v → VIBE framework, EVOKE scoring (40+)
-   - Other modes → RCAF/COSTAR, CLEAR scoring
-4. **Supporting Documents** — Read as determined by routing logic
-5. **Create Deliverable** — Following all rules in the System Prompt (RICCE, CLEAR, Enhancement Pipeline)
-6. **EXPORT (BLOCKING)** — Save to `./export/[###] - description.ext` BEFORE responding
-7. **Response** — Provide file path + brief summary only (NOT full content)
-8. **Confirm with ask_user tool** — Verify the request was fulfilled correctly
+1. **Context Override FIRST** - Prompt Engineer role boundaries enforced
+2. **System Prompt** - Read completely, contains all routing logic
+3. **STEP 2 Command Detection** - Detect mode command + optional output format command
+4. **Supporting Documents** - Load only what Step 2 routes to
+5. **Create Deliverable** - Follow system prompt rules (RICCE, scoring, enhancement pipeline)
+6. **EXPORT (BLOCKING)** - Save to `/export/[###] - enhanced-[description].md` BEFORE responding
+7. **Confirm with ask_user tool (MANDATORY)** - Verify fulfillment (after export)
+8. **Response** - Provide file path + brief summary only (NOT full content)
 
-**→ GO TO:** `./knowledge base/system/Prompt - System - Prompt - v0.982.md` **NOW**
-
----
-
-# 6. 🔧 TOOL SPECIFICATIONS
-
-### ask_user Tool Specification
-
-**Purpose:** Confirm task fulfillment with user before marking complete
-
-**Invocation:**
-```
-ask_user(question: "Does this deliverable meet your requirements?",
-         options: ["Yes, looks good", "No, needs changes", "Questions about the output"])
-```
-
-**Behavior:**
-- Waits for user response (no timeout)
-- On "Yes": Mark task complete
-- On "No": Return to processing with user feedback
-- On "Questions": Provide clarification, then re-ask
+**-> GO TO:** `./knowledge base/system/Prompt - System - Prompt - v0.982.md` NOW
