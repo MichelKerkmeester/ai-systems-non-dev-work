@@ -41,12 +41,6 @@
       "environment": {
         "UTCP_CONFIG_FILE": ".utcp_config.json"
       }
-    },
-    "claude_teams": {
-      "type": "local",
-      "command": [
-        ".opencode/skill/mcp-agent-teams/mcp_server/.venv/bin/claude-teams"
-      ]
     }
   },
   "plugin": [
