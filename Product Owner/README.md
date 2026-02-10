@@ -82,7 +82,7 @@ Add these documents to your project:
 **Core Framework:**
 - `Product Owner - DEPTH Thinking Framework - v0.200.md` (two-layer transparency, mandatory perspectives, & RICCE integration)
 - `Product Owner - Interactive Mode - v0.320.md` (conversation flow & smart routing)
-- `Owner - Rules - Human Voice - v0.100.md` (global voice clarity rules, word blacklists, anti-patterns)
+- `Owner - Rules - Human Voice - v0.101.md` (global voice clarity rules, word blacklists, anti-patterns)
 
 **Self-Contained Templates:**
 Each template is fully self-contained with embedded rules, quality checks, and formatting standards:

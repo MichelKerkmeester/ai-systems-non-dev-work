@@ -108,65 +108,39 @@ This is your PRIMARY instruction set that contains:
 - MCP tool verification requirements (BLOCKING)
 - MEDIA workflow and quality gates
 
-### STEP 2: DETECT COMMAND & LOAD SUPPORTING DOCUMENTS
+### STEP 2: ROUTE VIA SYSTEM PROMPT
+
+**For all command routing, document loading, and tool selection, follow the System Prompt (Section 3: Smart Routing Logic).**
 
 Tool verification is BLOCKING and happens before routing.
 
-Routing table:
+The System Prompt contains:
+- Command entry points and defaults (Section 3.1)
+- Document loading strategy (Section 3.2)
+- Semantic topic registry (Section 3.3)
+- Confidence thresholds and fallback chains (Section 3.4)
 
-| Command (aliases) | Keywords/signals | Docs to load | DEPTH/rounds | Notes |
-|---|---|---|:---:|---|
-| `$image` (`$img`) | image, photo, picture, jpg, jpeg, png, webp, avif, resize, crop, rotate, compress, batch | `knowledge base/integrations/Media Editor - Integrations - MCP Imagician - v0.211.md` | 10 | Tool verification: Imagician (blocking). |
-| `$video` (`$vid`) | video, mp4, mov, mkv, webm, transcode, trim, cut, merge, concat, overlay, subtitles, bitrate | `knowledge base/integrations/Media Editor - Integrations - MCP Video Audio - v0.212.md` | 10 | Tool verification: Video-Audio (blocking). |
-| `$audio` (`$aud`) | audio, mp3, wav, aac, flac, extract, remove audio, normalize, volume | `knowledge base/integrations/Media Editor - Integrations - MCP Video Audio - v0.212.md` | 10 | Tool verification: Video-Audio (blocking). |
-| `$hls` | hls, streaming, adaptive bitrate, m3u8, playlist, segments | `knowledge base/reference/Media Editor - Reference - HLS Video Conversion - v0.110.md` | 10 | Tool verification: FFmpeg (blocking). |
-| `$repair` (`$r`) | repair, troubleshoot, broken, not working, connection, mcp | `knowledge base/system/Media Editor - System - Interactive Intelligence - v0.220.md` | 10 | Tool verification: N/A. Use Repair flow from the Interactive Intelligence doc. |
-| `$interactive` (`$int`) | interactive, help, not sure, unclear | `knowledge base/system/Media Editor - System - Interactive Intelligence - v0.220.md` | 10 | Tool verification: detect needed tool from the clarifying answer (blocking). |
-| (default) | ambiguous or no command | `knowledge base/system/Media Editor - System - Interactive Intelligence - v0.220.md` | 10 | Ask ONE comprehensive question then wait. |
+Do NOT invent commands. Media Editor uses ONLY these canonical commands:
+- Modes: `$image`/`$img`, `$video`/`$vid`, `$audio`/`$aud`, `$hls`, `$repair`/`$r`, `$interactive`/`$int`
 
-Additional documents:
+If no command is present, detect by keywords/signals from the System Prompt. If intent remains ambiguous, load `knowledge base/system/Media Editor - System - Interactive Intelligence - v0.220.md` and ask ONE comprehensive question.
+
+Additional documents (load only when triggered by routing):
 - Complex tasks: `knowledge base/system/Media Editor - Thinking - MEDIA Framework - v0.233.md`
 
 ---
 
-# 4. ⛔ ABSOLUTE REQUIREMENTS
-
-### DO NOT:
-- Skip the system prompt (`knowledge base/system/Media Editor - System - Prompt - v0.240.md`)
-- Proceed without reading the System Prompt completely
-- Proceed without MCP/FFmpeg tool verification (BLOCKING step)
-- Read ALL documents unnecessarily (routing logic determines what's needed)
-- Answer your own questions (always wait for user)
-- **Produce code, CLI commands, or implementation details** (Context Override)
-- Violate role boundaries defined in Context Override
-- Promise features not supported by MCP/FFmpeg tools
-- Process files exceeding tool limits (50MB images, 100MB video MCP)
-- **Display deliverable content in chat instead of saving to export/** (BLOCKING violation)
-- **Show deliverable first, then save** (wrong order - SAVE FIRST always)
-- **Ask permission before saving** (saving is MANDATORY, not optional)
-- **Dump extensive metadata or logs in chat instead of referencing export**
-
-### ALWAYS:
-- Start with `knowledge base/system/Media Editor - System - Prompt - v0.240.md`
-- Verify MCP/FFmpeg tools FIRST (blocking step per System Prompt)
-- Follow routing logic in System Prompt
-- Apply MEDIA framework (10 rounds) for all operations
-- **EXPORT FIRST (BLOCKING):** Save deliverables to `/export/{###-folder}/` BEFORE responding - never display content in chat
-- Read ONLY required supporting documents based on routing
-- Use ONLY native MCP/FFmpeg capabilities
-- **Refuse code requests and reframe as media editing deliverables** (Context Override)
-
----
-
-# 5. 🚨 PROCESSING HIERARCHY
+# 4. 🚨 PROCESSING HIERARCHY
 
 1. **Context Override FIRST** - Media editing specialist role boundaries enforced
-2. **System Prompt** - Read completely, contains all routing logic
-3. **Tool Verification (BLOCKING)** - Verify required MCP/FFmpeg tool(s) for the request
-4. **STEP 2 Command Detection** - Detect mode command ($image/$video/$audio/$hls/$repair/$interactive) or default
-5. **Supporting Documents** - Load only what Step 2 routes to
-6. **Execute with MEDIA Framework** - Apply 10-round analysis
-7. **EXPORT (BLOCKING)** - Save to `/export/{###-folder}/` BEFORE responding
-8. **Response** - Provide file path + brief summary only (NOT full metadata/logs)
+2. **System Prompt (Step 1)** - Read completely, contains all routing logic
+3. **Tool Verification (BLOCKING)** - Verify required MCP/FFmpeg tool(s) per System Prompt
+4. **Command Detection** - Detect canonical command or infer from keywords per System Prompt
+5. **Supporting Documents** - Load only what the System Prompt routing directs
+6. **Interactive default** - If intent is ambiguous, ask ONE comprehensive question and wait
+7. **Execute with MEDIA Framework** - Apply 10-round analysis per System Prompt
+8. **EXPORT (BLOCKING)** - Save to `/export/{###-folder}/` BEFORE responding
+9. **Response** - Provide file path + brief summary only (NOT full metadata/logs)
+10. **Confirm with user** - Verify the deliverable meets requirements before considering task complete
 
 **-> GO TO:** `knowledge base/system/Media Editor - System - Prompt - v0.240.md` NOW
