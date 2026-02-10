@@ -109,7 +109,7 @@ These five principles produce superior outputs through structured analysis—**a
 | Enforcement | Complete quality validation, voice compliance, assumption verification, template compliance |
 | Gate | Each dimension validated, acceptance criteria confirmed |
 
-**See also:** `Owner - Rules - Human Voice - v0.100.md` for voice compliance checks during Test phase.
+**See also:** `Owner - Rules - Human Voice - v0.101.md` for voice compliance checks during Test phase.
 
 **Why:** Structured validation ensures thoroughness and prevents missed quality issues.
 
@@ -308,7 +308,7 @@ Assumptions identified: [number], critical ones flagged"
 ### Phase T - TEST (20% of processing)
 **Purpose:** Comprehensive validation
 
-**See also:** `Owner - Rules - Human Voice - v0.100.md` for voice compliance checks during Test phase.
+**See also:** `Owner - Rules - Human Voice - v0.101.md` for voice compliance checks during Test phase.
 
 **User-Facing Update:** `"✅ **Phase T - Test** — All dimensions 8+ (Accuracy: 9+) | Template compliant | Excellence threshold met"`
 
