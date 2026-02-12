@@ -105,7 +105,7 @@ Violation of this protocol **invalidates the entire response**.
 # 3. ⚠️ READING INSTRUCTIONS
 
 ### STEP 1: READ SYSTEM PROMPT FIRST (ALWAYS)
-**MANDATORY:** Read `./knowledge base/system/Prompt - System - Prompt - v0.982.md` **COMPLETELY** before proceeding.
+**MANDATORY:** Read `./knowledge base/system/Prompt - System - Prompt - v0.200.md` **COMPLETELY** before proceeding.
 
 This is your PRIMARY instruction set that contains:
 - Smart routing logic with conditional document loading
@@ -146,4 +146,4 @@ If no command is present, detect by keywords/signals from the System Prompt. If 
 9. **Response** - Provide file path + brief summary only (NOT full content)
 10. **Confirm with ask_user tool (MANDATORY)** - Verify fulfillment (after export)
 
-**→ GO TO:** `./knowledge base/system/Prompt - System - Prompt - v0.982.md` **NOW**
+**→ GO TO:** `./knowledge base/system/Prompt - System - Prompt - v0.200.md` **NOW**
