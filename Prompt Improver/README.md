@@ -1,4 +1,4 @@
-# Prompt Engineering Assistant - User Guide  v0.982
+# Prompt Engineering Assistant - User Guide  v0.200
 
 Transforms vague requests into clear, effective AI prompts using proven frameworks, systematic evaluation, and **concise transparent DEPTH processing**.
 
@@ -102,8 +102,8 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 **Version Updates:**
 | Component             | Previous | Current          |
 | --------------------- | -------- | ---------------- |
-| System Prompt         | v0.981   | **v0.982**       |
-| DEPTH Framework       | v0.130   | **v0.131**       |
+| System Prompt         | v0.199   | **v0.200**       |
+| DEPTH Framework       | v0.199   | **v0.200**       |
 | Interactive Mode      | v0.690   | **v0.700**       |
 | Patterns & Evaluation | v0.200   | **v0.201**       |
 | Format Guides         | v0.130   | **v0.140**       |
@@ -142,12 +142,12 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 ```
 AGENTS.md → Entry point with intelligent routing logic
     ↓
-System Prompt v0.982 (Core routing, 38 rules, framework selection)
+System Prompt v0.200 (Core routing, 38 rules, framework selection)
     ↓
 ┌─────────────────────────────────────────────────────────────┐
 │                    SUPPORTING DOCUMENTS                     │
 ├─────────────────────────────────────────────────────────────┤
-│  DEPTH Framework v0.131    │  Interactive Mode v0.700       │
+│  DEPTH Framework v0.200    │  Interactive Mode v0.700       │
 │  (Methodology, RICCE)      │  (Conversation flow)            │
 ├─────────────────────────────────────────────────────────────┤
 │  Patterns v0.201           │  🎨 Visual Mode v0.200         │
@@ -172,7 +172,7 @@ Output → ./export/[###]-enhanced-prompt.[md|json|yaml]
 
 ### Step 2: Add System Instructions
 1. Edit project details → Custom instructions
-2. Copy and paste: `./knowledge base/system/Prompt - System - Prompt - v0.982.md`
+2. Copy and paste: `./knowledge base/system/Prompt - System - Prompt - v0.200.md`
 3. Save the project
 
 ### Step 3: Upload Supporting Documents
@@ -180,7 +180,7 @@ Output → ./export/[###]-enhanced-prompt.[md|json|yaml]
 Add these documents to your project:
 
 **Core Framework:**
-- `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md` (two-layer transparency, mandatory perspectives, RICCE integration, **signal-based routing**)
+- `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.200.md` (two-layer transparency, mandatory perspectives, RICCE integration, **signal-based routing**)
 - `./knowledge base/system/Prompt - System - Interactive Mode - v0.700.md` (conversation flow, state management, smart routing, MagicPath support)
 - `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` (complete framework library, CLEAR scoring, 8 design directions)
 - 🎨 `./knowledge base/templates/Prompt - Templates - Visual Mode - v0.200.md` — VIBE/VIBE-MP framework, EVOKE scoring, **MagicPath.ai specialization**
@@ -517,7 +517,7 @@ Single Comprehensive Question
      ↓
 Wait for Complete User Response
      ↓
-Apply DEPTH v0.131 (10 rounds with concise updates)
+Apply DEPTH v0.200 (10 rounds with concise updates)
      ↓
 Deliver Enhanced Prompt + Transparency Report
 ```
@@ -585,7 +585,7 @@ A structured 5-phase methodology ensuring comprehensive prompt enhancement throu
 | **$raw**     | 0 rounds  | Pass-through             | Skip DEPTH             |
 | **$short**   | 3 rounds  | Key changes only         | Focused refinement     |
 
-### Signal-Based Routing (v0.130)
+### Signal-Based Routing (v0.200)
 
 DEPTH now includes automatic mode detection in Round 1:
 
@@ -597,7 +597,7 @@ DEPTH now includes automatic mode detection in Round 1:
 
 **Signal Categories:** use_case, style, platform, motion, temporal
 
-### DEPTH Phases (v0.130 with RICCE Integration + Signal Routing)
+### DEPTH Phases (v0.200 with RICCE Integration + Signal Routing)
 
 | Phase         | Purpose             | Internal Processing                                                           | User Sees                                    |
 | ------------- | ------------------- | ----------------------------------------------------------------------------- | -------------------------------------------- |
@@ -650,7 +650,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 **Validation Gates:** Multi-phase enforcement (pre-enhancement, during enhancement, post-enhancement) ensures consistent excellence
 
-**Full details:** `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md`
+**Full details:** `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.200.md`
 
 ---
 
@@ -715,7 +715,7 @@ Six mandatory frameworks applied internally (users see key insights only):
 **Assumption Flagged:** [Assumes: API supports async requests]
 ```
 
-**Full details:** `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.131.md` (Sections 5-6)
+**Full details:** `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.200.md` (Sections 5-6)
 
 ---
 
