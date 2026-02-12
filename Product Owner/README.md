@@ -11,20 +11,20 @@ Transforms requests into professional tickets, bugs, stories, epics, and documen
 5. [📋 MODE DETAILS](#6-mode-details)
 6. [💬 INTERACTIVE MODE](#7-interactive-mode)
 7. [🧠 DEPTH THINKING FRAMEWORK](#8-depth-thinking-framework)
-8. [🏗️ RICCE FRAMEWORK](#9-ricce-framework)
+8. [📊 QUALITY SCORING](#9-quality-scoring)
 
 ---
 
 ## 1. ✨ KEY FEATURES
 
 - **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.205, Bug v0.115, Story v0.152, Epic v0.152, Doc v0.133)
-- **🧠 DEPTH Framework**: 10-round methodology with two-layer transparency and RICCE integration
+- **🧠 DEPTH Framework**: Energy-level methodology with two-layer transparency (Raw/Quick/Standard/Deep)
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
-- **🔬 Enhanced Cognitive Rigor**: 6 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first, RICCE compliance)
+- **🔬 Enhanced Cognitive Rigor**: 5 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first)
 - **📊 Two-Layer Model**: Full rigor internally, concise updates externally with improved transparency guidelines
-- **🎯 RICCE Framework**: Role, Instructions, Context, Constraints, Examples validation integrated throughout DEPTH
+- **📊 6-Dimension Quality Scoring**: Completeness, Clarity, Actionability, Accuracy, Relevance, Mechanism Depth (all 8+, Accuracy 9+)
 - **🚀 Five Modes**: Tickets, Bugs, Stories, Epics, Documentation
-- **⚡ Quick Mode**: Auto-scaled 1-5 rounds
+- **⚡ Quick Mode**: Quick energy level (D → P → H)
 - **💬 Single Question**: All info gathered at once
 - **🎯 Auto-Complexity**: Smart detection and scaling
 - **✅ Quality Gates**: Three-phase validation (pre-creation, creation, post-creation)
@@ -38,9 +38,9 @@ AGENTS.md → Entry point with routing logic
     ↓
 Product Owner - System Prompt.md (System prompt - routing & rules)
     ↓
-DEPTH Framework v0.200 (Methodology with RICCE)
+DEPTH Framework v0.200 (Methodology with energy levels)
     ↓
-Interactive Mode v0.320 (Conversation flow)
+Interactive Mode v0.400 (Conversation flow)
     ↓
 Templates:
 ├── Task Mode v0.205 (Development tasks)
@@ -80,8 +80,8 @@ All deliverables are saved to `export/[###]-description.md` before being referen
 Add these documents to your project:
 
 **Core Framework:**
-- `Product Owner - DEPTH Thinking Framework - v0.200.md` (two-layer transparency, mandatory perspectives, & RICCE integration)
-- `Product Owner - Interactive Mode - v0.320.md` (conversation flow & smart routing)
+- `Product Owner - DEPTH Thinking Framework - v0.200.md` (two-layer transparency, mandatory perspectives, energy levels)
+- `Product Owner - Interactive Mode - v0.400.md` (conversation flow & smart routing)
 - `Owner - Rules - Human Voice - v0.101.md` (global voice clarity rules, word blacklists, anti-patterns)
 
 **Self-Contained Templates:**
@@ -124,28 +124,28 @@ Each template is fully self-contained with embedded rules, quality checks, and f
 ### Step 4: Start Creating
 ```
 need user authentication        # Interactive discovery flow
-$quick auth epic                # Immediate epic creation (1-5 rounds auto)
-$epic payment platform          # Direct epic mode (10 rounds auto)
-$task payment integration       # Direct task mode (10 rounds auto)
-$bug login not working          # Direct bug mode (10 rounds auto) ← NEW
-$story user login               # Direct story mode (10 rounds auto)
+$quick auth epic                # Immediate epic creation (Quick energy)
+$epic payment platform          # Direct epic mode (Standard energy)
+$task payment integration       # Direct task mode (Standard energy)
+$bug login not working          # Direct bug mode (Standard energy)
+$story user login               # Direct story mode (Standard energy)
 ```
 
 ---
 
 ## 4. 🎛️ OPERATING MODES
 
-**Default Mode:** The system defaults to `$interactive` with automatic 10-round DEPTH unless specified.
+**Default Mode:** The system defaults to `$interactive` with Standard energy DEPTH unless specified.
 
-| Mode            | Purpose                  | Questions       | DEPTH Processing            | Transparency | Template Version | Output               |
-| --------------- | ------------------------ | --------------- | --------------------------- | ------------ | ---------------- | -------------------- |
-| **Interactive** | Determine what to create | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | Auto-selected    | Exact request        |
-| **$quick**      | Fast creation            | NONE            | 1-5 auto-scaled             | Summary      | Auto-selected    | Exact request        |
-| **$task**       | Dev tasks                | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.205           | Requested task only  |
-| **$bug**        | Bug reports              | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.115           | Requested bug only   |
-| **$story**      | User stories             | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.152           | Requested story only |
-| **$epic**       | Epics                    | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.152           | Requested epic only  |
-| **$doc**        | Documentation            | 1 comprehensive | 10 rounds (concise updates) | Two-layer    | v0.133           | Requested doc only   |
+| Mode            | Purpose                  | Questions       | DEPTH Energy                   | Transparency | Template Version | Output               |
+| --------------- | ------------------------ | --------------- | ------------------------------ | ------------ | ---------------- | -------------------- |
+| **Interactive** | Determine what to create | 1 comprehensive | Standard (concise updates)     | Two-layer    | Auto-selected    | Exact request        |
+| **$quick**      | Fast creation            | NONE            | Quick (D → P → H)             | Summary      | Auto-selected    | Exact request        |
+| **$task**       | Dev tasks                | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.205           | Requested task only  |
+| **$bug**        | Bug reports              | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.115           | Requested bug only   |
+| **$story**      | User stories             | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.152           | Requested story only |
+| **$epic**       | Epics                    | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.152           | Requested epic only  |
+| **$doc**        | Documentation            | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.133           | Requested doc only   |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question gathering all info at once:
@@ -324,7 +324,7 @@ Single Comprehensive Question
      ↓
 Wait for Complete User Response
      ↓
-Apply DEPTH v0.200 (10 rounds with concise updates)
+Apply DEPTH v0.200 (Standard energy with concise updates)
      ↓
 Deliver Exact Request
 ```
@@ -336,7 +336,7 @@ Deliver Exact Request
 - Applies full DEPTH with two-layer transparency
 - Routes to appropriate template based on user's answer
 
-**Full details:** `Product Owner - Interactive Mode - v0.320.md`
+**Full details:** `Product Owner - Interactive Mode - v0.400.md`
 
 ---
 
@@ -348,21 +348,23 @@ Deliver Exact Request
 
 A structured 5-phase methodology ensuring comprehensive analysis through **concise transparent excellence** - full rigor applied internally, meaningful updates shown to users.
 
-**Processing Depth:**
-| Mode         | Rounds          | User Visibility          | Application            |
-| ------------ | --------------- | ------------------------ | ---------------------- |
-| **Standard** | 10 rounds       | Concise progress updates | Real-time transparency |
-| **$Quick**   | 1-5 auto-scaled | Summary at completion    | Complexity-based       |
+**Energy Levels:**
+| Energy Level | Phases             | User Visibility          | Application            |
+| ------------ | ------------------ | ------------------------ | ---------------------- |
+| **Raw**      | Skip DEPTH         | None                     | Explicit "skip depth"  |
+| **Quick**    | D → P → H          | Summary at completion    | `$quick/$q` command    |
+| **Standard** | D → E → P → T → H | Concise progress updates | Default for all modes  |
+| **Deep**     | D(ext) → E → P → T → H | Full progress updates | Explicit or complex    |
 
-### DEPTH Phases (v0.200 with RICCE Integration)
+### DEPTH Phases (v0.200 with Energy Levels)
 
-| Phase         | Purpose             | Internal Processing                                                         | User Sees                             |
-| ------------- | ------------------- | --------------------------------------------------------------------------- | ------------------------------------- |
-| **D**iscover  | Deep understanding  | 5 perspectives, assumption audit, opposition analysis, RICCE Role & Context | "🔍 Analyzing (5 perspectives)"        |
-| **E**ngineer  | Solution generation | 8 approaches, constraint reversal, RICCE Constraints & Instructions         | "⚙️ Engineering (optimal selected)"    |
-| **P**rototype | Build framework     | Template application, RICCE validation, mechanism-first                     | "🔨 Building (RICCE-compliant)"        |
-| **T**est      | Validate quality    | 6-dimension rating, quality gates, RICCE Examples                           | "✅ Validating (excellence confirmed)" |
-| **H**armonize | Final polish        | Final validation, cognitive rigor check, RICCE verification                 | "✨ Finalizing (ready for delivery)"   |
+| Phase         | Purpose             | Internal Processing                                                      | User Sees                             |
+| ------------- | ------------------- | ------------------------------------------------------------------------ | ------------------------------------- |
+| **D**iscover  | Deep understanding  | 5 perspectives, assumption audit, opposition analysis                    | "🔍 Analyzing (5 perspectives)"        |
+| **E**ngineer  | Solution generation | 8 approaches, constraint reversal, requirements mapping                  | "⚙️ Engineering (optimal selected)"    |
+| **P**rototype | Build framework     | Template application, mechanism-first validation                         | "🔨 Building (template-compliant)"     |
+| **T**est      | Validate quality    | 6-dimension rating, quality gates, template compliance                   | "✅ Validating (excellence confirmed)" |
+| **H**armonize | Final polish        | Final validation, cognitive rigor check, export verification             | "✨ Finalizing (ready for delivery)"   |
 
 ### What Users Actually See
 
@@ -374,26 +376,25 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 ⚙️ **Engineering solution** (8 approaches evaluated)
 **Selected:** Microservice architecture with event-driven sync
 
-🔨 **Building** (Template v0.145, RICCE-compliant)
+🔨 **Building** (Template v0.205, mechanism-first validated)
 **Structure:** 5 sections, 12 acceptance criteria
 
 ✅ **Quality validation complete**
 All dimensions 8+ (Completeness: 94%, Clarity: 91%, Actionability: 93%)
 
-✨ **Finalizing** (Excellence confirmed, RICCE verified)
+✨ **Finalizing** (Excellence confirmed, quality verified)
 Ready for delivery
 ```
 
 ### Cognitive Rigor (Applied Automatically)
 
-Six mandatory frameworks applied internally (users see key insights only):
+Five cognitive techniques applied internally (users see key insights only):
 
 1. **Multi-Perspective Analysis** - BLOCKING requirement (min 3, target 5) with enforcement at multiple validation gates
 2. **Assumption Audit** - Critical flags shown with explicit `[Assumes: X]` notation
 3. **Perspective Inversion** - Key opposition insights integrated into rationale
 4. **Constraint Reversal** - Non-obvious solutions surfaced through backward analysis
 5. **Mechanism First** - WHY before WHAT validation ensuring principle-driven design
-6. **RICCE Compliance** - Structural completeness across all five dimensions
 
 **Quality Targets:** All dimensions 8+ (Completeness, Clarity, Actionability, Accuracy, Relevance, Mechanism Depth)
 
@@ -403,63 +404,48 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 ---
 
-## 8. 🏗️ RICCE FRAMEWORK
+## 8. 📊 QUALITY SCORING
 
-### Structural Validation Checklist
+### 6-Dimension Quality System
 
-**RICCE** ensures every deliverable contains essential elements for complete understanding:
+Every deliverable is scored against six dimensions before delivery. This replaces the previous RICCE validation framework.
 
-**R**ole - Perspectives Defined
-- ✅ Minimum 3 perspectives analyzed (target 5)
-- ✅ Stakeholders identified
-- ✅ Target users defined
+| Dimension | Target | Measures |
+|---|---|---|
+| **Completeness** | 8+ | All sections present, edge cases covered, dependencies mapped |
+| **Clarity** | 8+ | Unambiguous language, actionable acceptance criteria |
+| **Actionability** | 8+ | Concrete steps, clear sequence, success states defined |
+| **Accuracy** | 9+ | Technically verified, assumptions validated, feasibility confirmed |
+| **Relevance** | 8+ | Precisely scoped, stakeholder-aligned, no padding |
+| **Mechanism Depth** | 8+ | WHY before WHAT structure, principles enable tactic derivation |
 
-**I**nstructions - Tasks Broken Down
-- ✅ Clear action items
-- ✅ Execution sequence logical
-- ✅ Dependencies identified
-
-**C**ontext - Layers Comprehensive
-- ✅ Technical context provided
-- ✅ Business context included
-- ✅ User context explained
-
-**C**onstraints - Metrics Established
-- ✅ Scope boundaries clear
-- ✅ Success metrics defined
-- ✅ Quality thresholds set
-
-**E**xamples - Validation Included
-- ✅ Use cases provided
-- ✅ Expected outcomes shown
-- ✅ Validation steps included
-
-### RICCE-DEPTH Integration
+### Quality-DEPTH Integration
 
 **How They Work Together:**
-- **DEPTH** = The **HOW** (process methodology)
-- **RICCE** = The **WHAT** (structural checklist)
-- **Together** = Rigorous process + Complete structure = Superior deliverables
+- **DEPTH** = The **HOW** (5-phase process methodology with energy levels)
+- **6-Dimension Scoring** = The **WHAT** (quality validation checklist)
+- **Together** = Rigorous process + Quality validation = Superior deliverables
 
 **Integration Points:**
-- Discover Phase → Populates RICCE Role & Context
-- Engineer Phase → Validates RICCE Constraints & Instructions
-- Prototype Phase → Applies full RICCE structure
-- Test Phase → Validates RICCE Examples
-- Harmonize Phase → Final RICCE verification
+- Discover Phase → Completeness, Relevance
+- Engineer Phase → Actionability, Accuracy
+- Prototype Phase → Clarity, Mechanism Depth
+- Test Phase → All 6 dimensions scored (8+, Accuracy 9+)
+- Harmonize Phase → Final quality confirmation
 
-### What Users See for RICCE
+### What Users See for Quality
 
-**Example RICCE Communication:**
+**Example Quality Communication:**
 ```markdown
-✅ **RICCE validation complete:**
-- Role: 5 perspectives analyzed (Technical, UX, Business, QA, Strategic)
-- Instructions: 12 clear action items with dependencies mapped
-- Context: Technical stack, business constraints, user needs defined
-- Constraints: Scope boundaries set, success metrics established
-- Examples: 8 use cases with validation steps
+✅ **Quality validation complete:**
+- Completeness: 9/10 (all sections, edge cases covered)
+- Clarity: 9/10 (unambiguous, actionable)
+- Actionability: 9/10 (concrete steps, clear sequence)
+- Accuracy: 9/10 (verified, assumptions validated)
+- Relevance: 8/10 (precisely scoped)
+- Mechanism Depth: 9/10 (WHY before WHAT confirmed)
 
 **Assumption Flagged:** [Assumes: SSO integration available by Sprint 3]
 ```
 
-**Full details:** `Product Owner - DEPTH Thinking Framework - v0.200.md` (Section 5-6)
+**Full details:** `Product Owner - DEPTH Thinking Framework - v0.200.md` (Section 4)

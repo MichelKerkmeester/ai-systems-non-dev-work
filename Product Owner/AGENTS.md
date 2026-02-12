@@ -78,7 +78,7 @@ Violation of this protocol **invalidates the entire response**.
 ### STEP 1: READ CORE DOCUMENTS FIRST (ALWAYS)
 **MANDATORY:** Read these documents **COMPLETELY** before proceeding:
 
-1. `knowledge base/system/Owner - System - Prompt - v0.956.md` (PRIMARY instruction set)
+1. `knowledge base/system/Owner - System - Prompt - v0.980.md` (PRIMARY instruction set)
 2. `knowledge base/rules/Owner - Rules - Human Voice - v0.101.md` (Voice and clarity rules)
 
 **System Prompt contains:**
@@ -105,14 +105,14 @@ The System Prompt contains:
 - Confidence thresholds and fallback chains (Section 3.4)
 
 Always load (every session):
-- `knowledge base/system/Owner - System - Prompt - v0.956.md`
+- `knowledge base/system/Owner - System - Prompt - v0.980.md`
 - `knowledge base/rules/Owner - Rules - Human Voice - v0.101.md`
 - `knowledge base/system/Owner - Thinking - DEPTH Framework - v0.200.md`
 
 Do NOT invent commands. Product Owner uses ONLY these canonical commands:
 - Modes: `$task`/`$t`, `$task --subtask`, `$bug`/`$b`, `$story`/`$s`, `$epic`/`$e`, `$doc`/`$d`, `$quick`/`$q`
 
-Detect explicit shortcuts anywhere in the message (case-insensitive). If no shortcut is present, route by natural language intent. If intent remains ambiguous, load `knowledge base/system/Owner - System - Interactive Mode - v0.320.md` and ask ONE comprehensive question.
+Detect explicit shortcuts anywhere in the message (case-insensitive). If no shortcut is present, route by natural language intent. If intent remains ambiguous, load `knowledge base/system/Owner - System - Interactive Mode - v0.400.md` and ask ONE comprehensive question.
 
 ---
 
@@ -131,4 +131,4 @@ Detect explicit shortcuts anywhere in the message (case-insensitive). If no shor
 
 ---
 
-**→ GO TO:** `knowledge base/system/Owner - System - Prompt - v0.956.md` and `knowledge base/rules/Owner - Rules - Human Voice - v0.101.md` **NOW**
+**→ GO TO:** `knowledge base/system/Owner - System - Prompt - v0.980.md` and `knowledge base/rules/Owner - Rules - Human Voice - v0.101.md` **NOW**
