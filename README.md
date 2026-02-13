@@ -18,8 +18,8 @@
 ## 📋 Table of Contents
 
 #### ✏️ Specialized Writer Systems
-1. [Product Owner](#1-product-owner)
-2. [Prompt Engineering Assistant](#2-prompt-engineering-assistant)
+1. [Prompt Engineering Assistant](#1-prompt-engineering-assistant)
+2. [Product Owner](#2-product-owner)
 
 #### 💬 MCP's Made Easy
 3. [Media Editor Agent](#3-media-editor-agent)
@@ -37,33 +37,8 @@
 
 ---
 
-<a id="1-product-owner"></a>
-### 👨‍💻 1. Product Owner
-
-Create professional tasks, bugs, stories, epics, and documentation with automatic complexity scaling and concise transparent DEPTH processing.
-
-**Intelligent Modes & Commands**:
-  - Modes: $task, $bug, $story, $epic, $doc, $interactive (default), $quick (instant)
-  - Auto-complexity: Simple (2-3), Standard (4-5), Complex (6-8 sections)
-  - Smart routing: Single comprehensive question, then intelligent template selection
-
-**DEPTH + RICCE Framework**:
-  - **DEPTH Methodology**: 10-round thinking (Discover → Engineer → Prototype → Test → Harmonize)
-  - **Two-Layer Transparency**: Full rigor internally, concise meaningful updates externally
-  - **RICCE Structure**: Role, Instructions, Context, Constraints, Examples
-  - **$quick mode**: Auto-scaled 1-5 rounds based on complexity
-  
-**Cognitive Rigor (Mandatory)**:
-  - Multi-perspective analysis: Minimum 3 perspectives (target 5) - blocking requirement
-  - Assumption audit: Surface, classify, challenge, flag critical dependencies
-  - Perspective inversion: Analyze opposition, strengthen solution
-  - Constraint reversal: Non-obvious insights through backward logic
-  - Mechanism-first: WHY before WHAT validation in all solutions
-  
----
-
-<a id="2-prompt-engineering-assistant"></a>
-### 🎯 2. Prompt Engineering Assistant
+<a id="1-prompt-engineering-assistant"></a>
+### 🎯 1. Prompt Engineering Assistant
 
 Create effective AI prompts using 7 specialized frameworks, systematic evaluation, and transparent DEPTH processing.
 
@@ -86,6 +61,31 @@ Create effective AI prompts using 7 specialized frameworks, systematic evaluatio
   - **CLEAR Evaluation**: 5 dimensions (Correctness, Logic, Expression, Arrangement, Reuse)
   - Target scores: 40+/50 standard, 45+/50 excellence
 
+---
+
+<a id="2-product-owner"></a>
+### 👨‍💻 2. Product Owner
+
+Create professional tasks, bugs, stories, epics, and documentation with automatic complexity scaling and concise transparent DEPTH processing.
+
+**Intelligent Modes & Commands**:
+  - Modes: $task, $bug, $story, $epic, $doc, $interactive (default), $quick (instant)
+  - Auto-complexity: Simple (2-3), Standard (4-5), Complex (6-8 sections)
+  - Smart routing: Single comprehensive question, then intelligent template selection
+
+**DEPTH + RICCE Framework**:
+  - **DEPTH Methodology**: 10-round thinking (Discover → Engineer → Prototype → Test → Harmonize)
+  - **Two-Layer Transparency**: Full rigor internally, concise meaningful updates externally
+  - **RICCE Structure**: Role, Instructions, Context, Constraints, Examples
+  - **$quick mode**: Auto-scaled 1-5 rounds based on complexity
+  
+**Cognitive Rigor (Mandatory)**:
+  - Multi-perspective analysis: Minimum 3 perspectives (target 5) - blocking requirement
+  - Assumption audit: Surface, classify, challenge, flag critical dependencies
+  - Perspective inversion: Analyze opposition, strengthen solution
+  - Constraint reversal: Non-obvious insights through backward logic
+  - Mechanism-first: WHY before WHAT validation in all solutions
+  
 ---
 
 <a id="3-media-editor-agent"></a>
