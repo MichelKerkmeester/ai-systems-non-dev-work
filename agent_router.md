@@ -36,7 +36,7 @@ IF $ARGUMENTS contains a request:
 
 Direct identity adoption architecture for routing requests to specialized AI Systems.
 
-**Version:** 4.0 (Direct Identity Adoption)
+**Version:** 5.0 (Dynamic Discovery)
 
 ---
 
@@ -44,11 +44,12 @@ Direct identity adoption architecture for routing requests to specialized AI Sys
 
 The Agent Router **ADOPTS** the target system's identity and executes directly. It:
 
-1. **Resolves** the target system from aliases, keywords, or explicit paths
-2. **Locates** and reads AGENTS.md for the target system
-3. **Finds** and reads the COMPLETE System Prompt file
-4. **BECOMES** the target agent by fully adopting its System Prompt identity
-5. **Executes** the request directly as that agent
+1. **Discovers** available systems by scanning the filesystem for `AGENTS.md` files
+2. **Resolves** the target system from user input, fuzzy matching, or explicit paths
+3. **Locates** and reads AGENTS.md for the target system
+4. **Finds** and reads the COMPLETE System Prompt file
+5. **BECOMES** the target agent by fully adopting its System Prompt identity
+6. **Executes** the request directly as that agent
 
 **Core Principle:** The router BECOMES the target agent. After loading the System Prompt, you ARE that agent and execute directly with full authority.
 
@@ -61,12 +62,12 @@ The Agent Router **ADOPTS** the target system's identity and executes directly. 
 
 **Outputs:** `STATUS=<OK|FAIL> [ERROR="<message>"]`
 
-| Output Field | Description |
-|--------------|-------------|
-| `STATUS` | `OK` on success, `FAIL` on error |
-| `ERROR` | Error message (only when STATUS=FAIL) |
-| `SYSTEM` | Resolved system name |
-| `OUTPUT` | Execution result summary |
+| Output Field | Description                           |
+| ------------ | ------------------------------------- |
+| `STATUS`     | `OK` on success, `FAIL` on error      |
+| `ERROR`      | Error message (only when STATUS=FAIL) |
+| `SYSTEM`     | Resolved system name                  |
+| `OUTPUT`     | Execution result summary              |
 
 ---
 
@@ -78,42 +79,51 @@ $ARGUMENTS
 
 ---
 
-## 4. 🗂️ AI SYSTEMS REGISTRY
+## 4. 🗂️ AI SYSTEMS DISCOVERY
 
-### Available Systems
+### Dynamic Registry (No Hardcoded Systems)
 
-| System | Aliases | Folder |
-|--------|---------|--------|
-| Barter Copywriter | `barter`, `copywriter`, `copy` | Barter - Copywriter |
-| Barter LinkedIn | `linkedin`, `pieter` | Barter - LinkedIn/Pieter Bertram |
-| Barter TikTok | `tiktok`, `seo`, `creative` | Barter - TikTok SEO & Creative Strategy |
-| CapCut | `capcut`, `jianying`, `draft` | CapCut |
-| Media Editor | `media`, `image`, `video`, `audio`, `hls` | Media Editor |
-| Notion | `notion` | Notion |
-| Product Owner | `po`, `product`, `ticket`, `story`, `epic`, `doc` | Product Owner |
-| Prompt Improver | `prompt`, `improve`, `enhance` | Prompt Improver |
-| Webflow | `webflow`, `wf` | Webflow |
+Systems are discovered at runtime by scanning the filesystem. A **system** is any directory containing an `AGENTS.md` file.
 
-### Base Paths
+### Base Scan Path
 
-| System Group | Base Path |
-|--------------|-----------|
-| Barter systems | `/Users/michelkerkmeester/MEGA/Development/AI Systems/Barter/` |
-| Other systems | `/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/` |
+```
+/Users/michelkerkmeester/MEGA/Development/AI Systems/
+```
 
-### Keywords (for auto-detection)
+### Discovery Procedure
 
-| System | Keywords |
-|--------|----------|
-| Barter Copywriter | copy, content, marketing, brand voice, creator, campaign, UGC |
-| Barter LinkedIn | linkedin, post, pieter, personal brand, thought leadership |
-| Barter TikTok | tiktok, trend, hashtag, algorithm, video strategy |
-| CapCut | video project, timeline, segment, animation, transition, jianying, capcut |
-| Media Editor | resize, compress, convert, thumbnail, watermark, transcode, ffmpeg |
-| Notion | database, page, block, property, relation, rollup, template |
-| Product Owner | user story, acceptance criteria, epic, specification, requirements |
-| Prompt Improver | prompt, enhance, optimize, structure, framework, CLEAR |
-| Webflow | collection, cms, page, component, interaction, designer, field |
+**Run at the START of every invocation** (before matching user input):
+
+1. Use Glob to find all AGENTS.md files:
+   ```
+   Glob: /Users/michelkerkmeester/MEGA/Development/AI Systems/**/AGENTS.md
+   ```
+
+2. For each result, extract:
+   - `agent_folder` — the parent directory of the AGENTS.md file
+   - `system_name` — the folder name, with number prefix stripped (e.g., `1. Copywriter` → `Copywriter`)
+   - `group` — the top-level directory under AI Systems (e.g., `Barter`, `Public`)
+
+3. **Deduplication:** If the same system name exists under multiple groups (e.g., `Barter/CapCut` and `Public/6. CapCut`), prefer the `Barter/` version.
+
+4. **Exclusions:** Skip directories where the folder name starts with:
+   - `z` (backups, e.g., `z — Back-up`)
+   - `0.` (shared resources, e.g., `0. Global (Shared)`)
+
+### Name Normalization
+
+Strip number prefixes to derive the canonical system name:
+- `1. Copywriter` → `Copywriter`
+- `3. TikTok SEO & Creative Strategy` → `TikTok SEO & Creative Strategy`
+- `4. Pieter Bertram` → `Pieter Bertram`
+- `Media Editor` → `Media Editor` (no prefix to strip)
+
+Pattern: Remove leading `\d+\.\s*` from folder name.
+
+### Discovery Output
+
+Build a runtime registry as a list of `{ system_name, agent_folder, group }` entries — one per discovered AGENTS.md. **No systems are listed in this file.** The registry is built fresh from the filesystem on every invocation.
 
 ---
 
@@ -124,85 +134,121 @@ $ARGUMENTS
 ```
 $ARGUMENTS
     │
-    ├─► First word matches SYSTEM ALIAS (case-insensitive)
-    │   ├─► "barter" | "copywriter" | "copy"                       → BARTER COPYWRITER
-    │   ├─► "linkedin" | "pieter"                                  → BARTER LINKEDIN
-    │   ├─► "tiktok" | "seo" | "creative"                          → BARTER TIKTOK
-    │   ├─► "webflow" | "wf"                                       → WEBFLOW
-    │   ├─► "notion"                                               → NOTION
-    │   ├─► "media" | "image" | "video" | "audio" | "hls"          → MEDIA EDITOR
-    │   ├─► "po" | "product" | "ticket" | "story" | "epic" | "doc" → PRODUCT OWNER
-    │   └─► "prompt" | "improve" | "enhance"                       → PROMPT IMPROVER
-    │
     ├─► Contains "path:" pattern
     │   └─► CUSTOM PATH: Extract path value → Use as agent_folder
-    │       (Overrides system alias if both present)
+    │       (Overrides all other matching if present)
     │
-    ├─► KEYWORD ANALYSIS (no explicit system detected)
+    ├─► First word(s) match a DISCOVERED SYSTEM NAME (case-insensitive)
     │   │
-    │   │   Analyze request against registry keywords:
+    │   │   Match algorithm (applied against discovered registry):
+    │   │   1. EXACT match on normalized system_name (case-insensitive)
+    │   │      e.g., "copywriter" → Copywriter
+    │   │   2. PARTIAL match: first word(s) appear in system_name
+    │   │      e.g., "tiktok" → TikTok SEO & Creative Strategy
+    │   │   3. WORD match: any significant word from system_name
+    │   │      e.g., "pieter" → Pieter Bertram
+    │   │      e.g., "nigel" → Nigel de Lange
+    │   │      e.g., "media" → Media Editor
+    │   │
+    │   ├─► Single match → Select it, remainder of args = request
+    │   └─► Multiple matches → Present numbered selection menu
+    │
+    ├─► SEMANTIC ANALYSIS (no name match detected)
+    │   │
+    │   │   Read the AGENTS.md of each discovered system (first 10 lines)
+    │   │   to extract purpose/description, then match against request:
     │   │   - If single system matches clearly → Auto-select with notification
     │   │   - If multiple systems match → Present selection menu
     │   │
     │   └─► NO MATCH DETECTED
-    │       └─► Present full system selection menu
+    │       └─► Present full system selection menu (dynamically generated)
     │
     └─► Empty (no args)
         └─► Trigger mandatory gate (ask user for request)
 ```
 
-### System Selection Menu
+### System Selection Menu (Dynamic)
 
-When system cannot be auto-detected, present:
+When system cannot be auto-detected, **generate the menu from discovered systems**:
 
 ```
 Which AI System should handle this request?
 
-| Option | System            | Best For                                         |
-|--------|-------------------|--------------------------------------------------|
-| A      | Barter Copywriter | Copy, content, marketing, brand voice, campaigns |
-| B      | Barter LinkedIn   | LinkedIn posts, Pieter's personal brand          |
-| C      | Barter TikTok     | TikTok SEO, creative strategy, trends            |
-| D      | Media Editor      | Image/video/audio processing, HLS streaming      |
-| E      | Notion            | Databases, pages, blocks, properties             |
-| F      | Product Owner     | Tickets, user stories, epics, specifications     |
-| G      | Prompt Improver   | Prompt enhancement, optimization, structuring    |
-| H      | Webflow           | CMS collections, fields, pages, components       |
-| I      | Custom Path       | Specify path to unlisted agent folder            |
+{For each discovered system, generate a lettered option:}
 
-Reply with letter (A-I):
+| Option | System          | Group   |
+| ------ | --------------- | ------- |
+| A      | {system_name_1} | {group} |
+| B      | {system_name_2} | {group} |
+| ...    | ...             | ...     |
+| Z      | Custom Path     | —       |
+
+Reply with letter:
 ```
+
+**Rules for menu generation:**
+- Sort by group first (alphabetical), then by system name within group
+- Always include "Custom Path" as the last option
+- Use AskUserQuestion tool with the discovered systems as options
 
 ---
 
-## 6. 📊 WORKFLOW OVERVIEW (5 STEPS)
+## 6. 📊 WORKFLOW OVERVIEW (6 STEPS)
 
-| Step | Name | Purpose | Outputs |
-|------|------|---------|---------|
-| 1 | Locate AGENTS.md | Find bootstrap file for target system | `agents_md_path`, `agent_scope_root` |
-| 2 | Read AGENTS.md | Parse routing instructions | `routing_directive`, `behavioral_guidelines` |
-| 3 | Locate and Read System Prompt | Load complete agent identity | `system_prompt_path`, `system_prompt_content` |
-| 4 | Adopt Identity and Execute | BECOME the agent, process request directly | `execution_result` |
-| 5 | Return Results | Report completion | `STATUS`, formatted report |
+| Step | Name                          | Purpose                                    | Outputs                                       |
+| ---- | ----------------------------- | ------------------------------------------ | --------------------------------------------- |
+| 0    | Discover Systems              | Scan filesystem for AGENTS.md files        | `discovered_systems[]`                        |
+| 1    | Resolve Target                | Match user input to a discovered system    | `agents_md_path`, `agent_scope_root`          |
+| 2    | Read AGENTS.md                | Parse routing instructions                 | `routing_directive`, `behavioral_guidelines`  |
+| 3    | Locate and Read System Prompt | Load complete agent identity               | `system_prompt_path`, `system_prompt_content` |
+| 4    | Adopt Identity and Execute    | BECOME the agent, process request directly | `execution_result`                            |
+| 5    | Return Results                | Report completion                          | `STATUS`, formatted report                    |
 
 ---
 
 ## 7. ⚡ INSTRUCTIONS
 
-### Step 1: Locate AGENTS.md
+### Step 0: Discover Systems
 
-**Purpose:** Find and validate the AGENTS.md bootstrap file for the target system
+**Purpose:** Scan the filesystem to build a dynamic registry of all available AI Systems
 
 **Activities:**
-- Resolve `agent_folder` from registry or path override:
-  - From registry: `{base_path}/{system_folder}`
-  - From path override: Use explicit path provided
-- Check for AGENTS.md at: `{agent_folder}/AGENTS.md`
-- Set `agent_scope_root` to the folder containing AGENTS.md
+1. Run Glob: `Glob("/Users/michelkerkmeester/MEGA/Development/AI Systems/**/AGENTS.md")`
+2. For each result:
+   - Extract `agent_folder` (parent directory of AGENTS.md)
+   - Extract `group` (first directory under `AI Systems/`, e.g., `Barter` or `Public`)
+   - Extract raw folder name and normalize to `system_name`:
+     - Strip leading number prefix: `\d+\.\s*` → empty (e.g., `3. TikTok SEO & Creative Strategy` → `TikTok SEO & Creative Strategy`)
+3. **Exclude** folders where the name starts with `z` or `0.`
+4. **Deduplicate** by `system_name`: if same name appears in multiple groups, prefer `Barter/` over `Public/`
+5. Store as `discovered_systems[]`
 
 **Validation checkpoint:**
-- [ ] AGENTS.md file exists at resolved path
-- [ ] agent_scope_root is set
+- [ ] At least 1 system discovered
+- [ ] No duplicate system names in final list
+
+**Failure:** `STATUS=FAIL ERROR="No AI Systems found. Check base path."`
+
+---
+
+### Step 1: Resolve Target
+
+**Purpose:** Match user input against the discovered registry to find the target system
+
+**Activities:**
+- If `path:` override present → use as `agent_folder` directly, skip matching
+- Otherwise, apply match algorithm from Section 5 against `discovered_systems[]`:
+  1. Exact match on `system_name` (case-insensitive)
+  2. Partial match: first word(s) of input appear in `system_name`
+  3. Word match: any significant word from `system_name` matches input
+- If single match → set `agent_folder` and `agent_scope_root`
+- If multiple matches → present selection menu
+- If no match → semantic analysis or full selection menu
+- Set `agent_scope_root` to the matched `agent_folder`
+
+**Validation checkpoint:**
+- [ ] AGENTS.md file exists at resolved `agent_folder`
+- [ ] `agent_scope_root` is set
 
 **Failure:** Report system attempted and path tried → `STATUS=FAIL ERROR="AGENTS.md not found"`
 
@@ -352,37 +398,29 @@ Once identity is adopted:
 
 ## 9. ⚠️ ERROR HANDLING
 
-| Condition | Action | Status Output |
-|-----------|--------|---------------|
-| Empty `$ARGUMENTS` | Trigger mandatory gate | (wait for input) |
-| System alias not recognized | Present selection menu | (wait for selection) |
-| AGENTS.md not found | Report path tried, list available systems | `STATUS=FAIL ERROR="AGENTS.md not found at {path}"` |
-| System Prompt not found | Report search pattern, suggest fixes | `STATUS=FAIL ERROR="System Prompt not found in knowledge base"` |
-| Execution failure | Report error details | `STATUS=FAIL ERROR="{error_details}"` |
-| Missing required tool | Report tool needed, suggest alternatives | `STATUS=FAIL ERROR="Required tool unavailable"` |
+| Condition               | Action                                                     | Status Output                                                   |
+| ----------------------- | ---------------------------------------------------------- | --------------------------------------------------------------- |
+| Empty `$ARGUMENTS`      | Trigger mandatory gate                                     | (wait for input)                                                |
+| No systems discovered   | Report base path, check directory structure                | `STATUS=FAIL ERROR="No AI Systems found"`                       |
+| No match found          | Present dynamic selection menu from `discovered_systems[]` | (wait for selection)                                            |
+| AGENTS.md not found     | Report path tried, list discovered systems                 | `STATUS=FAIL ERROR="AGENTS.md not found at {path}"`             |
+| System Prompt not found | Report search pattern, suggest fixes                       | `STATUS=FAIL ERROR="System Prompt not found in knowledge base"` |
+| Execution failure       | Report error details                                       | `STATUS=FAIL ERROR="{error_details}"`                           |
+| Missing required tool   | Report tool needed, suggest alternatives                   | `STATUS=FAIL ERROR="Required tool unavailable"`                 |
 
 ### Error Message Templates
 
-**AGENTS.md Not Found:**
+**No Match Found:**
 ```
-AGENTS.md not found at specified location.
+No system matched "{user_input}".
 
-System: {system_name}
-Path tried: {agent_folder}/AGENTS.md
-
-Available systems:
-- barter, copywriter, copy     → Barter Copywriter
-- linkedin, pieter             → Barter LinkedIn
-- tiktok, seo, creative        → Barter TikTok
-- media, image, video, audio   → Media Editor
-- notion                       → Notion
-- po, product, ticket, story   → Product Owner
-- prompt, improve, enhance     → Prompt Improver
-- webflow, wf                  → Webflow
+Discovered systems:
+{For each system in discovered_systems[]:}
+  - {system_name} ({group}/{original_folder_name})
 
 Or use: path:/custom/path
 
-STATUS=FAIL ERROR="AGENTS.md not found"
+(Present selection menu via AskUserQuestion)
 ```
 
 **System Prompt Not Found:**
@@ -426,113 +464,31 @@ STATUS=OK
 
 ---
 
-## 11. 🔍 EXAMPLES
-
-### Direct System Selection
-
-```bash
-# Product Owner - write a user story
-/agent_router po "Write a user story for SSO login"
-
-# Prompt Improver - enhance a prompt
-/agent_router prompt "Improve this prompt: write better code"
-
-# Webflow - CMS work
-/agent_router webflow "Add author field to blog collection"
-
-# Barter Copywriter
-/agent_router barter "Write hero copy for creator landing page"
-
-# Media Editor
-/agent_router media "Convert video to HLS format"
-```
-
-### With Mode Commands (passed to target agent)
-
-```bash
-# The $quick command is passed to Product Owner's System Prompt
-/agent_router po "$quick Create a task for fixing the header"
-
-# The $improve command is passed to Prompt Improver's System Prompt
-/agent_router prompt "$improve Enhance this prompt for clarity"
-
-# The $task command is passed to the target agent
-/agent_router barter "$task Write 3 LinkedIn posts"
-```
-
-### Custom Path
-
-```bash
-# Route to an unlisted agent
-/agent_router path:/path/to/custom/agent "Process this request"
-
-# Path override takes precedence
-/agent_router barter path:/alternate/barter "Use alternate Barter agent"
-```
-
-### Keyword Auto-Detection
-
-```bash
-# Detects Webflow from "collection" keyword
-/agent_router "Create a new CMS collection for team members"
-
-# Detects Product Owner from "user story" keyword
-/agent_router "Write an epic for the authentication system"
-
-# Detects Prompt Improver from "enhance prompt"
-/agent_router "Enhance this prompt for image generation"
-```
-
----
-
-## 12. 📌 RULES
+## 11. 📌 RULES
 
 ### ALWAYS
 
-| Rule | Reason |
-|------|--------|
-| Read the FULL System Prompt before adopting identity | Complete identity required |
-| BECOME the target agent after reading System Prompt | Direct execution, no delegation |
-| Follow the adopted identity's operating mode exactly | You ARE that agent now |
-| Execute directly with full authority | Single primary agent architecture |
-| Set agent_scope_root to folder containing AGENTS.md | Proper scoping |
-| Validate System Prompt exists before adoption | Prevent incomplete identity |
-| Honor Interactive Mode if the adopted identity has it | Protocols bind you after adoption |
+| Rule                                                  | Reason                              |
+| ----------------------------------------------------- | ----------------------------------- |
+| Run discovery (Step 0) before matching                | Systems may have been added/removed |
+| Read the FULL System Prompt before adopting identity  | Complete identity required          |
+| BECOME the target agent after reading System Prompt   | Direct execution, no delegation     |
+| Follow the adopted identity's operating mode exactly  | You ARE that agent now              |
+| Execute directly with full authority                  | Single primary agent architecture   |
+| Set agent_scope_root to folder containing AGENTS.md   | Proper scoping                      |
+| Validate System Prompt exists before adoption         | Prevent incomplete identity         |
+| Honor Interactive Mode if the adopted identity has it | Protocols bind you after adoption   |
 
 ### NEVER
 
-| Anti-Pattern | Problem |
-|--------------|---------|
-| Delegate to sub-agents | Single primary agent architecture |
-| Skip System Prompt reading | Incomplete identity adoption |
-| Override adopted identity's operating mode | You must follow its protocols |
-| Guess System Prompt content | Must read actual file |
+| Anti-Pattern                                        | Problem                                   |
+| --------------------------------------------------- | ----------------------------------------- |
+| Hardcode system names or aliases in this file       | Discovery must be dynamic                 |
+| Delegate to sub-agents                              | Single primary agent architecture         |
+| Skip System Prompt reading                          | Incomplete identity adoption              |
+| Override adopted identity's operating mode          | You must follow its protocols             |
+| Guess System Prompt content                         | Must read actual file                     |
 | Impose `:auto`/`:confirm` modes on adopted identity | Those are for router phase, not execution |
-| Skip Interactive Mode questions | Adopted identity's protocols bind you |
-| Assume user provided enough context | Let adopted identity's logic decide |
-| Half-adopt identity (reading but not following) | Full adoption means full compliance |
-
----
-
-## 13. 🔗 RELATED RESOURCES
-
-### Related Commands
-
-| Command | Purpose |
-|---------|---------|
-| `/spec_kit:complete` | Spec folder workflow |
-| `/memory:save` | Save context to memory |
-
-### Skills
-
-| Skill | Purpose |
-|-------|---------|
-| `system-spec-kit` | Spec folder management |
-| `workflows-documentation` | Documentation standards |
-
-### External
-
-| Resource | Location |
-|----------|----------|
-| AI Systems folder | `/Users/michelkerkmeester/MEGA/Development/AI Systems/` |
-| Command template | `.opencode/skill/workflows-documentation/assets/opencode/command_template.md` |
+| Skip Interactive Mode questions                     | Adopted identity's protocols bind you     |
+| Assume user provided enough context                 | Let adopted identity's logic decide       |
+| Half-adopt identity (reading but not following)     | Full adoption means full compliance       |
