@@ -1,3 +1,4 @@
+<!-- ANCHOR:prompt-reference-format-guide-markdown-v0-140 -->
 # Prompt - Reference - Format Guide Markdown - v0.140
 
 Formatting guide for Markdown (Standard) output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
@@ -6,6 +7,8 @@ Formatting guide for Markdown (Standard) output structure in prompt engineering 
 **Purpose:** Defines Markdown syntax specifications, structure patterns, validation rules, and file delivery standards for natural language prompt output.
 **Scope:** RCAF/CRAFT frameworks in Markdown format, file delivery standards, syntax validation, format conversions, advanced patterns, best practices.
 
+<!-- /ANCHOR:prompt-reference-format-guide-markdown-v0-140 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎯 OVERVIEW & PURPOSE
@@ -20,8 +23,12 @@ Formatting guide for Markdown (Standard) output structure in prompt engineering 
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-overview-and-purpose -->
 ## 1. 🎯 OVERVIEW & PURPOSE
 
+<!-- /ANCHOR:1-overview-and-purpose -->
+<!-- ANCHOR:why-markdown-standard-format -->
 ### Why Markdown (Standard) Format?
 
 Markdown provides natural language prompt engineering with optimal human readability while maintaining clear structure through RCAF/CRAFT frameworks.
@@ -42,8 +49,12 @@ Markdown provides natural language prompt engineering with optimal human readabi
 
 ---
 
+<!-- /ANCHOR:why-markdown-standard-format -->
+<!-- ANCHOR:2-markdown-format-fundamentals -->
 ## 2. 📐 MARKDOWN FORMAT FUNDAMENTALS
 
+<!-- /ANCHOR:2-markdown-format-fundamentals -->
+<!-- ANCHOR:core-principles -->
 ### Core Principles
 
 1. **Clarity First:** Every word must earn its place
@@ -52,6 +63,8 @@ Markdown provides natural language prompt engineering with optimal human readabi
 4. **Concise Expression:** Maximum clarity, minimum tokens
 5. **Action-Oriented:** Focus on what needs to be done
 
+<!-- /ANCHOR:core-principles -->
+<!-- ANCHOR:basic-structure -->
 ### Basic Structure
 
 ```markdown
@@ -61,6 +74,8 @@ Markdown provides natural language prompt engineering with optimal human readabi
 **Format:** [Expected output structure]
 ```
 
+<!-- /ANCHOR:basic-structure -->
+<!-- ANCHOR:elements-for-prompts -->
 ### Elements for Prompts
 
 | Element            | Use Case              | Example                  |
@@ -73,13 +88,19 @@ Markdown provides natural language prompt engineering with optimal human readabi
 
 ---
 
+<!-- /ANCHOR:elements-for-prompts -->
+<!-- ANCHOR:3-file-delivery-standards -->
 ## 3. 📦 FILE DELIVERY STANDARDS
 
+<!-- /ANCHOR:3-file-delivery-standards -->
+<!-- ANCHOR:delivery-methods -->
 ### Delivery Methods
 
 **Claude Desktop/IDE:** Create actual downloadable file (.md) using file creation tool
 **CLI/Agent Mode:** Save to `/Export` folder with format `[###] - descriptive-filename.md`
 
+<!-- /ANCHOR:delivery-methods -->
+<!-- ANCHOR:mandatory-header-format -->
 ### Mandatory Header Format
 
 **Single-line header at TOP of every file:**
@@ -92,6 +113,8 @@ Mode: $[mode] | Complexity: [level] | Framework: [RCAF/CRAFT]
 - Complexity level: Low/Medium/High or 1-10
 - Framework used: RCAF or CRAFT
 
+<!-- /ANCHOR:mandatory-header-format -->
+<!-- ANCHOR:file-content-rules -->
 ### File Content Rules
 
 | Allowed                            | Forbidden                  |
@@ -101,6 +124,8 @@ Mode: $[mode] | Complexity: [level] | Framework: [RCAF/CRAFT]
 |                                    | Format Options section     |
 |                                    | Explanations (go in CHAT)  |
 
+<!-- /ANCHOR:file-content-rules -->
+<!-- ANCHOR:correct-vs-incorrect -->
 ### Correct vs Incorrect
 
 **✅ CORRECT:**
@@ -129,8 +154,12 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 
 ---
 
+<!-- /ANCHOR:correct-vs-incorrect -->
+<!-- ANCHOR:4-rcaf-markdown-structure -->
 ## 4. 🏗️ RCAF MARKDOWN STRUCTURE
 
+<!-- /ANCHOR:4-rcaf-markdown-structure -->
+<!-- ANCHOR:template -->
 ### Template
 
 ```markdown
@@ -140,6 +169,8 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 **Format:** [Expected output requirements]
 ```
 
+<!-- /ANCHOR:template -->
+<!-- ANCHOR:example-analysis-task -->
 ### Example: Analysis Task
 
 ```
@@ -151,6 +182,8 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 **Format:** Executive summary (500 words) with key metrics, trend charts, and 3-5 strategic recommendations.
 ```
 
+<!-- /ANCHOR:example-analysis-task -->
+<!-- ANCHOR:field-guidelines -->
 ### Field Guidelines
 
 | Field       | Required | Description          | Best Practices                      |
@@ -162,8 +195,12 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 
 ---
 
+<!-- /ANCHOR:field-guidelines -->
+<!-- ANCHOR:5-craft-markdown-structure -->
 ## 5. 🔧 CRAFT MARKDOWN STRUCTURE
 
+<!-- /ANCHOR:5-craft-markdown-structure -->
+<!-- ANCHOR:template-2 -->
 ### Template
 
 ```markdown
@@ -174,6 +211,8 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 **Target:** [Success metrics and criteria]
 ```
 
+<!-- /ANCHOR:template-2 -->
+<!-- ANCHOR:example-complex-analysis -->
 ### Example: Complex Analysis
 
 ```
@@ -198,6 +237,8 @@ Mode: $refine | Complexity: High | Framework: CRAFT
 **Target:** Deliver insights that enable 20% reduction in abandonment rate within Q1 2025.
 ```
 
+<!-- /ANCHOR:example-complex-analysis -->
+<!-- ANCHOR:craft-vs-rcaf -->
 ### CRAFT vs RCAF
 
 | Use CRAFT When                      | Use RCAF When         |
@@ -209,8 +250,12 @@ Mode: $refine | Complexity: High | Framework: CRAFT
 
 ---
 
+<!-- /ANCHOR:craft-vs-rcaf -->
+<!-- ANCHOR:6-advanced-markdown-patterns -->
 ## 6. 🧠 ADVANCED MARKDOWN PATTERNS
 
+<!-- /ANCHOR:6-advanced-markdown-patterns -->
+<!-- ANCHOR:multi-step-process -->
 ### Multi-Step Process
 
 ```
@@ -228,6 +273,8 @@ Mode: $improve | Complexity: High | Framework: RCAF
 **Format:** Status report per phase with traffic light indicators, plus comprehensive summary.
 ```
 
+<!-- /ANCHOR:multi-step-process -->
+<!-- ANCHOR:conditional-logic -->
 ### Conditional Logic
 
 ```markdown
@@ -244,10 +291,14 @@ Mode: $improve | Complexity: High | Framework: RCAF
 
 ---
 
+<!-- /ANCHOR:conditional-logic -->
+<!-- ANCHOR:7-format-conversions -->
 ## 7. 🔄 FORMAT CONVERSIONS
 
 **Cross-format guidance:** See YAML Format Guide, JSON Format Guide, Interactive Mode
 
+<!-- /ANCHOR:7-format-conversions -->
+<!-- ANCHOR:conversion-reference -->
 ### Conversion Reference
 
 | From         | To       | Key Changes                            |
@@ -257,6 +308,8 @@ Mode: $improve | Complexity: High | Framework: RCAF
 | **JSON**     | Markdown | Remove quotes/braces, add `**Field:**` |
 | **YAML**     | Markdown | Add `**Field:**` prefix                |
 
+<!-- /ANCHOR:conversion-reference -->
+<!-- ANCHOR:example -->
 ### Example
 
 **Markdown:**
@@ -287,8 +340,12 @@ format: Dashboard with charts and executive summary
 
 ---
 
+<!-- /ANCHOR:example -->
+<!-- ANCHOR:8-syntax-validation -->
 ## 8. ✅ SYNTAX VALIDATION
 
+<!-- /ANCHOR:8-syntax-validation -->
+<!-- ANCHOR:pre-delivery-checklist -->
 ### Pre-Delivery Checklist
 
 | Check                            | Required | Action if Failed    |
@@ -300,6 +357,8 @@ format: Dashboard with charts and executive summary
 | Valid markdown formatting        | Yes      | Fix syntax          |
 | Natural readability              | Yes      | Simplify language   |
 
+<!-- /ANCHOR:pre-delivery-checklist -->
+<!-- ANCHOR:framework-validation -->
 ### Framework Validation
 
 **RCAF Requirements:**
@@ -311,6 +370,8 @@ format: Dashboard with charts and executive summary
 **CRAFT Additional:**
 - Target: Present, audience clear
 
+<!-- /ANCHOR:framework-validation -->
+<!-- ANCHOR:error-recovery -->
 ### Error Recovery
 
 ```
@@ -324,8 +385,12 @@ format: Dashboard with charts and executive summary
 
 ---
 
+<!-- /ANCHOR:error-recovery -->
+<!-- ANCHOR:9-best-practices -->
 ## 9. 💎 BEST PRACTICES
 
+<!-- /ANCHOR:9-best-practices -->
+<!-- ANCHOR:do-s-and-don-ts -->
 ### Do's and Don'ts
 
 | Category      | Do ✅                               | Don't ❌                           |
@@ -339,6 +404,8 @@ format: Dashboard with charts and executive summary
 | **Header**    | Use $ prefix in mode               | Add quality scores to header      |
 | **File**      | Only header + prompt content       | Include CLEAR evaluation          |
 
+<!-- /ANCHOR:do-s-and-don-ts -->
+<!-- ANCHOR:token-efficiency -->
 ### Token Efficiency
 
 ```markdown
@@ -352,6 +419,8 @@ format: Dashboard with charts and executive summary
 **Context:** Dataset with 50K records (not "large dataset with lots of data")
 ```
 
+<!-- /ANCHOR:token-efficiency -->
+<!-- ANCHOR:format-selection -->
 ### Format Selection
 
 | Factor               | Choose Markdown | Choose JSON     | Choose YAML    |
@@ -362,6 +431,8 @@ format: Dashboard with charts and executive summary
 | **Readability**      | Excellent       | Fair            | Good           |
 | **Token Efficiency** | Best            | Lower           | Medium         |
 
+<!-- /ANCHOR:format-selection -->
+<!-- ANCHOR:markdown-philosophy -->
 ### Markdown Philosophy
 
 > "Natural language is the universal interface. Markdown provides structure without sacrificing humanity."
@@ -373,6 +444,8 @@ format: Dashboard with charts and executive summary
 4. Efficiency through minimalism - No wasted tokens
 5. Focus through minimalism - Minimal header only
 
+<!-- /ANCHOR:markdown-philosophy -->
+<!-- ANCHOR:quality-checklist -->
 ### Quality Checklist
 
 **Excellent Markdown File:**
@@ -386,3 +459,4 @@ format: Dashboard with charts and executive summary
 - ✅ Delivered as downloadable file
 - ✅ No metadata sections in file
 - ✅ Natural readability
+<!-- /ANCHOR:quality-checklist -->

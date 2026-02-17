@@ -1,3 +1,4 @@
+<!-- ANCHOR:capcut-integrations-mcp-jianying-v0-111 -->
 # CapCut - Integrations - MCP JianYing - v0.111
 
 Technical reference for JianYing MCP server capabilities and integration for video editing operations.
@@ -8,6 +9,8 @@ Technical reference for JianYing MCP server capabilities and integration for vid
 
 > **Note:** JianYing = CapCut (same product by ByteDance). JianYing Pro is the Chinese desktop version; CapCut is the international version. This MCP server works with JianYing Pro desktop application.
 
+<!-- /ANCHOR:capcut-integrations-mcp-jianying-v0-111 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🔌 SERVER OVERVIEW
@@ -21,8 +24,12 @@ Technical reference for JianYing MCP server capabilities and integration for vid
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-server-overview -->
 ## 1. 🔌 SERVER OVERVIEW
 
+<!-- /ANCHOR:1-server-overview -->
+<!-- ANCHOR:mcp-server-details -->
 ### MCP Server Details
 
 The JianYing MCP server (`jianying-mcp`) provides comprehensive video editing automation capabilities powered by pyJianYingDraft. It enables draft creation, track management, video/audio/text segment handling, effects, transitions, and project exports through native MCP integration.
@@ -44,6 +51,8 @@ cd jianying-mcp
 uv sync
 ```
 
+<!-- /ANCHOR:mcp-server-details -->
+<!-- ANCHOR:connection-verification -->
 ### Connection Verification
 
 **Reference:** Connection verification logic is in System - Interactive Intelligence.
@@ -59,8 +68,12 @@ Connection verification must be the **first action before all operations**. Use 
 
 ---
 
+<!-- /ANCHOR:connection-verification -->
+<!-- ANCHOR:2-core-capabilities -->
 ## 2. 🛠️ CORE CAPABILITIES
 
+<!-- /ANCHOR:2-core-capabilities -->
+<!-- ANCHOR:available-operations -->
 ### Available Operations
 
 **Note:** Thinking methodology is defined in Thinking - VIDEO Framework.
@@ -92,6 +105,8 @@ The JianYing MCP server provides comprehensive video editing capabilities:
 - Tools: `parse_media_info`, `find_effects_by_type`
 - Use case: Media analysis, effect discovery
 
+<!-- /ANCHOR:available-operations -->
+<!-- ANCHOR:processing-order -->
 ### Processing Order
 
 For optimal results, process video projects in this sequence:
@@ -107,8 +122,12 @@ For optimal results, process video projects in this sequence:
 
 ---
 
+<!-- /ANCHOR:processing-order -->
+<!-- ANCHOR:3-draft-management -->
 ## 3. 📋 DRAFT MANAGEMENT
 
+<!-- /ANCHOR:3-draft-management -->
+<!-- ANCHOR:rules-tool -->
 ### rules Tool
 
 Get video production guidelines and verify connection.
@@ -120,6 +139,8 @@ rules:
   returns: "Production guidelines and best practices"
 ```
 
+<!-- /ANCHOR:rules-tool -->
+<!-- ANCHOR:create-draft-tool -->
 ### create_draft Tool
 
 Create a new video draft project.
@@ -140,6 +161,8 @@ create_draft:
     cinematic: {width: 1920, height: 1080, fps: 24}
 ```
 
+<!-- /ANCHOR:create-draft-tool -->
+<!-- ANCHOR:export-draft-tool -->
 ### export_draft Tool
 
 Export draft to JianYing project file.
@@ -157,8 +180,12 @@ export_draft:
 
 ---
 
+<!-- /ANCHOR:export-draft-tool -->
+<!-- ANCHOR:4-video-operations -->
 ## 4. 🎥 VIDEO OPERATIONS
 
+<!-- /ANCHOR:4-video-operations -->
+<!-- ANCHOR:add-video-segment-tool -->
 ### add_video_segment Tool
 
 Add video clip to timeline.
@@ -172,6 +199,8 @@ add_video_segment:
     source_start_end: string (optional) - Source clip trim range like "0s-10s"
 ```
 
+<!-- /ANCHOR:add-video-segment-tool -->
+<!-- ANCHOR:add-video-animation-tool -->
 ### add_video_animation Tool
 
 Add entrance/exit animations.
@@ -189,6 +218,8 @@ add_video_animation:
     exit: [fade_out, slide_out, zoom_out, rotate_out]
 ```
 
+<!-- /ANCHOR:add-video-animation-tool -->
+<!-- ANCHOR:add-video-transition-tool -->
 ### add_video_transition Tool
 
 Add transition between segments.
@@ -208,6 +239,8 @@ add_video_transition:
     - blur
 ```
 
+<!-- /ANCHOR:add-video-transition-tool -->
+<!-- ANCHOR:add-video-filter-tool -->
 ### add_video_filter Tool
 
 Apply visual filter effects.
@@ -220,6 +253,8 @@ add_video_filter:
     intensity: number (optional) - Effect intensity 0-100
 ```
 
+<!-- /ANCHOR:add-video-filter-tool -->
+<!-- ANCHOR:add-video-mask-tool -->
 ### add_video_mask Tool
 
 Add mask effects.
@@ -232,6 +267,8 @@ add_video_mask:
     invert: boolean (optional) - Invert mask
 ```
 
+<!-- /ANCHOR:add-video-mask-tool -->
+<!-- ANCHOR:add-video-background-filling-tool -->
 ### add_video_background_filling Tool
 
 Fill background for non-matching aspect ratios.
@@ -244,6 +281,8 @@ add_video_background_filling:
     value: string (optional) - Color hex or image path
 ```
 
+<!-- /ANCHOR:add-video-background-filling-tool -->
+<!-- ANCHOR:add-video-keyframe-tool -->
 ### add_video_keyframe Tool
 
 Add keyframe animation.
@@ -264,6 +303,8 @@ add_video_keyframe:
     - opacity
 ```
 
+<!-- /ANCHOR:add-video-keyframe-tool -->
+<!-- ANCHOR:add-video-effect-tool -->
 ### add_video_effect Tool
 
 Add video effect (scene, character, or other effect types).
@@ -282,8 +323,12 @@ add_video_effect:
 
 ---
 
+<!-- /ANCHOR:add-video-effect-tool -->
+<!-- ANCHOR:5-audio-operations -->
 ## 5. 🎵 AUDIO OPERATIONS
 
+<!-- /ANCHOR:5-audio-operations -->
+<!-- ANCHOR:add-audio-segment-tool -->
 ### add_audio_segment Tool
 
 Add audio clip to timeline.
@@ -298,6 +343,8 @@ add_audio_segment:
     volume: number (optional) - Volume level 0-100
 ```
 
+<!-- /ANCHOR:add-audio-segment-tool -->
+<!-- ANCHOR:add-audio-effect-tool -->
 ### add_audio_effect Tool
 
 Apply audio effects.
@@ -317,6 +364,8 @@ add_audio_effect:
     - equalizer
 ```
 
+<!-- /ANCHOR:add-audio-effect-tool -->
+<!-- ANCHOR:add-audio-fade-tool -->
 ### add_audio_fade Tool
 
 Add fade in/out effects.
@@ -329,6 +378,8 @@ add_audio_fade:
     fade_out: number (optional) - Fade out duration in ms
 ```
 
+<!-- /ANCHOR:add-audio-fade-tool -->
+<!-- ANCHOR:add-audio-keyframe-tool -->
 ### add_audio_keyframe Tool
 
 Add audio keyframe animation.
@@ -348,8 +399,12 @@ add_audio_keyframe:
 
 ---
 
+<!-- /ANCHOR:add-audio-keyframe-tool -->
+<!-- ANCHOR:6-text-operations -->
 ## 6. 📝 TEXT OPERATIONS
 
+<!-- /ANCHOR:6-text-operations -->
+<!-- ANCHOR:add-text-segment-tool -->
 ### add_text_segment Tool
 
 Add text overlay to timeline.
@@ -367,6 +422,8 @@ add_text_segment:
     position_y: number (optional) - Y position
 ```
 
+<!-- /ANCHOR:add-text-segment-tool -->
+<!-- ANCHOR:add-text-animation-tool -->
 ### add_text_animation Tool
 
 Add text animation effects.
@@ -386,8 +443,12 @@ add_text_animation:
 
 ---
 
+<!-- /ANCHOR:add-text-animation-tool -->
+<!-- ANCHOR:7-utility-tools -->
 ## 7. 🔧 UTILITY TOOLS
 
+<!-- /ANCHOR:7-utility-tools -->
+<!-- ANCHOR:parse-media-info-tool -->
 ### parse_media_info Tool
 
 Get information about media files.
@@ -407,6 +468,8 @@ parse_media_info:
     file_size: number - Size in bytes
 ```
 
+<!-- /ANCHOR:parse-media-info-tool -->
+<!-- ANCHOR:find-effects-by-type-tool -->
 ### find_effects_by_type Tool
 
 Discover available effects by type.
@@ -444,8 +507,12 @@ find_effects_by_type:
 
 ---
 
+<!-- /ANCHOR:find-effects-by-type-tool -->
+<!-- ANCHOR:8-quick-reference -->
 ## 8. 🏎️ QUICK REFERENCE
 
+<!-- /ANCHOR:8-quick-reference -->
+<!-- ANCHOR:mcp-tools-summary-18-tools -->
 ### MCP Tools Summary (18 Tools)
 
 ```yaml
@@ -537,6 +604,8 @@ tools:
     key_params: [type]
 ```
 
+<!-- /ANCHOR:mcp-tools-summary-18-tools -->
+<!-- ANCHOR:integration-references -->
 ### Integration References
 
 ```yaml
@@ -555,6 +624,8 @@ related_documents:
       - "Section 5: Error Recovery"
 ```
 
+<!-- /ANCHOR:integration-references -->
+<!-- ANCHOR:limitations -->
 ### Limitations
 
 ```yaml
@@ -587,3 +658,5 @@ limitations:
 ---
 
 *This document focuses exclusively on JianYing MCP server capabilities and technical specifications. For thinking methodology, see Thinking - VIDEO Framework. For conversation flows and error handling, see System - Interactive Intelligence.*
+
+<!-- /ANCHOR:limitations -->

@@ -1,3 +1,4 @@
+<!-- ANCHOR:capcut-thinking-video-framework-v0-110 -->
 # CapCut - Thinking - VIDEO Framework - v0.110
 
 Universal video editing methodology with intelligent context assessment for all JianYing MCP operations.
@@ -6,6 +7,8 @@ Universal video editing methodology with intelligent context assessment for all 
 **Purpose:** Defines the VIDEO methodology that provides systematic analysis for video editing operations with intelligent context assessment and transparent processing
 **Scope:** VIDEO principles (5 phases), cognitive rigor levels, quality optimization, format selection, troubleshooting protocols, and integration patterns
 
+<!-- /ANCHOR:capcut-thinking-video-framework-v0-110 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎯 VIDEO PRINCIPLES
@@ -18,14 +21,20 @@ Universal video editing methodology with intelligent context assessment for all 
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-video-principles -->
 ## 1. 🎯 VIDEO PRINCIPLES
 
+<!-- /ANCHOR:1-video-principles -->
+<!-- ANCHOR:the-video-methodology -->
 ### The VIDEO Methodology
 
 **V**isualize → **I**nvestigate → **D**esign → **E**xecute → **O**utput
 
 A systematic 5-phase approach to video editing automation that ensures comprehensive analysis and optimal output.
 
+<!-- /ANCHOR:the-video-methodology -->
+<!-- ANCHOR:phase-breakdown -->
 ### Phase Breakdown
 
 **1. VISUALIZE (V)**
@@ -58,6 +67,8 @@ A systematic 5-phase approach to video editing automation that ensures comprehen
 - Provide user guidance
 - Suggest refinements
 
+<!-- /ANCHOR:phase-breakdown -->
+<!-- ANCHOR:two-layer-transparency -->
 ### Two-Layer Transparency
 
 **Internal Processing (Full Depth):**
@@ -75,8 +86,12 @@ A systematic 5-phase approach to video editing automation that ensures comprehen
 
 ---
 
+<!-- /ANCHOR:two-layer-transparency -->
+<!-- ANCHOR:2-cognitive-rigor -->
 ## 2. 🧠 COGNITIVE RIGOR
 
+<!-- /ANCHOR:2-cognitive-rigor -->
+<!-- ANCHOR:thinking-depth-levels -->
 ### Thinking Depth Levels
 
 **Standard Depth (Default):**
@@ -91,6 +106,8 @@ A systematic 5-phase approach to video editing automation that ensures comprehen
 - Essential validation
 - Fast delivery
 
+<!-- /ANCHOR:thinking-depth-levels -->
+<!-- ANCHOR:application-guidelines -->
 ### Application Guidelines
 
 **Use Standard Depth for:**
@@ -106,6 +123,8 @@ A systematic 5-phase approach to video editing automation that ensures comprehen
 - Basic audio insertions
 - Minor adjustments
 
+<!-- /ANCHOR:application-guidelines -->
+<!-- ANCHOR:depth-selection-logic -->
 ### Depth Selection Logic
 
 ```yaml
@@ -136,8 +155,12 @@ depth_selection:
 
 ---
 
+<!-- /ANCHOR:depth-selection-logic -->
+<!-- ANCHOR:3-quality-optimization -->
 ## 3. 📊 QUALITY OPTIMIZATION
 
+<!-- /ANCHOR:3-quality-optimization -->
+<!-- ANCHOR:resolution-guidelines -->
 ### Resolution Guidelines
 
 | Use Case              | Resolution    | Aspect Ratio | Notes                  |
@@ -149,6 +172,8 @@ depth_selection:
 | Professional/4K       | 3840x2160     | 16:9         | High quality           |
 | Twitter/X             | 1280x720      | 16:9         | Optimized for platform |
 
+<!-- /ANCHOR:resolution-guidelines -->
+<!-- ANCHOR:framerate-selection -->
 ### Framerate Selection
 
 | Content Type        | Framerate | Reasoning                     |
@@ -159,6 +184,8 @@ depth_selection:
 | PAL broadcast       | 25 fps    | European standard             |
 | Slow motion source  | Match     | Preserve original quality     |
 
+<!-- /ANCHOR:framerate-selection -->
+<!-- ANCHOR:quality-vs-size-trade-offs -->
 ### Quality vs Size Trade-offs
 
 **High Quality Priority:**
@@ -181,8 +208,12 @@ depth_selection:
 
 ---
 
+<!-- /ANCHOR:quality-vs-size-trade-offs -->
+<!-- ANCHOR:4-format-selection -->
 ## 4. 🎬 FORMAT SELECTION
 
+<!-- /ANCHOR:4-format-selection -->
+<!-- ANCHOR:platform-specific-recommendations -->
 ### Platform-Specific Recommendations
 
 **YouTube:**
@@ -224,6 +255,8 @@ instagram:
     max_duration: 60 seconds
 ```
 
+<!-- /ANCHOR:platform-specific-recommendations -->
+<!-- ANCHOR:effect-categories -->
 ### Effect Categories
 
 **Video Animations:**
@@ -243,8 +276,12 @@ instagram:
 
 ---
 
+<!-- /ANCHOR:effect-categories -->
+<!-- ANCHOR:5-processing-patterns -->
 ## 5. 🔄 PROCESSING PATTERNS
 
+<!-- /ANCHOR:5-processing-patterns -->
+<!-- ANCHOR:standard-workflow-pattern -->
 ### Standard Workflow Pattern
 
 ```yaml
@@ -279,6 +316,8 @@ workflow_pattern:
     - suggest_next_steps
 ```
 
+<!-- /ANCHOR:standard-workflow-pattern -->
+<!-- ANCHOR:multi-track-organization -->
 ### Multi-Track Organization
 
 ```yaml
@@ -300,6 +339,8 @@ track_organization:
     - track_2: captions
 ```
 
+<!-- /ANCHOR:multi-track-organization -->
+<!-- ANCHOR:timeline-best-practices -->
 ### Timeline Best Practices
 
 **Segment Placement:**
@@ -316,8 +357,12 @@ track_organization:
 
 ---
 
+<!-- /ANCHOR:timeline-best-practices -->
+<!-- ANCHOR:6-mcp-troubleshooting -->
 ## 6. 🛠️ MCP TROUBLESHOOTING
 
+<!-- /ANCHOR:6-mcp-troubleshooting -->
+<!-- ANCHOR:connection-diagnostics -->
 ### Connection Diagnostics
 
 **Verification Steps:**
@@ -347,6 +392,8 @@ connection_issues:
     solution: "Install uv package manager"
 ```
 
+<!-- /ANCHOR:connection-diagnostics -->
+<!-- ANCHOR:jianying-app-issues -->
 ### JianYing App Issues
 
 **Desktop App Requirements:**
@@ -373,6 +420,8 @@ app_issues:
       - "Re-export draft"
 ```
 
+<!-- /ANCHOR:jianying-app-issues -->
+<!-- ANCHOR:path-configuration -->
 ### Path Configuration
 
 ```yaml
@@ -390,8 +439,12 @@ path_configuration:
 
 ---
 
+<!-- /ANCHOR:path-configuration -->
+<!-- ANCHOR:7-quick-reference -->
 ## 7. 🏎️ QUICK REFERENCE
 
+<!-- /ANCHOR:7-quick-reference -->
+<!-- ANCHOR:video-methodology-summary -->
 ### VIDEO Methodology Summary
 
 | Phase       | Focus              | Key Actions                           |
@@ -402,6 +455,8 @@ path_configuration:
 | Execute     | Build project      | Create draft, add content, apply FX   |
 | Output      | Deliver result     | Export, validate, guide user          |
 
+<!-- /ANCHOR:video-methodology-summary -->
+<!-- ANCHOR:decision-tree -->
 ### Decision Tree
 
 ```
@@ -416,6 +471,8 @@ User Request
     └─► Export? → Full validation + delivery
 ```
 
+<!-- /ANCHOR:decision-tree -->
+<!-- ANCHOR:quality-checklist -->
 ### Quality Checklist
 
 **Pre-Processing:**
@@ -438,6 +495,8 @@ User Request
 - [ ] Summary provided
 - [ ] Next steps suggested
 
+<!-- /ANCHOR:quality-checklist -->
+<!-- ANCHOR:must-haves -->
 ### Must-Haves
 
 ✅ **Always:**
@@ -457,3 +516,5 @@ User Request
 ---
 
 *The Thinking - VIDEO Framework provides the systematic foundation for all video editing operations through JianYing MCP, ensuring consistent quality and optimal results across all project types.*
+
+<!-- /ANCHOR:must-haves -->

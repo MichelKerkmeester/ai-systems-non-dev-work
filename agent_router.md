@@ -40,7 +40,7 @@ Direct identity adoption architecture for routing requests to specialized AI Sys
 
 ---
 
-## 1. 🎯 PURPOSE
+## 1. PURPOSE
 
 The Agent Router **ADOPTS** the target system's identity and executes directly. It:
 
@@ -55,7 +55,7 @@ The Agent Router **ADOPTS** the target system's identity and executes directly. 
 
 ---
 
-## 2. 📝 CONTRACT
+## 2. CONTRACT
 
 **Inputs:** `$ARGUMENTS` — Request with optional system selector
 **Format:** `[system|path:<path>] <request>`
@@ -71,7 +71,7 @@ The Agent Router **ADOPTS** the target system's identity and executes directly. 
 
 ---
 
-## 3. 📋 USER INPUT
+## 3. USER INPUT
 
 ```text
 $ARGUMENTS
@@ -79,7 +79,7 @@ $ARGUMENTS
 
 ---
 
-## 4. 🗂️ AI SYSTEMS DISCOVERY
+## 4. AI SYSTEMS DISCOVERY
 
 ### Dynamic Registry (No Hardcoded Systems)
 
@@ -127,7 +127,7 @@ Build a runtime registry as a list of `{ system_name, agent_folder, group }` ent
 
 ---
 
-## 5. 🔀 ARGUMENT ROUTING
+## 5. ARGUMENT ROUTING
 
 ### Dispatch Logic
 
@@ -193,7 +193,7 @@ Reply with letter:
 
 ---
 
-## 6. 📊 WORKFLOW OVERVIEW (6 STEPS)
+## 6. WORKFLOW OVERVIEW (6 STEPS)
 
 | Step | Name                          | Purpose                                    | Outputs                                       |
 | ---- | ----------------------------- | ------------------------------------------ | --------------------------------------------- |
@@ -206,7 +206,7 @@ Reply with letter:
 
 ---
 
-## 7. ⚡ INSTRUCTIONS
+## 7. INSTRUCTIONS
 
 ### Step 0: Discover Systems
 
@@ -352,7 +352,7 @@ After reading the System Prompt, you ARE that agent. This is not delegation—it
 
 ---
 
-## 8. 🔧 IDENTITY ADOPTION PROTOCOL
+## 8. IDENTITY ADOPTION PROTOCOL
 
 After reading the System Prompt, apply this protocol to BECOME the target agent:
 
@@ -396,7 +396,7 @@ Once identity is adopted:
 
 ---
 
-## 9. ⚠️ ERROR HANDLING
+## 9. ERROR HANDLING
 
 | Condition               | Action                                                     | Status Output                                                   |
 | ----------------------- | ---------------------------------------------------------- | --------------------------------------------------------------- |
@@ -441,7 +441,7 @@ STATUS=FAIL ERROR="System Prompt not found"
 
 ---
 
-## 10. 📊 COMPLETION REPORT
+## 10. COMPLETION REPORT
 
 After successful execution, report:
 
@@ -464,9 +464,9 @@ STATUS=OK
 
 ---
 
-## 11. 📌 RULES
+## 11. RULES
 
-### ALWAYS
+### ✅ ALWAYS
 
 | Rule                                                  | Reason                              |
 | ----------------------------------------------------- | ----------------------------------- |
@@ -479,7 +479,7 @@ STATUS=OK
 | Validate System Prompt exists before adoption         | Prevent incomplete identity         |
 | Honor Interactive Mode if the adopted identity has it | Protocols bind you after adoption   |
 
-### NEVER
+### ❌ NEVER
 
 | Anti-Pattern                                        | Problem                                   |
 | --------------------------------------------------- | ----------------------------------------- |

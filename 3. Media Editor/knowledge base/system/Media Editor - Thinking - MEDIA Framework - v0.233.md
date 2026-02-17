@@ -1,3 +1,4 @@
+<!-- ANCHOR:media-editor-thinking-media-framework-v0-233 -->
 # Media Editor - Thinking - MEDIA Framework - v0.233
 
 A comprehensive methodology combining systematic media analysis with **automatic professional optimization** for superior media processing deliverables.
@@ -6,6 +7,8 @@ A comprehensive methodology combining systematic media analysis with **automatic
 **Purpose:** Defines the MEDIA methodology (Measure, Evaluate, Decide, Implement, Analyze) for intelligent media optimization with automatic professional-grade analysis and quality assurance
 **Scope:** Framework overview, MEDIA principles, cognitive rigor techniques, RICCE structural validation, transparency model, quality assurance gates, tool integration (MCP/FFmpeg), and quick reference guides
 
+<!-- /ANCHOR:media-editor-thinking-media-framework-v0-233 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎯 FRAMEWORK OVERVIEW
@@ -19,8 +22,12 @@ A comprehensive methodology combining systematic media analysis with **automatic
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-framework-overview -->
 ## 1. 🎯 FRAMEWORK OVERVIEW
 
+<!-- /ANCHOR:1-framework-overview -->
+<!-- ANCHOR:core-definition -->
 ### Core Definition
 **MEDIA** - **M**easure **E**valuate **D**ecide **I**mplement **A**nalyze
 
@@ -28,6 +35,8 @@ An intelligent framework that acts as a **perfect media context assessor** and *
 
 **Core Philosophy:** Every media request contains context clues about what the user needs. MEDIA extracts these signals, matches them to optimal processing techniques (format, quality, compression), and proposes the best optimization path.
 
+<!-- /ANCHOR:core-definition -->
+<!-- ANCHOR:core-capabilities-and-principles -->
 ### Core Capabilities & Principles
 
 **1. Intelligent Media Context Assessment**
@@ -58,12 +67,18 @@ An intelligent framework that acts as a **perfect media context assessor** and *
 
 ---
 
+<!-- /ANCHOR:core-capabilities-and-principles -->
+<!-- ANCHOR:2-media-principles -->
 ## 2. 💡 MEDIA PRINCIPLES
 
+<!-- /ANCHOR:2-media-principles -->
+<!-- ANCHOR:the-media-method -->
 ### The MEDIA Method
 
 These five principles produce optimized media through focused analysis, **applied with systematic depth**:
 
+<!-- /ANCHOR:the-media-method -->
+<!-- ANCHOR:m-measure-source-media -->
 ### M - Measure Source Media
 **Process:** Deeply understand media requirements and determine optimal processing approach
 **User Sees:** Intelligent analysis of their media with optimization recommendations
@@ -84,6 +99,8 @@ These five principles produce optimized media through focused analysis, **applie
 **Why Optimal:** Scalable, quality preserved, massive size reduction, wide browser support"
 ```
 
+<!-- /ANCHOR:m-measure-source-media -->
+<!-- ANCHOR:e-evaluate-processing-options -->
 ### E - Evaluate Processing Options
 **Process:** Evaluate multiple optimization solutions and select the best processing approach
 **User Sees:** Chosen solution with clear reasoning and alternatives
@@ -131,6 +148,8 @@ final_decision:
   acceptable_trade_offs: ["Lossy compression = minimal quality loss (but 95% size reduction)", "Email clients = PNG fallback available"]
 ```
 
+<!-- /ANCHOR:e-evaluate-processing-options -->
+<!-- ANCHOR:d-decide-optimal-strategy -->
 ### D - Decide Optimal Strategy
 **Process:** Build from processing primitives in logical sequence
 **User Sees:** Processing sequence with progress
@@ -144,6 +163,8 @@ final_decision:
 
 **Internal Processing:** Operation ordering, processing primitive assembly, progress monitoring, error handling with fallbacks
 
+<!-- /ANCHOR:d-decide-optimal-strategy -->
+<!-- ANCHOR:i-implement-processing -->
 ### I - Implement Processing
 **Process:** Ensure quality with media optimization standards
 **User Sees:** Quality validation confirmation
@@ -157,6 +178,8 @@ final_decision:
 
 **Internal Processing:** Format optimization validation, quality preservation check (SSIM, visual comparison), compatibility verification, size reduction targets met, processing time acceptable, MCP operation success confirmation
 
+<!-- /ANCHOR:i-implement-processing -->
+<!-- ANCHOR:a-analyze-results -->
 ### A - Analyze Results
 **Process:** Deliver integrated optimized result with documentation
 **User Sees:** Results summary and next steps
@@ -174,8 +197,12 @@ final_decision:
 
 ---
 
+<!-- /ANCHOR:a-analyze-results -->
+<!-- ANCHOR:3-cognitive-rigor-framework -->
 ## 3. 🔬 COGNITIVE RIGOR FRAMEWORK
 
+<!-- /ANCHOR:3-cognitive-rigor-framework -->
+<!-- ANCHOR:media-focused-cognitive-approach -->
 ### Media-Focused Cognitive Approach
 
 **Status:** Tailored for media operations with focused analysis techniques
@@ -184,8 +211,12 @@ final_decision:
 
 **User Communication:** Show key optimization decisions and reasoning
 
+<!-- /ANCHOR:media-focused-cognitive-approach -->
+<!-- ANCHOR:three-core-techniques-for-media -->
 ### Three Core Techniques for Media
 
+<!-- /ANCHOR:three-core-techniques-for-media -->
+<!-- ANCHOR:1-quality-size-optimization-automatic -->
 #### 1. Quality-Size Optimization (Automatic)
 **Process:** Analyze quality requirements → Evaluate compression options → Select optimal balance → Validate results
 
@@ -193,6 +224,8 @@ final_decision:
 
 **Output:** Optimal quality settings with reasoning • Show key decisions
 
+<!-- /ANCHOR:1-quality-size-optimization-automatic -->
+<!-- ANCHOR:2-format-selection-analysis-automatic -->
 #### 2. Format Selection Analysis (Automatic)
 **Process:** Evaluate available formats → Compare compression efficiency → Check compatibility → Select optimal format
 
@@ -200,6 +233,8 @@ final_decision:
 
 **Output:** Format choice with compatibility notes • Show alternatives considered
 
+<!-- /ANCHOR:2-format-selection-analysis-automatic -->
+<!-- ANCHOR:3-platform-compatibility-check-continuous -->
 #### 3. Platform Compatibility Check (Continuous)
 **Process:** Identify target platform → Validate format support → Check quality requirements → Flag compatibility issues
 
@@ -211,6 +246,8 @@ final_decision:
 
 **Output:** Compatibility notes where relevant • Show critical considerations
 
+<!-- /ANCHOR:3-platform-compatibility-check-continuous -->
+<!-- ANCHOR:quality-gates-for-cognitive-rigor -->
 ### Quality Gates for Cognitive Rigor
 
 Before processing, validate (show summary to user):
@@ -242,6 +279,8 @@ Before processing, validate (show summary to user):
 
 **If any gate fails → Address issue → Re-validate → Show confirmation to user**
 
+<!-- /ANCHOR:quality-gates-for-cognitive-rigor -->
+<!-- ANCHOR:handling-ambiguous-requests -->
 ### Handling Ambiguous Requests
 
 **MEDIA Response Patterns:**
@@ -256,8 +295,12 @@ Before processing, validate (show summary to user):
 
 ---
 
+<!-- /ANCHOR:handling-ambiguous-requests -->
+<!-- ANCHOR:4-the-media-methodology -->
 ## 4. 🧠 THE MEDIA METHODOLOGY
 
+<!-- /ANCHOR:4-the-media-methodology -->
+<!-- ANCHOR:phase-breakdown-with-round-distribution -->
 ### Phase Breakdown with Round Distribution
 
 | Phase         | Standard (10 rounds) | User Update Format                   |
@@ -268,6 +311,8 @@ Before processing, validate (show summary to user):
 | **I**mplement | Round 8              | "🔄 Processing (95% reduction)"       |
 | **A**nalyze   | Rounds 9-10          | "📈 Complete (quality verified)"      |
 
+<!-- /ANCHOR:phase-breakdown-with-round-distribution -->
+<!-- ANCHOR:state-management-focused-and-efficient -->
 ### State Management (Focused & Efficient)
 
 ```yaml
@@ -282,6 +327,8 @@ system_state:
   quality: {size_reduction: percentage, quality_metric: float, processing_time: seconds, status: [in_progress, complete]}
 ```
 
+<!-- /ANCHOR:state-management-focused-and-efficient -->
+<!-- ANCHOR:phase-m-measure-20-of-processing -->
 ### Phase M - MEASURE (20% of processing)
 **Purpose:** Analyze source media and requirements
 
@@ -301,6 +348,8 @@ requirements_identification: {use_case: [web, email, social, streaming], quality
 automatic_thinking: {rounds: 10, depth: "Professional optimization analysis"}
 ```
 
+<!-- /ANCHOR:phase-m-measure-20-of-processing -->
+<!-- ANCHOR:phase-e-evaluate-30-of-processing -->
 ### Phase E - EVALUATE (30% of processing)
 **Purpose:** Analyze processing options automatically
 
@@ -322,6 +371,8 @@ compression_strategy: {lossy: "Better size reduction", lossless: "No quality los
 platform_compatibility: {web_browsers: "WebP 96%+, AVIF 85%+", email_clients: "PNG/JPEG preferred", streaming: "MP4 H.264 universal"}
 ```
 
+<!-- /ANCHOR:phase-e-evaluate-30-of-processing -->
+<!-- ANCHOR:phase-d-decide-20-of-processing -->
 ### Phase D - DECIDE (20% of processing)
 **Purpose:** Select optimal strategy with clear reasoning
 
@@ -343,6 +394,8 @@ decision_matrix:
 processing_plan: {operations: [resize, convert, quality, optimize], estimated_time: "1-2 seconds", estimated_result: "425KB (95% reduction)"}
 ```
 
+<!-- /ANCHOR:phase-d-decide-20-of-processing -->
+<!-- ANCHOR:phase-i-implement-10-of-processing -->
 ### Phase I - IMPLEMENT (10% of processing)
 **Purpose:** Execute with monitoring
 
@@ -363,6 +416,8 @@ monitoring: {progress_tracking: true, quality_checkpoints: true, error_handling:
 quality_verification: {pre_check: "Source integrity validated", mid_check: "Processing parameters correct", post_check: "Output quality validated"}
 ```
 
+<!-- /ANCHOR:phase-i-implement-10-of-processing -->
+<!-- ANCHOR:phase-a-analyze-20-of-processing -->
 ### Phase A - ANALYZE (20% of processing)
 **Purpose:** Verify results and document outcomes
 
@@ -387,8 +442,12 @@ next_suggestions: {batch: "Process multiple images with same settings", alternat
 
 ---
 
+<!-- /ANCHOR:phase-a-analyze-20-of-processing -->
+<!-- ANCHOR:5-ricce-framework -->
 ## 5. 🏗️ RICCE FRAMEWORK
 
+<!-- /ANCHOR:5-ricce-framework -->
+<!-- ANCHOR:core-definition-2 -->
 ### Core Definition
 
 **RICCE** is a structural validation framework ensuring all media operations contain the essential elements for complete processing and optimal results.
@@ -402,6 +461,8 @@ next_suggestions: {batch: "Process multiple images with same settings", alternat
 - **C**onstraints - Quality Metrics Established
 - **E**xamples - Results Validation Included
 
+<!-- /ANCHOR:core-definition-2 -->
+<!-- ANCHOR:why-ricce-matters -->
 ### Why RICCE Matters
 
 **Without RICCE:** Processing may work but be incomplete or suboptimal
@@ -409,6 +470,8 @@ next_suggestions: {batch: "Process multiple images with same settings", alternat
 
 **Integration:** RICCE works as a structural validation layer on top of MEDIA's process methodology
 
+<!-- /ANCHOR:why-ricce-matters -->
+<!-- ANCHOR:r-role-media-requirements-defined -->
 ### R - Role (Media Requirements Defined)
 
 **Purpose:** Ensure media type, use case, and target platform are clearly identified
@@ -430,6 +493,8 @@ role_validation:
 - Constraints: < 500KB target size"
 ```
 
+<!-- /ANCHOR:r-role-media-requirements-defined -->
+<!-- ANCHOR:i-instructions-processing-steps-clear -->
 ### I - Instructions (Processing Steps Clear)
 
 **Purpose:** Ensure clear, executable processing steps with proper sequencing
@@ -450,6 +515,8 @@ instructions_validation:
 - Step 4: Optimize compression (adaptive algorithm)"
 ```
 
+<!-- /ANCHOR:i-instructions-processing-steps-clear -->
+<!-- ANCHOR:c-context-media-properties-comprehensive -->
 ### C - Context (Media Properties Comprehensive)
 
 **Purpose:** Provide complete media property understanding
@@ -471,6 +538,8 @@ context_validation:
 - Trade-offs: 95% size reduction acceptable for web use"
 ```
 
+<!-- /ANCHOR:c-context-media-properties-comprehensive -->
+<!-- ANCHOR:c-constraints-quality-metrics-established -->
 ### C - Constraints (Quality Metrics Established)
 
 **Purpose:** Define measurable quality and performance targets
@@ -492,6 +561,8 @@ constraints_validation:
 - Compatibility: 96%+ browser support required"
 ```
 
+<!-- /ANCHOR:c-constraints-quality-metrics-established -->
+<!-- ANCHOR:e-examples-results-validation-included -->
 ### E - Examples (Results Validation Included)
 
 **Purpose:** Ensure validation mechanisms and expected results are clear
@@ -513,6 +584,8 @@ examples_validation:
 - Success: Size + quality targets both met ✅"
 ```
 
+<!-- /ANCHOR:e-examples-results-validation-included -->
+<!-- ANCHOR:ricce-media-integration -->
 ### RICCE-MEDIA Integration
 
 **The Unified Framework:**
@@ -543,12 +616,18 @@ ricce_media_integration_check:
 
 ---
 
+<!-- /ANCHOR:ricce-media-integration -->
+<!-- ANCHOR:6-transparency-model -->
 ## 6. 🔄 TRANSPARENCY MODEL
 
+<!-- /ANCHOR:6-transparency-model -->
+<!-- ANCHOR:two-layer-processing-architecture -->
 ### Two-Layer Processing Architecture
 
 **Core Principle:** Apply full optimization analysis internally while showing meaningful progress externally.
 
+<!-- /ANCHOR:two-layer-processing-architecture -->
+<!-- ANCHOR:internal-layer-full-optimization -->
 ### Internal Layer (Full Optimization)
 
 **What Happens:**
@@ -564,6 +643,8 @@ ricce_media_integration_check:
 - Preserves professional flow
 - Delivers outcomes not process details
 
+<!-- /ANCHOR:internal-layer-full-optimization -->
+<!-- ANCHOR:external-layer-concise-updates -->
 ### External Layer (Concise Updates)
 
 **What Users See:**
@@ -606,6 +687,8 @@ Processing: 1.8 seconds
 Next: Batch processing available, consider AVIF for future
 ```
 
+<!-- /ANCHOR:external-layer-concise-updates -->
+<!-- ANCHOR:communication-standards -->
 ### Communication Standards
 
 **DO show users:**
@@ -625,6 +708,8 @@ Next: Batch processing available, consider AVIF for future
 - ❌ Complete MCP operation logs
 - ❌ Iteration tracking details
 
+<!-- /ANCHOR:communication-standards -->
+<!-- ANCHOR:visibility-decision-criteria -->
 ### Visibility Decision Criteria
 
 ```yaml
@@ -641,8 +726,12 @@ decision_algorithm:
 
 ---
 
+<!-- /ANCHOR:visibility-decision-criteria -->
+<!-- ANCHOR:7-quality-assurance -->
 ## 7. ✅ QUALITY ASSURANCE
 
+<!-- /ANCHOR:7-quality-assurance -->
+<!-- ANCHOR:quality-control-integration -->
 ### Quality Control Integration
 
 **Quality gates are validated through the Cognitive Rigor section (Section 3) before operations begin.**
@@ -653,6 +742,8 @@ Refer to **Section 3: Quality Gates for Cognitive Rigor** for the comprehensive 
 - ✅ Optimization Pattern Validation (format patterns, quality levels, compatibility, best practices)
 - ✅ Tool Capability Check (MCP operations, FFmpeg availability, fallbacks)
 
+<!-- /ANCHOR:quality-control-integration -->
+<!-- ANCHOR:processing-validation -->
 ### Processing Validation
 
 **During MEDIA processing (show summary only):**
@@ -665,6 +756,8 @@ phase_gates:
   phase_a: ["Integration complete", "Results validated", "Documentation delivered", "RICCE Examples complete"]
 ```
 
+<!-- /ANCHOR:processing-validation -->
+<!-- ANCHOR:post-processing-validation -->
 ### Post-Processing Validation
 
 **After MEDIA processing complete:**
@@ -688,6 +781,8 @@ user_communication:
     Results ready for delivery."
 ```
 
+<!-- /ANCHOR:post-processing-validation -->
+<!-- ANCHOR:quality-metric-targets -->
 ### Quality Metric Targets
 
 | Metric                | Target  | Threshold     | Action if Below                                      |
@@ -698,6 +793,8 @@ user_communication:
 | **Compatibility**     | 95%+    | 90%           | Provide fallback format                              |
 | **Tool Availability** | 100%    | 100%          | BLOCKING - verify connection, provide setup guidance |
 
+<!-- /ANCHOR:quality-metric-targets -->
+<!-- ANCHOR:improvement-protocol -->
 ### Improvement Protocol
 
 ```yaml
@@ -711,8 +808,12 @@ improvement_cycle:
 
 ---
 
+<!-- /ANCHOR:improvement-protocol -->
+<!-- ANCHOR:8-quick-reference -->
 ## 8. 🏎️ QUICK REFERENCE
 
+<!-- /ANCHOR:8-quick-reference -->
+<!-- ANCHOR:media-phase-summary -->
 ### MEDIA Phase Summary
 
 | Phase         | Standard        | Key Actions                    | User Sees                                        |
@@ -723,6 +824,8 @@ improvement_cycle:
 | **I**mplement | Full validation | Best practices verified        | "✅ Implementing (Quality standards met)"         |
 | **A**nalyze   | Complete        | Integration delivered          | "📈 Analyzing (95% reduction, quality preserved)" |
 
+<!-- /ANCHOR:media-phase-summary -->
+<!-- ANCHOR:cognitive-rigor-quick-check -->
 ### Cognitive Rigor Quick Check
 
 **Three Core Techniques (Systematic):**
@@ -730,6 +833,8 @@ improvement_cycle:
 2. ✅ **Format Selection Analysis** - Compare formats and select optimal approach
 3. ✅ **Platform Compatibility Check** - Validate target platform support continuously
 
+<!-- /ANCHOR:cognitive-rigor-quick-check -->
+<!-- ANCHOR:ricce-quick-check -->
 ### RICCE Quick Check
 
 **Five Elements (MANDATORY):**
@@ -739,12 +844,16 @@ improvement_cycle:
 - ✅ **C**onstraints - Quality and size metrics tracked
 - ✅ **E**xamples - Results validation included
 
+<!-- /ANCHOR:ricce-quick-check -->
+<!-- ANCHOR:two-layer-transparency -->
 ### Two-Layer Transparency
 
 **Show Users:** Phase progression, Key optimization decisions, Format selection reasoning, Processing progress, Results metrics, Compatibility notes, Next suggestions
 
 **Keep Internal:** Complete format analysis transcripts, Detailed quality matrices, Full compatibility testing logs, Internal calculation details, Complete MCP operation logs, Iteration tracking details
 
+<!-- /ANCHOR:two-layer-transparency -->
+<!-- ANCHOR:tool-reality-check -->
 ### Tool Reality Check
 
 **Imagician MCP:** Resize, convert (JPEG/PNG/WebP/AVIF), Compress, crop, rotate, Batch processing (Requires: MCP server connection)
@@ -755,6 +864,8 @@ improvement_cycle:
 
 **NEVER Available:** AI content generation, Complex editing (effects, advanced filters), Real-time streaming, Files > 100MB (MCP limitation), Upload to external services
 
+<!-- /ANCHOR:tool-reality-check -->
+<!-- ANCHOR:performance-benchmarks -->
 ### Performance Benchmarks
 
 | Operation         | Time          | Success Rate | Tool Type |
@@ -766,6 +877,8 @@ improvement_cycle:
 | HLS generation    | 2-5x duration | 95%          | FFmpeg    |
 | Batch processing  | 1-2s per file | 98%          | MCP       |
 
+<!-- /ANCHOR:performance-benchmarks -->
+<!-- ANCHOR:quality-indicators -->
 ### Quality Indicators
 - Tool availability: 100% (REQUIRED, blocking)
 - Processing efficiency: <2s for images, <5s for video
@@ -774,6 +887,8 @@ improvement_cycle:
 - Compatibility: Platform-specific (90-100%)
 - Format optimization: 100% (format best practices applied)
 
+<!-- /ANCHOR:quality-indicators -->
+<!-- ANCHOR:must-have-checklist -->
 ### Must-Have Checklist
 
 **Before Processing:**
@@ -798,6 +913,8 @@ improvement_cycle:
 - [ ] RICCE elements complete (Role, Instructions, Context, Constraints, Examples)
 - [ ] Next suggestions provided (batch processing, alternative formats, optimization opportunities)
 
+<!-- /ANCHOR:must-have-checklist -->
+<!-- ANCHOR:integration-summary -->
 ### Integration Summary
 
 ```yaml
@@ -822,3 +939,5 @@ media_ricce_framework:
 ---
 
 *This framework serves as the foundation for all Media Editor operations. It ensures consistent optimization through systematic depth analysis and focused cognitive rigor while maintaining professional clarity through two-layer transparency. Full systematic analysis internally, meaningful progress externally. Always verify tool availability first. Intelligent context assessment guides every operation. Professional media optimization guaranteed.*
+
+<!-- /ANCHOR:integration-summary -->

@@ -1,3 +1,4 @@
+<!-- ANCHOR:media-editor-reference-hls-video-conversion-v0-110 -->
 # Media Editor - Reference - HLS Video Conversion - v0.110
 
 Technical reference for Terminal-based FFMPEG commands for HLS (HTTP Live Streaming) video conversion operations.
@@ -6,6 +7,8 @@ Technical reference for Terminal-based FFMPEG commands for HLS (HTTP Live Stream
 **Purpose:** Provides Terminal-based FFMPEG command patterns for HLS multi-quality video conversion with adaptive streaming capabilities
 **Scope:** HLS fundamentals, FFMPEG command specifications, quality optimization, codec configurations, batch processing workflows, and integration with MCP operations
 
+<!-- /ANCHOR:media-editor-reference-hls-video-conversion-v0-110 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🔌 OVERVIEW
@@ -19,8 +22,12 @@ Technical reference for Terminal-based FFMPEG commands for HLS (HTTP Live Stream
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-overview -->
 ## 1. 🔌 OVERVIEW
 
+<!-- /ANCHOR:1-overview -->
+<!-- ANCHOR:terminal-system-details -->
 ### Terminal System Details
 
 ```yaml
@@ -37,6 +44,8 @@ system:
     windows: "Download from ffmpeg.org"
 ```
 
+<!-- /ANCHOR:terminal-system-details -->
+<!-- ANCHOR:connection-verification -->
 ### Connection Verification
 
 **Reference:** Connection verification logic is in Interactive Intelligence.
@@ -58,8 +67,12 @@ dependencies:
 
 ---
 
+<!-- /ANCHOR:connection-verification -->
+<!-- ANCHOR:2-core-capabilities -->
 ## 2. 🛠️ CORE CAPABILITIES
 
+<!-- /ANCHOR:2-core-capabilities -->
+<!-- ANCHOR:available-operations -->
 ### Available Operations
 
 **Note:** Thinking methodology (10 rounds standard, 1-5 quick) is defined in MEDIA Thinking Framework.
@@ -111,6 +124,8 @@ system_tools:
     returns: [duration, resolution, codec, bitrate]
 ```
 
+<!-- /ANCHOR:available-operations -->
+<!-- ANCHOR:processing-order -->
 ### Processing Order
 
 The optimal sequence for HLS video conversion:
@@ -125,8 +140,12 @@ The optimal sequence for HLS video conversion:
 
 ---
 
+<!-- /ANCHOR:processing-order -->
+<!-- ANCHOR:3-format-support -->
 ## 3. 📊 FORMAT SUPPORT
 
+<!-- /ANCHOR:3-format-support -->
+<!-- ANCHOR:hls-protocol-overview -->
 ### HLS Protocol Overview
 
 ```yaml
@@ -166,6 +185,8 @@ browser_support:
 
 **Note:** Format selection logic and recommendations are in MEDIA Thinking Framework Section 2 (Evaluate).
 
+<!-- /ANCHOR:hls-protocol-overview -->
+<!-- ANCHOR:output-file-structure -->
 ### Output File Structure
 
 ```yaml
@@ -199,6 +220,8 @@ directory_structure:
           └── segment_000.ts
 ```
 
+<!-- /ANCHOR:output-file-structure -->
+<!-- ANCHOR:playlist-format-examples -->
 ### Playlist Format Examples
 
 ```yaml
@@ -235,8 +258,12 @@ variant_playlist:
 
 ---
 
+<!-- /ANCHOR:playlist-format-examples -->
+<!-- ANCHOR:4-operation-specifications -->
 ## 4. ⚙️ OPERATION SPECIFICATIONS
 
+<!-- /ANCHOR:4-operation-specifications -->
+<!-- ANCHOR:multi-quality-hls-conversion -->
 ### Multi-Quality HLS Conversion
 
 **Reference:** All parameter values optimized through MEDIA Thinking Framework analysis.
@@ -280,6 +307,8 @@ multi_quality_conversion:
       flag: "-an"
 ```
 
+<!-- /ANCHOR:multi-quality-hls-conversion -->
+<!-- ANCHOR:complete-multi-quality-command -->
 ### Complete Multi-Quality Command
 
 ```bash
@@ -309,6 +338,8 @@ ffmpeg -i INPUT_VIDEO.mp4 \
   OUTPUT_DIR/%v/playlist.m3u8
 ```
 
+<!-- /ANCHOR:complete-multi-quality-command -->
+<!-- ANCHOR:parameter-breakdown -->
 ### Parameter Breakdown
 
 **Note:** All values optimized via MEDIA Framework Section 3 (Analyze) methodology.
@@ -453,6 +484,8 @@ hls_stage:
     structure: "OUTPUT_DIR/1080p/playlist.m3u8, OUTPUT_DIR/720p/playlist.m3u8, etc."
 ```
 
+<!-- /ANCHOR:parameter-breakdown -->
+<!-- ANCHOR:single-quality-conversion -->
 ### Single Quality Conversion
 
 ```yaml
@@ -491,6 +524,8 @@ single_quality_pattern:
       OUTPUT_DIR/playlist.m3u8
 ```
 
+<!-- /ANCHOR:single-quality-conversion -->
+<!-- ANCHOR:testing-command -->
 ### Testing Command
 
 ```yaml
@@ -507,8 +542,12 @@ test_conversion:
 
 ---
 
+<!-- /ANCHOR:testing-command -->
+<!-- ANCHOR:5-quality-optimization -->
 ## 5. 🎯 QUALITY OPTIMIZATION
 
+<!-- /ANCHOR:5-quality-optimization -->
+<!-- ANCHOR:quality-presets -->
 ### Quality Presets
 
 **Note:** Quality vs size optimization logic is in MEDIA Framework Section 2 (Evaluate).
@@ -552,6 +591,8 @@ quality_presets:
     file_size_estimate: "~500KB per 10 seconds"
 ```
 
+<!-- /ANCHOR:quality-presets -->
+<!-- ANCHOR:crf-constant-rate-factor-guidelines -->
 ### CRF (Constant Rate Factor) Guidelines
 
 ```yaml
@@ -570,6 +611,8 @@ crf_scale:
     bandwidth_limited: "24-26"
 ```
 
+<!-- /ANCHOR:crf-constant-rate-factor-guidelines -->
+<!-- ANCHOR:adaptive-streaming-selection -->
 ### Adaptive Streaming Selection
 
 HLS enables browsers to automatically select the best quality based on available bandwidth and device capabilities.
@@ -593,8 +636,12 @@ HLS enables browsers to automatically select the best quality based on available
 
 ---
 
+<!-- /ANCHOR:adaptive-streaming-selection -->
+<!-- ANCHOR:6-codec-specifications -->
 ## 6. ⚙️ CODEC SPECIFICATIONS
 
+<!-- /ANCHOR:6-codec-specifications -->
+<!-- ANCHOR:h-264-profile-details -->
 ### H.264 Profile Details
 
 ```yaml
@@ -618,6 +665,8 @@ h264_profiles:
     compression: "Best efficiency"
 ```
 
+<!-- /ANCHOR:h-264-profile-details -->
+<!-- ANCHOR:h-264-level-details -->
 ### H.264 Level Details
 
 ```yaml
@@ -638,6 +687,8 @@ h264_levels:
     use_for: "High framerate 1080p"
 ```
 
+<!-- /ANCHOR:h-264-level-details -->
+<!-- ANCHOR:gop-group-of-pictures-structure -->
 ### GOP (Group of Pictures) Structure
 
 ```yaml
@@ -659,6 +710,8 @@ gop_configuration:
     B_frame: "Bidirectional prediction"
 ```
 
+<!-- /ANCHOR:gop-group-of-pictures-structure -->
+<!-- ANCHOR:buffer-size-logic -->
 ### Buffer Size Logic
 
 ```yaml
@@ -677,6 +730,8 @@ buffer_size_calculation:
     "360p": "maxrate 500k → bufsize 1000k"
 ```
 
+<!-- /ANCHOR:buffer-size-logic -->
+<!-- ANCHOR:segment-duration-analysis -->
 ### Segment Duration Analysis
 
 ```yaml
@@ -710,8 +765,12 @@ segment_duration_options:
 
 ---
 
+<!-- /ANCHOR:segment-duration-analysis -->
+<!-- ANCHOR:7-batch-processing -->
 ## 7. 🏗️ BATCH PROCESSING
 
+<!-- /ANCHOR:7-batch-processing -->
+<!-- ANCHOR:bash-script-for-multiple-videos -->
 ### Bash Script for Multiple Videos
 
 **Complete conversion script with automation and error handling.**
@@ -911,6 +970,8 @@ echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 ```
 
+<!-- /ANCHOR:bash-script-for-multiple-videos -->
+<!-- ANCHOR:generate-report-function -->
 ### generate_report Function
 
 The script includes a reporting function that displays conversion results:
@@ -950,6 +1011,8 @@ generate_report() {
 }
 ```
 
+<!-- /ANCHOR:generate-report-function -->
+<!-- ANCHOR:usage-instructions -->
 ### Usage Instructions
 
 **Save and Prepare the Script:**
@@ -1012,8 +1075,12 @@ python3 -m http.server 8000
 
 ---
 
+<!-- /ANCHOR:usage-instructions -->
+<!-- ANCHOR:8-quick-reference -->
 ## 8. 🏎️ QUICK REFERENCE
 
+<!-- /ANCHOR:8-quick-reference -->
+<!-- ANCHOR:command-templates -->
 ### Command Templates
 
 ```yaml
@@ -1063,6 +1130,8 @@ quick_commands:
     command: "ffmpeg -version"
 ```
 
+<!-- /ANCHOR:command-templates -->
+<!-- ANCHOR:integration-references -->
 ### Integration References
 
 ```yaml
@@ -1094,6 +1163,8 @@ related_documents:
       - "Section 5: Error Recovery"
 ```
 
+<!-- /ANCHOR:integration-references -->
+<!-- ANCHOR:troubleshooting-quick-fixes -->
 ### Troubleshooting Quick Fixes
 
 **FFmpeg Not Found**
@@ -1169,6 +1240,8 @@ Error: Video won't play in browser
 3. Test with FFplay: `ffplay master.m3u8`
 4. If serving from different domain, verify CORS headers are set
 
+<!-- /ANCHOR:troubleshooting-quick-fixes -->
+<!-- ANCHOR:performance-benchmarks -->
 ### Performance Benchmarks
 
 Encoding times vary significantly based on CPU performance, source codec complexity, and video content. These are approximate estimates:
@@ -1187,6 +1260,8 @@ Encoding times vary significantly based on CPU performance, source codec complex
 
 *Note: Actual times depend on hardware, source format, and encoding settings. GPU acceleration can significantly reduce these times.*
 
+<!-- /ANCHOR:performance-benchmarks -->
+<!-- ANCHOR:gpu-acceleration-options -->
 ### GPU Acceleration Options
 
 GPU acceleration can significantly speed up encoding (2-5x faster) but may produce slightly lower quality compared to software encoding.
@@ -1212,6 +1287,8 @@ GPU acceleration can significantly speed up encoding (2-5x faster) but may produ
 - Consider GPU encoding for large batches where speed is critical
 - Test quality output before committing to GPU encoding for production
 
+<!-- /ANCHOR:gpu-acceleration-options -->
+<!-- ANCHOR:verification-commands -->
 ### Verification Commands
 
 **Check Master Playlist:**
@@ -1240,6 +1317,8 @@ ffprobe -v error -select_streams v:0 \
 ```
 Verify resolution and bitrate match expectations.
 
+<!-- /ANCHOR:verification-commands -->
+<!-- ANCHOR:limitations -->
 ### Limitations
 
 **Terminal Requirements:**
@@ -1272,3 +1351,4 @@ Verify resolution and bitrate match expectations.
 ---
 
 *This document focuses exclusively on Terminal-based FFMPEG commands for HLS conversion. For MCP operations, see Video-Audio MCP Intelligence. For thinking methodology, see MEDIA Framework. For conversation flows, see Interactive Intelligence.*
+<!-- /ANCHOR:limitations -->

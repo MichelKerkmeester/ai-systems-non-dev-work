@@ -1,3 +1,4 @@
+<!-- ANCHOR:media-editor-integrations-mcp-video-audio-v0-212 -->
 # Media Editor - Integrations - MCP Video Audio - v0.212
 
 Technical reference for Video-Audio MCP server capabilities and integration for video and audio processing operations.
@@ -6,6 +7,8 @@ Technical reference for Video-Audio MCP server capabilities and integration for 
 **Purpose:** Defines comprehensive technical specifications and operational capabilities for the Video-Audio MCP server powered by FFmpeg, enabling systematic video and audio processing workflows
 **Scope:** MCP server integration, video/audio format conversion, editing operations, codec specifications, advanced effects (overlays, transitions, subtitles), performance characteristics, and tool reference
 
+<!-- /ANCHOR:media-editor-integrations-mcp-video-audio-v0-212 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🔌 SERVER OVERVIEW
@@ -19,8 +22,12 @@ Technical reference for Video-Audio MCP server capabilities and integration for 
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-server-overview -->
 ## 1. 🔌 SERVER OVERVIEW
 
+<!-- /ANCHOR:1-server-overview -->
+<!-- ANCHOR:mcp-server-details -->
 ### MCP Server Details
 
 The Video-Audio MCP Server (`@misbahsy/video-audio-mcp`) provides comprehensive video and audio processing capabilities powered by FFmpeg. It enables format conversion, editing, optimization, and advanced effects through native MCP integration.
@@ -36,6 +43,8 @@ The Video-Audio MCP Server (`@misbahsy/video-audio-mcp`) provides comprehensive 
 - **Recommended:** UV package manager (`uv sync`)
 - **Alternative:** Python pip
 
+<!-- /ANCHOR:mcp-server-details -->
+<!-- ANCHOR:connection-verification -->
 ### Connection Verification
 
 **Reference:** Connection verification logic is in Interactive Intelligence.
@@ -53,8 +62,12 @@ Connection verification must be the **first action before all operations**. Use 
 
 ---
 
+<!-- /ANCHOR:connection-verification -->
+<!-- ANCHOR:2-core-capabilities -->
 ## 2. 🛠️ CORE CAPABILITIES
 
+<!-- /ANCHOR:2-core-capabilities -->
+<!-- ANCHOR:available-operations -->
 ### Available Operations
 
 **Note:** Thinking methodology (10 rounds standard, 1-5 quick) is defined in MEDIA Thinking Framework.
@@ -100,8 +113,12 @@ The Video-Audio MCP server provides comprehensive media processing capabilities 
 
 ---
 
+<!-- /ANCHOR:available-operations -->
+<!-- ANCHOR:3-video-operations -->
 ## 3. 🎬 VIDEO OPERATIONS
 
+<!-- /ANCHOR:3-video-operations -->
+<!-- ANCHOR:format-conversion -->
 ### Format Conversion
 
 ```yaml
@@ -162,6 +179,8 @@ convert_video_properties:
       common: [24, 30, 60]
 ```
 
+<!-- /ANCHOR:format-conversion -->
+<!-- ANCHOR:video-editing -->
 ### Video Editing
 
 ```yaml
@@ -218,6 +237,8 @@ adjust_video_speed:
         timelapse: [2.0, 4.0]
 ```
 
+<!-- /ANCHOR:video-editing -->
+<!-- ANCHOR:resolution-and-aspect-ratio -->
 ### Resolution and Aspect Ratio
 
 **Set Video Resolution:**
@@ -258,8 +279,12 @@ change_aspect_ratio:
 
 ---
 
+<!-- /ANCHOR:resolution-and-aspect-ratio -->
+<!-- ANCHOR:4-audio-operations -->
 ## 4. 🎵 AUDIO OPERATIONS
 
+<!-- /ANCHOR:4-audio-operations -->
+<!-- ANCHOR:audio-extraction-and-conversion -->
 ### Audio Extraction and Conversion
 
 ```yaml
@@ -332,6 +357,8 @@ convert_audio_properties:
       optional: true
 ```
 
+<!-- /ANCHOR:audio-extraction-and-conversion -->
+<!-- ANCHOR:audio-quality-guidelines -->
 ### Audio Quality Guidelines
 
 **Note:** Quality vs size optimization logic is in MEDIA Framework Section 2 (Evaluate).
@@ -391,8 +418,12 @@ remove_silence:
 
 ---
 
+<!-- /ANCHOR:audio-quality-guidelines -->
+<!-- ANCHOR:5-advanced-features -->
 ## 5. 🎨 ADVANCED FEATURES
 
+<!-- /ANCHOR:5-advanced-features -->
+<!-- ANCHOR:overlays -->
 ### Overlays
 
 ```yaml
@@ -462,6 +493,8 @@ add_image_overlay:
       optional: true
 ```
 
+<!-- /ANCHOR:overlays -->
+<!-- ANCHOR:transitions-and-effects -->
 ### Transitions and Effects
 
 ```yaml
@@ -498,6 +531,8 @@ fade_in_out:
       required: true
 ```
 
+<!-- /ANCHOR:transitions-and-effects -->
+<!-- ANCHOR:subtitles -->
 ### Subtitles
 
 ```yaml
@@ -528,6 +563,8 @@ add_subtitle:
         Shadow: integer
 ```
 
+<!-- /ANCHOR:subtitles -->
+<!-- ANCHOR:b-roll-and-composition -->
 ### B-Roll and Composition
 
 ```yaml
@@ -557,8 +594,12 @@ insert_broll:
 
 ---
 
+<!-- /ANCHOR:b-roll-and-composition -->
+<!-- ANCHOR:6-format-support -->
 ## 6. 📦 FORMAT SUPPORT
 
+<!-- /ANCHOR:6-format-support -->
+<!-- ANCHOR:video-formats -->
 ### Video Formats
 
 ```yaml
@@ -594,6 +635,8 @@ formats:
     best_for: "Web streaming"
 ```
 
+<!-- /ANCHOR:video-formats -->
+<!-- ANCHOR:audio-formats -->
 ### Audio Formats
 
 ```yaml
@@ -631,8 +674,12 @@ formats:
 
 ---
 
+<!-- /ANCHOR:audio-formats -->
+<!-- ANCHOR:7-codec-specifications -->
 ## 7. ⚙️ CODEC SPECIFICATIONS
 
+<!-- /ANCHOR:7-codec-specifications -->
+<!-- ANCHOR:video-codecs -->
 ### Video Codecs
 
 **Note:** Codec selection logic is in MEDIA Framework Section 3 (Decide).
@@ -675,6 +722,8 @@ video_codecs:
     use: "Broadcast quality"
 ```
 
+<!-- /ANCHOR:video-codecs -->
+<!-- ANCHOR:audio-codecs -->
 ### Audio Codecs
 
 ```yaml
@@ -712,8 +761,12 @@ audio_codecs:
 
 ---
 
+<!-- /ANCHOR:audio-codecs -->
+<!-- ANCHOR:8-quick-reference -->
 ## 8. 🏎️ QUICK REFERENCE
 
+<!-- /ANCHOR:8-quick-reference -->
+<!-- ANCHOR:mcp-tools-summary -->
 ### MCP Tools Summary
 
 ```yaml
@@ -758,6 +811,8 @@ tools:
     insert_broll: "Insert B-roll footage"
 ```
 
+<!-- /ANCHOR:mcp-tools-summary -->
+<!-- ANCHOR:integration-references -->
 ### Integration References
 
 ```yaml
@@ -785,6 +840,8 @@ related_documents:
       - "Performance optimization"
 ```
 
+<!-- /ANCHOR:integration-references -->
+<!-- ANCHOR:performance-characteristics -->
 ### Performance Characteristics
 
 ```yaml
@@ -819,6 +876,8 @@ performance:
       overlay: "1-5min"
 ```
 
+<!-- /ANCHOR:performance-characteristics -->
+<!-- ANCHOR:limitations -->
 ### Limitations
 
 ```yaml
@@ -854,3 +913,5 @@ limitations:
 ---
 
 *This document focuses exclusively on Video-Audio MCP server capabilities and technical specifications. For thinking methodology, see MEDIA Framework. For conversation flows and error handling, see Interactive Intelligence.*
+
+<!-- /ANCHOR:limitations -->

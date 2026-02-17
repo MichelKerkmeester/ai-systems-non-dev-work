@@ -1,3 +1,4 @@
+<!-- ANCHOR:rules-human-voice-v0-101 -->
 # Rules - Human Voice - v0.101
 
 The Human Voice Rules (HVR) define the global linguistic standards that govern all AI-generated content across the Barter ecosystem. These rules eliminate detectable AI patterns, enforce natural human writing conventions and ensure every piece of output reads as if written by a knowledgeable human professional. This document is the canonical, system-agnostic superset. Individual content systems inherit these rules and may extend them with system-specific overrides.
@@ -6,6 +7,8 @@ The Human Voice Rules (HVR) define the global linguistic standards that govern a
 **Purpose:** Eliminate AI-detectable writing patterns, enforce punctuation discipline, ban overused words and phrases, and establish a consistent human voice across all output.
 **Scope:** Global. Applies to all 6 Barter content systems (MEQT, DEAL, CONTENT, LinkedIn, Email, Web). System-specific scoring integrations and additional rules are defined in each system's Human Voice Rules Extensions file.
 
+<!-- /ANCHOR:rules-human-voice-v0-101 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 0. 🎯 VOICE DIRECTIVES
@@ -22,10 +25,14 @@ The Human Voice Rules (HVR) define the global linguistic standards that govern a
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:0-voice-directives -->
 ## 0. 🎯 VOICE DIRECTIVES
 
 These directives define the target voice for all Barter AI-generated content. They establish what to aim for before the remaining parts define what to avoid. Every piece of content should pass these principles before checking for violations.
 
+<!-- /ANCHOR:0-voice-directives -->
+<!-- ANCHOR:0-1-voice-principles -->
 ### 0.1 Voice Principles
 
 ```yaml
@@ -89,6 +96,8 @@ voice_directives:
         improved: "The platform processes data efficiently. Millions of requests daily. It scales when load increases, without manual intervention."
 ```
 
+<!-- /ANCHOR:0-1-voice-principles -->
+<!-- ANCHOR:0-2-certainty-principle -->
 ### 0.2 Certainty Principle
 
 Prefer direct, certain language when the facts support it. Hedging weakens claims and is a common AI writing pattern.
@@ -108,10 +117,14 @@ certainty_principle:
 
 ---
 
+<!-- /ANCHOR:0-2-certainty-principle -->
+<!-- ANCHOR:1-punctuation-standards -->
 ## 1. ✏️ PUNCTUATION STANDARDS
 
 All AI-generated content must follow these punctuation rules without exception. Violations are treated as automatic deductions.
 
+<!-- /ANCHOR:1-punctuation-standards -->
+<!-- ANCHOR:1-1-em-dash-ban -->
 ### 1.1 Em Dash Ban
 
 Never use em dashes (—). Replace with commas, full stops or colons depending on context.
@@ -131,6 +144,8 @@ em_dash_rule:
       right: "One thing mattered: accuracy."
 ```
 
+<!-- /ANCHOR:1-1-em-dash-ban -->
+<!-- ANCHOR:1-2-semicolon-ban -->
 ### 1.2 Semicolon Ban
 
 Never use semicolons (;). Split into two sentences or restructure using a conjunction.
@@ -149,6 +164,8 @@ semicolon_rule:
       right: "Revenue grew 40% and costs dropped 15%."
 ```
 
+<!-- /ANCHOR:1-2-semicolon-ban -->
+<!-- ANCHOR:1-3-oxford-comma-ban -->
 ### 1.3 Oxford Comma Ban
 
 Never use the Oxford comma (the comma before "and" or "or" in a list of three or more items).
@@ -163,6 +180,8 @@ oxford_comma_rule:
       right: "The report covers revenue, retention and churn."
 ```
 
+<!-- /ANCHOR:1-3-oxford-comma-ban -->
+<!-- ANCHOR:1-4-asterisk-emphasis-ban -->
 ### 1.4 Asterisk Emphasis Ban
 
 Never use asterisks (*) for bold or emphasis in output content. Use the natural weight of the words instead. Asterisks are acceptable only in Markdown source files for formatting purposes where rendering is expected.
@@ -179,6 +198,8 @@ asterisk_rule:
       right: "We saw significant growth."
 ```
 
+<!-- /ANCHOR:1-4-asterisk-emphasis-ban -->
+<!-- ANCHOR:1-5-ellipsis-usage -->
 ### 1.5 Ellipsis Usage
 
 Limit ellipsis (...) to a maximum of one per piece. Use only for trailing thought, never for dramatic pauses or lazy transitions.
@@ -199,10 +220,14 @@ ellipsis_rule:
 
 ---
 
+<!-- /ANCHOR:1-5-ellipsis-usage -->
+<!-- ANCHOR:2-ai-structural-patterns-to-avoid -->
 ## 2. 🏗️ AI STRUCTURAL PATTERNS TO AVOID
 
 AI models produce predictable structural patterns. Detecting and eliminating these patterns is essential to passing as human-written content.
 
+<!-- /ANCHOR:2-ai-structural-patterns-to-avoid -->
+<!-- ANCHOR:2-1-not-just-x-but-also-y-ban -->
 ### 2.1 "Not Just X, But Also Y" Ban
 
 Never use the "not just X, but also Y" construction or any of its variants. This is one of the most recognisable AI writing patterns.
@@ -232,6 +257,8 @@ not_just_x_but_y:
       right: "Full analytics with forecasting built in."
 ```
 
+<!-- /ANCHOR:2-1-not-just-x-but-also-y-ban -->
+<!-- ANCHOR:2-2-three-item-enumeration-fix -->
 ### 2.2 Three-Item Enumeration Fix
 
 AI defaults to lists of exactly three items. Vary enumerations to 2, 4 or 5 items to break this pattern.
@@ -247,6 +274,8 @@ enumeration_rule:
       also_right: "Speed, accuracy, reliability and uptime."
 ```
 
+<!-- /ANCHOR:2-2-three-item-enumeration-fix -->
+<!-- ANCHOR:2-3-setup-language-removal -->
 ### 2.3 Setup Language Removal
 
 Remove filler phrases that signal what is coming next rather than stating it directly.
@@ -277,8 +306,12 @@ banned_setup_phrases:
 
 ---
 
+<!-- /ANCHOR:2-3-setup-language-removal -->
+<!-- ANCHOR:3-content-pattern-detection -->
 ## 3. 🔍 CONTENT PATTERN DETECTION
 
+<!-- /ANCHOR:3-content-pattern-detection -->
+<!-- ANCHOR:3-1-banned-metaphors-and-cliches -->
 ### 3.1 Banned Metaphors and Cliches
 
 These metaphors are overused in AI-generated content. Replace with direct, specific language.
@@ -307,6 +340,8 @@ banned_metaphors:   # Replace with direct, specific language
   - "light at the end of the tunnel" → state the specific positive outcome
 ```
 
+<!-- /ANCHOR:3-1-banned-metaphors-and-cliches -->
+<!-- ANCHOR:3-2-generalisation-fixes -->
 ### 3.2 Generalisation Fixes
 
 Replace vague generalisations with specific, verifiable claims.
@@ -335,6 +370,8 @@ generalisation_fixes:
     specific: "[State who specifically or give a number]"
 ```
 
+<!-- /ANCHOR:3-2-generalisation-fixes -->
+<!-- ANCHOR:3-3-unnecessary-modifiers -->
 ### 3.3 Unnecessary Modifiers
 
 Cut these words. They add no meaning and weaken the sentence.
@@ -374,6 +411,8 @@ unnecessary_modifiers:
       right: "We doubled revenue."
 ```
 
+<!-- /ANCHOR:3-3-unnecessary-modifiers -->
+<!-- ANCHOR:3-4-output-warnings -->
 ### 3.4 Output Warnings
 
 ```yaml
@@ -387,6 +426,8 @@ output_warnings:
 
 ---
 
+<!-- /ANCHOR:3-4-output-warnings -->
+<!-- ANCHOR:4-hard-blocker-words-5-points-each -->
 ## 4. 🚫 HARD BLOCKER WORDS (-5 POINTS EACH)
 
 These words trigger AUTOMATIC FAILURE. Never use them under any circumstances (except where noted in Section 6 for context-dependent blockers).
@@ -440,6 +481,8 @@ hard_blockers:
     - utilizing      # use "using" instead
 ```
 
+<!-- /ANCHOR:4-hard-blocker-words-5-points-each -->
+<!-- ANCHOR:5-phrase-hard-blockers-5-points-each -->
 ## 5. ⛔ PHRASE HARD BLOCKERS (-5 POINTS EACH)
 
 These phrases trigger AUTOMATIC FAILURE. Never use them.
@@ -466,6 +509,8 @@ phrase_blockers:
   - "You're not alone"
 ```
 
+<!-- /ANCHOR:5-phrase-hard-blockers-5-points-each -->
+<!-- ANCHOR:6-context-dependent-blockers -->
 ## 6. ⚖️ CONTEXT-DEPENDENT BLOCKERS
 
 Words that are blocked in most contexts but may be acceptable in specific technical or literal usage.
@@ -482,6 +527,8 @@ context_dependent:  # -5 when metaphorical, OK when literal
 
 ---
 
+<!-- /ANCHOR:6-context-dependent-blockers -->
+<!-- ANCHOR:7-soft-deductions-2-points-each -->
 ## 7. 📉 SOFT DEDUCTIONS (-2 POINTS EACH)
 
 These words are not hard blockers but carry a -2 point penalty per occurrence. Use sparingly or replace.
@@ -522,6 +569,8 @@ soft_deductions_minus_2:
     note: "AI comfort phrase. State the specific commonality instead."
 ```
 
+<!-- /ANCHOR:7-soft-deductions-2-points-each -->
+<!-- ANCHOR:8-soft-deductions-1-point-each -->
 ## 8. 📊 SOFT DEDUCTIONS (-1 POINT EACH)
 
 These carry a -1 point penalty per occurrence. Some are acceptable in small quantities but flag overuse.
@@ -611,6 +660,8 @@ soft_deductions_minus_1:
       note: "Use 'questions' instead."
 ```
 
+<!-- /ANCHOR:8-soft-deductions-1-point-each -->
+<!-- ANCHOR:9-context-dependent-flags -->
 ## 9. 🏁 CONTEXT-DEPENDENT FLAGS
 
 These words are not penalised automatically but should be checked for clarity and precision.
@@ -656,6 +707,8 @@ context_flags:
 
 ---
 
+<!-- /ANCHOR:9-context-dependent-flags -->
+<!-- ANCHOR:10-pre-publish-checklist -->
 ## 10. ✅ PRE-PUBLISH CHECKLIST
 
 Run through this checklist before finalising any content.
@@ -698,3 +751,4 @@ pre_publish_checklist:
     - "No hedging when certainty is possible"
     - "Claims backed by data or examples where possible"
 ```
+<!-- /ANCHOR:10-pre-publish-checklist -->

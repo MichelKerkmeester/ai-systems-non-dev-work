@@ -1,3 +1,4 @@
+<!-- ANCHOR:media-editor-integrations-mcp-imagician-v0-211 -->
 # Media Editor - Integrations - MCP Imagician - v0.211
 
 Technical reference for Imagician MCP server capabilities and integration for image processing operations.
@@ -6,6 +7,8 @@ Technical reference for Imagician MCP server capabilities and integration for im
 **Purpose:** Define Imagician MCP server capabilities, technical specifications, and operation parameters for image processing integration
 **Scope:** Server overview, core capabilities, format support, operation specifications, quality optimization, resize/crop strategies, transforms, and quick reference
 
+<!-- /ANCHOR:media-editor-integrations-mcp-imagician-v0-211 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🔌 SERVER OVERVIEW
@@ -19,8 +22,12 @@ Technical reference for Imagician MCP server capabilities and integration for im
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-server-overview -->
 ## 1. 🔌 SERVER OVERVIEW
 
+<!-- /ANCHOR:1-server-overview -->
+<!-- ANCHOR:mcp-server-details -->
 ### MCP Server Details
 
 The Imagician MCP server (`@flowy11/imagician`) provides high-performance image processing capabilities powered by Sharp, a Node.js image processing library. It enables format conversion, resizing, cropping, compression, and various transformations through native MCP integration.
@@ -40,6 +47,8 @@ npx -y @flowy11/imagician
 npm install -g @flowy11/imagician
 ```
 
+<!-- /ANCHOR:mcp-server-details -->
+<!-- ANCHOR:connection-verification -->
 ### Connection Verification
 
 **Reference:** Connection verification logic is in Interactive Intelligence.
@@ -52,8 +61,12 @@ Connection verification must be the **first action before all operations**. Use 
 
 ---
 
+<!-- /ANCHOR:connection-verification -->
+<!-- ANCHOR:2-core-capabilities -->
 ## 2. 🛠️ CORE CAPABILITIES
 
+<!-- /ANCHOR:2-core-capabilities -->
+<!-- ANCHOR:available-operations -->
 ### Available Operations
 
 **Note:** Thinking methodology (10 rounds standard, 1-5 quick) is defined in MEDIA Thinking Framework.
@@ -98,6 +111,8 @@ The Imagician MCP server provides comprehensive image processing capabilities:
 - Parameters: Folder path
 - Use case: Directory scanning, file discovery
 
+<!-- /ANCHOR:available-operations -->
+<!-- ANCHOR:processing-order -->
 ### Processing Order
 
 For optimal results, process images in this sequence:
@@ -110,8 +125,12 @@ For optimal results, process images in this sequence:
 
 ---
 
+<!-- /ANCHOR:processing-order -->
+<!-- ANCHOR:3-format-support -->
 ## 3. 📊 FORMAT SUPPORT
 
+<!-- /ANCHOR:3-format-support -->
+<!-- ANCHOR:supported-formats -->
 ### Supported Formats
 
 Imagician supports modern image formats with full input/output capabilities.
@@ -144,8 +163,12 @@ Imagician supports modern image formats with full input/output capabilities.
 
 ---
 
+<!-- /ANCHOR:supported-formats -->
+<!-- ANCHOR:4-operation-specifications -->
 ## 4. ⚙️ OPERATION SPECIFICATIONS
 
+<!-- /ANCHOR:4-operation-specifications -->
+<!-- ANCHOR:resize-operation -->
 ### Resize Operation
 
 Change image dimensions with multiple fit modes and aspect ratio control.
@@ -169,6 +192,8 @@ resize:
 - **inside** - Resize to fit inside bounds (most common)
 - **outside** - Resize to fit outside bounds
 
+<!-- /ANCHOR:resize-operation -->
+<!-- ANCHOR:convert-operation -->
 ### Convert Operation
 
 Change image format with quality control.
@@ -182,6 +207,8 @@ convert:
     quality: number (optional, default: 85) - Range: 1-100
 ```
 
+<!-- /ANCHOR:convert-operation -->
+<!-- ANCHOR:crop-operation -->
 ### Crop Operation
 
 Extract a specific region from an image.
@@ -197,6 +224,8 @@ crop:
     height: number (required) - Crop height in pixels
 ```
 
+<!-- /ANCHOR:crop-operation -->
+<!-- ANCHOR:compress-operation -->
 ### Compress Operation
 
 Optimize file size while maintaining acceptable quality.
@@ -213,8 +242,12 @@ compress:
 
 ---
 
+<!-- /ANCHOR:compress-operation -->
+<!-- ANCHOR:5-quality-optimization -->
 ## 5. 🎯 QUALITY OPTIMIZATION
 
+<!-- /ANCHOR:5-quality-optimization -->
+<!-- ANCHOR:quality-guidelines -->
 ### Quality Guidelines
 
 **Note:** Quality vs size optimization logic is in MEDIA Framework Section 2 (Evaluate).
@@ -231,6 +264,8 @@ Quality settings determine the balance between file size and visual fidelity. Hi
 | Good Compression  | 70-79         | Size priority, acceptable quality | Smaller   | Good           |
 | Heavy Compression | 60-69         | Extreme size limits               | Small     | Acceptable     |
 
+<!-- /ANCHOR:quality-guidelines -->
+<!-- ANCHOR:format-specific-quality -->
 ### Format-Specific Quality
 
 **For Photos:**
@@ -249,8 +284,12 @@ Quality settings determine the balance between file size and visual fidelity. Hi
 
 ---
 
+<!-- /ANCHOR:format-specific-quality -->
+<!-- ANCHOR:6-resize-and-crop -->
 ## 6. 📐 RESIZE & CROP
 
+<!-- /ANCHOR:6-resize-and-crop -->
+<!-- ANCHOR:resize-strategies -->
 ### Resize Strategies
 
 Choose the appropriate resize strategy based on your requirements:
@@ -280,6 +319,8 @@ Choose the appropriate resize strategy based on your requirements:
 - Use for: Container limits, responsive images
 - Aspect ratio: Always preserved
 
+<!-- /ANCHOR:resize-strategies -->
+<!-- ANCHOR:common-resize-scenarios -->
 ### Common Resize Scenarios
 
 **Thumbnail Generation:**
@@ -352,6 +393,8 @@ rotate:
       description: "Background color for exposed areas"
 ```
 
+<!-- /ANCHOR:common-resize-scenarios -->
+<!-- ANCHOR:flip-operation -->
 ### Flip Operation
 
 ```yaml
@@ -371,6 +414,8 @@ flip:
       options: [horizontal, vertical]
 ```
 
+<!-- /ANCHOR:flip-operation -->
+<!-- ANCHOR:orientation-auto-correction -->
 ### Orientation Auto-Correction
 
 ```yaml
@@ -384,8 +429,12 @@ auto_orientation:
 
 ---
 
+<!-- /ANCHOR:orientation-auto-correction -->
+<!-- ANCHOR:8-quick-reference -->
 ## 8. 🏎️ QUICK REFERENCE
 
+<!-- /ANCHOR:8-quick-reference -->
+<!-- ANCHOR:mcp-tools-summary -->
 ### MCP Tools Summary
 
 ```yaml
@@ -427,6 +476,8 @@ tools:
     parameters: [operations_array]
 ```
 
+<!-- /ANCHOR:mcp-tools-summary -->
+<!-- ANCHOR:integration-references -->
 ### Integration References
 
 ```yaml
@@ -454,6 +505,8 @@ related_documents:
       - "Permission diagnostics"
 ```
 
+<!-- /ANCHOR:integration-references -->
+<!-- ANCHOR:performance-characteristics -->
 ### Performance Characteristics
 
 ```yaml
@@ -487,6 +540,8 @@ performance:
       crop: "150-500ms"
 ```
 
+<!-- /ANCHOR:performance-characteristics -->
+<!-- ANCHOR:limitations -->
 ### Limitations
 
 ```yaml
@@ -515,3 +570,4 @@ limitations:
 ---
 
 *This document focuses exclusively on Imagician MCP server capabilities and technical specifications. For thinking methodology, see MEDIA Framework. For conversation flows and error handling, see Interactive Intelligence.*
+<!-- /ANCHOR:limitations -->
