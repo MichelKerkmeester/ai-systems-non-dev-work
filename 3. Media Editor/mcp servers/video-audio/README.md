@@ -1,7 +1,10 @@
+<!-- ANCHOR:video-audio -->
 # Video-Audio
 
 > Docker-based MCP server for video and audio editing powered by FFmpeg.
 
+<!-- /ANCHOR:video-audio -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 📖 OVERVIEW
@@ -16,12 +19,18 @@
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-overview -->
 ## 1. 📖 OVERVIEW
 
+<!-- /ANCHOR:1-overview -->
+<!-- ANCHOR:what-is-video-audio -->
 ### What is Video-Audio?
 
 Video-Audio is a comprehensive Model Context Protocol (MCP) server that provides professional-grade video and audio editing capabilities through FFmpeg. It enables AI assistants to perform format conversion, trimming, overlays, transitions, and advanced audio processing through a standardized interface. This Docker deployment ensures consistent FFmpeg availability and isolated processing.
 
+<!-- /ANCHOR:what-is-video-audio -->
+<!-- ANCHOR:key-statistics -->
 ### Key Statistics
 
 | Category | Count | Details |
@@ -32,6 +41,8 @@ Video-Audio is a comprehensive Model Context Protocol (MCP) server that provides
 | Creative Tools | 5 | Subtitles, overlays, B-roll, transitions |
 | Advanced Editing | 4 | Concatenation, speed, silence removal |
 
+<!-- /ANCHOR:key-statistics -->
+<!-- ANCHOR:key-features -->
 ### Key Features
 
 | Feature | Description |
@@ -43,6 +54,8 @@ Video-Audio is a comprehensive Model Context Protocol (MCP) server that provides
 | **Advanced Editing** | Video concatenation with transitions, B-roll insertion, silence removal |
 | **Transitions** | Fade in/out effects, crossfade transitions between clips |
 
+<!-- /ANCHOR:key-features -->
+<!-- ANCHOR:requirements -->
 ### Requirements
 
 | Requirement | Minimum | Recommended |
@@ -53,13 +66,19 @@ Video-Audio is a comprehensive Model Context Protocol (MCP) server that provides
 
 ---
 
+<!-- /ANCHOR:requirements -->
+<!-- ANCHOR:2-quick-start -->
 ## 2. 🚀 QUICK START
 
+<!-- /ANCHOR:2-quick-start -->
+<!-- ANCHOR:prerequisites -->
 ### Prerequisites
 
 - Docker Desktop running
 - Videos directory accessible at configured volume path
 
+<!-- /ANCHOR:prerequisites -->
+<!-- ANCHOR:30-second-setup -->
 ### 30-Second Setup
 
 ```bash
@@ -73,6 +92,8 @@ docker-compose up -d --build
 docker ps --filter "name=video-audio"
 ```
 
+<!-- /ANCHOR:30-second-setup -->
+<!-- ANCHOR:verify-installation -->
 ### Verify Installation
 
 ```bash
@@ -88,6 +109,8 @@ docker exec video-audio ffmpeg -version | head -1
 # Expected: ffmpeg version X.X.X
 ```
 
+<!-- /ANCHOR:verify-installation -->
+<!-- ANCHOR:first-use -->
 ### First Use
 
 ```bash
@@ -99,6 +122,8 @@ docker exec -i video-audio python /app/server.py <<< '{"jsonrpc":"2.0","id":1,"m
 
 ---
 
+<!-- /ANCHOR:first-use -->
+<!-- ANCHOR:3-structure -->
 ## 3. 📁 STRUCTURE
 
 ```
@@ -121,6 +146,8 @@ Inside the container (`/app/`):
     └── example_usage.py
 ```
 
+<!-- /ANCHOR:3-structure -->
+<!-- ANCHOR:key-files -->
 ### Key Files
 
 | File | Purpose |
@@ -132,8 +159,12 @@ Inside the container (`/app/`):
 
 ---
 
+<!-- /ANCHOR:key-files -->
+<!-- ANCHOR:4-features -->
 ## 4. ⚡ FEATURES
 
+<!-- /ANCHOR:4-features -->
+<!-- ANCHOR:core-video-operations -->
 ### Core Video Operations
 
 **extract_audio_from_video**: Extract audio tracks from video files.
@@ -199,6 +230,8 @@ Inside the container (`/app/`):
 | **Purpose** | Convert between 24, 30, 60 fps, etc. |
 | **Use Cases** | Slow motion, time-lapse, format compliance |
 
+<!-- /ANCHOR:core-video-operations -->
+<!-- ANCHOR:audio-processing -->
 ### Audio Processing
 
 **convert_audio_format**: Convert between audio formats.
@@ -240,6 +273,8 @@ Inside the container (`/app/`):
 | `set_video_audio_track_sample_rate` | Change audio sample rate in video |
 | `set_video_audio_track_channels` | Modify audio channels in video |
 
+<!-- /ANCHOR:audio-processing -->
+<!-- ANCHOR:creative-tools -->
 ### Creative Tools
 
 **add_subtitles**: Burn subtitles with custom styling.
@@ -277,6 +312,8 @@ Inside the container (`/app/`):
 | **Types** | Fade in, fade out, both |
 | **Duration** | Configurable transition length |
 
+<!-- /ANCHOR:creative-tools -->
+<!-- ANCHOR:advanced-editing -->
 ### Advanced Editing
 
 **concatenate_videos**: Join multiple videos with transitions.
@@ -309,8 +346,12 @@ Inside the container (`/app/`):
 
 ---
 
+<!-- /ANCHOR:advanced-editing -->
+<!-- ANCHOR:5-configuration -->
 ## 5. ⚙️ CONFIGURATION
 
+<!-- /ANCHOR:5-configuration -->
+<!-- ANCHOR:configuration-file -->
 ### Configuration File
 
 **Location**: `docker-compose.yml`
@@ -335,6 +376,8 @@ services:
     restart: unless-stopped
 ```
 
+<!-- /ANCHOR:configuration-file -->
+<!-- ANCHOR:configuration-options -->
 ### Configuration Options
 
 | Option | Type | Default | Description |
@@ -343,6 +386,8 @@ services:
 | `PYTHONUNBUFFERED` | string | `1` | Ensures real-time Python output |
 | `NODE_ENV` | string | `production` | Environment mode |
 
+<!-- /ANCHOR:configuration-options -->
+<!-- ANCHOR:environment-variables -->
 ### Environment Variables
 
 | Variable | Required | Description |
@@ -350,6 +395,8 @@ services:
 | `VIDEO_PATH` | Yes | Container path where videos are accessible |
 | `PYTHONUNBUFFERED` | Yes | Enables real-time logging |
 
+<!-- /ANCHOR:environment-variables -->
+<!-- ANCHOR:volume-mounts -->
 ### Volume Mounts
 
 | Host Path | Container Path | Purpose |
@@ -358,8 +405,12 @@ services:
 
 ---
 
+<!-- /ANCHOR:volume-mounts -->
+<!-- ANCHOR:6-usage-examples -->
 ## 6. 💡 USAGE EXAMPLES
 
+<!-- /ANCHOR:6-usage-examples -->
+<!-- ANCHOR:example-1-convert-video-format -->
 ### Example 1: Convert Video Format
 
 ```
@@ -368,6 +419,8 @@ services:
 
 **Result**: Creates `my-video.mov` with compatible codecs.
 
+<!-- /ANCHOR:example-1-convert-video-format -->
+<!-- ANCHOR:example-2-trim-video-segment -->
 ### Example 2: Trim Video Segment
 
 ```
@@ -376,6 +429,8 @@ services:
 
 **Result**: Extracts 1 minute 45 seconds starting at the 30-second mark.
 
+<!-- /ANCHOR:example-2-trim-video-segment -->
+<!-- ANCHOR:example-3-add-text-overlay -->
 ### Example 3: Add Text Overlay
 
 ```
@@ -384,6 +439,8 @@ services:
 
 **Result**: Video with text overlay appearing during specified timeframe.
 
+<!-- /ANCHOR:example-3-add-text-overlay -->
+<!-- ANCHOR:example-4-create-highlight-reel -->
 ### Example 4: Create Highlight Reel
 
 ```
@@ -392,6 +449,8 @@ services:
 
 **Result**: Single video with smooth transitions between clips.
 
+<!-- /ANCHOR:example-4-create-highlight-reel -->
+<!-- ANCHOR:example-5-optimize-for-social-media -->
 ### Example 5: Optimize for Social Media
 
 ```
@@ -400,6 +459,8 @@ services:
 
 **Result**: Vertical video optimized for mobile viewing.
 
+<!-- /ANCHOR:example-5-optimize-for-social-media -->
+<!-- ANCHOR:example-6-remove-silence-from-podcast -->
 ### Example 6: Remove Silence from Podcast
 
 ```
@@ -408,6 +469,8 @@ services:
 
 **Result**: Cleaned audio with dead air removed.
 
+<!-- /ANCHOR:example-6-remove-silence-from-podcast -->
+<!-- ANCHOR:common-patterns -->
 ### Common Patterns
 
 | Pattern | Prompt | When to Use |
@@ -421,10 +484,16 @@ services:
 
 ---
 
+<!-- /ANCHOR:common-patterns -->
+<!-- ANCHOR:7-troubleshooting -->
 ## 7. 🛠️ TROUBLESHOOTING
 
+<!-- /ANCHOR:7-troubleshooting -->
+<!-- ANCHOR:common-issues -->
 ### Common Issues
 
+<!-- /ANCHOR:common-issues -->
+<!-- ANCHOR:container-not-running -->
 #### Container Not Running
 
 **Symptom**: `docker exec` returns "No such container"
@@ -440,6 +509,8 @@ docker ps -a --filter "name=video-audio"
 docker-compose up -d
 ```
 
+<!-- /ANCHOR:container-not-running -->
+<!-- ANCHOR:ffmpeg-codec-error -->
 #### FFmpeg Codec Error
 
 **Symptom**: "Unknown encoder" or "Codec not found"
@@ -457,6 +528,8 @@ docker exec video-audio ffmpeg -codecs | grep -i "codec-name"
 # VP9: libvpx-vp9
 ```
 
+<!-- /ANCHOR:ffmpeg-codec-error -->
+<!-- ANCHOR:permission-denied-on-videos -->
 #### Permission Denied on Videos
 
 **Symptom**: "Permission denied" when reading/writing files
@@ -473,6 +546,8 @@ mkdir -p "/Users/<you>/.../Media Editor/export/videos"  # local-only example
 chmod 755 "/Users/<you>/.../Media Editor/export/videos"  # local-only example
 ```
 
+<!-- /ANCHOR:permission-denied-on-videos -->
+<!-- ANCHOR:processing-takes-too-long -->
 #### Processing Takes Too Long
 
 **Symptom**: Video operations hang or timeout
@@ -484,6 +559,8 @@ chmod 755 "/Users/<you>/.../Media Editor/export/videos"  # local-only example
 - Reduce resolution before applying effects
 - Increase Docker resource limits
 
+<!-- /ANCHOR:processing-takes-too-long -->
+<!-- ANCHOR:quick-fixes -->
 ### Quick Fixes
 
 | Problem | Quick Fix |
@@ -494,6 +571,8 @@ chmod 755 "/Users/<you>/.../Media Editor/export/videos"  # local-only example
 | FFmpeg errors | Check codec availability with `ffmpeg -codecs` |
 | Out of space | Clean `/videos` directory of temp files |
 
+<!-- /ANCHOR:quick-fixes -->
+<!-- ANCHOR:diagnostic-commands -->
 ### Diagnostic Commands
 
 ```bash
@@ -516,8 +595,12 @@ docker exec video-audio df -h /videos
 
 ---
 
+<!-- /ANCHOR:diagnostic-commands -->
+<!-- ANCHOR:8-faq -->
 ## 8. ❓ FAQ
 
+<!-- /ANCHOR:8-faq -->
+<!-- ANCHOR:general-questions -->
 ### General Questions
 
 **Q: What video formats are supported?**
@@ -544,6 +627,8 @@ A: Yes, the server can handle multiple requests, but FFmpeg operations are CPU-i
 
 ---
 
+<!-- /ANCHOR:general-questions -->
+<!-- ANCHOR:technical-questions -->
 ### Technical Questions
 
 **Q: How do I specify video quality?**
@@ -582,8 +667,12 @@ A: Use `-c copy` mode when only changing container format without re-encoding. T
 
 ---
 
+<!-- /ANCHOR:technical-questions -->
+<!-- ANCHOR:9-related-documents -->
 ## 9. 📚 RELATED DOCUMENTS
 
+<!-- /ANCHOR:9-related-documents -->
+<!-- ANCHOR:internal-documentation -->
 ### Internal Documentation
 
 | Document | Purpose |
@@ -592,6 +681,8 @@ A: Use `-c copy` mode when only changing container format without re-encoding. T
 | [Media Editor README](../../README.md) | Parent system documentation |
 | [INSTALL_GUIDE.md](../../INSTALL_GUIDE.md) | Complete installation instructions |
 
+<!-- /ANCHOR:internal-documentation -->
+<!-- ANCHOR:external-resources -->
 ### External Resources
 
 | Resource | Description |
@@ -605,3 +696,5 @@ A: Use `-c copy` mode when only changing container format without re-encoding. T
 ---
 
 *Documentation version: 1.0 | Last updated: 2026-01-03*
+
+<!-- /ANCHOR:external-resources -->

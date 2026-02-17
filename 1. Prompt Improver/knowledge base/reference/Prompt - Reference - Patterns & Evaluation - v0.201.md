@@ -1,3 +1,4 @@
+<!-- ANCHOR:prompt-reference-patterns-and-evaluation-v0-201 -->
 # Prompt - Reference - Patterns & Evaluation - v0.201
 
 Comprehensive framework library, enhancement patterns, and CLEAR evaluation methodology for systematic prompt engineering excellence.
@@ -6,6 +7,8 @@ Comprehensive framework library, enhancement patterns, and CLEAR evaluation meth
 **Purpose:** Provides the complete knowledge base for prompt engineering excellence through framework selection, systematic enhancement patterns, and CLEAR evaluation methodology.
 **Scope:** Framework library (RCAF, COSTAR, RACE, CIDI, TIDD-EC, CRISPE, CRAFT, VIBE, VIBE-MP, FRAME, MOTION) with selection algorithms, enhancement patterns, CLEAR/EVOKE/VISUAL scoring methodologies, recovery protocols, and mastery principles.
 
+<!-- /ANCHOR:prompt-reference-patterns-and-evaluation-v0-201 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎯 FRAMEWORK LIBRARY & SELECTION
@@ -26,8 +29,12 @@ Comprehensive framework library, enhancement patterns, and CLEAR evaluation meth
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-framework-library-and-selection -->
 ## 1. 🎯 FRAMEWORK LIBRARY & SELECTION
 
+<!-- /ANCHOR:1-framework-library-and-selection -->
+<!-- ANCHOR:complete-framework-matrix -->
 ### Complete Framework Matrix
 
 | Framework   | Elements                                                     | Best For                         | Avoid When               | Success Rate |
@@ -44,6 +51,8 @@ Comprehensive framework library, enhancement patterns, and CLEAR evaluation meth
 | **FRAME**   | Focus, Rendering, Atmosphere, Modifiers, Exclusions          | Image generation optimization    | Precision/text prompts   | 90%          |
 | **MOTION**  | Movement, Origin, Temporal, Intention, Orchestration, Nuance | Video generation                 | Static/image prompts     | 90%          |
 
+<!-- /ANCHOR:complete-framework-matrix -->
+<!-- ANCHOR:framework-selection-algorithm -->
 ### Framework Selection Algorithm
 
 ```yaml
@@ -104,6 +113,8 @@ select_optimal_framework:
     output: [primary, confidence, alternative, reasoning]
 ```
 
+<!-- /ANCHOR:framework-selection-algorithm -->
+<!-- ANCHOR:framework-selection-decision-table -->
 ### Framework Selection Decision Table
 
 | Complexity | Urgency | Audience | Creative | Precision | Recommended |
@@ -118,6 +129,8 @@ select_optimal_framework:
 | Image gen  | -       | -        | Yes      | No        | **FRAME**   |
 | Video gen  | -       | -        | Yes      | No        | **MOTION**  |
 
+<!-- /ANCHOR:framework-selection-decision-table -->
+<!-- ANCHOR:design-directions-8-total -->
 ### Design Directions (8 Total)
 
 Used with VIBE/VIBE-MP frameworks for UI concepting:
@@ -135,8 +148,12 @@ Used with VIBE/VIBE-MP frameworks for UI concepting:
 
 ---
 
+<!-- /ANCHOR:design-directions-8-total -->
+<!-- ANCHOR:2-framework-deep-dives -->
 ## 2. 🔧 FRAMEWORK DEEP DIVES
 
+<!-- /ANCHOR:2-framework-deep-dives -->
+<!-- ANCHOR:rcaf-mastery-patterns -->
 ### RCAF Mastery Patterns
 
 **Pattern 1: Layered RCAF** (Representative Example)
@@ -168,6 +185,8 @@ layered_rcaf:
 | RCAF + Metrics   | Embedded success criteria    | Measurable outcome prompts     |
 | Conditional RCAF | If-then role variations      | Context-dependent responses    |
 
+<!-- /ANCHOR:rcaf-mastery-patterns -->
+<!-- ANCHOR:costar-enhancement-techniques -->
 ### COSTAR Enhancement Techniques
 
 **Style-Tone Matrix:**
@@ -179,6 +198,8 @@ layered_rcaf:
 | Casual + Authoritative   | Educational content  | Approachability with credibility |
 | Creative + Professional  | Marketing materials  | Innovation with reliability      |
 
+<!-- /ANCHOR:costar-enhancement-techniques -->
+<!-- ANCHOR:tidd-ec-excellence-cascading-examples -->
 ### TIDD-EC Excellence: Cascading Examples
 
 | Level        | Description      | Key Elements                    |
@@ -189,6 +210,8 @@ layered_rcaf:
 | Edge Case    | Unusual scenario | Special handling considerations |
 | Anti-Pattern | What to avoid    | Why to avoid (explanation)      |
 
+<!-- /ANCHOR:tidd-ec-excellence-cascading-examples -->
+<!-- ANCHOR:frame-framework-image-generation -->
 ### FRAME Framework (Image Generation)
 
 | Element        | Focus                 | Core Question                    |
@@ -243,6 +266,8 @@ frame_structure:
 | **Leonardo**         | Style presets                                        | Yes                      |
 | **Seedream**         | Speed optimization                                   | No                       |
 
+<!-- /ANCHOR:frame-framework-image-generation -->
+<!-- ANCHOR:motion-framework-video-generation -->
 ### MOTION Framework (Video Generation)
 
 | Element           | Focus                    | Core Question                  |
@@ -306,8 +331,12 @@ motion_structure:
 
 ---
 
+<!-- /ANCHOR:motion-framework-video-generation -->
+<!-- ANCHOR:3-advanced-pattern-combinations -->
 ## 3. 🧠 ADVANCED PATTERN COMBINATIONS
 
+<!-- /ANCHOR:3-advanced-pattern-combinations -->
+<!-- ANCHOR:framework-fusion-patterns -->
 ### Framework Fusion Patterns
 
 **RCAF + CoT (Chain of Thought)**
@@ -355,6 +384,8 @@ tidd_ec_fewshot:
   context: "Apply learned patterns to new inputs"
 ```
 
+<!-- /ANCHOR:framework-fusion-patterns -->
+<!-- ANCHOR:framework-fusion-summary -->
 ### Framework Fusion Summary
 
 | Combination            | Use Case             | Key Feature                       |
@@ -367,8 +398,12 @@ tidd_ec_fewshot:
 
 ---
 
+<!-- /ANCHOR:framework-fusion-summary -->
+<!-- ANCHOR:4-framework-optimization-strategies -->
 ## 4. 🎨 FRAMEWORK OPTIMIZATION STRATEGIES
 
+<!-- /ANCHOR:4-framework-optimization-strategies -->
+<!-- ANCHOR:token-optimization -->
 ### Token Optimization
 
 ```yaml
@@ -399,8 +434,12 @@ optimize_framework_tokens:
 
 ---
 
+<!-- /ANCHOR:token-optimization -->
+<!-- ANCHOR:5-systematic-enhancement-methodology -->
 ## 5. 🚀 SYSTEMATIC ENHANCEMENT METHODOLOGY
 
+<!-- /ANCHOR:5-systematic-enhancement-methodology -->
+<!-- ANCHOR:enhancement-pipeline -->
 ### Enhancement Pipeline
 
 ```yaml
@@ -439,8 +478,12 @@ enhancement_pipeline:
 
 ---
 
+<!-- /ANCHOR:enhancement-pipeline -->
+<!-- ANCHOR:6-pattern-based-refinements -->
 ## 6. 🔄 PATTERN-BASED REFINEMENTS
 
+<!-- /ANCHOR:6-pattern-based-refinements -->
+<!-- ANCHOR:vague-to-specific-transformation -->
 ### Vague to Specific Transformation
 
 | Detection                         | Transformation    | Example                                                         |
@@ -452,6 +495,8 @@ enhancement_pipeline:
 
 **Impact:** CLEAR +15 to +20 | Primary: Expression and Logic
 
+<!-- /ANCHOR:vague-to-specific-transformation -->
+<!-- ANCHOR:assumption-elimination -->
 ### Assumption Elimination
 
 | Implicit Reference  | Replacement                       |
@@ -463,6 +508,8 @@ enhancement_pipeline:
 
 **Impact:** CLEAR +3 to +5 | Primary: Correctness
 
+<!-- /ANCHOR:assumption-elimination -->
+<!-- ANCHOR:scope-boundary-definition -->
 ### Scope Boundary Definition
 
 ```yaml
@@ -476,8 +523,12 @@ scope_boundaries:
 
 ---
 
+<!-- /ANCHOR:scope-boundary-definition -->
+<!-- ANCHOR:7-excellence-patterns -->
 ## 7. 💎 EXCELLENCE PATTERNS
 
+<!-- /ANCHOR:7-excellence-patterns -->
+<!-- ANCHOR:complete-context-layering-45-clear -->
 ### Complete Context Layering (45+ CLEAR)
 
 | Layer         | Description             | Elements                                         |
@@ -491,6 +542,8 @@ scope_boundaries:
 
 **Implementation:** For each layer → assess relevance → if relevant, add to context → organize hierarchically
 
+<!-- /ANCHOR:complete-context-layering-45-clear -->
+<!-- ANCHOR:multi-level-success-criteria -->
 ### Multi-Level Success Criteria
 
 | Level          | Description            | Threshold                       | Measurement        |
@@ -507,8 +560,12 @@ scope_boundaries:
 
 ---
 
+<!-- /ANCHOR:multi-level-success-criteria -->
+<!-- ANCHOR:8-recovery-and-repair-protocols -->
 ## 8. 🛠️ RECOVERY & REPAIR PROTOCOLS
 
+<!-- /ANCHOR:8-recovery-and-repair-protocols -->
+<!-- ANCHOR:repair-framework -->
 ### REPAIR Framework
 
 ```yaml
@@ -546,10 +603,14 @@ repair_framework:
 
 ---
 
+<!-- /ANCHOR:repair-framework -->
+<!-- ANCHOR:9-clear-evaluation-mastery -->
 ## 9. ✅ CLEAR EVALUATION MASTERY
 
 > **Note:** For Visual UI Concepting (`$vibe`, `$v`), use **EVOKE scoring**. For Image/Video (`$image`, `$video`), use **VISUAL scoring**.
 
+<!-- /ANCHOR:9-clear-evaluation-mastery -->
+<!-- ANCHOR:clear-dimensions-50-points -->
 ### CLEAR Dimensions (50 points)
 
 | Dimension       | Points | Weight | Assessment Criteria                                |
@@ -560,6 +621,8 @@ repair_framework:
 | **A**rrangement | 10     | 20%    | Structure, organization, logical flow              |
 | **R**eusability | 5      | 10%    | Adaptability, parameterization, flexibility        |
 
+<!-- /ANCHOR:clear-dimensions-50-points -->
+<!-- ANCHOR:context-aware-scoring -->
 ### Context-Aware Scoring
 
 ```yaml
@@ -585,6 +648,8 @@ contextual_clear_scoring:
       logic: 0.15        # Reduced weight
 ```
 
+<!-- /ANCHOR:context-aware-scoring -->
+<!-- ANCHOR:dimension-interdependencies -->
 ### Dimension Interdependencies
 
 | Relationship             | Correlation | Notes                               |
@@ -594,6 +659,8 @@ contextual_clear_scoring:
 | Arrangement ↔ Reuse      | 0.6         | Good structure enables templates    |
 | Expression ↔ Correctness | 0.5         | Clarity prevents misinterpretation  |
 
+<!-- /ANCHOR:dimension-interdependencies -->
+<!-- ANCHOR:clear-vs-evoke-vs-visual -->
 ### CLEAR vs EVOKE vs VISUAL
 
 | Criteria         | CLEAR                | EVOKE                | EVOKE-MP                  | VISUAL                   |
@@ -620,8 +687,12 @@ contextual_clear_scoring:
 
 ---
 
+<!-- /ANCHOR:clear-vs-evoke-vs-visual -->
+<!-- ANCHOR:10-visual-scoring-for-image-and-video -->
 ## 10. 🖼️ VISUAL SCORING FOR IMAGE & VIDEO
 
+<!-- /ANCHOR:10-visual-scoring-for-image-and-video -->
+<!-- ANCHOR:visual-image-mode-60-points -->
 ### VISUAL - Image Mode (60 points)
 
 | Dimension       | Points | Threshold | Criteria                                 |
@@ -634,10 +705,14 @@ contextual_clear_scoring:
 | **L**ayered     | 5      | 4+        | Depth, foreground/background             |
 | **Total**       | **60** | **48+**   | Quality threshold                        |
 
+<!-- /ANCHOR:visual-image-mode-60-points -->
+<!-- ANCHOR:visual-video-mode-70-points -->
 ### VISUAL - Video Mode (70 points)
 
 Adds: **M**otion (10 points, 8+ threshold) - Camera and subject motion described
 
+<!-- /ANCHOR:visual-video-mode-70-points -->
+<!-- ANCHOR:visual-scoring-algorithm -->
 ### VISUAL Scoring Algorithm
 
 ```yaml
@@ -660,6 +735,8 @@ calculate_visual_score:
     - apply_threshold: 48 (image) or 56 (video)
 ```
 
+<!-- /ANCHOR:visual-scoring-algorithm -->
+<!-- ANCHOR:common-visual-fixes -->
 ### Common VISUAL Fixes
 
 | Issue             | Impact         | Fix                            |
@@ -673,8 +750,12 @@ calculate_visual_score:
 
 ---
 
+<!-- /ANCHOR:common-visual-fixes -->
+<!-- ANCHOR:11-advanced-scoring-techniques -->
 ## 11. 📈 ADVANCED SCORING TECHNIQUES
 
+<!-- /ANCHOR:11-advanced-scoring-techniques -->
+<!-- ANCHOR:multi-pass-scoring -->
 ### Multi-Pass Scoring
 
 | Pass | Name                | Checks                                                      | Depth         | Weight |
@@ -685,6 +766,8 @@ calculate_visual_score:
 
 **Aggregation:** Weighted average of pass scores
 
+<!-- /ANCHOR:multi-pass-scoring -->
+<!-- ANCHOR:comparative-scoring -->
 ### Comparative Scoring
 
 ```yaml
@@ -704,6 +787,8 @@ comparative_scoring:
 
 ---
 
+<!-- /ANCHOR:comparative-scoring -->
+<!-- ANCHOR:12-weakness-detection-and-analysis -->
 ## 12. 🔍 WEAKNESS DETECTION & ANALYSIS
 
 ```yaml
@@ -739,8 +824,12 @@ detect_prompt_weaknesses:
 
 ---
 
+<!-- /ANCHOR:12-weakness-detection-and-analysis -->
+<!-- ANCHOR:13-use-case-templates -->
 ## 13. 📊 USE CASE TEMPLATES
 
+<!-- /ANCHOR:13-use-case-templates -->
+<!-- ANCHOR:software-development -->
 ### Software Development
 
 ```yaml
@@ -771,6 +860,8 @@ code_review_template:
   format: "Structured feedback with severity levels"
 ```
 
+<!-- /ANCHOR:software-development -->
+<!-- ANCHOR:data-analysis -->
 ### Data Analysis
 
 ```yaml
@@ -785,8 +876,12 @@ exploratory_data_analysis:
 
 ---
 
+<!-- /ANCHOR:data-analysis -->
+<!-- ANCHOR:14-mastery-principles -->
 ## 14. 🎓 MASTERY PRINCIPLES
 
+<!-- /ANCHOR:14-mastery-principles -->
+<!-- ANCHOR:ten-commandments-of-prompt-excellence -->
 ### Ten Commandments of Prompt Excellence
 
 | #   | Principle                       | Key Guidance                                                                         |
@@ -802,6 +897,8 @@ exploratory_data_analysis:
 | 9   | Iterate Based on Output         | Start with v1 → Refine based on results → Stop at diminishing returns                |
 | 10  | Document for Reuse              | Build templates not one-offs → Extract patterns → Share knowledge                    |
 
+<!-- /ANCHOR:ten-commandments-of-prompt-excellence -->
+<!-- ANCHOR:excellence-formula -->
 ### Excellence Formula
 
 ```yaml
@@ -832,8 +929,12 @@ excellence_formula:
 
 ---
 
+<!-- /ANCHOR:excellence-formula -->
+<!-- ANCHOR:15-quick-reference-card -->
 ## 15. 🏎️ QUICK REFERENCE CARD
 
+<!-- /ANCHOR:15-quick-reference-card -->
+<!-- ANCHOR:framework-quick-select -->
 ### Framework Quick Select
 
 | Complexity/Need     | Framework |
@@ -850,6 +951,8 @@ excellence_formula:
 | Image generation    | FRAME     |
 | Video generation    | MOTION    |
 
+<!-- /ANCHOR:framework-quick-select -->
+<!-- ANCHOR:enhancement-priority -->
 ### Enhancement Priority
 
 | Score | Action                   |
@@ -861,6 +964,8 @@ excellence_formula:
 | 40-45 | Optional refinements     |
 | 45+   | Ship it!                 |
 
+<!-- /ANCHOR:enhancement-priority -->
+<!-- ANCHOR:common-fixes -->
 ### Common Fixes
 
 | Problem         | Solution                      |
@@ -873,6 +978,8 @@ excellence_formula:
 | Not reusable    | Extract parameters            |
 | Visual UI       | Switch to VIBE                |
 
+<!-- /ANCHOR:common-fixes -->
+<!-- ANCHOR:power-combinations -->
 ### Power Combinations
 
 | Combination        | Use Case               |
@@ -883,6 +990,8 @@ excellence_formula:
 | RACE + ToT         | Quick decisions        |
 | CRAFT + All        | Maximum power          |
 
+<!-- /ANCHOR:power-combinations -->
+<!-- ANCHOR:unified-severity-scale -->
 ### Unified Severity Scale
 
 | Range  | Quality   | Action                  | Urgency |
@@ -897,3 +1006,5 @@ excellence_formula:
 ---
 
 *This Patterns, Enhancements & Evaluation framework establishes the comprehensive knowledge base for prompt engineering excellence. It provides the complete framework library, systematic enhancement patterns, CLEAR/EVOKE/VISUAL evaluation methodologies, recovery protocols, and practical implementation templates.*
+
+<!-- /ANCHOR:unified-severity-scale -->
