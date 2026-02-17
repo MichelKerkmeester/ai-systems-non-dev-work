@@ -1,3 +1,4 @@
+<!-- ANCHOR:owner-templates-epic-mode-v0-152 -->
 # Owner - Templates - Epic Mode - v0.152
 
 Epic templates with integrated formatting rules and quality standards. All delivery logic consolidated for self-contained operation.
@@ -7,6 +8,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 **Scope:** Epic mode overview and command syntax, artifact delivery standards and DEPTH Framework application, complexity auto-scaling based on project keywords, symbol hierarchy and formatting rules, quality validation checklists and error recovery protocols, unified epic template with example structure
 **Output Path:** `/export/[###]-artifact.md`
 
+<!-- /ANCHOR:owner-templates-epic-mode-v0-152 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 📝 EPIC MODE OVERVIEW
@@ -21,8 +24,12 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-epic-mode-overview -->
 ## 1. 📝 EPIC MODE OVERVIEW
 
+<!-- /ANCHOR:1-epic-mode-overview -->
+<!-- ANCHOR:command-epic-alias-e -->
 ### Command: `$epic` (alias: `$e`)
 
 - **Purpose:** Create Epic documents as summaries with links to related stories and tasks
@@ -33,12 +40,16 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - **Output Constraints:** Epic limited to user's exact request, no scope expansion
 - **Related Templates:** Story Mode for child story decomposition
 
+<!-- /ANCHOR:command-epic-alias-e -->
+<!-- ANCHOR:critical-rules -->
 ### Critical Rules
 - **NEVER create artifact until user responds to comprehensive question**
 - **NEVER answer own questions - always wait for user response**
 - **NO TABLE OF CONTENTS** - ClickUp/Jira provide native TOC functionality
 - **SUMMARY FORMAT:** Epic is overview with links to stories/tasks, not full specifications
 
+<!-- /ANCHOR:critical-rules -->
+<!-- ANCHOR:symbol-hierarchy-production-aligned -->
 ### Symbol Hierarchy (Production-Aligned)
 - **H1:** Title only (e.g., `# Epic Name`)
 - **H2:** `## ⌘ About` section
@@ -48,8 +59,12 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 ---
 
+<!-- /ANCHOR:symbol-hierarchy-production-aligned -->
+<!-- ANCHOR:2-delivery-standards -->
 ## 2. 📦 DELIVERY STANDARDS
 
+<!-- /ANCHOR:2-delivery-standards -->
+<!-- ANCHOR:universal-requirements -->
 ### Universal Requirements
 - **Artifact Type:** Always use `text/markdown` (never `text/plain`)
 - **Single Artifact:** All content delivered as one artifact
@@ -59,6 +74,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - **Wait for Input:** NEVER proceed without user response to questions
 - **Template Compliance:** Use structure exactly
 
+<!-- /ANCHOR:universal-requirements -->
+<!-- ANCHOR:epic-specific-standards -->
 ### Epic-Specific Standards
 - **Structure:** Single unified template that scales naturally with content
 - **Output Focus:** ONLY deliver what user requested
@@ -66,6 +83,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - **Multiple Perspectives:** All analyze the SAME epic requirements
 - **Convergent Output:** Many approaches considered, ONE delivered
 
+<!-- /ANCHOR:epic-specific-standards -->
+<!-- ANCHOR:structure-order -->
 ### Structure Order
 1. Title (`# Epic Name`) - First line
 2. About (`## ⌘ About`) - Context narrative
@@ -76,6 +95,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 7. References (`**References**`) - Optional, with Flows/Components subsections
 8. Requirements (`### ❖ Requirements`) - Feature areas with numbered items
 
+<!-- /ANCHOR:structure-order -->
+<!-- ANCHOR:never -->
 ### Never:
 - Use `text/plain` - Causes raw markdown display
 - Mix artifact and response text
@@ -91,6 +112,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - Use H1 for anything other than the title
 - Put Success Criteria as a separate H2 section (use bold text inline)
 
+<!-- /ANCHOR:never -->
+<!-- ANCHOR:always -->
 ### Always:
 - Use proper `text/markdown` type
 - Document mode and scaling applied
@@ -108,6 +131,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 ---
 
+<!-- /ANCHOR:always -->
+<!-- ANCHOR:3-complexity-auto-scaling -->
 ## 3. 📊 COMPLEXITY AUTO-SCALING
 
 | Keywords             | Complexity | Feature Areas | Features | DEPTH Processing        |
@@ -120,6 +145,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - User requests "platform epic" - Standard complexity for THAT platform only
 - NOT: Multiple platforms or extra features beyond request
 
+<!-- /ANCHOR:3-complexity-auto-scaling -->
+<!-- ANCHOR:depth-processing-standards -->
 ### DEPTH Processing Standards
 - **Silent excellence:** User never sees methodology details
 - **Automatic application:** No user choice on depth
@@ -129,10 +156,16 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 ---
 
+<!-- /ANCHOR:depth-processing-standards -->
+<!-- ANCHOR:4-formatting-rules-and-standards -->
 ## 4. ✨ FORMATTING RULES & STANDARDS
 
+<!-- /ANCHOR:4-formatting-rules-and-standards -->
+<!-- ANCHOR:mandatory-structure-elements -->
 ### Mandatory Structure Elements
 
+<!-- /ANCHOR:mandatory-structure-elements -->
+<!-- ANCHOR:symbol-hierarchy-production-aligned-2 -->
 #### Symbol Hierarchy (Production-Aligned)
 - **H1 (#):** Title only - `# Epic Name`
 - **H2 (##):** About section - `## ⌘ About`
@@ -140,6 +173,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - **Bold text:** Success Criteria, References, Flows, Components - `**Success Criteria**`
 - **Numbered bold:** Individual requirements - `1. **Feature Name**`
 
+<!-- /ANCHOR:symbol-hierarchy-production-aligned-2 -->
+<!-- ANCHOR:structure-order-2 -->
 #### Structure Order
 1. `# [Epic Title]`
 2. `## ⌘ About` with `---` divider after header
@@ -156,6 +191,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 13. `### ❖ Requirements` with `---` divider after
 14. `### [Feature Area]` sections with numbered requirements
 
+<!-- /ANCHOR:structure-order-2 -->
+<!-- ANCHOR:formatting-standards -->
 #### Formatting Standards
 - **Dividers:** Use `---` after section headers AND between major feature areas
 - **Lists:** Always use `-` for bullets
@@ -165,6 +202,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - **Status Notes:** Format as `[Status note: "description"]`
 - **Feature Links:** Link to stories/tasks, don't duplicate content
 
+<!-- /ANCHOR:formatting-standards -->
+<!-- ANCHOR:visual-hierarchy-rules -->
 ### Visual Hierarchy Rules
 - `---` divider AFTER section headers (not before)
 - `---` divider BETWEEN major feature areas
@@ -173,6 +212,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - Consistent spacing throughout
 - Numbered bold for individual requirements
 
+<!-- /ANCHOR:visual-hierarchy-rules -->
+<!-- ANCHOR:content-integration -->
 ### Content Integration
 - Strategic context in brief About section
 - Success criteria quantified and measurable
@@ -182,8 +223,12 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 ---
 
+<!-- /ANCHOR:content-integration -->
+<!-- ANCHOR:5-quality-checklist -->
 ## 5. ✅ QUALITY CHECKLIST
 
+<!-- /ANCHOR:5-quality-checklist -->
+<!-- ANCHOR:pre-creation-validation -->
 ### Pre-Creation Validation
 - [ ] Problem statement defined?
 - [ ] Success criteria measurable?
@@ -195,6 +240,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - [ ] Template version confirmed?
 - [ ] Output scope limited to user request?
 
+<!-- /ANCHOR:pre-creation-validation -->
+<!-- ANCHOR:structure-validation -->
 ### Structure Validation
 - [ ] Title as H1 first line?
 - [ ] About section as H2 with ⌘ symbol?
@@ -209,6 +256,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - [ ] Feature list includes story/task links?
 - [ ] Dividers after section headers?
 
+<!-- /ANCHOR:structure-validation -->
+<!-- ANCHOR:format-validation -->
 ### Format Validation
 - [ ] Using `text/markdown` artifact type?
 - [ ] Lists use `-` bullets?
@@ -219,6 +268,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 - [ ] Features limited to user's request?
 - [ ] Status notes use standard format?
 
+<!-- /ANCHOR:format-validation -->
+<!-- ANCHOR:mode-specific-validation -->
 ### Mode-Specific Validation
 - [ ] Title at top as H1?
 - [ ] About concise (2-3 paragraphs)?
@@ -229,52 +280,84 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 ---
 
+<!-- /ANCHOR:mode-specific-validation -->
+<!-- ANCHOR:6-error-recovery -->
 ## 6. 🚨 ERROR RECOVERY
 
+<!-- /ANCHOR:6-error-recovery -->
+<!-- ANCHOR:common-errors-and-fixes -->
 ### Common Errors & Fixes
 
+<!-- /ANCHOR:common-errors-and-fixes -->
+<!-- ANCHOR:wrong-symbol-hierarchy -->
 #### Wrong Symbol Hierarchy
 **Error:** Using H1 for About or Requirements
 **Fix:** H1 for title only, H2 for About, H3 for Requirements
 
+<!-- /ANCHOR:wrong-symbol-hierarchy -->
+<!-- ANCHOR:success-criteria-as-h2-section -->
 #### Success Criteria as H2 Section
 **Error:** Using `## ✦ Success Criteria`
 **Fix:** Use bold text `**Success Criteria**` after About narrative
 
+<!-- /ANCHOR:success-criteria-as-h2-section -->
+<!-- ANCHOR:references-as-h2-section -->
 #### References as H2 Section
 **Error:** Using `## ⌥ Designs & References`
 **Fix:** Use bold text `**References**` with Flows/Components subsections
 
+<!-- /ANCHOR:references-as-h2-section -->
+<!-- ANCHOR:about-section-too-long -->
 #### About Section Too Long
 **Fix:** Condense to 2-3 paragraphs maximum
 
+<!-- /ANCHOR:about-section-too-long -->
+<!-- ANCHOR:created-without-user-input -->
 #### Created Without User Input
 **Fix:** Stop, apologize, ask comprehensive question, WAIT
 
+<!-- /ANCHOR:created-without-user-input -->
+<!-- ANCHOR:added-unrequested-features -->
 #### Added Unrequested Features
 **Fix:** Remove extras, keep only requested scope
 
+<!-- /ANCHOR:added-unrequested-features -->
+<!-- ANCHOR:wrong-artifact-type -->
 #### Wrong Artifact Type
 **Fix:** Recreate with `text/markdown`
 
+<!-- /ANCHOR:wrong-artifact-type -->
+<!-- ANCHOR:missing-dividers -->
 #### Missing Dividers
 **Fix:** Add `---` after section headers and between feature areas
 
+<!-- /ANCHOR:missing-dividers -->
+<!-- ANCHOR:duplicating-story-content -->
 #### Duplicating Story Content
 **Fix:** Remove detailed specs, add links to stories instead
 
+<!-- /ANCHOR:duplicating-story-content -->
+<!-- ANCHOR:missing-feature-links -->
 #### Missing Feature Links
 **Fix:** Add links to related stories and tasks
 
+<!-- /ANCHOR:missing-feature-links -->
+<!-- ANCHOR:missing-timeline-milestones -->
 #### Missing Timeline/Milestones
 **Fix:** Add `### ⏱ Timeline & Milestones` section with dates table
 
+<!-- /ANCHOR:missing-timeline-milestones -->
+<!-- ANCHOR:missing-dependencies -->
 #### Missing Dependencies
 **Fix:** Add `### 🔗 Dependencies` section with blocking relationships
 
+<!-- /ANCHOR:missing-dependencies -->
+<!-- ANCHOR:missing-child-stories -->
 #### Missing Child Stories
 **Fix:** Add `### 📝 Child Stories` section with story status table
 
+<!-- /ANCHOR:missing-child-stories -->
+<!-- ANCHOR:prevention-strategies -->
 ### Prevention Strategies
 1. Apply DEPTH automatically (10 rounds standard, 1-5 quick)
 2. Wait for comprehensive response
@@ -294,6 +377,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 ---
 
+<!-- /ANCHOR:prevention-strategies -->
+<!-- ANCHOR:7-epic-template -->
 ## 7. 📋 EPIC TEMPLATE
 
 ```markdown
@@ -438,6 +523,8 @@ Epic templates with integrated formatting rules and quality standards. All deliv
 
 ---
 
+<!-- /ANCHOR:7-epic-template -->
+<!-- ANCHOR:8-template-example-production-style -->
 ## 8. 📄 TEMPLATE EXAMPLE (Production-Style)
 
 ```markdown
@@ -604,6 +691,8 @@ Filter chat list to show only conversations from a specific company.
 
 ---
 
+<!-- /ANCHOR:8-template-example-production-style -->
+<!-- ANCHOR:9-final-reminders -->
 ## 9. 🎯 FINAL REMINDERS
 
 1. **Always wait** for user response (except $quick)
@@ -624,3 +713,5 @@ Filter chat list to show only conversations from a specific company.
 16. **DEPTH Framework** applied automatically (10 rounds standard, 1-5 $quick)
 17. **Link to stories/tasks** - don't duplicate their content
 18. **Interactive questions** handled by Interactive Mode
+
+<!-- /ANCHOR:9-final-reminders -->

@@ -1,9 +1,12 @@
+<!-- ANCHOR:notion-mcp-server-installation-guide -->
 # Notion MCP Server Installation Guide
 
 A practical guide to installing and configuring the official Notion MCP server for the Notion Agent system.
 
 ---
 
+<!-- /ANCHOR:notion-mcp-server-installation-guide -->
+<!-- ANCHOR:ai-first-install-guide -->
 ## 🤖 AI-FIRST INSTALL GUIDE
 
 **Copy and paste this prompt to your AI assistant to get installation help:**
@@ -22,6 +25,8 @@ My OS is: [macOS / Windows / Linux]
 My preferred install method is: [Docker / NPX]
 ```
 
+<!-- /ANCHOR:ai-first-install-guide -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 📖 OVERVIEW
@@ -35,6 +40,8 @@ My preferred install method is: [Docker / NPX]
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-overview -->
 ## 1. 📖 OVERVIEW
 
 The Notion MCP server lets MCP-compatible clients (Claude Desktop, OpenCode, etc.) perform native Notion operations (search, pages, databases/data sources, blocks) using your Notion integration token.
@@ -43,10 +50,14 @@ This repo includes a Docker Compose setup in `Notion/mcp server/notion-mcp`.
 
 ---
 
+<!-- /ANCHOR:1-overview -->
+<!-- ANCHOR:2-prerequisites -->
 ## 2. 📋 PREREQUISITES
 
 Before installing the Notion MCP server, ensure you have:
 
+<!-- /ANCHOR:2-prerequisites -->
+<!-- ANCHOR:required -->
 ### Required
 - **Notion Workspace** (you must be an admin to create integrations)
 - **MCP Client** (Claude Desktop, OpenCode, or VS Code)
@@ -54,8 +65,12 @@ Before installing the Notion MCP server, ensure you have:
 
 ---
 
+<!-- /ANCHOR:required -->
+<!-- ANCHOR:3-notion-setup -->
 ## 3. 🔑 NOTION SETUP
 
+<!-- /ANCHOR:3-notion-setup -->
+<!-- ANCHOR:step-1-create-internal-integration -->
 ### Step 1: Create Internal Integration
 
 1. Go to [Notion Integrations](https://www.notion.so/profile/integrations)
@@ -64,6 +79,8 @@ Before installing the Notion MCP server, ensure you have:
 4. Name it (e.g., "Notion Agent")
 5. Copy the **Internal Integration Token** (starts with `ntn_`)
 
+<!-- /ANCHOR:step-1-create-internal-integration -->
+<!-- ANCHOR:step-2-grant-access -->
 ### Step 2: Grant Access
 
 Notion will return permission errors unless the content is shared with the integration.
@@ -80,10 +97,16 @@ Notion will return permission errors unless the content is shared with the integ
 
 ---
 
+<!-- /ANCHOR:step-2-grant-access -->
+<!-- ANCHOR:4-installation -->
 ## 4. 📥 INSTALLATION
 
+<!-- /ANCHOR:4-installation -->
+<!-- ANCHOR:option-a-docker-recommended -->
 ### Option A: Docker (Recommended)
 
+<!-- /ANCHOR:option-a-docker-recommended -->
+<!-- ANCHOR:a1-repo-local-docker-compose-persistent -->
 #### A1. Repo-local Docker Compose (Persistent)
 
 This method keeps a container running in the background, which is faster for repeated use.
@@ -108,6 +131,8 @@ This method keeps a container running in the background, which is faster for rep
    docker-compose up -d --build
    ```
 
+<!-- /ANCHOR:a1-repo-local-docker-compose-persistent -->
+<!-- ANCHOR:a2-official-docker-image-on-demand -->
 #### A2. Official Docker Image (On-Demand)
 
 This method spins up a temporary container for each session. No local files needed.
@@ -116,6 +141,8 @@ This method spins up a temporary container for each session. No local files need
 
 ---
 
+<!-- /ANCHOR:a2-official-docker-image-on-demand -->
+<!-- ANCHOR:option-b-npx-no-docker -->
 ### Option B: NPX (No Docker)
 
 Requires Node.js installed locally.
@@ -124,8 +151,12 @@ Requires Node.js installed locally.
 
 ---
 
+<!-- /ANCHOR:option-b-npx-no-docker -->
+<!-- ANCHOR:5-configuration -->
 ## 5. ⚙️ CONFIGURATION
 
+<!-- /ANCHOR:5-configuration -->
+<!-- ANCHOR:claude-desktop -->
 ### Claude Desktop
 
 Config file locations:
@@ -175,6 +206,8 @@ Config file locations:
 }
 ```
 
+<!-- /ANCHOR:claude-desktop -->
+<!-- ANCHOR:opencode -->
 ### OpenCode
 
 Add to `.utcp_config.json` or `opencode.json`:
@@ -193,6 +226,8 @@ Add to `.utcp_config.json` or `opencode.json`:
 
 ---
 
+<!-- /ANCHOR:opencode -->
+<!-- ANCHOR:6-verification -->
 ## 6. ✅ VERIFICATION
 
 1. **Restart your MCP Client** (fully quit and reopen)
@@ -205,8 +240,12 @@ Add to `.utcp_config.json` or `opencode.json`:
 
 ---
 
+<!-- /ANCHOR:6-verification -->
+<!-- ANCHOR:7-troubleshooting -->
 ## 7. 🔧 TROUBLESHOOTING
 
+<!-- /ANCHOR:7-troubleshooting -->
+<!-- ANCHOR:token-issues -->
 ### ❌ Token Issues
 **Error:** "Unauthorized" or "Invalid token"
 **Fix:**
@@ -214,6 +253,8 @@ Add to `.utcp_config.json` or `opencode.json`:
 - Regenerate token in Notion Integrations dashboard
 - Check `.env` file for typos (no quotes needed usually)
 
+<!-- /ANCHOR:token-issues -->
+<!-- ANCHOR:permission-errors -->
 ### ❌ Permission Errors
 **Error:** "Object not found" or "Restricted"
 **Fix:**
@@ -221,6 +262,8 @@ Add to `.utcp_config.json` or `opencode.json`:
 - You **MUST** explicitly share pages/databases with the integration user
 - Check the "Connections" menu on the specific page you want to access
 
+<!-- /ANCHOR:permission-errors -->
+<!-- ANCHOR:docker-connection-refused -->
 ### ❌ Docker Connection Refused
 **Error:** "Error connecting to container"
 **Fix:**
@@ -230,8 +273,12 @@ Add to `.utcp_config.json` or `opencode.json`:
 
 ---
 
+<!-- /ANCHOR:docker-connection-refused -->
+<!-- ANCHOR:8-resources -->
 ## 8. 📚 RESOURCES
 
 - **Official Repo**: [makenotion/notion-mcp-server](https://github.com/makenotion/notion-mcp-server)
 - **Notion API Docs**: [developers.notion.com](https://developers.notion.com/)
 - **MCP Documentation**: [modelcontextprotocol.io](https://modelcontextprotocol.io)
+
+<!-- /ANCHOR:8-resources -->

@@ -1,3 +1,4 @@
+<!-- ANCHOR:webflow-mcp-knowledge-v0-413 -->
 # Webflow - MCP Knowledge - v0.413
 
 Technical reference for Webflow MCP server capabilities and integration for Designer and Data API operations.
@@ -6,6 +7,8 @@ Technical reference for Webflow MCP server capabilities and integration for Desi
 **Purpose:** Provides comprehensive technical specifications for Webflow MCP server operations when API-specific knowledge is needed for collection, content, or component operations
 **Scope:** Server architecture, connection protocols, Designer API operations (elements, styles, components), Data API operations (collections, content, publishing), field types, workflows, limitations, rate limits, companion app requirements, and integration references
 
+<!-- /ANCHOR:webflow-mcp-knowledge-v0-413 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🔌 SERVER OVERVIEW
@@ -19,8 +22,12 @@ Technical reference for Webflow MCP server capabilities and integration for Desi
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-server-overview -->
 ## 1. 🔌 SERVER OVERVIEW
 
+<!-- /ANCHOR:1-server-overview -->
+<!-- ANCHOR:mcp-server-details -->
 ### MCP Server Details
 
 The Webflow MCP Server provides native integration with both Designer API and Data API for visual design and content management operations. It supports OAuth 2.0 (recommended) and API token-based authentication.
@@ -38,6 +45,8 @@ The Webflow MCP Server provides native integration with both Designer API and Da
 
 **Important:** This server executes **ZERO custom code**. All operations use native Webflow API endpoints exclusively. Custom JavaScript, CSS, or HTML generation is absolutely forbidden (0% custom code generation). The Designer API requires the MCP Bridge App companion application.
 
+<!-- /ANCHOR:mcp-server-details -->
+<!-- ANCHOR:system-architecture -->
 ### System Architecture
 
 The Webflow MCP workflow follows a strict sequence to ensure proper connectivity and API access:
@@ -69,6 +78,8 @@ The Webflow MCP workflow follows a strict sequence to ensure proper connectivity
 - **Designer API:** Requires MCP Bridge App companion for visual elements, styles, and components
 - **Data API:** Requires OAuth (remote) or API token (local) for collections, content, and publishing
 
+<!-- /ANCHOR:system-architecture -->
+<!-- ANCHOR:core-principle -->
 ### Core Principle
 
 **ABSOLUTE RULE:** Only native Webflow API calls are allowed. Custom code generation of any kind is strictly forbidden with 0% tolerance.
@@ -88,6 +99,8 @@ The Webflow MCP workflow follows a strict sequence to ensure proper connectivity
 
 This policy has **ABSOLUTE enforcement with no exceptions**.
 
+<!-- /ANCHOR:core-principle -->
+<!-- ANCHOR:connection-verification -->
 ### Connection Verification
 
 **Reference:** Connection verification logic is in Interactive Intelligence. SYNC methodology phases in SYNC Thinking Framework.
@@ -131,8 +144,12 @@ async function verifyConnection() {
 
 ---
 
+<!-- /ANCHOR:connection-verification -->
+<!-- ANCHOR:2-core-capabilities -->
 ## 2. 🛠️ CORE CAPABILITIES
 
+<!-- /ANCHOR:2-core-capabilities -->
+<!-- ANCHOR:available-operations -->
 ### Available Operations
 
 **Note:** SYNC thinking methodology (Survey → Yield → Navigate → Create) and conversation flows are defined in SYNC Thinking Framework and Interactive Intelligence.
@@ -196,6 +213,8 @@ data_api_operations:
     requires: "OAuth only"
 ```
 
+<!-- /ANCHOR:available-operations -->
+<!-- ANCHOR:what-you-can-do -->
 ### What You CAN Do ✅
 
 **Designer API Operations (Native API Only):**
@@ -222,6 +241,8 @@ Content and structural operations using native APIs:
 
 **IMPORTANT:** All operations use native API calls only. Custom code generation is **NEVER** allowed (0% tolerance).
 
+<!-- /ANCHOR:what-you-can-do -->
+<!-- ANCHOR:what-you-cannot-do -->
 ### What You CANNOT Do ❌
 
 **Custom Code Restriction (ABSOLUTE):**
@@ -265,8 +286,12 @@ Content and structural operations using native APIs:
 
 ---
 
+<!-- /ANCHOR:what-you-cannot-do -->
+<!-- ANCHOR:3-format-support -->
 ## 3. 📊 FORMAT SUPPORT
 
+<!-- /ANCHOR:3-format-support -->
+<!-- ANCHOR:field-types-available -->
 ### Field Types Available
 
 ```yaml
@@ -354,8 +379,12 @@ field_types:
 
 ---
 
+<!-- /ANCHOR:field-types-available -->
+<!-- ANCHOR:4-designer-api-operations -->
 ## 4. 🎨 DESIGNER API OPERATIONS
 
+<!-- /ANCHOR:4-designer-api-operations -->
+<!-- ANCHOR:native-element-management -->
 ### Native Element Management
 
 ```yaml
@@ -433,6 +462,8 @@ moveElement:
   requires: "MCP Bridge App"
 ```
 
+<!-- /ANCHOR:native-element-management -->
+<!-- ANCHOR:native-style-operations -->
 ### Native Style Operations
 
 ```yaml
@@ -505,6 +536,8 @@ createBreakpoint:
   requires: "MCP Bridge App"
 ```
 
+<!-- /ANCHOR:native-style-operations -->
+<!-- ANCHOR:native-component-system -->
 ### Native Component System
 
 ```yaml
@@ -572,6 +605,8 @@ updateComponent:
   requires: "MCP Bridge App"
 ```
 
+<!-- /ANCHOR:native-component-system -->
+<!-- ANCHOR:requirements -->
 ### Requirements
 
 ```yaml
@@ -600,8 +635,12 @@ designer_api_requirements:
 
 ---
 
+<!-- /ANCHOR:requirements -->
+<!-- ANCHOR:5-data-api-operations -->
 ## 5. 📈 DATA API OPERATIONS
 
+<!-- /ANCHOR:5-data-api-operations -->
+<!-- ANCHOR:collection-management -->
 ### Collection Management
 
 ```yaml
@@ -673,6 +712,8 @@ listCollections:
   method: "Native API"
 ```
 
+<!-- /ANCHOR:collection-management -->
+<!-- ANCHOR:content-operations -->
 ### Content Operations
 
 ```yaml
@@ -750,6 +791,8 @@ bulkUpdate:
   rate_limit: "Respect 60/minute limit"
 ```
 
+<!-- /ANCHOR:content-operations -->
+<!-- ANCHOR:operation-prerequisites -->
 ### Operation Prerequisites
 
 ```yaml
@@ -768,8 +811,12 @@ before_any_data_operation:
 
 ---
 
+<!-- /ANCHOR:operation-prerequisites -->
+<!-- ANCHOR:6-publishing-workflows -->
 ## 6. 🚀 PUBLISHING WORKFLOWS
 
+<!-- /ANCHOR:6-publishing-workflows -->
+<!-- ANCHOR:publishing-states -->
 ### Publishing States
 
 ```yaml
@@ -790,6 +837,8 @@ publishing_states:
     connection_required: true
 ```
 
+<!-- /ANCHOR:publishing-states -->
+<!-- ANCHOR:publishing-operations -->
 ### Publishing Operations
 
 ```yaml
@@ -831,6 +880,8 @@ schedulePublish:
   method: "Native API"
 ```
 
+<!-- /ANCHOR:publishing-operations -->
+<!-- ANCHOR:publishing-patterns -->
 ### Publishing Patterns
 
 ```yaml
@@ -861,8 +912,12 @@ publishing_protocol:
 
 ---
 
+<!-- /ANCHOR:publishing-patterns -->
+<!-- ANCHOR:7-limitations -->
 ## 7. ⚠️ LIMITATIONS
 
+<!-- /ANCHOR:7-limitations -->
+<!-- ANCHOR:critical-limitations -->
 ### Critical Limitations
 
 ```yaml
@@ -984,8 +1039,12 @@ access_requirements:
 
 ---
 
+<!-- /ANCHOR:critical-limitations -->
+<!-- ANCHOR:8-quick-reference -->
 ## 8. 🏎️ QUICK REFERENCE
 
+<!-- /ANCHOR:8-quick-reference -->
+<!-- ANCHOR:mcp-tools-summary -->
 ### MCP Tools Summary
 
 **Complete tool list:** See [GitHub repository tools directory](https://github.com/webflow/mcp-server/tree/main/src/tools) for all available tools and parameters.
@@ -1050,6 +1109,8 @@ tool_categories:
     - "localDeMCPConnection.ts - Local bridge connection"
 ```
 
+<!-- /ANCHOR:mcp-tools-summary -->
+<!-- ANCHOR:integration-references -->
 ### Integration References
 
 ```yaml
@@ -1111,6 +1172,8 @@ related_documents:
     note: "Document may not exist yet - placeholder for future"
 ```
 
+<!-- /ANCHOR:integration-references -->
+<!-- ANCHOR:decision-tree -->
 ### Decision Tree
 
 ```
@@ -1129,6 +1192,8 @@ Content management? → Yes → Data API
 Ask for clarification
 ```
 
+<!-- /ANCHOR:decision-tree -->
+<!-- ANCHOR:capability-check -->
 ### Capability Check
 
 ```python
@@ -1147,6 +1212,8 @@ can_do = {
 }
 ```
 
+<!-- /ANCHOR:capability-check -->
+<!-- ANCHOR:pre-operation-protocol -->
 ### Pre-Operation Protocol
 
 ```markdown
@@ -1160,6 +1227,8 @@ Every Operation Requires:
 6. Ready to execute ✓
 ```
 
+<!-- /ANCHOR:pre-operation-protocol -->
+<!-- ANCHOR:critical-rules-summary -->
 ### Critical Rules Summary
 
 ```markdown
@@ -1172,6 +1241,8 @@ THE FIVE ABSOLUTES:
 5. REPAIR protocol for all errors
 ```
 
+<!-- /ANCHOR:critical-rules-summary -->
+<!-- ANCHOR:performance-characteristics -->
 ### Performance Characteristics
 
 ```yaml
@@ -1194,3 +1265,5 @@ performance:
 ---
 
 *This document focuses exclusively on Webflow MCP server capabilities and technical specifications. For SYNC thinking methodology (Survey → Yield → Navigate → Create), see Webflow - SYNC Thinking Framework. For conversation flows and error handling (REPAIR protocol), see Webflow - Interactive Intelligence.*
+
+<!-- /ANCHOR:performance-characteristics -->

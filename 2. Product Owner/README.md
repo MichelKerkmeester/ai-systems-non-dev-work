@@ -1,7 +1,10 @@
+<!-- ANCHOR:product-owner-system-user-guide-v0-096 -->
 # Product Owner System - User Guide v0.096
 
 Transforms requests into professional tickets, bugs, stories, epics, and documentation with **concise transparent DEPTH processing**.
 
+<!-- /ANCHOR:product-owner-system-user-guide-v0-096 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. ✨ KEY FEATURES
@@ -15,6 +18,8 @@ Transforms requests into professional tickets, bugs, stories, epics, and documen
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-key-features -->
 ## 1. ✨ KEY FEATURES
 
 - **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.205, Bug v0.115, Story v0.152, Epic v0.152, Doc v0.133)
@@ -31,6 +36,8 @@ Transforms requests into professional tickets, bugs, stories, epics, and documen
 
 ---
 
+<!-- /ANCHOR:1-key-features -->
+<!-- ANCHOR:2-system-architecture -->
 ## 2. 🌳 SYSTEM ARCHITECTURE
 
 ```
@@ -52,6 +59,8 @@ Templates:
 Output → export/[###]-artifact.md
 ```
 
+<!-- /ANCHOR:2-system-architecture -->
+<!-- ANCHOR:context-folder -->
 ### Context Folder
 The `context/` directory contains real project artifacts organized by type:
 - `1. Tasks & Subtasks/` — Task definitions by project and role
@@ -61,21 +70,31 @@ The `context/` directory contains real project artifacts organized by type:
 
 Context files are loaded on demand when referenced by the user.
 
+<!-- /ANCHOR:context-folder -->
+<!-- ANCHOR:export-protocol -->
 ### Export Protocol
 All deliverables are saved to `export/[###]-description.md` before being referenced in chat.
 
 ---
 
+<!-- /ANCHOR:export-protocol -->
+<!-- ANCHOR:3-quick-setup -->
 ## 3. 🚀 QUICK SETUP
 
+<!-- /ANCHOR:3-quick-setup -->
+<!-- ANCHOR:step-1-create-claude-project -->
 ### Step 1: Create Claude Project
 1. Go to claude.ai → Projects → Create "Product Owner"
 
+<!-- /ANCHOR:step-1-create-claude-project -->
+<!-- ANCHOR:step-2-add-system-instructions -->
 ### Step 2: Add System Instructions
 1. Edit project details → Custom instructions
 3. Copy and paste: `Product Owner - System Prompt.md` 
 4. Save the project
 
+<!-- /ANCHOR:step-2-add-system-instructions -->
+<!-- ANCHOR:step-3-upload-supporting-documents -->
 ### Step 3: Upload Supporting Documents
 Add these documents to your project:
 
@@ -121,6 +140,8 @@ Each template is fully self-contained with embedded rules, quality checks, and f
 - Complete quality checklists and error recovery built-in
 - Consistent DEPTH v0.200 integration across all templates
 
+<!-- /ANCHOR:step-3-upload-supporting-documents -->
+<!-- ANCHOR:step-4-start-creating -->
 ### Step 4: Start Creating
 ```
 need user authentication        # Interactive discovery flow
@@ -133,6 +154,8 @@ $story user login               # Direct story mode (Standard energy)
 
 ---
 
+<!-- /ANCHOR:step-4-start-creating -->
+<!-- ANCHOR:4-operating-modes -->
 ## 4. 🎛️ OPERATING MODES
 
 **Default Mode:** The system defaults to `$interactive` with Standard energy DEPTH unless specified.
@@ -147,6 +170,8 @@ $story user login               # Direct story mode (Standard energy)
 | **$epic**       | Epics                    | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.152           | Requested epic only  |
 | **$doc**        | Documentation            | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.133           | Requested doc only   |
 
+<!-- /ANCHOR:4-operating-modes -->
+<!-- ANCHOR:interactive-flow-default -->
 ### Interactive Flow (Default)
 System asks one comprehensive question gathering all info at once:
 - Deliverable type (ticket/bug/story/epic/doc)
@@ -159,8 +184,12 @@ System waits for complete response before proceeding.
 
 ---
 
+<!-- /ANCHOR:interactive-flow-default -->
+<!-- ANCHOR:5-mode-details -->
 ## 5. 📋 MODE DETAILS
 
+<!-- /ANCHOR:5-mode-details -->
+<!-- ANCHOR:task-mode -->
 ### 🎫 $task Mode
 
 **Purpose:** Development tasks with detailed QA checklists for implementation tracking
@@ -183,6 +212,8 @@ System waits for complete response before proceeding.
 
 ---
 
+<!-- /ANCHOR:task-mode -->
+<!-- ANCHOR:bug-mode-v0-115 -->
 ### 🐛 $bug Mode (v0.115)
 
 **Purpose:** Bug reports with evidence tracking, reproduction steps, and root cause analysis
@@ -223,6 +254,8 @@ System waits for complete response before proceeding.
 
 ---
 
+<!-- /ANCHOR:bug-mode-v0-115 -->
+<!-- ANCHOR:story-mode-v0-152 -->
 ### 📖 Story Mode (v0.152)
 
 **Purpose:** User stories in narrative format focusing on user journey and experience
@@ -256,6 +289,8 @@ System waits for complete response before proceeding.
 
 ---
 
+<!-- /ANCHOR:story-mode-v0-152 -->
+<!-- ANCHOR:epic-mode-v0-152 -->
 ### 🚀 Epic Mode (v0.152)
 
 **Purpose:** Epics as high-level overviews with links to stories and tasks
@@ -282,6 +317,8 @@ System waits for complete response before proceeding.
 
 ---
 
+<!-- /ANCHOR:epic-mode-v0-152 -->
+<!-- ANCHOR:doc-mode-v0-133 -->
 ### 📄 Doc Mode (v0.133)
 
 **Purpose:** Technical documentation and user guides
@@ -309,8 +346,12 @@ System waits for complete response before proceeding.
 
 ---
 
+<!-- /ANCHOR:doc-mode-v0-133 -->
+<!-- ANCHOR:6-interactive-mode -->
 ## 6. 💬 INTERACTIVE MODE
 
+<!-- /ANCHOR:6-interactive-mode -->
+<!-- ANCHOR:conversational-guidance-flow -->
 ### Conversational Guidance Flow
 
 **Default behavior** when no mode specified ($task, $bug, $story, $epic, $doc, $quick)
@@ -340,8 +381,12 @@ Deliver Exact Request
 
 ---
 
+<!-- /ANCHOR:conversational-guidance-flow -->
+<!-- ANCHOR:7-depth-thinking-framework -->
 ## 7. 🧠 DEPTH THINKING FRAMEWORK
 
+<!-- /ANCHOR:7-depth-thinking-framework -->
+<!-- ANCHOR:two-layer-transparency-model -->
 ### Two-Layer Transparency Model
 
 **DEPTH** = **D**iscover **E**ngineer **P**rototype **T**est **H**armonize
@@ -356,6 +401,8 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 | **Standard** | D → E → P → T → H | Concise progress updates | Default for all modes  |
 | **Deep**     | D(ext) → E → P → T → H | Full progress updates | Explicit or complex    |
 
+<!-- /ANCHOR:two-layer-transparency-model -->
+<!-- ANCHOR:depth-phases-v0-200-with-energy-levels -->
 ### DEPTH Phases (v0.200 with Energy Levels)
 
 | Phase         | Purpose             | Internal Processing                                                      | User Sees                             |
@@ -366,6 +413,8 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 | **T**est      | Validate quality    | 6-dimension rating, quality gates, template compliance                   | "✅ Validating (excellence confirmed)" |
 | **H**armonize | Final polish        | Final validation, cognitive rigor check, export verification             | "✨ Finalizing (ready for delivery)"   |
 
+<!-- /ANCHOR:depth-phases-v0-200-with-energy-levels -->
+<!-- ANCHOR:what-users-actually-see -->
 ### What Users Actually See
 
 **Example DEPTH Progress Updates:**
@@ -386,6 +435,8 @@ All dimensions 8+ (Completeness: 94%, Clarity: 91%, Actionability: 93%)
 Ready for delivery
 ```
 
+<!-- /ANCHOR:what-users-actually-see -->
+<!-- ANCHOR:cognitive-rigor-applied-automatically -->
 ### Cognitive Rigor (Applied Automatically)
 
 Five cognitive techniques applied internally (users see key insights only):
@@ -404,8 +455,12 @@ Five cognitive techniques applied internally (users see key insights only):
 
 ---
 
+<!-- /ANCHOR:cognitive-rigor-applied-automatically -->
+<!-- ANCHOR:8-quality-scoring -->
 ## 8. 📊 QUALITY SCORING
 
+<!-- /ANCHOR:8-quality-scoring -->
+<!-- ANCHOR:6-dimension-quality-system -->
 ### 6-Dimension Quality System
 
 Every deliverable is scored against six dimensions before delivery. This replaces the previous RICCE validation framework.
@@ -419,6 +474,8 @@ Every deliverable is scored against six dimensions before delivery. This replace
 | **Relevance** | 8+ | Precisely scoped, stakeholder-aligned, no padding |
 | **Mechanism Depth** | 8+ | WHY before WHAT structure, principles enable tactic derivation |
 
+<!-- /ANCHOR:6-dimension-quality-system -->
+<!-- ANCHOR:quality-depth-integration -->
 ### Quality-DEPTH Integration
 
 **How They Work Together:**
@@ -433,6 +490,8 @@ Every deliverable is scored against six dimensions before delivery. This replace
 - Test Phase → All 6 dimensions scored (8+, Accuracy 9+)
 - Harmonize Phase → Final quality confirmation
 
+<!-- /ANCHOR:quality-depth-integration -->
+<!-- ANCHOR:what-users-see-for-quality -->
 ### What Users See for Quality
 
 **Example Quality Communication:**
@@ -449,3 +508,4 @@ Every deliverable is scored against six dimensions before delivery. This replace
 ```
 
 **Full details:** `Product Owner - DEPTH Thinking Framework - v0.200.md` (Section 4)
+<!-- /ANCHOR:what-users-see-for-quality -->

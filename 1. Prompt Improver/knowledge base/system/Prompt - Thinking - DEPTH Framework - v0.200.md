@@ -1,3 +1,4 @@
+<!-- ANCHOR:barter-prompt-improver-depth-thinking-framework-v0-200 -->
 # Barter - Prompt Improver - DEPTH Thinking Framework - v0.200
 
 The single thinking system for all prompt improvement work. Five phases, five energy levels, cognitive techniques applied when they add value.
@@ -6,6 +7,8 @@ The single thinking system for all prompt improvement work. Five phases, five en
 **Purpose:** Defines DEPTH (Discover, Engineer, Prototype, Test, Harmonize) as a 5-phase thinking system with energy-level scaling, cognitive rigor techniques, CLEAR quality scoring (40+/50), mode-specific scoring for Creative energy (EVOKE, VISUAL), and proof-through-output transparency.
 **Scope:** Multi-perspective analysis (min 3, target 5), cognitive rigor toolkit, CLEAR quality gates (40+/50), energy-level-driven phase execution.
 
+<!-- /ANCHOR:barter-prompt-improver-depth-thinking-framework-v0-200 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🏗️ FRAMEWORK OVERVIEW
@@ -17,12 +20,18 @@ The single thinking system for all prompt improvement work. Five phases, five en
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-framework-overview -->
 ## 1. 🏗️ FRAMEWORK OVERVIEW
 
+<!-- /ANCHOR:1-framework-overview -->
+<!-- ANCHOR:core-definition -->
 ### Core Definition
 
 **DEPTH:** **D**iscover **E**ngineer **P**rototype **T**est **H**armonize. Five phases. One thinking system. No other thinking framework is referenced or needed.
 
+<!-- /ANCHOR:core-definition -->
+<!-- ANCHOR:energy-levels-canonical-reference -->
 ### Energy Levels (Canonical Reference)
 
 This table is the source of truth. Other files reference it.
@@ -35,6 +44,8 @@ This table is the source of truth. Other files reference it.
 | **Deep** | D(extended) → E → P → T → H | All 5 (BLOCKING) | All 5 applied | `$deep`/`$d` or complex prompts |
 | **Creative** | D → E → P → T → H (abbreviated) | Mode-specific (5) | Pick 1-2 relevant | `$vibe`, `$image`, `$video` |
 
+<!-- /ANCHOR:energy-levels-canonical-reference -->
+<!-- ANCHOR:fundamental-principles -->
 ### Fundamental Principles
 
 | Principle | Rule |
@@ -47,6 +58,8 @@ This table is the source of truth. Other files reference it.
 
 ---
 
+<!-- /ANCHOR:fundamental-principles -->
+<!-- ANCHOR:2-depth-phases -->
 ## 2. 🔄 DEPTH PHASES
 
 | Phase | Purpose | Output |
@@ -59,6 +72,8 @@ This table is the source of truth. Other files reference it.
 
 **Raw energy skips all phases.** Passthrough with no enhancement.
 
+<!-- /ANCHOR:2-depth-phases -->
+<!-- ANCHOR:d-discover -->
 ### D — DISCOVER
 
 Understand the current prompt, identify improvement needs, select framework approach.
@@ -78,6 +93,8 @@ Understand the current prompt, identify improvement needs, select framework appr
 **Exit:** Perspectives analysed per energy level, inversion applied, assumptions flagged, framework selected, complexity assessed.
 **Deep extension:** Full 5-perspective analysis, perspective inversion, and assumption audit before proceeding.
 
+<!-- /ANCHOR:d-discover -->
+<!-- ANCHOR:e-engineer-standard-deep-creative -->
 ### E — ENGINEER (Standard/Deep/Creative)
 
 Generate and optimise enhancement approaches.
@@ -94,6 +111,8 @@ Generate and optimise enhancement approaches.
 
 **Exit:** Framework selected, reversal applied, 8+ approaches evaluated, requirements mapped.
 
+<!-- /ANCHOR:e-engineer-standard-deep-creative -->
+<!-- ANCHOR:p-prototype -->
 ### P — PROTOTYPE
 
 Build enhanced prompt structure.
@@ -107,6 +126,8 @@ Build enhanced prompt structure.
 
 **Exit:** Draft complete, mechanism-first validated (WHY→WHAT), all sections written, format applied.
 
+<!-- /ANCHOR:p-prototype -->
+<!-- ANCHOR:t-test-standard-deep-creative -->
 ### T — TEST (Standard/Deep/Creative)
 
 Validate enhancement quality.
@@ -119,6 +140,8 @@ Validate enhancement quality.
 
 **Improvement:** Any dimension below floor OR total < 40 → targeted improvement → re-score (max 3 iterations).
 
+<!-- /ANCHOR:t-test-standard-deep-creative -->
+<!-- ANCHOR:h-harmonize -->
 ### H — HARMONIZE
 
 Final polish, format verification, delivery preparation.
@@ -131,6 +154,8 @@ Final polish, format verification, delivery preparation.
 | Transparency Prep | Improvement log, CLEAR breakdown, decisions documented | Complete logs |
 | Output Metadata | Mode, Framework, Perspectives, CLEAR score in deliverable | Add missing fields |
 
+<!-- /ANCHOR:h-harmonize -->
+<!-- ANCHOR:phase-exit-criteria-mandatory -->
 ### Phase Exit Criteria (MANDATORY)
 
 | Phase | Exit Criteria | Gate |
@@ -141,6 +166,8 @@ Final polish, format verification, delivery preparation.
 | **Test** | CLEAR 40+/50, all dimension floors met, intent preserved | All → Harmonize |
 | **Harmonize** | Perspectives confirmed per energy level, rigor gates passed, output metadata present | All → DELIVER |
 
+<!-- /ANCHOR:phase-exit-criteria-mandatory -->
+<!-- ANCHOR:state-management -->
 ### State Management
 
 ```yaml
@@ -159,8 +186,12 @@ system_state:
 
 ---
 
+<!-- /ANCHOR:state-management -->
+<!-- ANCHOR:3-cognitive-rigor -->
 ## 3. 🧠 COGNITIVE RIGOR
 
+<!-- /ANCHOR:3-cognitive-rigor -->
+<!-- ANCHOR:standard-perspectives-per-prompt-not-per-iteration -->
 ### Standard Perspectives (Per-Prompt, Not Per-Iteration)
 
 Analysed once during Discover, then inform all enhancement work.
@@ -177,6 +208,8 @@ Standard: 3 minimum (BLOCKING), target 5. Deep: all 5 (BLOCKING). Quick: 1-2 rec
 
 **Creative energy** uses mode-specific perspectives defined in template files (Image Mode, Video Mode, Visual Mode), 5 perspectives per mode, BLOCKING.
 
+<!-- /ANCHOR:standard-perspectives-per-prompt-not-per-iteration -->
+<!-- ANCHOR:cognitive-techniques-optional-toolkit -->
 ### Cognitive Techniques (Optional Toolkit)
 
 Five techniques available as tools. Use when they add value; energy level guides usage.
@@ -189,6 +222,8 @@ Five techniques available as tools. Use when they add value; energy level guides
 
 **Usage:** Raw = none. Quick = pick 1. Standard = 1-2 relevant. Deep = all 5 applied. Creative = 1-2 relevant.
 
+<!-- /ANCHOR:cognitive-techniques-optional-toolkit -->
+<!-- ANCHOR:quality-gates-pre-delivery-standard-deep-creative -->
 ### Quality Gates (Pre-Delivery, Standard/Deep/Creative)
 
 - [ ] Perspectives analysed per energy level requirement
@@ -199,6 +234,8 @@ Five techniques available as tools. Use when they add value; energy level guides
 
 If any gate fails → apply technique → re-validate.
 
+<!-- /ANCHOR:quality-gates-pre-delivery-standard-deep-creative -->
+<!-- ANCHOR:technique-to-phase-mapping -->
 ### Technique-to-Phase Mapping
 
 | Phase | Cognitive Techniques | Focus |
@@ -211,10 +248,14 @@ If any gate fails → apply technique → re-validate.
 
 ---
 
+<!-- /ANCHOR:technique-to-phase-mapping -->
+<!-- ANCHOR:4-clear-scoring-and-integration -->
 ## 4. 📊 CLEAR SCORING & INTEGRATION
 
 **CLEAR** is the quality scoring framework for prompt improvement deliverables. CLEAR validates quality; DEPTH provides process methodology. **C**orrectness · **L**ogic · **E**xpression · **A**rrangement · **R**eusability.
 
+<!-- /ANCHOR:4-clear-scoring-and-integration -->
+<!-- ANCHOR:dimensions -->
 ### Dimensions
 
 | Dimension | Max | Weight | Measures | Floor |
@@ -226,6 +267,8 @@ If any gate fails → apply technique → re-validate.
 | **R** - Reusability | 5 | 10% | Adaptability, parameterisation, template potential, flexibility | 3 |
 | **Total** | **50** | | | **34** |
 
+<!-- /ANCHOR:dimensions -->
+<!-- ANCHOR:scoring-criteria -->
 ### Scoring Criteria
 
 **C - Correctness (0-10):**
@@ -272,6 +315,8 @@ If any gate fails → apply technique → re-validate.
 | 2-3 | Some parameterisation but limited flexibility |
 | 4-5 | Fully templated, easily adapted to new contexts, parameters clearly marked |
 
+<!-- /ANCHOR:scoring-criteria -->
+<!-- ANCHOR:thresholds -->
 ### Thresholds
 
 | Range | Status | Action |
@@ -282,6 +327,8 @@ If any gate fails → apply technique → re-validate.
 
 A deliverable scoring 40+ overall but failing a per-dimension floor (C:7, L:7, E:10, A:7, R:3) must still be revised until the floor is met.
 
+<!-- /ANCHOR:thresholds -->
+<!-- ANCHOR:context-aware-weighting -->
 ### Context-Aware Weighting
 
 ```yaml
@@ -291,6 +338,8 @@ context_adjustments:
   template_creation: { reusability: +10%, arrangement: +5% }
 ```
 
+<!-- /ANCHOR:context-aware-weighting -->
+<!-- ANCHOR:mode-specific-scoring-creative-energy -->
 ### Mode-Specific Scoring (Creative Energy)
 
 | Mode | Command | Framework | Max Score | Threshold |
@@ -301,6 +350,8 @@ context_adjustments:
 
 **Full specifications:** See respective template files (Visual Mode, Image Mode, Video Mode). CLEAR scores 50 points for standard mode.
 
+<!-- /ANCHOR:mode-specific-scoring-creative-energy -->
+<!-- ANCHOR:phase-to-dimension-mapping -->
 ### Phase-to-Dimension Mapping
 
 | DEPTH Phase | CLEAR Dimension | Validation | Output |
@@ -311,6 +362,8 @@ context_adjustments:
 | Test → | All Dimensions | CLEAR scored (40+/50), all floors met | Validated quality |
 | Harmonise → | All Dimensions | Final polish, consistency verified, output metadata complete | Export-ready deliverable |
 
+<!-- /ANCHOR:phase-to-dimension-mapping -->
+<!-- ANCHOR:final-validation-checkpoint -->
 ### Final Validation Checkpoint
 
 ```yaml
@@ -329,8 +382,12 @@ clear_depth_check:
 
 ---
 
+<!-- /ANCHOR:final-validation-checkpoint -->
+<!-- ANCHOR:5-quality-and-transparency -->
 ## 5. ✅ QUALITY & TRANSPARENCY
 
+<!-- /ANCHOR:5-quality-and-transparency -->
+<!-- ANCHOR:proof-through-output-metadata -->
 ### Proof Through Output Metadata
 
 Every deliverable must include these fields. If missing, thinking has not been proven; return to the relevant phase.
@@ -342,6 +399,8 @@ Every deliverable must include these fields. If missing, thinking has not been p
 | Perspectives | Count and which ones were used | Proves multi-angle analysis |
 | CLEAR Score | Final score out of 50 (or mode-specific score) | Proves quality validation |
 
+<!-- /ANCHOR:proof-through-output-metadata -->
+<!-- ANCHOR:two-layer-processing -->
 ### Two-Layer Processing
 
 | Layer | Purpose | Shows / Hides |
@@ -351,6 +410,8 @@ Every deliverable must include these fields. If missing, thinking has not been p
 
 **Balance:** Transparent enough to build trust, concise enough to prevent overwhelm.
 
+<!-- /ANCHOR:two-layer-processing -->
+<!-- ANCHOR:domain-standards-every-deliverable -->
 ### Domain Standards (Every Deliverable)
 
 | Standard | Requirement | On Fail |
@@ -361,6 +422,8 @@ Every deliverable must include these fields. If missing, thinking has not been p
 | Output Metadata | Mode, Framework, Perspectives, Score: all present | Add missing fields |
 | File Delivery | Downloadable files (.md, .json, .yaml), no inline code blocks | Create proper file |
 
+<!-- /ANCHOR:domain-standards-every-deliverable -->
+<!-- ANCHOR:improvement-protocol -->
 ### Improvement Protocol
 
 ```yaml
@@ -377,14 +440,20 @@ improvement_cycle:
   user_sees: "Applied [X] improvement cycles. CLEAR: [before] → [after]"
 ```
 
+<!-- /ANCHOR:improvement-protocol -->
+<!-- ANCHOR:repair-protocol -->
 ### REPAIR Protocol
 
 For structural recovery when enhancement fails validation repeatedly, reference the REPAIR protocol for systematic error diagnosis and correction. See Patterns & Evaluation guide.
 
 ---
 
+<!-- /ANCHOR:repair-protocol -->
+<!-- ANCHOR:6-quick-reference -->
 ## 6. ⚡ QUICK REFERENCE
 
+<!-- /ANCHOR:6-quick-reference -->
+<!-- ANCHOR:energy-level-summary -->
 ### Energy Level Summary
 
 | | Raw | Quick | Standard | Deep | Creative |
@@ -395,6 +464,8 @@ For structural recovery when enhancement fails validation repeatedly, reference 
 | **Scoring** | None | CLEAR 40+/50 | CLEAR 40+/50 | CLEAR 40+/50 | EVOKE/VISUAL per mode |
 | **Trigger** | `$raw` | `$short`/`$s` | Default | `$deep`/`$d` or complex | `$vibe`, `$image`, `$video` |
 
+<!-- /ANCHOR:energy-level-summary -->
+<!-- ANCHOR:phase-checklist -->
 ### Phase Checklist
 
 ```
@@ -405,6 +476,8 @@ T — TEST:        [ ] CLEAR 40+/50 (or mode-specific score)  [ ] All dimension 
 H — HARMONIZE:   [ ] Output metadata  [ ] Perspectives confirmed  [ ] Format verified  [ ] Deliverable ready
 ```
 
+<!-- /ANCHOR:phase-checklist -->
+<!-- ANCHOR:must-have-rules -->
 ### Must-Have Rules
 
 **Always:** DEPTH is the one thinking system. Perspectives per energy level. CLEAR scoring validates quality (Standard/Deep). Mode-specific scoring for Creative. Output metadata proves thinking. Format guides applied.
@@ -414,3 +487,5 @@ H — HARMONIZE:   [ ] Output metadata  [ ] Perspectives confirmed  [ ] Format v
 ---
 
 *DEPTH: five phases, five energy levels, cognitive techniques when they add value. Proof is in the output.*
+
+<!-- /ANCHOR:must-have-rules -->

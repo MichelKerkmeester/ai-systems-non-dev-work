@@ -1,7 +1,10 @@
+<!-- ANCHOR:imagician -->
 # Imagician
 
 > Docker-based MCP server for image manipulation using Sharp and ImageMagick.
 
+<!-- /ANCHOR:imagician -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 📖 OVERVIEW
@@ -16,12 +19,18 @@
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-overview -->
 ## 1. 📖 OVERVIEW
 
+<!-- /ANCHOR:1-overview -->
+<!-- ANCHOR:what-is-imagician -->
 ### What is Imagician?
 
 Imagician is a Model Context Protocol (MCP) server that provides comprehensive image processing capabilities. It enables AI assistants to resize, convert, crop, compress, rotate, and transform images through a standardized interface. This Docker deployment packages Sharp and ImageMagick for reliable, isolated image processing.
 
+<!-- /ANCHOR:what-is-imagician -->
+<!-- ANCHOR:key-statistics -->
 ### Key Statistics
 
 | Category | Count | Details |
@@ -31,6 +40,8 @@ Imagician is a Model Context Protocol (MCP) server that provides comprehensive i
 | Input Formats | 7+ | JPEG, PNG, WebP, AVIF, GIF, BMP, TIFF |
 | Deployment | Docker | Containerized with volume mounts |
 
+<!-- /ANCHOR:key-statistics -->
+<!-- ANCHOR:key-features -->
 ### Key Features
 
 | Feature | Description |
@@ -42,6 +53,8 @@ Imagician is a Model Context Protocol (MCP) server that provides comprehensive i
 | **Transformations** | Rotate by any angle, flip horizontal/vertical |
 | **Metadata Extraction** | Get dimensions, format, color space, and file info |
 
+<!-- /ANCHOR:key-features -->
+<!-- ANCHOR:requirements -->
 ### Requirements
 
 | Requirement | Minimum | Recommended |
@@ -52,13 +65,19 @@ Imagician is a Model Context Protocol (MCP) server that provides comprehensive i
 
 ---
 
+<!-- /ANCHOR:requirements -->
+<!-- ANCHOR:2-quick-start -->
 ## 2. 🚀 QUICK START
 
+<!-- /ANCHOR:2-quick-start -->
+<!-- ANCHOR:prerequisites -->
 ### Prerequisites
 
 - Docker Desktop running
 - Images directory accessible at configured volume path
 
+<!-- /ANCHOR:prerequisites -->
+<!-- ANCHOR:30-second-setup -->
 ### 30-Second Setup
 
 ```bash
@@ -72,6 +91,8 @@ docker-compose up -d --build
 docker ps --filter "name=imagician"
 ```
 
+<!-- /ANCHOR:30-second-setup -->
+<!-- ANCHOR:verify-installation -->
 ### Verify Installation
 
 ```bash
@@ -83,6 +104,8 @@ docker ps --filter "name=imagician" --format "table {{.Names}}\t{{.Status}}"
 # imagician   Up X minutes
 ```
 
+<!-- /ANCHOR:verify-installation -->
+<!-- ANCHOR:first-use -->
 ### First Use
 
 ```bash
@@ -94,6 +117,8 @@ docker exec -i imagician node /app/dist/index.js <<< '{"jsonrpc":"2.0","id":1,"m
 
 ---
 
+<!-- /ANCHOR:first-use -->
+<!-- ANCHOR:3-structure -->
 ## 3. 📁 STRUCTURE
 
 ```
@@ -107,6 +132,8 @@ imagician/
 └── VOLUME_REFERENCE.md     # Volume mounting guide
 ```
 
+<!-- /ANCHOR:3-structure -->
+<!-- ANCHOR:key-files -->
 ### Key Files
 
 | File | Purpose |
@@ -118,8 +145,12 @@ imagician/
 
 ---
 
+<!-- /ANCHOR:key-files -->
+<!-- ANCHOR:4-features -->
 ## 4. ⚡ FEATURES
 
+<!-- /ANCHOR:4-features -->
+<!-- ANCHOR:image-transformation -->
 ### Image Transformation
 
 **resize_image**: Scale images to specific dimensions with fit options.
@@ -151,6 +182,8 @@ imagician/
 | **Purpose** | Flip images horizontally or vertically |
 | **Directions** | `horizontal`, `vertical`, `both` |
 
+<!-- /ANCHOR:image-transformation -->
+<!-- ANCHOR:format-and-quality -->
 ### Format & Quality
 
 **convert_format**: Convert between image formats.
@@ -169,6 +202,8 @@ imagician/
 | **Progressive** | Optional progressive encoding for JPEG |
 | **Quality** | Adjustable compression level |
 
+<!-- /ANCHOR:format-and-quality -->
+<!-- ANCHOR:batch-operations -->
 ### Batch Operations
 
 **batch_resize**: Generate multiple sizes from one image.
@@ -179,6 +214,8 @@ imagician/
 | **Input** | Array of `{width, height?, suffix}` specifications |
 | **Output** | Multiple files with size suffixes |
 
+<!-- /ANCHOR:batch-operations -->
+<!-- ANCHOR:information -->
 ### Information
 
 **get_image_info**: Extract metadata and properties.
@@ -190,8 +227,12 @@ imagician/
 
 ---
 
+<!-- /ANCHOR:information -->
+<!-- ANCHOR:5-configuration -->
 ## 5. ⚙️ CONFIGURATION
 
+<!-- /ANCHOR:5-configuration -->
+<!-- ANCHOR:configuration-file -->
 ### Configuration File
 
 **Location**: `docker-compose.yml`
@@ -215,6 +256,8 @@ services:
     restart: unless-stopped
 ```
 
+<!-- /ANCHOR:configuration-file -->
+<!-- ANCHOR:configuration-options -->
 ### Configuration Options
 
 | Option | Type | Default | Description |
@@ -222,6 +265,8 @@ services:
 | `IMAGE_PATH` | string | `/images` | Base path for image operations inside container |
 | `NODE_ENV` | string | `production` | Node.js environment mode |
 
+<!-- /ANCHOR:configuration-options -->
+<!-- ANCHOR:environment-variables -->
 ### Environment Variables
 
 | Variable | Required | Description |
@@ -229,6 +274,8 @@ services:
 | `IMAGE_PATH` | Yes | Container path where images are accessible |
 | `NODE_ENV` | No | Set to `production` for optimized performance |
 
+<!-- /ANCHOR:environment-variables -->
+<!-- ANCHOR:volume-mounts -->
 ### Volume Mounts
 
 | Host Path | Container Path | Purpose |
@@ -237,8 +284,12 @@ services:
 
 ---
 
+<!-- /ANCHOR:volume-mounts -->
+<!-- ANCHOR:6-usage-examples -->
 ## 6. 💡 USAGE EXAMPLES
 
+<!-- /ANCHOR:6-usage-examples -->
+<!-- ANCHOR:example-1-resize-an-image -->
 ### Example 1: Resize an Image
 
 ```
@@ -247,6 +298,8 @@ services:
 
 **Result**: Creates resized image at specified dimensions.
 
+<!-- /ANCHOR:example-1-resize-an-image -->
+<!-- ANCHOR:example-2-convert-to-webp -->
 ### Example 2: Convert to WebP
 
 ```
@@ -255,6 +308,8 @@ services:
 
 **Result**: Creates WebP versions with optimized file sizes.
 
+<!-- /ANCHOR:example-2-convert-to-webp -->
+<!-- ANCHOR:example-3-create-thumbnails -->
 ### Example 3: Create Thumbnails
 
 ```
@@ -263,6 +318,8 @@ services:
 
 **Result**: Creates `header-small.jpg`, `header-medium.jpg`, `header-large.jpg`.
 
+<!-- /ANCHOR:example-3-create-thumbnails -->
+<!-- ANCHOR:example-4-compress-for-web -->
 ### Example 4: Compress for Web
 
 ```
@@ -271,6 +328,8 @@ services:
 
 **Result**: Optimized image with reduced file size.
 
+<!-- /ANCHOR:example-4-compress-for-web -->
+<!-- ANCHOR:common-patterns -->
 ### Common Patterns
 
 | Pattern | Prompt | When to Use |
@@ -282,10 +341,16 @@ services:
 
 ---
 
+<!-- /ANCHOR:common-patterns -->
+<!-- ANCHOR:7-troubleshooting -->
 ## 7. 🛠️ TROUBLESHOOTING
 
+<!-- /ANCHOR:7-troubleshooting -->
+<!-- ANCHOR:common-issues -->
 ### Common Issues
 
+<!-- /ANCHOR:common-issues -->
+<!-- ANCHOR:container-not-running -->
 #### Container Not Running
 
 **Symptom**: `docker exec` returns "No such container"
@@ -301,6 +366,8 @@ docker ps -a --filter "name=imagician"
 docker-compose up -d
 ```
 
+<!-- /ANCHOR:container-not-running -->
+<!-- ANCHOR:permission-denied-on-images -->
 #### Permission Denied on Images
 
 **Symptom**: "EACCES: permission denied" errors
@@ -317,6 +384,8 @@ mkdir -p "/Users/<you>/.../Media Editor/export/images"  # local-only example
 chmod 755 "/Users/<you>/.../Media Editor/export/images"  # local-only example
 ```
 
+<!-- /ANCHOR:permission-denied-on-images -->
+<!-- ANCHOR:unsupported-format-error -->
 #### Unsupported Format Error
 
 **Symptom**: "Input file is missing or of an unsupported image format"
@@ -328,6 +397,8 @@ chmod 755 "/Users/<you>/.../Media Editor/export/images"  # local-only example
 - Check file integrity
 - Convert using external tool first if needed
 
+<!-- /ANCHOR:unsupported-format-error -->
+<!-- ANCHOR:quick-fixes -->
 ### Quick Fixes
 
 | Problem | Quick Fix |
@@ -337,6 +408,8 @@ chmod 755 "/Users/<you>/.../Media Editor/export/images"  # local-only example
 | Build issues | `docker-compose build --no-cache` |
 | Volume not mounted | Verify path in `docker-compose.yml` |
 
+<!-- /ANCHOR:quick-fixes -->
+<!-- ANCHOR:diagnostic-commands -->
 ### Diagnostic Commands
 
 ```bash
@@ -355,8 +428,12 @@ docker exec -i imagician node /app/dist/index.js <<< '{"jsonrpc":"2.0","id":1,"m
 
 ---
 
+<!-- /ANCHOR:diagnostic-commands -->
+<!-- ANCHOR:8-faq -->
 ## 8. ❓ FAQ
 
+<!-- /ANCHOR:8-faq -->
+<!-- ANCHOR:general-questions -->
 ### General Questions
 
 **Q: What image formats are supported?**
@@ -377,6 +454,8 @@ A: No, the container can only access files within mounted volumes. Move or copy 
 
 ---
 
+<!-- /ANCHOR:general-questions -->
+<!-- ANCHOR:technical-questions -->
 ### Technical Questions
 
 **Q: How do I change the quality setting for compression?**
@@ -401,8 +480,12 @@ A: Use image overlay functionality through the add_image_overlay tool, positioni
 
 ---
 
+<!-- /ANCHOR:technical-questions -->
+<!-- ANCHOR:9-related-documents -->
 ## 9. 📚 RELATED DOCUMENTS
 
+<!-- /ANCHOR:9-related-documents -->
+<!-- ANCHOR:internal-documentation -->
 ### Internal Documentation
 
 | Document | Purpose |
@@ -411,6 +494,8 @@ A: Use image overlay functionality through the add_image_overlay tool, positioni
 | [Media Editor README](../../README.md) | Parent system documentation |
 | [INSTALL_GUIDE.md](../../INSTALL_GUIDE.md) | Complete installation instructions |
 
+<!-- /ANCHOR:internal-documentation -->
+<!-- ANCHOR:external-resources -->
 ### External Resources
 
 | Resource | Description |
@@ -423,3 +508,5 @@ A: Use image overlay functionality through the add_image_overlay tool, positioni
 ---
 
 *Documentation version: 1.0 | Last updated: 2026-01-03*
+
+<!-- /ANCHOR:external-resources -->

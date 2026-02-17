@@ -1,3 +1,4 @@
+<!-- ANCHOR:prompt-templates-image-mode-v0-121 -->
 # Prompt - Templates - Image Mode - v0.121
 
 Specialized mode for optimizing prompts for AI image generators including Flux 2 Pro, Google Imagen 4 (Nano Banana Pro), Runway, Midjourney, DALL-E 3, Stable Diffusion, Seedream, Leonardo, and Ideogram.
@@ -6,6 +7,8 @@ Specialized mode for optimizing prompts for AI image generators including Flux 2
 **Purpose:** Transform vague visual requests into structured, platform-optimized image prompts using the FRAME framework and VISUAL scoring system.
 **Scope:** Image generation prompts, platform-specific optimization, composition vocabulary, style references, anti-pattern detection.
 
+<!-- /ANCHOR:prompt-templates-image-mode-v0-121 -->
+<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎯 OBJECTIVE
@@ -22,6 +25,8 @@ Specialized mode for optimizing prompts for AI image generators including Flux 2
 
 ---
 
+<!-- /ANCHOR:table-of-contents -->
+<!-- ANCHOR:1-objective -->
 ## 1. 🎯 OBJECTIVE
 
 Transform vague visual descriptions into detailed, evocative prompts optimized for AI image generators.
@@ -44,6 +49,8 @@ Transform vague visual descriptions into detailed, evocative prompts optimized f
 
 ---
 
+<!-- /ANCHOR:1-objective -->
+<!-- ANCHOR:2-frame-framework -->
 ## 2. 🖼️ FRAME FRAMEWORK
 
 | Element        | Focus                 | Core Question                    | Weight |
@@ -56,10 +63,14 @@ Transform vague visual descriptions into detailed, evocative prompts optimized f
 
 ---
 
+<!-- /ANCHOR:2-frame-framework -->
+<!-- ANCHOR:f-focus-30-6-sub-categories -->
 ### F - FOCUS (30%) - 6 Sub-Categories
 
 The Focus component defines WHAT the viewer sees and HOW the scene is composed.
 
+<!-- /ANCHOR:f-focus-30-6-sub-categories -->
+<!-- ANCHOR:f1-shot-types -->
 #### F1. Shot Types
 
 | Shot Type            | Frame Coverage       | Use Case                      | Example Prompt Fragment                    |
@@ -72,6 +83,8 @@ The Focus component defines WHAT the viewer sees and HOW the scene is composed.
 | **Close-Up**         | Face or key detail   | Emotion, detail focus         | "close-up portrait focusing on eyes"       |
 | **Extreme Close-Up** | Single feature/macro | Dramatic emphasis, texture    | "extreme close-up of eye reflecting light" |
 
+<!-- /ANCHOR:f1-shot-types -->
+<!-- ANCHOR:f2-camera-angles -->
 #### F2. Camera Angles
 
 | Angle                  | Visual Effect           | Psychological Impact    | Example Prompt Fragment                      |
@@ -85,6 +98,8 @@ The Focus component defines WHAT the viewer sees and HOW the scene is composed.
 | **Over-the-Shoulder**  | Behind one subject      | Perspective, narrative  | "over-the-shoulder shot framing the subject" |
 | **POV (First-Person)** | Subject's viewpoint     | Immersion, intimacy     | "first-person POV looking at hands"          |
 
+<!-- /ANCHOR:f2-camera-angles -->
+<!-- ANCHOR:f3-subject-hierarchy -->
 #### F3. Subject Hierarchy
 
 | Level          | Role                   | Visual Treatment               | Example                                        |
@@ -94,6 +109,8 @@ The Focus component defines WHAT the viewer sees and HOW the scene is composed.
 | **Tertiary**   | Environmental context  | Background, establishing scene | "Cafe patrons blurred in the background"       |
 | **Background** | Setting and atmosphere | Bokeh, environmental mood      | "Parisian street scene fading into soft bokeh" |
 
+<!-- /ANCHOR:f3-subject-hierarchy -->
+<!-- ANCHOR:f4-spatial-relationships -->
 #### F4. Spatial Relationships
 
 | Plane          | Depth Position           | Purpose                    | Example Prompt Fragment                        |
@@ -103,6 +120,8 @@ The Focus component defines WHAT the viewer sees and HOW the scene is composed.
 | **Background** | Furthest from viewer     | Context, atmosphere        | "mountains fading into atmospheric haze"       |
 | **Layered**    | Multiple distinct planes | Rich depth, cinematic feel | "layered composition with fore/mid/background" |
 
+<!-- /ANCHOR:f4-spatial-relationships -->
+<!-- ANCHOR:f5-composition-techniques -->
 #### F5. Composition Techniques
 
 | Technique              | Description                    | Best For                   |
@@ -116,6 +135,8 @@ The Focus component defines WHAT the viewer sees and HOW the scene is composed.
 | **Symmetry**           | Mirror balance                 | Architecture, formal       |
 | **Dynamic Diagonal**   | Diagonal lines create energy   | Action, movement           |
 
+<!-- /ANCHOR:f5-composition-techniques -->
+<!-- ANCHOR:f6-subject-specificity -->
 #### F6. Subject Specificity
 
 | Category    | Vague            | Specific                                      |
@@ -128,10 +149,14 @@ The Focus component defines WHAT the viewer sees and HOW the scene is composed.
 
 ---
 
+<!-- /ANCHOR:f6-subject-specificity -->
+<!-- ANCHOR:r-rendering-20-6-sub-categories -->
 ### R - RENDERING (20%) - 6 Sub-Categories
 
 The Rendering component defines the visual STYLE and artistic MEDIUM.
 
+<!-- /ANCHOR:r-rendering-20-6-sub-categories -->
+<!-- ANCHOR:r1-photography-styles -->
 #### R1. Photography Styles
 
 | Style           | Characteristics             | Technical Markers                          | Use Case                    |
@@ -145,6 +170,8 @@ The Rendering component defines the visual STYLE and artistic MEDIUM.
 | **Fine Art**    | Conceptual, artistic        | Intentional, gallery-worthy                | Exhibition, artistic vision |
 | **Lifestyle**   | Natural, relatable          | Soft natural light, authentic moments      | Branding, social media      |
 
+<!-- /ANCHOR:r1-photography-styles -->
+<!-- ANCHOR:r2-illustration-styles -->
 #### R2. Illustration Styles
 
 | Style             | Visual Characteristics             | Example Prompt Fragment                   |
@@ -158,6 +185,8 @@ The Rendering component defines the visual STYLE and artistic MEDIUM.
 | **Charcoal**      | Soft, smudged, dramatic            | "charcoal drawing with dramatic shadows"  |
 | **Gouache**       | Opaque, matte, illustrative        | "gouache illustration with matte finish"  |
 
+<!-- /ANCHOR:r2-illustration-styles -->
+<!-- ANCHOR:r3-3d-rendering-styles -->
 #### R3. 3D Rendering Styles
 
 | Style               | Visual Characteristics                | Example Prompt Fragment                   |
@@ -171,6 +200,8 @@ The Rendering component defines the visual STYLE and artistic MEDIUM.
 | **Voxel**           | Cube-based, Minecraft-like            | "voxel art style 3D render"               |
 | **Stylized 3D**     | Exaggerated proportions, artistic     | "stylized 3D with exaggerated features"   |
 
+<!-- /ANCHOR:r3-3d-rendering-styles -->
+<!-- ANCHOR:r4-movement-and-era-aesthetics -->
 #### R4. Movement & Era Aesthetics
 
 | Movement/Era         | Visual Characteristics              | Example Prompt Fragment                      |
@@ -186,6 +217,8 @@ The Rendering component defines the visual STYLE and artistic MEDIUM.
 | **2000s OVA**        | Early digital anime aesthetic       | "2000s anime OVA visual style"               |
 | **Vaporwave**        | 80s/90s nostalgia, pink/cyan/purple | "vaporwave aesthetic with retro elements"    |
 
+<!-- /ANCHOR:r4-movement-and-era-aesthetics -->
+<!-- ANCHOR:r5-anime-and-manga-sub-types -->
 #### R5. Anime & Manga Sub-Types
 
 | Style                | Characteristics                      | Example Prompt Fragment               |
@@ -199,6 +232,8 @@ The Rendering component defines the visual STYLE and artistic MEDIUM.
 | **90s Anime**        | Softer colors, distinctive eye style | "90s anime aesthetic"                 |
 | **Studio Ghibli**    | Soft, detailed backgrounds, warm     | "Studio Ghibli inspired illustration" |
 
+<!-- /ANCHOR:r5-anime-and-manga-sub-types -->
+<!-- ANCHOR:r6-fine-art-movements -->
 #### R6. Fine Art Movements
 
 | Movement          | Characteristics                   | Example Prompt Fragment                     |
@@ -212,10 +247,14 @@ The Rendering component defines the visual STYLE and artistic MEDIUM.
 
 ---
 
+<!-- /ANCHOR:r6-fine-art-movements -->
+<!-- ANCHOR:a-atmosphere-20-7-sub-categories -->
 ### A - ATMOSPHERE (20%) - 7 Sub-Categories
 
 The Atmosphere component defines the FEELING and MOOD of the image.
 
+<!-- /ANCHOR:a-atmosphere-20-7-sub-categories -->
+<!-- ANCHOR:a1-lighting-with-color-temperature-kelvin -->
 #### A1. Lighting with Color Temperature (Kelvin)
 
 | Lighting Type       | Kelvin Range | Visual Quality                 | Mood                        |
@@ -234,6 +273,8 @@ The Atmosphere component defines the FEELING and MOOD of the image.
 | **Volumetric**      | Variable     | Visible light rays/god rays    | Atmospheric, divine, epic   |
 | **Neon**            | Variable     | Colorful artificial            | Cyberpunk, urban, edgy      |
 
+<!-- /ANCHOR:a1-lighting-with-color-temperature-kelvin -->
+<!-- ANCHOR:a2-mood-vocabulary-bank -->
 #### A2. Mood Vocabulary Bank
 
 | Mood Category     | Descriptors                                                            |
@@ -247,6 +288,8 @@ The Atmosphere component defines the FEELING and MOOD of the image.
 | **Mysterious**    | Enigmatic, secretive, hidden, veiled, cryptic, alluring                |
 | **Nostalgic**     | Vintage, retro, wistful, sentimental, timeless, classic                |
 
+<!-- /ANCHOR:a2-mood-vocabulary-bank -->
+<!-- ANCHOR:a3-color-temperature-systems -->
 #### A3. Color Temperature Systems
 
 | Palette           | Color Composition                | Mood/Application             | HEX Examples               |
@@ -262,6 +305,8 @@ The Atmosphere component defines the FEELING and MOOD of the image.
 | **Monochromatic** | Single hue variations            | Unified, artistic, bold      | Various single-hue ranges  |
 | **Complementary** | Opposite color wheel pairs       | Vibrant, high contrast       | Blue/Orange, Purple/Yellow |
 
+<!-- /ANCHOR:a3-color-temperature-systems -->
+<!-- ANCHOR:a4-weather-and-environmental-conditions -->
 #### A4. Weather & Environmental Conditions
 
 | Condition          | Visual Effect               | Mood                       | Example Prompt Fragment               |
@@ -275,6 +320,8 @@ The Atmosphere component defines the FEELING and MOOD of the image.
 | **Dust/Sand**      | Warm particulates, haze     | Desert, apocalyptic, harsh | "dust particles in sunbeam"           |
 | **Clear**          | Crisp, sharp visibility     | Clean, honest, vibrant     | "crystal clear atmosphere"            |
 
+<!-- /ANCHOR:a4-weather-and-environmental-conditions -->
+<!-- ANCHOR:a5-time-of-day -->
 #### A5. Time of Day
 
 | Time               | Light Quality                  | Color Cast           | Mood                      |
@@ -289,6 +336,8 @@ The Atmosphere component defines the FEELING and MOOD of the image.
 | **Blue Hour**      | Cool, twilight, ethereal       | Deep blue, purple    | Mysterious, magical       |
 | **Night**          | Artificial or moonlight        | Variable by source   | Dramatic, intimate, urban |
 
+<!-- /ANCHOR:a5-time-of-day -->
+<!-- ANCHOR:a6-lighting-techniques -->
 #### A6. Lighting Techniques
 
 | Technique     | Setup Description                   | Effect                    | Best For             |
@@ -303,6 +352,8 @@ The Atmosphere component defines the FEELING and MOOD of the image.
 | **High Key**  | Bright, minimal shadows             | Airy, optimistic          | Fashion, commercial  |
 | **Low Key**   | Predominantly dark, shadows         | Dramatic, moody           | Film noir, drama     |
 
+<!-- /ANCHOR:a6-lighting-techniques -->
+<!-- ANCHOR:a7-depth-of-field-and-focus -->
 #### A7. Depth of Field & Focus
 
 | DOF Type          | Aperture Equivalent | Visual Effect                  | Use Case                   |
@@ -316,10 +367,14 @@ The Atmosphere component defines the FEELING and MOOD of the image.
 
 ---
 
+<!-- /ANCHOR:a7-depth-of-field-and-focus -->
+<!-- ANCHOR:m-modifiers-15-6-sub-categories -->
 ### M - MODIFIERS (15%) - 6 Sub-Categories
 
 The Modifiers component defines TECHNICAL PARAMETERS and platform-specific controls.
 
+<!-- /ANCHOR:m-modifiers-15-6-sub-categories -->
+<!-- ANCHOR:m1-aspect-ratio-presets -->
 #### M1. Aspect Ratio Presets
 
 | Ratio    | Dimensions Example | Platform/Use Case                  | Best For                 |
@@ -333,6 +388,8 @@ The Modifiers component defines TECHNICAL PARAMETERS and platform-specific contr
 | **21:9** | 2560x1080          | Ultra-widescreen, cinematic        | Epic landscapes, banners |
 | **4:3**  | 1024x768           | Traditional screen ratio           | Presentations, classic   |
 
+<!-- /ANCHOR:m1-aspect-ratio-presets -->
+<!-- ANCHOR:m2-platform-specific-quality-markers -->
 #### M2. Platform-Specific Quality Markers
 
 | Platform       | Quality Markers                              | Avoid                      |
@@ -345,6 +402,8 @@ The Modifiers component defines TECHNICAL PARAMETERS and platform-specific contr
 | **Leonardo**   | Built-in quality presets                     | Redundant quality terms    |
 | **Ideogram**   | Not needed                                   | Quality keywords           |
 
+<!-- /ANCHOR:m2-platform-specific-quality-markers -->
+<!-- ANCHOR:m3-emphasis-syntax-by-platform -->
 #### M3. Emphasis Syntax by Platform
 
 | Platform       | Emphasis Method                             | Example                         |
@@ -355,6 +414,8 @@ The Modifiers component defines TECHNICAL PARAMETERS and platform-specific contr
 | **DALL-E 3**   | Descriptive emphasis, word order            | "The most prominent feature..." |
 | **Imagen 4**   | Natural language priority                   | "primarily featuring..."        |
 
+<!-- /ANCHOR:m3-emphasis-syntax-by-platform -->
+<!-- ANCHOR:m4-reference-parameters -->
 #### M4. Reference Parameters
 
 | Platform       | Style Reference            | Character Reference          | Usage                     |
@@ -364,6 +425,8 @@ The Modifiers component defines TECHNICAL PARAMETERS and platform-specific contr
 | **Imagen 4**   | Upload up to 14 references | Character consistency mode   | Multi-reference supported |
 | **SD/SDXL**    | ControlNet, IP-Adapter     | LoRA for specific characters | External tools required   |
 
+<!-- /ANCHOR:m4-reference-parameters -->
+<!-- ANCHOR:m5-technical-camera-settings -->
 #### M5. Technical Camera Settings
 
 | Setting        | Options                             | Effect                       | Example                      |
@@ -374,6 +437,8 @@ The Modifiers component defines TECHNICAL PARAMETERS and platform-specific contr
 | **Film Stock** | Kodak Portra, Fuji Pro, Cinestill   | Color rendering              | "Kodak Portra 400 aesthetic" |
 | **Format**     | 35mm, Medium Format, Large Format   | Detail, aspect, look         | "medium format photography"  |
 
+<!-- /ANCHOR:m5-technical-camera-settings -->
+<!-- ANCHOR:m6-render-settings-3d-cgi -->
 #### M6. Render Settings (3D/CGI)
 
 | Setting         | Options                       | Effect                        |
@@ -386,10 +451,14 @@ The Modifiers component defines TECHNICAL PARAMETERS and platform-specific contr
 
 ---
 
+<!-- /ANCHOR:m6-render-settings-3d-cgi -->
+<!-- ANCHOR:e-exclusions-15-5-sub-categories -->
 ### E - EXCLUSIONS (15%) - 5 Sub-Categories
 
 The Exclusions component defines what to AVOID (platform-dependent).
 
+<!-- /ANCHOR:e-exclusions-15-5-sub-categories -->
+<!-- ANCHOR:e1-structured-negative-categories -->
 #### E1. Structured Negative Categories
 
 | Category              | Common Issues                       | Negative Prompt Terms                           |
@@ -401,6 +470,8 @@ The Exclusions component defines what to AVOID (platform-dependent).
 | **Unwanted Elements** | Watermarks, text, logos, borders    | watermark, signature, text, logo, frame, border |
 | **Composition**       | Bad framing, cropping issues        | cropped, out of frame, bad composition          |
 
+<!-- /ANCHOR:e1-structured-negative-categories -->
+<!-- ANCHOR:e2-universal-negative-foundation-template -->
 #### E2. Universal Negative Foundation Template
 
 For platforms supporting negative prompts (SD/SDXL, Leonardo):
@@ -421,6 +492,8 @@ bad proportions, malformed limbs, missing arms, missing legs, extra arms,
 extra legs, mutated hands, disfigured, gross proportions
 ```
 
+<!-- /ANCHOR:e2-universal-negative-foundation-template -->
+<!-- ANCHOR:e3-platform-exclusion-handling -->
 #### E3. Platform Exclusion Handling
 
 | Platform       | Negative Support | Handling Strategy                            |
@@ -433,6 +506,8 @@ extra legs, mutated hands, disfigured, gross proportions
 | **Leonardo**   | Full support     | Use structured negative prompt               |
 | **Ideogram**   | None             | Positive descriptions only                   |
 
+<!-- /ANCHOR:e3-platform-exclusion-handling -->
+<!-- ANCHOR:e4-positive-rephrasing-guide -->
 #### E4. Positive Rephrasing Guide
 
 For platforms without negative prompts, rephrase exclusions as positive descriptions:
@@ -447,6 +522,8 @@ For platforms without negative prompts, rephrase exclusions as positive descript
 | "No harsh lighting"          | "Soft, diffused lighting"                      |
 | "Avoid cluttered background" | "Clean, simple background with subtle bokeh"   |
 
+<!-- /ANCHOR:e4-positive-rephrasing-guide -->
+<!-- ANCHOR:e5-style-specific-exclusions -->
 #### E5. Style-Specific Exclusions
 
 | Target Style       | Exclude These                                   | Why                 |
@@ -459,6 +536,8 @@ For platforms without negative prompts, rephrase exclusions as positive descript
 
 ---
 
+<!-- /ANCHOR:e5-style-specific-exclusions -->
+<!-- ANCHOR:frame-sub-category-summary -->
 ### FRAME Sub-Category Summary
 
 | Component          | Sub-Categories                                                                                                                 | Count  |
@@ -472,6 +551,8 @@ For platforms without negative prompts, rephrase exclusions as positive descript
 
 ---
 
+<!-- /ANCHOR:frame-sub-category-summary -->
+<!-- ANCHOR:frame-application-process -->
 ### FRAME Application Process
 
 ```yaml
@@ -509,6 +590,8 @@ frame_process:
 
 ---
 
+<!-- /ANCHOR:frame-application-process -->
+<!-- ANCHOR:3-visual-scoring-image -->
 ## 3. 📊 VISUAL SCORING (IMAGE)
 
 | Dimension       | Points | Threshold | What It Measures                  |
@@ -523,8 +606,12 @@ frame_process:
 
 ---
 
+<!-- /ANCHOR:3-visual-scoring-image -->
+<!-- ANCHOR:4-platform-optimization -->
 ## 4. 🎨 PLATFORM OPTIMIZATION
 
+<!-- /ANCHOR:4-platform-optimization -->
+<!-- ANCHOR:platform-detection-and-capabilities -->
 ### Platform Detection & Capabilities
 
 | Platform                       | Detection Keywords                      | Negative Prompts | Key Strength                         |
@@ -539,6 +626,8 @@ frame_process:
 | **Leonardo**                   | "leonardo"                              | Yes              | Stylized art, characters             |
 | **Ideogram 3.0**               | "ideogram"                              | No               | Text rendering, logos                |
 
+<!-- /ANCHOR:platform-detection-and-capabilities -->
+<!-- ANCHOR:platform-specific-syntax -->
 ### Platform-Specific Syntax
 
 ---
@@ -811,8 +900,12 @@ Pro Tips:
 
 ---
 
+<!-- /ANCHOR:platform-specific-syntax -->
+<!-- ANCHOR:5-composition-and-framing -->
 ## 5. 📐 COMPOSITION & FRAMING
 
+<!-- /ANCHOR:5-composition-and-framing -->
+<!-- ANCHOR:shot-types -->
 ### Shot Types
 
 | Shot Type            | Description                     | Use Case                 |
@@ -824,6 +917,8 @@ Pro Tips:
 | **Close-Up**         | Face or detail                  | Emotion, detail focus    |
 | **Extreme Close-Up** | Specific feature                | Macro, dramatic emphasis |
 
+<!-- /ANCHOR:shot-types -->
+<!-- ANCHOR:camera-angles -->
 ### Camera Angles
 
 | Angle                 | Effect                  | Best For                  |
@@ -835,6 +930,8 @@ Pro Tips:
 | **Dutch Angle**       | Tension, unease         | Horror, action            |
 | **Over-the-Shoulder** | Perspective, connection | Dialogue, narrative       |
 
+<!-- /ANCHOR:camera-angles -->
+<!-- ANCHOR:composition-rules -->
 ### Composition Rules
 
 ```yaml
@@ -866,8 +963,12 @@ composition_techniques:
 
 ---
 
+<!-- /ANCHOR:composition-rules -->
+<!-- ANCHOR:6-style-and-aesthetics -->
 ## 6. 🎭 STYLE & AESTHETICS
 
+<!-- /ANCHOR:6-style-and-aesthetics -->
+<!-- ANCHOR:art-styles-reference -->
 ### Art Styles Reference
 
 | Style              | Characteristics          | Keywords                                 |
@@ -883,6 +984,8 @@ composition_techniques:
 | **Surrealist**     | Dream-like, impossible   | surreal, dreamlike, Dalí-esque           |
 | **Pop Art**        | Bold, graphic            | pop art, Warhol, bold colors             |
 
+<!-- /ANCHOR:art-styles-reference -->
+<!-- ANCHOR:photography-styles -->
 ### Photography Styles
 
 | Style           | Characteristics   | Technical Terms                     |
@@ -894,6 +997,8 @@ composition_techniques:
 | **Product**     | Commercial clean  | white background, soft boxes        |
 | **Documentary** | Authentic reality | natural light, candid, raw          |
 
+<!-- /ANCHOR:photography-styles -->
+<!-- ANCHOR:film-stock-references -->
 ### Film Stock References
 
 | Film Stock            | Look               | Best For                 |
@@ -907,8 +1012,12 @@ composition_techniques:
 
 ---
 
+<!-- /ANCHOR:film-stock-references -->
+<!-- ANCHOR:7-vocabulary-banks -->
 ## 7. 📚 VOCABULARY BANKS
 
+<!-- /ANCHOR:7-vocabulary-banks -->
+<!-- ANCHOR:subject-descriptors -->
 ### Subject Descriptors
 
 | Category       | Examples                                            |
@@ -919,6 +1028,8 @@ composition_techniques:
 | **Attire**     | elegant, casual, formal, bohemian, vintage          |
 | **Features**   | sharp cheekbones, soft features, striking eyes      |
 
+<!-- /ANCHOR:subject-descriptors -->
+<!-- ANCHOR:texture-and-material -->
 ### Texture & Material
 
 | Material    | Descriptors                                |
@@ -931,8 +1042,12 @@ composition_techniques:
 
 ---
 
+<!-- /ANCHOR:texture-and-material -->
+<!-- ANCHOR:8-anti-patterns -->
 ## 8. ⚠️ ANTI-PATTERNS
 
+<!-- /ANCHOR:8-anti-patterns -->
+<!-- ANCHOR:universal-anti-patterns -->
 ### Universal Anti-Patterns
 
 | Anti-Pattern                   | Problem                      | Transform To                                |
@@ -947,6 +1062,8 @@ composition_techniques:
 | **Missing composition**        | No framing                   | Add shot type and angle                     |
 | **Tag soup**                   | "trending on artstation, 8k" | Remove entirely                             |
 
+<!-- /ANCHOR:universal-anti-patterns -->
+<!-- ANCHOR:platform-specific-anti-patterns -->
 ### Platform-Specific Anti-Patterns
 
 | Platform             | Avoid                      | Use Instead                    |
@@ -957,6 +1074,8 @@ composition_techniques:
 | **DALL-E 3**         | Keyword lists              | Natural paragraphs             |
 | **Stable Diffusion** | Missing negatives          | Always include negative prompt |
 
+<!-- /ANCHOR:platform-specific-anti-patterns -->
+<!-- ANCHOR:vague-to-specific-transformation -->
 ### Vague-to-Specific Transformation
 
 ```yaml
@@ -971,8 +1090,12 @@ vague_to_specific:
 
 ---
 
+<!-- /ANCHOR:vague-to-specific-transformation -->
+<!-- ANCHOR:9-transformation-examples -->
 ## 9. ✨ TRANSFORMATION EXAMPLES
 
+<!-- /ANCHOR:9-transformation-examples -->
+<!-- ANCHOR:example-1-portrait-flux-2-pro -->
 ### Example 1: Portrait (Flux 2 Pro)
 
 **Input:**
@@ -997,6 +1120,8 @@ framing at eye level, shallow depth of field.
 
 ---
 
+<!-- /ANCHOR:example-1-portrait-flux-2-pro -->
+<!-- ANCHOR:example-2-product-shot-imagen-4 -->
 ### Example 2: Product Shot (Imagen 4)
 
 **Input:**
@@ -1024,6 +1149,8 @@ depth of field blurring the background slightly.
 
 ---
 
+<!-- /ANCHOR:example-2-product-shot-imagen-4 -->
+<!-- ANCHOR:example-3-fantasy-art-midjourney -->
 ### Example 3: Fantasy Art (Midjourney)
 
 **Input:**
@@ -1046,6 +1173,8 @@ rain falling through god rays, detailed environment
 
 ---
 
+<!-- /ANCHOR:example-3-fantasy-art-midjourney -->
+<!-- ANCHOR:example-4-street-photography-stable-diffusion -->
 ### Example 4: Street Photography (Stable Diffusion)
 
 **Input:**
@@ -1073,6 +1202,8 @@ bad composition, centered subject
 
 ---
 
+<!-- /ANCHOR:example-4-street-photography-stable-diffusion -->
+<!-- ANCHOR:example-5-logo-design-ideogram-3-0 -->
 ### Example 5: Logo Design (Ideogram 3.0)
 
 **Input:**
@@ -1101,6 +1232,8 @@ Clean negative space around the mark.
 
 ---
 
+<!-- /ANCHOR:example-5-logo-design-ideogram-3-0 -->
+<!-- ANCHOR:example-6-food-photography-dall-e-3 -->
 ### Example 6: Food Photography (DALL-E 3)
 
 **Input:**
@@ -1131,6 +1264,8 @@ an inviting, homemade atmosphere.
 
 ---
 
+<!-- /ANCHOR:example-6-food-photography-dall-e-3 -->
+<!-- ANCHOR:example-7-character-seedream -->
 ### Example 7: Character (Seedream)
 
 **Input:**
@@ -1159,8 +1294,12 @@ soft background blur. Mystical, serene atmosphere.
 
 ---
 
+<!-- /ANCHOR:example-7-character-seedream -->
+<!-- ANCHOR:10-iterative-refinement-flow -->
 ## 10. 🔄 ITERATIVE REFINEMENT FLOW
 
+<!-- /ANCHOR:10-iterative-refinement-flow -->
+<!-- ANCHOR:post-delivery-question-mandatory -->
 ### Post-Delivery Question (MANDATORY)
 
 After delivering the enhanced prompt, **always ask the user to share their result** for iterative refinement:
@@ -1180,6 +1319,8 @@ Upload the generated image or describe what you got, and I can help you:
 Just paste or upload the image and tell me what you'd like to change.
 ```
 
+<!-- /ANCHOR:post-delivery-question-mandatory -->
+<!-- ANCHOR:refinement-conversation-patterns -->
 ### Refinement Conversation Patterns
 
 **When user shares result:**
@@ -1234,6 +1375,8 @@ refinement_triggers:
 Generate with this refined prompt and share the new result!
 ```
 
+<!-- /ANCHOR:refinement-conversation-patterns -->
+<!-- ANCHOR:iteration-best-practices -->
 ### Iteration Best Practices
 
 | Iteration | Focus                  | Typical Adjustments            |
@@ -1265,8 +1408,12 @@ Need another image prompt? Just share your next concept.
 
 ---
 
+<!-- /ANCHOR:iteration-best-practices -->
+<!-- ANCHOR:11-quick-reference -->
 ## 11. 🏎️ QUICK REFERENCE
 
+<!-- /ANCHOR:11-quick-reference -->
+<!-- ANCHOR:frame-checklist -->
 ### FRAME Checklist
 - [ ] **F**ocus: Subject clearly defined with specific details?
 - [ ] **R**endering: Art style or medium specified?
@@ -1274,6 +1421,8 @@ Need another image prompt? Just share your next concept.
 - [ ] **M**odifiers: Platform parameters included?
 - [ ] **E**xclusions: Handled appropriately for platform?
 
+<!-- /ANCHOR:frame-checklist -->
+<!-- ANCHOR:platform-quick-guide -->
 ### Platform Quick Guide
 
 | Platform         | Negatives | Best Syntax          | Key Strength     |
@@ -1287,6 +1436,8 @@ Need another image prompt? Just share your next concept.
 | Seedream         | No        | Concise sentences    | Speed            |
 | Runway           | No        | Natural sentences    | Video frames     |
 
+<!-- /ANCHOR:platform-quick-guide -->
+<!-- ANCHOR:word-count-guidelines -->
 ### Word Count Guidelines
 
 | Platform         | Optimal Range        |
@@ -1300,6 +1451,8 @@ Need another image prompt? Just share your next concept.
 | Seedream         | 30-80 words          |
 | Runway           | 30-80 words          |
 
+<!-- /ANCHOR:word-count-guidelines -->
+<!-- ANCHOR:score-targets -->
 ### Score Targets
 
 | Score     | Grade      | Action                           |
@@ -1309,6 +1462,8 @@ Need another image prompt? Just share your next concept.
 | **40-47** | Adequate   | Minor refinements needed         |
 | **<40**   | Needs work | Significant enhancement required |
 
+<!-- /ANCHOR:score-targets -->
+<!-- ANCHOR:quick-fixes -->
 ### Quick Fixes
 
 | Problem              | Fix                                          |
@@ -1323,3 +1478,5 @@ Need another image prompt? Just share your next concept.
 ---
 
 *Image Mode transforms vague visual requests into detailed, platform-optimized prompts for 2025-2026 AI image generators with full FRAME framework integration.*
+
+<!-- /ANCHOR:quick-fixes -->
