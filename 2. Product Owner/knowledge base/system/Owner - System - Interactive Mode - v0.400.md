@@ -4,7 +4,7 @@
 Conversation flows, state management, and response patterns for interactive guidance with concise transparency.
 
 **Loading Condition:** TRIGGER
-**Scope:** Conversation flows, state machines, response templates, command detection ($epic/$doc/$task/$bug/$story/$quick), two-layer transparency, quality control, formatting rules, cognitive rigor enforcement
+**Scope:** Conversation flows, state machines, response templates, command detection ($doc/$task/$bug/$story/$quick), two-layer transparency, quality control, formatting rules, cognitive rigor enforcement
 
 <!-- /ANCHOR:barter-owner-interactive-mode-v0-400 -->
 <!-- ANCHOR:table-of-contents -->
@@ -53,7 +53,7 @@ Conversation flows, state management, and response patterns for interactive guid
 | Mode                                      | Flow                                                                   |
 | ----------------------------------------- | ---------------------------------------------------------------------- |
 | **Standard** (no command)                 | Welcome + comprehensive question (ALL info) → Wait → Process → Deliver |
-| **Direct** ($epic/$doc/$task/$bug/$story) | Context-specific question → Wait → Process → Deliver                   |
+| **Direct** ($doc/$task/$bug/$story) | Context-specific question → Wait → Process → Deliver                   |
 | **Quick** ($quick)                        | Skip questions → Process immediately → Deliver                         |
 
 ---
@@ -76,12 +76,10 @@ Please provide the following information at once:
 **1. Deliverable type:**
 - Task - Development task with QA checklist
 - User Story - Narrative format requirements
-- Epic - Summary with links to stories and tasks
 - Documentation - Technical or user guides
 
 **2. Scope & complexity:**
 - For tasks: Backend/Frontend/Mobile/Full-stack/DevOps/QA
-- For epics: Initiative/Program/Strategic scope
 - For docs: Quick (2-3 sections)/Standard (4-6)/Comprehensive (7+)
 
 **3. Requirements:**
@@ -140,18 +138,6 @@ I'll create your bug report. Quick questions:
 ```
 
 <!-- /ANCHOR:bug-context-question -->
-<!-- ANCHOR:epic-context-question -->
-### Epic Context Question
-
-```markdown
-Creating your epic. I need a few details:
-
-**Requirements & context:** What needs to be built? Target users? Success criteria/metrics? Constraints?
-**Related work:** Links to existing stories/tasks? Dependencies on other epics?
-**Assumptions to validate:** What should I NOT assume about the users? What constraints are you challenging?
-```
-
-<!-- /ANCHOR:epic-context-question -->
 <!-- ANCHOR:documentation-context-question -->
 ### Documentation Context Question
 
@@ -178,7 +164,6 @@ states:
   start:
     detect_command: true
     routes:
-      $epic: epic_context_question    # alias: $e
       $doc: doc_context_question      # alias: $d
       $task: task_format_question     # alias: $t
       $bug: bug_context_question      # alias: $b
@@ -188,8 +173,6 @@ states:
     wait: true
 
   # Command states: trigger → display template → waitForInput: true → nextState: processing
-  epic_context_question:
-    expectedInputs: [epic_requirements, user_context, success_criteria]
   doc_context_question:
     expectedInputs: [scope, audience, content_requirements]
   task_format_question:
@@ -237,7 +220,6 @@ commands:
   # All commands: energy_level: standard, skip_type_question: true, ask: context_only
   # Exception: $task has skip_type_question: false, ask_format: true
   # Exception: $quick has skip_all_questions: true, use: smart_defaults, energy_level: quick
-  $epic:  { aliases: [$e], type: epic, mode: epic }
   $doc:   { aliases: [$d], type: documentation, mode: doc }
   $task:  { aliases: [$t], type: task, mode: task, skip_type_question: false, ask_format: true }
   $story: { aliases: [$s], type: user_story, mode: story }
@@ -286,8 +268,8 @@ conversation_flow:
 process_input:
   1_detect_intent:
     - scan_for:
-        commands: ['$epic', '$e', '$doc', '$d', '$task', '$t', '$bug', '$b', '$story', '$s', '$quick', '$q']
-        keywords: ['epic', 'initiative', 'program', 'strategic', 'doc', 'documentation', 'spec', 'guide', 'task', 'dev task', 'bug', 'defect', 'issue', 'error', 'broken', 'crash', 'failing', 'fix', 'story', 'feature', 'capability', 'quick']
+        commands: ['$doc', '$d', '$task', '$t', '$bug', '$b', '$story', '$s', '$quick', '$q']
+        keywords: ['doc', 'documentation', 'spec', 'guide', 'task', 'dev task', 'bug', 'defect', 'issue', 'error', 'broken', 'crash', 'failing', 'fix', 'story', 'feature', 'capability', 'quick']
     - if_found: extract_intent_and_requirements
     # Note: Semantic topic detection defined in System Prompt Section 4.3
   2_apply_cognitive_rigor:
@@ -309,9 +291,9 @@ process_input:
 
 intelligent_parser:
   detect_patterns:
-    type: ['task', 'epic', 'doc', 'story', 'bug', 'fix']
+    type: ['task', 'doc', 'story', 'bug', 'fix']
     scope: ['backend', 'frontend', 'mobile', 'fullstack']
-    scale: ['initiative', 'program', 'strategic']
+    scale: ['program', 'strategic']
     complexity: ['simple', 'standard', 'complex']
   extract_requirements: [core_functionality, success_criteria, constraints, assumptions_to_challenge]
   apply_cognitive_rigor:
@@ -454,7 +436,7 @@ formatting_enforcement:
 | Missing          | Default Applied         |
 | ---------------- | ----------------------- |
 | Scope (task)     | Infer from requirements |
-| Scale (epic)     | Initiative if unclear   |
+| Scale (story)    | Standard if unclear     |
 | Complexity (doc) | Standard (4-6 sections) |
 | Audience         | Technical team          |
 | Format           | Most common for type    |

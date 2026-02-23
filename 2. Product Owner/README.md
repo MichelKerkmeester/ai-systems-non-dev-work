@@ -22,13 +22,13 @@ Transforms requests into professional tickets, bugs, stories, epics, and documen
 <!-- ANCHOR:1-key-features -->
 ## 1. ✨ KEY FEATURES
 
-- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.205, Bug v0.115, Story v0.152, Epic v0.152, Doc v0.133)
+- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.205, Bug v0.115, Story v0.152, Doc v0.133)
 - **🧠 DEPTH Framework**: Energy-level methodology with two-layer transparency (Raw/Quick/Standard/Deep)
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
 - **🔬 Enhanced Cognitive Rigor**: 5 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first)
 - **📊 Two-Layer Model**: Full rigor internally, concise updates externally with improved transparency guidelines
 - **📊 6-Dimension Quality Scoring**: Completeness, Clarity, Actionability, Accuracy, Relevance, Mechanism Depth (all 8+, Accuracy 9+)
-- **🚀 Five Modes**: Tickets, Bugs, Stories, Epics, Documentation
+- **🚀 Four Modes**: Tickets, Bugs, Stories, Documentation
 - **⚡ Quick Mode**: Quick energy level (D → P → H)
 - **💬 Single Question**: All info gathered at once
 - **🎯 Auto-Complexity**: Smart detection and scaling
@@ -53,7 +53,6 @@ Templates:
 ├── Task Mode v0.205 (Development tasks)
 ├── Bug Mode v0.115 (Defect tracking)
 ├── Story Mode v0.152 (User stories)
-├── Epic Mode v0.152 (Initiatives)
 └── Doc Mode v0.133 (Documentation)
     ↓
 Output → export/[###]-artifact.md
@@ -124,11 +123,6 @@ Each template is fully self-contained with embedded rules, quality checks, and f
   - Focus on user journey and requirements
   - Production-aligned structure with H2 About, H3 Success Criteria
    
-- **`Product Owner - Template - Epic Mode - v0.152.md`**
-  - High-level summaries with links to stories/tasks
-  - Single unified template (production-aligned)
-  - Includes success criteria and requirements structure
-  
 - **`Product Owner - Template - Doc Mode - v0.133.md`**
   - Technical and user documentation
   - Complexity levels: Simple (2-3), Standard (4-6), Complex (7+)
@@ -145,8 +139,7 @@ Each template is fully self-contained with embedded rules, quality checks, and f
 ### Step 4: Start Creating
 ```
 need user authentication        # Interactive discovery flow
-$quick auth epic                # Immediate epic creation (Quick energy)
-$epic payment platform          # Direct epic mode (Standard energy)
+$quick auth task                # Immediate task creation (Quick energy)
 $task payment integration       # Direct task mode (Standard energy)
 $bug login not working          # Direct bug mode (Standard energy)
 $story user login               # Direct story mode (Standard energy)
@@ -167,7 +160,6 @@ $story user login               # Direct story mode (Standard energy)
 | **$task**       | Dev tasks                | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.205           | Requested task only  |
 | **$bug**        | Bug reports              | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.115           | Requested bug only   |
 | **$story**      | User stories             | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.152           | Requested story only |
-| **$epic**       | Epics                    | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.152           | Requested epic only  |
 | **$doc**        | Documentation            | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.133           | Requested doc only   |
 
 <!-- /ANCHOR:4-operating-modes -->
@@ -290,34 +282,6 @@ System waits for complete response before proceeding.
 ---
 
 <!-- /ANCHOR:story-mode-v0-152 -->
-<!-- ANCHOR:epic-mode-v0-152 -->
-### 🚀 Epic Mode (v0.152)
-
-**Purpose:** Epics as high-level overviews with links to stories and tasks
-
-**Self-Contained Features:**
-- Production-aligned structure
-- Complete symbol hierarchy (H1 title, H2 About, H3 Requirements)
-- Quality checks embedded
-- Links to related stories and tasks
-
-**Structure (Production-Aligned):**
-- **Title** - H1 header
-- **About** - H2 with ⌘ symbol, 2-3 paragraph narrative
-- **Success Criteria** - Bold text (not separate section)
-- **References** - Bold text with Flows/Components subsections (optional)
-- **Requirements** - H3 with ❖ symbol, feature areas with numbered items
-
-**Complexity Levels:**
-| Level        | Feature Areas | Features | Focus                    | Use Case               |
-| ------------ | ------------- | -------- | ------------------------ | ---------------------- |
-| **Simple**   | 1-2           | 5-10     | Single team deliverables | Focused features       |
-| **Standard** | 2-4           | 10-20    | Multi-area coordination  | Cross-area initiatives |
-| **Complex**  | 4+            | 20+      | Platform transformation  | Company-wide changes   |
-
----
-
-<!-- /ANCHOR:epic-mode-v0-152 -->
 <!-- ANCHOR:doc-mode-v0-133 -->
 ### 📄 Doc Mode (v0.133)
 
@@ -354,7 +318,7 @@ System waits for complete response before proceeding.
 <!-- ANCHOR:conversational-guidance-flow -->
 ### Conversational Guidance Flow
 
-**Default behavior** when no mode specified ($task, $bug, $story, $epic, $doc, $quick)
+**Default behavior** when no mode specified ($task, $bug, $story, $doc, $quick)
 
 **Process:**
 ```
