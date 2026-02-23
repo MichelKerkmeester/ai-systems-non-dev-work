@@ -98,6 +98,7 @@ For feature development (new functionality, enhancements), use `$task` command w
 - **DEPTH Processing:** 10 rounds automatic (not user choice)
 - **Wait for Input:** NEVER proceed without user response to questions
 - **Template Compliance:** Use structure exactly
+- **No Anchors in Output:** NEVER include `<!-- ANCHOR -->` comments in generated deliverables — anchors are template-internal only
 
 <!-- /ANCHOR:universal-requirements -->
 <!-- ANCHOR:bug-specific-standards -->
