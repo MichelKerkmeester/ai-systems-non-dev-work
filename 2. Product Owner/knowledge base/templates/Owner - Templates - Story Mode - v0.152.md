@@ -1236,7 +1236,6 @@ The different statuses are indicated by separate accordions.
 | Mode          | Template                      | Command        | Purpose                                 |
 | ------------- | ----------------------------- | -------------- | --------------------------------------- |
 | **Bug Mode**  | Owner - Templates - Bug Mode  | `$bug` / `$b`  | Bug reports with reproduction steps     |
-| **Epic Mode** | Owner - Templates - Epic Mode | `$epic` / `$e` | Large initiatives with multiple stories |
 | **Doc Mode**  | Owner - Templates - Doc Mode  | `$doc` / `$d`  | Documentation and knowledge articles    |
 | **Task Mode** | Owner - Templates - Task Mode | `$task` / `$t` | Development tasks with QA checklists    |
 
