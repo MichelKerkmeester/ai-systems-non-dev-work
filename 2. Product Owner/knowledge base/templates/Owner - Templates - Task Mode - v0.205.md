@@ -79,6 +79,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
   - Quick mode: 1-5 rounds auto-scaled based on complexity
 - **Wait for Input:** NEVER proceed without user response to questions
 - **Template Compliance:** Use structure exactly
+- **No Anchors in Output:** NEVER include `<!-- ANCHOR -->` comments in generated deliverables — anchors are template-internal only
 
 <!-- /ANCHOR:universal-requirements -->
 <!-- ANCHOR:task-specific-standards -->
