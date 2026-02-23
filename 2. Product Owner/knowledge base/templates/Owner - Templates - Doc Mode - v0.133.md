@@ -66,6 +66,7 @@ Documentation templates with integrated formatting rules and quality standards. 
   - $quick: 1-5 rounds auto-scaled based on complexity
 - **Wait for Input:** NEVER proceed without user response to questions
 - **Template Compliance:** Use structure exactly
+- **No Anchors in Output:** NEVER include `<!-- ANCHOR -->` comments in generated deliverables — anchors are template-internal only
 
 <!-- /ANCHOR:universal-requirements -->
 <!-- ANCHOR:doc-specific-standards -->
