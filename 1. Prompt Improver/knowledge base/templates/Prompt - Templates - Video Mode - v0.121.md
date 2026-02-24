@@ -1,4 +1,3 @@
-<!-- ANCHOR:prompt-templates-video-mode-v0-121 -->
 # Prompt - Templates - Video Mode - v0.121
 
 Specialized mode for optimizing prompts for AI video generators including Runway Gen-4/4.5, Sora, Kling 2.5/2.6, Veo 3.1+, Pika 2.5, Luma Ray3, Minimax, Seedance, OmniHuman, and Wan 2.1.
@@ -7,8 +6,6 @@ Specialized mode for optimizing prompts for AI video generators including Runway
 **Purpose:** Transform static descriptions into motion-focused prompts using the MOTION framework and VISUAL scoring system.
 **Scope:** Video generation prompts, platform-specific optimization, temporal vocabulary, audio integration, anti-pattern detection.
 
-<!-- /ANCHOR:prompt-templates-video-mode-v0-121 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎯 OBJECTIVE
@@ -26,8 +23,6 @@ Specialized mode for optimizing prompts for AI video generators including Runway
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-objective -->
 ## 1. 🎯 OBJECTIVE
 
 Transform static scene descriptions into dynamic, motion-focused prompts optimized for AI video generators.
@@ -50,8 +45,6 @@ Transform static scene descriptions into dynamic, motion-focused prompts optimiz
 
 ---
 
-<!-- /ANCHOR:1-objective -->
-<!-- ANCHOR:2-motion-framework -->
 ## 2. 🎬 MOTION FRAMEWORK
 
 | Element           | Focus                    | Core Question                  | Weight |
@@ -63,8 +56,6 @@ Transform static scene descriptions into dynamic, motion-focused prompts optimiz
 | **O**rchestration | Scene Choreography       | "How do elements interact?"    | 15%    |
 | **N**uance        | Subtle Details & Audio   | "What refinements are needed?" | 10%    |
 
-<!-- /ANCHOR:2-motion-framework -->
-<!-- ANCHOR:motion-application-process -->
 ### MOTION Application Process
 
 ```yaml
@@ -102,8 +93,6 @@ motion_process:
 
 ---
 
-<!-- /ANCHOR:motion-application-process -->
-<!-- ANCHOR:3-visual-scoring-video -->
 ## 3. 📊 VISUAL SCORING (VIDEO)
 
 | Dimension       | Points | Threshold | What It Measures                   |
@@ -119,12 +108,8 @@ motion_process:
 
 ---
 
-<!-- /ANCHOR:3-visual-scoring-video -->
-<!-- ANCHOR:4-platform-optimization -->
 ## 4. 🎥 PLATFORM OPTIMIZATION
 
-<!-- /ANCHOR:4-platform-optimization -->
-<!-- ANCHOR:platform-detection-and-capabilities -->
 ### Platform Detection & Capabilities
 
 | Platform             | Detection Keywords            | Max Duration | Native Audio | Best Strength                |
@@ -140,8 +125,6 @@ motion_process:
 | **OmniHuman 1.5**    | "omnihuman", "avatar"         | 30 sec       | Audio-driven | Full-body animation          |
 | **Wan 2.1/2.2**      | "wan", "alibaba video"        | 5 sec        | No           | Text rendering, FLF2V        |
 
-<!-- /ANCHOR:platform-detection-and-capabilities -->
-<!-- ANCHOR:platform-specific-syntax -->
 ### Platform-Specific Syntax
 
 ---
@@ -427,8 +410,6 @@ Prompt Structure (80-120 words):
 
 ---
 
-<!-- /ANCHOR:platform-specific-syntax -->
-<!-- ANCHOR:5-platform-mental-models -->
 ## 5. 🧠 PLATFORM MENTAL MODELS
 
 Understanding how each AI video platform "thinks" helps craft prompts that align with its internal logic.
@@ -440,8 +421,6 @@ Understanding how each AI video platform "thinks" helps craft prompts that align
 | **Kling 2.6** | Audio-Visual Choreographer | Timeline, beats, synchronization | Timeline structure, beat markers, audio sync | "On the first beat, the dancer spins. On the second, arms extend outward." |
 | **Veo 3.1** | Rendering Engine | Structured data, references, parameters | Clear specifications, reference-style data | "CAMERA: dolly forward. SUBJECT: woman walking. LIGHTING: golden hour. AUDIO: ambient street sounds" |
 
-<!-- /ANCHOR:5-platform-mental-models -->
-<!-- ANCHOR:applying-mental-models -->
 ### Applying Mental Models
 
 ```yaml
@@ -502,8 +481,6 @@ veo_3.1:
     distant traffic, footsteps on stone"
 ```
 
-<!-- /ANCHOR:applying-mental-models -->
-<!-- ANCHOR:mental-model-selection-guide -->
 ### Mental Model Selection Guide
 
 | Scenario | Best Mental Model | Why |
@@ -515,12 +492,8 @@ veo_3.1:
 
 ---
 
-<!-- /ANCHOR:mental-model-selection-guide -->
-<!-- ANCHOR:6-temporal-consistency -->
 ## 6. ⏱️ TEMPORAL CONSISTENCY
 
-<!-- /ANCHOR:6-temporal-consistency -->
-<!-- ANCHOR:duration-guidelines-by-platform -->
 ### Duration Guidelines by Platform
 
 | Platform      | Optimal Clip | Extended         | Word Count               |
@@ -536,8 +509,6 @@ veo_3.1:
 | OmniHuman     | 10-30 sec    | Audio-determined | 30-50 + audio            |
 | Wan           | 3-5 sec      | Chain clips      | 80-120                   |
 
-<!-- /ANCHOR:duration-guidelines-by-platform -->
-<!-- ANCHOR:maintaining-consistency -->
 ### Maintaining Consistency
 
 ```yaml
@@ -557,8 +528,6 @@ temporal_consistency:
     - chain_strategically: plan clip transitions for longer videos
 ```
 
-<!-- /ANCHOR:maintaining-consistency -->
-<!-- ANCHOR:common-temporal-issues -->
 ### Common Temporal Issues
 
 | Issue               | Cause              | Fix                               |
@@ -572,12 +541,8 @@ temporal_consistency:
 
 ---
 
-<!-- /ANCHOR:common-temporal-issues -->
-<!-- ANCHOR:7-audio-integration -->
 ## 7. 🔊 AUDIO INTEGRATION
 
-<!-- /ANCHOR:7-audio-integration -->
-<!-- ANCHOR:platforms-with-native-audio -->
 ### Platforms with Native Audio
 
 | Platform             | Audio Type                          | Integration Method                   |
@@ -587,8 +552,6 @@ temporal_consistency:
 | **Seedance 1.5 Pro** | Full audio + lip-sync               | Inline descriptions + Audio: section |
 | **OmniHuman 1.5**    | Audio-driven (input required)       | Upload audio file                    |
 
-<!-- /ANCHOR:platforms-with-native-audio -->
-<!-- ANCHOR:platform-specific-audio-syntax -->
 ### Platform-Specific Audio Syntax
 
 | Platform | Syntax Style | Position | Example |
@@ -597,8 +560,6 @@ temporal_consistency:
 | **Kling 2.6** | Natural language inline | End of scene description | `...with the sound of coffee grinding, milk frothing, and soft jazz playing` |
 | **Seedance 1.5 Pro** | Labeled section | After visual description | `Audio: Piano melody, dancer's footfalls on wood, fabric rustling with movement` |
 
-<!-- /ANCHOR:platform-specific-audio-syntax -->
-<!-- ANCHOR:audio-categories-and-best-practices -->
 ### Audio Categories & Best Practices
 
 | Category | Description | Prompt Examples |
@@ -609,8 +570,6 @@ temporal_consistency:
 | **Speech** | Dialogue or vocal elements | "character speaks with [emotion]", "narrator describes scene", "crowd murmurs in background" |
 | **Silence** | Intentional absence of sound | "quiet tension", "muffled world", "vacuum of space" |
 
-<!-- /ANCHOR:audio-categories-and-best-practices -->
-<!-- ANCHOR:audio-prompt-examples -->
 ### Audio Prompt Examples
 
 **Veo 3.1+:**
@@ -640,12 +599,8 @@ concert hall acoustics with natural reverb.
 
 ---
 
-<!-- /ANCHOR:audio-prompt-examples -->
-<!-- ANCHOR:8-vocabulary-banks -->
 ## 8. 📚 VOCABULARY BANKS
 
-<!-- /ANCHOR:8-vocabulary-banks -->
-<!-- ANCHOR:physics-descriptors -->
 ### Physics Descriptors
 
 | Descriptor | Description | Example |
@@ -659,8 +614,6 @@ concert hall acoustics with natural reverb.
 | **Elasticity** | Bounce and deformation behavior | "The ball compresses slightly on impact, rebounds" |
 | **Fluid dynamics** | Liquid and gas motion behavior | "Smoke billows and disperses naturally, water flows around obstacles" |
 
-<!-- /ANCHOR:physics-descriptors -->
-<!-- ANCHOR:motion-troubleshooting-guide -->
 ### Motion Troubleshooting Guide
 
 | Issue | Cause | Solution |
@@ -673,8 +626,6 @@ concert hall acoustics with natural reverb.
 | **Unnatural speed** | Vague pacing instructions | Add explicit timing ("over 3 seconds", "gradually accelerating") |
 | **Objects passing through** | Missing collision description | Describe physical interaction ("bounces off", "deflects", "stops against") |
 
-<!-- /ANCHOR:motion-troubleshooting-guide -->
-<!-- ANCHOR:camera-movement -->
 ### Camera Movement
 
 | Movement      | Description           | Best For                | Platform Notes            |
@@ -691,8 +642,6 @@ concert hall acoustics with natural reverb.
 | **Drone**     | Aerial movement       | Establishing, landscape | Natural language          |
 | **Handheld**  | Intentional shake     | Documentary, tension    | Natural language          |
 
-<!-- /ANCHOR:camera-movement -->
-<!-- ANCHOR:subject-motion-verbs -->
 ### Subject Motion Verbs
 
 | Type              | Verbs                                                         |
@@ -705,8 +654,6 @@ concert hall acoustics with natural reverb.
 | **Environmental** | leaves fall, water flows, clouds drift, flames dance          |
 | **Dance**         | spins, leaps, twirls, sways, steps, pirouettes                |
 
-<!-- /ANCHOR:subject-motion-verbs -->
-<!-- ANCHOR:pacing-and-speed-descriptors -->
 ### Pacing & Speed Descriptors
 
 | Term | Speed | Use Case |
@@ -723,8 +670,6 @@ concert hall acoustics with natural reverb.
 | **Continuously** | Unbroken flow | Long takes, uninterrupted motion |
 | **Intermittently** | Start-stop | Flickering, pulsing, rhythmic pauses |
 
-<!-- /ANCHOR:pacing-and-speed-descriptors -->
-<!-- ANCHOR:atmospheric-descriptors -->
 ### Atmospheric Descriptors
 
 | Category     | Terms                                                                                                |
@@ -736,12 +681,8 @@ concert hall acoustics with natural reverb.
 
 ---
 
-<!-- /ANCHOR:atmospheric-descriptors -->
-<!-- ANCHOR:9-anti-patterns -->
 ## 9. ⚠️ ANTI-PATTERNS
 
-<!-- /ANCHOR:9-anti-patterns -->
-<!-- ANCHOR:universal-anti-patterns-all-platforms -->
 ### Universal Anti-Patterns (All Platforms)
 
 | Anti-Pattern             | Problem                       | Transform To                        |
@@ -756,8 +697,6 @@ concert hall acoustics with natural reverb.
 | **Contradicting motion** | "zooms in while pulling back" | Choose one direction                |
 | **Vague timing**         | "eventually"                  | "over 5 seconds"                    |
 
-<!-- /ANCHOR:universal-anti-patterns-all-platforms -->
-<!-- ANCHOR:platform-specific-anti-patterns -->
 ### Platform-Specific Anti-Patterns
 
 | Platform      | Avoid                      | Use Instead                     |
@@ -770,8 +709,6 @@ concert hall acoustics with natural reverb.
 | **Wan**       | Prompts under 80 words     | Expand to 80-120 words          |
 | **OmniHuman** | Text-only prompts          | Provide audio input             |
 
-<!-- /ANCHOR:platform-specific-anti-patterns -->
-<!-- ANCHOR:static-to-dynamic-transformation -->
 ### Static-to-Dynamic Transformation
 
 ```yaml
@@ -796,12 +733,8 @@ static_to_dynamic:
 
 ---
 
-<!-- /ANCHOR:static-to-dynamic-transformation -->
-<!-- ANCHOR:10-transformation-examples -->
 ## 10. ✨ TRANSFORMATION EXAMPLES
 
-<!-- /ANCHOR:10-transformation-examples -->
-<!-- ANCHOR:example-1-basic-scene-runway-gen-4 -->
 ### Example 1: Basic Scene (Runway Gen-4)
 
 **Input:**
@@ -825,8 +758,6 @@ Her hair sways gently with each step. Cinematic, dreamlike atmosphere.
 
 ---
 
-<!-- /ANCHOR:example-1-basic-scene-runway-gen-4 -->
-<!-- ANCHOR:example-2-action-scene-sora -->
 ### Example 2: Action Scene (Sora)
 
 **Input:**
@@ -854,8 +785,6 @@ The atmosphere evokes nostalgic summer adventure.
 
 ---
 
-<!-- /ANCHOR:example-2-action-scene-sora -->
-<!-- ANCHOR:example-3-audio-enabled-scene-veo-3-1 -->
 ### Example 3: Audio-Enabled Scene (Veo 3.1+)
 
 **Input:**
@@ -885,8 +814,6 @@ of water against rocks.
 
 ---
 
-<!-- /ANCHOR:example-3-audio-enabled-scene-veo-3-1 -->
-<!-- ANCHOR:example-4-avatar-animation-omnihuman -->
 ### Example 4: Avatar Animation (OmniHuman)
 
 **Input:**
@@ -913,8 +840,6 @@ natural pauses and listening expressions between statements.
 
 ---
 
-<!-- /ANCHOR:example-4-avatar-animation-omnihuman -->
-<!-- ANCHOR:example-5-multi-shot-sequence-seedance-1-5-pro -->
 ### Example 5: Multi-Shot Sequence (Seedance 1.5 Pro)
 
 **Input:**
@@ -948,8 +873,6 @@ Style: Cinematic dance documentary, emotional and intimate.
 
 ---
 
-<!-- /ANCHOR:example-5-multi-shot-sequence-seedance-1-5-pro -->
-<!-- ANCHOR:example-6-text-in-video-wan-2-1 -->
 ### Example 6: Text-in-Video (Wan 2.1)
 
 **Input:**
@@ -982,12 +905,8 @@ Ends as: Clock at 12:00:00 with celebration text overlay.
 
 ---
 
-<!-- /ANCHOR:example-6-text-in-video-wan-2-1 -->
-<!-- ANCHOR:11-iterative-refinement-flow -->
 ## 11. 🔄 ITERATIVE REFINEMENT FLOW
 
-<!-- /ANCHOR:11-iterative-refinement-flow -->
-<!-- ANCHOR:post-delivery-question-mandatory -->
 ### Post-Delivery Question (MANDATORY)
 
 After delivering the enhanced prompt, **always ask the user to share their result** for iterative refinement:
@@ -1008,8 +927,6 @@ Upload the video, share a link, or describe what was generated, and I can help y
 Just share the result and tell me what you'd like to change.
 ```
 
-<!-- /ANCHOR:post-delivery-question-mandatory -->
-<!-- ANCHOR:refinement-conversation-patterns -->
 ### Refinement Conversation Patterns
 
 **When user shares result:**
@@ -1068,8 +985,6 @@ refinement_triggers:
 Generate with this refined prompt and share the new result!
 ```
 
-<!-- /ANCHOR:refinement-conversation-patterns -->
-<!-- ANCHOR:iteration-best-practices -->
 ### Iteration Best Practices
 
 | Iteration | Focus | Typical Adjustments |
@@ -1112,12 +1027,8 @@ Need another video prompt? Just share your next concept.
 
 ---
 
-<!-- /ANCHOR:iteration-best-practices -->
-<!-- ANCHOR:12-quick-reference -->
 ## 12. 🏎️ QUICK REFERENCE
 
-<!-- /ANCHOR:12-quick-reference -->
-<!-- ANCHOR:motion-checklist -->
 ### MOTION Checklist
 - [ ] **M**ovement: Camera AND subject motion defined?
 - [ ] **O**rigin: Starting visual established?
@@ -1126,8 +1037,6 @@ Need another video prompt? Just share your next concept.
 - [ ] **O**rchestration: Multiple elements coordinated?
 - [ ] **N**uance: Atmospheric details + audio (if supported)?
 
-<!-- /ANCHOR:motion-checklist -->
-<!-- ANCHOR:platform-quick-guide -->
 ### Platform Quick Guide
 
 | Platform      | Max  | Camera Syntax         | Negatives | Audio     | Key Strength            |
@@ -1143,8 +1052,6 @@ Need another video prompt? Just share your next concept.
 | OmniHuman     | 30s  | Audio-driven          | No        | **Input** | Avatar animation        |
 | Wan           | 5s   | Natural language      | No        | No        | Text, FLF2V             |
 
-<!-- /ANCHOR:platform-quick-guide -->
-<!-- ANCHOR:word-count-by-generation-type -->
 ### Word Count by Generation Type
 
 | Type                | Platform Range      | Recommended              |
@@ -1154,8 +1061,6 @@ Need another video prompt? Just share your next concept.
 | **Video extension** | 15-30 words         | Continue existing motion |
 | **Audio-driven**    | 30-50 words + audio | OmniHuman, audio input   |
 
-<!-- /ANCHOR:word-count-by-generation-type -->
-<!-- ANCHOR:score-targets -->
 ### Score Targets
 
 | Score | Grade | Action |
@@ -1165,8 +1070,6 @@ Need another video prompt? Just share your next concept.
 | **49-55** | Adequate | Minor refinements needed |
 | **<49** | Needs work | Significant enhancement required |
 
-<!-- /ANCHOR:score-targets -->
-<!-- ANCHOR:audio-integration-checklist-audio-enabled-platforms -->
 ### Audio Integration Checklist (Audio-Enabled Platforms)
 - [ ] Platform supports native audio? (Veo 3.1+, Kling 2.6, Seedance)
 - [ ] Audio section included at prompt end?
@@ -1178,4 +1081,3 @@ Need another video prompt? Just share your next concept.
 
 *Video Mode transforms static descriptions into dynamic, motion-focused prompts optimized for 2025-2026 generation AI video platforms with full audio integration support.*
 
-<!-- /ANCHOR:audio-integration-checklist-audio-enabled-platforms -->

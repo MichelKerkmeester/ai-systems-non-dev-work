@@ -1,10 +1,7 @@
-<!-- ANCHOR:notion-agent-user-guide-v0-230 -->
 # Notion Agent - User Guide v0.230
 
 Creates and manages Notion workspaces through natural language using Notion MCP server integration with **transparent SYNC processing**.
 
-<!-- /ANCHOR:notion-agent-user-guide-v0-230 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🆕 WHAT'S NEW IN V0.200
@@ -22,19 +19,13 @@ Creates and manages Notion workspaces through natural language using Notion MCP 
 ---
 
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-what-s-new-in-v0-200 -->
 ## 1. 🆕 WHAT'S NEW IN V0.200
 
-<!-- /ANCHOR:1-what-s-new-in-v0-200 -->
-<!-- ANCHOR:complete-system-overhaul -->
 ### Complete System Overhaul
 - **SYNC Framework**: Superior 4-phase methodology (Survey → Yield → Navigate → Create) with clearer phase naming
 - **Streamlined Processing**: Consolidated validation + integration into final Create phase for efficiency
 - **Enhanced Clarity**: More intuitive phase names that better describe actual operations
 
-<!-- /ANCHOR:complete-system-overhaul -->
-<!-- ANCHOR:enhanced-system-intelligence -->
 ### Enhanced System Intelligence
 - **Intelligent Context Assessment**: Extracts user intent from minimal information and suggests optimal native approaches
 - **Native MCP Optimization**: Balance database vs page structures automatically based on use case
@@ -44,8 +35,6 @@ Creates and manages Notion workspaces through natural language using Notion MCP 
 - **Two-Layer Transparency**: Full cognitive rigor internally, concise progress updates externally
 - **Smart Structure Coordination**: Automatic selection of optimal structure strategy (Database first, Pages first, or Hybrid)
 
-<!-- /ANCHOR:enhanced-system-intelligence -->
-<!-- ANCHOR:core-capabilities -->
 ### Core Capabilities
 - Full Notion MCP integration for workspace management
 - Complete database and page operations
@@ -56,12 +45,8 @@ Creates and manages Notion workspaces through natural language using Notion MCP 
 ---
 
 
-<!-- /ANCHOR:core-capabilities -->
-<!-- ANCHOR:2-key-features -->
 ## 2. ✨ KEY FEATURES
 
-<!-- /ANCHOR:2-key-features -->
-<!-- ANCHOR:complete-workspace-capabilities -->
 ### Complete Workspace Capabilities
 
 **Database Operations:**
@@ -87,8 +72,6 @@ Creates and manages Notion workspaces through natural language using Notion MCP 
 
 **Important**: The system NEVER suggests manual workflows or external tools. All operations use native Notion MCP exclusively.
 
-<!-- /ANCHOR:complete-workspace-capabilities -->
-<!-- ANCHOR:system-features -->
 ### System Features
 - **Connection First**: Always verifies MCP connection
 - **SYNC Processing**: Transparent 4-phase methodology
@@ -98,8 +81,6 @@ Creates and manages Notion workspaces through natural language using Notion MCP 
 ---
 
 
-<!-- /ANCHOR:system-features -->
-<!-- ANCHOR:3-system-architecture -->
 ## 3. 🌳 SYSTEM ARCHITECTURE
 
 ```
@@ -123,40 +104,28 @@ Output → Native Notion operations via MCP server
 ---
 
 
-<!-- /ANCHOR:3-system-architecture -->
-<!-- ANCHOR:4-quick-setup -->
 ## 4. 🚀 QUICK SETUP
 
-<!-- /ANCHOR:4-quick-setup -->
-<!-- ANCHOR:step-1-create-a-claude-project -->
 ### Step 1: Create a Claude Project
 1. Go to claude.ai
 2. Click "Projects" in sidebar
 3. Create new project named "Notion Agent"
 
-<!-- /ANCHOR:step-1-create-a-claude-project -->
-<!-- ANCHOR:step-2-add-system-instructions -->
 ### Step 2: Add System Instructions
 1. Click "Edit project details"
 2. Find "Custom instructions" section
 3. Copy and paste: `Notion - System Prompt - v0.230.md`
 4. Save the project
 
-<!-- /ANCHOR:step-2-add-system-instructions -->
-<!-- ANCHOR:step-3-upload-reference-documents -->
 ### Step 3: Upload Reference Documents
 Add these documents to your project:
 - `Notion - MCP Knowledge - v0.211.md`
 - `Notion - Interactive Intelligence - v0.210.md`
 - `Notion - SYNC Thinking Framework - v0.211.md`
 
-<!-- /ANCHOR:step-3-upload-reference-documents -->
-<!-- ANCHOR:step-4-continue-to-mcp-installation -->
 ### Step 4: Continue to MCP Installation
 See `INSTALL_GUIDE.md` for detailed setup (Docker or NPX).
 
-<!-- /ANCHOR:step-4-continue-to-mcp-installation -->
-<!-- ANCHOR:step-5-start-building -->
 ### Step 5: Start Building!
 ```
 Create knowledge base with articles database
@@ -168,14 +137,10 @@ Setup content calendar with relations
 ---
 
 
-<!-- /ANCHOR:step-5-start-building -->
-<!-- ANCHOR:5-installing-notion-mcp -->
 ## 5. 🔧 INSTALLING NOTION MCP
 
 Full setup guide: `INSTALL_GUIDE.md`.
 
-<!-- /ANCHOR:5-installing-notion-mcp -->
-<!-- ANCHOR:quick-option-a-docker-recommended -->
 ### Quick Option A: Docker (Recommended)
 
 Add to your MCP client config:
@@ -194,8 +159,6 @@ Add to your MCP client config:
 }
 ```
 
-<!-- /ANCHOR:quick-option-a-docker-recommended -->
-<!-- ANCHOR:quick-option-b-npx -->
 ### Quick Option B: NPX
 
 ```json
@@ -212,14 +175,10 @@ Add to your MCP client config:
 }
 ```
 
-<!-- /ANCHOR:quick-option-b-npx -->
-<!-- ANCHOR:repo-local-docker-setup -->
 ### Repo-Local Docker Setup
 
 This repository also ships a Docker Compose setup in `mcp server/notion-mcp`.
 
-<!-- /ANCHOR:repo-local-docker-setup -->
-<!-- ANCHOR:getting-your-integration-token -->
 ### Getting Your Integration Token
 
 1. **Create Internal Integration**
@@ -240,8 +199,6 @@ This repository also ships a Docker Compose setup in `mcp server/notion-mcp`.
    - Restart Claude Desktop (Cmd/Ctrl + R)
    - System verifies connection automatically
 
-<!-- /ANCHOR:getting-your-integration-token -->
-<!-- ANCHOR:important-notes -->
 ### Important Notes
 
 - Token starts with `ntn_`.
@@ -251,12 +208,8 @@ This repository also ships a Docker Compose setup in `mcp server/notion-mcp`.
 ---
 
 
-<!-- /ANCHOR:important-notes -->
-<!-- ANCHOR:6-connection-verification -->
 ## 6. 🔌 CONNECTION VERIFICATION
 
-<!-- /ANCHOR:6-connection-verification -->
-<!-- ANCHOR:automatic-connection-check -->
 ### Automatic Connection Check
 
 The system automatically verifies MCP connection before operations:
@@ -270,15 +223,11 @@ The system automatically verifies MCP connection before operations:
 ✔ Authentication: Valid
 ```
 
-<!-- /ANCHOR:automatic-connection-check -->
-<!-- ANCHOR:test-query-protocol -->
 ### Test Query Protocol
 - Executes `notion:API_get_self()` to verify connection
 - If successful: Proceeds with operations
 - If failed: Provides setup guidance
 
-<!-- /ANCHOR:test-query-protocol -->
-<!-- ANCHOR:common-connection-issues -->
 ### Common Connection Issues
 
 **Integration Not Shared:**
@@ -310,12 +259,8 @@ Solution:
 ---
 
 
-<!-- /ANCHOR:common-connection-issues -->
-<!-- ANCHOR:7-how-it-works -->
 ## 7. 🧠 HOW IT WORKS
 
-<!-- /ANCHOR:7-how-it-works -->
-<!-- ANCHOR:sync-processing-framework -->
 ### SYNC Processing Framework
 
 The system uses intelligent 4-phase SYNC methodology:
@@ -332,8 +277,6 @@ Internal: Full cognitive rigor (optimized workflow)
 External: Concise progress updates only
 ```
 
-<!-- /ANCHOR:sync-processing-framework -->
-<!-- ANCHOR:native-mcp-operations-only -->
 ### Native MCP Operations Only
 
 ```markdown
@@ -352,8 +295,6 @@ External: Concise progress updates only
 • Build operations outside Notion
 ```
 
-<!-- /ANCHOR:native-mcp-operations-only -->
-<!-- ANCHOR:execution-modes -->
 ### Execution Modes
 
 The system provides intelligent execution:
@@ -370,12 +311,8 @@ The system provides intelligent execution:
 ---
 
 
-<!-- /ANCHOR:execution-modes -->
-<!-- ANCHOR:8-example-interactions -->
 ## 8. 💬 EXAMPLE INTERACTIONS
 
-<!-- /ANCHOR:8-example-interactions -->
-<!-- ANCHOR:creating-a-knowledge-base -->
 ### Creating a Knowledge Base
 ```
 User: Create a knowledge base
@@ -416,8 +353,6 @@ Operation: Knowledge base creation
 💡 Relations connect your articles to categories!
 ```
 
-<!-- /ANCHOR:creating-a-knowledge-base -->
-<!-- ANCHOR:building-a-wiki-structure -->
 ### Building a Wiki Structure
 ```
 User: Build a documentation wiki
@@ -461,12 +396,8 @@ Operation: Wiki hierarchy creation
 ---
 
 
-<!-- /ANCHOR:building-a-wiki-structure -->
-<!-- ANCHOR:9-what-gets-created -->
 ## 9. 📊 WHAT GETS CREATED
 
-<!-- /ANCHOR:9-what-gets-created -->
-<!-- ANCHOR:full-stack-example-knowledge-base-system -->
 ### Full Stack Example - Knowledge Base System
 
 ```javascript
@@ -511,8 +442,6 @@ Blocks: {
 }
 ```
 
-<!-- /ANCHOR:full-stack-example-knowledge-base-system -->
-<!-- ANCHOR:property-types-available -->
 ### Property Types Available
 
 **Text Properties:**
@@ -543,12 +472,8 @@ Blocks: {
 ---
 
 
-<!-- /ANCHOR:property-types-available -->
-<!-- ANCHOR:10-version-history -->
 ## 10. 📦 VERSION HISTORY
 
-<!-- /ANCHOR:10-version-history -->
-<!-- ANCHOR:v0-200-current -->
 ### v0.200 (Current)
 - **Complete System Rebuild**: Aligned with Webflow architecture for consistency
 - **SYNC Framework**: Transitioned to 4-phase methodology (Survey, Yield, Navigate, Create)
@@ -562,8 +487,6 @@ Blocks: {
 - **Native Operations Only**: 100% Notion MCP, zero manual processes
 - **Smart Structure Coordination**: Automatic database vs page vs hybrid selection
 
-<!-- /ANCHOR:v0-200-current -->
-<!-- ANCHOR:v0-100-previous -->
 ### v0.100 (Previous)
 - Initial Notion MCP integration
 - Basic database and page operations
@@ -573,24 +496,17 @@ Blocks: {
 ---
 
 
-<!-- /ANCHOR:v0-100-previous -->
-<!-- ANCHOR:11-resources -->
 ## 11. 📚 RESOURCES
 
-<!-- /ANCHOR:11-resources -->
-<!-- ANCHOR:essential-links -->
 ### Essential Links
 - [Notion MCP Server](https://github.com/makenotion/notion-mcp-server)
 - [Notion API Docs](https://developers.notion.com/)
 - [Create Integration](https://www.notion.so/profile/integrations)
 - [MCP Protocol](https://modelcontextprotocol.io/)
 
-<!-- /ANCHOR:essential-links -->
-<!-- ANCHOR:quick-references -->
 ### Quick References
 - [Notion API Reference](https://developers.notion.com/reference)
 - [Property Types](https://developers.notion.com/reference/property-object)
 - [Block Types](https://developers.notion.com/reference/block)
 - [Claude Desktop](https://claude.ai/download)
 
-<!-- /ANCHOR:quick-references -->

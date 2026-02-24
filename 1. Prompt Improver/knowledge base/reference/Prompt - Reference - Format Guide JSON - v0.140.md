@@ -1,4 +1,3 @@
-<!-- ANCHOR:prompt-reference-format-guide-json-v0-140 -->
 # Prompt - Reference - Format Guide JSON - v0.140
 
 Formatting guide for JSON output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
@@ -7,8 +6,6 @@ Formatting guide for JSON output structure in prompt engineering with RCAF/CRAFT
 **Purpose:** Define JSON syntax specifications, structure patterns, validation rules, and file delivery standards for prompt engineering output.
 **Scope:** JSON format fundamentals, RCAF/CRAFT JSON structures, file delivery standards, syntax validation, format conversions, advanced patterns, and best practices.
 
-<!-- /ANCHOR:prompt-reference-format-guide-json-v0-140 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎯 OVERVIEW & PURPOSE
@@ -23,12 +20,8 @@ Formatting guide for JSON output structure in prompt engineering with RCAF/CRAFT
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-overview-and-purpose -->
 ## 1. 🎯 OVERVIEW & PURPOSE
 
-<!-- /ANCHOR:1-overview-and-purpose -->
-<!-- ANCHOR:why-json-format -->
 ### Why JSON Format?
 
 JSON provides structured, machine-parseable prompt engineering with consistent field access and programmatic integration capabilities.
@@ -49,12 +42,8 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 
 ---
 
-<!-- /ANCHOR:why-json-format -->
-<!-- ANCHOR:2-json-format-fundamentals -->
 ## 2. 📐 JSON FORMAT FUNDAMENTALS
 
-<!-- /ANCHOR:2-json-format-fundamentals -->
-<!-- ANCHOR:core-principles -->
 ### Core Principles
 
 1. **Structure Over Prose:** Fields replace sentences
@@ -63,8 +52,6 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 4. **Schema Consistency:** Predictable field patterns
 5. **Minimal Redundancy:** No repeated information
 
-<!-- /ANCHOR:core-principles -->
-<!-- ANCHOR:basic-structure -->
 ### Basic Structure
 
 ```json
@@ -82,8 +69,6 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 }
 ```
 
-<!-- /ANCHOR:basic-structure -->
-<!-- ANCHOR:data-types -->
 ### Data Types
 
 | Type        | Use Case         | Example                        |
@@ -96,12 +81,8 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 
 ---
 
-<!-- /ANCHOR:data-types -->
-<!-- ANCHOR:3-file-delivery-standards -->
 ## 3. 📦 FILE DELIVERY STANDARDS
 
-<!-- /ANCHOR:3-file-delivery-standards -->
-<!-- ANCHOR:mandatory-requirements -->
 ### Mandatory Requirements
 
 **Core Rule:** Every enhancement MUST be delivered as a downloadable file (.json), NEVER inline or in chat.
@@ -110,8 +91,6 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 1. **Claude Desktop/IDE:** Create actual downloadable file using file creation tool
 2. **CLI/Agent Mode:** Use `/Export` folder with format `[###] - descriptive-filename.json`
 
-<!-- /ANCHOR:mandatory-requirements -->
-<!-- ANCHOR:mandatory-header-format -->
 ### Mandatory Header Format
 
 **Single-line header at TOP of every JSON file:**
@@ -119,8 +98,6 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 Mode: $json | Complexity: [level] | Framework: [RCAF/CRAFT]
 ```
 
-<!-- /ANCHOR:mandatory-header-format -->
-<!-- ANCHOR:file-content-rules -->
 ### File Content Rules
 
 | Allowed                            | Forbidden                               |
@@ -133,8 +110,6 @@ Mode: $json | Complexity: [level] | Framework: [RCAF/CRAFT]
 |                                    | Comments (JSON doesn't support)         |
 |                                    | Inline/chat delivery                    |
 
-<!-- /ANCHOR:file-content-rules -->
-<!-- ANCHOR:format-lock-protocol -->
 ### Format Lock Protocol
 
 ```
@@ -150,8 +125,6 @@ If NO → STOP → REGENERATE
 If YES → DELIVER as file
 ```
 
-<!-- /ANCHOR:format-lock-protocol -->
-<!-- ANCHOR:correct-vs-incorrect -->
 ### Correct vs Incorrect
 
 | Status        | Example                                        | Problem                  |
@@ -163,12 +136,8 @@ If YES → DELIVER as file
 
 ---
 
-<!-- /ANCHOR:correct-vs-incorrect -->
-<!-- ANCHOR:4-rcaf-json-structure -->
 ## 4. 🏗️ RCAF JSON STRUCTURE
 
-<!-- /ANCHOR:4-rcaf-json-structure -->
-<!-- ANCHOR:template -->
 ### Template
 
 ```json
@@ -184,8 +153,6 @@ If YES → DELIVER as file
 }
 ```
 
-<!-- /ANCHOR:template -->
-<!-- ANCHOR:example-analysis-task -->
 ### Example: Analysis Task
 
 ```
@@ -203,8 +170,6 @@ Mode: $json | Complexity: Medium | Framework: RCAF
 }
 ```
 
-<!-- /ANCHOR:example-analysis-task -->
-<!-- ANCHOR:field-guidelines -->
 ### Field Guidelines
 
 | Field       | Required | Description      | Purpose                             |
@@ -216,12 +181,8 @@ Mode: $json | Complexity: Medium | Framework: RCAF
 
 ---
 
-<!-- /ANCHOR:field-guidelines -->
-<!-- ANCHOR:5-craft-json-structure -->
 ## 5. 🔧 CRAFT JSON STRUCTURE
 
-<!-- /ANCHOR:5-craft-json-structure -->
-<!-- ANCHOR:template-2 -->
 ### Template
 
 ```json
@@ -253,8 +214,6 @@ Mode: $json | Complexity: Medium | Framework: RCAF
 }
 ```
 
-<!-- /ANCHOR:template-2 -->
-<!-- ANCHOR:example-complex-analysis -->
 ### Example: Complex Analysis
 
 ```
@@ -296,12 +255,8 @@ Mode: $json | Complexity: High | Framework: CRAFT
 
 ---
 
-<!-- /ANCHOR:example-complex-analysis -->
-<!-- ANCHOR:6-advanced-json-patterns -->
 ## 6. 🧠 ADVANCED JSON PATTERNS
 
-<!-- /ANCHOR:6-advanced-json-patterns -->
-<!-- ANCHOR:multi-step-process -->
 ### Multi-Step Process
 
 ```json
@@ -329,8 +284,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 }
 ```
 
-<!-- /ANCHOR:multi-step-process -->
-<!-- ANCHOR:conditional-logic -->
 ### Conditional Logic
 
 ```json
@@ -350,8 +303,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 }
 ```
 
-<!-- /ANCHOR:conditional-logic -->
-<!-- ANCHOR:parameterized-template -->
 ### Parameterized Template
 
 ```json
@@ -374,14 +325,10 @@ Mode: $json | Complexity: High | Framework: CRAFT
 
 ---
 
-<!-- /ANCHOR:parameterized-template -->
-<!-- ANCHOR:7-format-conversions -->
 ## 7. 🔄 FORMAT CONVERSIONS
 
 **Cross-format guidance:** See Markdown Format Guide, YAML Format Guide, Interactive Mode
 
-<!-- /ANCHOR:7-format-conversions -->
-<!-- ANCHOR:conversion-reference -->
 ### Conversion Reference
 
 | From         | To       | Key Changes                                  |
@@ -391,8 +338,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 | **JSON**     | YAML     | Remove braces/quotes, use indentation        |
 | **YAML**     | JSON     | Add braces/quotes, commas                    |
 
-<!-- /ANCHOR:conversion-reference -->
-<!-- ANCHOR:example -->
 ### Example
 
 **Markdown:**
@@ -411,12 +356,8 @@ Mode: $json | Complexity: High | Framework: CRAFT
 
 ---
 
-<!-- /ANCHOR:example -->
-<!-- ANCHOR:8-syntax-validation -->
 ## 8. ✅ SYNTAX VALIDATION
 
-<!-- /ANCHOR:8-syntax-validation -->
-<!-- ANCHOR:pre-delivery-checklist -->
 ### Pre-Delivery Checklist
 
 | Check                         | Required | Action if Failed         |
@@ -430,8 +371,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 | No trailing commas            | Yes      | Remove commas            |
 | Double quotes only            | Yes      | Replace single quotes    |
 
-<!-- /ANCHOR:pre-delivery-checklist -->
-<!-- ANCHOR:common-issues-and-fixes -->
 ### Common Issues & Fixes
 
 | Issue                | Recognition              | Solution                      |
@@ -444,8 +383,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 | **Comments**         | Parse failure            | Remove (JSON doesn't support) |
 | **Missing braces**   | Incomplete structure     | Add closing brackets          |
 
-<!-- /ANCHOR:common-issues-and-fixes -->
-<!-- ANCHOR:error-recovery -->
 ### Error Recovery
 
 ```
@@ -459,12 +396,8 @@ Mode: $json | Complexity: High | Framework: CRAFT
 
 ---
 
-<!-- /ANCHOR:error-recovery -->
-<!-- ANCHOR:9-best-practices -->
 ## 9. 💎 BEST PRACTICES
 
-<!-- /ANCHOR:9-best-practices -->
-<!-- ANCHOR:do-s-and-don-ts -->
 ### Do's and Don'ts
 
 | Category       | Do ✅                               | Don't ❌                       |
@@ -480,8 +413,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 | **Syntax**     | Escape special characters          | Use trailing commas           |
 | **Comments**   | Remove all comments                | Include comments (invalid)    |
 
-<!-- /ANCHOR:do-s-and-don-ts -->
-<!-- ANCHOR:framework-structure -->
 ### Framework Structure
 
 | Complexity     | Framework | JSON Structure      | Nesting Depth |
@@ -490,8 +421,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 | Medium (4-6)   | RCAF      | Nested format field | 2-3 levels    |
 | Complex (7-10) | CRAFT     | Multi-level nesting | 3-4 levels    |
 
-<!-- /ANCHOR:framework-structure -->
-<!-- ANCHOR:when-to-use-json -->
 ### When to Use JSON
 
 | Use JSON When              | Use Markdown When          | Use YAML When           |
@@ -502,8 +431,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 | Schema validation required | Flexibility needed         | Comments helpful        |
 | Batch processing           | Single prompt usage        | Multi-line text common  |
 
-<!-- /ANCHOR:when-to-use-json -->
-<!-- ANCHOR:token-optimization -->
 ### Token Optimization
 
 ```json
@@ -514,8 +441,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 { "role": "expert" }
 ```
 
-<!-- /ANCHOR:token-optimization -->
-<!-- ANCHOR:json-philosophy -->
 ### JSON Philosophy
 
 > "Structure enables consistency. Consistency enables automation. Automation enables scale."
@@ -527,8 +452,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 4. Integration through standards - API compatibility
 5. Quality through validation - Syntax enforcement
 
-<!-- /ANCHOR:json-philosophy -->
-<!-- ANCHOR:clear-score-impact -->
 ### CLEAR Score Impact
 
 | Format       | Avg CLEAR | Strengths                       | Weaknesses            |
@@ -537,8 +460,6 @@ Mode: $json | Complexity: High | Framework: CRAFT
 | **JSON**     | 41/50     | Arrangement (9/10), Precision   | Expression (7/10)     |
 | **YAML**     | 42/50     | Balance (8/10 avg)              | Learning curve        |
 
-<!-- /ANCHOR:clear-score-impact -->
-<!-- ANCHOR:quality-checklist -->
 ### Quality Checklist
 
 **Excellent JSON Format:**
@@ -552,4 +473,3 @@ Mode: $json | Complexity: High | Framework: CRAFT
 - ✅ Clean structure (no markdown)
 - ✅ Proper escaping
 - ✅ API-ready format
-<!-- /ANCHOR:quality-checklist -->

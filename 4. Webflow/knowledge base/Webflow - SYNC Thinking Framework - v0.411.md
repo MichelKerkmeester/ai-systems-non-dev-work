@@ -1,4 +1,3 @@
-<!-- ANCHOR:webflow-sync-thinking-framework-v0-411 -->
 # Webflow - SYNC Thinking Framework - v0.411
 
 A comprehensive methodology combining systematic SYNC analysis with the RICCE completeness framework for superior Webflow operations deliverables.
@@ -7,8 +6,6 @@ A comprehensive methodology combining systematic SYNC analysis with the RICCE co
 **Purpose:** Provides the 4-phase SYNC methodology (Survey, Yield, Navigate, Create) ensuring intelligent context assessment and optimal native API operations for all Webflow deliverables
 **Scope:** MCP server integration, Data API and Designer API coordination, RICCE completeness framework, cognitive rigor techniques, two-layer transparency model, quality assurance gates, and native-only pattern validation
 
-<!-- /ANCHOR:webflow-sync-thinking-framework-v0-411 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎯 FRAMEWORK OVERVIEW
@@ -22,12 +19,8 @@ A comprehensive methodology combining systematic SYNC analysis with the RICCE co
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-framework-overview -->
 ## 1. 🎯 FRAMEWORK OVERVIEW
 
-<!-- /ANCHOR:1-framework-overview -->
-<!-- ANCHOR:core-definition -->
 ### Core Definition
 **SYNC** - **S**urvey **Y**ield **N**avigate **C**reate
 
@@ -35,8 +28,6 @@ An intelligent framework that acts as a **perfect context assessor** and **solut
 
 **Core Philosophy:** Every request contains context clues about what the user needs. SYNC extracts these signals, matches them to native Webflow capabilities, and proposes the best native solution path.
 
-<!-- /ANCHOR:core-definition -->
-<!-- ANCHOR:core-capabilities-and-principles -->
 ### Core Capabilities & Principles
 
 **1. Intelligent Context Assessment**
@@ -64,18 +55,12 @@ An intelligent framework that acts as a **perfect context assessor** and **solut
 
 ---
 
-<!-- /ANCHOR:core-capabilities-and-principles -->
-<!-- ANCHOR:2-sync-principles -->
 ## 2. 💡 SYNC PRINCIPLES
 
-<!-- /ANCHOR:2-sync-principles -->
-<!-- ANCHOR:the-four-sync-phases -->
 ### The Four SYNC Phases
 
 These four phases produce optimal Webflow structures through native API operations, **applied with systematic depth**:
 
-<!-- /ANCHOR:the-four-sync-phases -->
-<!-- ANCHOR:s-survey-capabilities-and-requirements -->
 ### S - Survey Capabilities & Requirements
 **Process:** Deeply understand request context and determine optimal native API approach
 **User Sees:** Intelligent analysis of their needs with API recommendations
@@ -103,8 +88,6 @@ These four phases produce optimal Webflow structures through native API operatio
 - Explains reasoning clearly
 - Reality-checks feasibility before committing
 
-<!-- /ANCHOR:s-survey-capabilities-and-requirements -->
-<!-- ANCHOR:y-yield-optimal-solution -->
 ### Y - Yield Optimal Solution
 **Process:** Evaluate multiple solutions and select the best native approach
 **User Sees:** Chosen solution with clear reasoning and alternatives
@@ -147,8 +130,6 @@ decision_matrix:
   final: "Collections + Components"
 ```
 
-<!-- /ANCHOR:y-yield-optimal-solution -->
-<!-- ANCHOR:n-navigate-implementation-path -->
 ### N - Navigate Implementation Path
 **Process:** Build from native API primitives in logical sequence
 **User Sees:** Operation sequence with progress
@@ -166,8 +147,6 @@ decision_matrix:
 - Progress monitoring per operation
 - Error handling with native fallbacks
 
-<!-- /ANCHOR:n-navigate-implementation-path -->
-<!-- ANCHOR:c-create-and-confirm-success -->
 ### C - Create & Confirm Success
 **Process:** Ensure quality with native Webflow standards and deliver integrated solution
 **User Sees:** Quality validation confirmation with complete results
@@ -195,24 +174,16 @@ native_validation:
 
 ---
 
-<!-- /ANCHOR:c-create-and-confirm-success -->
-<!-- ANCHOR:3-cognitive-rigor-framework -->
 ## 3. 🔬 COGNITIVE RIGOR FRAMEWORK
 
-<!-- /ANCHOR:3-cognitive-rigor-framework -->
-<!-- ANCHOR:webflow-focused-cognitive-approach -->
 ### Webflow-Focused Cognitive Approach
 
 **Status:** Tailored for native Webflow operations with systematic decision techniques
 
 **Focus Areas:** Native API selection, Designer vs Data API choice, component patterns, structure optimization
 
-<!-- /ANCHOR:webflow-focused-cognitive-approach -->
-<!-- ANCHOR:three-core-techniques-for-webflow -->
 ### Three Core Techniques for Webflow
 
-<!-- /ANCHOR:three-core-techniques-for-webflow -->
-<!-- ANCHOR:1-native-api-selection-systematic -->
 #### 1. Native API Selection (Systematic)
 **Process:** Analyze requirements → Evaluate native capabilities → Select optimal API operations → Validate native approach
 
@@ -220,8 +191,6 @@ native_validation:
 
 **Output:** Optimal native API operations with reasoning
 
-<!-- /ANCHOR:1-native-api-selection-systematic -->
-<!-- ANCHOR:2-designer-vs-data-api-analysis-systematic -->
 #### 2. Designer vs Data API Analysis (Systematic)
 **Process:** Evaluate operation type → Check companion app availability → Determine API combination → Select optimal coordination
 
@@ -229,8 +198,6 @@ native_validation:
 
 **Output:** API coordination strategy with requirements
 
-<!-- /ANCHOR:2-designer-vs-data-api-analysis-systematic -->
-<!-- ANCHOR:3-native-pattern-validation-continuous -->
 #### 3. Native Pattern Validation (Continuous)
 **Process:** Identify native patterns → Validate Webflow compatibility → Check custom code avoidance → Flag non-native risks
 
@@ -241,8 +208,6 @@ native_validation:
 
 **Output:** Native pattern confirmation
 
-<!-- /ANCHOR:3-native-pattern-validation-continuous -->
-<!-- ANCHOR:quality-gates-for-cognitive-rigor -->
 ### Quality Gates for Cognitive Rigor
 
 Before operations, validate:
@@ -272,8 +237,6 @@ Before operations, validate:
 
 **If any gate fails → Address issue → Re-validate**
 
-<!-- /ANCHOR:quality-gates-for-cognitive-rigor -->
-<!-- ANCHOR:handling-ambiguous-requests -->
 ### Handling Ambiguous Requests
 
 **SYNC Response Patterns:**
@@ -286,12 +249,8 @@ Before operations, validate:
 
 ---
 
-<!-- /ANCHOR:handling-ambiguous-requests -->
-<!-- ANCHOR:4-the-sync-methodology -->
 ## 4. 🧠 THE SYNC METHODOLOGY
 
-<!-- /ANCHOR:4-the-sync-methodology -->
-<!-- ANCHOR:phase-breakdown-with-execution-flow -->
 ### Phase Breakdown with Execution Flow
 
 | Phase        | Standard Mode                  | User Update Format                                   |
@@ -301,8 +260,6 @@ Before operations, validate:
 | **N**avigate | Sequential building            | "🔄 Navigating (Data API → Designer API)"             |
 | **C**reate   | Quality + Integration delivery | "✅ Creating (Best practices + integration complete)" |
 
-<!-- /ANCHOR:phase-breakdown-with-execution-flow -->
-<!-- ANCHOR:state-management -->
 ### State Management
 
 ```yaml
@@ -332,8 +289,6 @@ system_state:
     custom_code_check: false  # ALWAYS false
 ```
 
-<!-- /ANCHOR:state-management -->
-<!-- ANCHOR:phase-s-survey-25-of-processing -->
 ### Phase S - SURVEY (25% of processing)
 **Purpose:** Understand requirements and verify native API capabilities
 
@@ -362,8 +317,6 @@ requirements_analysis:
   design_needs: [components, layouts, responsive]
 ```
 
-<!-- /ANCHOR:phase-s-survey-25-of-processing -->
-<!-- ANCHOR:phase-y-yield-35-of-processing -->
 ### Phase Y - YIELD (35% of processing)
 **Purpose:** Design optimal native API approach
 
@@ -392,8 +345,6 @@ operation_sequencing:
   step_4: "Data API: Add sample content items"
 ```
 
-<!-- /ANCHOR:phase-y-yield-35-of-processing -->
-<!-- ANCHOR:phase-n-navigate-30-of-processing -->
 ### Phase N - NAVIGATE (30% of processing)
 **Purpose:** Execute native API operations in logical sequence
 
@@ -419,8 +370,6 @@ monitoring:
   error_handling: "Native fallbacks only"
 ```
 
-<!-- /ANCHOR:phase-n-navigate-30-of-processing -->
-<!-- ANCHOR:phase-c-create-10-of-processing -->
 ### Phase C - CREATE (10% of processing)
 **Purpose:** Validate native best practices and deliver integrated solution
 
@@ -448,12 +397,8 @@ integration_validation:
 
 ---
 
-<!-- /ANCHOR:phase-c-create-10-of-processing -->
-<!-- ANCHOR:5-ricce-framework -->
 ## 5. 🏗️ RICCE FRAMEWORK
 
-<!-- /ANCHOR:5-ricce-framework -->
-<!-- ANCHOR:core-definition-2 -->
 ### Core Definition
 
 **RICCE** is a structural validation framework ensuring all Webflow operations contain essential elements for complete native API execution.
@@ -465,8 +410,6 @@ integration_validation:
 - **C**onstraints - Quality Metrics Established
 - **E**xamples - Results Validation Included
 
-<!-- /ANCHOR:core-definition-2 -->
-<!-- ANCHOR:r-role-operation-requirements-defined -->
 ### R - Role (Operation Requirements Defined)
 
 **Purpose:** Ensure operation type, API needs, and native capabilities are clearly identified
@@ -480,8 +423,6 @@ integration_validation:
 - Companion App: Required for Designer operations"
 ```
 
-<!-- /ANCHOR:r-role-operation-requirements-defined -->
-<!-- ANCHOR:i-instructions-native-api-steps-clear -->
 ### I - Instructions (Native API Steps Clear)
 
 **Purpose:** Ensure clear, executable native API operations with proper sequencing
@@ -496,8 +437,6 @@ integration_validation:
 All operations: Native Webflow APIs only"
 ```
 
-<!-- /ANCHOR:i-instructions-native-api-steps-clear -->
-<!-- ANCHOR:c-context-webflow-properties-comprehensive -->
 ### C - Context (Webflow Properties Comprehensive)
 
 **Purpose:** Provide complete Webflow environment understanding
@@ -511,8 +450,6 @@ All operations: Native Webflow APIs only"
 - Constraints: Zero custom code, 60 calls/min rate limit"
 ```
 
-<!-- /ANCHOR:c-context-webflow-properties-comprehensive -->
-<!-- ANCHOR:c-constraints-quality-metrics-established -->
 ### C - Constraints (Quality Metrics Established)
 
 **Purpose:** Define measurable quality and native operation targets
@@ -526,8 +463,6 @@ All operations: Native Webflow APIs only"
 - Quality: SEO ✅ Responsive ✅ Performance ✅"
 ```
 
-<!-- /ANCHOR:c-constraints-quality-metrics-established -->
-<!-- ANCHOR:e-examples-results-validation-included -->
 ### E - Examples (Results Validation Included)
 
 **Purpose:** Ensure validation mechanisms and expected native results are clear
@@ -541,8 +476,6 @@ All operations: Native Webflow APIs only"
 - Success: Structure ✅ Design ✅ Native ✅"
 ```
 
-<!-- /ANCHOR:e-examples-results-validation-included -->
-<!-- ANCHOR:ricce-sync-integration -->
 ### RICCE-SYNC Integration
 
 | SYNC Phase       | RICCE Elements             | Validation Point                             |
@@ -554,18 +487,12 @@ All operations: Native Webflow APIs only"
 
 ---
 
-<!-- /ANCHOR:ricce-sync-integration -->
-<!-- ANCHOR:6-transparency-model -->
 ## 6. 🔄 TRANSPARENCY MODEL
 
-<!-- /ANCHOR:6-transparency-model -->
-<!-- ANCHOR:two-layer-processing-architecture -->
 ### Two-Layer Processing Architecture
 
 **Core Principle:** Apply full native API analysis internally while showing meaningful progress externally.
 
-<!-- /ANCHOR:two-layer-processing-architecture -->
-<!-- ANCHOR:internal-layer-full-analysis -->
 ### Internal Layer (Full Analysis)
 
 **What Happens:**
@@ -580,8 +507,6 @@ All operations: Native Webflow APIs only"
 - Maintains focus on results
 - Preserves professional flow
 
-<!-- /ANCHOR:internal-layer-full-analysis -->
-<!-- ANCHOR:external-layer-concise-updates -->
 ### External Layer (Concise Updates)
 
 **What Users See:**
@@ -612,8 +537,6 @@ Complete: Blog system (5 fields + components)
 Next: Add content, customize (native only), publish
 ```
 
-<!-- /ANCHOR:external-layer-concise-updates -->
-<!-- ANCHOR:communication-standards -->
 ### Communication Standards
 
 **DO show users:**
@@ -631,8 +554,6 @@ Next: Add content, customize (native only), publish
 - ❌ Full native pattern matrices
 - ❌ Internal validation transcripts
 
-<!-- /ANCHOR:communication-standards -->
-<!-- ANCHOR:visibility-decision-criteria -->
 ### Visibility Decision Criteria
 
 ```yaml
@@ -658,12 +579,8 @@ conditional_show:
 
 ---
 
-<!-- /ANCHOR:visibility-decision-criteria -->
-<!-- ANCHOR:7-quality-assurance -->
 ## 7. ✅ QUALITY ASSURANCE
 
-<!-- /ANCHOR:7-quality-assurance -->
-<!-- ANCHOR:processing-validation -->
 ### Processing Validation
 
 **During SYNC processing:**
@@ -693,8 +610,6 @@ phase_c_gates:
   - "✅ Phase C: Best practices verified, 100% native"
 ```
 
-<!-- /ANCHOR:processing-validation -->
-<!-- ANCHOR:post-operation-validation -->
 ### Post-Operation Validation
 
 ```yaml
@@ -721,8 +636,6 @@ post_operation_checklist:
     - Coordinated ✅
 ```
 
-<!-- /ANCHOR:post-operation-validation -->
-<!-- ANCHOR:quality-metric-targets -->
 ### Quality Metric Targets
 
 | Metric                    | Target        | Action if Below                 |
@@ -736,12 +649,8 @@ post_operation_checklist:
 
 ---
 
-<!-- /ANCHOR:quality-metric-targets -->
-<!-- ANCHOR:8-quick-reference -->
 ## 8. 🏎️ QUICK REFERENCE
 
-<!-- /ANCHOR:8-quick-reference -->
-<!-- ANCHOR:sync-phase-summary -->
 ### SYNC Phase Summary
 
 | Phase        | Key Actions                           | User Sees                               |
@@ -751,8 +660,6 @@ post_operation_checklist:
 | **N**avigate | Native operations executing           | "🔄 Navigating (Data → Designer)"        |
 | **C**reate   | Best practices + integration verified | "✅ Creating (100% native ✅)"            |
 
-<!-- /ANCHOR:sync-phase-summary -->
-<!-- ANCHOR:cognitive-rigor-quick-check -->
 ### Cognitive Rigor Quick Check
 
 **Three Core Techniques:**
@@ -760,8 +667,6 @@ post_operation_checklist:
 2. ✅ Designer vs Data Analysis
 3. ✅ Native Pattern Validation
 
-<!-- /ANCHOR:cognitive-rigor-quick-check -->
-<!-- ANCHOR:ricce-quick-check -->
 ### RICCE Quick Check
 
 **Five Elements:**
@@ -771,8 +676,6 @@ post_operation_checklist:
 - ✅ **C**onstraints - Metrics tracked
 - ✅ **E**xamples - Results validated
 
-<!-- /ANCHOR:ricce-quick-check -->
-<!-- ANCHOR:two-layer-transparency -->
 ### Two-Layer Transparency
 
 **Show Users:**
@@ -789,8 +692,6 @@ post_operation_checklist:
 - ❌ Full pattern matrices
 - ❌ Validation transcripts
 
-<!-- /ANCHOR:two-layer-transparency -->
-<!-- ANCHOR:native-api-reality-check -->
 ### Native API Reality Check
 
 **Data API:**
@@ -813,8 +714,6 @@ post_operation_checklist:
 - ⚠️ Companion app required for Designer
 - ⚠️ Rate limit: 60 calls/minute
 
-<!-- /ANCHOR:native-api-reality-check -->
-<!-- ANCHOR:performance-benchmarks -->
 ### Performance Benchmarks
 
 | Operation           | Time  | Success Rate |
@@ -826,8 +725,6 @@ post_operation_checklist:
 | Style application   | 1-2s  | 98%          |
 | Content operations  | 2-5s  | 95%          |
 
-<!-- /ANCHOR:performance-benchmarks -->
-<!-- ANCHOR:quality-indicators -->
 ### Quality Indicators
 - Connection stability: >99%
 - API efficiency: <60 calls/minute
@@ -851,4 +748,3 @@ post_operation_checklist:
 
 *This framework serves as the foundation for all Webflow MCP operations. Always verify connection first. Never generate custom code. 100% native Webflow operations guaranteed.*
 
-<!-- /ANCHOR:quality-indicators -->
