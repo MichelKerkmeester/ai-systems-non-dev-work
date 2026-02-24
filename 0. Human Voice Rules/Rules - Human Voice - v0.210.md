@@ -7,6 +7,22 @@ The Human Voice Rules (HVR) define the global linguistic standards that govern a
 **Purpose:** Eliminate AI-detectable writing patterns, enforce punctuation discipline, ban overused words and phrases, and establish a consistent human voice across all output.
 **Scope:** Global. Applies to all 6 Barter content systems (MEQT, DEAL, CONTENT, LinkedIn, Email, Web). System-specific scoring integrations and additional rules are defined in each system's Human Voice Rules Extensions file.
 
+## 📑 TABLE OF CONTENTS
+
+  - 0. 🎯 VOICE DIRECTIVES
+  - 1. 🔄 HVR RUNTIME MODEL
+  - 2. ⚙️ RULE PRECEDENCE MODEL
+  - 3. ✏️ PUNCTUATION & FORMATTING STANDARDS
+  - 4. 🏗️ AI STRUCTURAL PATTERNS TO AVOID
+  - 5. 🔍 CONTENT PATTERN DETECTION
+  - 6. 🚫 HARD BLOCKER WORDS (-5 POINTS EACH)
+  - 7. ⛔ PHRASE HARD BLOCKERS (-5 POINTS EACH)
+  - 8. ⚖️ CONTEXT-DEPENDENT BLOCKERS
+  - 9. 📉 SOFT DEDUCTIONS (-2 POINTS EACH)
+  - 10. 📊 SOFT DEDUCTIONS (-1 POINT EACH)
+  - 11. 🏁 CONTEXT-DEPENDENT FLAGS
+  - 12. ✅ PRE-PUBLISH CHECKLIST
+
 ---
 
 ## 0. 🎯 VOICE DIRECTIVES
