@@ -1,4 +1,3 @@
-<!-- ANCHOR:owner-templates-story-mode-v0-152 -->
 # Owner - Templates - Story Mode - v0.152
 
 User story templates with integrated formatting rules and quality standards. All delivery logic consolidated for self-contained operation.
@@ -8,8 +7,6 @@ User story templates with integrated formatting rules and quality standards. All
 **Scope:** Story Mode command structure, delivery standards, complexity auto-scaling rules, quality validation checklists, error recovery protocols, template formats (Simple/Standard/Complex/Quick), formatting standards, and story-specific requirements
 **Output Path:** `/export/[###]-artifact.md`
 
-<!-- /ANCHOR:owner-templates-story-mode-v0-152 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 📖 STORY MODE OVERVIEW
@@ -29,12 +26,8 @@ User story templates with integrated formatting rules and quality standards. All
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-story-mode-overview -->
 ## 1. 📖 STORY MODE OVERVIEW
 
-<!-- /ANCHOR:1-story-mode-overview -->
-<!-- ANCHOR:command-aliases -->
 ### Command Aliases
 
 | Command        | Alias      | Description                            |
@@ -42,8 +35,6 @@ User story templates with integrated formatting rules and quality standards. All
 | `$story`       | `$s`       | Create user story in narrative format  |
 | `$quick story` | `$q story` | Quick mode - no questions, auto-scaled |
 
-<!-- /ANCHOR:command-aliases -->
-<!-- ANCHOR:command-story -->
 ### Command: `$story`
 
 - **Purpose:** Create user stories in narrative format that auto-scale complexity
@@ -53,8 +44,6 @@ User story templates with integrated formatting rules and quality standards. All
 - **Key Focus:** User journey, narrative context, and implementation requirements
 - **Output Constraints:** Story contains ONLY the requested feature/capability
 
-<!-- /ANCHOR:command-story -->
-<!-- ANCHOR:critical-rules -->
 ### Critical Rules
 - **NEVER create artifact until user responds to comprehensive questions**
 - **NEVER answer own questions - always wait for user response**
@@ -62,27 +51,19 @@ User story templates with integrated formatting rules and quality standards. All
 - **NARRATIVE ABOUT:** About section tells the story of what and why
 - **INTERACTIVE QUESTIONS:** Handled by Interactive Mode file, not in template
 
-<!-- /ANCHOR:critical-rules -->
-<!-- ANCHOR:symbol-hierarchy-production-aligned -->
 ### Symbol Hierarchy (Production-Aligned)
 - **H1 (#):** Title only (e.g., `# Story Name`)
 - **H2 (##):** `## ⌘ About`, `## ❖ Requirements`
 - **H3 (###):** `### **Success Criteria**`, requirement section headers
 - **Numbered bold:** Success criteria items, requirement items (e.g., `1. **Item Name**`)
 
-<!-- /ANCHOR:symbol-hierarchy-production-aligned -->
-<!-- ANCHOR:note-on-development-tasks -->
 ### Note on Development Tasks
 For development tasks with QA checklists and resolution tracking, use `$task` command which references **Owner - Templates - Task Mode**
 
 ---
 
-<!-- /ANCHOR:note-on-development-tasks -->
-<!-- ANCHOR:2-delivery-standards -->
 ## 2. 📦 DELIVERY STANDARDS
 
-<!-- /ANCHOR:2-delivery-standards -->
-<!-- ANCHOR:universal-requirements -->
 ### Universal Requirements
 - **Artifact Type:** Always use `text/markdown` (never `text/plain`)
 - **Single Artifact:** All content delivered as one artifact
@@ -93,8 +74,6 @@ For development tasks with QA checklists and resolution tracking, use `$task` co
 - **Template Compliance:** Use structure exactly
 - **No Anchors in Output:** NEVER include `<!-- ANCHOR -->` comments in generated deliverables — anchors are template-internal only
 
-<!-- /ANCHOR:universal-requirements -->
-<!-- ANCHOR:story-specific-standards -->
 ### Story-Specific Standards
 - **Structure:** Single unified template that scales with complexity
 - **Output Focus:** ONLY deliver what user requested
@@ -103,8 +82,6 @@ For development tasks with QA checklists and resolution tracking, use `$task` co
 - **Convergent Output:** Many approaches considered, ONE delivered
 - **User Journey Focus:** Emphasize user perspective and experience
 
-<!-- /ANCHOR:story-specific-standards -->
-<!-- ANCHOR:structure-order -->
 ### Structure Order
 1. Title (`# Story Name`) - First line
 2. User Story Statement - Traditional Agile format
@@ -115,12 +92,8 @@ For development tasks with QA checklists and resolution tracking, use `$task` co
 7. Acceptance Scenarios (BDD) (`### **Acceptance Scenarios (BDD)**`) - Given/When/Then
 8. Requirements (`## ❖ Requirements`) - Section headers with numbered items
 
-<!-- /ANCHOR:structure-order -->
-<!-- ANCHOR:mandatory-structure-elements -->
 ### Mandatory Structure Elements
 
-<!-- /ANCHOR:mandatory-structure-elements -->
-<!-- ANCHOR:traditional-user-story-format -->
 #### Traditional User Story Format
 Every story MUST include the classic Agile user story statement immediately after the title:
 
@@ -130,8 +103,6 @@ Every story MUST include the classic Agile user story statement immediately afte
 **So that** [benefit/value]
 ```
 
-<!-- /ANCHOR:traditional-user-story-format -->
-<!-- ANCHOR:acceptance-criteria -->
 #### Acceptance Criteria
 Testable, specific conditions that must be met for the story to be considered complete:
 
@@ -145,8 +116,6 @@ Testable, specific conditions that must be met for the story to be considered co
 - [ ] [Specific testable requirement]
 ```
 
-<!-- /ANCHOR:acceptance-criteria -->
-<!-- ANCHOR:bdd-acceptance-scenarios -->
 #### BDD Acceptance Scenarios
 Behavior-Driven Development scenarios using Given/When/Then syntax:
 
@@ -168,16 +137,12 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 - **Then** [expected outcome]
 ```
 
-<!-- /ANCHOR:bdd-acceptance-scenarios -->
-<!-- ANCHOR:symbol-hierarchy-production-aligned-2 -->
 #### Symbol Hierarchy (Production-Aligned)
 - **H1 (#):** Title only - `# Story Name`
 - **H2 (##):** About and Requirements - `## ⌘ About`, `## ❖ Requirements`
 - **H3 (###):** Success Criteria, Acceptance Criteria, BDD Scenarios, and requirement sections - `### **Success Criteria**`, `### Section Name`
 - **Numbered bold:** Individual items - `1. **Item Name**`
 
-<!-- /ANCHOR:symbol-hierarchy-production-aligned-2 -->
-<!-- ANCHOR:formatting-standards -->
 #### Formatting Standards
 - **Dividers:** Use `---` after section headers AND after each numbered item
 - **Lists:** Always use `-` for bullets
@@ -189,8 +154,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 - **BDD Scenarios:** Named scenarios with Given/When/Then structure
 - **Requirements:** H3 section headers with numbered bold items inside
 
-<!-- /ANCHOR:formatting-standards -->
-<!-- ANCHOR:visual-hierarchy-rules -->
 ### Visual Hierarchy Rules
 - Use `---` after section headers
 - Use `---` after each numbered success criterion
@@ -200,8 +163,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 - H3 for Success Criteria, Acceptance Criteria, BDD Scenarios, and requirement area headers
 - One blank line before divider, one blank line after divider
 
-<!-- /ANCHOR:visual-hierarchy-rules -->
-<!-- ANCHOR:content-integration -->
 ### Content Integration
 - **User Story Statement:** Classic Agile format at top
 - **About Section:** Context narrative explaining the change and its value
@@ -212,8 +173,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 - Story covers ONLY requested feature
 - Emphasis on practical implementation details
 
-<!-- /ANCHOR:content-integration -->
-<!-- ANCHOR:never -->
 ### Never:
 - Use `text/plain` - Causes raw markdown display
 - Use H1 for anything other than title
@@ -227,8 +186,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 - Expand scope beyond request
 - Use `- []` format (must be `- [ ]` with space)
 
-<!-- /ANCHOR:never -->
-<!-- ANCHOR:always -->
 ### Always:
 - Include traditional user story format (As a/I want/So that)
 - Include Acceptance Criteria section
@@ -244,8 +201,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 
 ---
 
-<!-- /ANCHOR:always -->
-<!-- ANCHOR:3-complexity-auto-scaling -->
 ## 3. 📏 COMPLEXITY AUTO-SCALING
 
 | Keywords                    | Complexity | Sections | Focus                   | DEPTH Processing          |
@@ -258,8 +213,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 - User requests "simple button update" - Simple template for THAT button only
 - NOT: Simple template with multiple button variations or extra features
 
-<!-- /ANCHOR:3-complexity-auto-scaling -->
-<!-- ANCHOR:depth-processing-standards -->
 ### DEPTH Processing Standards
 - **Multiple perspectives:** All analyze SAME requirement
 - **Single output:** One story covering exact request
@@ -267,12 +220,8 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 
 ---
 
-<!-- /ANCHOR:depth-processing-standards -->
-<!-- ANCHOR:4-quality-checklist -->
 ## 4. ✅ QUALITY CHECKLIST
 
-<!-- /ANCHOR:4-quality-checklist -->
-<!-- ANCHOR:pre-creation-validation -->
 ### Pre-Creation Validation
 - [ ] DEPTH Framework applied (10 rounds standard, 1-5 quick)?
 - [ ] User responded to comprehensive question?
@@ -281,8 +230,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 - [ ] Template version confirmed?
 - [ ] Output scope limited to user request?
 
-<!-- /ANCHOR:pre-creation-validation -->
-<!-- ANCHOR:structure-validation -->
 ### Structure Validation
 - [ ] Title as H1 first line?
 - [ ] User Story statement present (As a/I want/So that)?
@@ -297,8 +244,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 - [ ] Numbered bold for individual items?
 - [ ] Dividers after headers and after numbered items?
 
-<!-- /ANCHOR:structure-validation -->
-<!-- ANCHOR:format-validation -->
 ### Format Validation
 - [ ] Using `text/markdown` artifact type?
 - [ ] Lists use `-` bullets?
@@ -310,8 +255,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 - [ ] Content limited to requested feature?
 - [ ] Status notes use format `[Status note: "description"]` with quotes?
 
-<!-- /ANCHOR:format-validation -->
-<!-- ANCHOR:story-specific-validation -->
 ### Story-Specific Validation
 - [ ] User Story format included at top?
 - [ ] Acceptance Criteria are testable?
@@ -325,102 +268,66 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 
 ---
 
-<!-- /ANCHOR:story-specific-validation -->
-<!-- ANCHOR:5-error-recovery -->
 ## 5. 🚨 ERROR RECOVERY
 
-<!-- /ANCHOR:5-error-recovery -->
-<!-- ANCHOR:common-errors-and-fixes -->
 ### Common Errors & Fixes
 
-<!-- /ANCHOR:common-errors-and-fixes -->
-<!-- ANCHOR:missing-user-story-statement -->
 #### Missing User Story Statement
 **Error:** Story lacks "As a / I want / So that" format
 **Fix:** Add user story statement immediately after title
 
-<!-- /ANCHOR:missing-user-story-statement -->
-<!-- ANCHOR:missing-acceptance-criteria -->
 #### Missing Acceptance Criteria
 **Error:** No testable acceptance criteria section
 **Fix:** Add `### **Acceptance Criteria**` with checkbox items
 
-<!-- /ANCHOR:missing-acceptance-criteria -->
-<!-- ANCHOR:missing-bdd-scenarios -->
 #### Missing BDD Scenarios
 **Error:** No Given/When/Then scenarios
 **Fix:** Add `### **Acceptance Scenarios (BDD)**` with structured scenarios
 
-<!-- /ANCHOR:missing-bdd-scenarios -->
-<!-- ANCHOR:wrong-checkbox-syntax -->
 #### Wrong Checkbox Syntax
 **Error:** Using `- []` instead of `- [ ]`
 **Fix:** Ensure space inside brackets: `- [ ]`
 
-<!-- /ANCHOR:wrong-checkbox-syntax -->
-<!-- ANCHOR:wrong-symbol-hierarchy -->
 #### Wrong Symbol Hierarchy
 **Error:** Using H1 for About or Requirements
 **Fix:** H1 for title only, H2 for About/Requirements, H3 for Success Criteria/sections
 
-<!-- /ANCHOR:wrong-symbol-hierarchy -->
-<!-- ANCHOR:success-criteria-as-h2-with -->
 #### Success Criteria as H2 with ✦
 **Error:** Using `## ✦ Success Criteria`
 **Fix:** Use `### **Success Criteria**` (H3 with bold text)
 
-<!-- /ANCHOR:success-criteria-as-h2-with -->
-<!-- ANCHOR:using-h4-for-subsections -->
 #### Using H4 for Subsections
 **Error:** Using `#### **1. Item**`
 **Fix:** Use numbered bold directly under H3 headers (no H4)
 
-<!-- /ANCHOR:using-h4-for-subsections -->
-<!-- ANCHOR:including-separate-designs-section -->
 #### Including Separate Designs Section
 **Error:** Using `## ⌥ Designs & References`
 **Fix:** Use inline images in Requirements, or add **References** bold subsection if needed
 
-<!-- /ANCHOR:including-separate-designs-section -->
-<!-- ANCHOR:including-features-list -->
 #### Including Features List
 **Error:** Adding separate `**Features**` bulleted list
 **Fix:** Remove - About narrative and Requirements cover this
 
-<!-- /ANCHOR:including-features-list -->
-<!-- ANCHOR:including-user-need-business-value-sections -->
 #### Including User Need / Business Value Sections
 **Error:** Adding numbered `1. **User Need**` and `2. **Business Value**` sections
 **Fix:** Remove - weave these concepts into the About narrative
 
-<!-- /ANCHOR:including-user-need-business-value-sections -->
-<!-- ANCHOR:including-change-summary -->
 #### Including Change Summary
 **Error:** Adding `# ❖ Change Summary` section at bottom
 **Fix:** Remove entirely - not used in production stories
 
-<!-- /ANCHOR:including-change-summary -->
-<!-- ANCHOR:missing-dividers-after-items -->
 #### Missing Dividers After Items
 **Fix:** Add `---` after EACH numbered success criterion and requirement
 
-<!-- /ANCHOR:missing-dividers-after-items -->
-<!-- ANCHOR:created-without-user-input -->
 #### Created Without User Input
 **Fix:** Stop, apologize, ask comprehensive question, WAIT
 
-<!-- /ANCHOR:created-without-user-input -->
-<!-- ANCHOR:added-unrequested-features -->
 #### Added Unrequested Features
 **Fix:** Remove extras, keep only requested scope
 
-<!-- /ANCHOR:added-unrequested-features -->
-<!-- ANCHOR:wrong-artifact-type -->
 #### Wrong Artifact Type
 **Fix:** Recreate with `text/markdown`
 
-<!-- /ANCHOR:wrong-artifact-type -->
-<!-- ANCHOR:prevention-strategies -->
 ### Prevention Strategies
 1. Apply DEPTH Framework automatically (10 rounds standard, 1-5 quick)
 2. Wait for comprehensive response
@@ -438,8 +345,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 
 ---
 
-<!-- /ANCHOR:prevention-strategies -->
-<!-- ANCHOR:6-simple-story-template -->
 ## 6. 🔵 SIMPLE STORY TEMPLATE
 
 ```markdown
@@ -532,8 +437,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 
 ---
 
-<!-- /ANCHOR:6-simple-story-template -->
-<!-- ANCHOR:7-standard-story-template -->
 ## 7. 🟠 STANDARD STORY TEMPLATE
 
 ```markdown
@@ -689,8 +592,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 
 ---
 
-<!-- /ANCHOR:7-standard-story-template -->
-<!-- ANCHOR:8-complex-story-template -->
 ## 8. 🔴 COMPLEX STORY TEMPLATE
 
 ```markdown
@@ -919,12 +820,8 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 
 ---
 
-<!-- /ANCHOR:8-complex-story-template -->
-<!-- ANCHOR:9-quick-mode-template -->
 ## 9. ⚡ QUICK MODE TEMPLATE
 
-<!-- /ANCHOR:9-quick-mode-template -->
-<!-- ANCHOR:quick-mode-rules -->
 ### Quick Mode Rules
 - **NO questions asked** - System proceeds immediately
 - **Auto-detection** - Complexity determined from keywords
@@ -932,8 +829,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 - **Minimal format** - Essential sections only
 - **Same scope discipline** - Only requested content
 
-<!-- /ANCHOR:quick-mode-rules -->
-<!-- ANCHOR:quick-story -->
 ### $quick story
 ```markdown
 # [Story Title]
@@ -1008,8 +903,6 @@ Behavior-Driven Development scenarios using Given/When/Then syntax:
 
 ---
 
-<!-- /ANCHOR:quick-story -->
-<!-- ANCHOR:10-template-example-production-style -->
 ## 10. 📄 TEMPLATE EXAMPLE (Production-Style)
 
 ```markdown
@@ -1195,8 +1088,6 @@ The different statuses are indicated by separate accordions.
 
 ---
 
-<!-- /ANCHOR:10-template-example-production-style -->
-<!-- ANCHOR:11-final-reminders -->
 ## 11. 🎯 FINAL REMINDERS
 
 1. **Always include** user story statement (As a/I want/So that)
@@ -1226,12 +1117,8 @@ The different statuses are indicated by separate accordions.
 
 ---
 
-<!-- /ANCHOR:11-final-reminders -->
-<!-- ANCHOR:12-cross-references -->
 ## 12. 📚 CROSS-REFERENCES
 
-<!-- /ANCHOR:12-cross-references -->
-<!-- ANCHOR:related-templates -->
 ### Related Templates
 
 | Mode          | Template                      | Command        | Purpose                                 |
@@ -1240,8 +1127,6 @@ The different statuses are indicated by separate accordions.
 | **Doc Mode**  | Owner - Templates - Doc Mode  | `$doc` / `$d`  | Documentation and knowledge articles    |
 | **Task Mode** | Owner - Templates - Task Mode | `$task` / `$t` | Development tasks with QA checklists    |
 
-<!-- /ANCHOR:related-templates -->
-<!-- ANCHOR:supporting-files -->
 ### Supporting Files
 
 - **Interactive Mode** - Handles comprehensive question gathering
@@ -1250,16 +1135,12 @@ The different statuses are indicated by separate accordions.
 
 ---
 
-<!-- /ANCHOR:supporting-files -->
-<!-- ANCHOR:13-references -->
 ## 13. 📎 REFERENCES
 
 - [Related documents, designs, or specs]
 
 ---
 
-<!-- /ANCHOR:13-references -->
-<!-- ANCHOR:14-version-history -->
 ## 14. 📝 VERSION HISTORY
 
 | Date       | Changes                                                                                                                                                                                                                                                                                                                                                                        |
@@ -1267,4 +1148,3 @@ The different statuses are indicated by separate accordions.
 | 2026-01-09 | Updated cross-references: DEPTH Framework, Interactive Mode                                                                                                                                                                                                                                                                                                                    |
 | 2026-01-09 | Added traditional user story format (As a/I want/So that), Added BDD scenarios (Given/When/Then), Added Acceptance Criteria section, Fixed checkbox syntax (`- []` → `- [ ]`), Added DEPTH Framework version reference, Added Interactive Mode reference, Removed placeholder URL in example, Added command alias table, Added cross-references section, Added version history |
 | —          | Initial consolidated story mode template                                                                                                                                                                                                                                                                                                                                       |
-<!-- /ANCHOR:14-version-history -->

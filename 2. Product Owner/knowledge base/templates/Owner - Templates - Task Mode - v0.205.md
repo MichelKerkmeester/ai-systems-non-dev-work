@@ -1,4 +1,3 @@
-<!-- ANCHOR:owner-templates-task-mode-v0-205 -->
 # Owner - Templates - Task Mode - v0.205
 
 Streamlined task templates aligned with real-world ClickUp usage patterns. Concise, practical format with integrated formatting rules and quality standards.
@@ -8,8 +7,6 @@ Streamlined task templates aligned with real-world ClickUp usage patterns. Conci
 **Scope:** Task mode overview, delivery standards, complexity auto-scaling (Simple/Standard/Complex), quality checklists, error recovery, complete task templates, parent task pattern, quick mode variants, DEPTH Framework integration
 **Output Path:** `/export/[###]-artifact.md`
 
-<!-- /ANCHOR:owner-templates-task-mode-v0-205 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎫 TASK MODE OVERVIEW
@@ -27,12 +24,8 @@ Streamlined task templates aligned with real-world ClickUp usage patterns. Conci
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-task-mode-overview -->
 ## 1. 🎫 TASK MODE OVERVIEW
 
-<!-- /ANCHOR:1-task-mode-overview -->
-<!-- ANCHOR:command-task -->
 ### Command: `$task`
 
 - **Short Alias:** `$t`
@@ -44,8 +37,6 @@ Streamlined task templates aligned with real-world ClickUp usage patterns. Conci
 - **Output Constraints:** Task contains ONLY the requested feature/fix/change
 - **Key Feature:** Includes Resolution Checklist for QA verification
 
-<!-- /ANCHOR:command-task -->
-<!-- ANCHOR:critical-rules -->
 ### Critical Rules
 - **NEVER create artifact until user responds to comprehensive question**
 - **NEVER answer own questions - always wait for user response**
@@ -53,24 +44,16 @@ Streamlined task templates aligned with real-world ClickUp usage patterns. Conci
 - **HEADER AT TOP:** System metadata appears as first line of artifact (optional)
 - **INTERACTIVE QUESTIONS:** All question logic is in Interactive Mode (not duplicated here)
 
-<!-- /ANCHOR:critical-rules -->
-<!-- ANCHOR:note-on-user-stories -->
 ### Note on User Stories
 For user story format (narrative without resolution checklists), use `$story` command which references **Owner - Templates - Story Mode**
 
-<!-- /ANCHOR:note-on-user-stories -->
-<!-- ANCHOR:note-on-bugs -->
 ### Note on Bugs
 For isolated bug reports with reproduction steps and evidence, use `$bug` command which references **Owner - Templates - Bug Mode**. For grouped bugs or refinement tasks, use this Task Mode template.
 
 ---
 
-<!-- /ANCHOR:note-on-bugs -->
-<!-- ANCHOR:2-delivery-standards -->
 ## 2. 📦 DELIVERY STANDARDS
 
-<!-- /ANCHOR:2-delivery-standards -->
-<!-- ANCHOR:universal-requirements -->
 ### Universal Requirements
 - **Artifact Type:** Always use `text/markdown` (never `text/plain`)
 - **Single Artifact:** All content delivered as one artifact
@@ -81,8 +64,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - **Template Compliance:** Use structure exactly
 - **No Anchors in Output:** NEVER include `<!-- ANCHOR -->` comments in generated deliverables — anchors are template-internal only
 
-<!-- /ANCHOR:universal-requirements -->
-<!-- ANCHOR:task-specific-standards -->
 ### Task-Specific Standards
 - **Scaling:** 
   - Simple: 2-3 sections, 4-6 resolution items
@@ -100,12 +81,8 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 > **Checkbox Requirement Rule:** All literal, actionable requirement items MUST use `- [ ]` checkbox syntax. Each numbered requirement item includes a `**Requirements**` bold sub-label followed by checkbox items. Plain text bullets or numbered sub-lists are NOT acceptable for specific implementation items.
 
-<!-- /ANCHOR:task-specific-standards -->
-<!-- ANCHOR:mandatory-structure-elements -->
 ### Mandatory Structure Elements
 
-<!-- /ANCHOR:mandatory-structure-elements -->
-<!-- ANCHOR:symbol-hierarchy -->
 #### Symbol Hierarchy
 - **H2:** ⌘ (About)
 - **H3:** ❖ (Requirements), ✓ (Resolution Checklist)
@@ -115,8 +92,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - **Bold Numbered:** `**N. {Group Name}**` — Resolution Checklist group labels
 - **H4:** NOT used in Task mode
 
-<!-- /ANCHOR:symbol-hierarchy -->
-<!-- ANCHOR:structure-order -->
 #### Structure Order
 1. Title (# Task Title) - FIRST LINE
 2. About (## ⌘) - Narrative description + Scope (bold label, optional)
@@ -124,8 +99,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 4. Requirements (### ❖) - Numbered items with `**Requirements**` checkbox groups
 5. Resolution Checklist (### ✓) - Numbered bold groups with checkbox items mirroring requirements
 
-<!-- /ANCHOR:structure-order -->
-<!-- ANCHOR:formatting-standards -->
 #### Formatting Standards
 - **Dividers:** Use `---` after every heading, after every numbered item title, and between groups
 - **Lists:** Always use `-` for bullets, `- [ ]` for checkboxes
@@ -138,8 +111,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - **Links:** Use `[Description](URL)` format with actual URLs
 - **Assumptions:** Format as `[Assumes: X]` inline within requirements
 
-<!-- /ANCHOR:formatting-standards -->
-<!-- ANCHOR:visual-hierarchy-rules -->
 ### Visual Hierarchy Rules
 - Use `---` as section separators after headings, numbered items, and between groups
 - One blank line before and one blank line after `---` dividers
@@ -152,8 +123,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - H4 NOT used in Task mode
 - Consistent spacing throughout
 
-<!-- /ANCHOR:visual-hierarchy-rules -->
-<!-- ANCHOR:user-story-format-bdd-style -->
 ### User Story Format (BDD Style)
 
 **CRITICAL:** User Stories use Given/When/Then format (Behavior-Driven Development), NOT traditional "As a user, I want..." format.
@@ -179,16 +148,12 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - Bug fix consolidation tasks: NO
 - Design system component updates: NO
 
-<!-- /ANCHOR:user-story-format-bdd-style -->
-<!-- ANCHOR:content-integration -->
 ### Content Integration
 - **About Section:** Contains narrative description + Scope (optional)
 - **Narrative:** 1-3 sentences explaining what and why
 - **Scope:** Bulleted list of deliverables and changes (optional for simple tasks)
 - **Practical Focus:** Implementation-ready, concise, actionable
 
-<!-- /ANCHOR:content-integration -->
-<!-- ANCHOR:task-focus-areas -->
 ### Task Focus Areas
 
 **Feature Development:**
@@ -209,8 +174,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ---
 
-<!-- /ANCHOR:task-focus-areas -->
-<!-- ANCHOR:3-complexity-auto-scaling -->
 ## 3. 📏 COMPLEXITY AUTO-SCALING
 
 | Keywords                      | Complexity | Sections | Resolution Items | DEPTH Processing          |
@@ -223,8 +186,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - User requests "bug fix" → Simple template for THAT bug only
 - NOT: Simple template with multiple bugs or extra fixes
 
-<!-- /ANCHOR:3-complexity-auto-scaling -->
-<!-- ANCHOR:depth-processing-standards -->
 ### DEPTH Processing Standards
 - **Multiple perspectives:** All analyze SAME requirement
 - **Single output:** One task covering exact request
@@ -232,12 +193,8 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ---
 
-<!-- /ANCHOR:depth-processing-standards -->
-<!-- ANCHOR:4-quality-checklist -->
 ## 4. ✅ QUALITY CHECKLIST
 
-<!-- /ANCHOR:4-quality-checklist -->
-<!-- ANCHOR:pre-creation-validation -->
 ### Pre-Creation Validation
 - [ ] DEPTH Framework applied (10 rounds standard, 1-5 quick)?
 - [ ] User responded to comprehensive question?
@@ -246,8 +203,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - [ ] Template version confirmed?
 - [ ] Output scope limited to user request?
 
-<!-- /ANCHOR:pre-creation-validation -->
-<!-- ANCHOR:structure-validation -->
 ### Structure Validation
 - [ ] About section uses H2 (## ⌘ About)?
 - [ ] About contains narrative + Scope (if standard/complex)?
@@ -264,8 +219,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - [ ] Correct symbol hierarchy applied (H2 for About, H3 for others)?
 - [ ] No H1 headers except document title?
 
-<!-- /ANCHOR:structure-validation -->
-<!-- ANCHOR:format-validation -->
 ### Format Validation
 - [ ] Using `text/markdown` artifact type?
 - [ ] Lists use `-` bullets?
@@ -276,16 +229,12 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - [ ] No unrequested features?
 - [ ] Content limited to requested feature?
 
-<!-- /ANCHOR:format-validation -->
-<!-- ANCHOR:user-story-validation-if-applicable -->
 ### User Story Validation (if applicable)
 - [ ] User Stories use Given/When/Then format?
 - [ ] Given states the context or precondition?
 - [ ] When states the user action or trigger?
 - [ ] Then states the expected outcome?
 
-<!-- /ANCHOR:user-story-validation-if-applicable -->
-<!-- ANCHOR:mode-specific-validation -->
 ### Mode-Specific Validation
 - [ ] About uses narrative format?
 - [ ] Scope uses bulleted list (if included)?
@@ -297,8 +246,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - [ ] 10-round DEPTH applied?
 - [ ] Only requested feature covered?
 
-<!-- /ANCHOR:mode-specific-validation -->
-<!-- ANCHOR:references-and-platform-validation -->
 ### References & Platform Validation
 - [ ] References section includes Figma flow and component links (if applicable)?
 - [ ] Platform-appropriate validation items included (mobile AND/OR web)?
@@ -307,84 +254,52 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ---
 
-<!-- /ANCHOR:references-and-platform-validation -->
-<!-- ANCHOR:5-error-recovery -->
 ## 5. 🚨 ERROR RECOVERY
 
-<!-- /ANCHOR:5-error-recovery -->
-<!-- ANCHOR:common-errors-and-fixes -->
 ### Common Errors & Fixes
 
-<!-- /ANCHOR:common-errors-and-fixes -->
-<!-- ANCHOR:wrong-user-story-format -->
 #### Wrong User Story Format
 **Fix:** Change from "As a user, I want..." to Given/When/Then format
 
-<!-- /ANCHOR:wrong-user-story-format -->
-<!-- ANCHOR:wrong-symbol-hierarchy -->
 #### Wrong Symbol Hierarchy
 **Fix:** Update to H2: ⌘ (About), H3: ❖/✓ (Requirements, Checklist), Bold: References
 
-<!-- /ANCHOR:wrong-symbol-hierarchy -->
-<!-- ANCHOR:wrong-references-format -->
 #### Wrong References Format
 **Fix:** Change from `### ⌥ References` to `**References**` with `---` separator
 
-<!-- /ANCHOR:wrong-references-format -->
-<!-- ANCHOR:using-h1-for-about-section -->
 #### Using H1 for About Section
 **Fix:** Change `# ⌘ About` to `## ⌘ About` - H1 reserved for document title only
 
-<!-- /ANCHOR:using-h1-for-about-section -->
-<!-- ANCHOR:requirements-or-checklist-using-h2 -->
 #### Requirements or Checklist Using H2
 **Fix:** Change `## ❖ Requirements` to `### ❖ Requirements` and `## ✓ Resolution Checklist` to `### ✓ Resolution Checklist` - H3 for these sections
 
-<!-- /ANCHOR:requirements-or-checklist-using-h2 -->
-<!-- ANCHOR:missing-scope-section-standard-complex -->
 #### Missing Scope Section (Standard/Complex)
 **Fix:** Add `**Scope**` with bulleted list after narrative in About section
 
-<!-- /ANCHOR:missing-scope-section-standard-complex -->
-<!-- ANCHOR:checklist-categories-don-t-match-requirements -->
 #### Checklist Categories Don't Match Requirements
 **Fix:** Rename checklist categories to mirror requirement section names
 
-<!-- /ANCHOR:checklist-categories-don-t-match-requirements -->
-<!-- ANCHOR:requirements-without-checkboxes -->
 #### Requirements Without Checkboxes
 **Fix:** All literal requirements must use `- [ ]` format. Convert plain text items to checkboxes. Each numbered item must include a `**Requirements**` bold sub-label followed by `- [ ]` checkbox items.
 
 **Pattern:** Sequential questions
 **Fix:** Stop, apologize, ask comprehensive question (in Interactive Mode), WAIT
 
-<!-- /ANCHOR:requirements-without-checkboxes -->
-<!-- ANCHOR:added-unrequested-features -->
 #### Added Unrequested Features
 **Fix:** Remove extras, keep only requested scope
 
-<!-- /ANCHOR:added-unrequested-features -->
-<!-- ANCHOR:wrong-artifact-type -->
 #### Wrong Artifact Type
 **Fix:** Recreate with `text/markdown`
 
-<!-- /ANCHOR:wrong-artifact-type -->
-<!-- ANCHOR:missing-separators -->
 #### Missing Separators
 **Fix:** Add `---` between major sections
 
-<!-- /ANCHOR:missing-separators -->
-<!-- ANCHOR:table-of-contents-included -->
 #### Table of Contents Included
 **Fix:** Remove ToC, rely on external tools
 
-<!-- /ANCHOR:table-of-contents-included -->
-<!-- ANCHOR:flat-resolution-checklist -->
 #### Flat Resolution Checklist
 **Fix:** Convert to numbered categories with `**1. Category**` format
 
-<!-- /ANCHOR:flat-resolution-checklist -->
-<!-- ANCHOR:prevention-strategies -->
 ### Prevention Strategies
 1. Apply DEPTH automatically (10 rounds standard, 1-5 quick)
 2. Wait for comprehensive response
@@ -401,8 +316,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ---
 
-<!-- /ANCHOR:prevention-strategies -->
-<!-- ANCHOR:6-simple-task-template -->
 ## 6. 🔵 SIMPLE TASK TEMPLATE
 
 ```markdown
@@ -473,8 +386,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ---
 
-<!-- /ANCHOR:6-simple-task-template -->
-<!-- ANCHOR:7-standard-task-template -->
 ## 7. 🟠 STANDARD TASK TEMPLATE
 
 ```markdown
@@ -605,8 +516,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ---
 
-<!-- /ANCHOR:7-standard-task-template -->
-<!-- ANCHOR:8-complex-task-template -->
 ## 8. 🔴 COMPLEX TASK TEMPLATE
 
 ```markdown
@@ -781,8 +690,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ---
 
-<!-- /ANCHOR:8-complex-task-template -->
-<!-- ANCHOR:9-parent-task-template -->
 ## 9. 👨‍👩‍👧‍👦 PARENT TASK TEMPLATE
 
 Use this template when a task breaks down into multiple subtasks. The parent task coordinates subtasks and tracks their completion.
@@ -872,8 +779,6 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 
 ---
 
-<!-- /ANCHOR:9-parent-task-template -->
-<!-- ANCHOR:10-subtask-template -->
 ## 10. 🧩 SUBTASK TEMPLATE
 
 Use this template for individual subtasks that belong to a parent task. Each subtask covers a specific UI area or component within the parent scope.
@@ -950,12 +855,8 @@ Use this template for individual subtasks that belong to a parent task. Each sub
 
 ---
 
-<!-- /ANCHOR:10-subtask-template -->
-<!-- ANCHOR:11-quick-mode-templates -->
 ## 11. ⚡ QUICK MODE TEMPLATES
 
-<!-- /ANCHOR:11-quick-mode-templates -->
-<!-- ANCHOR:simple-quick-mode -->
 ### Simple Quick Mode
 
 ```markdown
@@ -1006,8 +907,6 @@ Use this template for individual subtasks that belong to a parent task. Each sub
 - [ ] QA approved
 ```
 
-<!-- /ANCHOR:simple-quick-mode -->
-<!-- ANCHOR:standard-quick-mode -->
 ### Standard Quick Mode
 
 ```markdown
@@ -1087,8 +986,6 @@ Use this template for individual subtasks that belong to a parent task. Each sub
 
 ---
 
-<!-- /ANCHOR:standard-quick-mode -->
-<!-- ANCHOR:12-final-reminders -->
 ## 12. 🎯 FINAL REMINDERS
 
 1. **Always wait** for user response (except $quick)
@@ -1118,4 +1015,3 @@ Use this template for individual subtasks that belong to a parent task. Each sub
 25. **Parent Task pattern** available for tasks with subtasks
 26. All literal, actionable requirements MUST use `- [ ]` checkbox syntax — never plain bullets or numbered sub-lists.
 
-<!-- /ANCHOR:12-final-reminders -->

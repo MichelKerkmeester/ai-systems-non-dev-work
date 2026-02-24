@@ -1,4 +1,3 @@
-<!-- ANCHOR:prompt-reference-format-guide-yaml-v0-140 -->
 # Prompt - Reference - Format Guide YAML - v0.140
 
 Formatting guide for YAML output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
@@ -7,8 +6,6 @@ Formatting guide for YAML output structure in prompt engineering with RCAF/CRAFT
 **Purpose:** Defines YAML syntax specifications, structure patterns, validation rules, and file delivery standards for prompt engineering output formatting.
 **Scope:** YAML fundamentals, RCAF/CRAFT structures, file delivery protocols, format conversions, syntax validation, advanced patterns, and best practices.
 
-<!-- /ANCHOR:prompt-reference-format-guide-yaml-v0-140 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎯 OVERVIEW & PURPOSE
@@ -24,12 +21,8 @@ Formatting guide for YAML output structure in prompt engineering with RCAF/CRAFT
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-overview-and-purpose -->
 ## 1. 🎯 OVERVIEW & PURPOSE
 
-<!-- /ANCHOR:1-overview-and-purpose -->
-<!-- ANCHOR:why-yaml-format -->
 ### Why YAML Format?
 
 YAML provides human-readable structured data with minimal syntax overhead, ideal for configuration-style prompts and multi-level hierarchies.
@@ -49,12 +42,8 @@ YAML provides human-readable structured data with minimal syntax overhead, ideal
 
 ---
 
-<!-- /ANCHOR:why-yaml-format -->
-<!-- ANCHOR:2-yaml-format-fundamentals -->
 ## 2. 📐 YAML FORMAT FUNDAMENTALS
 
-<!-- /ANCHOR:2-yaml-format-fundamentals -->
-<!-- ANCHOR:core-principles -->
 ### Core Principles
 
 1. **Indentation:** 2 spaces define hierarchy
@@ -63,8 +52,6 @@ YAML provides human-readable structured data with minimal syntax overhead, ideal
 4. **Key-Value:** Colon separation
 5. **Multi-line:** Literal (|) and folded (>) blocks
 
-<!-- /ANCHOR:core-principles -->
-<!-- ANCHOR:basic-structure -->
 ### Basic Structure
 
 ```yaml
@@ -81,8 +68,6 @@ output:
     - constraint two
 ```
 
-<!-- /ANCHOR:basic-structure -->
-<!-- ANCHOR:data-types -->
 ### Data Types
 
 | Type           | Syntax        | Example                                 |
@@ -96,12 +81,8 @@ output:
 
 ---
 
-<!-- /ANCHOR:data-types -->
-<!-- ANCHOR:3-file-delivery-standards -->
 ## 3. 📦 FILE DELIVERY STANDARDS
 
-<!-- /ANCHOR:3-file-delivery-standards -->
-<!-- ANCHOR:mandatory-requirements -->
 ### Mandatory Requirements
 
 **Core Rule:** Every enhancement MUST be delivered as a downloadable file (.yaml/.yml), NEVER inline or in chat.
@@ -110,8 +91,6 @@ output:
 1. **Claude Desktop/IDE:** Create actual downloadable file using file creation tool
 2. **CLI/Agent Mode:** Use `/Export` folder with format `[###] - descriptive-filename.yaml`
 
-<!-- /ANCHOR:mandatory-requirements -->
-<!-- ANCHOR:mandatory-header-format -->
 ### Mandatory Header Format
 
 **Single-line header at TOP of every YAML file:**
@@ -119,8 +98,6 @@ output:
 Mode: $yaml | Complexity: [level] | Framework: [RCAF/CRAFT]
 ```
 
-<!-- /ANCHOR:mandatory-header-format -->
-<!-- ANCHOR:file-content-rules -->
 ### File Content Rules
 
 | Allowed                            | Forbidden                               |
@@ -133,8 +110,6 @@ Mode: $yaml | Complexity: [level] | Framework: [RCAF/CRAFT]
 |                                    | Tab characters                          |
 |                                    | Inconsistent indentation                |
 
-<!-- /ANCHOR:file-content-rules -->
-<!-- ANCHOR:format-lock-protocol -->
 ### Format Lock Protocol
 
 ```
@@ -150,8 +125,6 @@ If NO → STOP → REGENERATE
 If YES → DELIVER as file
 ```
 
-<!-- /ANCHOR:format-lock-protocol -->
-<!-- ANCHOR:correct-vs-incorrect -->
 ### Correct vs Incorrect
 
 **✅ CORRECT:**
@@ -183,12 +156,8 @@ role: Data analyst
 
 ---
 
-<!-- /ANCHOR:correct-vs-incorrect -->
-<!-- ANCHOR:4-rcaf-yaml-structure -->
 ## 4. 🏗️ RCAF YAML STRUCTURE
 
-<!-- /ANCHOR:4-rcaf-yaml-structure -->
-<!-- ANCHOR:template -->
 ### Template
 
 ```yaml
@@ -203,8 +172,6 @@ format:
     - limit one
 ```
 
-<!-- /ANCHOR:template -->
-<!-- ANCHOR:example-analysis-task -->
 ### Example: Analysis Task
 
 ```
@@ -222,8 +189,6 @@ format:
     - recommendations
 ```
 
-<!-- /ANCHOR:example-analysis-task -->
-<!-- ANCHOR:field-guidelines -->
 ### Field Guidelines
 
 | Field       | Required | Description      | Best Practices           |
@@ -235,12 +200,8 @@ format:
 
 ---
 
-<!-- /ANCHOR:field-guidelines -->
-<!-- ANCHOR:5-craft-yaml-structure -->
 ## 5. 🔧 CRAFT YAML STRUCTURE
 
-<!-- /ANCHOR:5-craft-yaml-structure -->
-<!-- ANCHOR:template-2 -->
 ### Template
 
 ```yaml
@@ -270,8 +231,6 @@ target:
   success_criteria: Definition of successful outcome
 ```
 
-<!-- /ANCHOR:template-2 -->
-<!-- ANCHOR:example-complex-analysis -->
 ### Example: Complex Analysis
 
 ```
@@ -311,12 +270,8 @@ target:
 
 ---
 
-<!-- /ANCHOR:example-complex-analysis -->
-<!-- ANCHOR:6-advanced-yaml-patterns -->
 ## 6. 🧠 ADVANCED YAML PATTERNS
 
-<!-- /ANCHOR:6-advanced-yaml-patterns -->
-<!-- ANCHOR:multi-phase-process -->
 ### Multi-Phase Process
 
 ```yaml
@@ -337,8 +292,6 @@ format:
   final: comprehensive_summary
 ```
 
-<!-- /ANCHOR:multi-phase-process -->
-<!-- ANCHOR:conditional-logic -->
 ### Conditional Logic
 
 ```yaml
@@ -361,8 +314,6 @@ format:
   include: [department, priority, rationale]
 ```
 
-<!-- /ANCHOR:conditional-logic -->
-<!-- ANCHOR:template-with-anchors -->
 ### Template with Anchors
 
 ```yaml
@@ -387,14 +338,10 @@ format:
 
 ---
 
-<!-- /ANCHOR:template-with-anchors -->
-<!-- ANCHOR:7-format-conversions -->
 ## 7. 🔄 FORMAT CONVERSIONS
 
 **Cross-format guidance:** See Markdown Format Guide, JSON Format Guide, Interactive Mode
 
-<!-- /ANCHOR:7-format-conversions -->
-<!-- ANCHOR:conversion-reference -->
 ### Conversion Reference
 
 | From         | To       | Key Changes                                       |
@@ -404,8 +351,6 @@ format:
 | **YAML**     | Markdown | Add `**Field:**` prefix, convert lists to bullets |
 | **YAML**     | JSON     | Add braces/quotes, commas after values            |
 
-<!-- /ANCHOR:conversion-reference -->
-<!-- ANCHOR:example-conversion -->
 ### Example Conversion
 
 **Markdown:**
@@ -426,12 +371,8 @@ format: Dashboard with charts
 
 ---
 
-<!-- /ANCHOR:example-conversion -->
-<!-- ANCHOR:8-examples-and-templates -->
 ## 8. 📚 EXAMPLES & TEMPLATES
 
-<!-- /ANCHOR:8-examples-and-templates -->
-<!-- ANCHOR:research-template -->
 ### Research Template
 
 ```yaml
@@ -448,8 +389,6 @@ format:
   length: ${WORD_COUNT}
 ```
 
-<!-- /ANCHOR:research-template -->
-<!-- ANCHOR:customer-segmentation -->
 ### Customer Segmentation
 
 ```yaml
@@ -470,12 +409,8 @@ format:
 
 ---
 
-<!-- /ANCHOR:customer-segmentation -->
-<!-- ANCHOR:9-syntax-validation -->
 ## 9. ✅ SYNTAX VALIDATION
 
-<!-- /ANCHOR:9-syntax-validation -->
-<!-- ANCHOR:pre-delivery-checklist -->
 ### Pre-Delivery Checklist
 
 | Check                          | Required | Action if Failed         |
@@ -488,8 +423,6 @@ format:
 | Header has `$yaml` mode        | Yes      | Add header               |
 | Delivered as file              | Yes      | Create file              |
 
-<!-- /ANCHOR:pre-delivery-checklist -->
-<!-- ANCHOR:common-issues-and-fixes -->
 ### Common Issues & Fixes
 
 | Issue                   | Recognition       | Solution                         |
@@ -501,8 +434,6 @@ format:
 | **Duplicate keys**      | Parser warning    | Ensure unique keys at each level |
 | **Trailing spaces**     | Formatting issues | Remove trailing whitespace       |
 
-<!-- /ANCHOR:common-issues-and-fixes -->
-<!-- ANCHOR:error-recovery-protocol -->
 ### Error Recovery Protocol
 
 ```
@@ -516,12 +447,8 @@ format:
 
 ---
 
-<!-- /ANCHOR:error-recovery-protocol -->
-<!-- ANCHOR:10-best-practices -->
 ## 10. 💎 BEST PRACTICES
 
-<!-- /ANCHOR:10-best-practices -->
-<!-- ANCHOR:do-s-and-don-ts -->
 ### Do's and Don'ts
 
 | Category        | Do ✅                        | Don't ❌                               |
@@ -536,8 +463,6 @@ format:
 | **Content**     | Only header + YAML          | Include explanations in file          |
 | **Validation**  | Validate before delivery    | Skip validation                       |
 
-<!-- /ANCHOR:do-s-and-don-ts -->
-<!-- ANCHOR:framework-selection -->
 ### Framework Selection
 
 | Complexity     | Framework | YAML Structure        |
@@ -546,8 +471,6 @@ format:
 | Medium (4-6)   | RCAF      | Nested format         |
 | Complex (7-10) | CRAFT     | Multi-level hierarchy |
 
-<!-- /ANCHOR:framework-selection -->
-<!-- ANCHOR:token-optimization -->
 ### Token Optimization
 
 ```yaml
@@ -567,8 +490,6 @@ task_1:
   specific: value
 ```
 
-<!-- /ANCHOR:token-optimization -->
-<!-- ANCHOR:yaml-philosophy -->
 ### YAML Philosophy
 
 > "Structure with humanity. YAML bridges machine precision with human readability."
@@ -580,8 +501,6 @@ task_1:
 4. Readability through spacing - Natural formatting
 5. Maintainability through comments - Self-documenting
 
-<!-- /ANCHOR:yaml-philosophy -->
-<!-- ANCHOR:performance-metrics -->
 ### Performance Metrics
 
 | Metric             | Target | Average |
@@ -592,12 +511,9 @@ task_1:
 | CLEAR with DEPTH   | >45/50 | 47/50   |
 | Human Readability  | High   | 9/10    |
 
-<!-- /ANCHOR:performance-metrics -->
-<!-- ANCHOR:command-activation -->
 ### Command Activation
 
 To use YAML format (per Interactive Mode):
 - `$yaml` command for automatic YAML formatting
 - `$y` as shorthand
 - Combine with modes: `$improve $yaml` or `$refine $yaml`
-<!-- /ANCHOR:command-activation -->

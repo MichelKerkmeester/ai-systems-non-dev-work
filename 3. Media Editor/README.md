@@ -1,10 +1,7 @@
-<!-- ANCHOR:media-editor-system-user-guide-v0-212 -->
 # Media Editor System - User Guide v0.212
 
 Transforms natural language requests into optimized images, videos, audio, and HLS streaming with **automatic MEDIA processing and 10-round optimization**.
 
-<!-- /ANCHOR:media-editor-system-user-guide-v0-212 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🆕 WHAT'S NEW IN V0.212
@@ -19,19 +16,13 @@ Transforms natural language requests into optimized images, videos, audio, and H
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-what-s-new-in-v0-212 -->
 ## 1. 🆕 WHAT'S NEW IN V0.212
 
-<!-- /ANCHOR:1-what-s-new-in-v0-212 -->
-<!-- ANCHOR:documentation-improvements -->
 ### Documentation Improvements
 - **Enhanced Readability**: Improved balance between YAML and markdown prose across MCP Intelligence documents
 - **MCP Intelligence Updates**: Updated to v0.201 (Imagician) and v0.202 (Video-Audio) with clearer technical specifications
 - **Better Structure**: Converted heavily YAML-formatted sections to readable markdown while preserving technical accuracy
 
-<!-- /ANCHOR:documentation-improvements -->
-<!-- ANCHOR:features-from-v0-211 -->
 ### Features from V0.211
 
 **HLS Adaptive Streaming Support:**
@@ -43,8 +34,6 @@ Transforms natural language requests into optimized images, videos, audio, and H
 - **Command shortcuts**: Use `$hls` mode for quick HLS conversion
 - **Complete guide**: Dedicated HLS Video Conversion documentation (v0.100)
 
-<!-- /ANCHOR:features-from-v0-211 -->
-<!-- ANCHOR:system-improvements -->
 ### 🔧 System Improvements
 
 **Critical Bug Fixes:**
@@ -63,8 +52,6 @@ Transforms natural language requests into optimized images, videos, audio, and H
   - HLS Streaming → FFmpeg (Terminal)
 - **Better error handling**: Clear setup guidance when tools unavailable
 
-<!-- /ANCHOR:system-improvements -->
-<!-- ANCHOR:evolution-v0-211-v0-200-v0-114 -->
 ### 📊 Evolution: v0.211 → v0.200 → v0.114
 
 **v0.211:** HLS streaming support, critical bug fixes, improved tool integration, enhanced documentation  
@@ -73,12 +60,8 @@ Transforms natural language requests into optimized images, videos, audio, and H
 
 ---
 
-<!-- /ANCHOR:evolution-v0-211-v0-200-v0-114 -->
-<!-- ANCHOR:2-key-features -->
 ## 2. ✨ KEY FEATURES
 
-<!-- /ANCHOR:2-key-features -->
-<!-- ANCHOR:core-capabilities -->
 ### Core Capabilities
 - **Tool Verification First**: Always checks required tools before operations (blocking)
 - **Universal Media Processing**: Images, videos, audio, and HLS streaming in one system
@@ -92,8 +75,6 @@ Transforms natural language requests into optimized images, videos, audio, and H
 - **Rate Limiting**: Smart API usage management
 - **Educational Insights**: Learn why optimizations work
 
-<!-- /ANCHOR:core-capabilities -->
-<!-- ANCHOR:what-it-can-do -->
 ### What It Can Do
 
 **Image Operations:**
@@ -125,8 +106,6 @@ Transforms natural language requests into optimized images, videos, audio, and H
 - Audio removal or extraction for streaming
 - Professional codec optimization (H.264, AAC)
 
-<!-- /ANCHOR:what-it-can-do -->
-<!-- ANCHOR:what-it-cannot-do -->
 ### What It Cannot Do
 - ❌ Complex editing (color grading, effects)
 - ❌ Upload to platforms
@@ -136,8 +115,6 @@ Transforms natural language requests into optimized images, videos, audio, and H
 
 ---
 
-<!-- /ANCHOR:what-it-cannot-do -->
-<!-- ANCHOR:3-system-architecture -->
 ## 3. 🌳 SYSTEM ARCHITECTURE
 
 ```
@@ -161,27 +138,19 @@ Output → Optimized media files via MCP servers or Terminal commands
 
 ---
 
-<!-- /ANCHOR:3-system-architecture -->
-<!-- ANCHOR:4-quick-setup -->
 ## 4. 🚀 QUICK SETUP
 
-<!-- /ANCHOR:4-quick-setup -->
-<!-- ANCHOR:step-1-create-a-claude-project -->
 ### Step 1: Create a Claude Project
 1. Go to claude.ai
 2. Click "Projects" in sidebar
 3. Create new project named "Media Editor"
 
-<!-- /ANCHOR:step-1-create-a-claude-project -->
-<!-- ANCHOR:step-2-add-system-instructions -->
 ### Step 2: Add System Instructions
 1. Click "Edit project details"
 2. Find "Custom instructions" section
 3. Copy and paste: `Media Editor - System Prompt.md`
 4. Save the project
 
-<!-- /ANCHOR:step-2-add-system-instructions -->
-<!-- ANCHOR:step-3-upload-reference-documents -->
 ### Step 3: Upload Reference Documents
 Add these documents to your project:
 - `Media Editor - Interactive Intelligence - v0.220.md`
@@ -190,13 +159,9 @@ Add these documents to your project:
 - `Media Editor - MCP Intelligence - Imagician - v0.211.md`
 - `Media Editor - MCP Intelligence - Video, Audio - v0.212.md`
 
-<!-- /ANCHOR:step-3-upload-reference-documents -->
-<!-- ANCHOR:step-4-install-mcp-tools -->
 ### Step 4: Install MCP Tools
 See next section for detailed setup
 
-<!-- /ANCHOR:step-4-install-mcp-tools -->
-<!-- ANCHOR:step-5-start-processing -->
 ### Step 5: Start Processing
 ```
 optimize my vacation photos          # Interactive with auto optimization
@@ -206,22 +171,16 @@ $video compress presentation.mp4     # Video processing with 10 rounds
 
 ---
 
-<!-- /ANCHOR:step-5-start-processing -->
-<!-- ANCHOR:5-installing-mcp-tools -->
 ## 5. 🔧 INSTALLING MCP TOOLS
 
 The Media Editor requires two MCP servers:
 
-<!-- /ANCHOR:5-installing-mcp-tools -->
-<!-- ANCHOR:prerequisites -->
 ### Prerequisites
 - Node.js (for Imagician)
 - Python 3.8+ (for Video-Audio)
 - FFmpeg (for Video-Audio)
 - Claude Desktop app
 
-<!-- /ANCHOR:prerequisites -->
-<!-- ANCHOR:option-a-docker-setup-recommended -->
 ### Option A: Docker Setup (Recommended)
 
 **Prerequisites:**
@@ -239,8 +198,6 @@ Create docker-compose.yml and configure claude_desktop_config.json.
 I'm on [Windows/Mac/Linux].
 ```
 
-<!-- /ANCHOR:option-a-docker-setup-recommended -->
-<!-- ANCHOR:option-b-direct-installation -->
 ### Option B: Direct Installation
 
 **Imagician (NPX):**
@@ -272,8 +229,6 @@ I'm on [Windows/Mac/Linux].
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 - Linux: `~/.config/claude/claude_desktop_config.json`
 
-<!-- /ANCHOR:option-b-direct-installation -->
-<!-- ANCHOR:verification -->
 ### Verification
 After installation, restart Claude Desktop and check:
 ```
@@ -290,12 +245,8 @@ Ready for professional media processing including HLS streaming!
 
 ---
 
-<!-- /ANCHOR:verification -->
-<!-- ANCHOR:6-how-it-works -->
 ## 6. 🧠 HOW IT WORKS
 
-<!-- /ANCHOR:6-how-it-works -->
-<!-- ANCHOR:mcp-connection-verification -->
 ### MCP Connection Verification
 
 System always verifies MCP connections first:
@@ -308,8 +259,6 @@ System always verifies MCP connections first:
 All media operations available with automatic optimization.
 ```
 
-<!-- /ANCHOR:mcp-connection-verification -->
-<!-- ANCHOR:intent-recognition-and-routing -->
 ### Intent Recognition & Routing
 
 | Confidence | Range | Response | Processing |
@@ -319,8 +268,6 @@ All media operations available with automatic optimization.
 | **Medium** | 0.50-0.79 | Explore → Execute | 10 rounds auto |
 | **Low** | <0.50 | Guide → Execute | 10 rounds auto |
 
-<!-- /ANCHOR:intent-recognition-and-routing -->
-<!-- ANCHOR:media-thinking-framework-v0-220-automatic -->
 ### MEDIA Thinking Framework v0.220 (Automatic)
 1. **Pre-Check**: Verify required tools for operation type
 2. **M - Measure**: Analyze source media (deep analysis)
@@ -329,21 +276,15 @@ All media operations available with automatic optimization.
 5. **I - Implement**: Execute with monitoring
 6. **A - Analyze**: Verify and learn
 
-<!-- /ANCHOR:media-thinking-framework-v0-220-automatic -->
-<!-- ANCHOR:streamlined-cognitive-rigor-v0-211 -->
 ### Streamlined Cognitive Rigor (v0.211)
 
 The system automatically applies **three focused media-specific techniques** for optimal results:
 
-<!-- /ANCHOR:streamlined-cognitive-rigor-v0-211 -->
-<!-- ANCHOR:1-quality-size-optimization-automatic -->
 #### 1. Quality-Size Optimization (Automatic)
 Analyzes quality requirements, evaluates compression options, and selects the optimal balance between file size reduction and visual quality.
 
 **Example:** "User needs web display" → "85% WebP quality ideal" → "8.5MB → 425KB with no visible quality loss"
 
-<!-- /ANCHOR:1-quality-size-optimization-automatic -->
-<!-- ANCHOR:2-format-selection-analysis-automatic -->
 #### 2. Format Selection Analysis (Automatic)
 Evaluates available formats, compares compression efficiency, checks compatibility, and selects the optimal format with reasoning.
 
@@ -351,8 +292,6 @@ Evaluates available formats, compares compression efficiency, checks compatibili
 
 **HLS Example:** "Video for streaming" → "Multi-quality HLS (1080p/720p/480p/360p)" → "Adaptive delivery based on bandwidth"
 
-<!-- /ANCHOR:2-format-selection-analysis-automatic -->
-<!-- ANCHOR:3-platform-compatibility-check-continuous -->
 #### 3. Platform Compatibility Check (Continuous)
 Identifies target platform, validates format support, checks quality requirements, and flags compatibility issues.
 
@@ -361,8 +300,6 @@ Identifies target platform, validates format support, checks quality requirement
 **User sees:** Key optimization decisions and reasoning  
 **System does:** Complete 10-round MEDIA analysis automatically
 
-<!-- /ANCHOR:3-platform-compatibility-check-continuous -->
-<!-- ANCHOR:automatic-optimization -->
 ### Automatic Optimization
 The system automatically applies:
 - **Standard Mode**: 10 rounds of deep thinking for professional results
@@ -371,8 +308,6 @@ The system automatically applies:
 
 ---
 
-<!-- /ANCHOR:automatic-optimization -->
-<!-- ANCHOR:7-operating-modes -->
 ## 7. 🎛️ OPERATING MODES
 
 | Mode | Command | Thinking Applied | Tool Used | Use When |
@@ -383,8 +318,6 @@ The system automatically applies:
 | **Audio** | `$audio`/`$aud` | 10 rounds auto | Video-Audio (MCP) | Direct audio processing |
 | **HLS** | `$hls` | 10 rounds auto | FFmpeg (Terminal) | Adaptive streaming (NEW) |
 
-<!-- /ANCHOR:7-operating-modes -->
-<!-- ANCHOR:mode-activation -->
 ### Mode Activation
 
 **Interactive Mode (Default):**
@@ -403,12 +336,8 @@ What type of media?
 
 ---
 
-<!-- /ANCHOR:mode-activation -->
-<!-- ANCHOR:8-example-interactions -->
 ## 8. 💬 EXAMPLE INTERACTIONS
 
-<!-- /ANCHOR:8-example-interactions -->
-<!-- ANCHOR:simple-image-optimization -->
 ### Simple Image Optimization
 ```
 User: optimize photo for web
@@ -447,8 +376,6 @@ API calls: 2/60 🟢
 📁 Output: [Location]
 ```
 
-<!-- /ANCHOR:simple-image-optimization -->
-<!-- ANCHOR:hls-streaming-conversion-new -->
 ### HLS Streaming Conversion (NEW)
 ```
 User: $hls convert video for streaming
@@ -494,25 +421,17 @@ Operation: Multi-quality adaptive streaming
 • Test on different bandwidths
 ```
 
-<!-- /ANCHOR:hls-streaming-conversion-new -->
-<!-- ANCHOR:api-usage-indicators -->
 ### API Usage Indicators
 - 🟢 **Green (0-30)**: Safe zone
 
 ---
 
-<!-- /ANCHOR:api-usage-indicators -->
-<!-- ANCHOR:9-resources -->
 ## 9. 📚 RESOURCES
 
-<!-- /ANCHOR:9-resources -->
-<!-- ANCHOR:mcp-server-documentation -->
 ### MCP Server Documentation
 - [Imagician MCP](https://github.com/flowy11/imagician) - Image processing
 - [Video-Audio MCP](https://github.com/misbahsy/video-audio-mcp) - Media processing
 
-<!-- /ANCHOR:mcp-server-documentation -->
-<!-- ANCHOR:tools-and-platforms -->
 ### Tools & Platforms
 - [Claude Desktop](https://claude.ai/download) - Required for MCP
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) - Container setup
@@ -520,11 +439,8 @@ Operation: Multi-quality adaptive streaming
 - [Sharp Documentation](https://sharp.pixelplumbing.com/) - Image processing
 - [HLS.js](https://github.com/video-dev/hls.js/) - HLS playback library (NEW)
 
-<!-- /ANCHOR:tools-and-platforms -->
-<!-- ANCHOR:format-references -->
 ### Format References
 - [WebP Guide](https://developers.google.com/speed/webp) - Modern images
 - [HLS Specification](https://datatracker.ietf.org/doc/html/rfc8216) - Adaptive streaming (NEW)
 - [H.264 Overview](https://en.wikipedia.org/wiki/Advanced_Video_Coding) - Video codec
 - [Audio Formats Comparison](https://www.adobe.com/creativecloud/video/discover/audio-file-formats.html)
-<!-- /ANCHOR:format-references -->

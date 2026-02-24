@@ -1,12 +1,9 @@
-<!-- ANCHOR:media-editor-mcp-server-installation-guide -->
 # Media Editor MCP Server Installation Guide
 
 A comprehensive guide to installing, configuring, and using the Imagician and Video-Audio MCP servers for AI-powered media editing.
 
 ---
 
-<!-- /ANCHOR:media-editor-mcp-server-installation-guide -->
-<!-- ANCHOR:ai-first-install-guide -->
 ## 🤖 AI-FIRST INSTALL GUIDE
 
 **Copy and paste this prompt to your AI assistant to get installation help:**
@@ -42,8 +39,6 @@ Guide me through each step with the exact commands I need to run.
 
 ---
 
-<!-- /ANCHOR:ai-first-install-guide -->
-<!-- ANCHOR:table-of-contents -->
 #### TABLE OF CONTENTS
 
   - 1. 📖 OVERVIEW
@@ -59,14 +54,10 @@ Guide me through each step with the exact commands I need to run.
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-overview -->
 ## 1. 📖 OVERVIEW
 
 The Media Editor MCP system provides AI-powered image and video processing through two complementary MCP servers running in Docker containers. This enables Claude and other AI assistants to perform sophisticated media editing operations.
 
-<!-- /ANCHOR:1-overview -->
-<!-- ANCHOR:key-features -->
 ### Key Features
 
 - **Image Processing (Imagician)**: Resize, crop, rotate, compress, convert, apply filters
@@ -76,8 +67,6 @@ The Media Editor MCP system provides AI-powered image and video processing throu
 - **Batch Processing**: Handle multiple files efficiently
 - **Docker Isolation**: Clean, reproducible environment
 
-<!-- /ANCHOR:key-features -->
-<!-- ANCHOR:two-server-architecture -->
 ### Two-Server Architecture
 
 | Server          | Technology      | Purpose                           |
@@ -110,14 +99,10 @@ The Media Editor MCP system provides AI-powered image and video processing throu
 
 ---
 
-<!-- /ANCHOR:two-server-architecture -->
-<!-- ANCHOR:2-prerequisites -->
 ## 2. 📋 PREREQUISITES
 
 Before installing the Media Editor MCP servers, ensure you have:
 
-<!-- /ANCHOR:2-prerequisites -->
-<!-- ANCHOR:required -->
 ### Required
 
 - **Docker Desktop** installed and running
@@ -139,8 +124,6 @@ Before installing the Media Editor MCP servers, ensure you have:
   git --version
   ```
 
-<!-- /ANCHOR:required -->
-<!-- ANCHOR:recommended -->
 ### Recommended
 
 - **At least 4GB RAM** available for Docker
@@ -149,12 +132,8 @@ Before installing the Media Editor MCP servers, ensure you have:
 
 ---
 
-<!-- /ANCHOR:recommended -->
-<!-- ANCHOR:3-installation -->
 ## 3. 📥 INSTALLATION
 
-<!-- /ANCHOR:3-installation -->
-<!-- ANCHOR:step-1-create-folder-structure -->
 ### Step 1: Create Folder Structure
 
 Create a dedicated directory for the Media Editor system:
@@ -173,8 +152,6 @@ mkdir -p ~/MCP\ Servers/Media\ Editor/export/videos/New
 cd ~/MCP\ Servers
 ```
 
-<!-- /ANCHOR:step-1-create-folder-structure -->
-<!-- ANCHOR:step-2-clone-repositories -->
 ### Step 2: Clone Repositories
 
 ```bash
@@ -187,12 +164,8 @@ cd ~/MCP\ Servers
 git clone https://github.com/misbahsy/video-audio-mcp.git video-audio
 ```
 
-<!-- /ANCHOR:step-2-clone-repositories -->
-<!-- ANCHOR:step-3-configure-docker-volume-paths -->
 ### Step 3: Configure Docker Volume Paths
 
-<!-- /ANCHOR:step-3-configure-docker-volume-paths -->
-<!-- ANCHOR:3-1-update-imagician-docker-compose -->
 #### 3.1 Update Imagician Docker Compose
 
 Open `~/MCP Servers/imagician/docker-compose.yml` and update the volume path:
@@ -207,8 +180,6 @@ Open `~/MCP Servers/imagician/docker-compose.yml` and update the volume path:
 
 > 💡 **Tip:** Drag the folder into Terminal to get the exact path.
 
-<!-- /ANCHOR:3-1-update-imagician-docker-compose -->
-<!-- ANCHOR:3-2-update-video-audio-docker-compose -->
 #### 3.2 Update Video-Audio Docker Compose
 
 Open `~/MCP Servers/video-audio/docker-compose.yml` and update the volume path:
@@ -221,12 +192,8 @@ Open `~/MCP Servers/video-audio/docker-compose.yml` and update the volume path:
 - /Users/yourusername/MCP Servers/Media Editor/export/videos:/videos:rw
 ```
 
-<!-- /ANCHOR:3-2-update-video-audio-docker-compose -->
-<!-- ANCHOR:step-4-build-and-start-docker-containers -->
 ### Step 4: Build and Start Docker Containers
 
-<!-- /ANCHOR:step-4-build-and-start-docker-containers -->
-<!-- ANCHOR:4-1-start-imagician-server -->
 #### 4.1 Start Imagician Server
 
 ```bash
@@ -245,8 +212,6 @@ docker ps | grep imagician
 imagician    imagician:latest    "node dist/index.js"    Up X minutes
 ```
 
-<!-- /ANCHOR:4-1-start-imagician-server -->
-<!-- ANCHOR:4-2-start-video-audio-server -->
 #### 4.2 Start Video-Audio Server
 
 ```bash
@@ -267,14 +232,10 @@ video-audio    video-audio:latest    "sh -c 'echo..."    Up X minutes
 
 ---
 
-<!-- /ANCHOR:4-2-start-video-audio-server -->
-<!-- ANCHOR:4-configuration -->
 ## 4. ⚙️ CONFIGURATION
 
 Configure the MCP servers for your AI platform:
 
-<!-- /ANCHOR:4-configuration -->
-<!-- ANCHOR:option-a-configure-for-claude-desktop -->
 ### Option A: Configure for Claude Desktop
 
 Open the Claude Desktop configuration file:
@@ -316,8 +277,6 @@ Add the MCP server configuration:
 
 **Restart Claude Desktop** (⌘Q then reopen).
 
-<!-- /ANCHOR:option-a-configure-for-claude-desktop -->
-<!-- ANCHOR:option-b-configure-for-opencode -->
 ### Option B: Configure for OpenCode
 
 Add to `opencode.json` in your project root:
@@ -345,8 +304,6 @@ Add to `opencode.json` in your project root:
 }
 ```
 
-<!-- /ANCHOR:option-b-configure-for-opencode -->
-<!-- ANCHOR:option-c-configure-for-vs-code-copilot -->
 ### Option C: Configure for VS Code Copilot
 
 Create `.vscode/mcp.json` in your workspace:
@@ -376,12 +333,8 @@ Create `.vscode/mcp.json` in your workspace:
 
 ---
 
-<!-- /ANCHOR:option-c-configure-for-vs-code-copilot -->
-<!-- ANCHOR:5-verification -->
 ## 5. ✅ VERIFICATION
 
-<!-- /ANCHOR:5-verification -->
-<!-- ANCHOR:check-1-verify-docker-containers -->
 ### Check 1: Verify Docker Containers
 
 ```bash
@@ -391,8 +344,6 @@ docker ps
 # Should show both imagician and video-audio running
 ```
 
-<!-- /ANCHOR:check-1-verify-docker-containers -->
-<!-- ANCHOR:check-2-view-container-logs -->
 ### Check 2: View Container Logs
 
 ```bash
@@ -403,8 +354,6 @@ docker logs imagician
 docker logs video-audio
 ```
 
-<!-- /ANCHOR:check-2-view-container-logs -->
-<!-- ANCHOR:check-3-test-in-claude-desktop -->
 ### Check 3: Test in Claude Desktop
 
 Open Claude Desktop and try these commands:
@@ -417,8 +366,6 @@ Can you list the images in /images/Original/?
 Can you check the video-audio MCP server status?
 ```
 
-<!-- /ANCHOR:check-3-test-in-claude-desktop -->
-<!-- ANCHOR:check-4-run-repair-command -->
 ### Check 4: Run Repair Command
 
 ```
@@ -429,12 +376,8 @@ This runs connection verification for both MCP servers.
 
 ---
 
-<!-- /ANCHOR:check-4-run-repair-command -->
-<!-- ANCHOR:6-usage -->
 ## 6. 🚀 USAGE
 
-<!-- /ANCHOR:6-usage -->
-<!-- ANCHOR:file-workflow -->
 ### File Workflow
 
 | Step | Action              | Location                                   |
@@ -444,8 +387,6 @@ This runs connection verification for both MCP servers.
 | 3    | Process with AI     | Claude performs operations                 |
 | 4    | Find output         | `New/` folder                              |
 
-<!-- /ANCHOR:file-workflow -->
-<!-- ANCHOR:working-with-images -->
 ### Working with Images
 
 ```
@@ -459,8 +400,6 @@ Media Editor/export/images/Original/
 Media Editor/export/images/New/
 ```
 
-<!-- /ANCHOR:working-with-images -->
-<!-- ANCHOR:working-with-videos -->
 ### Working with Videos
 
 ```
@@ -474,8 +413,6 @@ Media Editor/export/videos/Original/
 Media Editor/export/videos/New/
 ```
 
-<!-- /ANCHOR:working-with-videos -->
-<!-- ANCHOR:quick-commands -->
 ### Quick Commands
 
 The Media Editor system supports these command shortcuts in Claude:
@@ -491,12 +428,8 @@ The Media Editor system supports these command shortcuts in Claude:
 
 ---
 
-<!-- /ANCHOR:quick-commands -->
-<!-- ANCHOR:7-features -->
 ## 7. 🎯 FEATURES
 
-<!-- /ANCHOR:7-features -->
-<!-- ANCHOR:imagician-capabilities -->
 ### Imagician Capabilities
 
 | Feature      | Description                                       |
@@ -509,8 +442,6 @@ The Media Editor system supports these command shortcuts in Claude:
 | **Filters**  | Apply blur, sharpen, grayscale, etc.              |
 | **Metadata** | Read/write EXIF data                              |
 
-<!-- /ANCHOR:imagician-capabilities -->
-<!-- ANCHOR:video-audio-capabilities -->
 ### Video-Audio Capabilities
 
 | Feature           | Description                           |
@@ -525,12 +456,8 @@ The Media Editor system supports these command shortcuts in Claude:
 
 ---
 
-<!-- /ANCHOR:video-audio-capabilities -->
-<!-- ANCHOR:8-examples -->
 ## 8. 💡 EXAMPLES
 
-<!-- /ANCHOR:8-examples -->
-<!-- ANCHOR:image-processing-examples -->
 ### Image Processing Examples
 
 ```
@@ -547,8 +474,6 @@ Apply grayscale filter to /images/Original/photo.jpg
 Resize all images in /images/Original/ to max 1920px width
 ```
 
-<!-- /ANCHOR:image-processing-examples -->
-<!-- ANCHOR:video-processing-examples -->
 ### Video Processing Examples
 
 ```
@@ -567,12 +492,8 @@ Merge all videos in /videos/Original/ into one file
 
 ---
 
-<!-- /ANCHOR:video-processing-examples -->
-<!-- ANCHOR:9-troubleshooting -->
 ## 9. 🔧 TROUBLESHOOTING
 
-<!-- /ANCHOR:9-troubleshooting -->
-<!-- ANCHOR:docker-containers-not-running -->
 ### Docker Containers Not Running
 
 ```bash
@@ -588,8 +509,6 @@ docker logs imagician --tail 50
 docker logs video-audio --tail 50
 ```
 
-<!-- /ANCHOR:docker-containers-not-running -->
-<!-- ANCHOR:claude-desktop-not-connecting -->
 ### Claude Desktop Not Connecting
 
 1. **Verify containers are running:**
@@ -606,8 +525,6 @@ docker logs video-audio --tail 50
 
 4. **Restart Claude Desktop completely** (⌘Q, not just close window)
 
-<!-- /ANCHOR:claude-desktop-not-connecting -->
-<!-- ANCHOR:permission-issues -->
 ### Permission Issues
 
 ```bash
@@ -618,8 +535,6 @@ ls -la ~/MCP\ Servers/Media\ Editor/export/
 chmod -R 755 ~/MCP\ Servers/Media\ Editor/export/
 ```
 
-<!-- /ANCHOR:permission-issues -->
-<!-- ANCHOR:containers-keep-stopping -->
 ### Containers Keep Stopping
 
 ```bash
@@ -634,8 +549,6 @@ docker-compose down
 docker-compose up --build
 ```
 
-<!-- /ANCHOR:containers-keep-stopping -->
-<!-- ANCHOR:volume-path-issues -->
 ### Volume Path Issues
 
 ```bash
@@ -649,19 +562,13 @@ docker run --rm -v /your/path/to/images:/test alpine ls /test
 
 ---
 
-<!-- /ANCHOR:volume-path-issues -->
-<!-- ANCHOR:10-resources -->
 ## 10. 📚 RESOURCES
 
-<!-- /ANCHOR:10-resources -->
-<!-- ANCHOR:official-repositories -->
 ### Official Repositories
 
 - **Imagician**: https://github.com/flowy11/imagician
 - **Video-Audio MCP**: https://github.com/misbahsy/video-audio-mcp
 
-<!-- /ANCHOR:official-repositories -->
-<!-- ANCHOR:docker-commands-reference -->
 ### Docker Commands Reference
 
 | Command                        | Purpose                        |
@@ -673,8 +580,6 @@ docker run --rm -v /your/path/to/images:/test alpine ls /test
 | `docker-compose down`          | Stop and remove containers     |
 | `docker-compose up -d --build` | Rebuild and start containers   |
 
-<!-- /ANCHOR:docker-commands-reference -->
-<!-- ANCHOR:quick-start-checklist -->
 ### Quick Start Checklist
 
 - [ ] Docker Desktop installed and running
@@ -688,8 +593,6 @@ docker run --rm -v /your/path/to/images:/test alpine ls /test
 
 ---
 
-<!-- /ANCHOR:quick-start-checklist -->
-<!-- ANCHOR:ready-to-go -->
 ## 🎉 Ready to Go!
 
 Your Media Editor MCP system is now configured. Place media files in the `Original/` folders and start editing with AI!
@@ -701,4 +604,3 @@ Your Media Editor MCP system is now configured. Place media files in the `Origin
 4. Ask: `Resize the image in /images/Original/ to 800x600`
 
 Enjoy AI-powered media editing! 🚀
-<!-- /ANCHOR:ready-to-go -->

@@ -1,4 +1,3 @@
-<!-- ANCHOR:notion-integrations-mcp-knowledge-v0-211 -->
 # Notion - Integrations - MCP Knowledge - v0.211
 
 Technical reference for Notion MCP server capabilities and integration for workspace, database, and content management operations.
@@ -7,8 +6,6 @@ Technical reference for Notion MCP server capabilities and integration for works
 **Purpose:** Comprehensive technical reference documenting Notion MCP server capabilities, API operations, and integration patterns for workspace and content management
 **Scope:** Server architecture, authentication, database/page operations, property types, block structures, search capabilities, collaboration features, permissions, limitations, and performance characteristics
 
-<!-- /ANCHOR:notion-integrations-mcp-knowledge-v0-211 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🔌 SERVER OVERVIEW
@@ -21,12 +18,8 @@ Technical reference for Notion MCP server capabilities and integration for works
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-server-overview -->
 ## 1. 🔌 SERVER OVERVIEW
 
-<!-- /ANCHOR:1-server-overview -->
-<!-- ANCHOR:mcp-server-details -->
 ### MCP Server Details
 
 The Notion MCP Server (`@makenotion/notion-mcp-server`) provides native integration with Notion's API v1 for workspace, database, and content management operations.
@@ -40,8 +33,6 @@ The Notion MCP Server (`@makenotion/notion-mcp-server`) provides native integrat
 
 **Deployment:** NPM with NOTION_TOKEN environment variable (recommended) or Docker containerized deployment.
 
-<!-- /ANCHOR:mcp-server-details -->
-<!-- ANCHOR:system-architecture -->
 ### System Architecture
 
 **Operation Sequence:**
@@ -56,8 +47,6 @@ The Notion MCP Server (`@makenotion/notion-mcp-server`) provides native integrat
 - **Workspace Operations:** Requires integration token with proper workspace access
 - **Content Operations:** Requires explicit page/database sharing with the integration
 
-<!-- /ANCHOR:system-architecture -->
-<!-- ANCHOR:connection-verification -->
 ### Connection Verification
 
 Connection verification must be the **first action before all operations** (ALWAYS FIRST). Use the `API_get_self` tool to test connectivity and authentication.
@@ -83,12 +72,8 @@ Connection verification must be the **first action before all operations** (ALWA
 
 ---
 
-<!-- /ANCHOR:connection-verification -->
-<!-- ANCHOR:2-core-capabilities -->
 ## 2. 🛠️ CORE CAPABILITIES
 
-<!-- /ANCHOR:2-core-capabilities -->
-<!-- ANCHOR:available-operations -->
 ### Available Operations
 
 **Note:** Thinking methodology and conversation flows are defined in Notion - Thinking - SYNC Framework and Notion - System - Interactive Intelligence.
@@ -121,8 +106,6 @@ page_operations:
     requires: "Page sharing"
 ```
 
-<!-- /ANCHOR:available-operations -->
-<!-- ANCHOR:what-you-can-do -->
 ### What You CAN Do ✅
 
 **Workspace and Content Operations:**
@@ -141,8 +124,6 @@ page_operations:
 - Organize hierarchical content
 - Execute complex queries with filters and sorts
 
-<!-- /ANCHOR:what-you-can-do -->
-<!-- ANCHOR:what-you-cannot-do -->
 ### What You CANNOT Do ❌
 
 **Permission Restrictions:**
@@ -164,12 +145,8 @@ page_operations:
 
 ---
 
-<!-- /ANCHOR:what-you-cannot-do -->
-<!-- ANCHOR:3-format-support -->
 ## 3. 📊 FORMAT SUPPORT
 
-<!-- /ANCHOR:3-format-support -->
-<!-- ANCHOR:property-types -->
 ### Property Types
 
 ```yaml
@@ -204,8 +181,6 @@ property_types:
     - people: "User references from workspace"
 ```
 
-<!-- /ANCHOR:property-types -->
-<!-- ANCHOR:block-types -->
 ### Block Types
 
 ```yaml
@@ -231,8 +206,6 @@ block_types:
     - divider, table
 ```
 
-<!-- /ANCHOR:block-types -->
-<!-- ANCHOR:rich-text-formatting -->
 ### Rich Text Formatting
 
 ```yaml
@@ -254,12 +227,8 @@ equation:
 
 ---
 
-<!-- /ANCHOR:rich-text-formatting -->
-<!-- ANCHOR:4-database-and-page-operations -->
 ## 4. 🗄️ DATABASE & PAGE OPERATIONS
 
-<!-- /ANCHOR:4-database-and-page-operations -->
-<!-- ANCHOR:database-management -->
 ### Database Management
 
 ```yaml
@@ -283,8 +252,6 @@ API_post_database_query:
   pre_check: "Connection verified ✓"
 ```
 
-<!-- /ANCHOR:database-management -->
-<!-- ANCHOR:property-configuration-patterns -->
 ### Property Configuration Patterns
 
 ```yaml
@@ -309,8 +276,6 @@ crm_contacts:
   LastContact: {type: "date"}
 ```
 
-<!-- /ANCHOR:property-configuration-patterns -->
-<!-- ANCHOR:database-filtering -->
 ### Database Filtering
 
 ```yaml
@@ -322,8 +287,6 @@ filter_operators:
   relation: [contains, does_not_contain, is_empty, is_not_empty]
 ```
 
-<!-- /ANCHOR:database-filtering -->
-<!-- ANCHOR:complex-query-example -->
 ### Complex Query Example
 
 ```yaml
@@ -347,8 +310,6 @@ sorted_results:
     - {property: 'Due', direction: 'ascending'}
 ```
 
-<!-- /ANCHOR:complex-query-example -->
-<!-- ANCHOR:database-views -->
 ### Database Views
 
 ```yaml
@@ -363,8 +324,6 @@ view_types:
 note: "Views configured in Notion UI, not via API"
 ```
 
-<!-- /ANCHOR:database-views -->
-<!-- ANCHOR:relation-and-rollup -->
 ### Relation and Rollup
 
 ```yaml
@@ -382,8 +341,6 @@ rollup_properties:
   functions: [show_original, count, sum, average, min, max, range, percent_empty, percent_not_empty]
 ```
 
-<!-- /ANCHOR:relation-and-rollup -->
-<!-- ANCHOR:page-management -->
 ### Page Management
 
 ```yaml
@@ -415,8 +372,6 @@ API_retrieve_a_page:
   pre_check: "Connection verified ✓"
 ```
 
-<!-- /ANCHOR:page-management -->
-<!-- ANCHOR:content-operations -->
 ### Content Operations
 
 ```yaml
@@ -438,8 +393,6 @@ API_patch_block_children:
   pre_check: "Connection verified ✓"
 ```
 
-<!-- /ANCHOR:content-operations -->
-<!-- ANCHOR:common-block-structures -->
 ### Common Block Structures
 
 ```yaml
@@ -465,8 +418,6 @@ project_spec:
   - table: "Technologies and versions"
 ```
 
-<!-- /ANCHOR:common-block-structures -->
-<!-- ANCHOR:page-hierarchy -->
 ### Page Hierarchy
 
 ```yaml
@@ -487,8 +438,6 @@ database_pages:
   templates: "Can have templates for new database items (UI only)"
 ```
 
-<!-- /ANCHOR:page-hierarchy -->
-<!-- ANCHOR:icons-and-covers -->
 ### Icons and Covers
 
 ```yaml
@@ -505,12 +454,8 @@ note: "Direct file upload not supported - use external URLs"
 
 ---
 
-<!-- /ANCHOR:icons-and-covers -->
-<!-- ANCHOR:5-search-and-collaboration -->
 ## 5. 🔍 SEARCH & COLLABORATION
 
-<!-- /ANCHOR:5-search-and-collaboration -->
-<!-- ANCHOR:search-operations -->
 ### Search Operations
 
 ```yaml
@@ -525,8 +470,6 @@ API_post_search:
   pre_check: "Connection verified ✓"
 ```
 
-<!-- /ANCHOR:search-operations -->
-<!-- ANCHOR:search-capabilities -->
 ### Search Capabilities
 
 ```yaml
@@ -555,8 +498,6 @@ limitations:
   - "Search is case-insensitive"
 ```
 
-<!-- /ANCHOR:search-capabilities -->
-<!-- ANCHOR:search-patterns -->
 ### Search Patterns
 
 ```yaml
@@ -577,8 +518,6 @@ recent_changes:
   sort: "{ timestamp: 'last_edited_time', direction: 'descending' }"
 ```
 
-<!-- /ANCHOR:search-patterns -->
-<!-- ANCHOR:comment-operations -->
 ### Comment Operations
 
 ```yaml
@@ -591,8 +530,6 @@ API_create_a_comment:
   pre_check: "Connection verified ✓"
 ```
 
-<!-- /ANCHOR:comment-operations -->
-<!-- ANCHOR:comment-features -->
 ### Comment Features
 
 ```yaml
@@ -616,8 +553,6 @@ resolution:
   - "Resolved threads collapsed by default"
 ```
 
-<!-- /ANCHOR:comment-features -->
-<!-- ANCHOR:user-operations -->
 ### User Operations
 
 ```yaml
@@ -637,8 +572,6 @@ API_get_self:
   performance: "<1 second"
 ```
 
-<!-- /ANCHOR:user-operations -->
-<!-- ANCHOR:user-types -->
 ### User Types
 
 ```yaml
@@ -660,12 +593,8 @@ permissions:
 
 ---
 
-<!-- /ANCHOR:user-types -->
-<!-- ANCHOR:6-limitations -->
 ## 6. ⚠️ LIMITATIONS
 
-<!-- /ANCHOR:6-limitations -->
-<!-- ANCHOR:critical-limitations -->
 ### Critical Limitations
 
 ```yaml
@@ -730,8 +659,6 @@ api_limitations:
   - workspace_settings: "Cannot access/modify workspace settings"
 ```
 
-<!-- /ANCHOR:critical-limitations -->
-<!-- ANCHOR:error-handling -->
 ### Error Handling
 
 ```yaml
@@ -774,8 +701,6 @@ error_recovery_protocol:
     R: "Report: Communicate status to user"
 ```
 
-<!-- /ANCHOR:error-handling -->
-<!-- ANCHOR:performance-characteristics -->
 ### Performance Characteristics
 
 ```yaml
@@ -799,12 +724,8 @@ performance:
 
 ---
 
-<!-- /ANCHOR:performance-characteristics -->
-<!-- ANCHOR:7-quick-reference -->
 ## 7. 🏎️ QUICK REFERENCE
 
-<!-- /ANCHOR:7-quick-reference -->
-<!-- ANCHOR:mcp-tools-summary -->
 ### MCP Tools Summary
 
 **Key tools:**
@@ -835,8 +756,6 @@ comments:
   API_create_a_comment: "Add comment [parent, rich_text]"
 ```
 
-<!-- /ANCHOR:mcp-tools-summary -->
-<!-- ANCHOR:integration-references -->
 ### Integration References
 
 ```yaml
@@ -858,8 +777,6 @@ related_documents:
     includes: ["Conversation Architecture", "Response Templates", "REPAIR protocol"]
 ```
 
-<!-- /ANCHOR:integration-references -->
-<!-- ANCHOR:decision-tree -->
 ### Decision Tree
 
 ```
@@ -878,8 +795,6 @@ Need search? → Yes → Search operations
 Ask for clarification
 ```
 
-<!-- /ANCHOR:decision-tree -->
-<!-- ANCHOR:capability-check -->
 ### Capability Check
 
 ```python
@@ -898,8 +813,6 @@ can_do = {
 }
 ```
 
-<!-- /ANCHOR:capability-check -->
-<!-- ANCHOR:pre-operation-protocol -->
 ### Pre-Operation Protocol
 
 ```markdown
@@ -913,8 +826,6 @@ Every Operation Requires:
 6. Ready to execute ✓
 ```
 
-<!-- /ANCHOR:pre-operation-protocol -->
-<!-- ANCHOR:critical-rules-summary -->
 ### Critical Rules Summary
 
 ```markdown
@@ -927,8 +838,6 @@ THE FIVE ABSOLUTES:
 5. REPAIR protocol for all errors
 ```
 
-<!-- /ANCHOR:critical-rules-summary -->
-<!-- ANCHOR:quick-command-reference -->
 ### Quick Command Reference
 
 ```yaml
@@ -966,8 +875,6 @@ common_operations:
     example: "Comment on project review page"
 ```
 
-<!-- /ANCHOR:quick-command-reference -->
-<!-- ANCHOR:notion-mcp-integration -->
 ### Notion MCP Integration
 
 ```yaml
@@ -994,4 +901,3 @@ notion_integration:
 
 *This document focuses exclusively on Notion MCP server capabilities and technical specifications. For thinking methodology and cognitive framework, see Notion - Thinking - SYNC Framework. For conversation flows and error handling (REPAIR protocol), see Notion - System - Interactive Intelligence.*
 
-<!-- /ANCHOR:notion-mcp-integration -->

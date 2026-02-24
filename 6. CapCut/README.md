@@ -1,10 +1,7 @@
-<!-- ANCHOR:capcut-ai-system-user-guide-v0-111 -->
 # CapCut AI System - User Guide v0.111
 
 Transforms natural language requests into professional video projects with **automatic VIDEO processing and intelligent editing workflows** via JianYing MCP integration.
 
-<!-- /ANCHOR:capcut-ai-system-user-guide-v0-111 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. ✨ KEY FEATURES
@@ -19,12 +16,8 @@ Transforms natural language requests into professional video projects with **aut
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-key-features -->
 ## 1. ✨ KEY FEATURES
 
-<!-- /ANCHOR:1-key-features -->
-<!-- ANCHOR:core-capabilities -->
 ### Core Capabilities
 
 - **MCP Verification First**: Always checks JianYing MCP connection before operations
@@ -34,8 +27,6 @@ Transforms natural language requests into professional video projects with **aut
 - **Visual Feedback**: Real-time progress directly in chat
 - **JianYing Integration**: Exports directly to JianYing Pro for final editing
 
-<!-- /ANCHOR:core-capabilities -->
-<!-- ANCHOR:what-it-can-do -->
 ### What It Can Do
 
 **Draft Management:**
@@ -62,8 +53,6 @@ Transforms natural language requests into professional video projects with **aut
 - Apply text animations (entrance, exit, loop)
 - Custom fonts, colors, and positioning
 
-<!-- /ANCHOR:what-it-can-do -->
-<!-- ANCHOR:what-it-cannot-do -->
 ### What It Cannot Do
 
 - ❌ Real-time video preview
@@ -74,8 +63,6 @@ Transforms natural language requests into professional video projects with **aut
 
 ---
 
-<!-- /ANCHOR:what-it-cannot-do -->
-<!-- ANCHOR:2-system-architecture -->
 ## 2. 🌳 SYSTEM ARCHITECTURE
 
 ```
@@ -95,8 +82,6 @@ JianYing Pro Desktop App → Final editing and export
 Output → Rendered video files
 ```
 
-<!-- /ANCHOR:2-system-architecture -->
-<!-- ANCHOR:capcut-jianying-relationship -->
 ### CapCut / JianYing Relationship
 
 | Product | Region | Platform | Notes |
@@ -108,20 +93,14 @@ Output → Rendered video files
 
 ---
 
-<!-- /ANCHOR:capcut-jianying-relationship -->
-<!-- ANCHOR:3-quick-setup -->
 ## 3. 🚀 QUICK SETUP
 
-<!-- /ANCHOR:3-quick-setup -->
-<!-- ANCHOR:step-1-create-a-claude-project -->
 ### Step 1: Create a Claude Project
 
 1. Go to claude.ai
 2. Click "Projects" in sidebar
 3. Create new project named "CapCut Editor"
 
-<!-- /ANCHOR:step-1-create-a-claude-project -->
-<!-- ANCHOR:step-2-add-system-instructions -->
 ### Step 2: Add System Instructions
 
 1. Click "Edit project details"
@@ -129,8 +108,6 @@ Output → Rendered video files
 3. Copy and paste: `CapCut - System - Prompt - v0.110.md`
 4. Save the project
 
-<!-- /ANCHOR:step-2-add-system-instructions -->
-<!-- ANCHOR:step-3-upload-reference-documents -->
 ### Step 3: Upload Reference Documents
 
 Add these documents to your project:
@@ -138,14 +115,10 @@ Add these documents to your project:
 - `CapCut - Thinking - VIDEO Framework - v0.110.md`
 - `CapCut - Integrations - MCP JianYing - v0.111.md`
 
-<!-- /ANCHOR:step-3-upload-reference-documents -->
-<!-- ANCHOR:step-4-install-mcp-tools -->
 ### Step 4: Install MCP Tools
 
 See [INSTALL_GUIDE.md](INSTALL_GUIDE.md) for detailed setup instructions.
 
-<!-- /ANCHOR:step-4-install-mcp-tools -->
-<!-- ANCHOR:step-5-start-editing -->
 ### Step 5: Start Editing
 
 ```
@@ -157,22 +130,16 @@ $audio add background music            # Direct audio mode
 
 ---
 
-<!-- /ANCHOR:step-5-start-editing -->
-<!-- ANCHOR:4-installing-mcp-tools -->
 ## 4. 🔧 INSTALLING MCP TOOLS
 
 The CapCut system requires the JianYing MCP server.
 
-<!-- /ANCHOR:4-installing-mcp-tools -->
-<!-- ANCHOR:prerequisites -->
 ### Prerequisites
 
 - **Docker Desktop** (recommended) OR Python 3.13+ with uv
 - **JianYing Pro** desktop application (Chinese version of CapCut)
 - **Claude Desktop** or compatible MCP client
 
-<!-- /ANCHOR:prerequisites -->
-<!-- ANCHOR:quick-installation-docker-recommended -->
 ### Quick Installation (Docker - Recommended)
 
 ```bash
@@ -186,8 +153,6 @@ docker-compose up -d --build
 docker ps | grep jianying-mcp
 ```
 
-<!-- /ANCHOR:quick-installation-docker-recommended -->
-<!-- ANCHOR:mcp-configuration-docker -->
 ### MCP Configuration (Docker)
 
 Add to Claude Desktop config (`claude_desktop_config.json`):
@@ -209,8 +174,6 @@ Add to Claude Desktop config (`claude_desktop_config.json`):
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 - Linux: `~/.config/claude/claude_desktop_config.json`
 
-<!-- /ANCHOR:mcp-configuration-docker -->
-<!-- ANCHOR:alternative-native-installation -->
 ### Alternative: Native Installation
 
 For native installation without Docker, see [INSTALL_GUIDE.md](INSTALL_GUIDE.md) Option B.
@@ -219,12 +182,8 @@ For complete installation instructions including troubleshooting, see [INSTALL_G
 
 ---
 
-<!-- /ANCHOR:alternative-native-installation -->
-<!-- ANCHOR:5-how-it-works -->
 ## 5. 🧠 HOW IT WORKS
 
-<!-- /ANCHOR:5-how-it-works -->
-<!-- ANCHOR:mcp-connection-verification -->
 ### MCP Connection Verification
 
 System always verifies connections first:
@@ -242,8 +201,6 @@ System always verifies connections first:
 All video operations available.
 ```
 
-<!-- /ANCHOR:mcp-connection-verification -->
-<!-- ANCHOR:thinking-video-framework -->
 ### Thinking - VIDEO Framework
 
 The system applies the VIDEO methodology automatically:
@@ -254,8 +211,6 @@ The system applies the VIDEO methodology automatically:
 4. **E - Execute**: Create draft, add segments, apply effects
 5. **O - Output**: Export to JianYing, validate, guide user
 
-<!-- /ANCHOR:thinking-video-framework -->
-<!-- ANCHOR:two-layer-transparency -->
 ### Two-Layer Transparency
 
 **Internal (Applied Fully):**
@@ -273,8 +228,6 @@ The system applies the VIDEO methodology automatically:
 
 ---
 
-<!-- /ANCHOR:two-layer-transparency -->
-<!-- ANCHOR:6-operating-modes -->
 ## 6. 🎛️ OPERATING MODES
 
 | Mode | Command | Use When |
@@ -285,8 +238,6 @@ The system applies the VIDEO methodology automatically:
 | **Audio** | `$audio` / `$aud` | Direct audio processing |
 | **Text** | `$text` / `$txt` | Direct text overlays |
 
-<!-- /ANCHOR:6-operating-modes -->
-<!-- ANCHOR:mode-activation -->
 ### Mode Activation
 
 **Interactive Mode (Default):**
@@ -310,12 +261,8 @@ System: [Direct mode - draft context questions only]
 
 ---
 
-<!-- /ANCHOR:mode-activation -->
-<!-- ANCHOR:7-example-interactions -->
 ## 7. 💬 EXAMPLE INTERACTIONS
 
-<!-- /ANCHOR:7-example-interactions -->
-<!-- ANCHOR:create-a-new-video-project -->
 ### Create a New Video Project
 
 ```
@@ -350,8 +297,6 @@ System: I'll create a TikTok video project for you!
 - Export when ready
 ```
 
-<!-- /ANCHOR:create-a-new-video-project -->
-<!-- ANCHOR:add-video-segment -->
 ### Add Video Segment
 
 ```
@@ -376,12 +321,8 @@ System: Adding video segment to timeline...
 
 ---
 
-<!-- /ANCHOR:add-video-segment -->
-<!-- ANCHOR:8-troubleshooting -->
 ## 8. 🔧 TROUBLESHOOTING
 
-<!-- /ANCHOR:8-troubleshooting -->
-<!-- ANCHOR:mcp-connection-issues-docker -->
 ### MCP Connection Issues (Docker)
 
 **Container not running:**
@@ -403,8 +344,6 @@ docker-compose up -d --build
 3. Restart Docker Desktop
 4. Rebuild: `docker-compose up -d --build`
 
-<!-- /ANCHOR:mcp-connection-issues-docker -->
-<!-- ANCHOR:mcp-connection-issues-native -->
 ### MCP Connection Issues (Native)
 
 **Server not running:**
@@ -426,8 +365,6 @@ pyenv install 3.13.0
 pyenv local 3.13.0
 ```
 
-<!-- /ANCHOR:mcp-connection-issues-native -->
-<!-- ANCHOR:jianying-pro-app-issues -->
 ### JianYing Pro App Issues
 
 **Draft not appearing:**
@@ -440,8 +377,6 @@ pyenv local 3.13.0
 2. Wait for app to fully load
 3. Retry the operation
 
-<!-- /ANCHOR:jianying-pro-app-issues -->
-<!-- ANCHOR:common-path-configuration -->
 ### Common Path Configuration
 
 **macOS:**
@@ -458,27 +393,19 @@ output_path: %USERPROFILE%\Documents\JianYing\Drafts
 
 ---
 
-<!-- /ANCHOR:common-path-configuration -->
-<!-- ANCHOR:9-resources -->
 ## 9. 📚 RESOURCES
 
-<!-- /ANCHOR:9-resources -->
-<!-- ANCHOR:mcp-server-documentation -->
 ### MCP Server Documentation
 
 - [JianYing MCP](https://github.com/hey-jian-wei/jianying-mcp) - Video editing automation
 - [pyJianYingDraft](https://github.com/hey-jian-wei/pyJianYingDraft) - Underlying Python library
 
-<!-- /ANCHOR:mcp-server-documentation -->
-<!-- ANCHOR:tools-and-platforms -->
 ### Tools & Platforms
 
 - [Claude Desktop](https://claude.ai/download) - Required for MCP
 - [JianYing Pro](https://www.capcut.cn/) - Desktop video editor (Chinese)
 - [CapCut](https://www.capcut.com/) - International version
 
-<!-- /ANCHOR:tools-and-platforms -->
-<!-- ANCHOR:related-documentation -->
 ### Related Documentation
 
 - [INSTALL_GUIDE.md](INSTALL_GUIDE.md) - Detailed installation instructions
@@ -489,4 +416,3 @@ output_path: %USERPROFILE%\Documents\JianYing\Drafts
 
 *The CapCut AI System provides intelligent video editing automation through the JianYing MCP server, enabling natural language video project creation and manipulation.*
 
-<!-- /ANCHOR:related-documentation -->

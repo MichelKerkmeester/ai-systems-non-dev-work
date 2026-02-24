@@ -1,10 +1,7 @@
-<!-- ANCHOR:prompt-engineering-assistant-user-guide-v0-200 -->
 # Prompt Engineering Assistant - User Guide  v0.200
 
 Transforms vague requests into clear, effective AI prompts using proven frameworks, systematic evaluation, and **concise transparent DEPTH processing**.
 
-<!-- /ANCHOR:prompt-engineering-assistant-user-guide-v0-200 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🆕 WHAT'S NEW IN V0.980
@@ -23,12 +20,8 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-what-s-new-in-v0-980 -->
 ## 1. 🆕 WHAT'S NEW IN V0.980
 
-<!-- /ANCHOR:1-what-s-new-in-v0-980 -->
-<!-- ANCHOR:major-update-visual-mode-for-ai-design-tools -->
 ### 🎨 MAJOR UPDATE: Visual Mode for AI Design Tools
 
 **Brand New Mode for UI Concepting** — Transform technical specifications into evocative, inspiration-based prompts optimized for AI design tools like **Lovable**, **Aura**, **Bolt**, and **v0.dev**.
@@ -53,8 +46,6 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 ---
 
-<!-- /ANCHOR:major-update-visual-mode-for-ai-design-tools -->
-<!-- ANCHOR:new-image-mode-for-ai-image-generators -->
 ### 🖼️ NEW: Image Mode for AI Image Generators
 
 **Transform vague descriptions into optimized prompts** for Midjourney, DALL-E, Stable Diffusion, Flux, Flux 2 Pro, Imagen 4, Seedream, and more.
@@ -75,8 +66,6 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 ---
 
-<!-- /ANCHOR:new-image-mode-for-ai-image-generators -->
-<!-- ANCHOR:new-video-mode-for-ai-video-generators -->
 ### 🎬 NEW: Video Mode for AI Video Generators
 
 **Transform static descriptions into motion-focused prompts** for Runway, Sora, Kling, Pika, Luma, Veo, Minimax, Seedance, OmniHuman, Wan, and more.
@@ -98,8 +87,6 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 ---
 
-<!-- /ANCHOR:new-video-mode-for-ai-video-generators -->
-<!-- ANCHOR:system-wide-improvements-v0-972 -->
 ### 🔧 System-Wide Improvements (v0.972)
 
 **Bug Fixes & Alignments (27 fixes across 6 files):**
@@ -125,8 +112,6 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 ---
 
-<!-- /ANCHOR:system-wide-improvements-v0-972 -->
-<!-- ANCHOR:2-key-features -->
 ## 2. ✨ KEY FEATURES
 
 - **🎯 Ten Frameworks**: RCAF, COSTAR, RACE, CIDI, TIDD-EC, CRISPE, CRAFT, **VIBE** (visual), **FRAME** (image), **MOTION** (video) with intelligent auto-selection
@@ -149,8 +134,6 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 ---
 
-<!-- /ANCHOR:2-key-features -->
-<!-- ANCHOR:3-system-architecture -->
 ## 3. 🌳 SYSTEM ARCHITECTURE
 
 ```
@@ -178,24 +161,16 @@ Output → ./export/[###]-enhanced-prompt.[md|json|yaml]
 
 ---
 
-<!-- /ANCHOR:3-system-architecture -->
-<!-- ANCHOR:4-quick-setup -->
 ## 4. 🚀 QUICK SETUP
 
-<!-- /ANCHOR:4-quick-setup -->
-<!-- ANCHOR:step-1-create-claude-project -->
 ### Step 1: Create Claude Project
 1. Go to claude.ai → Projects → Create "Prompt Engineering Assistant"
 
-<!-- /ANCHOR:step-1-create-claude-project -->
-<!-- ANCHOR:step-2-add-system-instructions -->
 ### Step 2: Add System Instructions
 1. Edit project details → Custom instructions
 2. Copy and paste: `./knowledge base/system/Prompt - System - Prompt - v0.200.md`
 3. Save the project
 
-<!-- /ANCHOR:step-2-add-system-instructions -->
-<!-- ANCHOR:step-3-upload-supporting-documents -->
 ### Step 3: Upload Supporting Documents
 
 Add these documents to your project:
@@ -226,8 +201,6 @@ Each format guide (v0.140) is fully self-contained with pure format focus:
   - Minimal syntax overhead, clear hierarchy
   - Token overhead: +3-7%
 
-<!-- /ANCHOR:step-3-upload-supporting-documents -->
-<!-- ANCHOR:step-4-start-enhancing -->
 ### Step 4: Start Enhancing
 ```
 analyze customer data            # Interactive mode with full transparency
@@ -246,8 +219,6 @@ $vid dance sequence runway    # 🎬 NEW: Optimized for Runway
 
 ---
 
-<!-- /ANCHOR:step-4-start-enhancing -->
-<!-- ANCHOR:5-operating-modes -->
 ## 5. 🎛️ OPERATING MODES
 
 **Default Mode:** The system defaults to `$interactive` with automatic 10-round DEPTH unless specified.
@@ -266,8 +237,6 @@ $vid dance sequence runway    # 🎬 NEW: Optimized for Runway
 | 🖼️ **$image**    | `$image`/`$img`        | **Image generation (NEW)** | 1 comprehensive | **5 rounds** | **VISUAL** | Platform-opt |
 | 🎬 **$video**    | `$video`/`$vid`        | **Video generation (NEW)** | 1 comprehensive | **5 rounds** | **VISUAL** | Platform-opt |
 
-<!-- /ANCHOR:5-operating-modes -->
-<!-- ANCHOR:interactive-flow-default -->
 ### Interactive Flow (Default)
 System asks one comprehensive question to understand your enhancement needs:
 - What prompt needs enhancement?
@@ -278,8 +247,6 @@ System waits for complete response before proceeding with full DEPTH processing.
 
 **Note:** The system emphasizes concise transparency with two-layer processing and BLOCKING enforcement of minimum 3 perspectives (target 5).
 
-<!-- /ANCHOR:interactive-flow-default -->
-<!-- ANCHOR:visual-mode-highlights -->
 ### 🎨 Visual Mode Highlights
 Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 - **VIBE Framework** instead of RCAF/COSTAR — focuses on Vision, Inspiration, Behavior, Experience
@@ -289,12 +256,8 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-<!-- /ANCHOR:visual-mode-highlights -->
-<!-- ANCHOR:6-mode-details -->
 ## 6. 📋 MODE DETAILS
 
-<!-- /ANCHOR:6-mode-details -->
-<!-- ANCHOR:interactive-mode-default -->
 ### 💬 Interactive Mode (Default)
 
 **Purpose:** Conversational enhancement with guided framework selection
@@ -318,8 +281,6 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-<!-- /ANCHOR:interactive-mode-default -->
-<!-- ANCHOR:raw-mode -->
 ### ⚡ $raw Mode
 
 **Purpose:** Skip DEPTH processing for fast pass-through
@@ -334,8 +295,6 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-<!-- /ANCHOR:raw-mode -->
-<!-- ANCHOR:short-mode -->
 ### 📝 $short Mode
 
 **Purpose:** Minimal refinement with focused 3-round DEPTH
@@ -352,8 +311,6 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-<!-- /ANCHOR:short-mode -->
-<!-- ANCHOR:improve-mode -->
 ### 🎯 $improve Mode
 
 **Purpose:** Standard comprehensive enhancement with full DEPTH
@@ -371,8 +328,6 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-<!-- /ANCHOR:improve-mode -->
-<!-- ANCHOR:refine-mode -->
 ### 💎 $refine Mode
 
 **Purpose:** Maximum optimization for already-good prompts
@@ -390,8 +345,6 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-<!-- /ANCHOR:refine-mode -->
-<!-- ANCHOR:json-mode -->
 ### 🔧 $json Mode
 
 **Purpose:** Structured JSON output for API/system integration
@@ -415,8 +368,6 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-<!-- /ANCHOR:json-mode -->
-<!-- ANCHOR:yaml-mode -->
 ### 📋 $yaml Mode
 
 **Purpose:** Human-friendly YAML configuration format
@@ -440,12 +391,8 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-<!-- /ANCHOR:yaml-mode -->
-<!-- ANCHOR:7-visual-mode-new -->
 ## 7. 🎨 VISUAL MODE (NEW)
 
-<!-- /ANCHOR:7-visual-mode-new -->
-<!-- ANCHOR:transform-technical-specs-into-evocative-prompts -->
 ### Transform Technical Specs into Evocative Prompts
 
 **Purpose:** Create inspiration-based prompts for AI design tools that maximize creative output.
@@ -462,8 +409,6 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 | CLEAR scoring             | EVOKE scoring         |
 | RCAF/COSTAR framework     | VIBE framework        |
 
-<!-- /ANCHOR:transform-technical-specs-into-evocative-prompts -->
-<!-- ANCHOR:the-vibe-framework -->
 ### The VIBE Framework
 
 | Element         | Focus                    | Core Question                 |
@@ -473,8 +418,6 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 | **B**ehavior    | Interaction feel         | "How should this move?"       |
 | **E**xperience  | Emotional journey        | "How should users feel?"      |
 
-<!-- /ANCHOR:the-vibe-framework -->
-<!-- ANCHOR:the-evoke-scoring-system -->
 ### The EVOKE Scoring System
 
 | Dimension     | Points | Threshold | What It Measures               |
@@ -486,8 +429,6 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 | **E**motional | 5      | 4+        | Conveys experiential goals     |
 | **Total**     | 50     | 40+       | Quality threshold              |
 
-<!-- /ANCHOR:the-evoke-scoring-system -->
-<!-- ANCHOR:eight-design-directions -->
 ### Eight Design Directions
 
 Visual Mode auto-detects which direction fits your prompt:
@@ -503,8 +444,6 @@ Visual Mode auto-detects which direction fits your prompt:
 | **Journey & Flow**           | Duolingo, Headspace      | Progress, achievement, discovery |
 | **Narrative & Story**        | Apple Pages, Stripe Atlas| Storytelling, revelation         |
 
-<!-- /ANCHOR:eight-design-directions -->
-<!-- ANCHOR:screenshot-analysis -->
 ### Screenshot Analysis
 
 Visual Mode can analyze screenshots and images to extract VIBE elements:
@@ -524,8 +463,6 @@ Primary: Precision & Density
 Secondary: Data & Analysis
 ```
 
-<!-- /ANCHOR:screenshot-analysis -->
-<!-- ANCHOR:target-platform-optimization -->
 ### Target Platform Optimization
 
 | Platform       | Strength          | Prompt Length | Key Approach                              |
@@ -536,8 +473,6 @@ Secondary: Data & Analysis
 | **Bolt**       | Rapid prototyping | 50-150 words  | neumorphism, cyberpunk, material design   |
 | **v0.dev**     | UI components     | 100-300 words | shadcn components, Tailwind classes       |
 
-<!-- /ANCHOR:target-platform-optimization -->
-<!-- ANCHOR:visual-mode-process-5-depth-rounds -->
 ### Visual Mode Process (5 DEPTH Rounds)
 
 ```
@@ -559,12 +494,8 @@ $v Build a settings panel for a developer tool
 
 ---
 
-<!-- /ANCHOR:visual-mode-process-5-depth-rounds -->
-<!-- ANCHOR:8-interactive-mode -->
 ## 8. 💬 INTERACTIVE MODE
 
-<!-- /ANCHOR:8-interactive-mode -->
-<!-- ANCHOR:conversational-guidance-flow -->
 ### Conversational Guidance Flow
 
 **Default behavior** when no mode specified ($improve, $json, etc.)
@@ -629,12 +560,8 @@ Ready for delivery
 
 ---
 
-<!-- /ANCHOR:conversational-guidance-flow -->
-<!-- ANCHOR:9-depth-thinking-framework -->
 ## 9. 🧠 DEPTH THINKING FRAMEWORK
 
-<!-- /ANCHOR:9-depth-thinking-framework -->
-<!-- ANCHOR:two-layer-transparency-model -->
 ### Two-Layer Transparency Model
 
 **DEPTH** = **D**iscover **E**ngineer **P**rototype **T**est **H**armonize
@@ -649,8 +576,6 @@ A structured 5-phase methodology ensuring comprehensive prompt enhancement throu
 | **$raw**     | 0 rounds  | Pass-through             | Skip DEPTH             |
 | **$short**   | 3 rounds  | Key changes only         | Focused refinement     |
 
-<!-- /ANCHOR:two-layer-transparency-model -->
-<!-- ANCHOR:signal-based-routing-v0-200 -->
 ### Signal-Based Routing (v0.200)
 
 DEPTH now includes automatic mode detection in Round 1:
@@ -663,8 +588,6 @@ DEPTH now includes automatic mode detection in Round 1:
 
 **Signal Categories:** use_case, style, platform, motion, temporal
 
-<!-- /ANCHOR:signal-based-routing-v0-200 -->
-<!-- ANCHOR:depth-phases-v0-200-with-ricce-integration-signal-routing -->
 ### DEPTH Phases (v0.200 with RICCE Integration + Signal Routing)
 
 | Phase         | Purpose             | Internal Processing                                                           | User Sees                                    |
@@ -675,8 +598,6 @@ DEPTH now includes automatic mode detection in Round 1:
 | **T**est      | Validate quality    | CLEAR scoring (5 dimensions), quality gates, RICCE Examples validation        | "✅ Validating (CLEAR 42/50)"                 |
 | **H**armonize | Final polish        | Final verification, cognitive rigor check, RICCE completeness                 | "✨ Finalizing (excellence confirmed)"        |
 
-<!-- /ANCHOR:depth-phases-v0-200-with-ricce-integration-signal-routing -->
-<!-- ANCHOR:what-users-actually-see -->
 ### What Users Actually See
 
 **Example DEPTH Progress Updates:**
@@ -705,8 +626,6 @@ DEPTH now includes automatic mode detection in Round 1:
 Ready for delivery
 ```
 
-<!-- /ANCHOR:what-users-actually-see -->
-<!-- ANCHOR:cognitive-rigor-applied-automatically -->
 ### Cognitive Rigor (Applied Automatically)
 
 Six mandatory frameworks applied internally (users see key insights only):
@@ -726,12 +645,8 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 ---
 
-<!-- /ANCHOR:cognitive-rigor-applied-automatically -->
-<!-- ANCHOR:10-ricce-framework -->
 ## 10. 🏗️ RICCE FRAMEWORK
 
-<!-- /ANCHOR:10-ricce-framework -->
-<!-- ANCHOR:structural-validation-checklist -->
 ### Structural Validation Checklist
 
 **RICCE** ensures every enhanced prompt contains essential elements for complete understanding:
@@ -761,8 +676,6 @@ Six mandatory frameworks applied internally (users see key insights only):
 - ✅ Expected outputs shown
 - ✅ Edge cases considered
 
-<!-- /ANCHOR:structural-validation-checklist -->
-<!-- ANCHOR:ricce-depth-integration -->
 ### RICCE-DEPTH Integration
 
 **How They Work Together:**
@@ -777,8 +690,6 @@ Six mandatory frameworks applied internally (users see key insights only):
 - Test Phase → Validates RICCE Examples
 - Harmonize Phase → Final RICCE verification
 
-<!-- /ANCHOR:ricce-depth-integration -->
-<!-- ANCHOR:what-users-see-for-ricce -->
 ### What Users See for RICCE
 
 **Example RICCE Communication:**
@@ -798,12 +709,8 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 ---
 
-<!-- /ANCHOR:what-users-see-for-ricce -->
-<!-- ANCHOR:11-framework-intelligence -->
 ## 11. 🎯 FRAMEWORK INTELLIGENCE
 
-<!-- /ANCHOR:11-framework-intelligence -->
-<!-- ANCHOR:automatic-framework-selection -->
 ### Automatic Framework Selection
 
 The system analyzes your request across 8 dimensions using structured logic:
@@ -828,8 +735,6 @@ framework_selection:
       reasoning: [explanation]
 ```
 
-<!-- /ANCHOR:automatic-framework-selection -->
-<!-- ANCHOR:framework-selection-matrix -->
 ### Framework Selection Matrix
 
 | Complexity | Primary Need  | Framework  | Success Rate | Use Cases                           |
@@ -845,8 +750,6 @@ framework_selection:
 | 🖼️ **Any**  | Image         | **FRAME**  | 90%          | AI image generators, visual prompts |
 | 🎬 **Any**  | Video         | **MOTION** | 90%          | AI video generators, motion prompts |
 
-<!-- /ANCHOR:framework-selection-matrix -->
-<!-- ANCHOR:framework-descriptions -->
 ### Framework Descriptions
 
 **RCAF (Role, Context, Action, Format)** - 92% Success
@@ -906,8 +809,6 @@ framework_selection:
 - **Strengths:** Motion-first, temporal consistency, platform syntax
 - **Use when:** Creating prompts for video generation
 
-<!-- /ANCHOR:framework-descriptions -->
-<!-- ANCHOR:power-combinations -->
 ### Power Combinations
 
 **For Complex Scenarios:**
@@ -921,12 +822,8 @@ framework_selection:
 
 ---
 
-<!-- /ANCHOR:power-combinations -->
-<!-- ANCHOR:12-enhancement-system -->
 ## 12. 📊 ENHANCEMENT SYSTEM
 
-<!-- /ANCHOR:12-enhancement-system -->
-<!-- ANCHOR:systematic-enhancement-pipeline -->
 ### Systematic Enhancement Pipeline
 
 ```yaml
@@ -944,8 +841,6 @@ enhancement_pipeline:
         actions: [parameterize_variables, add_flexibility, generalize_patterns]
 ```
 
-<!-- /ANCHOR:systematic-enhancement-pipeline -->
-<!-- ANCHOR:common-pattern-transformations -->
 ### Common Pattern Transformations
 
 | Pattern                    | Impact                       | CLEAR Gain       | Example                                                                 |
@@ -956,8 +851,6 @@ enhancement_pipeline:
 | **Example Injection**      | Clarify format expectations  | +3-5 Expression  | Add 2-3 input/output examples                                           |
 | **Success Layering**       | Min/target/excellence levels | +4-5 Arrangement | Define minimum viable, target, and excellence criteria                  |
 
-<!-- /ANCHOR:common-pattern-transformations -->
-<!-- ANCHOR:enhancement-priority-matrix -->
 ### Enhancement Priority Matrix
 
 ```yaml
@@ -970,8 +863,6 @@ by_score:
   "45+": "Excellence achieved - ship it!"
 ```
 
-<!-- /ANCHOR:enhancement-priority-matrix -->
-<!-- ANCHOR:excellence-patterns-45-clear -->
 ### Excellence Patterns (45+ CLEAR)
 - Complete context layering (environmental, historical, constraints, resources)
 - Multi-level success criteria (minimum, target, excellence)
@@ -982,12 +873,8 @@ by_score:
 
 ---
 
-<!-- /ANCHOR:excellence-patterns-45-clear -->
-<!-- ANCHOR:13-clear-evaluation -->
 ## 13. 📈 CLEAR EVALUATION
 
-<!-- /ANCHOR:13-clear-evaluation -->
-<!-- ANCHOR:context-aware-scoring-system -->
 ### Context-Aware Scoring System
 
 ```yaml
@@ -1011,8 +898,6 @@ contextual_clear_scoring:
       logic: 0.15        # Lower reasoning priority
 ```
 
-<!-- /ANCHOR:context-aware-scoring-system -->
-<!-- ANCHOR:clear-dimensions-50-point-scale -->
 ### CLEAR Dimensions (50-point scale)
 
 | Dimension       | Points | Assessment Criteria                                |
@@ -1023,8 +908,6 @@ contextual_clear_scoring:
 | **Arrangement** | 10     | Structure, organization, logical flow              |
 | **Reusability** | 5      | Adaptability, parameterization, flexibility        |
 
-<!-- /ANCHOR:clear-dimensions-50-point-scale -->
-<!-- ANCHOR:score-interpretation -->
 ### Score Interpretation
 
 | Score     | Grade | Quality Level | Action                           |
@@ -1035,8 +918,6 @@ contextual_clear_scoring:
 | **30-34** | C     | Adequate      | Consider improvements            |
 | **<30**   | D/F   | Needs work    | Significant enhancement required |
 
-<!-- /ANCHOR:score-interpretation -->
-<!-- ANCHOR:multi-pass-evaluation -->
 ### Multi-Pass Evaluation
 1. **Surface Pass**: Framework presence, basic completeness
 2. **Deep Pass**: Ambiguity detection, assumption analysis
@@ -1044,4 +925,3 @@ contextual_clear_scoring:
 
 **Full details:** `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` (Sections 9-11)
 
-<!-- /ANCHOR:multi-pass-evaluation -->
