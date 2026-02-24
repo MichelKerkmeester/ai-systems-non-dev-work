@@ -1,4 +1,3 @@
-<!-- ANCHOR:owner-templates-bug-mode-v0-115 -->
 # Owner - Templates - Bug Mode - v0.115
 
 Structured bug report templates for defect tracking and resolution. Fixed structure with Evidence capture, reproduction steps, and root cause analysis requirements.
@@ -10,8 +9,6 @@ Structured bug report templates for defect tracking and resolution. Fixed struct
 **Scope:** Bug mode overview, delivery standards, quality checklists, error recovery, complete bug template, DEPTH Framework integration
 **Output Path:** `/export/[###]-artifact.md`
 
-<!-- /ANCHOR:owner-templates-bug-mode-v0-115 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🐛 BUG MODE OVERVIEW
@@ -23,12 +20,8 @@ Structured bug report templates for defect tracking and resolution. Fixed struct
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-bug-mode-overview -->
 ## 1. 🐛 BUG MODE OVERVIEW
 
-<!-- /ANCHOR:1-bug-mode-overview -->
-<!-- ANCHOR:command-bug -->
 ### Command: `$bug`
 
 - **Short Alias:** `$b`
@@ -39,8 +32,6 @@ Structured bug report templates for defect tracking and resolution. Fixed struct
 - **Structure:** Fixed (no complexity scaling like Task Mode)
 - **Key Feature:** Includes Evidence section and Root Cause tracking in Resolution Checklist
 
-<!-- /ANCHOR:command-bug -->
-<!-- ANCHOR:when-to-use-bug-mode -->
 ### When to Use Bug Mode
 
 **USE Bug Mode for:**
@@ -55,8 +46,6 @@ Structured bug report templates for defect tracking and resolution. Fixed struct
 - Bug fixes combined with feature work
 - Tasks titled "Refinement + Bugs"
 
-<!-- /ANCHOR:when-to-use-bug-mode -->
-<!-- ANCHOR:critical-rules -->
 ### Critical Rules
 - **NEVER create artifact until user responds to comprehensive question**
 - **NEVER answer own questions - always wait for user response**
@@ -65,8 +54,6 @@ Structured bug report templates for defect tracking and resolution. Fixed struct
 - **EVIDENCE IS CRITICAL** - Screenshots and logs support bug diagnosis
 - **ROOT CAUSE REQUIRED** - Resolution requires identifying root cause
 
-<!-- /ANCHOR:critical-rules -->
-<!-- ANCHOR:difference-from-task-mode -->
 ### Difference from Task Mode
 Bug Mode differs from Task Mode in several key ways:
 
@@ -79,19 +66,13 @@ Bug Mode differs from Task Mode in several key ways:
 | Quick Mode   | Supported ($quick task)               | Not supported                  |
 | User Stories | Given/When/Then for features          | Not typically used             |
 
-<!-- /ANCHOR:difference-from-task-mode -->
-<!-- ANCHOR:note-on-feature-requests -->
 ### Note on Feature Requests
 For feature development (new functionality, enhancements), use `$task` command which references **Owner - Templates - Task Mode**
 
 ---
 
-<!-- /ANCHOR:note-on-feature-requests -->
-<!-- ANCHOR:2-delivery-standards -->
 ## 2. 📦 DELIVERY STANDARDS
 
-<!-- /ANCHOR:2-delivery-standards -->
-<!-- ANCHOR:universal-requirements -->
 ### Universal Requirements
 - **Artifact Type:** Always use `text/markdown` (never `text/plain`)
 - **Single Artifact:** All content delivered as one artifact
@@ -100,8 +81,6 @@ For feature development (new functionality, enhancements), use `$task` command w
 - **Template Compliance:** Use structure exactly
 - **No Anchors in Output:** NEVER include `<!-- ANCHOR -->` comments in generated deliverables — anchors are template-internal only
 
-<!-- /ANCHOR:universal-requirements -->
-<!-- ANCHOR:bug-specific-standards -->
 ### Bug-Specific Standards
 - **Fixed Structure:** All bugs use same 4-section template
 - **Output Focus:** ONLY deliver what user reported
@@ -111,19 +90,13 @@ For feature development (new functionality, enhancements), use `$task` command w
 
 > Requirements can be tagged `[Optional for MVP]` to indicate items not required for initial release.
 
-<!-- /ANCHOR:bug-specific-standards -->
-<!-- ANCHOR:mandatory-structure-elements -->
 ### Mandatory Structure Elements
 
-<!-- /ANCHOR:mandatory-structure-elements -->
-<!-- ANCHOR:symbol-hierarchy -->
 #### Symbol Hierarchy
 - **H2:** (About)
 - **H3:** (Evidence), (Requirements), (Resolution Checklist)
 - **H4:** NOT used in Bug mode
 
-<!-- /ANCHOR:symbol-hierarchy -->
-<!-- ANCHOR:structure-order -->
 #### Structure Order
 1. Title (# Bug Title) - FIRST LINE
 2. About (##) - Bug description and location
@@ -131,8 +104,6 @@ For feature development (new functionality, enhancements), use `$task` command w
 4. Requirements (###) - Observed/Expected/Steps to Reproduce (FIXED)
 5. Resolution Checklist (###) - Fix/Regression Prevention/Validation
 
-<!-- /ANCHOR:structure-order -->
-<!-- ANCHOR:formatting-standards -->
 #### Formatting Standards
 - **Dividers:** Use `---` between all major sections, with a blank line before and after the `---`
 - **Lists:** Always use `-` for bullets, `- [ ]` for checkboxes
@@ -140,8 +111,6 @@ For feature development (new functionality, enhancements), use `$task` command w
 - **Code Blocks:** Use fenced code blocks for error messages and logs
 - **Steps:** Numbered list for reproduction steps
 
-<!-- /ANCHOR:formatting-standards -->
-<!-- ANCHOR:visual-hierarchy-rules -->
 ### Visual Hierarchy Rules
 - Use `---` as major section separators
 - Blank line before and after `---` separators
@@ -150,8 +119,6 @@ For feature development (new functionality, enhancements), use `$task` command w
 - H4 NOT used in Bug mode
 - Consistent spacing throughout
 
-<!-- /ANCHOR:visual-hierarchy-rules -->
-<!-- ANCHOR:content-guidelines -->
 ### Content Guidelines
 
 **About Section:**
@@ -179,8 +146,6 @@ For feature development (new functionality, enhancements), use `$task` command w
 - Regression prevention steps
 - Validation requirements
 
-<!-- /ANCHOR:content-guidelines -->
-<!-- ANCHOR:user-story-format-if-used -->
 ### User Story Format (If Used)
 
 If a bug fix requires user story context, use Given/When/Then format for consistency with Task Mode:
@@ -194,12 +159,8 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 
 ---
 
-<!-- /ANCHOR:user-story-format-if-used -->
-<!-- ANCHOR:3-quality-checklist -->
 ## 3. ✅ QUALITY CHECKLIST
 
-<!-- /ANCHOR:3-quality-checklist -->
-<!-- ANCHOR:pre-creation-validation -->
 ### Pre-Creation Validation
 - [ ] DEPTH Framework applied (10 rounds)?
 - [ ] User responded to comprehensive question?
@@ -207,8 +168,6 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 - [ ] Bug description clear and specific?
 - [ ] Location of bug identified?
 
-<!-- /ANCHOR:pre-creation-validation -->
-<!-- ANCHOR:structure-validation -->
 ### Structure Validation
 - [ ] About section uses H2 (## About)?
 - [ ] Evidence section uses H3 (### Evidence)?
@@ -218,8 +177,6 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 - [ ] Dividers (---) between all sections?
 - [ ] No H1 headers except bug title?
 
-<!-- /ANCHOR:structure-validation -->
-<!-- ANCHOR:format-validation -->
 ### Format Validation
 - [ ] Using `text/markdown` artifact type?
 - [ ] Lists use `-` bullets?
@@ -229,8 +186,6 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 - [ ] Inline images for screenshots?
 - [ ] No Table of Contents?
 
-<!-- /ANCHOR:format-validation -->
-<!-- ANCHOR:bug-specific-validation -->
 ### Bug-Specific Validation
 - [ ] Evidence section has Screenshots (when available)?
 - [ ] Evidence section has Logs/Error Messages (if applicable)?
@@ -252,76 +207,46 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 
 ---
 
-<!-- /ANCHOR:bug-specific-validation -->
-<!-- ANCHOR:4-error-recovery -->
 ## 4. 🚨 ERROR RECOVERY
 
-<!-- /ANCHOR:4-error-recovery -->
-<!-- ANCHOR:common-errors-and-fixes -->
 ### Common Errors & Fixes
 
-<!-- /ANCHOR:common-errors-and-fixes -->
-<!-- ANCHOR:missing-steps-to-reproduce -->
 #### Missing Steps to Reproduce
 **Fix:** Add numbered list of exact steps to trigger the bug. Steps must be specific and reproducible.
 
-<!-- /ANCHOR:missing-steps-to-reproduce -->
-<!-- ANCHOR:vague-observed-behavior -->
 #### Vague Observed Behavior
 **Fix:** Replace "it doesn't work" with specific description of what happens (error message, incorrect output, crash, etc.)
 
-<!-- /ANCHOR:vague-observed-behavior -->
-<!-- ANCHOR:missing-evidence -->
 #### Missing Evidence
 **Fix:** Add `### Evidence` section with screenshots and/or error logs (logs optional if not applicable)
 
-<!-- /ANCHOR:missing-evidence -->
-<!-- ANCHOR:wrong-symbol-hierarchy -->
 #### Wrong Symbol Hierarchy
 **Fix:** Update to H2: (About), H3: (Evidence, Requirements, Checklist)
 
-<!-- /ANCHOR:wrong-symbol-hierarchy -->
-<!-- ANCHOR:using-h1-for-about-section -->
 #### Using H1 for About Section
 **Fix:** Change `# About` to `## About` - H1 reserved for bug title only
 
-<!-- /ANCHOR:using-h1-for-about-section -->
-<!-- ANCHOR:missing-root-cause-item -->
 #### Missing Root Cause Item
 **Fix:** Add "Root cause identified" checkbox in Fix category
 
-<!-- /ANCHOR:missing-root-cause-item -->
-<!-- ANCHOR:steps-not-numbered -->
 #### Steps Not Numbered
 **Fix:** Convert bullets to numbered list: `1. Step one`, `2. Step two`, etc.
 
-<!-- /ANCHOR:steps-not-numbered -->
-<!-- ANCHOR:pattern-sequential-questions -->
 #### Pattern: Sequential Questions
 **Fix:** Stop, apologize, ask comprehensive question (in Interactive Mode), WAIT
 
-<!-- /ANCHOR:pattern-sequential-questions -->
-<!-- ANCHOR:wrong-artifact-type -->
 #### Wrong Artifact Type
 **Fix:** Recreate with `text/markdown`
 
-<!-- /ANCHOR:wrong-artifact-type -->
-<!-- ANCHOR:missing-separators -->
 #### Missing Separators
 **Fix:** Add `---` between major sections
 
-<!-- /ANCHOR:missing-separators -->
-<!-- ANCHOR:using-bug-mode-for-grouped-bugs -->
 #### Using Bug Mode for Grouped Bugs
 **Fix:** Use Task Mode instead for grouped bugs or refinement tasks
 
-<!-- /ANCHOR:using-bug-mode-for-grouped-bugs -->
-<!-- ANCHOR:missing-severity-priority -->
 #### Missing Severity/Priority
 **Fix:** Add Severity (Critical/High/Medium/Low) and Priority (P1/P2/P3/P4) fields
 
-<!-- /ANCHOR:missing-severity-priority -->
-<!-- ANCHOR:prevention-strategies -->
 ### Prevention Strategies
 1. Apply DEPTH Framework automatically (10 rounds)
 2. Wait for comprehensive response
@@ -339,8 +264,6 @@ If a bug fix requires user story context, use Given/When/Then format for consist
 
 ---
 
-<!-- /ANCHOR:prevention-strategies -->
-<!-- ANCHOR:5-bug-report-template -->
 ## 5. 📝 BUG REPORT TEMPLATE
 
 ````markdown
@@ -494,8 +417,6 @@ Complete all items below before moving to QA
 
 ---
 
-<!-- /ANCHOR:5-bug-report-template -->
-<!-- ANCHOR:6-final-reminders -->
 ## 6. 🎯 FINAL REMINDERS
 
 1. **Always wait** for user response before creating artifact
@@ -525,4 +446,3 @@ Complete all items below before moving to QA
 25. **One bug per report** - unless explicitly reporting multiple related bugs
 26. **User Stories** use Given/When/Then format if included
 
-<!-- /ANCHOR:6-final-reminders -->

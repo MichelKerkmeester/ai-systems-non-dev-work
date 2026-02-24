@@ -1,4 +1,3 @@
-<!-- ANCHOR:owner-templates-doc-mode-v0-133 -->
 # Owner - Templates - Doc Mode - v0.133
 
 Documentation templates with integrated formatting rules and quality standards. All delivery logic consolidated for self-contained operation.
@@ -8,8 +7,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 **Scope:** Command structure, delivery standards, complexity auto-scaling (Simple/Standard/Complex), formatting rules with symbol hierarchy, quality validation checklists, error recovery protocols, and three complete documentation templates with metadata, About sections, References structure, and performance metrics
 **Output Path:** `/export/[###]-artifact.md`
 
-<!-- /ANCHOR:owner-templates-doc-mode-v0-133 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 📚 DOC MODE OVERVIEW
@@ -25,12 +22,8 @@ Documentation templates with integrated formatting rules and quality standards. 
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-doc-mode-overview -->
 ## 1. 📚 DOC MODE OVERVIEW
 
-<!-- /ANCHOR:1-doc-mode-overview -->
-<!-- ANCHOR:command-doc -->
 ### Command: `$doc`
 
 - **Purpose:** Create product documentation that auto-scales complexity
@@ -42,8 +35,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 - **Silent Processing:** User sees simple messages, not methodology details
 - **Output Constraints:** Documentation covers ONLY requested topic/system
 
-<!-- /ANCHOR:command-doc -->
-<!-- ANCHOR:critical-rules -->
 ### Critical Rules
 - **NEVER create artifact until user responds to comprehensive question**
 - **NEVER answer own questions - always wait for user response**
@@ -52,12 +43,8 @@ Documentation templates with integrated formatting rules and quality standards. 
 
 ---
 
-<!-- /ANCHOR:critical-rules -->
-<!-- ANCHOR:2-delivery-standards -->
 ## 2. 📦 DELIVERY STANDARDS
 
-<!-- /ANCHOR:2-delivery-standards -->
-<!-- ANCHOR:universal-requirements -->
 ### Universal Requirements
 - **Artifact Type:** Always use `text/markdown` (never `text/plain`)
 - **Single Artifact:** All content delivered as one artifact
@@ -68,8 +55,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 - **Template Compliance:** Use structure exactly
 - **No Anchors in Output:** NEVER include `<!-- ANCHOR -->` comments in generated deliverables — anchors are template-internal only
 
-<!-- /ANCHOR:universal-requirements -->
-<!-- ANCHOR:doc-specific-standards -->
 ### Doc-Specific Standards
 - **Scaling:** 
   - Simple: 2-3 main sections
@@ -80,8 +65,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 - **Multiple Perspectives:** All analyze the SAME documentation need
 - **Convergent Output:** Many approaches considered, ONE delivered
 
-<!-- /ANCHOR:doc-specific-standards -->
-<!-- ANCHOR:never -->
 ### Never:
 - Use `text/plain` → Causes raw markdown display
 - Mix artifact and response text
@@ -98,8 +81,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 - Add unrequested features
 - Expand scope beyond request
 
-<!-- /ANCHOR:never -->
-<!-- ANCHOR:always -->
 ### Always:
 - Use proper `text/markdown` type
 - Document mode and scaling applied
@@ -116,8 +97,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 
 ---
 
-<!-- /ANCHOR:always -->
-<!-- ANCHOR:3-complexity-auto-scaling -->
 ## 3. 📄 COMPLEXITY AUTO-SCALING
 
 | Keywords                    | Complexity | Content Depth      | Document Type | DEPTH Processing        |
@@ -130,8 +109,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 - User requests "platform overview" → Complex template for THAT platform only
 - NOT: Complex template with multiple platforms or expanded features
 
-<!-- /ANCHOR:3-complexity-auto-scaling -->
-<!-- ANCHOR:depth-processing-standards -->
 ### DEPTH Processing Standards
 - **Silent excellence:** User never sees methodology details
 - **Automatic application:** No user choice on depth
@@ -141,16 +118,10 @@ Documentation templates with integrated formatting rules and quality standards. 
 
 ---
 
-<!-- /ANCHOR:depth-processing-standards -->
-<!-- ANCHOR:4-formatting-rules-and-standards -->
 ## 4. ✨ FORMATTING RULES & STANDARDS
 
-<!-- /ANCHOR:4-formatting-rules-and-standards -->
-<!-- ANCHOR:mandatory-structure-elements -->
 ### Mandatory Structure Elements
 
-<!-- /ANCHOR:mandatory-structure-elements -->
-<!-- ANCHOR:symbol-hierarchy -->
 #### Symbol Hierarchy
 - **H2:** ⌘ (About), ❖ (Main sections)
 - **H3:** Numbered subsections (### 1. Pattern, ### 2. Rotation)
@@ -158,8 +129,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 - **H4:** Detail headers (#### Logic, #### Features)
 - **Bold:** Designs & References, Flows, Components
 
-<!-- /ANCHOR:symbol-hierarchy -->
-<!-- ANCHOR:structure-order -->
 #### Structure Order
 1. Header (Mode | Complexity | Template) - FIRST LINE
 2. Document metadata (Parent, Version, Reading Time)
@@ -168,8 +137,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 5. Main sections (❖) - Scaled content
 6. Subsections - H4 headers for details (#### Logic, #### Features)
 
-<!-- /ANCHOR:structure-order -->
-<!-- ANCHOR:formatting-standards -->
 #### Formatting Standards
 - **Dividers:** Use `---` between major sections only (not after headers)
 - **Lists:** Always use `-` for bullets
@@ -178,8 +145,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 - **Links:** Use `[Description](URL)` format or `[Link - to be added]` for placeholders
 - **Content:** Integrated narrative in About section
 
-<!-- /ANCHOR:formatting-standards -->
-<!-- ANCHOR:visual-hierarchy-rules -->
 ### Visual Hierarchy Rules
 - Consistent spacing throughout
 - Bold labels: Designs & References, Flows, Components (with `---` divider after each)
@@ -187,16 +152,12 @@ Documentation templates with integrated formatting rules and quality standards. 
 - H4 headers: Clean detail headers (#### Logic, #### Features)
 - Use `---` as section separators between major sections (not after headers)
 
-<!-- /ANCHOR:visual-hierarchy-rules -->
-<!-- ANCHOR:content-integration -->
 ### Content Integration
 - Context and purpose integrated in About
 - No separate problem lists
 - Clear narrative flow throughout
 - Documentation covers ONLY requested topic
 
-<!-- /ANCHOR:content-integration -->
-<!-- ANCHOR:documentation-focus-areas -->
 ### Documentation Focus Areas
 
 **Product Documentation:**
@@ -219,12 +180,8 @@ Documentation templates with integrated formatting rules and quality standards. 
 
 ---
 
-<!-- /ANCHOR:documentation-focus-areas -->
-<!-- ANCHOR:5-quality-checklist -->
 ## 5. ✅ QUALITY CHECKLIST
 
-<!-- /ANCHOR:5-quality-checklist -->
-<!-- ANCHOR:pre-creation-validation -->
 ### Pre-Creation Validation
 - [ ] DEPTH Framework applied (10 rounds standard, 1-5 $quick)?
 - [ ] User responded to comprehensive question?
@@ -233,8 +190,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 - [ ] Template version confirmed?
 - [ ] Output scope limited to user request?
 
-<!-- /ANCHOR:pre-creation-validation -->
-<!-- ANCHOR:structure-validation -->
 ### Structure Validation
 - [ ] Header at top as first line?
 - [ ] Document metadata included?
@@ -245,8 +200,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 - [ ] Dividers used appropriately?
 - [ ] H4 for detail headers?
 
-<!-- /ANCHOR:structure-validation -->
-<!-- ANCHOR:format-validation -->
 ### Format Validation
 - [ ] Using `text/markdown` artifact type?
 - [ ] Lists use `-` bullets?
@@ -258,8 +211,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 - [ ] No unrequested content?
 - [ ] Content limited to requested topic?
 
-<!-- /ANCHOR:format-validation -->
-<!-- ANCHOR:mode-specific-validation -->
 ### Mode-Specific Validation
 - [ ] Header at top?
 - [ ] About first with purpose?
@@ -272,56 +223,34 @@ Documentation templates with integrated formatting rules and quality standards. 
 
 ---
 
-<!-- /ANCHOR:mode-specific-validation -->
-<!-- ANCHOR:6-error-recovery -->
 ## 6. 🚨 ERROR RECOVERY
 
-<!-- /ANCHOR:6-error-recovery -->
-<!-- ANCHOR:common-errors-and-fixes -->
 ### Common Errors & Fixes
 
-<!-- /ANCHOR:common-errors-and-fixes -->
-<!-- ANCHOR:wrong-symbol-hierarchy -->
 #### Wrong Symbol Hierarchy
 **Fix:** Update to H2: ⌘/❖, H3: Numbered subsections, H3: Bold subsections, H4: Detail headers, Bold labels: Designs & References, Flows, Components
 
-<!-- /ANCHOR:wrong-symbol-hierarchy -->
-<!-- ANCHOR:about-section-not-first -->
 #### About Section Not First
 **Fix:** Move About to first position after metadata
 
-<!-- /ANCHOR:about-section-not-first -->
-<!-- ANCHOR:created-without-user-input -->
 #### Created Without User Input
 **Fix:** Stop, apologize, ask comprehensive question, WAIT
 
-<!-- /ANCHOR:created-without-user-input -->
-<!-- ANCHOR:added-unrequested-content -->
 #### Added Unrequested Content
 **Fix:** Remove extras, keep only requested scope
 
-<!-- /ANCHOR:added-unrequested-content -->
-<!-- ANCHOR:wrong-artifact-type -->
 #### Wrong Artifact Type
 **Fix:** Recreate with `text/markdown`
 
-<!-- /ANCHOR:wrong-artifact-type -->
-<!-- ANCHOR:designs-and-references-as-heading -->
 #### Designs & References as Heading
 **Fix:** Convert to bold label (`**Designs & References**`) with Flows and Components subsections
 
-<!-- /ANCHOR:designs-and-references-as-heading -->
-<!-- ANCHOR:missing-separators -->
 #### Missing Separators
 **Fix:** Add `---` between major sections
 
-<!-- /ANCHOR:missing-separators -->
-<!-- ANCHOR:table-of-contents-included -->
 #### Table of Contents Included
 **Fix:** Remove ToC, rely on external tools
 
-<!-- /ANCHOR:table-of-contents-included -->
-<!-- ANCHOR:prevention-strategies -->
 ### Prevention Strategies
 1. Apply DEPTH automatically (10 rounds standard, 1-5 quick)
 2. Wait for comprehensive response
@@ -336,8 +265,6 @@ Documentation templates with integrated formatting rules and quality standards. 
 
 ---
 
-<!-- /ANCHOR:prevention-strategies -->
-<!-- ANCHOR:7-simple-documentation-template -->
 ## 7. 📝 SIMPLE DOCUMENTATION TEMPLATE
 
 ```markdown
@@ -428,8 +355,6 @@ High-level description of the main capabilities and value proposition
 
 ---
 
-<!-- /ANCHOR:7-simple-documentation-template -->
-<!-- ANCHOR:8-standard-documentation-template -->
 ## 8. 📖 STANDARD DOCUMENTATION TEMPLATE
 
 ```markdown
@@ -594,8 +519,6 @@ the product [limited to requested system only].
 
 ---
 
-<!-- /ANCHOR:8-standard-documentation-template -->
-<!-- ANCHOR:9-complex-documentation-template -->
 ## 9. 📗 COMPLEX DOCUMENTATION TEMPLATE
 
 ```markdown
@@ -926,4 +849,3 @@ The north star that guides all platform decisions and investments
 17. **Symbol hierarchy** H2: ⌘/❖, H3: Numbered subsections, H3: Bold subsections, H4: Detail headers, Bold labels: Designs & References, Flows, Components
 
 ```
-<!-- /ANCHOR:9-complex-documentation-template -->

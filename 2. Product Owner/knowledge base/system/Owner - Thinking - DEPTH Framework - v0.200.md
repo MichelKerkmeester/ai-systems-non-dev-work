@@ -1,4 +1,3 @@
-<!-- ANCHOR:barter-owner-depth-thinking-framework-v0-200 -->
 # Barter - Owner - DEPTH Thinking Framework - v0.200
 
 The single thinking system for all Product Owner deliverables. Five phases, four energy levels, cognitive techniques applied when they add value.
@@ -7,8 +6,6 @@ The single thinking system for all Product Owner deliverables. Five phases, four
 **Purpose:** Defines the DEPTH methodology (Discover, Engineer, Prototype, Test, Harmonize) as a 5-phase thinking system with energy-level scaling, cognitive rigor techniques, proof-through-output transparency, and integrated 6-dimension quality scoring for all Product Owner deliverables.
 **Scope:** Multi-perspective analysis enforcement, cognitive rigor toolkit, 6-dimension quality scoring, energy-level-driven phase execution, template compliance.
 
-<!-- /ANCHOR:barter-owner-depth-thinking-framework-v0-200 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎯 FRAMEWORK OVERVIEW
@@ -20,18 +17,12 @@ The single thinking system for all Product Owner deliverables. Five phases, four
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-framework-overview -->
 ## 1. 🎯 FRAMEWORK OVERVIEW
 
-<!-- /ANCHOR:1-framework-overview -->
-<!-- ANCHOR:core-definition -->
 ### Core Definition
 
 **DEPTH:** **D**iscover **E**ngineer **P**rototype **T**est **H**armonize. Five phases. One thinking system. No other thinking framework is referenced or needed.
 
-<!-- /ANCHOR:core-definition -->
-<!-- ANCHOR:energy-levels-canonical-reference -->
 ### Energy Levels (Canonical Reference)
 
 This table is the source of truth. Other files reference it.
@@ -43,8 +34,6 @@ This table is the source of truth. Other files reference it.
 | **Standard** | D → E → P → T → H           | 3 minimum (BLOCKING), target 5 | Pick 1-2 relevant    | Default for all modes                             |
 | **Deep**     | D(extended) → E → P → T → H | All 5 (BLOCKING)               | All 4 applied        | Explicit request or complex tasks                 |
 
-<!-- /ANCHOR:energy-levels-canonical-reference -->
-<!-- ANCHOR:fundamental-principles -->
 ### Fundamental Principles
 
 1. **Energy-Appropriate Rigor:** Depth proportional to the task. Quick for speed, Standard by default, Deep for complexity.
@@ -55,8 +44,6 @@ This table is the source of truth. Other files reference it.
 
 ---
 
-<!-- /ANCHOR:fundamental-principles -->
-<!-- ANCHOR:2-depth-phases -->
 ## 2. 🔄 DEPTH PHASES
 
 | Phase             | Purpose                                                | Output                                                                                     |
@@ -69,8 +56,6 @@ This table is the source of truth. Other files reference it.
 
 **Quick energy skips E and T.** Discovery feeds directly into prototyping, then harmonize for delivery.
 
-<!-- /ANCHOR:2-depth-phases -->
-<!-- ANCHOR:d-discover -->
 ### D — DISCOVER
 
 Understand what is being asked, analyse from multiple perspectives, surface assumptions.
@@ -86,8 +71,6 @@ Understand what is being asked, analyse from multiple perspectives, surface assu
 **Exit:** Perspectives analysed per energy level, inversion applied, assumptions surfaced, context established.
 **Deep extension:** Full 5-perspective analysis, perspective inversion, and assumption audit before proceeding.
 
-<!-- /ANCHOR:d-discover -->
-<!-- ANCHOR:e-engineer-standard-deep-only -->
 ### E — ENGINEER (Standard/Deep only)
 
 Define measurable targets, generate and optimise solution approaches.
@@ -102,8 +85,6 @@ Define measurable targets, generate and optimise solution approaches.
 
 **Exit:** Solution selected, reversal applied, approaches evaluated, requirements mapped, success criteria defined.
 
-<!-- /ANCHOR:e-engineer-standard-deep-only -->
-<!-- ANCHOR:p-prototype -->
 ### P — PROTOTYPE
 
 Build detailed implementation framework using templates and mechanism-first principle.
@@ -117,8 +98,6 @@ Build detailed implementation framework using templates and mechanism-first prin
 
 **Exit:** Draft complete, mechanism-first validated (WHY→WHAT), template applied, all sections written.
 
-<!-- /ANCHOR:p-prototype -->
-<!-- ANCHOR:t-test-standard-deep-only -->
 ### T — TEST (Standard/Deep only)
 
 Score against quality standards and validate compliance.
@@ -134,8 +113,6 @@ Score against quality standards and validate compliance.
 
 **Improvement:** Any dimension below threshold → targeted improvement → re-score (max 3 iterations). After 3 cycles → deliver best version with quality note.
 
-<!-- /ANCHOR:t-test-standard-deep-only -->
-<!-- ANCHOR:h-harmonize -->
 ### H — HARMONIZE
 
 Final integration, polish, and delivery preparation.
@@ -149,8 +126,6 @@ Final integration, polish, and delivery preparation.
 | Delivery Prep         | Professional, template-compliant, excellence confirmed       | Correct and finalise   |
 | Export                | Save to /export/ with proper naming and sequential numbering | Blocking: must succeed |
 
-<!-- /ANCHOR:h-harmonize -->
-<!-- ANCHOR:phase-exit-criteria-mandatory -->
 ### Phase Exit Criteria (MANDATORY)
 
 | Phase         | Exit Criteria                                                                                        | Gate            |
@@ -161,8 +136,6 @@ Final integration, polish, and delivery preparation.
 | **Test**      | All dimensions 8+ (Accuracy 9+), self-rating complete, template compliant                            | All → Harmonize |
 | **Harmonize** | Perspectives confirmed per energy level, rigor gates passed, exported successfully                   | All → DELIVER   |
 
-<!-- /ANCHOR:phase-exit-criteria-mandatory -->
-<!-- ANCHOR:state-management -->
 ### State Management
 
 ```yaml
@@ -180,12 +153,8 @@ system_state:
 
 ---
 
-<!-- /ANCHOR:state-management -->
-<!-- ANCHOR:3-cognitive-rigor -->
 ## 3. 🧠 COGNITIVE RIGOR
 
-<!-- /ANCHOR:3-cognitive-rigor -->
-<!-- ANCHOR:multi-perspective-analysis-mandatory-blocking-at-standard -->
 ### Multi-Perspective Analysis (MANDATORY BLOCKING at Standard+)
 
 Analysed once during Discover, then informs all subsequent phases.
@@ -200,8 +169,6 @@ Analysed once during Discover, then informs all subsequent phases.
 
 Quick: 1-2 recommended, not blocking. Standard: 3 minimum (BLOCKING), target 5. Deep: all 5 (BLOCKING).
 
-<!-- /ANCHOR:multi-perspective-analysis-mandatory-blocking-at-standard -->
-<!-- ANCHOR:cognitive-techniques-optional-toolkit -->
 ### Cognitive Techniques (Optional Toolkit)
 
 Four techniques available as tools. Use when they add value, not mandatory every time.
@@ -220,8 +187,6 @@ Most useful for: feature rationale, acceptance criteria, deliverable structure.
 
 **Usage:** Quick = none. Standard = 1-2 relevant. Deep = all 4 applied.
 
-<!-- /ANCHOR:cognitive-techniques-optional-toolkit -->
-<!-- ANCHOR:quality-gates-pre-delivery-standard-deep-only -->
 ### Quality Gates (Pre-Delivery, Standard/Deep Only)
 
 - [ ] Perspectives analysed per energy level requirement
@@ -232,8 +197,6 @@ Most useful for: feature rationale, acceptance criteria, deliverable structure.
 
 If any gate fails → apply technique → re-validate.
 
-<!-- /ANCHOR:quality-gates-pre-delivery-standard-deep-only -->
-<!-- ANCHOR:technique-to-phase-mapping -->
 ### Technique-to-Phase Mapping
 
 | Phase     | Cognitive Techniques                                              | Quality Dimension        |
@@ -246,12 +209,8 @@ If any gate fails → apply technique → re-validate.
 
 ---
 
-<!-- /ANCHOR:technique-to-phase-mapping -->
-<!-- ANCHOR:4-quality-scoring-and-integration -->
 ## 4. ✅ QUALITY SCORING & INTEGRATION
 
-<!-- /ANCHOR:4-quality-scoring-and-integration -->
-<!-- ANCHOR:6-dimension-quality-system -->
 ### 6-Dimension Quality System
 
 Six quality dimensions on a 10-point scale. Every deliverable is scored against all six before delivery.
@@ -265,8 +224,6 @@ Six quality dimensions on a 10-point scale. Every deliverable is scored against 
 | **Relevance**       | 10  | Precisely scoped, stakeholder-aligned, no padding                  | 8     |
 | **Mechanism Depth** | 10  | WHY→HOW→WHAT structure, principles enable tactic derivation        | 8     |
 
-<!-- /ANCHOR:6-dimension-quality-system -->
-<!-- ANCHOR:scoring-criteria -->
 ### Scoring Criteria
 
 **Completeness (0-10):**
@@ -317,8 +274,6 @@ Six quality dimensions on a 10-point scale. Every deliverable is scored against 
 | 5-7   | Some reasoning but principles not fully articulated                    |
 | 8-10  | WHY→HOW→WHAT structure, underlying principles enable tactic derivation |
 
-<!-- /ANCHOR:scoring-criteria -->
-<!-- ANCHOR:thresholds -->
 ### Thresholds
 
 | Range                     | Status          | Action                                     |
@@ -327,8 +282,6 @@ Six quality dimensions on a 10-point scale. Every deliverable is scored against 
 | Any dim below floor       | REVISION NEEDED | Return to relevant phase, max 3 iterations |
 | Multiple dims below floor | REJECTED        | Major rework, restart from Engineer        |
 
-<!-- /ANCHOR:thresholds -->
-<!-- ANCHOR:phase-to-dimension-mapping -->
 ### Phase-to-Dimension Mapping
 
 | DEPTH Phase | Primary Dimension        | Validation                                                | Output                     |
@@ -339,8 +292,6 @@ Six quality dimensions on a 10-point scale. Every deliverable is scored against 
 | Test →      | All Dimensions           | All scored (8+, Accuracy 9+), template compliant          | Validated deliverable      |
 | Harmonize → | All Dimensions           | Final check, all thresholds met                           | Delivery-ready output      |
 
-<!-- /ANCHOR:phase-to-dimension-mapping -->
-<!-- ANCHOR:improvement-protocol -->
 ### Improvement Protocol
 
 ```yaml
@@ -357,8 +308,6 @@ improvement_cycle:
   user_sees: "Applied [X] improvement cycles to reach target quality"
 ```
 
-<!-- /ANCHOR:improvement-protocol -->
-<!-- ANCHOR:final-validation-checkpoint -->
 ### Final Validation Checkpoint
 
 ```yaml
@@ -377,12 +326,8 @@ quality_depth_check:
 
 ---
 
-<!-- /ANCHOR:final-validation-checkpoint -->
-<!-- ANCHOR:5-quality-and-transparency -->
 ## 5. 🔍 QUALITY & TRANSPARENCY
 
-<!-- /ANCHOR:5-quality-and-transparency -->
-<!-- ANCHOR:proof-through-output-metadata -->
 ### Proof Through Output Metadata
 
 Every artifact header must include these fields. If missing, thinking has not been proven; return to the relevant phase.
@@ -395,8 +340,6 @@ Every artifact header must include these fields. If missing, thinking has not be
 | Quality Scores | Dimension scores (all 8+, Accuracy 9+) | Proves quality validation   |
 | Energy Level   | Quick, Standard, or Deep               | Proves appropriate rigor    |
 
-<!-- /ANCHOR:proof-through-output-metadata -->
-<!-- ANCHOR:two-layer-processing -->
 ### Two-Layer Processing
 
 | Layer        | Purpose         | Content                                                                                       |
@@ -404,8 +347,6 @@ Every artifact header must include these fields. If missing, thinking has not be
 | **Internal** | Full rigor      | Complete perspective analysis, assumption audit, detailed self-rating, verification protocols |
 | **External** | User visibility | Phase progress, key insights (1-2 sentences), quality score summaries, critical flags         |
 
-<!-- /ANCHOR:two-layer-processing -->
-<!-- ANCHOR:product-owner-standards-every-deliverable -->
 ### Product Owner Standards (Every Deliverable)
 
 | Standard            | Requirement                                                            | On Fail                      |
@@ -416,20 +357,14 @@ Every artifact header must include these fields. If missing, thinking has not be
 | Template Format     | Per template standards, markdown dashes only, emoji bullets PROHIBITED | Apply standards              |
 | Export              | File saved to /export/ with sequential numbering                       | Blocking: must succeed       |
 
-<!-- /ANCHOR:product-owner-standards-every-deliverable -->
-<!-- ANCHOR:voice-compliance -->
 ### Voice Compliance
 
 **See also:** `Owner - Rules - Human Voice.md` for voice compliance checks during Test and Harmonize phases.
 
 ---
 
-<!-- /ANCHOR:voice-compliance -->
-<!-- ANCHOR:6-quick-reference -->
 ## 6. 🏎️ QUICK REFERENCE
 
-<!-- /ANCHOR:6-quick-reference -->
-<!-- ANCHOR:energy-level-summary -->
 ### Energy Level Summary
 
 |                     | Raw                   | Quick            | Standard               | Deep                   |
@@ -440,8 +375,6 @@ Every artifact header must include these fields. If missing, thinking has not be
 | **Quality Scoring** | None                  | Simplified check | All 6 dims 8+ (Acc 9+) | All 6 dims 8+ (Acc 9+) |
 | **Trigger**         | Explicit "skip depth" | `$quick/$q`      | Default                | Explicit or complex    |
 
-<!-- /ANCHOR:energy-level-summary -->
-<!-- ANCHOR:phase-checklist -->
 ### Phase Checklist
 
 ```
@@ -452,12 +385,9 @@ T — TEST:         [ ] All dims 8+ (Acc 9+)  [ ] Template compliant  [ ] Intent
 H — HARMONIZE:    [ ] Output metadata  [ ] Voice compliant  [ ] Perspectives confirmed  [ ] Export to /export/
 ```
 
-<!-- /ANCHOR:phase-checklist -->
-<!-- ANCHOR:must-have-rules -->
 ### Must-Have Rules
 
 **Always:** DEPTH is the one thinking system. Perspectives per energy level. Template compliance enforced. Output metadata proves thinking. 6-dimension quality scoring validates deliverables. Markdown dashes for lists.
 
 **Never:** Skip perspectives at Standard/Deep (BLOCKING). Answer own questions. Expand scope beyond request. Claim done without output metadata. Skip quality scoring. Use emoji bullets.
 
-<!-- /ANCHOR:must-have-rules -->

@@ -1,4 +1,3 @@
-<!-- ANCHOR:prompt-templates-visual-mode-v0-200 -->
 # Prompt - Templates - Visual Mode - v0.200
 
 Visual UI Concepting Mode for transforming technical specifications into evocative, inspiration-based prompts optimized for AI design tools (MagicPath.ai, Lovable, Aura, Bolt, v0.dev).
@@ -7,8 +6,6 @@ Visual UI Concepting Mode for transforming technical specifications into evocati
 **Purpose:** Transform technical/detailed prompts into evocative, creative prompts that maximize AI design tool creativity
 **Scope:** VIBE framework, EVOKE scoring, Design Direction detection, Vocabulary transformation, Platform optimization, MagicPath.ai specialization
 
-<!-- /ANCHOR:prompt-templates-visual-mode-v0-200 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 🎯 CORE PHILOSOPHY
@@ -25,16 +22,12 @@ Visual UI Concepting Mode for transforming technical specifications into evocati
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-core-philosophy -->
 ## 1. 🎯 CORE PHILOSOPHY
 
 > **"Specification constrains. Inspiration liberates."**
 
 Visual concepting prompts should maximize the AI's creative freedom while providing enough directional guidance to ensure relevant, on-brand outputs.
 
-<!-- /ANCHOR:1-core-philosophy -->
-<!-- ANCHOR:the-inversion-principle -->
 ### The Inversion Principle
 
 | Traditional Prompt Improvement | Visual UI Concepting  |
@@ -48,8 +41,6 @@ Visual concepting prompts should maximize the AI's creative freedom while provid
 
 > **Cross-Reference:** For precision-focused prompts (not visual concepting), use CLEAR scoring from the Patterns & Evaluation guide. Visual Mode is specifically for AI design tools where evocativeness outweighs precision.
 
-<!-- /ANCHOR:the-inversion-principle -->
-<!-- ANCHOR:the-creative-director-mindset -->
 ### The Creative Director Mindset
 
 > **"For MagicPath.ai and UI tools, think like a Creative Director briefing a talented UI designer, not an algorithm parsing keywords."**
@@ -60,8 +51,6 @@ Visual Mode prompts should:
 - Describe user experience and interaction feelings before technical specifications
 - Enable conversational iteration after initial generation
 
-<!-- /ANCHOR:the-creative-director-mindset -->
-<!-- ANCHOR:mode-configuration -->
 ### Mode Configuration
 
 | Setting           | Value                                    |
@@ -75,12 +64,8 @@ Visual Mode prompts should:
 
 ---
 
-<!-- /ANCHOR:mode-configuration -->
-<!-- ANCHOR:2-the-vibe-framework -->
 ## 2. 🧩 THE VIBE FRAMEWORK
 
-<!-- /ANCHOR:2-the-vibe-framework -->
-<!-- ANCHOR:overview -->
 ### Overview
 
 VIBE captures the essence that makes designs feel alive, coherent, and intentional. Each pillar addresses a distinct dimension of design character.
@@ -92,14 +77,10 @@ VIBE captures the essence that makes designs feel alive, coherent, and intention
 | **B**ehavior    | Interaction feel         | "How should this move?"       |
 | **E**xperience  | Emotional journey        | "How should users feel?"      |
 
-<!-- /ANCHOR:overview -->
-<!-- ANCHOR:v-vision-pillar -->
 ### V — Vision Pillar
 
 **Definition:** The core aesthetic direction—the fundamental visual personality.
 
-<!-- /ANCHOR:v-vision-pillar -->
-<!-- ANCHOR:vocabulary-categories -->
 #### Vocabulary Categories
 
 **Mood & Atmosphere:**
@@ -134,20 +115,14 @@ VIBE captures the essence that makes designs feel alive, coherent, and intention
 
 ---
 
-<!-- /ANCHOR:vocabulary-categories -->
-<!-- ANCHOR:i-inspiration-pillar -->
 ### I — Inspiration Pillar
 
 **Definition:** Reference points that communicate design intent through shared touchstones.
 
-<!-- /ANCHOR:i-inspiration-pillar -->
-<!-- ANCHOR:the-inspiration-template -->
 #### The Inspiration Template
 
 **Pattern:** `"Like [reference] but [modifier]"`
 
-<!-- /ANCHOR:the-inspiration-template -->
-<!-- ANCHOR:reference-categories -->
 #### Reference Categories
 
 **Product References:**
@@ -176,14 +151,10 @@ VIBE captures the essence that makes designs feel alive, coherent, and intention
 
 ---
 
-<!-- /ANCHOR:reference-categories -->
-<!-- ANCHOR:b-behavior-pillar -->
 ### B — Behavior Pillar
 
 **Definition:** How the interface responds, moves, and acknowledges user action.
 
-<!-- /ANCHOR:b-behavior-pillar -->
-<!-- ANCHOR:animation-character -->
 #### Animation Character
 
 | Character    | Description                           | Use When                                |
@@ -195,8 +166,6 @@ VIBE captures the essence that makes designs feel alive, coherent, and intention
 | **Dramatic** | Bold entrances, statement transitions | Hero sections, emotional peaks          |
 | **Fluid**    | Continuous motion, flowing            | Creative tools, gesture-driven          |
 
-<!-- /ANCHOR:animation-character -->
-<!-- ANCHOR:technical-to-evocative-mappings -->
 #### Technical-to-Evocative Mappings
 
 | Technical           | Evocative                      |
@@ -211,14 +180,10 @@ VIBE captures the essence that makes designs feel alive, coherent, and intention
 
 ---
 
-<!-- /ANCHOR:technical-to-evocative-mappings -->
-<!-- ANCHOR:e-experience-pillar -->
 ### E — Experience Pillar
 
 **Definition:** The emotional journey—what users should feel at different stages.
 
-<!-- /ANCHOR:e-experience-pillar -->
-<!-- ANCHOR:emotional-journey-vocabulary -->
 #### Emotional Journey Vocabulary
 
 | Emotion        | Design Signals                                            |
@@ -230,8 +195,6 @@ VIBE captures the essence that makes designs feel alive, coherent, and intention
 | **Energy**     | Bold colors, dynamic motion, confident design             |
 | **Focus**      | Minimal chrome, content-forward, quiet interface          |
 
-<!-- /ANCHOR:emotional-journey-vocabulary -->
-<!-- ANCHOR:the-kind-of-templates -->
 #### "The Kind Of" Templates
 
 ```
@@ -243,8 +206,6 @@ VIBE captures the essence that makes designs feel alive, coherent, and intention
 
 ---
 
-<!-- /ANCHOR:the-kind-of-templates -->
-<!-- ANCHOR:vibe-completeness-check -->
 ### VIBE Completeness Check
 
 When dimensions are incomplete, ask:
@@ -256,8 +217,6 @@ When dimensions are incomplete, ask:
 | **Behavior**    | "How should interactions feel—snappy, smooth, or surprising?" |
 | **Experience**  | "What should users feel after 30 seconds? After 5 minutes?"   |
 
-<!-- /ANCHOR:vibe-completeness-check -->
-<!-- ANCHOR:vibe-mp-magicpath-ai-enhanced-questions -->
 ### VIBE-MP: MagicPath.ai Enhanced Questions
 
 | Element         | Standard VIBE                 | MagicPath UI Enhancement                                                                         |
@@ -269,12 +228,8 @@ When dimensions are incomplete, ask:
 
 ---
 
-<!-- /ANCHOR:vibe-mp-magicpath-ai-enhanced-questions -->
-<!-- ANCHOR:3-design-direction-detection -->
 ## 3. 🧭 DESIGN DIRECTION DETECTION
 
-<!-- /ANCHOR:3-design-direction-detection -->
-<!-- ANCHOR:the-eight-directions -->
 ### The Eight Directions
 
 | Direction                    | Reference Products        | Emotional Core                   |
@@ -288,8 +243,6 @@ When dimensions are incomplete, ask:
 | **Journey & Flow**           | Duolingo, Headspace       | Progress, achievement, discovery |
 | **Narrative & Story**        | Apple Pages, Stripe Atlas | Storytelling, revelation         |
 
-<!-- /ANCHOR:the-eight-directions -->
-<!-- ANCHOR:detection-keywords -->
 ### Detection Keywords
 
 | Detection Signal                          | Direction                |
@@ -303,8 +256,6 @@ When dimensions are incomplete, ask:
 | "onboarding", "wizard", "flow", "journey" | Journey & Flow           |
 | "landing", "story", "narrative", "reveal" | Narrative & Story        |
 
-<!-- /ANCHOR:detection-keywords -->
-<!-- ANCHOR:direction-vocabulary-samples -->
 ### Direction Vocabulary Samples
 
 **Precision & Density:**
@@ -347,8 +298,6 @@ When dimensions are incomplete, ask:
 - Aesthetic: "theatrical", "story-driven", "scroll-choreographed"
 - Philosophy: "information as narrative", "understanding through story"
 
-<!-- /ANCHOR:direction-vocabulary-samples -->
-<!-- ANCHOR:handling-ambiguous-design-direction -->
 ### Handling Ambiguous Design Direction
 
 ```yaml
@@ -374,12 +323,8 @@ when_direction_unclear:
 
 ---
 
-<!-- /ANCHOR:handling-ambiguous-design-direction -->
-<!-- ANCHOR:4-evoke-scoring-system -->
 ## 4. 📊 EVOKE SCORING SYSTEM
 
-<!-- /ANCHOR:4-evoke-scoring-system -->
-<!-- ANCHOR:overview-2 -->
 ### Overview
 
 | Metric                | Standard    | MagicPath.ai |
@@ -389,8 +334,6 @@ when_direction_unclear:
 | **Primary Use**       | Visual Mode | Visual Mode  |
 | **Alternative To**    | CLEAR       | CLEAR        |
 
-<!-- /ANCHOR:overview-2 -->
-<!-- ANCHOR:dimensions -->
 ### Dimensions
 
 **Standard EVOKE (50 points):**
@@ -413,8 +356,6 @@ when_direction_unclear:
 | **K**inetic   | 13     | 10+       | Transitions; navigation flow; interactions |
 | **E**motional | 5      | 4+        | User feeling; experiential goals           |
 
-<!-- /ANCHOR:dimensions -->
-<!-- ANCHOR:magicpath-weight-rationale -->
 ### MagicPath Weight Rationale
 
 - **Kinetic (+3)**: Critical for pathfinding; motion, transitions, navigation flow are core
@@ -422,8 +363,6 @@ when_direction_unclear:
 - **Evocative (-3)**: Less emphasis on abstract imagery; MagicPath benefits from clear directional language
 - **Open (-2)**: Less openness needed; MagicPath requires more structured flow definitions
 
-<!-- /ANCHOR:magicpath-weight-rationale -->
-<!-- ANCHOR:scoring-signals -->
 ### Scoring Signals
 
 **Evocative (+):**
@@ -473,8 +412,6 @@ when_direction_unclear:
 **Emotional (-):**
 - Emotionally neutral language
 
-<!-- /ANCHOR:scoring-signals -->
-<!-- ANCHOR:magicpath-specific-positive-signals -->
 ### MagicPath-Specific Positive Signals
 
 | Category    | Signal Vocabulary                             | EVOKE Impact         |
@@ -485,8 +422,6 @@ when_direction_unclear:
 | Journey     | "user arrives at," "destination screen"       | E +2, E(motional) +1 |
 | Responsive  | "adapts as," "responds to," "shifts based on" | K +1, O +1           |
 
-<!-- /ANCHOR:magicpath-specific-positive-signals -->
-<!-- ANCHOR:gate-checks-for-magicpath-ui -->
 ### Gate Checks for MagicPath UI
 
 | Gate            | Condition      | Failure Action                                  |
@@ -496,8 +431,6 @@ when_direction_unclear:
 | Combined K+V    | K + V >= 18/25 | Block; core MagicPath requirements unmet        |
 | Total Score     | >= 42/50       | Block; general quality insufficient             |
 
-<!-- /ANCHOR:gate-checks-for-magicpath-ui -->
-<!-- ANCHOR:score-interpretation -->
 ### Score Interpretation
 
 | Score | Assessment   | Action                        |
@@ -510,21 +443,15 @@ when_direction_unclear:
 
 ---
 
-<!-- /ANCHOR:score-interpretation -->
-<!-- ANCHOR:5-evocative-vocabulary-and-transformation -->
 ## 5. ✨ EVOCATIVE VOCABULARY & TRANSFORMATION
 
 > **Philosophy:** Don't map technical specs to feelings. Generate evocative language naturally. Think like a Creative Director, not a lookup table.
 
-<!-- /ANCHOR:5-evocative-vocabulary-and-transformation -->
-<!-- ANCHOR:5-1-the-transformation-mindset -->
 ### 5.1 The Transformation Mindset
 
 **Wrong Approach:** Build a dictionary of "8px → minimal breathing room"
 **Right Approach:** Think in feelings, describe experiences, evoke imagery
 
-<!-- /ANCHOR:5-1-the-transformation-mindset -->
-<!-- ANCHOR:5-2-quality-spam-detection -->
 ### 5.2 Quality Spam Detection
 
 **Words that provide NO UI direction (remove entirely):**
@@ -536,12 +463,8 @@ stunning, gorgeous, sleek, cutting-edge
 
 **Why they fail:** These words are subjective praise, not design direction. "Beautiful modern dashboard" tells the AI nothing about spatial relationships, interaction patterns, or emotional tone.
 
-<!-- /ANCHOR:5-2-quality-spam-detection -->
-<!-- ANCHOR:5-3-evocative-vocabulary-banks -->
 ### 5.3 Evocative Vocabulary Banks
 
-<!-- /ANCHOR:5-3-evocative-vocabulary-banks -->
-<!-- ANCHOR:spatial-feelings -->
 #### Spatial Feelings
 ```
 intimate    cozy        breathing room    generous      expansive
@@ -550,8 +473,6 @@ compact     efficient   gallery-like      editorial     cinematic
 architectural   theatrical   museum-quality    deliberate
 ```
 
-<!-- /ANCHOR:spatial-feelings -->
-<!-- ANCHOR:color-and-mood -->
 #### Color & Mood
 ```
 warm        cool        muted        vibrant       earthy
@@ -560,8 +481,6 @@ calming     energetic   sophisticated   approachable  dramatic
 confident   subtle      rich         restrained    fresh
 ```
 
-<!-- /ANCHOR:color-and-mood -->
-<!-- ANCHOR:motion-and-animation -->
 #### Motion & Animation
 ```
 snappy      smooth      bouncy       fluid         crisp
@@ -570,8 +489,6 @@ organic     mechanical  considered   playful       refined
 instant     gradual     natural      surprising    satisfying
 ```
 
-<!-- /ANCHOR:motion-and-animation -->
-<!-- ANCHOR:surface-and-depth -->
 #### Surface & Depth
 ```
 lifted      grounded    floating     layered       flat
@@ -579,8 +496,6 @@ dimensional tactile     frosted      translucent   solid
 elevated    pressed     embossed     soft          sharp
 ```
 
-<!-- /ANCHOR:surface-and-depth -->
-<!-- ANCHOR:typography-voice -->
 #### Typography Voice
 ```
 confident   whispered   bold         elegant       friendly
@@ -588,8 +503,6 @@ authoritative   approachable   refined   playful   serious
 commanding  subtle      expressive   restrained    warm
 ```
 
-<!-- /ANCHOR:typography-voice -->
-<!-- ANCHOR:interaction-feel -->
 #### Interaction Feel
 ```
 responsive  tactile     satisfying   immediate     considered
@@ -597,12 +510,8 @@ welcoming   guiding     reassuring   delightful    effortless
 intuitive   forgiving   precise      accommodating smooth
 ```
 
-<!-- /ANCHOR:interaction-feel -->
-<!-- ANCHOR:5-4-ui-component-vocabulary-magicpath -->
 ### 5.4 UI Component Vocabulary (MagicPath)
 
-<!-- /ANCHOR:5-4-ui-component-vocabulary-magicpath -->
-<!-- ANCHOR:navigation-patterns -->
 #### Navigation Patterns
 ```
 sticky-header       transparent-header      shrinking-header      reveal-on-scroll
@@ -610,8 +519,6 @@ horizontal-nav      vertical-nav           hamburger-menu        dropdown-cascad
 tab-bar             bottom-nav             floating-action       gesture-nav
 ```
 
-<!-- /ANCHOR:navigation-patterns -->
-<!-- ANCHOR:card-personalities -->
 #### Card Personalities
 ```
 Structure: contained-card, borderless-card, outlined-card, filled-card, image-card
@@ -619,8 +526,6 @@ Elevation: flat-card, raised-card, floating-card, stacked-card, layered-card
 Interactive: clickable-card, expandable-card, flip-card, swipeable-card
 ```
 
-<!-- /ANCHOR:card-personalities -->
-<!-- ANCHOR:button-tones -->
 #### Button Tones
 ```
 Primary: solid-button, filled-button, prominent-button, call-to-action, hero-button
@@ -629,8 +534,6 @@ Shape: rectangular, rounded, pill, circular, icon-button
 Personality: confident, friendly, urgent, calm, playful, professional, minimal
 ```
 
-<!-- /ANCHOR:button-tones -->
-<!-- ANCHOR:animation-character-2 -->
 #### Animation Character
 ```
 Smooth: buttery, silky, fluid, seamless, continuous, flowing
@@ -641,12 +544,8 @@ Dramatic: theatrical, sweeping, cinematic, grand, bold
 Natural: organic, physics-based, realistic, weighted, momentum-driven
 ```
 
-<!-- /ANCHOR:animation-character-2 -->
-<!-- ANCHOR:5-5-transformation-principles -->
 ### 5.5 Transformation Principles
 
-<!-- /ANCHOR:5-5-transformation-principles -->
-<!-- ANCHOR:principle-1-dimensions-spatial-feelings -->
 #### Principle 1: Dimensions → Spatial Feelings
 
 Don't describe SIZE. Describe the FEELING of space.
@@ -657,8 +556,6 @@ Don't describe SIZE. Describe the FEELING of space.
 | "16px padding"  | "comfortable breathing room"                  |
 | "64px gap"      | "gallery-style separation between cards"      |
 
-<!-- /ANCHOR:principle-1-dimensions-spatial-feelings -->
-<!-- ANCHOR:principle-2-colors-mood-and-atmosphere -->
 #### Principle 2: Colors → Mood & Atmosphere
 
 Don't describe HEX CODES. Describe the EMOTIONAL IMPACT.
@@ -669,8 +566,6 @@ Don't describe HEX CODES. Describe the EMOTIONAL IMPACT.
 | "red button"      | "action that demands attention"            |
 | "gray background" | "neutral canvas that lets content breathe" |
 
-<!-- /ANCHOR:principle-2-colors-mood-and-atmosphere -->
-<!-- ANCHOR:principle-3-animation-motion-character -->
 #### Principle 3: Animation → Motion Character
 
 Don't describe DURATION. Describe the PERSONALITY of movement.
@@ -681,8 +576,6 @@ Don't describe DURATION. Describe the PERSONALITY of movement.
 | "hover:scale-105"   | "subtle lift that welcomes interaction" |
 | "transition: 200ms" | "responsive feedback that feels alive"  |
 
-<!-- /ANCHOR:principle-3-animation-motion-character -->
-<!-- ANCHOR:principle-4-components-personality-and-role -->
 #### Principle 4: Components → Personality & Role
 
 Don't describe ELEMENTS. Describe their PURPOSE and CHARACTER.
@@ -693,8 +586,6 @@ Don't describe ELEMENTS. Describe their PURPOSE and CHARACTER.
 | "navigation menu" | "wayfinding system that orients users"          |
 | "loading spinner" | "patient indicator that something is happening" |
 
-<!-- /ANCHOR:principle-4-components-personality-and-role -->
-<!-- ANCHOR:5-6-component-language-by-design-direction -->
 ### 5.6 Component Language by Design Direction
 
 | Component      | Precision & Density    | Warmth & Approachability | Sophistication & Trust  |
@@ -704,8 +595,6 @@ Don't describe ELEMENTS. Describe their PURPOSE and CHARACTER.
 | **Navigation** | efficient route system | friendly wayfinding      | refined orientation     |
 | **Form**       | structured input       | friendly conversation    | refined data collection |
 
-<!-- /ANCHOR:5-6-component-language-by-design-direction -->
-<!-- ANCHOR:5-7-terms-to-strip-entirely -->
 ### 5.7 Terms to Strip Entirely
 
 **Framework & Library Names:**
@@ -722,8 +611,6 @@ useState, useEffect, component lifecycle, TypeScript, props, state management
 
 **The Rule:** If a term is about HOW to build rather than WHAT to experience, remove it.
 
-<!-- /ANCHOR:5-7-terms-to-strip-entirely -->
-<!-- ANCHOR:5-8-anti-patterns-to-detect-and-correct -->
 ### 5.8 Anti-Patterns to Detect & Correct
 
 | Anti-Pattern           | Why It Fails                 | Evocative Correction                       |
@@ -738,12 +625,8 @@ useState, useEffect, component lifecycle, TypeScript, props, state management
 
 ---
 
-<!-- /ANCHOR:5-8-anti-patterns-to-detect-and-correct -->
-<!-- ANCHOR:6-transformation-pipeline -->
 ## 6. 🔄 TRANSFORMATION PIPELINE
 
-<!-- /ANCHOR:6-transformation-pipeline -->
-<!-- ANCHOR:processing-flow -->
 ### Processing Flow
 
 ```
@@ -795,8 +678,6 @@ Input (Text OR Screenshot)
 Transformed Prompt
 ```
 
-<!-- /ANCHOR:processing-flow -->
-<!-- ANCHOR:depth-round-integration -->
 ### DEPTH Round Integration
 
 ```yaml
@@ -849,14 +730,10 @@ visual_depth_mapping:
 
 ---
 
-<!-- /ANCHOR:depth-round-integration -->
-<!-- ANCHOR:6-1-screenshot-analysis-protocol -->
 ### 6.1 Screenshot Analysis Protocol
 
 > **Core Principle:** Feel first, analyze second. Capture the emotional response before breaking down elements.
 
-<!-- /ANCHOR:6-1-screenshot-analysis-protocol -->
-<!-- ANCHOR:phase-1-first-impression-3-second-rule -->
 #### Phase 1: First Impression (3-Second Rule)
 
 | Question                                | Purpose                           |
@@ -865,8 +742,6 @@ visual_depth_mapping:
 | What **emotion** hits first?            | Trust, excitement, focus, delight |
 | What's the **dominant characteristic**? | Whitespace, color, typography     |
 
-<!-- /ANCHOR:phase-1-first-impression-3-second-rule -->
-<!-- ANCHOR:phase-2-visual-vibe-extraction -->
 #### Phase 2: Visual VIBE Extraction
 
 **V — Vision:** Overall aesthetic, spatial feeling, color impression, surface treatment
@@ -874,26 +749,18 @@ visual_depth_mapping:
 **B — Behavior:** Likely hover behavior, interaction response, transition style
 **E — Experience:** Cognitive load, visual hierarchy, personality, user relationship
 
-<!-- /ANCHOR:phase-2-visual-vibe-extraction -->
-<!-- ANCHOR:phase-3-design-direction-identification -->
 #### Phase 3: Design Direction Identification
 
 Match screenshot to one or more of the eight directions. Note primary, secondary, and confidence level.
 
-<!-- /ANCHOR:phase-3-design-direction-identification -->
-<!-- ANCHOR:phase-4-evocative-description -->
 #### Phase 4: Evocative Description
 
 Transform observations into evocative language. DO NOT estimate pixels or guess hex codes. Describe feelings and impressions.
 
 ---
 
-<!-- /ANCHOR:phase-4-evocative-description -->
-<!-- ANCHOR:7-visual-style-keywords -->
 ## 7. 🎭 VISUAL STYLE KEYWORDS
 
-<!-- /ANCHOR:7-visual-style-keywords -->
-<!-- ANCHOR:the-10-core-visual-styles -->
 ### The 10 Core Visual Styles
 
 | Style                | Description                    | Best For                     |
@@ -909,8 +776,6 @@ Transform observations into evocative language. DO NOT estimate pixels or guess 
 | **Cyberpunk**        | Neon against black             | Gaming, AI tools             |
 | **Skeuomorphism**    | Real-world textures            | Nostalgic, cozy apps         |
 
-<!-- /ANCHOR:the-10-core-visual-styles -->
-<!-- ANCHOR:design-persona-buzzwords -->
 ### Design Persona Buzzwords
 
 | Persona                    | Buzzwords                                             |
@@ -923,12 +788,8 @@ Transform observations into evocative language. DO NOT estimate pixels or guess 
 
 ---
 
-<!-- /ANCHOR:design-persona-buzzwords -->
-<!-- ANCHOR:8-target-platform-optimization -->
 ## 8. 🎯 TARGET PLATFORM OPTIMIZATION
 
-<!-- /ANCHOR:8-target-platform-optimization -->
-<!-- ANCHOR:platform-hierarchy -->
 ### Platform Hierarchy
 
 | Priority | Platform         | Commands                    | Specialty                   |
@@ -939,8 +800,6 @@ Transform observations into evocative language. DO NOT estimate pixels or guess 
 | 2        | **Bolt**         | (context detection)         | Rapid prototyping           |
 | 2        | **v0.dev**       | (context detection)         | UI components               |
 
-<!-- /ANCHOR:platform-hierarchy -->
-<!-- ANCHOR:platform-characteristics -->
 ### Platform Characteristics
 
 | Platform      | Strength          | Prompt Length | Focus                         |
@@ -951,8 +810,6 @@ Transform observations into evocative language. DO NOT estimate pixels or guess 
 | **Bolt**      | Rapid prototyping | 50-150 words  | Brief, action-oriented        |
 | **v0.dev**    | UI components     | 100-300 words | Component behavior, style     |
 
-<!-- /ANCHOR:platform-characteristics -->
-<!-- ANCHOR:platform-specific-templates -->
 ### Platform-Specific Templates
 
 **MagicPath Template:**
@@ -997,8 +854,6 @@ Used by [who], in [moment], to [outcome].
 Constraints: [device], [tone], [layout assumptions].
 ```
 
-<!-- /ANCHOR:platform-specific-templates -->
-<!-- ANCHOR:platform-anti-patterns -->
 ### Platform Anti-Patterns
 
 | Platform      | Avoid                              | Why                       |
@@ -1012,12 +867,8 @@ Constraints: [device], [tone], [layout assumptions].
 
 ---
 
-<!-- /ANCHOR:platform-anti-patterns -->
-<!-- ANCHOR:9-magicpath-ai-specialization -->
 ## 9. ✨ MAGICPATH.AI SPECIALIZATION
 
-<!-- /ANCHOR:9-magicpath-ai-specialization -->
-<!-- ANCHOR:platform-context -->
 ### Platform Context
 
 | Aspect             | Details                                       |
@@ -1029,8 +880,6 @@ Constraints: [device], [tone], [layout assumptions].
 | **Output**         | Clean HTML/CSS, React code, Figma export      |
 | **Optimal Length** | 150-400 words                                 |
 
-<!-- /ANCHOR:platform-context -->
-<!-- ANCHOR:ui-structure-elements-mandatory-for-magicpath -->
 ### UI Structure Elements (Mandatory for MagicPath)
 
 Every MagicPath prompt should address these six elements:
@@ -1044,8 +893,6 @@ Every MagicPath prompt should address these six elements:
 | **Visual Style** | Aesthetic direction and references        | "Think Linear's precision meets Notion's warmth"                                       |
 | **Constraints**  | Specific requirements and limitations     | "Must work beautifully on both desktop and tablet"                                     |
 
-<!-- /ANCHOR:ui-structure-elements-mandatory-for-magicpath -->
-<!-- ANCHOR:component-library-selection-mandatory-question -->
 ### Component Library Selection (MANDATORY QUESTION)
 
 **Always ask the user** whether their prompt should specify a component library for consistent, production-ready UI output.
@@ -1087,8 +934,6 @@ component_library_question:
 | **shadcn/ui**   | Developer projects, customization needs       | Radix-based, accessible, highly customizable    |
 | **No library**  | Exploration, unique designs, creative freedom | Maximum AI creativity, less consistency         |
 
-<!-- /ANCHOR:component-library-selection-mandatory-question -->
-<!-- ANCHOR:magicpath-detection-patterns -->
 ### MagicPath Detection Patterns
 
 **Primary Triggers:**
@@ -1105,8 +950,6 @@ component_library_question:
 "full app design", "complete app flow"
 ```
 
-<!-- /ANCHOR:magicpath-detection-patterns -->
-<!-- ANCHOR:magicpath-prompt-templates -->
 ### MagicPath Prompt Templates
 
 **Template A: Dashboard/App Interface**
@@ -1158,8 +1001,6 @@ Don't regenerate from scratch—adjust the [specific percentages or elements]
 while preserving the [qualities to maintain].
 ```
 
-<!-- /ANCHOR:magicpath-prompt-templates -->
-<!-- ANCHOR:transformation-example -->
 ### Transformation Example
 
 **INPUT (Technical Tag Soup):**
@@ -1201,12 +1042,8 @@ data feels manageable and progress feels visible.
 
 ---
 
-<!-- /ANCHOR:transformation-example -->
-<!-- ANCHOR:10-iterative-refinement-flow -->
 ## 10. 🔄 ITERATIVE REFINEMENT FLOW
 
-<!-- /ANCHOR:10-iterative-refinement-flow -->
-<!-- ANCHOR:post-delivery-question-mandatory -->
 ### Post-Delivery Question (MANDATORY)
 
 After delivering the enhanced prompt, **always ask the user to share their result** for iterative refinement:
@@ -1226,8 +1063,6 @@ Upload a screenshot or describe what was generated, and I can help you:
 Just paste or upload the result and tell me what you'd like to change.
 ```
 
-<!-- /ANCHOR:post-delivery-question-mandatory -->
-<!-- ANCHOR:refinement-conversation-patterns -->
 ### Refinement Conversation Patterns
 
 **When user shares result:**
@@ -1275,8 +1110,6 @@ refinement_triggers:
 Try this refined version and share the new result!
 ```
 
-<!-- /ANCHOR:refinement-conversation-patterns -->
-<!-- ANCHOR:iteration-best-practices -->
 ### Iteration Best Practices
 
 | Iteration | Focus                | Typical Adjustments                     |
@@ -1299,12 +1132,8 @@ Need another UI concept? Just share your next idea.
 
 ---
 
-<!-- /ANCHOR:iteration-best-practices -->
-<!-- ANCHOR:11-quick-reference -->
 ## 11. 🏎️ QUICK REFERENCE
 
-<!-- /ANCHOR:11-quick-reference -->
-<!-- ANCHOR:commands -->
 ### Commands
 
 ```
@@ -1312,8 +1141,6 @@ $vibe     - Primary command
 $v        - Quick shorthand
 ```
 
-<!-- /ANCHOR:commands -->
-<!-- ANCHOR:vibe-framework -->
 ### VIBE Framework
 
 ```
@@ -1323,8 +1150,6 @@ B - Behavior    → How it feels to use
 E - Experience  → How it makes you feel
 ```
 
-<!-- /ANCHOR:vibe-framework -->
-<!-- ANCHOR:evoke-scoring -->
 ### EVOKE Scoring
 
 ```
@@ -1343,8 +1168,6 @@ K - Kinetic     (13pts) → Transitions & flow
 E - Emotional   (5pts)  → User feeling
 ```
 
-<!-- /ANCHOR:evoke-scoring -->
-<!-- ANCHOR:design-directions -->
 ### Design Directions
 
 ```
@@ -1358,8 +1181,6 @@ Journey & Flow           → Duolingo, Headspace (progress, discovery)
 Narrative & Story        → Apple Pages, Stripe Atlas (storytelling)
 ```
 
-<!-- /ANCHOR:design-directions -->
-<!-- ANCHOR:quality-spam-remove-entirely -->
 ### Quality Spam (Remove Entirely)
 
 ```
@@ -1367,8 +1188,6 @@ beautiful, modern, trending, amazing, professional
 nice, good, cool, awesome, high quality, stunning
 ```
 
-<!-- /ANCHOR:quality-spam-remove-entirely -->
-<!-- ANCHOR:transformation-quick-fixes -->
 ### Transformation Quick Fixes
 
 | Problem           | Solution                                     |
@@ -1380,8 +1199,6 @@ nice, good, cool, awesome, high quality, stunning
 | Low visual score  | Add spatial relationships                    |
 | Missing context   | Add user context and use case                |
 
-<!-- /ANCHOR:transformation-quick-fixes -->
-<!-- ANCHOR:magicpath-checklist -->
 ### MagicPath Checklist
 
 ```
@@ -1399,4 +1216,3 @@ nice, good, cool, awesome, high quality, stunning
 ---
 
 *This mode transforms technical specifications into evocative prompts that inspire AI design tools. For MagicPath.ai, think like a Creative Director briefing a talented designer.*
-<!-- /ANCHOR:magicpath-checklist -->

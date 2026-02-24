@@ -1,12 +1,9 @@
-<!-- ANCHOR:capcut-mcp-server-installation-guide -->
 # CapCut MCP Server Installation Guide
 
 A comprehensive guide to installing the JianYing MCP server for AI-powered video editing automation.
 
 ---
 
-<!-- /ANCHOR:capcut-mcp-server-installation-guide -->
-<!-- ANCHOR:ai-first-install-guide -->
 ## 🤖 AI-FIRST INSTALL GUIDE
 
 **Copy and paste this prompt to your AI assistant to get installation help:**
@@ -27,8 +24,6 @@ My preferred installation method is: [Docker / Native]
 Guide me through each step with the exact commands I need to run.
 ```
 
-<!-- /ANCHOR:ai-first-install-guide -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 1. 📖 OVERVIEW
@@ -46,14 +41,10 @@ Guide me through each step with the exact commands I need to run.
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:1-overview -->
 ## 1. 📖 OVERVIEW
 
 The JianYing MCP server provides AI-powered video editing automation through the pyJianYingDraft library. It enables Claude and other AI assistants to create and manipulate video projects that can be opened in JianYing Pro (CapCut's Chinese desktop version).
 
-<!-- /ANCHOR:1-overview -->
-<!-- ANCHOR:key-features -->
 ### Key Features
 
 - **Draft Management**: Create video projects with custom resolution/framerate
@@ -63,8 +54,6 @@ The JianYing MCP server provides AI-powered video editing automation through the
 - **Effect Discovery**: Find available effects by type
 - **JianYing Integration**: Export drafts directly to JianYing Pro
 
-<!-- /ANCHOR:key-features -->
-<!-- ANCHOR:architecture -->
 ### Architecture
 
 ```
@@ -91,8 +80,6 @@ The JianYing MCP server provides AI-powered video editing automation through the
 └─────────────────────────────────────────────────────────────┘
 ```
 
-<!-- /ANCHOR:architecture -->
-<!-- ANCHOR:jianying-capcut-relationship -->
 ### JianYing / CapCut Relationship
 
 | Product          | Region        | Platform              |
@@ -102,8 +89,6 @@ The JianYing MCP server provides AI-powered video editing automation through the
 
 > **Note:** JianYing and CapCut are the same product by ByteDance. The MCP server works with JianYing Pro desktop application.
 
-<!-- /ANCHOR:jianying-capcut-relationship -->
-<!-- ANCHOR:installation-methods-comparison -->
 ### Installation Methods Comparison
 
 | Feature          | Docker (Recommended)     | Native                      |
@@ -116,20 +101,14 @@ The JianYing MCP server provides AI-powered video editing automation through the
 
 ---
 
-<!-- /ANCHOR:installation-methods-comparison -->
-<!-- ANCHOR:2-prerequisites -->
 ## 2. 📋 PREREQUISITES
 
-<!-- /ANCHOR:2-prerequisites -->
-<!-- ANCHOR:for-both-methods -->
 ### For Both Methods
 
 - **JianYing Pro** desktop application
   - Download from: https://www.capcut.cn/
   - Install and launch at least once
 
-<!-- /ANCHOR:for-both-methods -->
-<!-- ANCHOR:for-docker-installation-recommended -->
 ### For Docker Installation (Recommended)
 
 - **Docker Desktop** installed and running
@@ -139,8 +118,6 @@ The JianYing MCP server provides AI-powered video editing automation through the
   docker ps
   ```
 
-<!-- /ANCHOR:for-docker-installation-recommended -->
-<!-- ANCHOR:for-native-installation -->
 ### For Native Installation
 
 - **Python 3.13+** (required by pyJianYingDraft)
@@ -170,26 +147,18 @@ The JianYing MCP server provides AI-powered video editing automation through the
 
 ---
 
-<!-- /ANCHOR:for-native-installation -->
-<!-- ANCHOR:3-installation -->
 ## 3. 📥 INSTALLATION
 
-<!-- /ANCHOR:3-installation -->
-<!-- ANCHOR:option-a-docker-recommended -->
 ### Option A: Docker (Recommended)
 
 Docker provides isolated, reproducible environments with minimal setup.
 
-<!-- /ANCHOR:option-a-docker-recommended -->
-<!-- ANCHOR:step-1-navigate-to-repository -->
 #### Step 1: Navigate to Repository
 
 ```bash
 cd "/Users/michelkerkmeester/MEGA/Development/AI Systems/Public/CapCut/mcp server/jianying-mcp"
 ```
 
-<!-- /ANCHOR:step-1-navigate-to-repository -->
-<!-- ANCHOR:step-2-configure-docker-desktop-file-sharing -->
 #### Step 2: Configure Docker Desktop File Sharing
 
 Open **Docker Desktop → Settings → Resources → File Sharing** and add:
@@ -200,8 +169,6 @@ Open **Docker Desktop → Settings → Resources → File Sharing** and add:
 
 > **Important:** Docker Desktop must have permission to access these paths for volume mounts to work.
 
-<!-- /ANCHOR:step-2-configure-docker-desktop-file-sharing -->
-<!-- ANCHOR:step-3-build-and-start-container -->
 #### Step 3: Build and Start Container
 
 ```bash
@@ -213,8 +180,6 @@ This will:
 2. Install pyJianYingDraft dependencies
 3. Start the container in detached mode
 
-<!-- /ANCHOR:step-3-build-and-start-container -->
-<!-- ANCHOR:step-4-verify-container-is-running -->
 #### Step 4: Verify Container is Running
 
 ```bash
@@ -227,8 +192,6 @@ CONTAINER ID   IMAGE           STATUS      NAMES
 abc123...      jianying-mcp    Up 2 min    jianying-mcp
 ```
 
-<!-- /ANCHOR:step-4-verify-container-is-running -->
-<!-- ANCHOR:volume-paths-docker -->
 #### Volume Paths (Docker)
 
 | Container Path | Host Path       | Purpose                                 |
@@ -239,14 +202,10 @@ abc123...      jianying-mcp    Up 2 min    jianying-mcp
 
 ---
 
-<!-- /ANCHOR:volume-paths-docker -->
-<!-- ANCHOR:option-b-native-installation -->
 ### Option B: Native Installation
 
 Native installation runs directly on your system without Docker.
 
-<!-- /ANCHOR:option-b-native-installation -->
-<!-- ANCHOR:step-1-create-folder-structure -->
 #### Step 1: Create Folder Structure
 
 ```bash
@@ -260,8 +219,6 @@ mkdir -p ~/MCP\ Servers/CapCut/drafts
 mkdir -p ~/MCP\ Servers/CapCut/media
 ```
 
-<!-- /ANCHOR:step-1-create-folder-structure -->
-<!-- ANCHOR:step-2-clone-repository -->
 #### Step 2: Clone Repository
 
 ```bash
@@ -271,8 +228,6 @@ git clone https://github.com/hey-jian-wei/jianying-mcp.git
 cd jianying-mcp
 ```
 
-<!-- /ANCHOR:step-2-clone-repository -->
-<!-- ANCHOR:step-3-install-dependencies -->
 #### Step 3: Install Dependencies
 
 ```bash
@@ -283,8 +238,6 @@ uv sync
 uv run python -c "import pyJianYingDraft; print('OK')"
 ```
 
-<!-- /ANCHOR:step-3-install-dependencies -->
-<!-- ANCHOR:step-4-set-environment-variables -->
 #### Step 4: Set Environment Variables
 
 **macOS/Linux (add to ~/.zshrc or ~/.bashrc):**
@@ -304,8 +257,6 @@ export OUTPUT_PATH="$HOME/MCP Servers/CapCut/drafts"
 source ~/.zshrc  # or ~/.bashrc
 ```
 
-<!-- /ANCHOR:step-4-set-environment-variables -->
-<!-- ANCHOR:step-5-test-server-locally -->
 #### Step 5: Test Server Locally
 
 ```bash
@@ -318,18 +269,12 @@ uv run server.py
 
 ---
 
-<!-- /ANCHOR:step-5-test-server-locally -->
-<!-- ANCHOR:4-configuration -->
 ## 4. ⚙️ CONFIGURATION
 
 Configure the MCP server for your AI platform:
 
-<!-- /ANCHOR:4-configuration -->
-<!-- ANCHOR:for-docker-installation -->
 ### For Docker Installation
 
-<!-- /ANCHOR:for-docker-installation -->
-<!-- ANCHOR:claude-desktop-docker -->
 #### Claude Desktop (Docker)
 
 ```json
@@ -344,8 +289,6 @@ Configure the MCP server for your AI platform:
 }
 ```
 
-<!-- /ANCHOR:claude-desktop-docker -->
-<!-- ANCHOR:opencode-via-code-mode-docker -->
 #### OpenCode via Code Mode (Docker)
 
 Add to `.utcp_config.json`:
@@ -367,8 +310,6 @@ Add to `.utcp_config.json`:
 }
 ```
 
-<!-- /ANCHOR:opencode-via-code-mode-docker -->
-<!-- ANCHOR:vs-code-copilot-docker -->
 #### VS Code Copilot (Docker)
 
 Create `.vscode/mcp.json`:
@@ -387,12 +328,8 @@ Create `.vscode/mcp.json`:
 
 ---
 
-<!-- /ANCHOR:vs-code-copilot-docker -->
-<!-- ANCHOR:for-native-installation-2 -->
 ### For Native Installation
 
-<!-- /ANCHOR:for-native-installation-2 -->
-<!-- ANCHOR:claude-desktop-native -->
 #### Claude Desktop (Native)
 
 Open the configuration file:
@@ -424,8 +361,6 @@ Add:
 }
 ```
 
-<!-- /ANCHOR:claude-desktop-native -->
-<!-- ANCHOR:opencode-native -->
 #### OpenCode (Native)
 
 Add to `opencode.json`:
@@ -446,8 +381,6 @@ Add to `opencode.json`:
 }
 ```
 
-<!-- /ANCHOR:opencode-native -->
-<!-- ANCHOR:vs-code-copilot-native -->
 #### VS Code Copilot (Native)
 
 Create `.vscode/mcp.json`:
@@ -472,12 +405,8 @@ Create `.vscode/mcp.json`:
 
 ---
 
-<!-- /ANCHOR:vs-code-copilot-native -->
-<!-- ANCHOR:5-verification -->
 ## 5. ✅ VERIFICATION
 
-<!-- /ANCHOR:5-verification -->
-<!-- ANCHOR:docker-verification -->
 ### Docker Verification
 
 ```bash
@@ -492,8 +421,6 @@ docker exec -i jianying-mcp uv run python -m jianyingdraft.server
 # Press Ctrl+C to exit
 ```
 
-<!-- /ANCHOR:docker-verification -->
-<!-- ANCHOR:native-verification -->
 ### Native Verification
 
 ```bash
@@ -506,8 +433,6 @@ echo $SAVE_PATH
 echo $OUTPUT_PATH
 ```
 
-<!-- /ANCHOR:native-verification -->
-<!-- ANCHOR:test-in-ai-client -->
 ### Test in AI Client
 
 Open Claude Desktop and try:
@@ -527,8 +452,6 @@ Expected response:
 Ready for video editing operations!
 ```
 
-<!-- /ANCHOR:test-in-ai-client -->
-<!-- ANCHOR:verification-checklist -->
 ### Verification Checklist
 
 **Docker:**
@@ -555,12 +478,8 @@ Ready for video editing operations!
 
 ---
 
-<!-- /ANCHOR:verification-checklist -->
-<!-- ANCHOR:6-usage -->
 ## 6. 🚀 USAGE
 
-<!-- /ANCHOR:6-usage -->
-<!-- ANCHOR:basic-workflow -->
 ### Basic Workflow
 
 | Step | Action           | Description                          |
@@ -572,8 +491,6 @@ Ready for video editing operations!
 | 5    | Export draft     | Save to JianYing format              |
 | 6    | Open in JianYing | Preview and render                   |
 
-<!-- /ANCHOR:basic-workflow -->
-<!-- ANCHOR:quick-commands -->
 ### Quick Commands
 
 | Command                 | Function           |
@@ -584,8 +501,6 @@ Ready for video editing operations!
 | `$text` / `$txt`        | Text overlays      |
 | `$interactive` / `$int` | Full guided flow   |
 
-<!-- /ANCHOR:quick-commands -->
-<!-- ANCHOR:time-format -->
 ### Time Format
 
 All time parameters use string format:
@@ -594,8 +509,6 @@ All time parameters use string format:
 - `"0s-10s"` - Range from 0 to 10 seconds
 - `"2s-4.5s"` - Range from 2 to 4.5 seconds
 
-<!-- /ANCHOR:time-format -->
-<!-- ANCHOR:media-file-access -->
 ### Media File Access
 
 - **Docker:** Place files in `CapCut/media/` → accessible at `/media/` in container
@@ -603,12 +516,8 @@ All time parameters use string format:
 
 ---
 
-<!-- /ANCHOR:media-file-access -->
-<!-- ANCHOR:7-available-tools -->
 ## 7. 🎯 AVAILABLE TOOLS
 
-<!-- /ANCHOR:7-available-tools -->
-<!-- ANCHOR:draft-management-3-tools -->
 ### Draft Management (3 tools)
 
 | Tool           | Purpose                          |
@@ -617,16 +526,12 @@ All time parameters use string format:
 | `create_draft` | Create new video project         |
 | `export_draft` | Export to JianYing format        |
 
-<!-- /ANCHOR:draft-management-3-tools -->
-<!-- ANCHOR:track-management-1-tool -->
 ### Track Management (1 tool)
 
 | Tool           | Purpose               |
 | -------------- | --------------------- |
 | `create_track` | Create timeline track |
 
-<!-- /ANCHOR:track-management-1-tool -->
-<!-- ANCHOR:video-operations-8-tools -->
 ### Video Operations (8 tools)
 
 | Tool                           | Purpose                          |
@@ -640,8 +545,6 @@ All time parameters use string format:
 | `add_video_keyframe`           | Add keyframe animation           |
 | `add_video_effect`             | Add scene/character effect       |
 
-<!-- /ANCHOR:video-operations-8-tools -->
-<!-- ANCHOR:audio-operations-4-tools -->
 ### Audio Operations (4 tools)
 
 | Tool                 | Purpose                    |
@@ -651,8 +554,6 @@ All time parameters use string format:
 | `add_audio_fade`     | Add fade in/out            |
 | `add_audio_keyframe` | Add audio keyframe         |
 
-<!-- /ANCHOR:audio-operations-4-tools -->
-<!-- ANCHOR:text-operations-2-tools -->
 ### Text Operations (2 tools)
 
 | Tool                 | Purpose          |
@@ -660,8 +561,6 @@ All time parameters use string format:
 | `add_text_segment`   | Add text overlay |
 | `add_text_animation` | Animate text     |
 
-<!-- /ANCHOR:text-operations-2-tools -->
-<!-- ANCHOR:utility-tools-2-tools -->
 ### Utility Tools (2 tools)
 
 | Tool                   | Purpose                    |
@@ -671,12 +570,8 @@ All time parameters use string format:
 
 ---
 
-<!-- /ANCHOR:utility-tools-2-tools -->
-<!-- ANCHOR:8-examples -->
 ## 8. 💡 EXAMPLES
 
-<!-- /ANCHOR:8-examples -->
-<!-- ANCHOR:create-a-tiktok-video-project -->
 ### Create a TikTok Video Project
 
 ```
@@ -696,8 +591,6 @@ System: Creating vertical video project...
 Next: Add video segments with $video
 ```
 
-<!-- /ANCHOR:create-a-tiktok-video-project -->
-<!-- ANCHOR:add-video-with-animation -->
 ### Add Video with Animation
 
 ```
@@ -715,8 +608,6 @@ System: Adding video segment...
 ✅ Segment added with animation!
 ```
 
-<!-- /ANCHOR:add-video-with-animation -->
-<!-- ANCHOR:discover-available-effects -->
 ### Discover Available Effects
 
 ```
@@ -743,16 +634,10 @@ Use effect IDs with add_video_transition
 
 ---
 
-<!-- /ANCHOR:discover-available-effects -->
-<!-- ANCHOR:9-troubleshooting -->
 ## 9. 🔧 TROUBLESHOOTING
 
-<!-- /ANCHOR:9-troubleshooting -->
-<!-- ANCHOR:docker-issues -->
 ### Docker Issues
 
-<!-- /ANCHOR:docker-issues -->
-<!-- ANCHOR:container-won-t-start -->
 #### Container Won't Start
 
 ```bash
@@ -763,8 +648,6 @@ docker logs jianying-mcp
 docker-compose config
 ```
 
-<!-- /ANCHOR:container-won-t-start -->
-<!-- ANCHOR:volume-mount-permission-denied -->
 #### Volume Mount Permission Denied
 
 **Solution:** Enable file sharing in Docker Desktop:
@@ -773,8 +656,6 @@ docker-compose config
 3. Restart Docker Desktop
 4. Rebuild container: `docker-compose up -d --build`
 
-<!-- /ANCHOR:volume-mount-permission-denied -->
-<!-- ANCHOR:container-memory-issues -->
 #### Container Memory Issues
 
 The docker-compose.yml sets memory limits:
@@ -791,12 +672,8 @@ deploy:
 
 ---
 
-<!-- /ANCHOR:container-memory-issues -->
-<!-- ANCHOR:native-issues -->
 ### Native Issues
 
-<!-- /ANCHOR:native-issues -->
-<!-- ANCHOR:python-version-error -->
 #### Python Version Error
 
 ```
@@ -813,8 +690,6 @@ pyenv local 3.13.0
 python --version
 ```
 
-<!-- /ANCHOR:python-version-error -->
-<!-- ANCHOR:uv-not-found -->
 #### uv Not Found
 
 ```
@@ -830,8 +705,6 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 source ~/.zshrc
 ```
 
-<!-- /ANCHOR:uv-not-found -->
-<!-- ANCHOR:environment-variables-not-set -->
 #### Environment Variables Not Set
 
 ```
@@ -850,12 +723,8 @@ source ~/.zshrc
 
 ---
 
-<!-- /ANCHOR:environment-variables-not-set -->
-<!-- ANCHOR:common-issues-both-methods -->
 ### Common Issues (Both Methods)
 
-<!-- /ANCHOR:common-issues-both-methods -->
-<!-- ANCHOR:mcp-connection-refused -->
 #### MCP Connection Refused
 
 **Docker:**
@@ -870,8 +739,6 @@ source ~/.zshrc
 
 **Both:** Restart Claude Desktop completely (⌘Q)
 
-<!-- /ANCHOR:mcp-connection-refused -->
-<!-- ANCHOR:draft-not-appearing-in-jianying -->
 #### Draft Not Appearing in JianYing
 
 **Solutions:**
@@ -882,19 +749,13 @@ source ~/.zshrc
 
 ---
 
-<!-- /ANCHOR:draft-not-appearing-in-jianying -->
-<!-- ANCHOR:10-resources -->
 ## 10. 📚 RESOURCES
 
-<!-- /ANCHOR:10-resources -->
-<!-- ANCHOR:official-repositories -->
 ### Official Repositories
 
 - **JianYing MCP**: https://github.com/hey-jian-wei/jianying-mcp
 - **pyJianYingDraft**: https://github.com/hey-jian-wei/pyJianYingDraft
 
-<!-- /ANCHOR:official-repositories -->
-<!-- ANCHOR:tools-and-platforms -->
 ### Tools & Platforms
 
 - **JianYing Pro**: https://www.capcut.cn/ (Chinese)
@@ -903,8 +764,6 @@ source ~/.zshrc
 - **uv Package Manager**: https://astral.sh/uv
 - **Claude Desktop**: https://claude.ai/download
 
-<!-- /ANCHOR:tools-and-platforms -->
-<!-- ANCHOR:docker-commands-reference -->
 ### Docker Commands Reference
 
 | Command                             | Purpose                   |
@@ -917,8 +776,6 @@ source ~/.zshrc
 
 ---
 
-<!-- /ANCHOR:docker-commands-reference -->
-<!-- ANCHOR:ready-to-go -->
 ## 🎉 Ready to Go!
 
 Your CapCut MCP system is now configured. Start creating video projects with AI!
@@ -933,4 +790,3 @@ Your CapCut MCP system is now configured. Start creating video projects with AI!
 
 Enjoy AI-powered video editing! 🎬
 
-<!-- /ANCHOR:ready-to-go -->

@@ -1,5 +1,4 @@
-<!-- ANCHOR:rules-human-voice-v0-101 -->
-# Rules - Human Voice - v0.101
+# Rules - Human Voice - v0.200
 
 The Human Voice Rules (HVR) define the global linguistic standards that govern all AI-generated content across the Barter ecosystem. These rules eliminate detectable AI patterns, enforce natural human writing conventions and ensure every piece of output reads as if written by a knowledgeable human professional. This document is the canonical, system-agnostic superset. Individual content systems inherit these rules and may extend them with system-specific overrides.
 
@@ -7,32 +6,28 @@ The Human Voice Rules (HVR) define the global linguistic standards that govern a
 **Purpose:** Eliminate AI-detectable writing patterns, enforce punctuation discipline, ban overused words and phrases, and establish a consistent human voice across all output.
 **Scope:** Global. Applies to all 6 Barter content systems (MEQT, DEAL, CONTENT, LinkedIn, Email, Web). System-specific scoring integrations and additional rules are defined in each system's Human Voice Rules Extensions file.
 
-<!-- /ANCHOR:rules-human-voice-v0-101 -->
-<!-- ANCHOR:table-of-contents -->
 ## TABLE OF CONTENTS
 
   - 0. 🎯 VOICE DIRECTIVES
-  - 1. ✏️ PUNCTUATION STANDARDS
-  - 2. 🏗️ AI STRUCTURAL PATTERNS TO AVOID
-  - 3. 🔍 CONTENT PATTERN DETECTION
-  - 4. 🚫 HARD BLOCKER WORDS (-5 POINTS EACH)
-  - 5. ⛔ PHRASE HARD BLOCKERS (-5 POINTS EACH)
-  - 6. ⚖️ CONTEXT-DEPENDENT BLOCKERS
-  - 7. 📉 SOFT DEDUCTIONS (-2 POINTS EACH)
-  - 8. 📊 SOFT DEDUCTIONS (-1 POINT EACH)
-  - 9. 🏁 CONTEXT-DEPENDENT FLAGS
-  - 10. ✅ PRE-PUBLISH CHECKLIST
+  - 1. 🔄 HVR RUNTIME MODEL
+  - 2. ⚙️ RULE PRECEDENCE MODEL
+  - 3. ✏️ PUNCTUATION STANDARDS
+  - 4. 🏗️ AI STRUCTURAL PATTERNS TO AVOID
+  - 5. 🔍 CONTENT PATTERN DETECTION
+  - 6. 🚫 HARD BLOCKER WORDS (-5 POINTS EACH)
+  - 7. ⛔ PHRASE HARD BLOCKERS (-5 POINTS EACH)
+  - 8. ⚖️ CONTEXT-DEPENDENT BLOCKERS
+  - 9. 📉 SOFT DEDUCTIONS (-2 POINTS EACH)
+  - 10. 📊 SOFT DEDUCTIONS (-1 POINT EACH)
+  - 11. 🏁 CONTEXT-DEPENDENT FLAGS
+  - 12. ✅ PRE-PUBLISH CHECKLIST
 
 ---
 
-<!-- /ANCHOR:table-of-contents -->
-<!-- ANCHOR:0-voice-directives -->
 ## 0. 🎯 VOICE DIRECTIVES
 
 These directives define the target voice for all Barter AI-generated content. They establish what to aim for before the remaining parts define what to avoid. Every piece of content should pass these principles before checking for violations.
 
-<!-- /ANCHOR:0-voice-directives -->
-<!-- ANCHOR:0-1-voice-principles -->
 ### 0.1 Voice Principles
 
 ```yaml
@@ -96,8 +91,6 @@ voice_directives:
         improved: "The platform processes data efficiently. Millions of requests daily. It scales when load increases, without manual intervention."
 ```
 
-<!-- /ANCHOR:0-1-voice-principles -->
-<!-- ANCHOR:0-2-certainty-principle -->
 ### 0.2 Certainty Principle
 
 Prefer direct, certain language when the facts support it. Hedging weakens claims and is a common AI writing pattern.
@@ -117,15 +110,168 @@ certainty_principle:
 
 ---
 
-<!-- /ANCHOR:0-2-certainty-principle -->
-<!-- ANCHOR:1-punctuation-standards -->
-## 1. ✏️ PUNCTUATION STANDARDS
+## 1. 🔄 HVR RUNTIME MODEL
+
+All content generation, editing and review tasks must follow the two-pass self-audit loop defined below. This execution model turns static rules into a repeatable, deterministic process. A single pass through the rules is not sufficient because first-pass rewrites routinely introduce new AI patterns while fixing old ones.
+
+### 1.1 Two-Pass Self-Audit Loop
+
+```yaml
+hvr_runtime:
+  version: "0.200"
+  execution_model: "two-pass-self-audit"
+
+  phase_1_draft:
+    description: "Generate or rewrite content applying all HVR rules (Sections 0-11)"
+    apply:
+      - voice_directives
+      - punctuation_standards
+      - structural_pattern_checks
+      - content_pattern_detection
+      - hard_blocker_checks
+      - context_dependent_checks
+      - soft_deduction_checks
+      - context_flag_checks
+    output: draft_text
+
+  phase_2_audit:
+    description: "Audit the draft for residual AI patterns that survived the first pass"
+    prompt: "Read the draft as a skeptical human reader. What still sounds AI-generated? List specific phrases, structural tells or tonal patterns."
+    focus_areas:
+      - "Residual blocker words or phrases that slipped through"
+      - "Structural patterns (triads, 'not just X but Y', setup language)"
+      - "Tonal flatness, excessive hedging or robotic cadence"
+      - "Sentence rhythm monotony"
+      - "Generic claims that lack specifics"
+    output: residual_ai_tells
+
+  phase_3_final:
+    description: "Rewrite the draft using audit findings to produce final output"
+    input: [draft_text, residual_ai_tells]
+    constraints:
+      - "Preserve all factual claims and meaning from the draft"
+      - "Address every residual tell identified in the audit"
+      - "Do not introduce new AI patterns while fixing existing ones"
+      - "Do not add new dates, percentages or named entities not present in the source"
+    output: final_text
+```
+
+### 1.2 Runtime Constraints
+
+```yaml
+runtime_constraints:
+  skip_conditions:
+    - "Phase 2 audit may be skipped ONLY for content under 2 sentences (e.g. subject lines, button labels)"
+  token_budget:
+    note: "The two-pass loop adds overhead. Keep total overhead under 20% of the single-pass token budget."
+  observability:
+    note: "When logging or debugging, surface phase_1 draft and phase_2 residual_ai_tells as separate artifacts for review."
+```
+
+---
+
+## 2. ⚙️ RULE PRECEDENCE MODEL
+
+When a word or phrase appears in multiple rule categories (e.g. both a hard blocker and a soft deduction), the system must apply exactly one penalty. This section defines which category wins.
+
+### 2.1 Precedence Hierarchy
+
+```yaml
+rule_precedence:
+  description: "Apply the highest-priority matching rule only. Do not stack penalties for the same token."
+  order:
+    1: phrase_hard_blocker       # -5 per occurrence (Section 7)
+    2: hard_word_blocker         # -5 per occurrence (Section 6)
+    3: context_dependent_blocker # -5 when metaphorical, 0 when literal (Section 8)
+    4: soft_deduction_minus_2    # -2 per occurrence (Section 9)
+    5: soft_deduction_minus_1    # -1 per occurrence (Section 10)
+    6: context_flag              # 0, advisory only (Section 11)
+  strategy: "first-match-wins"
+  notes:
+    - "A term listed in both hard_blocker and soft_deduction is evaluated only as hard_blocker"
+    - "Context-dependent blockers require context evaluation before scoring"
+    - "If context evaluation clears a term (literal usage), no lower-tier penalty applies"
+    - "cut_always directives (Section 5.3) are structural removals, not scored penalties — they apply independently"
+```
+
+### 2.2 Structural Directives vs Scored Penalties
+
+```yaml
+directive_vs_penalty:
+  description: "Some rules are structural directives (remove always) rather than scored penalties"
+  structural_directives:
+    - section: "Section 3 — Punctuation Standards"
+      behaviour: "Remove or replace. No point penalty — compliance is binary."
+    - section: "Section 4 — AI Structural Patterns"
+      behaviour: "Restructure. No point penalty — compliance is binary."
+    - section: "Section 5.3 — Unnecessary Modifiers (cut_always)"
+      behaviour: "Remove word. No separate point penalty."
+    - section: "Section 5.4 — Output Warnings"
+      behaviour: "Remove. No point penalty."
+  scored_penalties:
+    - "Sections 6-10 assign explicit point deductions"
+    - "A word that appears in both a structural directive and a scored penalty is handled by the structural directive (remove it) — the scored penalty does not additionally apply"
+```
+
+### 2.3 Resolved Conflicts from v0.101
+
+The following terms had conflicting severity assignments in v0.101. Each is now assigned to exactly one category.
+
+```yaml
+resolved_conflicts:
+  journey:
+    v0101_locations:
+      - "hard_blocker.extended (-5)"
+      - "context_dependent (-5 metaphorical)"
+      - "soft_deduction_minus_2 (-2)"
+    v0102_resolution: "context_dependent only (Section 8)"
+    rationale: "Requires context check. Metaphorical use is blocked at -5. Literal use (travel) is allowed. Removed from hard blockers and soft deductions."
+
+  landscape:
+    v0101_locations:
+      - "hard_blocker.extended (-5)"
+      - "context_dependent (-5 metaphorical)"
+      - "banned_metaphors (phrase guidance)"
+    v0102_resolution: "context_dependent (Section 8) for the word. Phrase 'the landscape of' stays in banned_metaphors (Section 5.1) as structural guidance."
+    rationale: "Word needs context check. Phrase pattern is separate structural guidance."
+
+  ecosystem:
+    v0101_locations:
+      - "hard_blocker.extended (-5, 'as metaphor')"
+      - "context_dependent (-5 metaphorical)"
+    v0102_resolution: "context_dependent only (Section 8)"
+    rationale: "Requires context check. Metaphorical use is blocked. Biological/environmental use is allowed."
+
+  deep_dive:
+    v0101_locations:
+      - "context_dependent (-5 metaphorical)"
+      - "soft_deduction_minus_1.buzzwords (-1)"
+      - "banned_metaphors (phrase guidance)"
+    v0102_resolution: "context_dependent (Section 8) for noun form. Verb form 'dive deep' remains hard_blocker.core_15 (Section 6). Removed from soft deductions."
+    rationale: "Noun form needs context check at -5. Verb form stays unconditionally blocked. Lower-tier penalty removed."
+
+  you_re_not_alone:
+    v0101_locations:
+      - "phrase_hard_blocker (-5)"
+      - "soft_deduction_minus_2 (-2)"
+    v0102_resolution: "phrase_hard_blocker only (Section 7)"
+    rationale: "Phrase blocker at -5 takes precedence. Removed from soft deductions."
+
+  actually_basically_literally_essentially:
+    v0101_locations:
+      - "cut_always (structural removal)"
+      - "soft_deduction_minus_1.filler_words (-1)"
+    v0102_resolution: "cut_always only (Section 5.3)"
+    rationale: "Structural removal directive supersedes scoring penalty. If the word must be cut, a separate -1 penalty is redundant."
+```
+
+---
+
+## 3. ✏️ PUNCTUATION STANDARDS
 
 All AI-generated content must follow these punctuation rules without exception. Violations are treated as automatic deductions.
 
-<!-- /ANCHOR:1-punctuation-standards -->
-<!-- ANCHOR:1-1-em-dash-ban -->
-### 1.1 Em Dash Ban
+### 3.1 Em Dash Ban
 
 Never use em dashes (—). Replace with commas, full stops or colons depending on context.
 
@@ -144,9 +290,7 @@ em_dash_rule:
       right: "One thing mattered: accuracy."
 ```
 
-<!-- /ANCHOR:1-1-em-dash-ban -->
-<!-- ANCHOR:1-2-semicolon-ban -->
-### 1.2 Semicolon Ban
+### 3.2 Semicolon Ban
 
 Never use semicolons (;). Split into two sentences or restructure using a conjunction.
 
@@ -164,9 +308,7 @@ semicolon_rule:
       right: "Revenue grew 40% and costs dropped 15%."
 ```
 
-<!-- /ANCHOR:1-2-semicolon-ban -->
-<!-- ANCHOR:1-3-oxford-comma-ban -->
-### 1.3 Oxford Comma Ban
+### 3.3 Oxford Comma Ban
 
 Never use the Oxford comma (the comma before "and" or "or" in a list of three or more items).
 
@@ -180,9 +322,7 @@ oxford_comma_rule:
       right: "The report covers revenue, retention and churn."
 ```
 
-<!-- /ANCHOR:1-3-oxford-comma-ban -->
-<!-- ANCHOR:1-4-asterisk-emphasis-ban -->
-### 1.4 Asterisk Emphasis Ban
+### 3.4 Asterisk Emphasis Ban
 
 Never use asterisks (*) for bold or emphasis in output content. Use the natural weight of the words instead. Asterisks are acceptable only in Markdown source files for formatting purposes where rendering is expected.
 
@@ -198,9 +338,7 @@ asterisk_rule:
       right: "We saw significant growth."
 ```
 
-<!-- /ANCHOR:1-4-asterisk-emphasis-ban -->
-<!-- ANCHOR:1-5-ellipsis-usage -->
-### 1.5 Ellipsis Usage
+### 3.5 Ellipsis Usage
 
 Limit ellipsis (...) to a maximum of one per piece. Use only for trailing thought, never for dramatic pauses or lazy transitions.
 
@@ -220,15 +358,11 @@ ellipsis_rule:
 
 ---
 
-<!-- /ANCHOR:1-5-ellipsis-usage -->
-<!-- ANCHOR:2-ai-structural-patterns-to-avoid -->
-## 2. 🏗️ AI STRUCTURAL PATTERNS TO AVOID
+## 4. 🏗️ AI STRUCTURAL PATTERNS TO AVOID
 
 AI models produce predictable structural patterns. Detecting and eliminating these patterns is essential to passing as human-written content.
 
-<!-- /ANCHOR:2-ai-structural-patterns-to-avoid -->
-<!-- ANCHOR:2-1-not-just-x-but-also-y-ban -->
-### 2.1 "Not Just X, But Also Y" Ban
+### 4.1 "Not Just X, But Also Y" Ban
 
 Never use the "not just X, but also Y" construction or any of its variants. This is one of the most recognisable AI writing patterns.
 
@@ -257,26 +391,30 @@ not_just_x_but_y:
       right: "Full analytics with forecasting built in."
 ```
 
-<!-- /ANCHOR:2-1-not-just-x-but-also-y-ban -->
-<!-- ANCHOR:2-2-three-item-enumeration-fix -->
-### 2.2 Three-Item Enumeration Fix
+### 4.2 Three-Item Enumeration Signal
 
-AI defaults to lists of exactly three items. Vary enumerations to 2, 4 or 5 items to break this pattern.
+AI defaults to lists of exactly three items. When three-item lists appear frequently, it signals AI-generated content. Vary enumerations where possible.
 
 ```yaml
 enumeration_rule:
-  banned: "Exactly 3 items in a list"
-  allowed: [2, 4, 5]
-  note: "If you naturally have 3 items, either cut one or add a fourth."
+  signal: "Exactly 3 items in a list"
+  score: -1
+  threshold: "Apply when 2 or more triads appear per 150 words"
+  preferred_counts: [2, 4, 5]
+  exemptions:
+    - "Legal or compliance lists where exactly 3 items are factually correct"
+    - "Step-by-step procedures with exactly 3 steps"
+    - "Factual grouped data (e.g. 3 product tiers, 3 office locations)"
+  note: "A single natural triad is acceptable. The penalty targets the AI habit of defaulting to three items repeatedly."
   examples:
-    - wrong: "Speed, accuracy and reliability."
-      right: "Speed and accuracy."
-      also_right: "Speed, accuracy, reliability and uptime."
+    - ai_pattern: "Speed, accuracy and reliability."
+      better: "Speed and accuracy."
+      also_acceptable: "Speed, accuracy, reliability and uptime."
+    - acceptable: "The three offices are in London, Amsterdam and Berlin."
+      reason: "Factual. Exactly three locations exist."
 ```
 
-<!-- /ANCHOR:2-2-three-item-enumeration-fix -->
-<!-- ANCHOR:2-3-setup-language-removal -->
-### 2.3 Setup Language Removal
+### 4.3 Setup Language Removal
 
 Remove filler phrases that signal what is coming next rather than stating it directly.
 
@@ -306,13 +444,9 @@ banned_setup_phrases:
 
 ---
 
-<!-- /ANCHOR:2-3-setup-language-removal -->
-<!-- ANCHOR:3-content-pattern-detection -->
-## 3. 🔍 CONTENT PATTERN DETECTION
+## 5. 🔍 CONTENT PATTERN DETECTION
 
-<!-- /ANCHOR:3-content-pattern-detection -->
-<!-- ANCHOR:3-1-banned-metaphors-and-cliches -->
-### 3.1 Banned Metaphors and Cliches
+### 5.1 Banned Metaphors and Cliches
 
 These metaphors are overused in AI-generated content. Replace with direct, specific language.
 
@@ -340,9 +474,7 @@ banned_metaphors:   # Replace with direct, specific language
   - "light at the end of the tunnel" → state the specific positive outcome
 ```
 
-<!-- /ANCHOR:3-1-banned-metaphors-and-cliches -->
-<!-- ANCHOR:3-2-generalisation-fixes -->
-### 3.2 Generalisation Fixes
+### 5.2 Generalisation Fixes
 
 Replace vague generalisations with specific, verifiable claims.
 
@@ -370,11 +502,9 @@ generalisation_fixes:
     specific: "[State who specifically or give a number]"
 ```
 
-<!-- /ANCHOR:3-2-generalisation-fixes -->
-<!-- ANCHOR:3-3-unnecessary-modifiers -->
-### 3.3 Unnecessary Modifiers
+### 5.3 Unnecessary Modifiers
 
-Cut these words. They add no meaning and weaken the sentence.
+Cut these words. They add no meaning and weaken the sentence. This is a structural removal directive, not a scored penalty (see Section 2.2).
 
 ```yaml
 unnecessary_modifiers:
@@ -400,6 +530,7 @@ unnecessary_modifiers:
     - definitely
     - undoubtedly
     - essentially
+  note: "These words are structural removals. They do not carry a separate point penalty. If any of these words also appear in a scored penalty section, the structural removal takes priority (see Section 2.2)."
   examples:
     - wrong: "This is a very important update."
       right: "This is an important update."
@@ -411,9 +542,7 @@ unnecessary_modifiers:
       right: "We doubled revenue."
 ```
 
-<!-- /ANCHOR:3-3-unnecessary-modifiers -->
-<!-- ANCHOR:3-4-output-warnings -->
-### 3.4 Output Warnings
+### 5.4 Output Warnings
 
 ```yaml
 output_warnings:
@@ -426,11 +555,9 @@ output_warnings:
 
 ---
 
-<!-- /ANCHOR:3-4-output-warnings -->
-<!-- ANCHOR:4-hard-blocker-words-5-points-each -->
-## 4. 🚫 HARD BLOCKER WORDS (-5 POINTS EACH)
+## 6. 🚫 HARD BLOCKER WORDS (-5 POINTS EACH)
 
-These words trigger AUTOMATIC FAILURE. Never use them under any circumstances (except where noted in Section 6 for context-dependent blockers).
+These words trigger AUTOMATIC FAILURE. Never use them under any circumstances. Words that require context checking before scoring are listed separately in Section 8 (Context-Dependent Blockers).
 
 ```yaml
 hard_blockers:
@@ -453,6 +580,7 @@ hard_blockers:
     - dive deep        # use "examine" or "look closely at"
 
   # Extended blockers (union of all systems)
+  # NOTE: journey, landscape and ecosystem moved to Section 8 (context-dependent) in v0.200
   extended:
     - leverage       # use "use" instead
     - foster         # use "support" or "encourage" instead
@@ -468,9 +596,6 @@ hard_blockers:
     - holistic       # use "complete" or "whole" instead
     - synergy        # use "combined effect" or state what works together
     - unpack         # use "explain" or "break down" instead
-    - landscape      # as noun for "field/industry"
-    - ecosystem      # as metaphor
-    - journey        # as metaphor for process
     - paradigm       # use "model" or "approach" instead
     - enlightening   # use "helpful" or "informative" instead
     - esteemed       # use "respected" or remove
@@ -481,9 +606,7 @@ hard_blockers:
     - utilizing      # use "using" instead
 ```
 
-<!-- /ANCHOR:4-hard-blocker-words-5-points-each -->
-<!-- ANCHOR:5-phrase-hard-blockers-5-points-each -->
-## 5. ⛔ PHRASE HARD BLOCKERS (-5 POINTS EACH)
+## 7. ⛔ PHRASE HARD BLOCKERS (-5 POINTS EACH)
 
 These phrases trigger AUTOMATIC FAILURE. Never use them.
 
@@ -509,36 +632,30 @@ phrase_blockers:
   - "You're not alone"
 ```
 
-<!-- /ANCHOR:5-phrase-hard-blockers-5-points-each -->
-<!-- ANCHOR:6-context-dependent-blockers -->
-## 6. ⚖️ CONTEXT-DEPENDENT BLOCKERS
+## 8. ⚖️ CONTEXT-DEPENDENT BLOCKERS
 
-Words that are blocked in most contexts but may be acceptable in specific technical or literal usage.
+Words that are blocked in most contexts but may be acceptable in specific technical or literal usage. These require context evaluation before scoring. When literal usage is confirmed, no penalty applies and no lower-tier rule is triggered (see Section 2.1).
 
 ```yaml
-context_dependent:  # -5 when metaphorical, OK when literal
+context_dependent:  # -5 when metaphorical, 0 when literal
   - "navigating"     # blocked: challenges, market | allowed: website, GPS
-  - "landscape"      # blocked: marketing, competitive | allowed: photography, orientation
+  - "landscape"      # blocked: marketing, competitive | allowed: photography, geography, orientation
   - "unlock"         # blocked: potential, growth | allowed: door, phone
   - "ecosystem"      # blocked: startup, partner | allowed: biological, environmental
-  - "journey"        # blocked: customer, learning | allowed: London to Edinburgh
-  - "deep dive"      # blocked: into analytics | allowed: scuba context
+  - "journey"        # blocked: customer, learning | allowed: literal travel (e.g. London to Edinburgh)
+  - "deep dive"      # blocked: into analytics, as metaphor | allowed: scuba, submarine context
 ```
 
 ---
 
-<!-- /ANCHOR:6-context-dependent-blockers -->
-<!-- ANCHOR:7-soft-deductions-2-points-each -->
-## 7. 📉 SOFT DEDUCTIONS (-2 POINTS EACH)
+## 9. 📉 SOFT DEDUCTIONS (-2 POINTS EACH)
 
-These words are not hard blockers but carry a -2 point penalty per occurrence. Use sparingly or replace.
+These words are not hard blockers but carry a -2 point penalty per occurrence. Use sparingly or replace. Words that are resolved to a higher-priority category via the precedence model (Section 2) have been removed from this list.
 
 ```yaml
 soft_deductions_minus_2:
   - word: "craft / crafting"
     note: "As verb for 'create' (any tense). Acceptable as noun (craft beer)."
-  - word: "journey"
-    note: "When not hard-blocked by context rules."
   - word: "pivotal"
     note: "Use 'important' or 'key' instead."
   - word: "intricate"
@@ -565,15 +682,11 @@ soft_deductions_minus_2:
     note: "Classic AI hedging phrase. Use 'we don't know yet' or state the uncertainty directly."
   - word: "glimpse into"
     note: "AI-typical phrasing. Use 'look at' or 'overview of' instead."
-  - word: "you're not alone"
-    note: "AI comfort phrase. State the specific commonality instead."
 ```
 
-<!-- /ANCHOR:7-soft-deductions-2-points-each -->
-<!-- ANCHOR:8-soft-deductions-1-point-each -->
-## 8. 📊 SOFT DEDUCTIONS (-1 POINT EACH)
+## 10. 📊 SOFT DEDUCTIONS (-1 POINT EACH)
 
-These carry a -1 point penalty per occurrence. Some are acceptable in small quantities but flag overuse.
+These carry a -1 point penalty per occurrence. Some are acceptable in small quantities but flag overuse. Words that overlap with cut_always (Section 5.3) have been removed from this list because the structural removal directive takes priority (see Section 2.2).
 
 ```yaml
 soft_deductions_minus_1:
@@ -587,10 +700,8 @@ soft_deductions_minus_1:
     - "probably"
 
   filler_words:
-    - "actually"
-    - "basically"
-    - "essentially"
-    - "literally"
+    # NOTE: actually, basically, essentially, literally removed in v0.200
+    # These are covered by cut_always (Section 5.3) which takes priority
     - "honestly"
     - "frankly"
 
@@ -650,8 +761,7 @@ soft_deductions_minus_1:
     - word: "bandwidth"
       note: "Metaphorical use only (e.g. 'I don't have the bandwidth'). Acceptable in networking context."
     - "circle back"
-    - word: "deep dive"
-      note: "As noun. Verb form is a hard blocker."
+    # NOTE: "deep dive" (noun) removed in v0.200 — now context_dependent (Section 8) at -5
     - "move the needle"
     - "low-hanging fruit"
     - word: "boost"
@@ -660,9 +770,7 @@ soft_deductions_minus_1:
       note: "Use 'questions' instead."
 ```
 
-<!-- /ANCHOR:8-soft-deductions-1-point-each -->
-<!-- ANCHOR:9-context-dependent-flags -->
-## 9. 🏁 CONTEXT-DEPENDENT FLAGS
+## 11. 🏁 CONTEXT-DEPENDENT FLAGS
 
 These words are not penalised automatically but should be checked for clarity and precision.
 
@@ -699,7 +807,7 @@ context_flags:
       right: "Our project management tool helps teams collaborate."
 
   - word: "excited"
-    flag: "AI-typical enthusiasm. Replace with specific reason for interest. See also 'exciting' in Section 8 (-1 deduction)."
+    flag: "AI-typical enthusiasm. Replace with specific reason for interest. See also 'exciting' in Section 10 (-1 deduction)."
     example:
       wrong: "We're excited to announce our new feature."
       right: "We're releasing a new feature that reduces load time by 40%."
@@ -707,14 +815,17 @@ context_flags:
 
 ---
 
-<!-- /ANCHOR:9-context-dependent-flags -->
-<!-- ANCHOR:10-pre-publish-checklist -->
-## 10. ✅ PRE-PUBLISH CHECKLIST
+## 12. ✅ PRE-PUBLISH CHECKLIST
 
 Run through this checklist before finalising any content.
 
 ```yaml
 pre_publish_checklist:
+  runtime:
+    - "Two-pass self-audit loop completed (Section 1)"
+    - "Phase 2 audit findings addressed in final output"
+    - "No new AI patterns introduced during revision"
+
   punctuation:
     - "No em dashes (—) anywhere"
     - "No semicolons (;) anywhere"
@@ -724,19 +835,20 @@ pre_publish_checklist:
 
   structure:
     - "No 'not just X, but also Y' patterns"
-    - "No exactly 3-item enumerations"
-    - "No setup language (Section 2)"
+    - "No excessive three-item enumerations (2+ triads per 150 words)"
+    - "No setup language (Section 4)"
 
   content:
-    - "No banned metaphors (Section 3)"
+    - "No banned metaphors (Section 5)"
     - "No vague generalisations without specifics"
-    - "No unnecessary modifiers"
+    - "No unnecessary modifiers (cut_always words removed)"
     - "No meta-commentary about writing process"
 
   words:
-    - "No hard blocker words (Section 4)"
-    - "No phrase hard blockers (Section 5)"
-    - "Context-dependent words checked (Section 6)"
+    - "No hard blocker words (Section 6)"
+    - "No phrase hard blockers (Section 7)"
+    - "Context-dependent words checked (Section 8)"
+    - "No scoring conflicts — each term penalised once per precedence model (Section 2)"
 
   clarity:
     - "Pronouns have clear antecedents"
@@ -751,4 +863,3 @@ pre_publish_checklist:
     - "No hedging when certainty is possible"
     - "Claims backed by data or examples where possible"
 ```
-<!-- /ANCHOR:10-pre-publish-checklist -->
