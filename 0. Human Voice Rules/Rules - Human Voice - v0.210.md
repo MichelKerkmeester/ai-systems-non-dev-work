@@ -1,11 +1,11 @@
 # Rules - Human Voice - v0.210
 
 
-The Human Voice Rules (HVR) define the global linguistic standards that govern all AI-generated content across the Barter ecosystem. These rules eliminate detectable AI patterns, enforce natural human writing conventions and ensure every piece of output reads as if written by a knowledgeable human professional. This document is the canonical, system-agnostic superset. Individual content systems inherit these rules and may extend them with system-specific overrides.
+The Human Voice Rules (HVR) define the global linguistic standards that govern all AI-generated content across the ecosystem. These rules eliminate detectable AI patterns, enforce natural human writing conventions and ensure every piece of output reads as if written by a knowledgeable human professional. This document is the canonical, system-agnostic superset. Individual content systems inherit these rules and may extend them with system-specific overrides.
 
-**Loading Condition:** Always active for any content generation, editing or review task across all Barter AI systems.
+**Loading Condition:** Always active for any content generation, editing or review task across all AI systems.
 **Purpose:** Eliminate AI-detectable writing patterns, enforce punctuation discipline, ban overused words and phrases, and establish a consistent human voice across all output.
-**Scope:** Global. Applies to all 6 Barter content systems (MEQT, DEAL, CONTENT, LinkedIn, Email, Web). System-specific scoring integrations and additional rules are defined in each system's Human Voice Rules Extensions file.
+**Scope:** Global. Applies to all 6 content systems (MEQT, DEAL, CONTENT, LinkedIn, Email, Web). System-specific scoring integrations and additional rules are defined in each system's Human Voice Rules Extensions file.
 
 ## 📑 TABLE OF CONTENTS
 
@@ -210,7 +210,7 @@ formatting_rules:
   asterisk:       { action: "NEVER use for emphasis in output. OK in Markdown source files." }
   ellipsis:       { action: "Max 1 per piece. Trailing thought only. No dramatic pauses." }
   heading_case:   { action: "Sentence case only. Title case is an AI pattern." }
-  emoji:          { action: "NEVER use in output content." }
+  emoji:          { action: "Max 1 per piece. Must add clarity or tone, not decoration." }
   quotation_marks: { action: "Straight quotes only (\"). Never curly quotes." }
 ```
 
@@ -638,7 +638,7 @@ pre_publish_checklist:
     - "No em dashes, semicolons, Oxford commas, asterisk emphasis"
     - "Max 1 ellipsis per piece"
     - "Sentence case headings"
-    - "No emoji in output content"
+    - "Max 1 emoji per piece (must add clarity or tone, not decoration)"
     - "Straight quotation marks only"
 
   structure:
