@@ -1,5 +1,4 @@
-# Rules - Human Voice - NL - v0.210
-
+# Rules - Human Voice - NL - v0.220
 
 The Human Voice Rules - NL (HVR-NL) define the linguistic standards that govern all AI-generated Dutch content across the ecosystem. These rules eliminate detectable AI patterns in Dutch, enforce natural human writing conventions and ensure every piece of output reads as if written by a knowledgeable Dutch-speaking professional. This document is the canonical, system-agnostic Dutch ruleset. Individual content systems inherit these rules and may extend them with system-specific overrides.
 
@@ -23,6 +22,7 @@ The Human Voice Rules - NL (HVR-NL) define the linguistic standards that govern 
   - 10. 📊 SOFT DEDUCTIONS (-1 POINT EACH)
   - 11. 🏁 CONTEXT-DEPENDENT FLAGS
   - 12. ✅ PRE-PUBLISH CHECKLIST
+  - 13. 📊 QUALITY KPIs
 
 ---
 
@@ -59,9 +59,15 @@ voice_directives:
   conversational_tone:
     directive: "Write naturally. Read it aloud. If it sounds stiff or formal, rewrite it."
 
+  benefit_first:
+    directive: "Write from the reader's perspective. State what the tool does for the user, not what the company provides."
+    example: { wrong: "Wij bieden een uitgebreid platform.", right: "Je krijgt toegang tot een platform dat drie stappen automatiseert." }
+    ban: "Never use 'Wij bieden' or 'Wij leveren' as framing. Use 'Je krijgt' or 'Je bereikt' instead."
+
   authenticity:
-    directive: "Be honest. If something has problems, say so. No marketing spin."
+    directive: "Be honest. If something has problems, say so. No marketing spin. If a claim sounds like a movie trailer, rewrite it to sound like a colleague's recommendation."
     example: { wrong: "Onze revolutionaire oplossing transformeert elk aspect van je workflow.", right: "Onze tool automatiseert drie handmatige stappen in je facturatieproces." }
+    modesty_filter: "Dutch B2B readers distrust hype. Aim for understatement. Replace 'Dit transformeert je workflow' with 'Dit maakt je werk makkelijker'."
 
   practical_focus:
     directive: "Focus on practical, actionable information. Back claims with data or examples."
@@ -107,8 +113,8 @@ voice_personality:
     directive: "Express mixed feelings. Real people don't sort everything into neat categories."
 
   controlled_imperfection:
-    directive: "Perfect structure feels algorithmic. Allow occasional tangents and asides when they add authenticity."
-    note: "Does not override conciseness or clarity. Means choosing natural flow over mechanical symmetry."
+    directive: "Perfect structure feels algorithmic. Allow occasional tangents and asides when they add authenticity. Allow occasional sentence fragments for impact."
+    note: "Does not override conciseness or clarity. Means choosing natural flow over mechanical symmetry. Do not enforce perfect grammatical symmetry if it makes the text sound like a textbook."
 
   emotional_specificity:
     directive: "Name specific feelings and images, not abstract labels."
@@ -132,7 +138,7 @@ hvr_runtime:
   execution_model: "two-pass-self-audit"
 
   phase_1_draft:
-    description: "Generate or rewrite Dutch content applying all HVR-NL rules (Sections 0-11)"
+    description: "Generate or rewrite Dutch content applying all HVR-NL rules (Sections 0-13)"
     apply: [voice_directives, punctuation_standards, structural_pattern_checks, content_pattern_detection, hard_blocker_checks, context_dependent_checks, soft_deduction_checks, context_flag_checks]
     output: draft_text
 
@@ -149,7 +155,9 @@ hvr_runtime:
       - "Voiceless writing that is technically clean but lacks personality (Section 0.3)"
       - "Excessive passive voice ('er wordt', 'er worden', 'werd besloten')"
       - "je/u register inconsistency within the piece"
-      - "Unnatural Anglicisms or calques from English AI patterns"
+      - "Unnatural Anglicisms or calques from English AI patterns (Section 5.8)"
+      - "Supply-side framing ('Wij bieden') instead of benefit-first ('Je krijgt')"
+      - "Accent marks used for emphasis rather than disambiguation"
 
   phase_3_final:
     description: "Rewrite draft using audit findings"
@@ -219,13 +227,14 @@ All AI-generated Dutch content must follow these punctuation rules without excep
 formatting_rules:
   em_dash:        { action: "NEVER use (—)", replace_with: "comma, full stop or colon" }
   semicolon:      { action: "NEVER use (;)", replace_with: "two sentences or conjunction" }
-  asterisk:       { action: "NEVER use for emphasis in output. OK in Markdown source files." }
+  inline_emphasis: { action: "NEVER use bold or italic for emphasis in output. Use sentence structure to create impact. OK for structural Markdown (headers, links)." }
   ellipsis:       { action: "Max 1 per piece. Trailing thought only. No dramatic pauses." }
   heading_case:   { action: "Sentence case only. Title case is an AI pattern." }
   emoji:          { action: "Max 1 per piece. Must add clarity or tone, not decoration." }
   quotation_marks: { action: "Straight quotes only (\"). Never curly quotes." }
   dutch_comma:    { action: "No comma before 'dat' or 'of' in subordinate clauses. Follow standard Dutch comma rules." }
   oxford_comma:   { action: "Not applicable in Dutch. Dutch does not use a comma before 'en'/'of' in lists." }
+  accent_marks:   { action: "Accents (één, hét) only where grammatical ambiguity exists. Never for emphasis.", example: { allowed: "voor één persoon", banned: "hét platform voor..." } }
 ```
 
 ---
@@ -258,8 +267,9 @@ AI defaults to lists of exactly three items. Vary enumerations.
 ```yaml
 enumeration_rule:
   score: -1
-  threshold: "Apply when 2+ triads appear per 150 words"
+  threshold: "Apply when 2+ triads appear per 300 words"
   preferred_counts: [2, 4, 5]
+  guidance: "Force the use of pairs (2) or longer lists (4+) to break the algorithmic rhythm of groups of three."
   exemptions: ["Legal/compliance lists with exactly 3 factual items", "Step-by-step procedures with exactly 3 steps", "Factual grouped data"]
   note: "A single natural triad is acceptable. Penalty targets the AI habit of defaulting to three items repeatedly."
 ```
@@ -269,27 +279,7 @@ enumeration_rule:
 Remove filler phrases that signal what is coming next rather than stating it directly.
 
 ```yaml
-banned_setup_phrases:
-  - "Tot slot"
-  - "Samengevat"
-  - "Het is het vermelden waard"
-  - "Het is belangrijk om op te merken"
-  - "Laten we eens kijken naar"
-  - "Laten we erin duiken"
-  - "Laten we eens bekijken"
-  - "Als het gaat om"
-  - "In de wereld van"
-  - "In de huidige"
-  - "De kern is"
-  - "Aan het einde van de dag"
-  - "Zonder verder oponthoud"
-  - "Zoals we allemaal weten"
-  - "Het spreekt voor zich"
-  - "Allereerst"
-  - "Last but not least"
-  - "Met dat in gedachten"
-  - "Wat dat betreft"
-  - "Dat gezegd hebbende"
+banned_setup_phrases: ["Tot slot", "Samengevat", "Het is het vermelden waard", "Het is belangrijk om op te merken", "Laten we eens kijken naar", "Laten we erin duiken", "Laten we eens bekijken", "Als het gaat om", "In de wereld van", "In de huidige", "De kern is", "Aan het einde van de dag", "Zonder verder oponthoud", "Zoals we allemaal weten", "Het spreekt voor zich", "Allereerst", "Last but not least", "Met dat in gedachten", "Wat dat betreft", "Dat gezegd hebbende"]
 ```
 
 ### 4.4 Copula Avoidance Ban
@@ -321,9 +311,16 @@ Remove "van X tot Y" constructions where the endpoints are not on a meaningful s
 
 Restructure bolded-header bullet lists (bold + colon pattern) into flowing prose or simpler lists. Acceptable for glossaries, API docs and config guides.
 
-### 4.8 Generic Positive Conclusions
+### 4.8 Generic Positive Conclusions and Conclusion Trap
 
-End with specifics, not sentiments. Banned: "De toekomst ziet er rooskleurig uit", "Spannende tijden liggen in het verschiet", "Dit is een grote stap voorwaarts", "De mogelijkheden zijn eindeloos", "We kijken uit naar wat komen gaat", "Dit is nog maar het begin", "Het beste moet nog komen", "hun/onze reis naar excellentie voortzetten".
+End with specifics, not sentiments. Banned phrases: "De toekomst ziet er rooskleurig uit", "Spannende tijden liggen in het verschiet", "Dit is een grote stap voorwaarts", "De mogelijkheden zijn eindeloos", "We kijken uit naar wat komen gaat", "Dit is nog maar het begin", "Het beste moet nog komen", "hun/onze reis naar excellentie voortzetten".
+
+```yaml
+conclusion_trap:
+  banned_headers: ["Conclusie", "Kortom"]
+  note: "These are banned as section headers or sentence openers. 'Kortom' is acceptable mid-sentence when it genuinely summarises a specific point."
+  short_content_rule: "If content is under 400 words, a concluding paragraph is prohibited unless it introduces a new, specific call to action."
+```
 
 ### 4.9 Fragmented Headers
 
@@ -336,15 +333,7 @@ Dutch AI defaults to passive voice more than human Dutch writers. Flag and rewri
 ```yaml
 passive_voice_check:
   action: "Flag when more than 2 passive constructions per 150 words"
-  common_dutch_passive_tells:
-    - "er wordt"
-    - "er worden"
-    - "er werd"
-    - "er werden"
-    - "er is besloten"
-    - "er kan worden"
-    - "er dient te worden"
-    - "er zal worden"
+  common_dutch_passive_tells: ["er wordt", "er worden", "er werd", "er werden", "er is besloten", "er kan worden", "er dient te worden", "er zal worden"]
   replacement_strategy: "Identify the actor and make them the subject. 'Er wordt een vergadering gepland' becomes 'We plannen een vergadering'."
 ```
 
@@ -379,6 +368,7 @@ banned_metaphors:
   - "de bal ligt bij"            -> state who needs to act
   - "een steentje bijdragen"     -> "helpen" or state the specific action
   - "alle neuzen dezelfde kant op" -> state alignment specifically
+  - "baken van"                   -> remove or state specifically (pure English-to-Dutch AI artifact "beacon of hope/change")
 ```
 
 ### 5.2 Generalisation Fixes
@@ -402,27 +392,7 @@ Cut these words. They add no meaning. This is a structural removal directive, no
 
 ```yaml
 unnecessary_modifiers:
-  cut_always:
-    - heel
-    - echt
-    - werkelijk
-    - absoluut
-    - ongelooflijk
-    - uiterst
-    - behoorlijk
-    - enigszins
-    - redelijk
-    - tamelijk
-    - gewoon
-    - eigenlijk
-    - gewoonweg
-    - letterlijk
-    - eenvoudigweg
-    - uiteraard
-    - zeker
-    - beslist
-    - ongetwijfeld
-    - in wezen
+  cut_always: [heel, echt, werkelijk, absoluut, ongelooflijk, uiterst, behoorlijk, enigszins, redelijk, tamelijk, gewoon, eigenlijk, gewoonweg, letterlijk, eenvoudigweg, uiteraard, zeker, beslist, ongetwijfeld, "in wezen"]
   note: "If any of these also appear in a scored penalty section, the structural removal takes priority (Section 2.2)."
 ```
 
@@ -444,19 +414,7 @@ output_warnings:
 State what happened without editorialising its importance. If something genuinely is a turning point, provide evidence rather than stating it declaratively.
 
 ```yaml
-significance_inflation_banned:
-  - "markeert een cruciaal moment in"
-  - "de basis leggen voor"
-  - "onuitwisbare indruk"
-  - "is een bewijs van"
-  - "onderstreept het belang van"
-  - "weerspiegelt bredere trends in"
-  - "vertegenwoordigt een verschuiving in"
-  - "een belangrijk keerpunt"
-  - "de toekomst vormgeven van"
-  - "diep geworteld in"
-  - "symboliseert de voortdurende"
-  - "bijdragen aan de"
+significance_inflation_banned: ["markeert een cruciaal moment in", "de basis leggen voor", "onuitwisbare indruk", "is een bewijs van", "onderstreept het belang van", "weerspiegelt bredere trends in", "vertegenwoordigt een verschuiving in", "een belangrijk keerpunt", "de toekomst vormgeven van", "diep geworteld in", "symboliseert de voortdurende", "bijdragen aan de"]
 ```
 
 ### 5.6 Notability and Media Emphasis
@@ -466,6 +424,25 @@ Don't claim notability by listing media outlets or followers. Cite specific cove
 ### 5.7 Formulaic Challenges Sections
 
 Replace formulaic "ondanks uitdagingen, blijft floreren" structures with specific facts. Banned: "Ondanks zijn [kwaliteit], staat [onderwerp] voor de typische uitdagingen van", "Ondanks deze uitdagingen blijft [onderwerp] floreren", "Uitdagingen en Nalatenschap", "Toekomstperspectief", "staat voor verschillende uitdagingen, waaronder".
+
+### 5.8 Amerikanismen (Literal English Calques)
+
+Dutch AI frequently translates English idioms literally. These calques do not exist in natural Dutch and are immediate AI tells.
+
+```yaml
+amerikanismen:
+  directive: "If an idiom doesn't exist in natural Dutch, don't translate it. Rephrase the meaning."
+  banned_calques:
+    - "de extra mijl gaan"           -> "extra moeite doen"
+    - "het grote plaatje"            -> "het totaalbeeld" or "het geheel"
+    - "op dezelfde pagina zitten"    -> "het eens zijn"
+    - "buiten de doos denken"        -> remove or "creatief denken"
+    - "de bal in iemands kamp leggen" -> "de verantwoordelijkheid bij iemand leggen"
+    - "een no-brainer"               -> "een makkelijke keuze" or "logisch"
+    - "het verschil maken"           -> "bijdragen" or state the specific impact
+    - "naar het volgende niveau tillen" -> "verbeteren" or state what improves
+  note: "Some English loanwords are naturalised in Dutch (e.g. 'deadline', 'feedback'). This rule targets literally translated idioms, not established loanwords."
+```
 
 ---
 
@@ -516,6 +493,10 @@ hard_blockers:
     - optimaliseren     # use "verbeteren" (when buzzword, not genuine technical optimization)
     - de kracht van     # use "de voordelen van" or state specifically
     - bieden            # use "geven" or "hebben" (when used as generic AI verb)
+    - baken             # remove or use specific noun (when metaphorical beacon)
+    - aangedreven       # use "op basis van" or "met" (e.g., "AI-aangedreven" -> "op basis van AI")
+    - lichtend voorbeeld # use "goed voorbeeld" or state what makes it exemplary
+    - transformeren     # use "veranderen" or "verbeteren" (when hype verb, not genuine transformation)
 ```
 
 ## 7. ⛔ PHRASE HARD BLOCKERS (-5 POINTS EACH)
@@ -542,18 +523,22 @@ phrase_blockers:
   - "Dit is wat je moet weten..."
   - "Wat de meeste mensen niet beseffen is..."
   - "De waarheid is..."
-
   # Dutch AI customer service tells
   - "Ik help je graag verder!"
   - "Aarzel niet om contact op te nemen!"
   - "Mocht je nog vragen hebben, dan hoor ik het graag!"
   - "Ik hoop dat deze e-mail je goed bereikt."
-
   # Dutch AI formality / bureaucratic tells
   - "Met betrekking tot..."
   - "In het kader van..."
   - "Ten aanzien van..."
   - "Naar aanleiding van uw vraag..."
+  # Dutch AI supply-side and hype phrases
+  - "Wij bieden..."
+  - "Wij leveren..."
+  - "Sluit aan bij jouw behoeften"
+  - "Dit transformeert je..."
+  - "De extra mijl gaan"
 ```
 
 ## 8. ⚖️ CONTEXT-DEPENDENT BLOCKERS
@@ -570,6 +555,7 @@ context_dependent:  # -5 when metaphorical, 0 when literal
   - "verdieping"    # blocked: een verdieping in analytics, als metafoor | allowed: verdieping van een gebouw
   - "traject"       # blocked: groeitraject, ontwikkelingstraject (buzzword) | allowed: reisroute, medisch traject
   - "speelveld"     # blocked: het speelveld veranderen, gelijk speelveld | allowed: literal playing field
+  - "behoeften"     # blocked: "sluit aan bij jouw behoeften", generic needs language | allowed: needs-analysis, user research contexts
 ```
 
 ---
@@ -602,39 +588,16 @@ Words overlapping with cut_always (Section 5.3) have been removed because the st
 
 ```yaml
 soft_deductions_minus_1:
-  hedging:
-    - "Ik denk"
-    - "Ik geloof"
-    - "misschien"
-    - "wellicht"
-    - "mogelijk"
-    - "zou kunnen"
-    - "waarschijnlijk"
-
-  filler_words:
-    # eigenlijk, gewoonweg, eenvoudigweg, letterlijk covered by cut_always (Section 5.3)
-    - "eerlijk gezegd"
-    - "om eerlijk te zijn"
-
-  unnecessary_transitions:
-    - "echter"         # max 2 per piece; penalty on 3rd+ occurrence
-    - "bovendien"
-    - "daarnaast"
-    - "desalniettemin"
-    - "tevens"
+  hedging: ["Ik denk", "Ik geloof", "misschien", "wellicht", "mogelijk", "zou kunnen", "waarschijnlijk"]
+  filler_words: ["eerlijk gezegd", "om eerlijk te zijn"]  # eigenlijk, gewoonweg, eenvoudigweg, letterlijk covered by cut_always (Section 5.3)
+  unnecessary_transitions: ["echter", "bovendien", "daarnaast", "desalniettemin", "tevens"]  # echter: max 2 per piece; penalty on 3rd+
 
   weak_adjectives: ["leuk", "goed", "geweldig", "fantastisch", "ongelofelijk", "prachtig", "schitterend", "wonderbaarlijk"]
   weak_adjectives_contextual:
     - "enorm"          # use "groot" or "veel" or state specific scale
     - "krachtig"       # when filler; use "effectief" or state specific capability
 
-  vague_verbs:         # replace with specific verbs
-    - "krijgen"        # verkrijgen, ontvangen, bereiken
-    - "doen"           # voltooien, uitvoeren
-    - "maken"          # bouwen, produceren
-    - "zetten"         # plaatsen, investeren
-    - "nemen"          # accepteren, vereisen
-    - "zorgen voor"    # regelen, organiseren, realiseren
+  vague_verbs: ["krijgen", "doen", "maken", "zetten", "nemen", "zorgen voor"]  # replace with specific verbs
 
   ai_phrases: ["Ik help je graag", "Goede vraag!", "Dat is een goed punt", "Ik waardeer dat je dit deelt", "Laat me je daarbij helpen"]
   ai_phrases_contextual:
@@ -678,7 +641,7 @@ pre_publish_checklist:
     - "No new AI patterns introduced during revision"
 
   punctuation_and_formatting:
-    - "No em dashes, semicolons, asterisk emphasis"
+    - "No em dashes, semicolons, inline bold/italic emphasis"
     - "Max 1 ellipsis per piece"
     - "Sentence case headings"
     - "Max 1 emoji per piece (must add clarity or tone, not decoration)"
@@ -687,11 +650,13 @@ pre_publish_checklist:
 
   structure:
     - "No 'niet alleen X, maar ook Y' patterns"
-    - "No excessive three-item enumerations (2+ triads per 150 words)"
+    - "No excessive three-item enumerations (2+ triads per 300 words)"
     - "No setup language (Section 4.3)"
     - "No copula avoidance ('dient als', 'fungeert als' — use 'is')"
     - "No synonym cycling (same entity = same word)"
     - "No false ranges, inline-header lists, generic conclusions or fragmented headers"
+    - "No generic conclusion headers ('Conclusie', 'Kortom') as section headers"
+    - "Under 400 words: no concluding paragraph unless it adds a specific CTA"
     - "No excessive passive constructions (max 2 per 150 words)"
 
   content:
@@ -728,4 +693,22 @@ pre_publish_checklist:
     - "Compound words used naturally (not stacking 3+ nouns)"
     - "No bureaucratic register (ambtelijk taalgebruik) unless context demands it"
     - "No Dutch AI customer service phrases (Section 7)"
+    - "No literally translated English idioms — Amerikanismen (Section 5.8)"
+    - "Accents only for grammatical disambiguation, not emphasis"
+    - "No inline bolding for emphasis — use sentence structure"
+    - "No supply-side framing ('Wij bieden') — use benefit-first ('Je krijgt')"
+```
+
+---
+
+## 13. 📊 QUALITY KPIs
+
+Measurable targets for Dutch content quality. Use these to evaluate content during the Phase 2 audit (Section 1).
+
+```yaml
+quality_kpis:
+  amerikanisme_rate:    { metric: "Percentage of idioms literally translated from English", target: "0%" }
+  triad_density:        { metric: "Ratio of three-item lists per 100 words", target: "< 0.3" }
+  active_voice_ratio:   { metric: "Percentage of sentences in active voice", target: ">= 90%" }
+  passive_construction: { metric: "Passive constructions ('er wordt', 'er worden') per 150 words", target: "<= 2" }
 ```
