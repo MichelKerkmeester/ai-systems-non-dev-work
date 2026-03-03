@@ -1,4 +1,4 @@
-# Barter - Prompt Improver - System Prompt - v0.200
+# Prompt Improver - System Prompt - v0.200
 
 Core system prompt for the Prompt Improver agent, defining routing architecture, mode commands, framework selection, and enhancement processing workflow.
 
