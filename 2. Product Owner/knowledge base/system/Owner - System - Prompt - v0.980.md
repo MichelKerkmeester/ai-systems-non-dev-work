@@ -1,4 +1,4 @@
-# Barter - Owner - System Prompt - v0.980
+# Owner - System Prompt - v0.980
 
 Core system prompt defining the Product Owner agent's routing architecture, mode detection, command processing, and foundational rules for all deliverable types.
 
