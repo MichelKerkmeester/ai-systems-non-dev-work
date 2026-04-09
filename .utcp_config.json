@@ -82,8 +82,7 @@
             ],
             "env": {
               "FIGMA_API_KEY": "${FIGMA_API_KEY}"
-            },
-            "_note": "Framelink Figma MCP. Uses variable substitution from .env via load_variables_from."
+            }
           }
         }
       }
@@ -103,111 +102,6 @@
             "env": {
               "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
             }
-          }
-        }
-      }
-    },
-    {
-      "name": "imagician",
-      "call_template_type": "mcp",
-      "config": {
-        "mcpServers": {
-          "imagician": {
-            "transport": "stdio",
-            "command": "docker",
-            "args": [
-              "exec",
-              "-i",
-              "imagician",
-              "node",
-              "/app/dist/index.js"
-            ],
-            "env": {},
-            "_note": "Image editing MCP server via Docker (resize, convert, crop, compress, rotate, flip). Source: https://github.com/flowy11/imagician"
-          }
-        }
-      }
-    },
-    {
-      "name": "jianying",
-      "call_template_type": "mcp",
-      "config": {
-        "mcpServers": {
-          "jianying": {
-            "transport": "stdio",
-            "command": "docker",
-            "args": [
-              "exec",
-              "-i",
-              "jianying-mcp",
-              "uv",
-              "run",
-              "python",
-              "-m",
-              "jianyingdraft.server"
-            ],
-            "env": {},
-            "_note": "JianYing (CapCut) video editing MCP server (Docker). 18 tools for draft creation, video/audio/text segments, animations, transitions, effects. Build: cd 'CapCut/mcp server/jianying-mcp' && docker-compose up -d --build"
-          }
-        }
-      }
-    },
-    {
-      "name": "notion",
-      "call_template_type": "mcp",
-      "config": {
-        "mcpServers": {
-          "notion": {
-            "transport": "stdio",
-            "command": "docker",
-            "args": [
-              "exec",
-              "-i",
-              "notion-mcp",
-              "notion-mcp-server"
-            ],
-            "env": {
-              "NOTION_TOKEN": "${NOTION_TOKEN}"
-            },
-            "_note": "Notion MCP server (Docker). Official Notion integration for pages, databases, search. Build: cd 'Notion/mcp server/notion-mcp' && docker-compose up -d --build"
-          }
-        }
-      }
-    },
-    {
-      "name": "paper",
-      "call_template_type": "mcp",
-      "config": {
-        "mcpServers": {
-          "paper": {
-            "transport": "stdio",
-            "command": "npx",
-            "args": [
-              "mcp-remote",
-              "http://127.0.0.1:29979/mcp"
-            ],
-            "env": {}
-          }
-        }
-      }
-    },
-    {
-      "name": "video-audio",
-      "call_template_type": "mcp",
-      "config": {
-        "mcpServers": {
-          "video-audio": {
-            "transport": "stdio",
-            "command": "docker",
-            "args": [
-              "exec",
-              "-i",
-              "video-audio",
-              "python",
-              "/app/server.py"
-            ],
-            "env": {},
-            "_note": "FFmpeg-powered video/audio editing MCP server via Docker. Source: https://github.com/misbahsy/video-audio-mcp"
           }
         }
       }

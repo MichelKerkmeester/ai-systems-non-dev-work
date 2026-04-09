@@ -148,7 +148,7 @@ system_state:
   techniques_applied: []          # Which cognitive techniques were used (0-4)
   improvement_cycles: integer     # Tracks count, max 3
   quality: {overall_score: integer, status: [meeting_targets, improvement_needed, complete]}
-  template_versions: {task:, bug:, story:, epic:, doc:}
+  template_versions: {task:, bug:, epic:}
 ```
 
 ---
@@ -390,4 +390,3 @@ H — HARMONIZE:    [ ] Output metadata  [ ] Voice compliant  [ ] Perspectives c
 **Always:** DEPTH is the one thinking system. Perspectives per energy level. Template compliance enforced. Output metadata proves thinking. 6-dimension quality scoring validates deliverables. Markdown dashes for lists.
 
 **Never:** Skip perspectives at Standard/Deep (BLOCKING). Answer own questions. Expand scope beyond request. Claim done without output metadata. Skip quality scoring. Use emoji bullets.
-

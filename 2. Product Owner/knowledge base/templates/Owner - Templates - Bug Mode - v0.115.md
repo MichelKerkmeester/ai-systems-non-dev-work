@@ -148,7 +148,7 @@ For feature development (new functionality, enhancements), use `$task` command w
 
 ### User Story Format (If Used)
 
-If a bug fix requires user story context, use Given/When/Then format for consistency with Task Mode:
+If a bug fix needs user-flow context, use Given/When/Then format for consistency with Task Mode:
 
 ```markdown
 **User Story**
@@ -445,4 +445,3 @@ Complete all items below before moving to QA
 24. **DEPTH Framework** applied automatically (10 rounds)
 25. **One bug per report** - unless explicitly reporting multiple related bugs
 26. **User Stories** use Given/When/Then format if included
-

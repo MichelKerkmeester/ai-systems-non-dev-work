@@ -1,6 +1,6 @@
 # Product Owner System - User Guide v0.096
 
-Transforms requests into professional tickets, bugs, stories, epics, and documentation with **concise transparent DEPTH processing**.
+Transforms requests into professional tasks and bug reports with **concise transparent DEPTH processing**.
 
 ## TABLE OF CONTENTS
 
@@ -17,13 +17,13 @@ Transforms requests into professional tickets, bugs, stories, epics, and documen
 
 ## 1. ✨ KEY FEATURES
 
-- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.205, Bug v0.115, Story v0.152, Doc v0.133)
+- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.205, Bug v0.115)
 - **🧠 DEPTH Framework**: Energy-level methodology with two-layer transparency (Raw/Quick/Standard/Deep)
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
 - **🔬 Enhanced Cognitive Rigor**: 5 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first)
 - **📊 Two-Layer Model**: Full rigor internally, concise updates externally with improved transparency guidelines
 - **📊 6-Dimension Quality Scoring**: Completeness, Clarity, Actionability, Accuracy, Relevance, Mechanism Depth (all 8+, Accuracy 9+)
-- **🚀 Four Modes**: Tickets, Bugs, Stories, Documentation
+- **🚀 Core Modes**: Tasks, Bugs, Interactive, Quick
 - **⚡ Quick Mode**: Quick energy level (D → P → H)
 - **💬 Single Question**: All info gathered at once
 - **🎯 Auto-Complexity**: Smart detection and scaling
@@ -44,9 +44,7 @@ Interactive Mode v0.400 (Conversation flow)
     ↓
 Templates:
 ├── Task Mode v0.205 (Development tasks)
-├── Bug Mode v0.115 (Defect tracking)
-├── Story Mode v0.152 (User stories)
-└── Doc Mode v0.133 (Documentation)
+└── Bug Mode v0.115 (Defect tracking)
     ↓
 Output → export/[###]-artifact.md
 ```
@@ -81,7 +79,7 @@ Add these documents to your project:
 **Core Framework:**
 - `Product Owner - DEPTH Thinking Framework - v0.200.md` (two-layer transparency, mandatory perspectives, energy levels)
 - `Product Owner - Interactive Mode - v0.400.md` (conversation flow & smart routing)
-- `Owner - Rules - Human Voice - v0.101.md` (global voice clarity rules, word blacklists, anti-patterns)
+- `Owner - Rules - Human Voice - EN - v0.210.md` (global voice clarity rules, word blacklists, anti-patterns)
 
 **Self-Contained Templates:**
 Each template is fully self-contained with embedded rules, quality checks, and formatting standards:
@@ -99,16 +97,6 @@ Each template is fully self-contained with embedded rules, quality checks, and f
   - Root cause tracking in Resolution Checklist
   - References section with Figma evidence links
    
-- **`Product Owner - Template - Story Mode - v0.152.md`**
-  - User stories in narrative format (no QA checklist)
-  - Focus on user journey and requirements
-  - Production-aligned structure with H2 About, H3 Success Criteria
-   
-- **`Product Owner - Template - Doc Mode - v0.133.md`**
-  - Technical and user documentation
-  - Complexity levels: Simple (2-3), Standard (4-6), Complex (7+)
-  - Tool-agnostic design principles
-
 **Key Advantages:**
 - No external rule dependencies - everything embedded in each template
 - Automatic complexity scaling based on request keywords
@@ -121,14 +109,13 @@ need user authentication        # Interactive discovery flow
 $quick auth task                # Immediate task creation (Quick energy)
 $task payment integration       # Direct task mode (Standard energy)
 $bug login not working          # Direct bug mode (Standard energy)
-$story user login               # Direct story mode (Standard energy)
 ```
 
 ---
 
 ## 4. 🎛️ OPERATING MODES
 
-**Default Mode:** The system defaults to `$interactive` with Standard energy DEPTH unless specified.
+**Default Mode:** The system defaults to interactive guidance with Standard energy DEPTH unless specified.
 
 | Mode            | Purpose                  | Questions       | DEPTH Energy                   | Transparency | Template Version | Output               |
 | --------------- | ------------------------ | --------------- | ------------------------------ | ------------ | ---------------- | -------------------- |
@@ -136,12 +123,10 @@ $story user login               # Direct story mode (Standard energy)
 | **$quick**      | Fast creation            | NONE            | Quick (D → P → H)             | Summary      | Auto-selected    | Exact request        |
 | **$task**       | Dev tasks                | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.205           | Requested task only  |
 | **$bug**        | Bug reports              | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.115           | Requested bug only   |
-| **$story**      | User stories             | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.152           | Requested story only |
-| **$doc**        | Documentation            | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.133           | Requested doc only   |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question gathering all info at once:
-- Deliverable type (ticket/bug/story/epic/doc)
+- Deliverable type (task/bug)
 - Scope/scale
 - Brief description
 
@@ -164,7 +149,7 @@ System waits for complete response before proceeding.
 - **Detailed QA checklist** - Resolution items for verification
 - **Mechanism explanations** - WHY before WHAT structure
 
-**Key Feature:** Includes Resolution Checklist for QA verification (differentiates from stories)
+**Key Feature:** Includes Resolution Checklist for QA verification
 
 **Complexity Levels:**
 | Level        | Indicators                        | Sections | Resolution Items | Use Case                           |
@@ -215,71 +200,11 @@ System waits for complete response before proceeding.
 
 ---
 
-### 📖 Story Mode (v0.152)
-
-**Purpose:** User stories in narrative format focusing on user journey and experience
-
-**Key Features:**
-- **User-centric format:** "As a [user], I want to [action] so that [benefit]"
-- **User journey focus:** Emphasizes user perspective and experience throughout
-- **Given-When-Then criteria:** Acceptance criteria in standard user story format
-- **No Resolution Checklist:** Stories end with acceptance criteria (key differentiator)
-- **Business value clear:** Explicit articulation of user and business value
-
-**Complexity Levels:**
-| Level        | Indicators                  | Sections | Focus                 | Use Case                 |
-| ------------ | --------------------------- | -------- | --------------------- | ------------------------ |
-| **Simple**   | simple, basic, quick        | 2-3      | Single user action    | Simple user interactions |
-| **Standard** | feature, capability, flow   | 4-5      | Complete user journey | Standard user features   |
-| **Complex**  | platform, system, ecosystem | 6-8      | Multi-step scenarios  | Complex user workflows   |
-
-**Story vs Task vs Bug Comparison:**
-| Feature        | Story (v0.152)            | Task (v0.205)            | Bug (v0.115)              |
-| -------------- | ------------------------- | ------------------------ | ------------------------- |
-| **Command**    | `$story`                  | `$task`                  | `$bug`                    |
-| **Focus**      | User journey & experience | Technical implementation | Defect tracking           |
-| **Evidence**   | ❌ No                      | ❌ No                     | ✅ Yes (⌥)                 |
-| **Root Cause** | ❌ No                      | ❌ No                     | ✅ Yes                     |
-| **Checklist**  | ❌ No Resolution Checklist | ✅ Detailed QA Checklist  | ✅ Resolution + Root Cause |
-| **Complexity** | Auto-scaled (3 levels)    | Auto-scaled (3 levels)   | Fixed                     |
-| **Use Case**   | Requirements definition   | Implementation tracking  | Bug fixes, defects        |
-
-**Story vs Task vs Bug Comparison** table references: Story v0.152, Task v0.205, Bug v0.115
-
----
-
-### 📄 Doc Mode (v0.133)
-
-**Purpose:** Technical documentation and user guides
-
-**Self-Contained Features:**
-- Complete formatting rules embedded
-- Self-contained quality checks
-- Standalone operation
-- No external dependencies
-
-**Complexity Levels:**
-| Type         | Main Sections | Depth           | Use Case                   | Examples                                 |
-| ------------ | ------------- | --------------- | -------------------------- | ---------------------------------------- |
-| **Simple**   | 2-3           | Quick reference | Product briefs, overviews  | Feature announcements, quick guides      |
-| **Standard** | 4-6           | Detailed guide  | Feature specs, user guides | API documentation, user manuals          |
-| **Complex**  | 7+            | Comprehensive   | Strategy docs, platforms   | Architecture docs, system specifications |
-
-**Common Documentation Types:**
-- **Feature Documentation** - How features work and how to use them
-- **API Documentation** - Endpoint specifications and examples
-- **User Guides** - Step-by-step instructions for end users
-- **Technical Specifications** - System architecture and design
-- **Strategy Documents** - Product vision and roadmaps
-- **Process Documentation** - Workflows and procedures
-
----
-
 ## 6. 💬 INTERACTIVE MODE
 
 ### Conversational Guidance Flow
 
-**Default behavior** when no mode specified ($task, $bug, $story, $doc, $quick)
+**Default behavior** when no mode specified ($task, $bug, $quick)
 
 **Process:**
 ```
