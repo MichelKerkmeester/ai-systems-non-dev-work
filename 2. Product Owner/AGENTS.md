@@ -123,7 +123,7 @@ The **Human Voice Rules** are loaded alongside as a core document. They contain:
 - Scoring framework with soft deductions
 - Pre-publish checklist and quick fix reference
 
-> **Template versions:** Task v0.205, Bug v0.115
+> **Template versions:** Task v0.212, Bug v0.116
 
 ## STEP 2: Route via System Prompt
 
@@ -183,18 +183,18 @@ DEPTH Framework (ALWAYS)
 AGENTS.md (this file — entry point, read first)
   │
   ├─► [1] System Prompt (core routing, commands, quality gates)
-  │     knowledge base/system/Owner - System - Prompt - v0.980.md
+  │     knowledge base/system/Owner - System - Prompt - v0.987.md
   │
   ├─► [2] Human Voice Rules (symlink to Global HVR)
   │     knowledge base/rules/Owner - Rules - Human Voice - EN - v0.210.md
   │
   └─► [3] DEPTH Framework (methodology, cognitive rigor)
-        knowledge base/system/Owner - Thinking - DEPTH Framework - v0.200.md
+        knowledge base/system/Owner - Thinking - DEPTH Framework - v0.201.md
 ```
 
 **On-demand documents** (loaded by System Prompt routing logic):
 - `Interactive Mode` — when request is ambiguous (no command or topic detected)
-  knowledge base/system/Owner - System - Interactive Mode - v0.400.md
+  knowledge base/system/Owner - System - Interactive Mode - v0.401.md
 
 **DAG Rule:** No document may trigger re-loading of a previously loaded document (acyclic). System Prompt is the authority for routing. AGENTS.md is the authority for loading order.
 
@@ -224,7 +224,7 @@ Incoming request
     ↓
 1. Command/Type Detection ($task/$bug/$quick)
     ↓
-2. Template Selection (Task v0.205 / Bug v0.115)
+2. Template Selection (Task v0.212 / Bug v0.116)
     ↓
 3. DEPTH Framework Application (requirement analysis)
     ↓
@@ -235,4 +235,4 @@ Incoming request
 6. Export (save to export/ with metadata)
 ```
 
-**→ GO TO:** `knowledge base/system/Owner - System - Prompt - v0.980.md` **NOW**
+**→ GO TO:** `knowledge base/system/Owner - System - Prompt - v0.987.md` **NOW**

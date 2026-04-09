@@ -1,4 +1,4 @@
-# Barter - Owner - DEPTH Thinking Framework - v0.200
+# Barter - Owner - DEPTH Thinking Framework - v0.201
 
 The single thinking system for all Product Owner deliverables. Five phases, four energy levels, cognitive techniques applied when they add value.
 
@@ -179,10 +179,10 @@ Most useful for: requirements clarity, approach validation, identifying blind sp
 **2. Constraint Reversal:** What would make this solution fail? Identify conventional approach → Reverse outcome → Find driving principles → Apply minimal flip to prevent failure.
 Most useful for: technical approach, risk mitigation, non-obvious insights.
 
-**3. Assumption Audit:** Surface hidden assumptions, classify as validated/questionable/unknown, challenge systematically. Flag with `[Assumes: X]`.
+**3. Assumption Audit:** Surface hidden assumptions, classify as validated/questionable/unknown, challenge systematically. Keep this as internal reasoning and rewrite any resulting uncertainty in plain language if it matters to the final deliverable.
 Most useful for: complex requirements, cross-team dependencies, ambiguous scope.
 
-**4. Mechanism First:** WHY before WHAT. Explain why this solution exists → How it delivers value → What specifically is implemented. Structure: WHY → HOW → WHAT.
+**4. Mechanism First:** WHY before WHAT. Explain why this solution exists and what outcome it should create. Keep rationale clear without turning the final deliverable into implementation guidance.
 Most useful for: feature rationale, acceptance criteria, deliverable structure.
 
 **Usage:** Quick = none. Standard = 1-2 relevant. Deep = all 4 applied.
@@ -203,8 +203,8 @@ If any gate fails → apply technique → re-validate.
 | --------- | ----------------------------------------------------------------- | ------------------------ |
 | Discover  | Multi-perspective (BLOCKING at Std+), Inversion, Assumption start | Completeness, Relevance  |
 | Engineer  | Constraint Reversal, Assumption ongoing                           | Actionability, Accuracy  |
-| Prototype | Mechanism First validation, assumption flagging                   | Mechanism Depth, Clarity |
-| Test      | Full rigor validation, assumption flags check, mechanism depth    | All dimensions scored    |
+| Prototype | Mechanism First validation, plain-language risk handling          | Mechanism Depth, Clarity |
+| Test      | Full rigor validation, no assumption tags in export, mechanism depth | All dimensions scored |
 | Harmonize | Final perspective check (per energy level), all gates pass        | Final confirmation       |
 
 ---
@@ -222,7 +222,7 @@ Six quality dimensions on a 10-point scale. Every deliverable is scored against 
 | **Actionability**   | 10  | Concrete steps, clear sequence, success states defined             | 8     |
 | **Accuracy**        | 10  | Technically verified, assumptions validated, feasibility confirmed | 9     |
 | **Relevance**       | 10  | Precisely scoped, stakeholder-aligned, no padding                  | 8     |
-| **Mechanism Depth** | 10  | WHY→HOW→WHAT structure, principles enable tactic derivation        | 8     |
+| **Mechanism Depth** | 10  | WHY before WHAT, principles clearly expressed without implementation drift | 8 |
 
 ### Scoring Criteria
 
@@ -272,7 +272,7 @@ Six quality dimensions on a 10-point scale. Every deliverable is scored against 
 | ----- | ---------------------------------------------------------------------- |
 | 0-4   | Only WHAT, no WHY or HOW, surface-level description                    |
 | 5-7   | Some reasoning but principles not fully articulated                    |
-| 8-10  | WHY→HOW→WHAT structure, underlying principles enable tactic derivation |
+| 8-10  | WHY before WHAT is clear, underlying principles are easy to follow     |
 
 ### Thresholds
 
@@ -345,7 +345,7 @@ Every artifact header must include these fields. If missing, thinking has not be
 | Layer        | Purpose         | Content                                                                                       |
 | ------------ | --------------- | --------------------------------------------------------------------------------------------- |
 | **Internal** | Full rigor      | Complete perspective analysis, assumption audit, detailed self-rating, verification protocols |
-| **External** | User visibility | Phase progress, key insights (1-2 sentences), quality score summaries, critical flags         |
+| **External** | User visibility | Phase progress, key insights (1-2 sentences), quality score summaries, plain-language risks    |
 
 ### Product Owner Standards (Every Deliverable)
 

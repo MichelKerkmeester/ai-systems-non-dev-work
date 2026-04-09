@@ -1,4 +1,4 @@
-# Barter - Owner - Interactive Mode - v0.400
+# Barter - Owner - Interactive Mode - v0.401
 
 Conversation flows, state management, and response patterns for interactive guidance with concise transparency.
 
@@ -35,7 +35,7 @@ Conversation flows, state management, and response patterns for interactive guid
 | Layer                  | Details                                                                                                                                    |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Internal** (Full)    | Multi-perspective (min 3, target 5) MANDATORY, complete DEPTH (Standard energy: all 5 phases), all cognitive rigor, quality self-rating 8+ |
-| **External** (Concise) | Progress updates by phase, key insights only, critical assumptions flagged, quality score summary                                          |
+| **External** (Concise) | Progress updates by phase, key insights only, dependency risks handled in plain language, quality score summary                             |
 
 ### Conversation Templates
 
@@ -128,7 +128,7 @@ states:
     expectedInputs: [unexpected_behavior, expected_behavior, reproduction_steps]
   comprehensive_question:
     trigger: no command detected (default)
-    expectedInputs: [deliverable_type, scope, requirements, context, assumptions]
+    expectedInputs: [deliverable_type, scope, requirements, context, constraints_to_challenge]
 
   immediate_delivery:
     trigger: $quick command detected
@@ -229,7 +229,7 @@ intelligent_parser:
     type: ['task', 'bug', 'fix', 'feature']
     scope: ['backend', 'frontend', 'mobile', 'fullstack']
     scale: ['program', 'strategic']
-    complexity: ['simple', 'standard', 'complex']
+    shape_hint: ['small', 'medium', 'large']
   extract_requirements: [core_functionality, success_criteria, constraints, assumptions_to_challenge]
   apply_cognitive_rigor:
     validation_steps: [multi_perspective_analysis, assumption_audit, mechanism_first_validation]
@@ -241,7 +241,7 @@ handle_ambiguity:
     constraint_reversal: { ask: "I see potential conflict between [A] and [B]. Which takes priority?" }
     assumption_audit:    { ask: "I'm assuming [X]. Is that correct?" }
     perspective_inversion: { ask: "What's the argument for NOT doing this?" }
-  fallback: [infer_from_context, use_common_defaults, flag_assumption_in_deliverable]
+  fallback: [infer_from_context, use_common_defaults, use_safe_plain_language]
 ```
 
 ---
@@ -254,7 +254,7 @@ error_patterns:
   missing_context:         { response: "Need more info about {field}: {specific_question}", action: targeted_follow_up }
   ambiguous_type:          { response: "Which format works best? {options}", action: clarify_intent }
   processing_error:        { response: null, action: fallback_to_template, log: true }
-  unvalidated_assumptions: { response: "Before proceeding, let me validate: {assumptions}", action: assumption_audit_question }
+  unvalidated_assumptions: { response: "Before proceeding, let me validate: {assumptions}", action: clarify_risk_in_plain_language }
 
 fallbacks:
   incomplete_requirements: infer_from_context
@@ -262,7 +262,7 @@ fallbacks:
   unclear_complexity: auto_determine
   verification_failed: use_safe_language
   quality_below_threshold: enhance_and_retry
-  unvalidated_assumptions: flag_in_deliverable
+  unvalidated_assumptions: rewrite_in_plain_language
 ```
 
 ---
@@ -298,7 +298,7 @@ validate_artifact:
     - header_present: starts_with 'Mode:'
     - format_compliant: per_template
     - quality_score: "each dimension >= 8 on 10-point scale"
-    - assumptions_flagged: where_needed
+    - dependency_risks_handled: plain_language_when_needed
     - mechanism_first: WHY_before_WHAT
     - perspectives_minimum: ">= 3"
 ```
@@ -310,7 +310,7 @@ validate_artifact:
 - Multi-perspective analysis (5 perspectives)
 - Requirements addressed (complete coverage)
 - Format standards met (appropriate template version)
-- Assumptions flagged (3 critical dependencies)
+- Dependency risks clarified in plain language
 - Mechanism-first validated (WHY before WHAT)
 Ready for delivery.
 ```

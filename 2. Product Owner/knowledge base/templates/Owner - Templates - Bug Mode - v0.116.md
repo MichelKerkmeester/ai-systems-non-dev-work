@@ -1,4 +1,4 @@
-# Owner - Templates - Bug Mode - v0.115
+# Owner - Templates - Bug Mode - v0.116
 
 Structured bug report templates for defect tracking and resolution. Fixed structure with Evidence capture, reproduction steps, and root cause analysis requirements.
 
@@ -152,10 +152,18 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 
 ```markdown
 **User Story**
+
+---
+
 - **Given:** {current buggy state}
 - **When:** {user action that triggers bug}
 - **Then:** {expected correct behavior after fix}
 ```
+
+### Assumptions
+
+- Never add `[Assumes: ...]` in bug exports
+- If uncertainty matters, describe it in plain language under the relevant section
 
 ---
 
