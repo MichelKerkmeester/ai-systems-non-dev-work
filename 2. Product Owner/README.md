@@ -17,7 +17,7 @@ Transforms requests into professional tasks and bug reports with **concise trans
 
 ## 1. ✨ KEY FEATURES
 
-- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.205, Bug v0.115)
+- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.212, Bug v0.116)
 - **🧠 DEPTH Framework**: Energy-level methodology with two-layer transparency (Raw/Quick/Standard/Deep)
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
 - **🔬 Enhanced Cognitive Rigor**: 5 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first)
@@ -26,7 +26,7 @@ Transforms requests into professional tasks and bug reports with **concise trans
 - **🚀 Core Modes**: Tasks, Bugs, Interactive, Quick
 - **⚡ Quick Mode**: Quick energy level (D → P → H)
 - **💬 Single Question**: All info gathered at once
-- **🎯 Auto-Complexity**: Smart detection and scaling
+- **🎯 Structure Fit**: Task shape adapts to the request and the source task structure
 - **✅ Quality Gates**: Three-phase validation (pre-creation, creation, post-creation)
 
 ---
@@ -38,13 +38,13 @@ AGENTS.md → Entry point with routing logic
     ↓
 Product Owner - System Prompt.md (System prompt - routing & rules)
     ↓
-DEPTH Framework v0.200 (Methodology with energy levels)
+DEPTH Framework v0.201 (Methodology with energy levels)
     ↓
-Interactive Mode v0.400 (Conversation flow)
+Interactive Mode v0.401 (Conversation flow)
     ↓
 Templates:
-├── Task Mode v0.205 (Development tasks)
-└── Bug Mode v0.115 (Defect tracking)
+├── Task Mode v0.212 (Development tasks)
+└── Bug Mode v0.116 (Defect tracking)
     ↓
 Output → export/[###]-artifact.md
 ```
@@ -77,20 +77,24 @@ All deliverables are saved to `export/[###]-description.md` before being referen
 Add these documents to your project:
 
 **Core Framework:**
-- `Product Owner - DEPTH Thinking Framework - v0.200.md` (two-layer transparency, mandatory perspectives, energy levels)
-- `Product Owner - Interactive Mode - v0.400.md` (conversation flow & smart routing)
+- `Product Owner - DEPTH Thinking Framework - v0.201.md` (two-layer transparency, mandatory perspectives, energy levels)
+- `Product Owner - Interactive Mode - v0.401.md` (conversation flow & smart routing)
 - `Owner - Rules - Human Voice - EN - v0.210.md` (global voice clarity rules, word blacklists, anti-patterns)
 
 **Self-Contained Templates:**
 Each template is fully self-contained with embedded rules, quality checks, and formatting standards:
 
-- **`Product Owner - Template - Task Mode - v0.205.md`**
+- **`Product Owner - Template - Task Mode - v0.212.md`**
   - Development tasks with detailed QA Resolution Checklists
-  - Auto-scaling: Simple (4-6 items), Standard (8-12), Complex (12-20)
-  - Includes mechanism-first validation and scope discipline
-  - **Subtask Template:** Dedicated template for parent-child task decomposition (v0.205+)
+  - Flexible task structure aligned to the live task corpus
+  - Numbered verification checklist groups for easy reference
+  - Fixed checklist intro text: `⚠️ Complete all items above AND below before moving to QA`
+  - Checklist numbering is independent from requirement numbering when needed
+  - Optional related-task context and alignment-aware final checklist group
+  - Fixed User Story format with `**User Story**`, divider, and bold Given / When / Then bullets
+  - **Subtask Template:** Dedicated template for parent-child task decomposition (v0.212+)
 
-- **`Product Owner - Template - Bug Mode - v0.115.md`**
+- **`Product Owner - Template - Bug Mode - v0.116.md`**
   - Bug reports with evidence tracking and reproduction steps
   - Fixed complexity (no scaling - bugs have consistent structure)
   - Evidence section for screenshots/logs/error output
@@ -99,9 +103,9 @@ Each template is fully self-contained with embedded rules, quality checks, and f
    
 **Key Advantages:**
 - No external rule dependencies - everything embedded in each template
-- Automatic complexity scaling based on request keywords
+- Structure guidance that adapts to the request and the source task shape
 - Complete quality checklists and error recovery built-in
-- Consistent DEPTH v0.200 integration across all templates
+- Consistent DEPTH v0.201 integration across all templates
 
 ### Step 4: Start Creating
 ```
@@ -121,8 +125,8 @@ $bug login not working          # Direct bug mode (Standard energy)
 | --------------- | ------------------------ | --------------- | ------------------------------ | ------------ | ---------------- | -------------------- |
 | **Interactive** | Determine what to create | 1 comprehensive | Standard (concise updates)     | Two-layer    | Auto-selected    | Exact request        |
 | **$quick**      | Fast creation            | NONE            | Quick (D → P → H)             | Summary      | Auto-selected    | Exact request        |
-| **$task**       | Dev tasks                | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.205           | Requested task only  |
-| **$bug**        | Bug reports              | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.115           | Requested bug only   |
+| **$task**       | Dev tasks                | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.212           | Requested task only  |
+| **$bug**        | Bug reports              | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.116           | Requested bug only   |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question gathering all info at once:
@@ -143,24 +147,28 @@ System waits for complete response before proceeding.
 **Purpose:** Development tasks with detailed QA checklists for implementation tracking
 
 **Format Improvements:**
-- **Compressed About sections** - 1-2 lines with bold key-value pairs
-- **Streamlined requirements** - Bullet format with inline descriptions
-- **Tighter success criteria** - Essential metrics only
-- **Detailed QA checklist** - Resolution items for verification
-- **Mechanism explanations** - WHY before WHAT structure
+- **Flexible context block** - Optional Scope, References, Epic, Ticket and related sections as needed
+- **Structured requirements** - Numbered groups with outcome-focused descriptions and checkbox requirements
+- **Numbered verification checklist** - Every checklist group is numbered for easy reference
+- **Independent checklist numbering** - Checklist numbers do not need to match requirement numbers
+- **Fixed checklist intro** - Always uses the exact same Resolution Checklist intro line
+- **Cross-task alignment support** - Related tasks and final scope-boundary validation can be captured explicitly
+- **Fixed User Story format** - Always uses the same heading, divider and bold Given / When / Then bullets
+- **Source-aware updates** - Existing task structure can be preserved during sync work
+- **Outcome-first structure** - WHY, WHAT and Validation
 
 **Key Feature:** Includes Resolution Checklist for QA verification
 
-**Complexity Levels:**
-| Level        | Indicators                        | Sections | Resolution Items | Use Case                           |
-| ------------ | --------------------------------- | -------- | ---------------- | ---------------------------------- |
-| **Simple**   | bug, fix, typo, update            | 2-3      | 4-6              | Quick fixes and minor updates      |
-| **Standard** | feature, dashboard, api           | 4-5      | 8-12             | Standard features and enhancements |
-| **Complex**  | platform, architecture, migration | 6-8      | 12-20            | System-wide changes and migrations |
+**Structure Fit Guidance:**
+| Shape Hint   | Typical Signals                   | Pattern                                      | Use Case                           |
+| ------------ | --------------------------------- | -------------------------------------------- | ---------------------------------- |
+| **Small**    | bug, fix, typo, update            | Flat or single-category requirement groups   | Quick fixes and minor updates      |
+| **Medium**   | feature, page, interface          | Category headings recommended                | Standard features and refinements  |
+| **Large**    | platform, system, migration       | Multiple category headings and grouped QA    | Larger multi-area changes          |
 
 ---
 
-### 🐛 $bug Mode (v0.115)
+### 🐛 $bug Mode (v0.116)
 
 **Purpose:** Bug reports with evidence tracking, reproduction steps, and root cause analysis
 
@@ -180,17 +188,17 @@ System waits for complete response before proceeding.
 ```
 
 **Bug vs Task Comparison:**
-| Feature              | Bug (v0.115)         | Task (v0.205)          |
+| Feature              | Bug (v0.116)         | Task (v0.212)          |
 | -------------------- | -------------------- | ---------------------- |
 | **Command**          | `$bug` or `$b`       | `$task` or `$t`        |
 | **Purpose**          | Defect tracking      | Feature development    |
 | **Evidence Section** | ✅ Yes (⌥)            | ❌ No                   |
 | **Root Cause**       | ✅ Yes (in checklist) | ❌ No                   |
-| **Complexity**       | Fixed (no scaling)   | Auto-scaled (3 levels) |
+| **Complexity**       | Fixed (no scaling)   | Flexible by task shape |
 | **Resolution List**  | ✅ Yes (✓)            | ✅ Yes (✓)              |
 | **Use Case**         | Bug fixes, defects   | New features, tasks    |
 
-**Bug vs Task Comparison** table references: Bug v0.115, Task v0.205
+**Bug vs Task Comparison** table references: Bug v0.116, Task v0.212
 
 **When to Use Bug Mode:**
 - Reporting defects or unexpected behavior
@@ -215,7 +223,7 @@ Single Comprehensive Question
      ↓
 Wait for Complete User Response
      ↓
-Apply DEPTH v0.200 (Standard energy with concise updates)
+Apply DEPTH v0.201 (Standard energy with concise updates)
      ↓
 Deliver Exact Request
 ```
@@ -227,7 +235,7 @@ Deliver Exact Request
 - Applies full DEPTH with two-layer transparency
 - Routes to appropriate template based on user's answer
 
-**Full details:** `Product Owner - Interactive Mode - v0.400.md`
+**Full details:** `Product Owner - Interactive Mode - v0.401.md`
 
 ---
 
@@ -247,7 +255,7 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 | **Standard** | D → E → P → T → H | Concise progress updates | Default for all modes  |
 | **Deep**     | D(ext) → E → P → T → H | Full progress updates | Explicit or complex    |
 
-### DEPTH Phases (v0.200 with Energy Levels)
+### DEPTH Phases (v0.201 with Energy Levels)
 
 | Phase         | Purpose             | Internal Processing                                                      | User Sees                             |
 | ------------- | ------------------- | ------------------------------------------------------------------------ | ------------------------------------- |
@@ -267,7 +275,7 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 ⚙️ **Engineering solution** (8 approaches evaluated)
 **Selected:** Microservice architecture with event-driven sync
 
-🔨 **Building** (Template v0.205, mechanism-first validated)
+🔨 **Building** (Template v0.212, outcome-first validated)
 **Structure:** 5 sections, 12 acceptance criteria
 
 ✅ **Quality validation complete**
@@ -282,7 +290,7 @@ Ready for delivery
 Five cognitive techniques applied internally (users see key insights only):
 
 1. **Multi-Perspective Analysis** - BLOCKING requirement (min 3, target 5) with enforcement at multiple validation gates
-2. **Assumption Audit** - Critical flags shown with explicit `[Assumes: X]` notation
+2. **Assumption Audit** - Critical dependencies are surfaced only when they materially affect the task
 3. **Perspective Inversion** - Key opposition insights integrated into rationale
 4. **Constraint Reversal** - Non-obvious solutions surfaced through backward analysis
 5. **Mechanism First** - WHY before WHAT validation ensuring principle-driven design
@@ -291,7 +299,7 @@ Five cognitive techniques applied internally (users see key insights only):
 
 **Validation Gates:** Three-phase enforcement (pre-creation, during creation, post-creation) ensures consistent excellence
 
-**Full details:** `Product Owner - DEPTH Thinking Framework - v0.200.md`
+**Full details:** `Product Owner - DEPTH Thinking Framework - v0.201.md`
 
 ---
 
@@ -339,4 +347,4 @@ Every deliverable is scored against six dimensions before delivery. This replace
 **Assumption Flagged:** [Assumes: SSO integration available by Sprint 3]
 ```
 
-**Full details:** `Product Owner - DEPTH Thinking Framework - v0.200.md` (Section 4)
+**Full details:** `Product Owner - DEPTH Thinking Framework - v0.201.md` (Section 4)
