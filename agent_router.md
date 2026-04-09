@@ -85,11 +85,15 @@ $ARGUMENTS
 
 Systems are discovered at runtime by scanning the filesystem. A **system** is any directory containing an `AGENTS.md` file.
 
-### Base Scan Path
+### Base Scan Path (Dynamic)
 
-```
-/Users/michelkerkmeester/MEGA/Development/AI Systems/
-```
+Derive `ai_systems_root` from the current workspace path. Do not hardcode user-specific absolute paths.
+
+1. Start from the current working directory.
+2. Find the nearest ancestor directory named `AI Systems`.
+3. Set `ai_systems_root` to that directory.
+   - Example: `/Users/alex/MEGA/Development/AI Systems/Barter` -> `/Users/alex/MEGA/Development/AI Systems`
+4. If no `AI Systems` ancestor exists, use a `path:` override from the user.
 
 ### Discovery Procedure
 
@@ -97,7 +101,7 @@ Systems are discovered at runtime by scanning the filesystem. A **system** is an
 
 1. Use Glob to find all AGENTS.md files:
    ```
-   Glob: /Users/michelkerkmeester/MEGA/Development/AI Systems/**/AGENTS.md
+   Glob: {ai_systems_root}/**/AGENTS.md
    ```
 
 2. For each result, extract:
@@ -213,21 +217,22 @@ Reply with letter:
 **Purpose:** Scan the filesystem to build a dynamic registry of all available AI Systems
 
 **Activities:**
-1. Run Glob: `Glob("/Users/michelkerkmeester/MEGA/Development/AI Systems/**/AGENTS.md")`
-2. For each result:
+1. Resolve `ai_systems_root` using the dynamic base scan path rules above
+2. Run Glob: `Glob("{ai_systems_root}/**/AGENTS.md")`
+3. For each result:
    - Extract `agent_folder` (parent directory of AGENTS.md)
    - Extract `group` (first directory under `AI Systems/`, e.g., `Barter` or `Public`)
    - Extract raw folder name and normalize to `system_name`:
      - Strip leading number prefix: `\d+\.\s*` → empty (e.g., `3. TikTok SEO & Creative Strategy` → `TikTok SEO & Creative Strategy`)
-3. **Exclude** folders where the name starts with `z` or `0.`
-4. **Deduplicate** by `system_name`: if same name appears in multiple groups, prefer `Barter/` over `Public/`
-5. Store as `discovered_systems[]`
+4. **Exclude** folders where the name starts with `z` or `0.`
+5. **Deduplicate** by `system_name`: if same name appears in multiple groups, prefer `Barter/` over `Public/`
+6. Store as `discovered_systems[]`
 
 **Validation checkpoint:**
 - [ ] At least 1 system discovered
 - [ ] No duplicate system names in final list
 
-**Failure:** `STATUS=FAIL ERROR="No AI Systems found. Check base path."`
+**Failure:** `STATUS=FAIL ERROR="No AI Systems found. Check resolved ai_systems_root or use path:<path>."`
 
 ---
 

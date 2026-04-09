@@ -3,7 +3,7 @@
 Conversation flows, state management, and response patterns for interactive guidance with concise transparency.
 
 **Loading Condition:** TRIGGER
-**Scope:** Conversation flows, state machines, response templates, command detection ($doc/$task/$bug/$story/$quick), two-layer transparency, quality control, formatting rules, cognitive rigor enforcement
+**Scope:** Conversation flows, state machines, response templates, command detection ($task/$bug/$quick), two-layer transparency, quality control, formatting rules, cognitive rigor enforcement
 
 ## TABLE OF CONTENTS
 
@@ -42,7 +42,7 @@ Conversation flows, state management, and response patterns for interactive guid
 | Mode                                      | Flow                                                                   |
 | ----------------------------------------- | ---------------------------------------------------------------------- |
 | **Standard** (no command)                 | Welcome + comprehensive question (ALL info) → Wait → Process → Deliver |
-| **Direct** ($doc/$task/$bug/$story) | Context-specific question → Wait → Process → Deliver                   |
+| **Direct** ($task/$bug) | Context-specific question → Wait → Process → Deliver                   |
 | **Quick** ($quick)                        | Skip questions → Process immediately → Deliver                         |
 
 ---
@@ -60,12 +60,11 @@ Please provide the following information at once:
 
 **1. Deliverable type:**
 - Task - Development task with QA checklist
-- User Story - Narrative format requirements
-- Documentation - Technical or user guides
+- Bug - Defect report with evidence and reproduction steps
 
 **2. Scope & complexity:**
 - For tasks: Backend/Frontend/Mobile/Full-stack/DevOps/QA
-- For docs: Quick (2-3 sections)/Standard (4-6)/Comprehensive (7+)
+- For bugs: Platform, affected area, severity and reproduction context
 
 **3. Requirements:**
 - What needs to be built/fixed
@@ -93,17 +92,6 @@ I'll create your task. Quick questions:
 **Validation:** What am I likely misunderstanding? What constraints should I question?
 ```
 
-### Story Context Question
-
-```markdown
-I'll create your user story. Quick questions:
-
-**User & scope:** Who is the user? (role, context, persona) Backend/Frontend/Mobile/Full-stack/DevOps/QA
-**User need:** What does the user want to accomplish? Why? What problem does it solve?
-**Success criteria:** Observable outcomes? How will we know this is complete?
-**Validation:** What should I NOT assume about user behavior?
-```
-
 ### Bug Context Question
 
 ```markdown
@@ -114,16 +102,6 @@ I'll create your bug report. Quick questions:
 **Design reference:** Figma references showing expected design?
 **Evidence:** Screenshots, error logs, console output? When first noticed? Known workaround?
 **Validation:** What should I NOT assume about root cause? Related bug reports?
-```
-
-### Documentation Context Question
-
-```markdown
-Creating your documentation. Please provide:
-
-**Scope & audience:** Quick (2-3)/Standard (4-6)/Comprehensive (7+) sections; Technical team/End users/Stakeholders/Mixed
-**Content:** What needs to be documented? Level of technical detail? Specific examples needed?
-**Validation:** What expertise level should I NOT assume? What "obvious" things need explanation?
 ```
 
 ---
@@ -137,23 +115,17 @@ states:
   start:
     detect_command: true
     routes:
-      $doc: doc_context_question      # alias: $d
       $task: task_format_question     # alias: $t
       $bug: bug_context_question      # alias: $b
-      $story: story_context_question  # alias: $s
       $quick: immediate_delivery      # alias: $q
       default: comprehensive_question
     wait: true
 
   # Command states: trigger → display template → waitForInput: true → nextState: processing
-  doc_context_question:
-    expectedInputs: [scope, audience, content_requirements]
   task_format_question:
     expectedInputs: [format, scope, requirements, acceptance_criteria]
   bug_context_question:
     expectedInputs: [unexpected_behavior, expected_behavior, reproduction_steps]
-  story_context_question:
-    expectedInputs: [user_role, user_need, success_criteria]
   comprehensive_question:
     trigger: no command detected (default)
     expectedInputs: [deliverable_type, scope, requirements, context, assumptions]
@@ -191,9 +163,7 @@ commands:
   # All commands: energy_level: standard, skip_type_question: true, ask: context_only
   # Exception: $task has skip_type_question: false, ask_format: true
   # Exception: $quick has skip_all_questions: true, use: smart_defaults, energy_level: quick
-  $doc:   { aliases: [$d], type: documentation, mode: doc }
   $task:  { aliases: [$t], type: task, mode: task, skip_type_question: false, ask_format: true }
-  $story: { aliases: [$s], type: user_story, mode: story }
   $bug:   { aliases: [$b], type: bug_report, mode: bug }
   $quick: { aliases: [$q], type: auto_detect, skip_all_questions: true, use: smart_defaults, energy_level: quick }
 
@@ -233,8 +203,8 @@ conversation_flow:
 process_input:
   1_detect_intent:
     - scan_for:
-        commands: ['$doc', '$d', '$task', '$t', '$bug', '$b', '$story', '$s', '$quick', '$q']
-        keywords: ['doc', 'documentation', 'spec', 'guide', 'task', 'dev task', 'bug', 'defect', 'issue', 'error', 'broken', 'crash', 'failing', 'fix', 'story', 'feature', 'capability', 'quick']
+        commands: ['$task', '$t', '$bug', '$b', '$quick', '$q']
+        keywords: ['task', 'dev task', 'bug', 'defect', 'issue', 'error', 'broken', 'crash', 'failing', 'fix', 'feature', 'capability', 'quick']
     - if_found: extract_intent_and_requirements
     # Note: Semantic topic detection defined in System Prompt Section 4.3
   2_apply_cognitive_rigor:
@@ -256,7 +226,7 @@ process_input:
 
 intelligent_parser:
   detect_patterns:
-    type: ['task', 'doc', 'story', 'bug', 'fix']
+    type: ['task', 'bug', 'fix', 'feature']
     scope: ['backend', 'frontend', 'mobile', 'fullstack']
     scale: ['program', 'strategic']
     complexity: ['simple', 'standard', 'complex']
@@ -383,10 +353,8 @@ formatting_enforcement:
 | Missing          | Default Applied         |
 | ---------------- | ----------------------- |
 | Scope (task)     | Infer from requirements |
-| Scale (story)    | Standard if unclear     |
-| Complexity (doc) | Standard (4-6 sections) |
-| Audience         | Technical team          |
-| Format           | Most common for type    |
+| Complexity       | Standard if unclear     |
+| Format           | Task unless bug indicators are clear |
 | Platform         | All                     |
 
 ### Key Rules Summary
@@ -397,4 +365,3 @@ formatting_enforcement:
 - **Formatting**: markdown dashes only, multi-line enforced, emoji bullets PROHIBITED
 - **Two-Layer Transparency**: full DEPTH internal, concise updates external
 - **Cross-refs**: DEPTH Framework, System Prompt Section 3 (modes), System Prompt Section 4.3 (semantic detection)
-

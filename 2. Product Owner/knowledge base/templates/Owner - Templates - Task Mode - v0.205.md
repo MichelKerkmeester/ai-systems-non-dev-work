@@ -44,9 +44,6 @@ Streamlined task templates aligned with real-world ClickUp usage patterns. Conci
 - **HEADER AT TOP:** System metadata appears as first line of artifact (optional)
 - **INTERACTIVE QUESTIONS:** All question logic is in Interactive Mode (not duplicated here)
 
-### Note on User Stories
-For user story format (narrative without resolution checklists), use `$story` command which references **Owner - Templates - Story Mode**
-
 ### Note on Bugs
 For isolated bug reports with reproduction steps and evidence, use `$bug` command which references **Owner - Templates - Bug Mode**. For grouped bugs or refinement tasks, use this Task Mode template.
 
@@ -87,15 +84,15 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - **H2:** ⌘ (About)
 - **H3:** ❖ (Requirements), ✓ (Resolution Checklist)
 - **H3 Bold:** `### **{Group Name}**` — Area/group headings within Requirements
-- **Bold:** — (References, Scope, Flows, Components, User Story)
+- **Bold:** — (References, Flows, Components, User Story)
 - **Bold Sub-label:** `**Requirements**` — Before each checkbox group (not a heading)
 - **Bold Numbered:** `**N. {Group Name}**` — Resolution Checklist group labels
 - **H4:** NOT used in Task mode
 
 #### Structure Order
 1. Title (# Task Title) - FIRST LINE
-2. About (## ⌘) - Narrative description + Scope (bold label, optional)
-3. References (**bold**) - Flows, Components (after Scope, OPTIONAL)
+2. About (## ⌘) - Narrative description
+3. References (**bold**) - Flows, Components (OPTIONAL)
 4. Requirements (### ❖) - Numbered items with `**Requirements**` checkbox groups
 5. Resolution Checklist (### ✓) - Numbered bold groups with checkbox items mirroring requirements
 
@@ -104,7 +101,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - **Lists:** Always use `-` for bullets, `- [ ]` for checkboxes
 - **Numbered Items:** Use `1.   **{Item Title}**` (3 spaces after period, bold title)
 - **Requirements Sub-label:** Use `**Requirements**` (bold, not a heading) before each checkbox group
-- **Bold Labels:** Use `**Label**` followed by `---` for: Scope, References, Flows, Components, User Story, Checklist Categories
+- **Bold Labels:** Use `**Label**` followed by `---` for: References, Flows, Components, User Story, Checklist Categories
 - **Separators:** Use `---` after H2/H3 headers, after bold section labels, after numbered item titles, and between groups. Always include a blank line before and after `---`
 - **References:** Bold label (`**References**`) with subsections **Flows** and **Components**, each followed by `---`
 - **Inline Images:** Supported throughout using `![alt text](image.png)` — placed after requirements checkboxes
@@ -119,7 +116,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - `### **{Group Name}**` for area/group headings within Requirements
 - `**Requirements**` bold sub-label (not a heading) before each checkbox group
 - `**N. {Group Name}**` bold numbered label for Resolution Checklist groups
-- Bold labels for References, Scope, Flows, Components, Checklist Categories (followed by `---`)
+- Bold labels for References, Flows, Components, Checklist Categories (followed by `---`)
 - H4 NOT used in Task mode
 - Consistent spacing throughout
 
@@ -149,9 +146,8 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 - Design system component updates: NO
 
 ### Content Integration
-- **About Section:** Contains narrative description + Scope (optional)
+- **About Section:** Contains narrative description
 - **Narrative:** 1-3 sentences explaining what and why
-- **Scope:** Bulleted list of deliverables and changes (optional for simple tasks)
 - **Practical Focus:** Implementation-ready, concise, actionable
 
 ### Task Focus Areas
@@ -205,9 +201,9 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ### Structure Validation
 - [ ] About section uses H2 (## ⌘ About)?
-- [ ] About contains narrative + Scope (if standard/complex)?
+- [ ] About contains a clear narrative description?
 - [ ] References uses bold label format (**References**)?
-- [ ] Bold labels (Scope, References, Flows, etc.) followed by ---?
+- [ ] Bold labels (References, Flows, etc.) followed by ---?
 - [ ] Requirements section uses H3 (### ❖ Requirements)?
 - [ ] Requirements use numbered format: `1.   **{Item Title}**` (3 spaces after period)?
 - [ ] Each numbered item has a `**Requirements**` sub-label with checkboxes?
@@ -237,7 +233,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 
 ### Mode-Specific Validation
 - [ ] About uses narrative format?
-- [ ] Scope uses bulleted list (if included)?
 - [ ] Requirements use numbered checkbox format with `**Requirements**` sub-labels?
 - [ ] User Stories embedded under requirements (Given/When/Then)?
 - [ ] Resolution checklist scaled (4-6/8-12/12-20)?
@@ -273,9 +268,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 #### Requirements or Checklist Using H2
 **Fix:** Change `## ❖ Requirements` to `### ❖ Requirements` and `## ✓ Resolution Checklist` to `### ✓ Resolution Checklist` - H3 for these sections
 
-#### Missing Scope Section (Standard/Complex)
-**Fix:** Add `**Scope**` with bulleted list after narrative in About section
-
 #### Checklist Categories Don't Match Requirements
 **Fix:** Rename checklist categories to mirror requirement section names
 
@@ -305,7 +297,7 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 2. Wait for comprehensive response
 3. Check template version
 4. Verify symbol hierarchy (H2 for About, H3 for Requirements/Checklist, Bold for References)
-5. Use narrative + Scope format in About (optional for simple)
+5. Use a concise narrative in About
 6. Use numbered checkbox format in Requirements with `**Requirements**` sub-labels
 7. Use Given/When/Then for User Stories
 8. Mirror requirement structure in Resolution Checklist categories
@@ -396,15 +388,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 {2-3 sentence narrative explaining what this change does, why it matters, and the expected outcome.}
 
 **Ticket:** {ClickUp ID}
-
-**Scope**
-
----
-
-- **{Category}:** {Details}
-- **{Category}:** {Details}
-
----
 
 **References**
 
@@ -526,16 +509,6 @@ For isolated bug reports with reproduction steps and evidence, use `$bug` comman
 {3-4 sentence comprehensive narrative explaining the current situation, what this change does, why it matters strategically, and the expected business/user outcome.}
 
 **Ticket:** {ClickUp ID}
-
-**Scope**
-
----
-
-- **{Category}:** {Details}
-- **{Category}:** {Details}
-- **{Category}:** {Details}
-
----
 
 **References**
 
@@ -702,16 +675,6 @@ Use this template when a task breaks down into multiple subtasks. The parent tas
 {Overview description of the full initiative and its components.}
 
 **Ticket:** {ClickUp ID}
-
-**Scope**
-
----
-
-- **{Subtask Area 1}:** {Brief description}
-- **{Subtask Area 2}:** {Brief description}
-- **{Subtask Area 3}:** {Brief description}
-
----
 
 **References**
 
@@ -916,15 +879,6 @@ Use this template for individual subtasks that belong to a parent task. Each sub
 
 {Context paragraph with key details.}
 
-**Scope**
-
----
-
-- **{Category}:** {Details}
-- **{Category}:** {Details}
-
----
-
 ### ❖ Requirements
 
 ---
@@ -990,28 +944,26 @@ Use this template for individual subtasks that belong to a parent task. Each sub
 
 1. **Always wait** for user response (except $quick)
 2. **Never answer** own questions
-3. **About Section** uses H2 (## ⌘ About) with narrative + optional Scope
+3. **About Section** uses H2 (## ⌘ About) with narrative only
 4. **Narrative** explains WHAT and WHY (1-3 sentences)
-5. **Scope** lists deliverables/changes as bulleted list (optional for simple tasks)
-6. **References** uses bold label format (`**References**`), not a heading - OPTIONAL
-7. **Two Reference patterns:** Flows/Components OR Changed/Impacted
-8. **Bold labels** (Scope, References, Flows, Components, Checklist Categories) use `---` separator after each
-9. **Requirements** use H3 (### ❖ Requirements) with numbered format: `1.   **{Item Title}**` and `**Requirements**` checkbox groups
-10. **User Stories** use **Given/When/Then** format (BDD style)
-11. **User Stories** are for FEATURE tasks, not technical/bug tasks
-12. **Inline images** supported: `![alt text](image.png)`
-13. **[Assumes: X]** pattern for inline assumptions
-14. **Functional Requirements** is optional final requirement grouping
-15. **Resolution Checklist** categories MIRROR requirement structure
-16. **H2 for About only** (## ⌘ About)
-17. **H3 for Requirements/Checklist** (### ❖ Requirements, ### ✓ Resolution Checklist)
-18. **Use `---` dividers** after headings, numbered items, and between groups
-19. **Validation is always last** category in checklist
-20. **Mobile validation:** Tested on iOS, Tested on Android, QA verified
-21. **Web validation:** Cross-browser testing, QA verified
+5. **References** uses bold label format (`**References**`), not a heading - OPTIONAL
+6. **Two Reference patterns:** Flows/Components OR Changed/Impacted
+7. **Bold labels** (References, Flows, Components, Checklist Categories) use `---` separator after each
+8. **Requirements** use H3 (### ❖ Requirements) with numbered format: `1.   **{Item Title}**` and `**Requirements**` checkbox groups
+9. **User Stories** use **Given/When/Then** format (BDD style)
+10. **User Stories** are for FEATURE tasks, not technical/bug tasks
+11. **Inline images** supported: `![alt text](image.png)`
+12. **[Assumes: X]** pattern for inline assumptions
+13. **Functional Requirements** is optional final requirement grouping
+14. **Resolution Checklist** categories MIRROR requirement structure
+15. **H2 for About only** (## ⌘ About)
+16. **H3 for Requirements/Checklist** (### ❖ Requirements, ### ✓ Resolution Checklist)
+17. **Use `---` dividers** after headings, numbered items, and between groups
+18. **Validation is always last** category in checklist
+19. **Mobile validation:** Tested on iOS, Tested on Android, QA verified
+20. **Web validation:** Cross-browser testing, QA verified
 22. **No Table of Contents**
 23. **Only requested features** - no scope expansion
 24. **DEPTH Framework** applied automatically (10 rounds standard, 1-5 quick)
 25. **Parent Task pattern** available for tasks with subtasks
 26. All literal, actionable requirements MUST use `- [ ]` checkbox syntax — never plain bullets or numbered sub-lists.
-
