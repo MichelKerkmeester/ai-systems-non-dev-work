@@ -2,8 +2,6 @@
 
 Structured bug report templates for defect tracking and resolution. Fixed structure with Evidence capture, reproduction steps, and root cause analysis requirements.
 
-> **Note:** Bug Mode intentionally omits decorative symbols for clinical clarity (ADR-005).
-
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides self-contained bug report templates for filing ISOLATED defects when $bug or $b command is detected
 **Scope:** Bug mode overview, delivery standards, quality checklists, error recovery, complete bug template, DEPTH Framework integration

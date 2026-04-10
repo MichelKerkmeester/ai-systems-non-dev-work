@@ -420,13 +420,6 @@ The Resolution Checklist should mirror the task at the same level that best supp
 
 {1-3 short paragraphs describing the task, why it matters and what outcome it should create.}
 
-**Scope**
-
----
-
-- {Optional scope item}
-- {Optional scope item}
-
 **References**
 
 ---
