@@ -710,7 +710,6 @@ Workspace: {
 - [Webhooks Guide](https://clickup.com/api/clickupreference/operation/CreateWebhook) - Event subscription setup
 
 ### Related Systems
-- [mcp-code-mode](../mcp-code-mode/) - Code Mode tool orchestration (required for MCP approach)
-- [mcp-figma](../mcp-figma/) - Cross-tool workflow: Figma design to ClickUp task
+- [Figma Agent](../Figma/) - Cross-tool workflow: Figma design to ClickUp task
 - [Notion Agent](../Notion/) - Notion workspace management AI system
 - [Media Editor](../Media%20Editor/) - Media processing AI system

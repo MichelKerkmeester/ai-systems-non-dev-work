@@ -1085,7 +1085,9 @@ what_do_you_need:
 
 ### Related Resources
 
-- `mcp-figma/SKILL.md` - Main skill instructions
-- `mcp-figma/INSTALL_GUIDE.md` - Option A and Option B setup
-- `mcp-figma/references/tool_reference.md` - Source tool reference
-- `mcp-figma/assets/tool_categories.md` - Priority categorization
+- `../system/Figma - System - Prompt - v0.100.md` - Routing logic and core agent rules
+- `../system/Figma - Thinking - SYNC Framework - v0.100.md` - 4-phase processing methodology
+- `../system/Figma - System - Interactive Intelligence - v0.100.md` - Clarification flow
+- `../reference/Figma - Reference - Combined Workflows - v0.100.md` - Multi-tool patterns
+- `../../INSTALL_GUIDE.md` - Option A (Official HTTP/OAuth) and Option B (Framelink stdio) setup
+- `../../AGENTS.md` - Entry point with Context Override and Document Loading DAG
