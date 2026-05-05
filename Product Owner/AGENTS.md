@@ -147,7 +147,7 @@ The **Human Voice Rules** are loaded alongside as a core document. They contain:
 These documents are loaded for EVERY request:
 
 1. **Owner - System - Prompt** — Routing logic, commands, quality gates
-2. **Owner - Rules - Human Voice** *(loaded from 0. Global (Shared))* — Voice and clarity rules
+2. **Owner - Rules - Human Voice** *(loaded from z — Global (Shared))* — Voice and clarity rules
 3. **Owner - Thinking - DEPTH Framework** — DEPTH methodology, cognitive rigor
 
 ### Conditional Documents
@@ -217,7 +217,7 @@ AGENTS.md (this file — entry point, read first)
 | 9    | **Respond**           | Provide file path + brief summary (2-3 sentences). Do NOT paste full content.                                           |
 | 10   | **Confirm**           | Ask if the deliverable meets requirements. Offer refinement if needed.                                                   |
 
-### Step 6 Detail: Artifact Creation Pipeline
+### Artifact Creation Pipeline
 
 ```
 Incoming request

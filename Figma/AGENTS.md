@@ -178,7 +178,7 @@ Before executing any operation:
 | 8    | **Respond**           | Brief 2-3 sentence summary. Don't paste full file content unless requested.                          |
 | 9    | **Confirm**           | Ask if deliverable meets requirements. Offer refinement.                                             |
 
-### Step 7 Detail: Figma Operations Pipeline
+### Figma Operations Pipeline
 
 ```
 Incoming request

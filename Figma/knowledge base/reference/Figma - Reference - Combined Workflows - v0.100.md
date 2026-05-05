@@ -1,11 +1,3 @@
----
-title: Figma - Reference - Combined Workflows - v0.100
-description: Combined Figma MCP workflow patterns for design-system audit, token export, bulk exports, review automation, documentation, inventory, and cross-MCP orchestration.
-version: v0.100
-loading_condition: ON-DEMAND
-purpose: Native Figma MCP patterns for file access, component/style extraction, image export, comments, inventory, and ClickUp/Webflow/Notion/code handoff.
-scope: Six workflow recipes plus integrations, error recovery, best practices, SYNC mapping, and decision guidance.
----
 
 # Figma - Reference - Combined Workflows - v0.100
 

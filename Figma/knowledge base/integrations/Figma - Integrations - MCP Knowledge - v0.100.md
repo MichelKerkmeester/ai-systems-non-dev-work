@@ -1,20 +1,3 @@
----
-title: Figma - Integrations - MCP Knowledge - v0.100
-description: Comprehensive technical reference for all 18 Figma MCP tools, integration paths, Code Mode invocation patterns, and priority-based routing for native MCP design-file access.
-trigger_phrases:
-  - figma mcp
-  - figma integration
-  - figma tools
-  - design file access
-  - export figma image
-  - figma components
-  - figma styles
-  - figma comments
-importance_tier: high
-contextType: knowledge
-_memory:
-  continuity: "Use this document as the Figma MCP Agent's canonical v0.100 integration reference for native MCP tool selection, setup, and Code Mode usage."
----
 
 # Figma - Integrations - MCP Knowledge - v0.100
 

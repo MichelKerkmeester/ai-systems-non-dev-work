@@ -37,33 +37,6 @@ The ClickUp Agent connects AI assistants to ClickUp through two complementary to
 
 ---
 
-## 2. 🆕 WHAT'S NEW IN V0.100
-
-### Complete System Rebuild
-- **AI System Architecture**: Full transformation from skill (SKILL.md) to AI System aligned with Media Editor/Notion architecture, including AGENTS.md entry point, export protocol, reading instructions, and processing hierarchy
-- **SYNC Framework**: Superior 4-phase methodology (Survey → Yield → Navigate → Create) replacing previous implicit routing for clearer operation tracking
-- **Knowledge Base Integration**: Dedicated `knowledge base/` directory with system/, integrations/, and reference/ subfolders for progressive document loading
-- **CLI+MCP Dual Approach**: CLI (30+ commands) for speed and daily task operations, MCP (46 tools) for enterprise features with smart intent-based routing
-
-### Enhanced System Intelligence
-- **Intent-Based Smart Routing**: Automatic detection of CLI vs MCP operations based on request signals — task CRUD routes to CLI, docs/goals/bulk routes to MCP, with transparent fallback
-- **Native Operations Only**: 100% ClickUp-native operations — zero manual processes, zero external tool suggestions
-- **Two-Layer Transparency**: Full cognitive rigor (SYNC thinking) internally, concise progress updates externally
-- **Interactive Intelligence**: Comprehensive question flow for ambiguous requests with single-question clarification
-- **System Prompt with Routing Logic**: Central system prompt containing all command shortcuts ($task, $sprint, $standup, $create, $search, $bulk, $docs, $goals, $time, $workspace, $interactive)
-
-### Core Capabilities
-- **Task Management**: Full CRUD via CLI (preferred) and MCP (fallback/enterprise)
-- **Sprint & Standup**: CLI-native sprint views and standup-ready summaries with Markdown output
-- **Documents & Goals**: Complete lifecycle management via MCP with full page hierarchy support
-- **Bulk Operations**: Create and update multiple tasks in single calls via MCP
-- **Time Tracking**: Start/stop timers, log entries, and categorized time via MCP
-- **Workspace Discovery**: Workspace hierarchy, spaces, lists, and folders via both CLI and MCP
-- **Custom Fields & Tags**: Field definitions, values, and task tagging across both tools
-- **Enterprise Features**: Guest management, audit logs, webhooks, and chat via MCP
-
----
-
 ## 2. ✨ KEY FEATURES
 
 ### Task Management (CLI + MCP)

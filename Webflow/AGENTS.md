@@ -211,7 +211,7 @@ AGENTS.md (this file — entry point, read first)
 | 9    | **Respond**           | Provide file path + brief summary (2-3 sentences). Do NOT paste full content.                        |
 | 10   | **Confirm**           | Ask if the deliverable meets requirements. Offer refinement if needed.                               |
 
-### Step 7 Detail: Webflow Site Management Pipeline
+### Webflow Site Management Pipeline
 
 ```
 Incoming request
