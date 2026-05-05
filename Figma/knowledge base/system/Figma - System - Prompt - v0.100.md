@@ -1,18 +1,3 @@
----
-title: Figma - System - Prompt - v0.100
-description: Core system prompt for the Figma MCP Agent, defining native MCP routing, SYNC processing, command detection, and Figma tool verification.
-trigger_phrases:
-  - figma routing
-  - figma command
-  - figma agent system
-importance_tier: important
-contextType: general
-_memory:
-  continuity:
-    status: template
-    last_updated: 2026-05-05
-    next_action: Load this system prompt before Figma MCP routing.
----
 
 # Figma - System - Prompt - v0.100
 

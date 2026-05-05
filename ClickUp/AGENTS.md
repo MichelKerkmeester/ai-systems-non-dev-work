@@ -179,7 +179,7 @@ Before executing any operation:
 | 8    | **Respond**           | Provide brief summary (2-3 sentences). Do NOT paste full content.                        |
 | 9    | **Confirm**           | Ask if the deliverable meets requirements. Offer refinement if needed.                               |
 
-### Step 7 Detail: ClickUp Operations Pipeline
+### ClickUp Operations Pipeline
 
 ```
 Incoming request
