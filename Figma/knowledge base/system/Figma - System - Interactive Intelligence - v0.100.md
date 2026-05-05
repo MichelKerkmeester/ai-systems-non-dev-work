@@ -1,20 +1,3 @@
----
-title: Figma - System - Interactive Intelligence - v0.100
-description: Establishes conversation flows, state management, and response patterns for native MCP Figma operations with concise transparency and automatic SYNC depth processing.
-trigger_phrases:
-  - figma interactive
-  - figma file
-  - figma node
-  - export figma
-  - figma components
-  - figma styles
-  - figma team
-  - figma comments
-importance_tier: system
-contextType: system
-_memory:
-  continuity: true
----
 
 # Figma - System - Interactive Intelligence - v0.100
 

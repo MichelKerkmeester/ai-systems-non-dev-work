@@ -2,8 +2,6 @@
 
 Reads Figma files through native MCP with **transparent SYNC processing**.
 
-> **About this open-source release:** MIT licensed; contributions welcome. GitHub placeholder: `https://github.com/your-org/figma-agent`.
-
 ## TABLE OF CONTENTS
 
   - 1. 📖 OVERVIEW
@@ -23,7 +21,7 @@ Reads Figma files through native MCP with **transparent SYNC processing**.
 
 ## 1. 📖 OVERVIEW
 
-The Figma MCP Agent connects AI assistants to Figma through native Model Context Protocol servers. It reads files, retrieves nodes, exports assets, extracts component and style metadata, navigates team/project libraries, and manages comments. It is not a designer, not a developer, and not a manual API wrapper. All Figma work goes through registered MCP tools using the `figma.figma_{tool_name}` naming pattern.
+The Figma MCP Agent connects internal Barter AI workflows to Figma through native Model Context Protocol servers. It reads files, retrieves nodes, exports assets, extracts component and style metadata, navigates team/project libraries, and manages comments. It is not a designer, not a developer, and not a manual API wrapper. All Figma work goes through registered MCP tools using the `figma.figma_{tool_name}` naming pattern.
 
 Two integration paths are supported. Option A uses the Official Figma MCP server over HTTP at `https://mcp.figma.com/mcp` with browser OAuth. Option B uses Framelink (`figma-developer-mcp`) over local stdio with a Figma Personal Access Token, which fits Code Mode tool chains. Both expose file access, image export, components, styles, teams, projects, comments, and auth checks.
 
@@ -36,9 +34,9 @@ Two integration paths are supported. Option A uses the Official Figma MCP server
 | Configuration | `opencode.json`, `.mcp.json`, `.vscode/mcp.json`, or `.cursor/mcp.json` | MCP client config or `.utcp_config.json` for Code Mode |
 | Environment variables | None for normal OAuth flow | `figma_FIGMA_API_KEY` for Code Mode |
 | Tool invocation | Native MCP client invocation | Code Mode `call_tool_chain()` TypeScript |
-| Recommended use cases | Fast setup, OAuth-first clients, no local package management | Scripted workflows, multi-tool chains, explicit PAT auth |
+| Recommended use cases | Fast setup, OAuth-first clients, no local package management | Internal scripted workflows, multi-tool chains, explicit PAT auth |
 
-**Community rule:** Use native Figma MCP only. No manual REST calls, browser scraping, or design authoring workarounds.
+**Internal rule:** Use native Figma MCP only. No manual REST calls, browser scraping, or design authoring workarounds.
 
 ---
 
@@ -46,15 +44,14 @@ Two integration paths are supported. Option A uses the Official Figma MCP server
 
 ### Initial Barter System Release
 
-- **AI System Packaging**: Promoted Figma from a standalone skill into a reusable MCP Agent structure with AGENTS.md, knowledge base documents, local MCP server folders, and a user guide.
+- **AI System Packaging**: Promoted Figma from a standalone skill into the Barter MCP Agent structure with AGENTS.md, knowledge base documents, local MCP server folders, and a user guide.
 - **Figma MCP Agent Persona**: Formalized the operating boundary: native MCP only, file-access focused, not a designer, not a developer, and not a manual REST API client.
-- **Open-Source Release**: Prepared the guide for public use under the MIT license, with contribution paths and GitHub-hosted collaboration in mind.
-- **Two Integration Paths**: Documented Option A Official HTTP/OAuth and Option B Framelink stdio/API key so users can choose the right setup path.
+- **Two Integration Paths**: Documented Option A Official HTTP/OAuth and Option B Framelink stdio/API key so internal users can choose the right setup path.
 - **SYNC Framework**: Standardized the 4-phase method: Survey, Yield, Navigate, Create. The final verb is always **Create**.
 - **Command Registry**: Added `$file`, `$node`, `$export`, `$component`, `$style`, `$team`, `$comment`, `$auth`, and `$interactive` routing with short aliases.
 - **MCP Knowledge Base**: Consolidated all 18 Figma MCP tools into one reference for file operations, image export, comments, team/project navigation, components, styles, and auth checks.
 - **Connection-First Gate**: Made `search_tools` plus `figma_check_api_key` the required preflight before Figma operations.
-- **Combined Workflows**: Added workflow patterns for design-system audits, token export, bulk image export, review automation, component documentation, and library inventory.
+- **Combined Workflows**: Added internal workflow patterns for design-system audits, token export, bulk image export, review automation, component documentation, and team library inventory.
 
 ---
 
@@ -133,7 +130,7 @@ Output → Native Figma operations via MCP server only
 ## 5. 🚀 QUICK SETUP
 
 ### Step 1: Create a Project
-Create a new project in your AI workspace (Claude, OpenCode, VS Code Copilot, Cursor, or another MCP-capable client) named "Figma Agent." First-time users should usually start with Option A.
+Create a new project in your AI workspace (Claude, OpenCode, VS Code Copilot, or Cursor) named "Figma Agent."
 
 ### Step 2: Add System Instructions
 Copy and paste the System Prompt into your project's custom instructions:
@@ -148,7 +145,7 @@ Add these documents to your project knowledge base:
 
 ### Step 4: Choose an Integration Path
 
-**Option A: Official Figma MCP (recommended for first-time users)**
+**Option A: Official Figma MCP (recommended for most users)**
 ```bash
 claude mcp add --transport http figma https://mcp.figma.com/mcp
 ```
@@ -203,44 +200,6 @@ See `INSTALL_GUIDE.md` for complete setup with client-specific configuration and
 Full setup guide: `INSTALL_GUIDE.md`.
 
 The install guide covers both supported paths with architecture diagrams, prerequisites, configuration snippets, and validation checkpoints. Option A adds Figma's hosted MCP endpoint and uses OAuth on first use. Option B runs Framelink through `npx`, authenticates with a Figma Personal Access Token, and is the path to use when Code Mode needs `call_tool_chain()` workflows.
-
-Option A integration path:
-
-```text
-User request
-    ↓
-AI client with HTTP MCP
-    ↓
-https://mcp.figma.com/mcp
-    ↓
-Browser OAuth
-    ↓
-Official Figma MCP
-    ↓
-Native figma.figma_* tools
-    ↓
-Files, nodes, images, components, styles, projects, comments
-```
-
-Option B integration path:
-
-```text
-User request
-    ↓
-Code Mode / local MCP client
-    ↓
-.utcp_config.json provider "figma"
-    ↓
-npx -y figma-developer-mcp --stdio
-    ↓
-figma_FIGMA_API_KEY
-    ↓
-Framelink stdio MCP
-    ↓
-figma.figma_* through call_tool_chain()
-    ↓
-Scriptable file, node, export, component, style, team, comment, and auth workflows
-```
 
 ### Option A: Official Figma MCP
 
@@ -682,10 +641,10 @@ type FigmaCommentThread = {
 ## 11. 📦 VERSION HISTORY
 
 ### v0.100 (Current)
-- **Open-Source Agent Release**: Initial public Figma MCP Agent package for community use, available under the MIT license.
+- **Barter Agent Release**: Initial internal Figma MCP Agent package for the Barter MCP Agents workspace.
 - **System Architecture**: AGENTS.md entry point, system prompt, SYNC framework, interactive intelligence, MCP knowledge, and combined workflows.
 - **Native MCP Boundary**: Formalized Figma MCP Agent as native MCP only, not a designer, not a developer, and not a manual API operator.
-- **Two Integration Paths**: Official Figma MCP HTTP/OAuth and Framelink stdio/API key paths documented for public setup.
+- **Two Integration Paths**: Official Figma MCP HTTP/OAuth and Framelink stdio/API key paths documented for internal setup.
 - **Command Routing**: `$file`, `$node`, `$export`, `$component`, `$style`, `$team`, `$comment`, `$auth`, and `$interactive` commands added.
 - **Connection Verification**: `search_tools` plus `figma_check_api_key` made the required preflight.
 
@@ -712,8 +671,6 @@ type FigmaCommentThread = {
 - [Figma - Reference - Combined Workflows - v0.100.md](./knowledge%20base/reference/Figma%20-%20Reference%20-%20Combined%20Workflows%20-%20v0.100.md) - Multi-tool Figma MCP workflow recipes
 
 ### Install and Source References
-- [GitHub repository](https://github.com/your-org/figma-agent) - Public issue tracker, pull requests, and contribution discussion placeholder
-- [MIT License](./LICENSE) - Open-source license for use, modification, and redistribution
 - [INSTALL_GUIDE.md](../../../../Code_Environment/Public/.opencode/skill/mcp-figma/INSTALL_GUIDE.md) - Full setup guide for Official MCP and Framelink
 - [mcp-figma README](../../../../Code_Environment/Public/.opencode/skill/mcp-figma/README.md) - Source skill user guide
 - [mcp-figma SKILL.md](../../../../Code_Environment/Public/.opencode/skill/mcp-figma/SKILL.md) - Source skill routing and invocation rules

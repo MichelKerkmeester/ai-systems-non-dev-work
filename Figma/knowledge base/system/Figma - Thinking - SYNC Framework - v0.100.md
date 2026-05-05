@@ -1,17 +1,3 @@
----
-title: "Figma - Thinking - SYNC Framework - v0.100"
-description: "Systematic SYNC methodology for native Figma MCP Agent workflows across file survey, node navigation, exports, comments, tokens, components, and team discovery."
-trigger_phrases:
-  - "Figma SYNC"
-  - "figma thinking"
-  - "figma workflow"
-  - "figma mcp agent"
-  - "survey yield navigate create"
-importance_tier: "high"
-contextType: "system"
-_memory:
-  continuity: "Default reasoning framework for multi-step Figma MCP Agent workflows. Preserve persona: native MCP, not designer, not developer, not manual API."
----
 
 # Figma - Thinking - SYNC Framework - v0.100
 
