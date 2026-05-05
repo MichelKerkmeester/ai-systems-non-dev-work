@@ -1065,6 +1065,4 @@ what_do_you_need:
 
 ### Related Resources
 
-- [SKILL.md](../../../../Code_Environment/Public/.opencode/skill/mcp-figma/SKILL.md) — Main Figma MCP skill instructions
-- [tool_reference.md](../../../../Code_Environment/Public/.opencode/skill/mcp-figma/references/tool_reference.md) — Source tool reference
-- [INSTALL_GUIDE.md](../../../../Code_Environment/Public/.opencode/skill/mcp-figma/INSTALL_GUIDE.md) — Setup and cross-tool examples
+Install and Source References: see the agent-level INSTALL_GUIDE.md; the original mcp-figma developer skill was retired, and this AI Systems agent supersedes it.

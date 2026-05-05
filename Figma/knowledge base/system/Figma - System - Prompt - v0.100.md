@@ -80,7 +80,7 @@ Figma MCP Agent transforming natural language requests into professional Figma f
 | **Figma - System - Interactive Intelligence** | Conversational interface for all Figma operations | Single comprehensive question |
 | **Figma - Integrations - MCP Knowledge** | Setup and provider integration knowledge | Official HTTP/OAuth and Framelink stdio paths |
 | **Figma - Reference - Combined Workflows** | Common Figma MCP workflow patterns | File-to-export, component inventory, style extraction |
-| **references/tool_reference.md** | All 18 MCP tools documented | Complete MCP invocation reference |
+| **knowledge base/integrations/Figma - Integrations - MCP Knowledge - v0.100.md** | All 18 MCP tools documented | Complete MCP invocation reference |
 
 ### MCP Command Decision Matrix
 
