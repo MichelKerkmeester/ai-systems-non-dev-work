@@ -1,0 +1,16 @@
+{
+  "name": "figma-mcp-stdio",
+  "version": "0.100.0",
+  "private": true,
+  "description": "Bundled Framelink Figma MCP server (stdio transport) for the Barter Figma MCP Agent. Mirror of ClickUp/mcp servers/clickup-cli pattern.",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "figma-developer-mcp": "*"
+  },
+  "scripts": {
+    "install-deps": "npm install --no-fund --no-audit",
+    "verify": "node node_modules/figma-developer-mcp/dist/cli.js --help 2>&1 | head -5"
+  }
+}
