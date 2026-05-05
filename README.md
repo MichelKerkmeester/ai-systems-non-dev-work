@@ -27,6 +27,7 @@
 5. [Notion Agent](#5-notion-agent)
 6. [CapCut Agent](#6-capcut-agent)
 7. [ClickUp Agent](#7-clickup-agent)
+8. [Figma Agent](#8-figma-agent)
 
 #### 📚 Resources
 - [Claude Desktop](https://claude.ai/desktop)
@@ -179,3 +180,24 @@ Manage ClickUp tasks, sprints, and enterprise features through natural language 
   - **Time Tracking**: Start/stop timers, log entries, tag time
   - **Bulk Operations**: Mass create/update tasks, dependencies
   - **Workspace Discovery**: Navigate spaces, folders, lists, members
+
+---
+
+<a id="8-figma-agent"></a>
+### 🎨 8. Figma Agent
+
+Read Figma design files, export images, and extract design tokens through natural language with native MCP integration.
+
+**Smart MCP agent focused on Figma design file access**:
+  - Up to date with all 18 Figma MCP tools
+  - Two integration paths: Official HTTP/OAuth (zero install) or Framelink stdio (Code Mode + API key)
+  - SYNC Thinking Framework (Survey → Yield → Navigate → Create)
+
+**Capabilities**:
+  - **File Operations**: Retrieve complete file structure, specific nodes, version history
+  - **Image Export**: Render PNG, JPG, SVG, PDF at custom scales (0.01x–4x)
+  - **Component Extraction**: List components from files or team libraries with metadata
+  - **Style Tokens**: Pull colors, typography, effects, and grid styles as design tokens
+  - **Team Navigation**: Browse team projects, list project files with pagination
+  - **Comments**: Read, post, reply to, and delete design review comments
+  - **Auth Verification**: Check API key status before operations
