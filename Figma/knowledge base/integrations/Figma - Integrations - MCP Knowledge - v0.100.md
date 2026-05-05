@@ -430,7 +430,7 @@ await figma.figma_get_file_nodes({
 
 ```typescript
 await figma.figma_set_api_key({
-  api_key: "figd_your_token"
+  api_key: "figd_your_token_here"
 });
 ```
 

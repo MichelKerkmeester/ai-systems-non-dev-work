@@ -351,7 +351,7 @@ For Code Mode, configure Figma as the `figma` MCP provider:
         "command": "npx",
         "args": ["-y", "figma-developer-mcp", "--stdio"],
         "env": {
-          "FIGMA_API_KEY": "${FIGMA_API_KEY}"
+          "FIGMA_API_KEY": "${figma_FIGMA_API_KEY}"
         }
       }
     }
@@ -407,7 +407,7 @@ Use the local CLI entrypoint:
       "env": {
         "FIGMA_API_KEY": "${FIGMA_API_KEY}"
       },
-      "cwd": "/Users/michelkerkmeester/MEGA/Development/AI_Systems/Barter/MCP Agents/Figma/mcp servers/figma-mcp-stdio"
+      "cwd": "/Users/<you>/MEGA/Development/AI_Systems/Public/Figma/mcp servers/figma-mcp-stdio"
     }
   }
 }
@@ -603,7 +603,7 @@ From the repo root:
 bash "mcp servers/figma-mcp-http/verify.sh"
 ```
 
-This checks DNS, HTTPS reachability, and MCP protocol response for `https://mcp.figma.com/mcp`. It does not complete OAuth because OAuth requires the browser flow inside your MCP client.
+This checks DNS resolution, HTTPS reachability, and best-effort MCP protocol response for `https://mcp.figma.com/mcp` (note: full MCP protocol verification requires OAuth completion in a real client).
 
 ### Verification Checklist
 

@@ -671,10 +671,7 @@ type FigmaCommentThread = {
 - [Figma - Reference - Combined Workflows - v0.100.md](./knowledge%20base/reference/Figma%20-%20Reference%20-%20Combined%20Workflows%20-%20v0.100.md) - Multi-tool Figma MCP workflow recipes
 
 ### Install and Source References
-- [INSTALL_GUIDE.md](../../../../Code_Environment/Public/.opencode/skill/mcp-figma/INSTALL_GUIDE.md) - Full setup guide for Official MCP and Framelink
-- [mcp-figma README](../../../../Code_Environment/Public/.opencode/skill/mcp-figma/README.md) - Source skill user guide
-- [mcp-figma SKILL.md](../../../../Code_Environment/Public/.opencode/skill/mcp-figma/SKILL.md) - Source skill routing and invocation rules
-- [mcp-figma changelog](../../../../Code_Environment/Public/.opencode/skill/mcp-figma/changelog/) - Source version history
+Install and Source References: see local INSTALL_GUIDE.md (sibling) — the original mcp-figma developer skill was retired; this AI Systems agent supersedes it.
 
 ### External References
 - [Official Figma MCP Server](https://developers.figma.com/docs/figma-mcp-server/) - Figma-hosted MCP documentation

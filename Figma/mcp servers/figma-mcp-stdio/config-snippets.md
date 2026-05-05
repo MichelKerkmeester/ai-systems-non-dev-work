@@ -118,7 +118,7 @@ If you want to use the locally bundled `node_modules/figma-developer-mcp` (no ne
       "env": {
         "FIGMA_API_KEY": "${FIGMA_API_KEY}"
       },
-      "cwd": "/Users/<you>/MEGA/Development/AI_Systems/Barter/MCP Agents/Figma/mcp servers/figma-mcp-stdio"
+      "cwd": "/Users/<you>/MEGA/Development/AI_Systems/Public/Figma/mcp servers/figma-mcp-stdio"
     }
   }
 }
