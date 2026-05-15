@@ -20,11 +20,11 @@
       "type": "local",
       "command": [
         "node",
-        ".opencode/skill/system-spec-kit/mcp_server/dist/context-server.js"
+        ".claude/skills/system-spec-kit/mcp_server/dist/context-server.js"
       ],
       "environment": {
         "EMBEDDINGS_PROVIDER": "auto",
-        "_NOTE_1_DATABASE": "Stores vectors in: .opencode/skill/system-spec-kit/mcp_server/database/context-index.sqlite",
+        "_NOTE_1_DATABASE": "Stores vectors in: .claude/skills/system-spec-kit/mcp_server/database/context-index.sqlite",
         "_NOTE_2_PROVIDERS": "Supports: Voyage (1024 dims), OpenAI (1536/3072 dims), HF Local (768 dims, no API needed)",
         "_NOTE_3_EMBEDDINGS_PROVIDER": "Current: 'hf-local' (free, offline). Options: 'auto', 'voyage', 'openai'",
         "_NOTE_4_CLOUD_PROVIDERS": "For cloud: add VOYAGE_API_KEY or OPENAI_API_KEY and set EMBEDDINGS_PROVIDER=auto",
@@ -36,7 +36,7 @@
       "type": "local",
       "command": [
         "node",
-        ".opencode/skill/mcp-code-mode/mcp_server/dist/index.js"
+        ".claude/skills/mcp-code-mode/mcp_server/dist/index.js"
       ],
       "environment": {
         "UTCP_CONFIG_FILE": ".utcp_config.json"

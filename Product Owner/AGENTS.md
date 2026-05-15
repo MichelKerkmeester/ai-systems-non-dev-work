@@ -123,7 +123,7 @@ The **Human Voice Rules** are loaded alongside as a core document. They contain:
 - Scoring framework with soft deductions
 - Pre-publish checklist and quick fix reference
 
-> **Template versions:** Task v0.212, Bug v0.116
+> **Template versions:** Task v0.222, Bug v0.126
 
 ## STEP 2: Route via System Prompt
 
@@ -183,7 +183,7 @@ DEPTH Framework (ALWAYS)
 AGENTS.md (this file — entry point, read first)
   │
   ├─► [1] System Prompt (core routing, commands, quality gates)
-  │     knowledge base/system/Owner - System - Prompt - v0.987.md
+  │     knowledge base/system/Owner - System - Prompt - v0.997.md
   │
   ├─► [2] Human Voice Rules (symlink to Global HVR)
   │     knowledge base/rules/Owner - Rules - Human Voice - EN - v0.210.md
@@ -224,7 +224,7 @@ Incoming request
     ↓
 1. Command/Type Detection ($task/$bug/$quick)
     ↓
-2. Template Selection (Task v0.212 / Bug v0.116)
+2. Template Selection (Task v0.222 / Bug v0.126)
     ↓
 3. DEPTH Framework Application (requirement analysis)
     ↓
@@ -235,4 +235,4 @@ Incoming request
 6. Export (save to export/ with metadata)
 ```
 
-**→ GO TO:** `knowledge base/system/Owner - System - Prompt - v0.987.md` **NOW**
+**→ GO TO:** `knowledge base/system/Owner - System - Prompt - v0.997.md` **NOW**
