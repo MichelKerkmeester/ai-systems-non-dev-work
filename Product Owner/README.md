@@ -17,7 +17,7 @@ Transforms requests into professional tasks and bug reports with **concise trans
 
 ## 1. ✨ KEY FEATURES
 
-- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.212, Bug v0.116)
+- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.222, Bug v0.126)
 - **🧠 DEPTH Framework**: Energy-level methodology with two-layer transparency (Raw/Quick/Standard/Deep)
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
 - **🔬 Enhanced Cognitive Rigor**: 5 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first)
@@ -43,8 +43,8 @@ DEPTH Framework v0.201 (Methodology with energy levels)
 Interactive Mode v0.401 (Conversation flow)
     ↓
 Templates:
-├── Task Mode v0.212 (Development tasks)
-└── Bug Mode v0.116 (Defect tracking)
+├── Task Mode v0.222 (Development tasks)
+└── Bug Mode v0.126 (Defect tracking)
     ↓
 Output → export/[###]-artifact.md
 ```
@@ -84,21 +84,18 @@ Add these documents to your project:
 **Self-Contained Templates:**
 Each template is fully self-contained with embedded rules, quality checks, and formatting standards:
 
-- **`Product Owner - Template - Task Mode - v0.212.md`**
-  - Development tasks with detailed QA Resolution Checklists
+- **`Product Owner - Template - Task Mode - v0.222.md`**
+  - Development tasks with a header-only Resolution Checklist for QA handoff
   - Flexible task structure aligned to the live task corpus
-  - Numbered verification checklist groups for easy reference
-  - Fixed checklist intro text: `⚠️ Complete all items above AND below before moving to QA`
-  - Checklist numbering is independent from requirement numbering when needed
-  - Optional related-task context and alignment-aware final checklist group
+  - Fixed checklist intro text: `⚠️ Complete all action items before moving to QA`
   - Fixed User Story format with `**User Story**`, divider, and bold Given / When / Then bullets
-  - **Subtask Template:** Dedicated template for parent-child task decomposition (v0.212+)
+  - **Subtask Template:** Dedicated template for parent-child task decomposition (v0.222+)
 
-- **`Product Owner - Template - Bug Mode - v0.116.md`**
+- **`Product Owner - Template - Bug Mode - v0.126.md`**
   - Bug reports with evidence tracking and reproduction steps
   - Fixed complexity (no scaling - bugs have consistent structure)
   - Evidence section for screenshots/logs/error output
-  - Root cause tracking in Resolution Checklist
+  - Header-only Resolution Checklist — root cause documented in Requirements
   - References section with Figma evidence links
    
 **Key Advantages:**
@@ -125,8 +122,8 @@ $bug login not working          # Direct bug mode (Standard energy)
 | --------------- | ------------------------ | --------------- | ------------------------------ | ------------ | ---------------- | -------------------- |
 | **Interactive** | Determine what to create | 1 comprehensive | Standard (concise updates)     | Two-layer    | Auto-selected    | Exact request        |
 | **$quick**      | Fast creation            | NONE            | Quick (D → P → H)             | Summary      | Auto-selected    | Exact request        |
-| **$task**       | Dev tasks                | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.212           | Requested task only  |
-| **$bug**        | Bug reports              | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.116           | Requested bug only   |
+| **$task**       | Dev tasks                | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.222           | Requested task only  |
+| **$bug**        | Bug reports              | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.126           | Requested bug only   |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question gathering all info at once:
@@ -147,17 +144,15 @@ System waits for complete response before proceeding.
 **Purpose:** Development tasks with detailed QA checklists for implementation tracking
 
 **Format Improvements:**
-- **Flexible context block** - Optional Scope, References, Epic, Ticket and related sections as needed
+- **Flexible context block** - Optional References, Epic, Ticket and related sections as needed
 - **Structured requirements** - Numbered groups with outcome-focused descriptions and checkbox requirements
-- **Numbered verification checklist** - Every checklist group is numbered for easy reference
-- **Independent checklist numbering** - Checklist numbers do not need to match requirement numbers
 - **Fixed checklist intro** - Always uses the exact same Resolution Checklist intro line
-- **Cross-task alignment support** - Related tasks and final scope-boundary validation can be captured explicitly
+- **Header-only Resolution Checklist** - Just the heading, divider, and warning line
 - **Fixed User Story format** - Always uses the same heading, divider and bold Given / When / Then bullets
 - **Source-aware updates** - Existing task structure can be preserved during sync work
 - **Outcome-first structure** - WHY, WHAT and Validation
 
-**Key Feature:** Includes Resolution Checklist for QA verification
+**Key Feature:** Includes header-only Resolution Checklist for QA handoff
 
 **Structure Fit Guidance:**
 | Shape Hint   | Typical Signals                   | Pattern                                      | Use Case                           |
@@ -168,37 +163,37 @@ System waits for complete response before proceeding.
 
 ---
 
-### 🐛 $bug Mode (v0.116)
+### 🐛 $bug Mode (v0.126)
 
 **Purpose:** Bug reports with evidence tracking, reproduction steps, and root cause analysis
 
 **Key Features:**
 - **Evidence section (⌥):** Dedicated area for screenshots, logs, and error output
 - **Reproduction steps:** Clear steps to reproduce the issue
-- **Root cause tracking:** Included in Resolution Checklist
+- **Root cause tracking:** Documented in Requirements
 - **Fixed complexity:** No scaling - bugs have consistent structure
-- **Resolution Checklist (✓):** QA verification items with root cause field
+- **Resolution Checklist (✓):** Header-only section for QA handoff
 
 **Structure:**
 ```
 ⌘ About          → Context and bug description
 ⌥ Evidence       → Screenshots, logs, error output
-❖ Requirements   → What needs to be fixed
-✓ Resolution     → QA checklist with root cause
+❖ Requirements   → What needs to be fixed, root cause
+✓ Resolution     → Header-only QA handoff
 ```
 
 **Bug vs Task Comparison:**
-| Feature              | Bug (v0.116)         | Task (v0.212)          |
+| Feature              | Bug (v0.126)         | Task (v0.222)          |
 | -------------------- | -------------------- | ---------------------- |
 | **Command**          | `$bug` or `$b`       | `$task` or `$t`        |
 | **Purpose**          | Defect tracking      | Feature development    |
 | **Evidence Section** | ✅ Yes (⌥)            | ❌ No                   |
-| **Root Cause**       | ✅ Yes (in checklist) | ❌ No                   |
+| **Root Cause**       | ✅ Yes (in Requirements) | ❌ No                   |
 | **Complexity**       | Fixed (no scaling)   | Flexible by task shape |
 | **Resolution List**  | ✅ Yes (✓)            | ✅ Yes (✓)              |
 | **Use Case**         | Bug fixes, defects   | New features, tasks    |
 
-**Bug vs Task Comparison** table references: Bug v0.116, Task v0.212
+**Bug vs Task Comparison** table references: Bug v0.126, Task v0.222
 
 **When to Use Bug Mode:**
 - Reporting defects or unexpected behavior
@@ -275,7 +270,7 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 ⚙️ **Engineering solution** (8 approaches evaluated)
 **Selected:** Microservice architecture with event-driven sync
 
-🔨 **Building** (Template v0.212, outcome-first validated)
+🔨 **Building** (Template v0.222, outcome-first validated)
 **Structure:** 5 sections, 12 acceptance criteria
 
 ✅ **Quality validation complete**
