@@ -1,4 +1,4 @@
-# Owner - Templates - Bug Mode - v0.116
+# Owner - Templates - Bug Mode - v0.126
 
 Structured bug report templates for defect tracking and resolution. Fixed structure with Evidence capture, reproduction steps, and root cause analysis requirements.
 
@@ -28,7 +28,7 @@ Structured bug report templates for defect tracking and resolution. Fixed struct
 - **Thinking:** 10 rounds automatic (DEPTH Framework)
 - **Interactive Mode:** Handled by Interactive Mode file (all question logic lives there)
 - **Structure:** Fixed (no complexity scaling like Task Mode)
-- **Key Feature:** Includes Evidence section and Root Cause tracking in Resolution Checklist
+- **Key Feature:** Includes Evidence section and a header-only Resolution Checklist for QA handoff
 
 ### When to Use Bug Mode
 
@@ -60,7 +60,7 @@ Bug Mode differs from Task Mode in several key ways:
 | Structure    | Auto-scaled (Simple/Standard/Complex) | Fixed structure                |
 | Requirements | Variable features                     | Fixed: Observed/Expected/Steps |
 | Evidence     | Optional (inline images)              | Dedicated section              |
-| Checklist    | Categories mirror requirements        | Bug-specific with root cause   |
+| Checklist    | Header-only (no groups)              | Header-only (no groups)   |
 | Quick Mode   | Supported ($quick task)               | Not supported                  |
 | User Stories | Given/When/Then for features          | Not typically used             |
 
@@ -100,7 +100,7 @@ For feature development (new functionality, enhancements), use `$task` command w
 2. About (##) - Bug description and location
 3. Evidence (###) - Screenshots and Logs (logs optional)
 4. Requirements (###) - Observed/Expected/Steps to Reproduce (FIXED)
-5. Resolution Checklist (###) - Fix/Regression Prevention/Validation
+5. Resolution Checklist (###) - Header-only QA handoff
 
 #### Formatting Standards
 - **Dividers:** Use `---` between all major sections, with a blank line before and after the `---`
@@ -140,9 +140,7 @@ For feature development (new functionality, enhancements), use `$task` command w
 7. **Environment** - Platform, device, OS version, Browser, Browser version (when relevant)
 
 **Resolution Checklist:**
-- Fix category with root cause identification
-- Regression prevention steps
-- Validation requirements
+- Heading `### ✓ Resolution Checklist`, divider, and warning line
 
 ### User Story Format (If Used)
 
@@ -204,12 +202,9 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 - [ ] Priority indicated (P1/P2/P3/P4)?
 - [ ] Environment specified (when relevant)?
 - [ ] Browser/Browser Version specified (for web bugs)?
-- [ ] Resolution Checklist includes root cause item?
-- [ ] Resolution Checklist has Fix category?
-- [ ] Resolution Checklist has Regression Prevention?
-- [ ] Resolution Checklist has Validation?
-- [ ] References section includes relevant Figma links (if applicable)?
-- [ ] Platform-appropriate validation items included (mobile AND/OR web)?
+- [ ] Resolution Checklist uses correct heading and intro line?
+- [ ] Root cause identification addressed in Requirements?
+- [ ] Platform-appropriate validation items included in Requirements (mobile AND/OR web)?
 
 ---
 
@@ -233,7 +228,7 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 **Fix:** Change `# About` to `## About` - H1 reserved for bug title only
 
 #### Missing Root Cause Item
-**Fix:** Add "Root cause identified" checkbox in Fix category
+**Fix:** Add root cause identification in the Requirements section.
 
 #### Steps Not Numbered
 **Fix:** Convert bullets to numbered list: `1. Step one`, `2. Step two`, etc.
@@ -384,41 +379,11 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 
 ---
 
-### Resolution Checklist
+### ✓ Resolution Checklist
 
 ---
 
-Complete all items below before moving to QA
-
-**1. Fix**
-
----
-
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Fix addresses root cause (not just symptom)
-- [ ] Code reviewed
-
-**2. Regression Prevention**
-
----
-
-- [ ] Related areas reviewed for similar issues
-- [ ] Test case added for this bug
-- [ ] Edge cases considered
-
-**3. Validation**
-
----
-
-- [ ] Fix verified in development environment
-- [ ] Verified: Visual comparison to Figma (iOS)
-- [ ] Verified: Visual comparison to Figma (Android)
-- [ ] Verified: Cross-browser (Chrome, Safari, Firefox)
-- [ ] Tested on iOS
-- [ ] Tested on Android
-- [ ] No new issues introduced
-- [ ] Verified: QA
+⚠️ Complete all action items before moving to QA
 ````
 
 ---
@@ -439,10 +404,10 @@ Complete all items below before moving to QA
 12. **Severity** indicates impact level (Critical/High/Medium/Low)
 13. **Priority** indicates fix urgency (P1/P2/P3/P4)
 14. **Environment** specifies platform, device, OS, browser when relevant
-15. **Resolution Checklist** uses H3 (### Resolution Checklist)
-16. **Root cause** must be identified before marking resolved
+15. **Resolution Checklist** uses H3 (### ✓ Resolution Checklist)
+16. **Root cause** must be identified before marking resolved (documented in Requirements)
 17. **H2 for About only** (## About)
-18. **H3 for other sections** (### Evidence, ### Requirements, ### Resolution Checklist)
+18. **H3 for other sections** (### Evidence, ### Requirements, ### ✓ Resolution Checklist)
 19. **Use `---` dividers** between all sections
 20. **No Table of Contents** - rely on ClickUp native TOC
 21. **No complexity scaling** - bugs use single fixed template
