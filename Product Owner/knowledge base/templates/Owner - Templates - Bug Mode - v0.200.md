@@ -1,265 +1,227 @@
 # Owner - Templates - Bug Mode - v0.200
 
-Structured bug report templates for defect tracking and resolution. Fixed structure with Evidence capture, reproduction steps, and root cause analysis requirements.
+Structured bug report template for isolated defects. The structure captures context, observed behavior, reproduction steps, expected behavior and the QA checklist needed before handoff.
 
 **Loading Condition:** ON-DEMAND
-**Purpose:** Provides self-contained bug report templates for filing ISOLATED defects when $bug or $b command is detected
-**Scope:** Bug mode overview, delivery standards, quality checklists, error recovery, complete bug template, DEPTH Framework integration
-**Output Path:** `/export/[###]-artifact.md`
-
-## TABLE OF CONTENTS
-
-  - 1. 🐛 BUG MODE OVERVIEW
-  - 2. 📦 DELIVERY STANDARDS
-  - 3. ✅ QUALITY CHECKLIST
-  - 4. 🚨 ERROR RECOVERY
-  - 5. 📝 BUG REPORT TEMPLATE
-  - 6. 🎯 FINAL REMINDERS
+**Purpose:** Provides self-contained bug report templates for isolated defects when `$bug`, `$b`, `bug report`, `defect`, `broken` or similar language is detected
+**Scope:** Bug mode overview, delivery standards, quality checklist, error recovery and complete bug template
+**Output Path:** `/export/[###] - bug-[description].md`
 
 ---
 
-## 1. 🐛 BUG MODE OVERVIEW
+## 1. Bug mode overview
 
 ### Command: `$bug`
 
 - **Short Alias:** `$b`
-- **Purpose:** Create bug reports with reproduction steps and evidence capture
+- **Purpose:** Create bug reports with context, reproduction steps and QA resolution checklist
 - **Output:** Always as `text/markdown` artifact
-- **Thinking:** 10 rounds automatic (DEPTH Framework)
-- **Interactive Mode:** Handled by Interactive Mode file (all question logic lives there)
-- **Structure:** Fixed (no complexity scaling like Task Mode)
-- **Key Feature:** Includes Evidence section and a final Resolution Checklist warning quote for QA handoff
+- **Thinking:** DEPTH Framework at Standard energy unless the user explicitly requests another mode
+- **Interactive Mode:** Handled by Interactive Mode file when the issue details are too ambiguous
+- **Structure:** Fixed bug report structure with flexible evidence placement
+- **Key Feature:** Uses `About`, `Bug`, optional `BDD Scenarios` and final QA warning quote
 
-### When to Use Bug Mode
+### When to use Bug Mode
 
-**USE Bug Mode for:**
+Use Bug Mode for:
 - Isolated, standalone bug reports
 - Bugs requiring detailed reproduction steps
-- Bugs with clear observed vs expected behavior
-- Bugs that need evidence capture (screenshots, logs)
+- Bugs with clear observed behavior and expected behavior
+- Bugs supported by screenshots, screen recordings, logs or design references
 
-**USE Task Mode instead for:**
+Use Task Mode instead for:
 - Grouped bugs or refinement tasks
 - Bug consolidation tickets
 - Bug fixes combined with feature work
-- Tasks titled "Refinement + Bugs"
+- Tasks titled `Refinement + Bugs`
 
-### Critical Rules
-- **NEVER create artifact until user responds to comprehensive question**
-- **NEVER answer own questions - always wait for user response**
-- **NO TABLE OF CONTENTS** - ClickUp provides native TOC functionality
-- **FIXED STRUCTURE** - All bugs use same template (no Simple/Standard/Complex scaling)
-- **EVIDENCE IS CRITICAL** - Screenshots and logs support bug diagnosis
-- **ROOT CAUSE REQUIRED** - Resolution requires identifying root cause
+### Critical rules
+
+- Do not create an artifact until the user responds to the comprehensive question unless the request contains enough bug context to proceed.
+- Do not answer your own questions when clarification is required.
+- Do not include a table of contents in generated bug reports.
+- Keep one bug per report unless the user explicitly requests grouped bugs.
+- Preserve the fixed template order.
+- Capture screenshots, screen recordings, logs and references where they fit the reported bug.
+- Do not invent missing details. Use `Not provided` when a field matters but no value was supplied.
+- Keep the checklist exactly as defined in the template.
+- Stay in WHAT and WHY, not HOW.
 
 ### Difference from Task Mode
-Bug Mode differs from Task Mode in several key ways:
 
-| Aspect       | Task Mode                             | Bug Mode                       |
-| ------------ | ------------------------------------- | ------------------------------ |
-| Structure    | Auto-scaled (Simple/Standard/Complex) | Fixed structure                |
-| Requirements | Variable features                     | Fixed: Observed/Expected/Steps |
-| Evidence     | Optional (inline images)              | Dedicated section              |
-| Checklist    | Final warning quote                  | Final warning quote       |
-| Quick Mode   | Supported ($quick task)               | Not supported                  |
-| User Stories | Given/When/Then for features          | Not typically used             |
+| Aspect       | Task Mode                             | Bug Mode                                  |
+| ------------ | ------------------------------------- | ----------------------------------------- |
+| Structure    | Auto-scaled by task complexity         | Fixed bug structure                       |
+| Requirements | Variable feature requirements          | Observed behavior and expected behavior   |
+| Evidence     | Optional inline support                | Included where provided                   |
+| Checklist    | Task-specific acceptance requirements  | Fixed QA checklist before handoff         |
+| Quick Mode   | Supported for quick tasks              | Not supported by default                  |
+| BDD          | Often used for feature behavior        | Optional when it clarifies the bug flow   |
 
-### Note on Feature Requests
-For feature development (new functionality, enhancements), use `$task` command which references **Owner - Templates - Task Mode**
+### Note on feature requests
 
----
-
-## 2. 📦 DELIVERY STANDARDS
-
-### Universal Requirements
-- **Artifact Type:** Always use `text/markdown` (never `text/plain`)
-- **Single Artifact:** All content delivered as one artifact
-- **DEPTH Processing:** 10 rounds automatic (not user choice)
-- **Wait for Input:** NEVER proceed without user response to questions
-- **Template Compliance:** Use structure exactly
-- **No Anchors in Output:** NEVER include `<!-- ANCHOR -->` comments in generated deliverables — anchors are template-internal only
-
-### Bug-Specific Standards
-- **Fixed Structure:** All bugs use same 4-section template
-- **Output Focus:** ONLY deliver what user reported
-- **No Scope Expansion:** Single bug per report (unless explicitly multi-bug)
-- **Evidence Focus:** Screenshots and logs are expected (logs optional)
-- **Root Cause Tracking:** Required before marking resolved
-
-> Requirements can be tagged `[Optional for MVP]` to indicate items not required for initial release.
-
-### Mandatory Structure Elements
-
-#### Section Hierarchy
-- **H3:** (About), (Evidence), (Requirements), (Resolution Checklist)
-- **H4:** NOT used in Bug mode
-
-#### Structure Order
-1. Title (# Bug Title) - FIRST LINE
-2. About (###) - Bug description and location
-3. Evidence (###) - Screenshots and Logs (logs optional)
-4. Requirements (###) - Observed/Expected/Steps to Reproduce (FIXED)
-5. Resolution Checklist (###) - Warning quote only for QA handoff
-
-#### Formatting Standards
-- **Dividers:** Use `---` between all major sections, with a blank line before and after the `---`
-- **Lists:** Always use `-` for bullets, `- [ ]` for checkboxes
-- **Images:** Inline using `![alt text](image.png)` in Evidence section
-- **Code Blocks:** Use fenced code blocks for error messages and logs
-- **Steps:** Numbered list for reproduction steps
-
-### Visual Hierarchy Rules
-- Use `---` as major section separators
-- Blank line before and after `---` separators
-- H3 for all core sections (### About, ### Evidence, ### Requirements, )
-- H4 NOT used in Bug mode
-- Consistent spacing throughout
-
-### Content Guidelines
-
-**About Section:**
-- Brief description of the bug (1-2 sentences)
-- Where the bug occurs (screen, flow, component)
-- Impact on user (if relevant)
-
-**Evidence Section:**
-- Screenshots showing the issue (required when available)
-- Console logs or error messages (optional - include when relevant)
-- Network responses (if applicable)
-- Stack traces (for crashes)
-
-**Requirements Section (FIXED):**
-1. **Observed Behavior** - What actually happens
-2. **Expected Behavior** - What should happen
-3. **Steps to Reproduce** - Numbered steps to trigger the bug
-4. **Frequency** - Always / Sometimes / Rarely
-5. **Severity** - Critical / High / Medium / Low
-6. **Priority** - P1 / P2 / P3 / P4
-7. **Environment** - Platform, device, OS version, Browser, Browser version (when relevant)
-
-**Resolution Checklist:**
-- Heading `` and the warning quote only
-
-### User Story Format (If Used)
-
-If a bug fix needs user-flow context, use Given/When/Then format for consistency with Task Mode:
-
-```markdown
-**User Story**
+For feature development or enhancements, use `$task` and reference **Owner - Templates - Task Mode**.
 
 ---
 
-- **Given:** {current buggy state}
-- **When:** {user action that triggers bug}
-- **Then:** {expected correct behavior after fix}
-```
+## 2. Delivery standards
+
+### Universal requirements
+
+- **Artifact Type:** Always use `text/markdown`, never `text/plain`.
+- **Single Artifact:** Deliver the complete bug report as one artifact.
+- **DEPTH Processing:** Apply the Product Owner DEPTH Framework.
+- **Template Compliance:** Use the structure exactly.
+- **No Anchors in Output:** Never include `<!-- ANCHOR -->` comments in generated deliverables. Conditional comments in the template are template-internal only.
+
+### Bug-specific standards
+
+- **Fixed Structure:** All bugs use the same About and Bug section structure.
+- **Output Focus:** Only deliver what the user reported.
+- **No Scope Expansion:** One bug per report unless the user explicitly asks for a multi-bug artifact.
+- **Evidence Placement:** Put screen recordings, screenshots and logs inside the Bug section near the reproduction context.
+- **Root Cause Tracking:** Keep root cause identification as a checklist item before QA handoff.
+
+### Mandatory structure elements
+
+#### Section hierarchy
+
+- **H1:** Bug title only.
+- **H3:** `About`, `Bug` and optional `BDD Scenarios`.
+- **Bold numbered labels:** `1. Observed Behavior` and `2. Expected Behavior` inside `### Bug`.
+
+#### Structure order
+
+1. Title as `# {Bug Title}`.
+2. `### About` with short description, field table and references.
+3. `### Bug`.
+4. `1. Observed Behavior`.
+5. `Steps to Reproduce:`.
+6. Screen recording or relevant visual evidence.
+7. `2. Expected Behavior`.
+8. Checklist.
+9. Optional `### BDD Scenarios`.
+10. Final QA warning quote.
+
+#### Formatting standards
+
+- Use `---` between major sections and template blocks.
+- Use `-` for bullets.
+- Use `- [ ]` for checklist items.
+- Use numbered lists for reproduction steps.
+- Use fenced code blocks for logs or error messages when needed.
+- Use inline images for screenshots when available.
+- Do not include a generated table of contents.
+
+### Content guidelines
+
+**About section:**
+- Describe the bug and where it occurs in 1-2 sentences.
+- Include the field table with frequency, severity, platform, device, OS, browser and browser version.
+- Add flow and component references when provided.
+
+**Bug section:**
+- Describe what happens when the bug is triggered.
+- List what the user sees, error messages and incorrect data or behavior.
+- Include reproducible steps.
+- Include screen recording, screenshots or logs when provided.
+- Describe what should happen instead.
+- Include design specifications, previous working behavior and user expectations when known.
+
+**Checklist:**
+- Keep the four fixed checklist items exactly as written.
+- Do not add implementation tasks to the checklist.
+- Treat the checklist as the QA handoff gate.
+
+**BDD Scenarios:**
+- Include this section only when it clarifies the user flow or expected state.
+- Remove the conditional comments from generated bug reports.
+- Use Given/When/Then format.
 
 ### Assumptions
 
-- Never add `[Assumes: ...]` in bug exports
-- If uncertainty matters, describe it in plain language under the relevant section
+- Never add `[Assumes: ...]` in bug exports.
+- If uncertainty matters, write it plainly as `Not provided` or place it in the relevant field.
 
 ---
 
-## 3. ✅ QUALITY CHECKLIST
+## 3. Quality checklist
 
-### Pre-Creation Validation
-- [ ] DEPTH Framework applied (10 rounds)?
-- [ ] User responded to comprehensive question?
-- [ ] System waited for response (never answered own questions)?
+### Pre-creation validation
+
+- [ ] DEPTH Framework applied at the selected energy level?
+- [ ] User provided enough issue context or responded to the comprehensive question?
 - [ ] Bug description clear and specific?
-- [ ] Location of bug identified?
+- [ ] Location, screen or flow identified when available?
+- [ ] Scope limited to the reported defect?
 
-### Structure Validation
-- [ ] About section uses H3 (### About)?
-- [ ] Evidence section uses H3 (### Evidence)?
-- [ ] Requirements section uses H3 (### Requirements)?
-- [ ] Resolution Checklist uses H3 ()?
-- [ ] Correct section hierarchy applied (H3 for all core sections)?
-- [ ] Dividers (---) between all sections?
-- [ ] No H1 headers except bug title?
+### Structure validation
 
-### Format Validation
+- [ ] Title uses H1 and appears first?
+- [ ] About section uses `### About`?
+- [ ] About section includes the field table?
+- [ ] References appear under About when provided?
+- [ ] Bug section uses `### Bug`?
+- [ ] Observed Behavior appears before Expected Behavior?
+- [ ] Steps to Reproduce uses a numbered list?
+- [ ] Checklist includes the exact four required items?
+- [ ] Optional BDD section is included only when useful?
+- [ ] Final QA warning quote appears at the end?
+
+### Format validation
+
 - [ ] Using `text/markdown` artifact type?
 - [ ] Lists use `-` bullets?
 - [ ] Checkboxes use `- [ ]` format?
-- [ ] Steps use numbered list?
-- [ ] Code blocks for error messages (if applicable)?
-- [ ] Inline images for screenshots?
-- [ ] No Table of Contents?
+- [ ] Dividers use `---`?
+- [ ] No generated table of contents?
+- [ ] No template-internal comments remain in generated output?
 
-### Bug-Specific Validation
-- [ ] Evidence section has Screenshots (when available)?
-- [ ] Evidence section has Logs/Error Messages (if applicable)?
-- [ ] Requirements has Observed Behavior?
-- [ ] Requirements has Expected Behavior?
-- [ ] Requirements has Steps to Reproduce?
+### Bug-specific validation
+
+- [ ] Observed behavior describes what happens when the bug is triggered?
+- [ ] Observed behavior describes what the user sees?
+- [ ] Error messages are included or marked as not provided?
+- [ ] Incorrect data or behavior is described?
 - [ ] Steps are numbered and reproducible?
-- [ ] Frequency indicated?
-- [ ] Severity indicated (Critical/High/Medium/Low)?
-- [ ] Priority indicated (P1/P2/P3/P4)?
-- [ ] Environment specified (when relevant)?
-- [ ] Browser/Browser Version specified (for web bugs)?
-- [ ] Resolution Checklist uses correct heading and warning quote?
-- [ ] Root cause identification addressed in Requirements?
-- [ ] Platform-appropriate validation items included in Requirements (mobile AND/OR web)?
+- [ ] Screen recording, screenshots or logs are included when provided?
+- [ ] Expected behavior states what should happen instead?
+- [ ] Design specifications are included when provided?
+- [ ] Previous working behavior is included when known?
+- [ ] User expectations are included?
+- [ ] Root cause tracking remains in the checklist?
 
 ---
 
-## 4. 🚨 ERROR RECOVERY
+## 4. Error recovery
 
-### Common Errors & Fixes
+### Missing steps to reproduce
 
-#### Missing Steps to Reproduce
-**Fix:** Add numbered list of exact steps to trigger the bug. Steps must be specific and reproducible.
+Add a numbered list of exact steps to trigger the bug. If the user did not provide every step, use only the steps directly supported by the reported flow.
 
-#### Vague Observed Behavior
-**Fix:** Replace "it doesn't work" with specific description of what happens (error message, incorrect output, crash, etc.)
+### Vague observed behavior
 
-#### Missing Evidence
-**Fix:** Add `### Evidence` section with screenshots and/or error logs (logs optional if not applicable)
+Replace vague wording with specific user-visible behavior. Describe the screen state, missing data, stale state, incorrect action or error message.
 
-#### Wrong Section Heading Level
-**Fix:** Update all core sections to H3: (About, Evidence, Requirements, Resolution Checklist)
+### Missing screen recording
 
-#### Using Wrong About Section Level
-**Fix:** Change any non-H3 About heading to `### About` - H1 is reserved for the bug title only
+Write `Not provided` in the screen recording area when a recording matters but was not supplied.
 
-#### Missing Root Cause Item
-**Fix:** Add root cause identification in the Requirements section.
+### Missing screenshots or logs
 
-#### Steps Not Numbered
-**Fix:** Convert bullets to numbered list: `1. Step one`, `2. Step two`, etc.
+Include screenshots or logs when provided. Do not create a separate Evidence section. Place evidence in the Bug section near the reproduction context.
 
-#### Pattern: Sequential Questions
-**Fix:** Stop, apologize, ask comprehensive question (in Interactive Mode), WAIT
+### Wrong section structure
 
-#### Wrong Artifact Type
-**Fix:** Recreate with `text/markdown`
+Update the report to use `### About`, `### Bug`, optional `### BDD Scenarios` and the final QA warning quote.
 
-#### Missing Separators
-**Fix:** Add `---` between major sections
+### Missing environment table values
 
-#### Using Bug Mode for Grouped Bugs
-**Fix:** Use Task Mode instead for grouped bugs or refinement tasks
+Use `Not provided` for unknown field table values. Do not invent platform, device, OS or browser data.
 
-#### Missing Severity/Priority
-**Fix:** Add Severity (Critical/High/Medium/Low) and Priority (P1/P2/P3/P4) fields
+### Implementation drift
 
-### Prevention Strategies
-1. Apply DEPTH Framework automatically (10 rounds)
-2. Wait for comprehensive response
-3. Verify section hierarchy (H3 for About/Evidence/Requirements/Checklist)
-4. Ensure Evidence section exists (logs optional)
-5. Use FIXED Requirements structure (Observed/Expected/Steps)
-6. Include Frequency, Severity, and Priority fields
-7. Include Environment fields (Platform, OS, Browser, Browser Version)
-8. Include root cause in Requirements
-9. Use numbered steps for reproduction
-10. Use correct artifact type
-11. Include screenshots where available
-12. NEVER answer own questions
-13. Redirect grouped bugs to Task Mode
+Remove solution instructions. Keep the report focused on what is broken, how to reproduce it and what outcome must be true after the fix.
 
 ---
 
@@ -274,8 +236,15 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 
 {1-2 sentence description of the bug and where it occurs in the application.}
 
-**Location:** {Screen/Component/Flow where bug appears}
-
+| Field           | Value                         |
+| --------------- | ----------------------------- |
+| Frequency       | {Always / Sometimes / Rarely} |
+| Severity        | {Critical/High/Medium/Low}    |
+| Platform        | {iOS/Android/Web}             |
+| Device          | {Device name/model}           |
+| OS Version      | {OS version}                  |
+| Browser         | {Browser name - if web}       |
+| Browser Version | {Browser version - if web}    |
 
 **References:**
 
@@ -287,29 +256,7 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 
 ---
 
-### Evidence
-
----
-
-**Screenshots**
-
-![{Description of screenshot}](image.png)
-
-{Add additional screenshots as needed}
-
-**Figma Reference:** [{Description}]({figma-url})
-
-**Logs/Error Messages** (if applicable)
-
-```
-{Paste error message, console log, or stack trace here}
-```
-
-{Additional logs if applicable}
-
----
-
-### Requirements
+### Bug
 
 ---
 
@@ -317,10 +264,22 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 
 ---
 
-{Describe exactly what happens when the bug is triggered. Be specific about:
-- What the user sees
-- Any error messages displayed
-- Incorrect data or behavior}
+{ Describe what happens when the bug is triggered }
+- { What the user sees }
+- { Any error messages displayed }
+- { Incorrect data or behavior }
+
+Steps to Reproduce:
+1. { First action to take }
+2. { Second action to take }
+3. { Third action to take }
+4. { Continue until bug is triggered }
+5. { Observe the bug }
+
+
+{ Screen Recording }
+
+
 
 ---
 
@@ -328,37 +287,16 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 
 ---
 
-{Describe what should happen instead. Reference:
-- Design specifications
-- Previous working behavior
-- User expectations}
+{ Describe what should happen instead. }
+- { Design specifications }
+- { Previous working behavior }
+- { User expectations }
 
----
-
-**3. Steps to Reproduce**
-
----
-
-1. {First action to take}
-2. {Second action to take}
-3. {Third action to take}
-4. {Continue until bug is triggered}
-5. {Observe the bug}
-
-| Field           | Value                         |
-| --------------- | ----------------------------- |
-| Frequency       | {Always / Sometimes / Rarely} |
-| Severity        | {Critical/High/Medium/Low}    |
-| Priority        | {P1/P2/P3/P4}                 |
-| Platform        | {iOS/Android/Web}             |
-| Device          | {Device name/model}           |
-| OS Version      | {OS version}                  |
-| Browser         | {Browser name - if web}       |
-| Browser Version | {Browser version - if web}    |
-
-**Related Issues:** {ClickUp ID or "None"}
-
-**Workaround:** {Describe interim mitigation, or "None"}
+Checklist
+- [ ] Root cause identified
+- [ ] Fix implemented
+- [ ] Bug no longer reproducible
+- [ ] No regressions introduced
 
 ---
 
@@ -381,11 +319,11 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 
 ---
 
-## 6. 🎯 FINAL REMINDERS
+## 6. Final reminders
 
-1. Keep the core structure fixed and the context block flexible
-2. Preserve source structure when syncing an existing task
-3. Use category headings when they make the task easier to scan
-4. Use `- [ ]` for actionable requirement items
-5. Stay in WHAT and WHY, not HOW
-6. Deliver only the requested task scope
+1. Keep the About and Bug structure fixed.
+2. Preserve user-provided screenshots, screen recordings, logs and Figma references.
+3. Use `Not provided` for unknown field values instead of inventing details.
+4. Keep the checklist as the fixed QA handoff gate.
+5. Remove template comments from generated bug reports.
+6. Stay in WHAT and WHY, not HOW.
