@@ -406,8 +406,6 @@ Components
 
 ---
 
-### Resolution Checklist
-
 > ⚠️ Complete all **Checklist items** before moving to QA
 ```
 
@@ -464,8 +462,6 @@ Flows
 
 ---
 
-### Resolution Checklist
-
 > ⚠️ Complete all **Checklist items** before moving to QA
 ```
 
@@ -512,8 +508,6 @@ Components
 - [ ] {Actionable requirement}
 
 ---
-
-### Resolution Checklist
 
 > ⚠️ Complete all **Checklist items** before moving to QA
 ```
@@ -563,7 +557,5 @@ Use this for direct small updates when the request is explicit.
 2. Preserve source structure when syncing an existing task
 3. Use category headings when they make the task easier to scan
 4. Use `- [ ]` for actionable requirement items
-5. Do not require `Ticket`, `Epic`, `Related tickets` or `Components` in every task
-6. Do not add User Stories or assumption tags by default
-7. Stay in WHAT and WHY, not HOW
-8. Deliver only the requested task scope
+5. Stay in WHAT and WHY, not HOW
+6. Deliver only the requested task scope

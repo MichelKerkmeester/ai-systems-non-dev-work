@@ -111,7 +111,7 @@ For feature development (new functionality, enhancements), use `$task` command w
 ### Visual Hierarchy Rules
 - Use `---` as major section separators
 - Blank line before and after `---` separators
-- H3 for all core sections (### About, ### Evidence, ### Requirements, ### Resolution Checklist)
+- H3 for all core sections (### About, ### Evidence, ### Requirements, )
 - H4 NOT used in Bug mode
 - Consistent spacing throughout
 
@@ -138,7 +138,7 @@ For feature development (new functionality, enhancements), use `$task` command w
 7. **Environment** - Platform, device, OS version, Browser, Browser version (when relevant)
 
 **Resolution Checklist:**
-- Heading `### Resolution Checklist` and the warning quote only
+- Heading `` and the warning quote only
 
 ### User Story Format (If Used)
 
@@ -174,7 +174,7 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 - [ ] About section uses H3 (### About)?
 - [ ] Evidence section uses H3 (### Evidence)?
 - [ ] Requirements section uses H3 (### Requirements)?
-- [ ] Resolution Checklist uses H3 (### Resolution Checklist)?
+- [ ] Resolution Checklist uses H3 ()?
 - [ ] Correct section hierarchy applied (H3 for all core sections)?
 - [ ] Dividers (---) between all sections?
 - [ ] No H1 headers except bug title?
@@ -276,6 +276,7 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 
 **Location:** {Screen/Component/Flow where bug appears}
 
+
 **References:**
 
 **Flows**
@@ -375,8 +376,6 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 
 ---
 
-### Resolution Checklist
-
 > ⚠️ Complete all **Checklist items** before moving to QA
 ````
 
@@ -384,29 +383,9 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 
 ## 6. 🎯 FINAL REMINDERS
 
-1. **Always wait** for user response before creating artifact
-2. **Never answer** own questions
-3. **Use Task Mode** for grouped bugs or refinement tasks
-4. **About Section** uses H3 (### About) with bug description + location
-5. **Evidence Section** uses H3 (### Evidence) - ALWAYS INCLUDE
-6. **Screenshots** support diagnosis - request if not provided
-7. **Logs/Error Messages** are OPTIONAL - include when relevant
-8. **Checklist** uses H3 (### Requirements) with FIXED structure
-9. **FIXED structure:** Observed Behavior, Expected Behavior, Steps to Reproduce
-10. **Steps to Reproduce** must be numbered and specific
-11. **Frequency** indicates how often bug occurs (Always/Sometimes/Rarely)
-12. **Severity** indicates impact level (Critical/High/Medium/Low)
-13. **Priority** indicates fix urgency (P1/P2/P3/P4)
-14. **Environment** specifies platform, device, OS, browser when relevant
-15. **Resolution Checklist** uses H3 (### Resolution Checklist)
-16. **Root cause** must be identified before marking resolved (documented in Requirements)
-17. **All core sections use H3** (### About, ### Evidence, ### Requirements, ### Resolution Checklist)
-18. **Resolution Checklist** contains only the warning quote
-19. **Use `---` dividers** between all sections
-20. **No Table of Contents** - rely on ClickUp native TOC
-21. **No complexity scaling** - bugs use single fixed template
-22. **No Quick mode** - bugs require full DEPTH Framework analysis
-23. **Checkbox format:** `- [ ]` (standard markdown)
-24. **DEPTH Framework** applied automatically (10 rounds)
-25. **One bug per report** - unless explicitly reporting multiple related bugs
-26. **User Stories** use Given/When/Then format if included
+1. Keep the core structure fixed and the context block flexible
+2. Preserve source structure when syncing an existing task
+3. Use category headings when they make the task easier to scan
+4. Use `- [ ]` for actionable requirement items
+5. Stay in WHAT and WHY, not HOW
+6. Deliver only the requested task scope
