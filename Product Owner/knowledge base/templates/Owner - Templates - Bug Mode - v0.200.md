@@ -1,4 +1,4 @@
-# Owner - Templates - Bug Mode - v0.126
+# Owner - Templates - Bug Mode - v0.200
 
 Structured bug report templates for defect tracking and resolution. Fixed structure with Evidence capture, reproduction steps, and root cause analysis requirements.
 
@@ -28,7 +28,7 @@ Structured bug report templates for defect tracking and resolution. Fixed struct
 - **Thinking:** 10 rounds automatic (DEPTH Framework)
 - **Interactive Mode:** Handled by Interactive Mode file (all question logic lives there)
 - **Structure:** Fixed (no complexity scaling like Task Mode)
-- **Key Feature:** Includes Evidence section and a header-only Resolution Checklist for QA handoff
+- **Key Feature:** Includes Evidence section and a final Resolution Checklist warning quote for QA handoff
 
 ### When to Use Bug Mode
 
@@ -60,7 +60,7 @@ Bug Mode differs from Task Mode in several key ways:
 | Structure    | Auto-scaled (Simple/Standard/Complex) | Fixed structure                |
 | Requirements | Variable features                     | Fixed: Observed/Expected/Steps |
 | Evidence     | Optional (inline images)              | Dedicated section              |
-| Checklist    | Header-only (no groups)              | Header-only (no groups)   |
+| Checklist    | Final warning quote                  | Final warning quote       |
 | Quick Mode   | Supported ($quick task)               | Not supported                  |
 | User Stories | Given/When/Then for features          | Not typically used             |
 
@@ -90,17 +90,16 @@ For feature development (new functionality, enhancements), use `$task` command w
 
 ### Mandatory Structure Elements
 
-#### Symbol Hierarchy
-- **H2:** (About)
-- **H3:** (Evidence), (Requirements), (Resolution Checklist)
+#### Section Hierarchy
+- **H3:** (About), (Evidence), (Requirements), (Resolution Checklist)
 - **H4:** NOT used in Bug mode
 
 #### Structure Order
 1. Title (# Bug Title) - FIRST LINE
-2. About (##) - Bug description and location
+2. About (###) - Bug description and location
 3. Evidence (###) - Screenshots and Logs (logs optional)
 4. Requirements (###) - Observed/Expected/Steps to Reproduce (FIXED)
-5. Resolution Checklist (###) - Header-only QA handoff
+5. Resolution Checklist (###) - Warning quote only for QA handoff
 
 #### Formatting Standards
 - **Dividers:** Use `---` between all major sections, with a blank line before and after the `---`
@@ -112,8 +111,7 @@ For feature development (new functionality, enhancements), use `$task` command w
 ### Visual Hierarchy Rules
 - Use `---` as major section separators
 - Blank line before and after `---` separators
-- H2 for About section (## About)
-- H3 for other sections (### Evidence, ### Requirements, ### Resolution Checklist)
+- H3 for all core sections (### About, ### Evidence, ### Requirements, ### Resolution Checklist)
 - H4 NOT used in Bug mode
 - Consistent spacing throughout
 
@@ -140,7 +138,7 @@ For feature development (new functionality, enhancements), use `$task` command w
 7. **Environment** - Platform, device, OS version, Browser, Browser version (when relevant)
 
 **Resolution Checklist:**
-- Heading `### ✓ Resolution Checklist`, divider, and warning line
+- Heading `### Resolution Checklist` and the warning quote only
 
 ### User Story Format (If Used)
 
@@ -173,11 +171,11 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 - [ ] Location of bug identified?
 
 ### Structure Validation
-- [ ] About section uses H2 (## About)?
+- [ ] About section uses H3 (### About)?
 - [ ] Evidence section uses H3 (### Evidence)?
 - [ ] Requirements section uses H3 (### Requirements)?
 - [ ] Resolution Checklist uses H3 (### Resolution Checklist)?
-- [ ] Correct symbol hierarchy applied (H2 for About, H3 for others)?
+- [ ] Correct section hierarchy applied (H3 for all core sections)?
 - [ ] Dividers (---) between all sections?
 - [ ] No H1 headers except bug title?
 
@@ -202,7 +200,7 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 - [ ] Priority indicated (P1/P2/P3/P4)?
 - [ ] Environment specified (when relevant)?
 - [ ] Browser/Browser Version specified (for web bugs)?
-- [ ] Resolution Checklist uses correct heading and intro line?
+- [ ] Resolution Checklist uses correct heading and warning quote?
 - [ ] Root cause identification addressed in Requirements?
 - [ ] Platform-appropriate validation items included in Requirements (mobile AND/OR web)?
 
@@ -221,11 +219,11 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 #### Missing Evidence
 **Fix:** Add `### Evidence` section with screenshots and/or error logs (logs optional if not applicable)
 
-#### Wrong Symbol Hierarchy
-**Fix:** Update to H2: (About), H3: (Evidence, Requirements, Checklist)
+#### Wrong Section Heading Level
+**Fix:** Update all core sections to H3: (About, Evidence, Requirements, Resolution Checklist)
 
-#### Using H1 for About Section
-**Fix:** Change `# About` to `## About` - H1 reserved for bug title only
+#### Using Wrong About Section Level
+**Fix:** Change any non-H3 About heading to `### About` - H1 is reserved for the bug title only
 
 #### Missing Root Cause Item
 **Fix:** Add root cause identification in the Requirements section.
@@ -251,12 +249,12 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 ### Prevention Strategies
 1. Apply DEPTH Framework automatically (10 rounds)
 2. Wait for comprehensive response
-3. Verify symbol hierarchy (H2 for About, H3 for Evidence/Requirements/Checklist)
+3. Verify section hierarchy (H3 for About/Evidence/Requirements/Checklist)
 4. Ensure Evidence section exists (logs optional)
 5. Use FIXED Requirements structure (Observed/Expected/Steps)
 6. Include Frequency, Severity, and Priority fields
 7. Include Environment fields (Platform, OS, Browser, Browser Version)
-8. Include root cause in Resolution Checklist
+8. Include root cause in Requirements
 9. Use numbered steps for reproduction
 10. Use correct artifact type
 11. Include screenshots where available
@@ -270,7 +268,7 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 ````markdown
 # {Bug Title}
 
-## About
+### About
 
 ---
 
@@ -379,11 +377,9 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 
 ---
 
-### ✓ Resolution Checklist
+### Resolution Checklist
 
----
-
-⚠️ Complete all action items before moving to QA
+> ⚠️ Complete all **Checklist items** before moving to QA
 ````
 
 ---
@@ -393,21 +389,21 @@ If a bug fix needs user-flow context, use Given/When/Then format for consistency
 1. **Always wait** for user response before creating artifact
 2. **Never answer** own questions
 3. **Use Task Mode** for grouped bugs or refinement tasks
-4. **About Section** uses H2 (## About) with bug description + location
+4. **About Section** uses H3 (### About) with bug description + location
 5. **Evidence Section** uses H3 (### Evidence) - ALWAYS INCLUDE
 6. **Screenshots** support diagnosis - request if not provided
 7. **Logs/Error Messages** are OPTIONAL - include when relevant
-8. **Requirements** uses H3 (### Requirements) with FIXED structure
+8. **Checklist** uses H3 (### Requirements) with FIXED structure
 9. **FIXED structure:** Observed Behavior, Expected Behavior, Steps to Reproduce
 10. **Steps to Reproduce** must be numbered and specific
 11. **Frequency** indicates how often bug occurs (Always/Sometimes/Rarely)
 12. **Severity** indicates impact level (Critical/High/Medium/Low)
 13. **Priority** indicates fix urgency (P1/P2/P3/P4)
 14. **Environment** specifies platform, device, OS, browser when relevant
-15. **Resolution Checklist** uses H3 (### ✓ Resolution Checklist)
+15. **Resolution Checklist** uses H3 (### Resolution Checklist)
 16. **Root cause** must be identified before marking resolved (documented in Requirements)
-17. **H2 for About only** (## About)
-18. **H3 for other sections** (### Evidence, ### Requirements, ### ✓ Resolution Checklist)
+17. **All core sections use H3** (### About, ### Evidence, ### Requirements, ### Resolution Checklist)
+18. **Resolution Checklist** contains only the warning quote
 19. **Use `---` dividers** between all sections
 20. **No Table of Contents** - rely on ClickUp native TOC
 21. **No complexity scaling** - bugs use single fixed template
