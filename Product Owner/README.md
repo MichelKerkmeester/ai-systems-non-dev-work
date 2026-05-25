@@ -17,7 +17,7 @@ Transforms requests into professional tasks and bug reports with **concise trans
 
 ## 1. ✨ KEY FEATURES
 
-- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.222, Bug v0.126)
+- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.223, Bug v0.127)
 - **🧠 DEPTH Framework**: Energy-level methodology with two-layer transparency (Raw/Quick/Standard/Deep)
 - **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
 - **🔬 Enhanced Cognitive Rigor**: 5 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first)
@@ -43,8 +43,8 @@ DEPTH Framework v0.201 (Methodology with energy levels)
 Interactive Mode v0.401 (Conversation flow)
     ↓
 Templates:
-├── Task Mode v0.222 (Development tasks)
-└── Bug Mode v0.126 (Defect tracking)
+├── Task Mode v0.223 (Development tasks)
+└── Bug Mode v0.127 (Defect tracking)
     ↓
 Output → export/[###]-artifact.md
 ```
@@ -84,14 +84,14 @@ Add these documents to your project:
 **Self-Contained Templates:**
 Each template is fully self-contained with embedded rules, quality checks, and formatting standards:
 
-- **`Product Owner - Template - Task Mode - v0.222.md`**
+- **`Product Owner - Template - Task Mode - v0.223.md`**
   - Development tasks with a header-only Resolution Checklist for QA handoff
   - Flexible task structure aligned to the live task corpus
   - Fixed checklist intro text: `⚠️ Complete all action items before moving to QA`
   - Fixed User Story format with `**User Story**`, divider, and bold Given / When / Then bullets
-  - **Subtask Template:** Dedicated template for parent-child task decomposition (v0.222+)
+  - **Subtask Template:** Dedicated template for parent-child task decomposition (v0.223+)
 
-- **`Product Owner - Template - Bug Mode - v0.126.md`**
+- **`Product Owner - Template - Bug Mode - v0.127.md`**
   - Bug reports with evidence tracking and reproduction steps
   - Fixed complexity (no scaling - bugs have consistent structure)
   - Evidence section for screenshots/logs/error output
@@ -122,8 +122,8 @@ $bug login not working          # Direct bug mode (Standard energy)
 | --------------- | ------------------------ | --------------- | ------------------------------ | ------------ | ---------------- | -------------------- |
 | **Interactive** | Determine what to create | 1 comprehensive | Standard (concise updates)     | Two-layer    | Auto-selected    | Exact request        |
 | **$quick**      | Fast creation            | NONE            | Quick (D → P → H)             | Summary      | Auto-selected    | Exact request        |
-| **$task**       | Dev tasks                | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.222           | Requested task only  |
-| **$bug**        | Bug reports              | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.126           | Requested bug only   |
+| **$task**       | Dev tasks                | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.223           | Requested task only  |
+| **$bug**        | Bug reports              | 1 comprehensive | Standard (concise updates)     | Two-layer    | v0.127           | Requested bug only   |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question gathering all info at once:
@@ -163,7 +163,7 @@ System waits for complete response before proceeding.
 
 ---
 
-### 🐛 $bug Mode (v0.126)
+### 🐛 $bug Mode (v0.127)
 
 **Purpose:** Bug reports with evidence tracking, reproduction steps, and root cause analysis
 
@@ -183,7 +183,7 @@ System waits for complete response before proceeding.
 ```
 
 **Bug vs Task Comparison:**
-| Feature              | Bug (v0.126)         | Task (v0.222)          |
+| Feature              | Bug (v0.127)         | Task (v0.223)          |
 | -------------------- | -------------------- | ---------------------- |
 | **Command**          | `$bug` or `$b`       | `$task` or `$t`        |
 | **Purpose**          | Defect tracking      | Feature development    |
@@ -193,7 +193,7 @@ System waits for complete response before proceeding.
 | **Resolution List**  | ✅ Yes (✓)            | ✅ Yes (✓)              |
 | **Use Case**         | Bug fixes, defects   | New features, tasks    |
 
-**Bug vs Task Comparison** table references: Bug v0.126, Task v0.222
+**Bug vs Task Comparison** table references: Bug v0.127, Task v0.223
 
 **When to Use Bug Mode:**
 - Reporting defects or unexpected behavior
@@ -270,7 +270,7 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 ⚙️ **Engineering solution** (8 approaches evaluated)
 **Selected:** Microservice architecture with event-driven sync
 
-🔨 **Building** (Template v0.222, outcome-first validated)
+🔨 **Building** (Template v0.223, outcome-first validated)
 **Structure:** 5 sections, 12 acceptance criteria
 
 ✅ **Quality validation complete**
