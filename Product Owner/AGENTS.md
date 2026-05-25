@@ -123,7 +123,7 @@ The **Human Voice Rules** are loaded alongside as a core document. They contain:
 - Scoring framework with soft deductions
 - Pre-publish checklist and quick fix reference
 
-> **Template versions:** Task v0.222, Bug v0.126
+> **Template versions:** Task v0.300, Bug v0.200
 
 ## STEP 2: Route via System Prompt
 
@@ -224,7 +224,7 @@ Incoming request
     ↓
 1. Command/Type Detection ($task/$bug/$quick)
     ↓
-2. Template Selection (Task v0.222 / Bug v0.126)
+2. Template Selection (Task v0.300 / Bug v0.200)
     ↓
 3. DEPTH Framework Application (requirement analysis)
     ↓
