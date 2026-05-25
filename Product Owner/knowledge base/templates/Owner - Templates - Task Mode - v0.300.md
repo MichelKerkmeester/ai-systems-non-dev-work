@@ -1,6 +1,6 @@
-# Owner - Templates - Task Mode - v0.222
+# Owner - Templates - Task Mode - v0.300
 
-Task templates aligned to the current Product Owner task corpus. This version prioritizes a flexible context block, numbered requirement groups, and a header-only Resolution Checklist.
+Task templates aligned to the current Product Owner task corpus. This version prioritizes a flexible context block, numbered requirement groups, H3 section headings, and a final Resolution Checklist warning quote.
 
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides the active task template for `$task` and `$t` requests
@@ -58,9 +58,9 @@ Task templates aligned to the current Product Owner task corpus. This version pr
 Every task must include:
 
 1. Title
-2. `## ⌘ About`
-3. `### ❖ Requirements`
-4. `### ✓ Resolution Checklist`
+2. `### About`
+3. `### Requirements`
+4. `### Resolution Checklist`
 
 ### Optional Context Sections
 
@@ -89,7 +89,7 @@ Each numbered requirement group should follow this pattern unless the source tas
 
 1. Numbered item title
 2. One or more short paragraphs that explain the outcome and context
-3. `**Requirements**`
+3. `**Checklist**`
 4. `- [ ]` checklist items for literal, actionable requirements
 
 ### Assumptions
@@ -102,20 +102,20 @@ Each numbered requirement group should follow this pattern unless the source tas
 
 ## 3. 🧱 STRUCTURE RULES
 
-### Symbol Hierarchy
+### Section Hierarchy
 
-- **H2:** `## ⌘ About`
-- **H3:** `### ❖ Requirements`, `### ✓ Resolution Checklist`
+- **H3 core sections:** `### About`, `### Requirements`, `### Resolution Checklist`
 - **Requirement category headings:** `### **{Group Name}**` or `### {Group Name}` when matching an existing task
-- **Bold sub-label:** `**Requirements**`
+- **Bold sub-label:** `**Checklist**`
 - **Optional bold labels:** `**References**`, `**Epic**`, `**Related tickets**`
 
 ### Divider Rules
 
-- Use `---` after `## ⌘ About`
-- Use `---` after `### ❖ Requirements` and `### ✓ Resolution Checklist`
+- Use `---` after `### About`
+- Use `---` after `### Requirements`
 - Use `---` after each category heading
 - Use `---` after each numbered item title
+- Do not add a divider inside `### Resolution Checklist`; it contains only the warning quote
 
 ### References Block
 
@@ -147,7 +147,7 @@ Use when the task is small.
 
 {Short description.}
 
-**Requirements**
+**Checklist**
 
 - [ ] {Requirement}
 - [ ] {Requirement}
@@ -168,7 +168,7 @@ Use when the task spans multiple areas.
 
 {Short description.}
 
-**Requirements**
+**Checklist**
 
 - [ ] {Requirement}
 - [ ] {Requirement}
@@ -217,14 +217,12 @@ Use when one numbered requirement needs several sub-areas.
 
 ## 4. ✅ RESOLUTION CHECKLIST
 
-The Resolution Checklist is a header-only section that signals the task is ready for QA.
+The Resolution Checklist is a final H3 section that signals the task is ready for QA. It contains only the warning quote.
 
 ```markdown
-### ✓ Resolution Checklist
+### Resolution Checklist
 
----
-
-⚠️ Complete all action items before moving to QA
+> ⚠️ Complete all **Checklist items** before moving to QA
 ```
 
 ---
@@ -242,12 +240,12 @@ The Resolution Checklist is a header-only section that signals the task is ready
 ### Structure Validation
 
 - [ ] Title present as H1?
-- [ ] About uses `## ⌘ About`?
-- [ ] Requirements uses `### ❖ Requirements`?
-- [ ] Resolution Checklist uses `### ✓ Resolution Checklist`?
+- [ ] About uses `### About`?
+- [ ] Requirements uses `### Requirements`?
+- [ ] Resolution Checklist uses `### Resolution Checklist`?
 - [ ] Numbered requirement groups use clear titles?
 - [ ] Actionable requirement items use `- [ ]`?
-- [ ] Resolution Checklist intro line uses the exact fixed wording?
+- [ ] Resolution Checklist warning quote uses the exact fixed wording?
 - [ ] `---` dividers used consistently?
 
 ### Content Validation
@@ -276,9 +274,9 @@ The Resolution Checklist is a header-only section that signals the task is ready
 
 **Fix:** Remove unneeded `Epic`, `Related tickets` or `Ticket` sections. Keep only what the task needs.
 
-#### Checklist intro line is wrong
+#### Checklist warning quote is wrong
 
-**Fix:** Replace the intro text with exactly `⚠️ Complete all action items before moving to QA`.
+**Fix:** Replace the warning quote with exactly `> ⚠️ Complete all **Checklist items** before moving to QA`.
 
 #### Plain bullets used for actionable requirements
 
@@ -311,7 +309,7 @@ The Resolution Checklist is a header-only section that signals the task is ready
 ```markdown
 # {Task Title}
 
-## ⌘ About
+### About
 
 ---
 
@@ -351,7 +349,7 @@ Components
 
 - [{Related ticket}](url)
 
-### ❖ Requirements
+### Requirements
 
 ---
 
@@ -365,7 +363,7 @@ Components
 
 {1-2 short paragraphs describing the expected outcome and why it matters.}
 
-**Requirements**
+**Checklist**
 
 - [ ] {Actionable requirement}
 - [ ] {Actionable requirement}
@@ -384,7 +382,7 @@ Components
 
 {1-2 short paragraphs describing the expected outcome and why it matters.}
 
-**Requirements**
+**Checklist**
 
 - [ ] {Actionable requirement}
 - [ ] {Actionable requirement}
@@ -401,18 +399,16 @@ Components
 
 {Short description.}
 
-**Requirements**
+**Checklist**
 
 - [ ] {Actionable requirement}
 - [ ] {Actionable requirement}
 
 ---
 
-### ✓ Resolution Checklist
+### Resolution Checklist
 
----
-
-⚠️ Complete all action items before moving to QA
+> ⚠️ Complete all **Checklist items** before moving to QA
 ```
 
 ### Notes For Use
@@ -430,7 +426,7 @@ Use this when one parent task coordinates several subtasks.
 ```markdown
 # {Parent Task Title}
 
-## ⌘ About
+### About
 
 ---
 
@@ -444,7 +440,7 @@ Flows
 
 - [{Flow name}](figma-url)
 
-### ❖ Requirements
+### Requirements
 
 ---
 
@@ -468,11 +464,9 @@ Flows
 
 ---
 
-### ✓ Resolution Checklist
+### Resolution Checklist
 
----
-
-⚠️ Complete all action items before moving to QA
+> ⚠️ Complete all **Checklist items** before moving to QA
 ```
 
 ---
@@ -484,7 +478,7 @@ Use this when the work belongs to a larger parent task.
 ```markdown
 # {Subtask Title}
 
-## ⌘ About
+### About
 
 ---
 
@@ -498,7 +492,7 @@ Components
 
 - [{Component name}](figma-url)
 
-### ❖ Requirements
+### Requirements
 
 ---
 
@@ -512,18 +506,16 @@ Components
 
 {Short description.}
 
-**Requirements**
+**Checklist**
 
 - [ ] {Actionable requirement}
 - [ ] {Actionable requirement}
 
 ---
 
-### ✓ Resolution Checklist
+### Resolution Checklist
 
----
-
-⚠️ Complete all action items before moving to QA
+> ⚠️ Complete all **Checklist items** before moving to QA
 ```
 
 ---
@@ -535,13 +527,13 @@ Use this for direct small updates when the request is explicit.
 ```markdown
 # {Task Title}
 
-## ⌘ About
+### About
 
 ---
 
 {Brief explanation of the change and why it matters.}
 
-### ❖ Requirements
+### Requirements
 
 ---
 
@@ -551,18 +543,16 @@ Use this for direct small updates when the request is explicit.
 
 {Short description.}
 
-**Requirements**
+**Checklist**
 
 - [ ] {Actionable requirement}
 - [ ] {Actionable requirement}
 
 ---
 
-### ✓ Resolution Checklist
+### Resolution Checklist
 
----
-
-⚠️ Complete all action items before moving to QA
+> ⚠️ Complete all **Checklist items** before moving to QA
 ```
 
 ---
