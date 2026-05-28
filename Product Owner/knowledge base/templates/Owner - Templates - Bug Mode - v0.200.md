@@ -14,12 +14,12 @@ Structured bug report template for isolated defects. The structure captures cont
 ### Command: `$bug`
 
 - **Short Alias:** `$b`
-- **Purpose:** Create bug reports with context, reproduction steps and QA resolution checklist
+- **Purpose:** Create bug reports with context, reproduction steps and QA checklist
 - **Output:** Always as `text/markdown` artifact
 - **Thinking:** DEPTH Framework at Standard energy unless the user explicitly requests another mode
 - **Interactive Mode:** Handled by Interactive Mode file when the issue details are too ambiguous
 - **Structure:** Fixed bug report structure with flexible evidence placement
-- **Key Feature:** Uses `About`, `Bug`, optional `BDD Scenarios` and final QA warning quote
+- **Key Feature:** Uses `About`, `Bug` and optional `BDD Scenarios`
 
 ### When to use Bug Mode
 
@@ -101,7 +101,6 @@ For feature development or enhancements, use `$task` and reference **Owner - Tem
 7. `2. Expected Behavior`.
 8. Checklist.
 9. Optional `### BDD Scenarios`.
-10. Final QA warning quote.
 
 #### Formatting standards
 
@@ -166,7 +165,6 @@ For feature development or enhancements, use `$task` and reference **Owner - Tem
 - [ ] Steps to Reproduce uses a numbered list?
 - [ ] Checklist includes the exact four required items?
 - [ ] Optional BDD section is included only when useful?
-- [ ] Final QA warning quote appears at the end?
 
 ### Format validation
 
@@ -213,7 +211,7 @@ Include screenshots or logs when provided. Do not create a separate Evidence sec
 
 ### Wrong section structure
 
-Update the report to use `### About`, `### Bug`, optional `### BDD Scenarios` and the final QA warning quote.
+Update the report to use `### About`, `### Bug` and optional `### BDD Scenarios`.
 
 ### Missing environment table values
 
@@ -312,9 +310,6 @@ Checklist
 
 <!-- END IF -->
 
----
-
-> ⚠️ Complete all **Checklist items** before moving to QA
 ````
 
 ---
