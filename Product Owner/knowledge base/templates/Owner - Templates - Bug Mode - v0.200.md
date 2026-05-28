@@ -92,6 +92,7 @@ For feature development or enhancements, use `$task` and reference **Owner - Tem
 
 #### Structure order
 
+<<<<<<< HEAD
 1. Title as `# {Bug Title}`
 2. `### About` with short description, field table and references
 3. `### Bug`
@@ -101,6 +102,17 @@ For feature development or enhancements, use `$task` and reference **Owner - Tem
 7. `2. Expected Behavior`
 8. Checklist
 9. Optional `### BDD Scenarios`
+=======
+1. Title as `# {Bug Title}`.
+2. `### About` with short description, field table and references.
+3. `### Bug`.
+4. `1. Observed Behavior`.
+5. `Steps to Reproduce:`.
+6. Screen recording or relevant visual evidence.
+7. `2. Expected Behavior`.
+8. Checklist.
+9. Optional `### BDD Scenarios`.
+>>>>>>> origin/main
 
 #### Formatting standards
 
