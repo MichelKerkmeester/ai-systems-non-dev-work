@@ -14,12 +14,12 @@ Structured bug report template for isolated defects. The structure captures cont
 ### Command: `$bug`
 
 - **Short Alias:** `$b`
-- **Purpose:** Create bug reports with context, reproduction steps and QA resolution checklist
+- **Purpose:** Create bug reports with context, reproduction steps and QA checklist
 - **Output:** Always as `text/markdown` artifact
 - **Thinking:** DEPTH Framework at Standard energy unless the user explicitly requests another mode
 - **Interactive Mode:** Handled by Interactive Mode file when the issue details are too ambiguous
 - **Structure:** Fixed bug report structure with flexible evidence placement
-- **Key Feature:** Uses `About`, `Bug`, optional `BDD Scenarios` and final QA warning quote
+- **Key Feature:** Uses `About`, `Bug` and optional `BDD Scenarios`
 
 ### When to use Bug Mode
 
@@ -37,15 +37,15 @@ Use Task Mode instead for:
 
 ### Critical rules
 
-- Do not create an artifact until the user responds to the comprehensive question unless the request contains enough bug context to proceed.
-- Do not answer your own questions when clarification is required.
-- Do not include a table of contents in generated bug reports.
-- Keep one bug per report unless the user explicitly requests grouped bugs.
-- Preserve the fixed template order.
-- Capture screenshots, screen recordings, logs and references where they fit the reported bug.
-- Do not invent missing details. Use `Not provided` when a field matters but no value was supplied.
-- Keep the checklist exactly as defined in the template.
-- Stay in WHAT and WHY, not HOW.
+- Do not create an artifact until the user responds to the comprehensive question unless the request contains enough bug context to proceed
+- Do not answer your own questions when clarification is required
+- Do not include a table of contents in generated bug reports
+- Keep one bug per report unless the user explicitly requests grouped bugs
+- Preserve the fixed template order
+- Capture screenshots, screen recordings, logs and references where they fit the reported bug
+- Do not invent missing details. Use `Not provided` when a field matters but no value was supplied
+- Keep the checklist exactly as defined in the template
+- Stay in WHAT and WHY, not HOW
 
 ### Difference from Task Mode
 
@@ -68,80 +68,80 @@ For feature development or enhancements, use `$task` and reference **Owner - Tem
 
 ### Universal requirements
 
-- **Artifact Type:** Always use `text/markdown`, never `text/plain`.
-- **Single Artifact:** Deliver the complete bug report as one artifact.
-- **DEPTH Processing:** Apply the Product Owner DEPTH Framework.
-- **Template Compliance:** Use the structure exactly.
-- **No Anchors in Output:** Never include `<!-- ANCHOR -->` comments in generated deliverables. Conditional comments in the template are template-internal only.
+- **Artifact Type:** Always use `text/markdown`, never `text/plain`
+- **Single Artifact:** Deliver the complete bug report as one artifact
+- **DEPTH Processing:** Apply the Product Owner DEPTH Framework
+- **Template Compliance:** Use the structure exactly
+- **No Anchors in Output:** Never include `<!-- ANCHOR -->` comments in generated deliverables. Conditional comments in the template are template-internal only
 
 ### Bug-specific standards
 
-- **Fixed Structure:** All bugs use the same About and Bug section structure.
-- **Output Focus:** Only deliver what the user reported.
-- **No Scope Expansion:** One bug per report unless the user explicitly asks for a multi-bug artifact.
-- **Evidence Placement:** Put screen recordings, screenshots and logs inside the Bug section near the reproduction context.
-- **Root Cause Tracking:** Keep root cause identification as a checklist item before QA handoff.
+- **Fixed Structure:** All bugs use the same About and Bug section structure
+- **Output Focus:** Only deliver what the user reported
+- **No Scope Expansion:** One bug per report unless the user explicitly asks for a multi-bug artifact
+- **Evidence Placement:** Put screen recordings, screenshots and logs inside the Bug section near the reproduction context
+- **Root Cause Tracking:** Keep root cause identification as a checklist item before QA handoff
 
 ### Mandatory structure elements
 
 #### Section hierarchy
 
-- **H1:** Bug title only.
-- **H3:** `About`, `Bug` and optional `BDD Scenarios`.
-- **Bold numbered labels:** `1. Observed Behavior` and `2. Expected Behavior` inside `### Bug`.
+- **H1:** Bug title only
+- **H3:** `About`, `Bug` and optional `BDD Scenarios`
+- **Bold numbered labels:** `1. Observed Behavior` and `2. Expected Behavior` inside `### Bug`
 
 #### Structure order
 
-1. Title as `# {Bug Title}`.
-2. `### About` with short description, field table and references.
-3. `### Bug`.
-4. `1. Observed Behavior`.
-5. `Steps to Reproduce:`.
-6. Screen recording or relevant visual evidence.
-7. `2. Expected Behavior`.
-8. Checklist.
-9. Optional `### BDD Scenarios`.
-10. Final QA warning quote.
+1. Title as `# {Bug Title}`
+2. `### About` with short description, field table and references
+3. `### Bug`
+4. `1. Observed Behavior`
+5. `Steps to Reproduce:`
+6. Screen recording or relevant visual evidence
+7. `2. Expected Behavior`
+8. Checklist
+9. Optional `### BDD Scenarios`
 
 #### Formatting standards
 
-- Use `---` between major sections and template blocks.
-- Use `-` for bullets.
-- Use `- [ ]` for checklist items.
-- Use numbered lists for reproduction steps.
-- Use fenced code blocks for logs or error messages when needed.
-- Use inline images for screenshots when available.
-- Do not include a generated table of contents.
+- Use `---` between major sections and template blocks
+- Use `-` for bullets
+- Use `- [ ]` for checklist items
+- Use numbered lists for reproduction steps
+- Use fenced code blocks for logs or error messages when needed
+- Use inline images for screenshots when available
+- Do not include a generated table of contents
+- Do not end checklist or bulleted list items with `.`
 
 ### Content guidelines
 
 **About section:**
-- Describe the bug and where it occurs in 1-2 sentences.
-- Include the field table with frequency, severity, platform, device, OS, browser and browser version.
-- Add flow and component references when provided.
+- Describe the bug and where it occurs in 1-2 sentences
+- Include the field table with frequency, severity, platform, device, OS, browser and browser version
+- Add flow and component references when provided
 
 **Bug section:**
-- Describe what happens when the bug is triggered.
-- List what the user sees, error messages and incorrect data or behavior.
-- Include reproducible steps.
-- Include screen recording, screenshots or logs when provided.
-- Describe what should happen instead.
-- Include design specifications, previous working behavior and user expectations when known.
+- Describe what happens when the bug is triggered
+- List what the user sees, error messages and incorrect data or behavior
+- Include reproducible steps
+- Include screen recording, screenshots or logs when provided
+- Describe what should happen instead
+- Include design specifications, previous working behavior and user expectations when known
 
 **Checklist:**
-- Keep the four fixed checklist items exactly as written.
-- Do not add implementation tasks to the checklist.
-- Treat the checklist as the QA handoff gate.
+- Keep the four fixed checklist items exactly as written
+- Do not add implementation tasks to the checklist
+- Treat the checklist as the QA handoff gate
 
 **BDD Scenarios:**
-- Include this section only when it clarifies the user flow or expected state.
-- Remove the conditional comments from generated bug reports.
-- Use Given/When/Then format.
+- Include this section only when it clarifies the user flow or expected state
+- Remove the conditional comments from generated bug reports
+- Use Given/When/Then format
 
 ### Assumptions
 
-- Never add `[Assumes: ...]` in bug exports.
-- If uncertainty matters, write it plainly as `Not provided` or place it in the relevant field.
+- Never add `[Assumes: ...]` in bug exports
+- If uncertainty matters, write it plainly as `Not provided` or place it in the relevant field
 
 ---
 
@@ -166,7 +166,6 @@ For feature development or enhancements, use `$task` and reference **Owner - Tem
 - [ ] Steps to Reproduce uses a numbered list?
 - [ ] Checklist includes the exact four required items?
 - [ ] Optional BDD section is included only when useful?
-- [ ] Final QA warning quote appears at the end?
 
 ### Format validation
 
@@ -213,7 +212,7 @@ Include screenshots or logs when provided. Do not create a separate Evidence sec
 
 ### Wrong section structure
 
-Update the report to use `### About`, `### Bug`, optional `### BDD Scenarios` and the final QA warning quote.
+Update the report to use `### About`, `### Bug` and optional `### BDD Scenarios`.
 
 ### Missing environment table values
 
@@ -312,18 +311,15 @@ Checklist
 
 <!-- END IF -->
 
----
-
-> ⚠️ Complete all **Checklist items** before moving to QA
 ````
 
 ---
 
 ## 6. Final reminders
 
-1. Keep the About and Bug structure fixed.
-2. Preserve user-provided screenshots, screen recordings, logs and Figma references.
-3. Use `Not provided` for unknown field values instead of inventing details.
-4. Keep the checklist as the fixed QA handoff gate.
-5. Remove template comments from generated bug reports.
-6. Stay in WHAT and WHY, not HOW.
+1. Keep the About and Bug structure fixed
+2. Preserve user-provided screenshots, screen recordings, logs and Figma references
+3. Use `Not provided` for unknown field values instead of inventing details
+4. Keep the checklist as the fixed QA handoff gate
+5. Remove template comments from generated bug reports
+6. Stay in WHAT and WHY, not HOW

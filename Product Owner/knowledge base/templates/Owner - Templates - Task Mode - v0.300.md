@@ -1,10 +1,10 @@
 # Owner - Templates - Task Mode - v0.300
 
-Task templates aligned to the current Product Owner task corpus. This version prioritizes a flexible context block, numbered requirement groups, H3 section headings, and a final Resolution Checklist warning quote.
+Task templates aligned to the current Product Owner task corpus. This version prioritizes a flexible context block, numbered requirement groups and H3 section headings.
 
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides the active task template for `$task` and `$t` requests
-**Scope:** Task mode overview, delivery standards, structure rules, checklist logic, error recovery, canonical task template, parent task template, subtask template, quick template
+**Scope:** Task mode overview, delivery standards, structure rules, error recovery, canonical task template, parent task template, subtask template, quick template
 **Output Path:** `/export/[existing-task-name].md` or `/export/[###] - task-[description].md`
 
 ## TABLE OF CONTENTS
@@ -12,14 +12,13 @@ Task templates aligned to the current Product Owner task corpus. This version pr
 - 1. 🎫 TASK MODE OVERVIEW
 - 2. 📦 DELIVERY STANDARDS
 - 3. 🧱 STRUCTURE RULES
-- 4. ✅ CHECKLIST LOGIC
-- 5. 🔎 QUALITY CHECKLIST
-- 6. 🚨 ERROR RECOVERY
-- 7. 📝 CANONICAL TASK TEMPLATE
-- 8. 🧩 PARENT TASK TEMPLATE
-- 9. 🔹 SUBTASK TEMPLATE
-- 10. ⚡ QUICK TASK TEMPLATE
-- 11. 🎯 FINAL REMINDERS
+- 4. 🔎 QUALITY CHECKLIST
+- 5. 🚨 ERROR RECOVERY
+- 6. 📝 CANONICAL TASK TEMPLATE
+- 7. 🧩 PARENT TASK TEMPLATE
+- 8. 🔹 SUBTASK TEMPLATE
+- 9. ⚡ QUICK TASK TEMPLATE
+- 10. 🎯 FINAL REMINDERS
 
 ---
 
@@ -32,7 +31,7 @@ Task templates aligned to the current Product Owner task corpus. This version pr
 - **Output:** Markdown task artifact
 - **Thinking:** DEPTH framework applies automatically
 - **Interactive Mode:** Ask one comprehensive question unless the request already contains enough direction or uses an explicit command
-- **Key Feature:** Includes a Resolution Checklist for QA and handoff
+- **Key Feature:** Uses checklist items inside Requirements for QA and handoff
 
 ### Core Rules
 
@@ -44,7 +43,7 @@ Task templates aligned to the current Product Owner task corpus. This version pr
 
 ### Task Types Supported
 
-- **Standalone task:** Full task with About, Requirements and Resolution Checklist
+- **Standalone task:** Full task with About and Requirements
 - **Synced task:** Existing task updated to match pasted source material or corpus style
 - **Parent task:** Coordination task that links or tracks child subtasks
 - **Subtask:** Narrow task covering one area within a parent task
@@ -60,7 +59,6 @@ Every task must include:
 1. Title
 2. `### About`
 3. `### Requirements`
-4. `### Resolution Checklist`
 
 ### Optional Context Sections
 
@@ -91,6 +89,7 @@ Each numbered requirement group should follow this pattern unless the source tas
 2. One or more short paragraphs that explain the outcome and context
 3. `**Checklist**`
 4. `- [ ]` checklist items for literal, actionable requirements
+5. Checklist and bullet items must not end with `.`
 
 ### Assumptions
 
@@ -104,7 +103,7 @@ Each numbered requirement group should follow this pattern unless the source tas
 
 ### Section Hierarchy
 
-- **H3 core sections:** `### About`, `### Requirements`, `### Resolution Checklist`
+- **H3 core sections:** `### About`, `### Requirements`
 - **Requirement category headings:** `### **{Group Name}**` or `### {Group Name}` when matching an existing task
 - **Bold sub-label:** `**Checklist**`
 - **Optional bold labels:** `**References**`, `**Epic**`, `**Related tickets**`
@@ -115,7 +114,6 @@ Each numbered requirement group should follow this pattern unless the source tas
 - Use `---` after `### Requirements`
 - Use `---` after each category heading
 - Use `---` after each numbered item title
-- Do not add a divider inside `### Resolution Checklist`; it contains only the warning quote
 
 ### References Block
 
@@ -215,19 +213,7 @@ Use when one numbered requirement needs several sub-areas.
 
 ---
 
-## 4. ✅ RESOLUTION CHECKLIST
-
-The Resolution Checklist is a final H3 section that signals the task is ready for QA. It contains only the warning quote.
-
-```markdown
-### Resolution Checklist
-
-> ⚠️ Complete all **Checklist items** before moving to QA
-```
-
----
-
-## 5. 🔎 QUALITY CHECKLIST
+## 4. 🔎 QUALITY CHECKLIST
 
 ### Pre-Creation Validation
 
@@ -242,10 +228,8 @@ The Resolution Checklist is a final H3 section that signals the task is ready fo
 - [ ] Title present as H1?
 - [ ] About uses `### About`?
 - [ ] Requirements uses `### Requirements`?
-- [ ] Resolution Checklist uses `### Resolution Checklist`?
 - [ ] Numbered requirement groups use clear titles?
 - [ ] Actionable requirement items use `- [ ]`?
-- [ ] Resolution Checklist warning quote uses the exact fixed wording?
 - [ ] `---` dividers used consistently?
 
 ### Content Validation
@@ -266,17 +250,13 @@ The Resolution Checklist is a final H3 section that signals the task is ready fo
 
 ---
 
-## 6. 🚨 ERROR RECOVERY
+## 5. 🚨 ERROR RECOVERY
 
 ### Common Errors
 
 #### Forced metadata block
 
 **Fix:** Remove unneeded `Epic`, `Related tickets` or `Ticket` sections. Keep only what the task needs.
-
-#### Checklist warning quote is wrong
-
-**Fix:** Replace the warning quote with exactly `> ⚠️ Complete all **Checklist items** before moving to QA`.
 
 #### Plain bullets used for actionable requirements
 
@@ -304,7 +284,7 @@ The Resolution Checklist is a final H3 section that signals the task is ready fo
 
 ---
 
-## 7. 📝 CANONICAL TASK TEMPLATE
+## 6. 📝 CANONICAL TASK TEMPLATE
 
 ```markdown
 # {Task Title}
@@ -404,9 +384,6 @@ Components
 - [ ] {Actionable requirement}
 - [ ] {Actionable requirement}
 
----
-
-> ⚠️ Complete all **Checklist items** before moving to QA
 ```
 
 ### Notes For Use
@@ -417,7 +394,7 @@ Components
 
 ---
 
-## 8. 🧩 PARENT TASK TEMPLATE
+## 7. 🧩 PARENT TASK TEMPLATE
 
 Use this when one parent task coordinates several subtasks.
 
@@ -460,14 +437,11 @@ Flows
 
 [{Subtask Title}](url)
 
----
-
-> ⚠️ Complete all **Checklist items** before moving to QA
 ```
 
 ---
 
-## 9. 🔹 SUBTASK TEMPLATE
+## 8. 🔹 SUBTASK TEMPLATE
 
 Use this when the work belongs to a larger parent task.
 
@@ -507,14 +481,11 @@ Components
 - [ ] {Actionable requirement}
 - [ ] {Actionable requirement}
 
----
-
-> ⚠️ Complete all **Checklist items** before moving to QA
 ```
 
 ---
 
-## 10. ⚡ QUICK TASK TEMPLATE
+## 9. ⚡ QUICK TASK TEMPLATE
 
 Use this for direct small updates when the request is explicit.
 
@@ -542,16 +513,11 @@ Use this for direct small updates when the request is explicit.
 - [ ] {Actionable requirement}
 - [ ] {Actionable requirement}
 
----
-
-### Resolution Checklist
-
-> ⚠️ Complete all **Checklist items** before moving to QA
 ```
 
 ---
 
-## 11. 🎯 FINAL REMINDERS
+## 10. 🎯 FINAL REMINDERS
 
 1. Keep the core structure fixed and the context block flexible
 2. Preserve source structure when syncing an existing task
