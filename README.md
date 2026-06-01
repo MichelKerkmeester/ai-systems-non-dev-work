@@ -2,7 +2,7 @@
 
 # AI Systems
 
-**Claude skills & MCP agents for productivity automation**
+**AI Systems for non-development work**
 
 [![GitHub Stars](https://img.shields.io/github/stars/MichelKerkmeester/AI_Systems?style=for-the-badge&logo=github&color=fce566&labelColor=222222)](https://github.com/MichelKerkmeester/AI_Systems/stargazers)
 [![License](https://img.shields.io/github/license/MichelKerkmeester/AI_Systems?style=for-the-badge&color=7bd88f&labelColor=222222)](LICENSE)
