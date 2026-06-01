@@ -1,16 +1,12 @@
 # Git Ignore Configuration
 # Specifies intentionally untracked files that Git should ignore
 
+# macOS System Files
 .DS_Store
 
-# Development
+# Development Dependencies
 node_modules/
 
-# Configuration files (ignored at all levels)
+# Environment Configuration
+# Ignored at all levels to prevent sensitive data from being committed
 .env
-
-# Working directories (ignored at all levels)
-context/
-export/
-memory/
-specs/
