@@ -2,45 +2,34 @@
 
 Transforms requests into professional tasks and bug reports with **concise transparent DEPTH processing**.
 
-## TABLE OF CONTENTS
-
-  - 1. ✨ KEY FEATURES
-  - 2. 🌳 SYSTEM ARCHITECTURE
-  - 3. 🚀 QUICK SETUP
-  - 4. 🎛️ OPERATING MODES
-  - 5. 📋 MODE DETAILS
-  - 6. 💬 INTERACTIVE MODE
-  - 7. 🧠 DEPTH THINKING FRAMEWORK
-  - 8. 📊 QUALITY SCORING
-
 ---
 
-## 1. ✨ KEY FEATURES
+## 1. KEY FEATURES
 
-- **📋 Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.223, Bug v0.127)
-- **🧠 DEPTH Framework**: Energy-level methodology with two-layer transparency (Raw/Quick/Standard/Deep)
-- **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
-- **🔬 Enhanced Cognitive Rigor**: 5 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first)
-- **📊 Two-Layer Model**: Full rigor internally, concise updates externally with improved transparency guidelines
-- **📊 6-Dimension Quality Scoring**: Completeness, Clarity, Actionability, Accuracy, Relevance, Mechanism Depth (all 8+, Accuracy 9+)
-- **🚀 Core Modes**: Tasks, Bugs, Interactive, Quick
-- **⚡ Quick Mode**: Quick energy level (D → P → H)
-- **💬 Single Question**: All info gathered at once
-- **🎯 Structure Fit**: Task shape adapts to the request and the source task structure
+- ** Self-Contained Templates**: All rules, quality checks, and formatting embedded (Task v0.223, Bug v0.127)
+- ** DEPTH Framework**: Energy-level methodology with two-layer transparency (Raw/Quick/Standard/Deep)
+- ** Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement) enforced at multiple validation gates
+- ** Enhanced Cognitive Rigor**: 5 techniques with refined enforcement (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first)
+- ** Two-Layer Model**: Full rigor internally, concise updates externally with improved transparency guidelines
+- ** 6-Dimension Quality Scoring**: Completeness, Clarity, Actionability, Accuracy, Relevance, Mechanism Depth (all 8+, Accuracy 9+)
+- ** Core Modes**: Tasks, Bugs, Interactive, Quick
+- ** Quick Mode**: Quick energy level (D → P → H)
+- ** Single Question**: All info gathered at once
+- ** Structure Fit**: Task shape adapts to the request and the source task structure
 - **✅ Quality Gates**: Three-phase validation (pre-creation, creation, post-creation)
 
 ---
 
-## 2. 🌳 SYSTEM ARCHITECTURE
+## 2. SYSTEM ARCHITECTURE
 
 ```
-AGENTS.md → Entry point with routing logic
+AGENTS.md → Entry point and identity handoff
     ↓
-Product Owner - System Prompt.md (System prompt - routing & rules)
+skill/SKILL.md (single brain: identity, routing and rules)
     ↓
 DEPTH Framework v0.201 (Methodology with energy levels)
     ↓
-Interactive Mode v0.401 (Conversation flow)
+Interactive Mode v0.402 (Conversation flow)
     ↓
 Templates:
 ├── Task Mode v0.223 (Development tasks)
@@ -63,14 +52,14 @@ All deliverables are saved to `export/[###]-description.md` before being referen
 
 ---
 
-## 3. 🚀 QUICK SETUP
+## 3. QUICK SETUP
 
 ### Step 1: Create Claude Project
 1. Go to claude.ai → Projects → Create "Product Owner"
 
-### Step 2: Add System Instructions
+### Step 2: Add Project Instructions
 1. Edit project details → Custom instructions
-3. Copy and paste: `Product Owner - System Prompt.md` 
+3. Copy and paste: `claude project/Custom Instructions.md`
 4. Save the project
 
 ### Step 3: Upload Supporting Documents
@@ -78,7 +67,7 @@ Add these documents to your project:
 
 **Core Framework:**
 - `Product Owner - DEPTH Thinking Framework - v0.201.md` (two-layer transparency, mandatory perspectives, energy levels)
-- `Product Owner - Interactive Mode - v0.401.md` (conversation flow & smart routing)
+- `Product Owner - System - Interactive Mode - v0.402.md` (conversation flow & smart routing)
 - `Owner - Rules - Human Voice - EN - v0.210.md` (global voice clarity rules, word blacklists, anti-patterns)
 
 **Self-Contained Templates:**
@@ -87,7 +76,7 @@ Each template is fully self-contained with embedded rules, quality checks, and f
 - **`Product Owner - Template - Task Mode - v0.223.md`**
   - Development tasks with a header-only Resolution Checklist for QA handoff
   - Flexible task structure aligned to the live task corpus
-  - Fixed checklist intro text: `⚠️ Complete all action items before moving to QA`
+  - Fixed checklist intro text: ` Complete all action items before moving to QA`
   - Fixed User Story format with `**User Story**`, divider, and bold Given / When / Then bullets
   - **Subtask Template:** Dedicated template for parent-child task decomposition (v0.223+)
 
@@ -114,7 +103,7 @@ $bug login not working          # Direct bug mode (Standard energy)
 
 ---
 
-## 4. 🎛️ OPERATING MODES
+## 4. OPERATING MODES
 
 **Default Mode:** The system defaults to interactive guidance with Standard energy DEPTH unless specified.
 
@@ -137,9 +126,9 @@ System waits for complete response before proceeding.
 
 ---
 
-## 5. 📋 MODE DETAILS
+## 5. MODE DETAILS
 
-### 🎫 $task Mode
+### $task Mode
 
 **Purpose:** Development tasks with detailed QA checklists for implementation tracking
 
@@ -163,23 +152,23 @@ System waits for complete response before proceeding.
 
 ---
 
-### 🐛 $bug Mode (v0.127)
+### $bug Mode (v0.127)
 
 **Purpose:** Bug reports with evidence tracking, reproduction steps, and root cause analysis
 
 **Key Features:**
-- **Evidence section (⌥):** Dedicated area for screenshots, logs, and error output
+- **Evidence section ():** Dedicated area for screenshots, logs, and error output
 - **Reproduction steps:** Clear steps to reproduce the issue
 - **Root cause tracking:** Documented in Requirements
 - **Fixed complexity:** No scaling - bugs have consistent structure
-- **Resolution Checklist (✓):** Header-only section for QA handoff
+- **Resolution Checklist ():** Header-only section for QA handoff
 
 **Structure:**
 ```
-⌘ About          → Context and bug description
-⌥ Evidence       → Screenshots, logs, error output
-❖ Requirements   → What needs to be fixed, root cause
-✓ Resolution     → Header-only QA handoff
+ About          → Context and bug description
+ Evidence       → Screenshots, logs, error output
+ Requirements   → What needs to be fixed, root cause
+ Resolution     → Header-only QA handoff
 ```
 
 **Bug vs Task Comparison:**
@@ -187,10 +176,10 @@ System waits for complete response before proceeding.
 | -------------------- | -------------------- | ---------------------- |
 | **Command**          | `$bug` or `$b`       | `$task` or `$t`        |
 | **Purpose**          | Defect tracking      | Feature development    |
-| **Evidence Section** | ✅ Yes (⌥)            | ❌ No                   |
+| **Evidence Section** | ✅ Yes ()            | ❌ No                   |
 | **Root Cause**       | ✅ Yes (in Requirements) | ❌ No                   |
 | **Complexity**       | Fixed (no scaling)   | Flexible by task shape |
-| **Resolution List**  | ✅ Yes (✓)            | ✅ Yes (✓)              |
+| **Resolution List**  | ✅ Yes ()            | ✅ Yes ()              |
 | **Use Case**         | Bug fixes, defects   | New features, tasks    |
 
 **Bug vs Task Comparison** table references: Bug v0.127, Task v0.223
@@ -203,7 +192,7 @@ System waits for complete response before proceeding.
 
 ---
 
-## 6. 💬 INTERACTIVE MODE
+## 6. INTERACTIVE MODE
 
 ### Conversational Guidance Flow
 
@@ -230,11 +219,11 @@ Deliver Exact Request
 - Applies full DEPTH with two-layer transparency
 - Routes to appropriate template based on user's answer
 
-**Full details:** `Product Owner - Interactive Mode - v0.401.md`
+**Full details:** `Product Owner - System - Interactive Mode - v0.402.md`
 
 ---
 
-## 7. 🧠 DEPTH THINKING FRAMEWORK
+## 7. DEPTH THINKING FRAMEWORK
 
 ### Two-Layer Transparency Model
 
@@ -254,29 +243,29 @@ A structured 5-phase methodology ensuring comprehensive analysis through **conci
 
 | Phase         | Purpose             | Internal Processing                                                      | User Sees                             |
 | ------------- | ------------------- | ------------------------------------------------------------------------ | ------------------------------------- |
-| **D**iscover  | Deep understanding  | 5 perspectives, assumption audit, opposition analysis                    | "🔍 Analyzing (5 perspectives)"        |
-| **E**ngineer  | Solution generation | 8 approaches, constraint reversal, requirements mapping                  | "⚙️ Engineering (optimal selected)"    |
-| **P**rototype | Build framework     | Template application, mechanism-first validation                         | "🔨 Building (template-compliant)"     |
+| **D**iscover  | Deep understanding  | 5 perspectives, assumption audit, opposition analysis                    | " Analyzing (5 perspectives)"        |
+| **E**ngineer  | Solution generation | 8 approaches, constraint reversal, requirements mapping                  | " Engineering (optimal selected)"    |
+| **P**rototype | Build framework     | Template application, mechanism-first validation                         | " Building (template-compliant)"     |
 | **T**est      | Validate quality    | 6-dimension rating, quality gates, template compliance                   | "✅ Validating (excellence confirmed)" |
-| **H**armonize | Final polish        | Final validation, cognitive rigor check, export verification             | "✨ Finalizing (ready for delivery)"   |
+| **H**armonize | Final polish        | Final validation, cognitive rigor check, export verification             | " Finalizing (ready for delivery)"   |
 
 ### What Users Actually See
 
 **Example DEPTH Progress Updates:**
 ```markdown
-🔍 **Analyzing from 5 perspectives:** Technical, UX, Business, QA, Strategic
+ **Analyzing from 5 perspectives:** Technical, UX, Business, QA, Strategic
 **Key Insight:** Payment flow requires multi-tenant isolation
 
-⚙️ **Engineering solution** (8 approaches evaluated)
+ **Engineering solution** (8 approaches evaluated)
 **Selected:** Microservice architecture with event-driven sync
 
-🔨 **Building** (Template v0.223, outcome-first validated)
+ **Building** (Template v0.223, outcome-first validated)
 **Structure:** 5 sections, 12 acceptance criteria
 
 ✅ **Quality validation complete**
 All dimensions 8+ (Completeness: 94%, Clarity: 91%, Actionability: 93%)
 
-✨ **Finalizing** (Excellence confirmed, quality verified)
+ **Finalizing** (Excellence confirmed, quality verified)
 Ready for delivery
 ```
 
@@ -298,7 +287,7 @@ Five cognitive techniques applied internally (users see key insights only):
 
 ---
 
-## 8. 📊 QUALITY SCORING
+## 8. QUALITY SCORING
 
 ### 6-Dimension Quality System
 

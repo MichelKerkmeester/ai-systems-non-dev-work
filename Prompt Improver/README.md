@@ -2,27 +2,11 @@
 
 Transforms vague requests into clear, effective AI prompts using proven frameworks, systematic evaluation, and **concise transparent DEPTH processing**.
 
-## TABLE OF CONTENTS
-
-  - 1. 🆕 WHAT'S NEW IN V0.980
-  - 2. ✨ KEY FEATURES
-  - 3. 🌳 SYSTEM ARCHITECTURE
-  - 4. 🚀 QUICK SETUP
-  - 5. 🎛️ OPERATING MODES
-  - 6. 📋 MODE DETAILS
-  - 7. 🎨 VISUAL MODE (NEW)
-  - 8. 💬 INTERACTIVE MODE
-  - 9. 🧠 DEPTH THINKING FRAMEWORK
-  - 10. 🏗️ RICCE FRAMEWORK
-  - 11. 🎯 FRAMEWORK INTELLIGENCE
-  - 12. 📊 ENHANCEMENT SYSTEM
-  - 13. 📈 CLEAR EVALUATION
-
 ---
 
-## 1. 🆕 WHAT'S NEW IN V0.980
+## 1. WHAT'S NEW IN V0.980
 
-### 🎨 MAJOR UPDATE: Visual Mode for AI Design Tools
+### MAJOR UPDATE: Visual Mode for AI Design Tools
 
 **Brand New Mode for UI Concepting** — Transform technical specifications into evocative, inspiration-based prompts optimized for AI design tools like **Lovable**, **Aura**, **Bolt**, and **v0.dev**.
 
@@ -36,17 +20,17 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 
 **Key Capabilities:**
-- ✨ **MagicPath.ai Specialization** — Creative Director voice, 150-400 word narrative prompts
-- ✨ **Screenshot Analysis** — Extract VIBE elements from visual references
-- ✨ **Eight Design Directions** — Precision, Warmth, Sophistication, Boldness, Utility, Data, **Journey & Flow**, **Narrative & Story**
-- ✨ **Technical-to-Evocative Transformation** — Convert specs to feelings
-- ✨ **Platform Optimization** — Tailored prompts for MagicPath.ai, Lovable, Aura, Bolt, v0.dev
-- ✨ **Quality Spam Detection** — Remove non-directional words (beautiful, modern, trending)
-- ✨ **Evocative Vocabulary Banks** — Rich word libraries for spatial, color, motion, typography
+-  **MagicPath.ai Specialization** — Creative Director voice, 150-400 word narrative prompts
+-  **Screenshot Analysis** — Extract VIBE elements from visual references
+-  **Eight Design Directions** — Precision, Warmth, Sophistication, Boldness, Utility, Data, **Journey & Flow**, **Narrative & Story**
+-  **Technical-to-Evocative Transformation** — Convert specs to feelings
+-  **Platform Optimization** — Tailored prompts for MagicPath.ai, Lovable, Aura, Bolt, v0.dev
+-  **Quality Spam Detection** — Remove non-directional words (beautiful, modern, trending)
+-  **Evocative Vocabulary Banks** — Rich word libraries for spatial, color, motion, typography
 
 ---
 
-### 🖼️ NEW: Image Mode for AI Image Generators
+### NEW: Image Mode for AI Image Generators
 
 **Transform vague descriptions into optimized prompts** for Midjourney, DALL-E, Stable Diffusion, Flux, Flux 2 Pro, Imagen 4, Seedream, and more.
 
@@ -58,15 +42,15 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 | **DEPTH Rounds** | 5 rounds (creative iteration)                               |
 
 **Key Capabilities:**
-- ✨ **30 FRAME Sub-Categories** — Focus(6), Rendering(6), Atmosphere(7), Modifiers(6), Exclusions(5)
-- ✨ **Platform Detection** — Auto-detect Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram
-- ✨ **Anti-Pattern Removal** — Eliminate tag soup, quality spam
-- ✨ **Vocabulary Banks** — Rich libraries for lighting, composition, styles
-- ✨ **Nano Banana Pro** — Special Six-Factor handling for Google Gemini 3 Pro Image
+-  **30 FRAME Sub-Categories** — Focus(6), Rendering(6), Atmosphere(7), Modifiers(6), Exclusions(5)
+-  **Platform Detection** — Auto-detect Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram
+-  **Anti-Pattern Removal** — Eliminate tag soup, quality spam
+-  **Vocabulary Banks** — Rich libraries for lighting, composition, styles
+-  **Nano Banana Pro** — Special Six-Factor handling for Google Gemini 3 Pro Image
 
 ---
 
-### 🎬 NEW: Video Mode for AI Video Generators
+### NEW: Video Mode for AI Video Generators
 
 **Transform static descriptions into motion-focused prompts** for Runway, Sora, Kling, Pika, Luma, Veo, Minimax, Seedance, OmniHuman, Wan, and more.
 
@@ -78,16 +62,16 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 | **DEPTH Rounds** | 5 rounds (creative iteration)                                         |
 
 **Key Capabilities:**
-- ✨ **Motion-First** — Camera movement + subject motion
-- ✨ **Platform Mental Models** — Kinetic Sculptor (Runway), Physics Simulator (Sora), Audio-Visual Choreographer (Kling), Rendering Engine (Veo)
-- ✨ **Physics Language** — Rigidity, gravity, momentum, impact vocabulary for realistic motion
-- ✨ **Platform Syntax** — Runway camera control, Sora cinematography, Veo audio
-- ✨ **Temporal Consistency** — Duration, pacing, continuous motion
-- ✨ **Static-to-Dynamic** — Transform descriptions into motion
+-  **Motion-First** — Camera movement + subject motion
+-  **Platform Mental Models** — Kinetic Sculptor (Runway), Physics Simulator (Sora), Audio-Visual Choreographer (Kling), Rendering Engine (Veo)
+-  **Physics Language** — Rigidity, gravity, momentum, impact vocabulary for realistic motion
+-  **Platform Syntax** — Runway camera control, Sora cinematography, Veo audio
+-  **Temporal Consistency** — Duration, pacing, continuous motion
+-  **Static-to-Dynamic** — Transform descriptions into motion
 
 ---
 
-### 🔧 System-Wide Improvements (v0.972)
+### System-Wide Improvements (v0.972)
 
 **Bug Fixes & Alignments (27 fixes across 6 files):**
 - ✅ Implemented `detect_complexity()` function (was empty stub)
@@ -101,45 +85,45 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 **Version Updates:**
 | Component             | Previous | Current          |
 | --------------------- | -------- | ---------------- |
-| System Prompt         | v0.199   | **v0.200**       |
+| System Skill          | v1.0.1   | **v1.1.0**       |
 | DEPTH Framework       | v0.199   | **v0.200**       |
 | Interactive Mode      | v0.690   | **v0.700**       |
 | Patterns & Evaluation | v0.200   | **v0.201**       |
-| Format Guides         | v0.130   | **v0.140**       |
-| Visual Mode           | v0.100   | **v0.200** (MagicPath.ai) |
-| Image Mode            | v0.110   | **v0.121**       |
-| Video Mode            | v0.110   | **v0.121**       |
+| Format Guides         | v0.140   | **v0.141**       |
+| Visual Mode           | v0.200   | **v0.201** (MagicPath.ai) |
+| Image Mode            | v0.121   | **v0.122**       |
+| Video Mode            | v0.121   | **v0.122**       |
 
 ---
 
-## 2. ✨ KEY FEATURES
+## 2. KEY FEATURES
 
-- **🎯 Ten Frameworks**: RCAF, COSTAR, RACE, CIDI, TIDD-EC, CRISPE, CRAFT, **VIBE** (visual), **FRAME** (image), **MOTION** (video) with intelligent auto-selection
-- **🎨 Visual Mode (NEW)**: Transform technical specs into evocative prompts for AI design tools (Lovable, Aura, Bolt, v0.dev)
-- **🖼️ Image Mode (NEW)**: Transform descriptions into optimized prompts for AI image generators (FRAME framework, VISUAL scoring)
-- **🎬 Video Mode (NEW)**: Transform static descriptions into motion-focused prompts for AI video generators (MOTION framework, VISUAL scoring)
-- **🧠 DEPTH Framework**: 10-round methodology with two-layer transparency and RICCE integration (5 rounds for Visual, Image, and Video Modes)
-- **🎯 Signal-Based Routing**: Auto-detect mode from keywords (80%+ confidence auto-routes, <80% triggers clarifying questions)
-- **🔒 Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement), target 5
-- **🔬 Enhanced Cognitive Rigor**: 6 techniques (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first, RICCE compliance)
-- **📊 Two-Layer Model**: Full rigor internally, concise updates externally
-- **🏗️ RICCE Framework**: Role, Instructions, Context, Constraints, Examples validation integrated throughout
-- **🚀 Ten Operating Modes**: Interactive (default), **Text**, Short, Improve, Refine, JSON, YAML, **Visual**, **Image**, **Video**
-- **💬 Single Question**: All info gathered at once
-- **⚡ $raw Mode**: Skip DEPTH processing for fast pass-through
-- **📈 Triple Scoring Systems**: CLEAR (precision) + EVOKE (UI concepting) + VISUAL (image/video) — context-appropriate thresholds
-- **📄 Three Output Formats**: Standard/Markdown, JSON, YAML with format-specific optimization
-- **🛠️ REPAIR+ Protocol**: Advanced error detection and recovery
+- ** Ten Frameworks**: RCAF, COSTAR, RACE, CIDI, TIDD-EC, CRISPE, CRAFT, **VIBE** (visual), **FRAME** (image), **MOTION** (video) with intelligent auto-selection
+- ** Visual Mode (NEW)**: Transform technical specs into evocative prompts for AI design tools (Lovable, Aura, Bolt, v0.dev)
+- ** Image Mode (NEW)**: Transform descriptions into optimized prompts for AI image generators (FRAME framework, VISUAL scoring)
+- ** Video Mode (NEW)**: Transform static descriptions into motion-focused prompts for AI video generators (MOTION framework, VISUAL scoring)
+- ** DEPTH Framework**: 10-round methodology with two-layer transparency and RICCE integration (5 rounds for Visual, Image, and Video Modes)
+- ** Signal-Based Routing**: Auto-detect mode from keywords (80%+ confidence auto-routes, <80% triggers clarifying questions)
+- ** Mandatory Perspectives**: Minimum 3 perspectives (BLOCKING requirement), target 5
+- ** Enhanced Cognitive Rigor**: 6 techniques (multi-perspective, assumption audit, perspective inversion, constraint reversal, mechanism-first, RICCE compliance)
+- ** Two-Layer Model**: Full rigor internally, concise updates externally
+- ** RICCE Framework**: Role, Instructions, Context, Constraints, Examples validation integrated throughout
+- ** Ten Operating Modes**: Interactive (default), **Text**, Short, Improve, Refine, JSON, YAML, **Visual**, **Image**, **Video**
+- ** Single Question**: All info gathered at once
+- ** $raw Mode**: Skip DEPTH processing for fast pass-through
+- ** Triple Scoring Systems**: CLEAR (precision) + EVOKE (UI concepting) + VISUAL (image/video) — context-appropriate thresholds
+- ** Three Output Formats**: Standard/Markdown, JSON, YAML with format-specific optimization
+- ** REPAIR+ Protocol**: Advanced error detection and recovery
 - **✅ Quality Gates**: Multi-phase validation ensuring consistent excellence
 
 ---
 
-## 3. 🌳 SYSTEM ARCHITECTURE
+## 3. SYSTEM ARCHITECTURE
 
 ```
 AGENTS.md → Entry point with intelligent routing logic
     ↓
-System Prompt v0.200 (Core routing, 38 rules, framework selection)
+System Skill v1.1.0 (single brain for identity, routing, rules, fallback chains and delivery)
     ↓
 ┌─────────────────────────────────────────────────────────────┐
 │                    SUPPORTING DOCUMENTS                     │
@@ -147,13 +131,13 @@ System Prompt v0.200 (Core routing, 38 rules, framework selection)
 │  DEPTH Framework v0.200    │  Interactive Mode v0.700       │
 │  (Methodology, RICCE)      │  (Conversation flow)            │
 ├─────────────────────────────────────────────────────────────┤
-│  Patterns v0.201           │  🎨 Visual Mode v0.200         │
+│  Patterns v0.201           │  🎨 Visual Mode v0.201         │
 │  (11 frameworks, CLEAR)    │  (VIBE/VIBE-MP, MagicPath.ai)  │
 ├─────────────────────────────────────────────────────────────┤
-│  🖼️ Image Mode v0.121       │  🎬 Video Mode v0.121          │
+│  🖼️ Image Mode v0.122       │  🎬 Video Mode v0.122          │
 │  (FRAME framework, VISUAL)   │  (MOTION framework, VISUAL)  │
 ├─────────────────────────────────────────────────────────────┤
-│  Format Guides v0.140 (Markdown, JSON, YAML)                │
+│  Format Guides v0.141 (Markdown, JSON, YAML)                │
 └─────────────────────────────────────────────────────────────┘
     ↓
 Output → ./export/[###]-enhanced-prompt.[md|json|yaml]
@@ -161,14 +145,14 @@ Output → ./export/[###]-enhanced-prompt.[md|json|yaml]
 
 ---
 
-## 4. 🚀 QUICK SETUP
+## 4. QUICK SETUP
 
 ### Step 1: Create Claude Project
 1. Go to claude.ai → Projects → Create "Prompt Engineering Assistant"
 
 ### Step 2: Add System Instructions
 1. Edit project details → Custom instructions
-2. Copy and paste: `./knowledge base/system/Prompt - System - Prompt - v0.200.md`
+2. Copy and paste: `./claude project/Custom Instructions.md`
 3. Save the project
 
 ### Step 3: Upload Supporting Documents
@@ -176,27 +160,28 @@ Output → ./export/[###]-enhanced-prompt.[md|json|yaml]
 Add these documents to your project:
 
 **Core Framework:**
-- `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.200.md` (two-layer transparency, mandatory perspectives, RICCE integration, **signal-based routing**)
-- `./knowledge base/system/Prompt - System - Interactive Mode - v0.700.md` (conversation flow, state management, smart routing, MagicPath support)
-- `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` (complete framework library, CLEAR scoring, 8 design directions)
-- 🎨 `./knowledge base/templates/Prompt - Templates - Visual Mode - v0.200.md` — VIBE/VIBE-MP framework, EVOKE scoring, **MagicPath.ai specialization**
-- 🖼️ `./knowledge base/templates/Prompt - Templates - Image Mode - v0.121.md` — FRAME framework (30 sub-categories), VISUAL scoring, platform optimization
-- 🎬 `./knowledge base/templates/Prompt - Templates - Video Mode - v0.121.md` — MOTION framework, platform mental models, physics language, audio integration
+- `./claude project/knowledge/Prompt Improver - System - Skill - v1.1.0.md` (single brain: identity, routing, rules, fallback chains and delivery)
+- `./claude project/knowledge/Prompt Improver - DEPTH Thinking Framework - v0.200.md` (two-layer transparency, mandatory perspectives, RICCE integration, **signal-based routing**)
+- `./claude project/knowledge/Prompt Improver - Interactive Mode - v0.700.md` (conversation flow, state management, smart routing, MagicPath support)
+- `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.201.md` (complete framework library, CLEAR scoring, 8 design directions)
+- `./claude project/knowledge/Prompt Improver - Visual Mode - v0.201.md` — VIBE/VIBE-MP framework, EVOKE scoring, **MagicPath.ai specialization**
+- `./claude project/knowledge/Prompt Improver - Image Mode - v0.122.md` — FRAME framework (30 sub-categories), VISUAL scoring, platform optimization
+- `./claude project/knowledge/Prompt Improver - Video Mode - v0.122.md` — MOTION framework, platform mental models, physics language, audio integration
 
 **Format Specifications:**
-Each format guide (v0.140) is fully self-contained with pure format focus:
+Each format guide (v0.141) is fully self-contained with pure format focus:
 
-- **`./knowledge base/reference/Prompt - Reference - Format Guide Markdown - v0.140.md`**
+- **`./claude project/knowledge/Prompt Improver - Format Guide Markdown - v0.141.md`**
   - Natural language prompt structure (DEFAULT FORMAT)
   - RCAF/CRAFT framework integration
   - Baseline token usage, optimal human readability
 
-- **`./knowledge base/reference/Prompt - Reference - Format Guide JSON - v0.140.md`**
+- **`./claude project/knowledge/Prompt Improver - Format Guide JSON - v0.141.md`**
   - Structured data for API/system integration
   - Schema validation and type safety
   - Token overhead: +5-10%
 
-- **`./knowledge base/reference/Prompt - Reference - Format Guide YAML - v0.140.md`**
+- **`./claude project/knowledge/Prompt Improver - Format Guide YAML - v0.141.md`**
   - Human-friendly configuration format
   - Minimal syntax overhead, clear hierarchy
   - Token overhead: +3-7%
@@ -219,7 +204,7 @@ $vid dance sequence runway    # 🎬 NEW: Optimized for Runway
 
 ---
 
-## 5. 🎛️ OPERATING MODES
+## 5. OPERATING MODES
 
 **Default Mode:** The system defaults to `$interactive` with automatic 10-round DEPTH unless specified.
 
@@ -233,9 +218,9 @@ $vid dance sequence runway    # 🎬 NEW: Optimized for Runway
 | **$refine**     | `$refine` / `$r`       | Maximum optimization       | 1 comprehensive | 10 rounds    | CLEAR      | Auto-format  |
 | **$json**       | `$json` / `$j`         | API format                 | 1 comprehensive | 10 rounds    | CLEAR      | JSON only    |
 | **$yaml**       | `$yaml` / `$y`         | Config format              | 1 comprehensive | 10 rounds    | CLEAR      | YAML only    |
-| 🎨 **$vibe**     | `$vibe`/`$v`           | **UI concepting**          | 1 comprehensive | **5 rounds** | **EVOKE 40+**  | Evocative    |
-| 🖼️ **$image**    | `$image`/`$img`        | **Image generation (NEW)** | 1 comprehensive | **5 rounds** | **VISUAL** | Platform-opt |
-| 🎬 **$video**    | `$video`/`$vid`        | **Video generation (NEW)** | 1 comprehensive | **5 rounds** | **VISUAL** | Platform-opt |
+|  **$vibe**     | `$vibe`/`$v`           | **UI concepting**          | 1 comprehensive | **5 rounds** | **EVOKE 40+**  | Evocative    |
+|  **$image**    | `$image`/`$img`        | **Image generation (NEW)** | 1 comprehensive | **5 rounds** | **VISUAL** | Platform-opt |
+|  **$video**    | `$video`/`$vid`        | **Video generation (NEW)** | 1 comprehensive | **5 rounds** | **VISUAL** | Platform-opt |
 
 ### Interactive Flow (Default)
 System asks one comprehensive question to understand your enhancement needs:
@@ -247,7 +232,7 @@ System waits for complete response before proceeding with full DEPTH processing.
 
 **Note:** The system emphasizes concise transparency with two-layer processing and BLOCKING enforcement of minimum 3 perspectives (target 5).
 
-### 🎨 Visual Mode Highlights
+### Visual Mode Highlights
 Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 - **VIBE Framework** instead of RCAF/COSTAR — focuses on Vision, Inspiration, Behavior, Experience
 - **EVOKE Scoring** instead of CLEAR — measures evocativeness, not precision
@@ -256,9 +241,9 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-## 6. 📋 MODE DETAILS
+## 6. MODE DETAILS
 
-### 💬 Interactive Mode (Default)
+### Interactive Mode (Default)
 
 **Purpose:** Conversational enhancement with guided framework selection
 
@@ -277,11 +262,11 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 - Full 10-round DEPTH processing
 - Complete transparency report after delivery
 
-**Full details:** `./knowledge base/system/Prompt - System - Interactive Mode - v0.700.md`
+**Full details:** `./claude project/knowledge/Prompt Improver - Interactive Mode - v0.700.md`
 
 ---
 
-### ⚡ $raw Mode
+### $raw Mode
 
 **Purpose:** Skip DEPTH processing for fast pass-through
 
@@ -295,7 +280,7 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-### 📝 $short Mode
+### $short Mode
 
 **Purpose:** Minimal refinement with focused 3-round DEPTH
 
@@ -311,7 +296,7 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-### 🎯 $improve Mode
+### $improve Mode
 
 **Purpose:** Standard comprehensive enhancement with full DEPTH
 
@@ -328,7 +313,7 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-### 💎 $refine Mode
+### $refine Mode
 
 **Purpose:** Maximum optimization for already-good prompts
 
@@ -345,7 +330,7 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ---
 
-### 🔧 $json Mode
+### $json Mode
 
 **Purpose:** Structured JSON output for API/system integration
 
@@ -364,11 +349,11 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 **Average CLEAR:** 41/50 (lower expression, higher correctness weighting)
 
-**Full details:** `./knowledge base/reference/Prompt - Reference - Format Guide JSON - v0.140.md`
+**Full details:** `./claude project/knowledge/Prompt Improver - Format Guide JSON - v0.141.md`
 
 ---
 
-### 📋 $yaml Mode
+### $yaml Mode
 
 **Purpose:** Human-friendly YAML configuration format
 
@@ -387,11 +372,11 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 **Average CLEAR:** 42/50 (balanced readability and structure)
 
-**Full details:** `./knowledge base/reference/Prompt - Reference - Format Guide YAML - v0.140.md`
+**Full details:** `./claude project/knowledge/Prompt Improver - Format Guide YAML - v0.141.md`
 
 ---
 
-## 7. 🎨 VISUAL MODE (NEW)
+## 7. VISUAL MODE (NEW)
 
 ### Transform Technical Specs into Evocative Prompts
 
@@ -490,11 +475,11 @@ $vibe Design a landing page for a meditation app
 $v Build a settings panel for a developer tool
 ```
 
-**Full details:** `./knowledge base/templates/Prompt - Templates - Visual Mode - v0.200.md`
+**Full details:** `./claude project/knowledge/Prompt Improver - Visual Mode - v0.201.md`
 
 ---
 
-## 8. 💬 INTERACTIVE MODE
+## 8. INTERACTIVE MODE
 
 ### Conversational Guidance Flow
 
@@ -536,31 +521,31 @@ To create the best enhancement, please provide:
 
 [After response, DEPTH processing begins with concise updates]
 
-🔍 **Analyzing from 5 perspectives:** Prompt Engineering, AI Interpretation, 
+ **Analyzing from 5 perspectives:** Prompt Engineering, AI Interpretation, 
     User Clarity, Framework Selection, Token Efficiency
 **Key Insight:** Technical documentation needs precision framework
 
-⚙️ **Engineering solution** (8 frameworks evaluated)
+ **Engineering solution** (8 frameworks evaluated)
 **Selected:** TIDD-EC (93% success rate, precision-critical tasks)
 
-🔨 **Building** (TIDD-EC structure, RICCE-compliant)
+ **Building** (TIDD-EC structure, RICCE-compliant)
 **Structure:** Task, Instructions, Do's, Don'ts, Examples, Context
 
 ✅ **Quality validation complete**
 **CLEAR Score:** 44/50 (Correctness: 9, Logic: 9, Expression: 13, 
                         Arrangement: 9, Reuse: 4)
 
-✨ **Finalizing** (Excellence confirmed, RICCE verified)
+ **Finalizing** (Excellence confirmed, RICCE verified)
 Ready for delivery
 
 [Enhanced prompt delivered + full transparency report]
 ```
 
-**Full details:** `./knowledge base/system/Prompt - System - Interactive Mode - v0.700.md`
+**Full details:** `./claude project/knowledge/Prompt Improver - Interactive Mode - v0.700.md`
 
 ---
 
-## 9. 🧠 DEPTH THINKING FRAMEWORK
+## 9. DEPTH THINKING FRAMEWORK
 
 ### Two-Layer Transparency Model
 
@@ -592,25 +577,25 @@ DEPTH now includes automatic mode detection in Round 1:
 
 | Phase         | Purpose             | Internal Processing                                                           | User Sees                                    |
 | ------------- | ------------------- | ----------------------------------------------------------------------------- | -------------------------------------------- |
-| **D**iscover  | Deep understanding  | Signal detection, 5 perspectives, assumption audit, RICCE Role & Context      | "🔍 Analyzing (5 perspectives)"               |
-| **E**ngineer  | Solution generation | 8 frameworks evaluated, constraint analysis, RICCE Constraints & Instructions | "⚙️ Engineering (optimal framework selected)" |
-| **P**rototype | Build framework     | Template application, RICCE validation, mechanism-first structure             | "🔨 Building (RCAF/framework structure)"      |
+| **D**iscover  | Deep understanding  | Signal detection, 5 perspectives, assumption audit, RICCE Role & Context      | " Analyzing (5 perspectives)"               |
+| **E**ngineer  | Solution generation | 8 frameworks evaluated, constraint analysis, RICCE Constraints & Instructions | " Engineering (optimal framework selected)" |
+| **P**rototype | Build framework     | Template application, RICCE validation, mechanism-first structure             | " Building (RCAF/framework structure)"      |
 | **T**est      | Validate quality    | CLEAR scoring (5 dimensions), quality gates, RICCE Examples validation        | "✅ Validating (CLEAR 42/50)"                 |
-| **H**armonize | Final polish        | Final verification, cognitive rigor check, RICCE completeness                 | "✨ Finalizing (excellence confirmed)"        |
+| **H**armonize | Final polish        | Final verification, cognitive rigor check, RICCE completeness                 | " Finalizing (excellence confirmed)"        |
 
 ### What Users Actually See
 
 **Example DEPTH Progress Updates:**
 ```markdown
-🔍 **Analyzing from 5 perspectives:** Prompt Engineering, AI Interpretation,
+ **Analyzing from 5 perspectives:** Prompt Engineering, AI Interpretation,
     User Clarity, Framework Specialist, Token Efficiency
 **Key Insight:** Content creation task benefits from audience-focused approach
 
-⚙️ **Engineering solution** (8 frameworks evaluated)
+ **Engineering solution** (8 frameworks evaluated)
 **Selected:** COSTAR (94% success rate, content creation champion)
 **Alternative:** RCAF (92% - considered for simpler approach)
 
-🔨 **Building** (COSTAR structure, RICCE-compliant)
+ **Building** (COSTAR structure, RICCE-compliant)
 **Structure:** Context, Objective, Style, Tone, Audience, Response format
 
 ✅ **Quality validation complete**
@@ -621,7 +606,7 @@ DEPTH now includes automatic mode detection in Round 1:
 - Arrangement: 9/10 (excellent structure, logical sections)
 - Reuse: 4/5 (adaptable with minor adjustments)
 
-✨ **Finalizing** (Excellence confirmed, RICCE verified)
+ **Finalizing** (Excellence confirmed, RICCE verified)
 **Assumptions flagged:** [Assumes: Target audience has technical background]
 Ready for delivery
 ```
@@ -641,11 +626,11 @@ Six mandatory frameworks applied internally (users see key insights only):
 
 **Validation Gates:** Multi-phase enforcement (pre-enhancement, during enhancement, post-enhancement) ensures consistent excellence
 
-**Full details:** `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.200.md`
+**Full details:** `./claude project/knowledge/Prompt Improver - DEPTH Thinking Framework - v0.200.md`
 
 ---
 
-## 10. 🏗️ RICCE FRAMEWORK
+## 10. RICCE FRAMEWORK
 
 ### Structural Validation Checklist
 
@@ -705,11 +690,11 @@ Six mandatory frameworks applied internally (users see key insights only):
 **Assumption Flagged:** [Assumes: API supports async requests]
 ```
 
-**Full details:** `./knowledge base/system/Prompt - Thinking - DEPTH Framework - v0.200.md` (Sections 5-6)
+**Full details:** `./claude project/knowledge/Prompt Improver - DEPTH Thinking Framework - v0.200.md` (Sections 5-6)
 
 ---
 
-## 11. 🎯 FRAMEWORK INTELLIGENCE
+## 11. FRAMEWORK INTELLIGENCE
 
 ### Automatic Framework Selection
 
@@ -746,9 +731,9 @@ framework_selection:
 | **5-7**    | Creativity    | CRISPE     | 87%          | Strategy, exploration               |
 | **6-8**    | Precision     | TIDD-EC    | 93%          | Compliance, quality-critical        |
 | **7-10**   | Comprehensive | CRAFT      | 91%          | Complex projects, planning          |
-| 🎨 **Any**  | Visual/UI     | **VIBE**   | 90%          | AI design tools, UI concepting      |
-| 🖼️ **Any**  | Image         | **FRAME**  | 90%          | AI image generators, visual prompts |
-| 🎬 **Any**  | Video         | **MOTION** | 90%          | AI video generators, motion prompts |
+|  **Any**  | Visual/UI     | **VIBE**   | 90%          | AI design tools, UI concepting      |
+|  **Any**  | Image         | **FRAME**  | 90%          | AI image generators, visual prompts |
+|  **Any**  | Video         | **MOTION** | 90%          | AI video generators, motion prompts |
 
 ### Framework Descriptions
 
@@ -787,24 +772,24 @@ framework_selection:
 - **Strengths:** Comprehensive coverage, planning depth
 - **Use when:** High complexity (7+) with multiple stakeholders
 
-🎨 **VIBE (Vision, Inspiration, Behavior, Experience)** - 90% Success
+ **VIBE (Vision, Inspiration, Behavior, Experience)** - 90% Success
 - **Best for:** Visual UI concepting, AI design tool prompts
 - **Strengths:** Evocative language, creative freedom, platform-optimized
 - **Use when:** Creating prompts for Lovable, Aura, Bolt, v0.dev
 - **Note:** Uses EVOKE scoring (40+ threshold)
 
-🎨 **VIBE-MP (MagicPath-Calibrated VIBE)** - 92% Success
+ **VIBE-MP (MagicPath-Calibrated VIBE)** - 92% Success
 - **Best for:** MagicPath.ai UI design with multi-page flows
 - **Strengths:** Creative Director voice, journey mapping, iterative refinement
 - **Use when:** `$vibe` with MagicPath context (e.g., "magicpath", "multi-page flow")
 - **Note:** Uses EVOKE scoring with higher threshold (42+) and reweighted dimensions (K=13, V=12)
 
-🖼️ **FRAME (Focus, Rendering, Atmosphere, Modifiers, Exclusions)** - 90% Success
+ **FRAME (Focus, Rendering, Atmosphere, Modifiers, Exclusions)** - 90% Success
 - **Best for:** AI image generators (Midjourney, DALL-E, SD, Flux, Flux 2 Pro, Imagen 4, Seedream, Leonardo, Ideogram)
 - **Strengths:** Platform-aware, anti-pattern detection, vocabulary banks
 - **Use when:** Creating prompts for image generation
 
-🎬 **MOTION (Movement, Origin, Temporal, Intention, Orchestration, Nuance)** - 90% Success
+ **MOTION (Movement, Origin, Temporal, Intention, Orchestration, Nuance)** - 90% Success
 - **Best for:** AI video generators (Runway, Sora, Kling, Pika, Luma, Veo, Minimax, Seedance, OmniHuman, Wan)
 - **Strengths:** Motion-first, temporal consistency, platform syntax
 - **Use when:** Creating prompts for video generation
@@ -818,11 +803,11 @@ framework_selection:
 - **RACE + ToT (Tree of Thoughts)**: Rapid decision trees
 - **Master-Detail Pattern**: Nested framework hierarchies
 
-**Full details:** `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` (Sections 1-4)
+**Full details:** `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.201.md` (Sections 1-4)
 
 ---
 
-## 12. 📊 ENHANCEMENT SYSTEM
+## 12. ENHANCEMENT SYSTEM
 
 ### Systematic Enhancement Pipeline
 
@@ -869,11 +854,11 @@ by_score:
 - Adaptive response formats (quick review vs comprehensive)
 - Self-documenting structure (what, why, how, example)
 
-**Full details:** `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` (Sections 5-7)
+**Full details:** `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.201.md` (Sections 5-7)
 
 ---
 
-## 13. 📈 CLEAR EVALUATION
+## 13. CLEAR EVALUATION
 
 ### Context-Aware Scoring System
 
@@ -923,5 +908,4 @@ contextual_clear_scoring:
 2. **Deep Pass**: Ambiguity detection, assumption analysis
 3. **Interaction Pass**: AI interpretation testing, failure mode analysis
 
-**Full details:** `./knowledge base/reference/Prompt - Reference - Patterns & Evaluation - v0.201.md` (Sections 9-11)
-
+**Full details:** `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.201.md` (Sections 9-11)
