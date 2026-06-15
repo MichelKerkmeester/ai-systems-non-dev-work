@@ -15,21 +15,22 @@ trigger_phrases:
 
 Formatting guide for YAML output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 
-**Loading Condition:** ON-DEMAND
-**Purpose:** Defines YAML syntax specifications, structure patterns, validation rules, and file delivery standards for prompt engineering output formatting.
-**Scope:** YAML fundamentals, RCAF/CRAFT structures, file delivery protocols, format conversions, syntax validation, advanced patterns, and best practices.
+---
+
+## 1. OVERVIEW
+
+### Purpose
+
+Reusable YAML format rules for exported Prompt Improver deliverables. Defines YAML syntax specifications, structure patterns, validation rules, and file delivery standards for prompt engineering output formatting, covering YAML fundamentals, RCAF/CRAFT structures, file delivery protocols, format conversions, syntax validation, advanced patterns, and best practices.
+
+### Usage
+
+- **Loading Condition:** ON-DEMAND.
+- Load for the routed `$yaml` command or when the final prompt must be valid YAML.
 
 ---
 
-## OVERVIEW
-
-**Purpose:** Reusable YAML format rules for exported Prompt Improver deliverables.
-
-**Usage:** Load for the routed `$yaml` command or when the final prompt must be valid YAML.
-
----
-
-## 1. OVERVIEW & PURPOSE
+## 2. FORMAT RATIONALE
 
 ### Why YAML Format?
 
@@ -60,7 +61,7 @@ YAML provides human-readable structured data with minimal syntax overhead, ideal
 
 ---
 
-## 2. YAML FORMAT FUNDAMENTALS
+## 3. YAML FORMAT FUNDAMENTALS
 
 ### Core Principles
 
@@ -109,7 +110,7 @@ output:
 
 ---
 
-## 3. FILE DELIVERY STANDARDS
+## 4. FILE DELIVERY STANDARDS
 
 ### Mandatory Requirements
 
@@ -184,7 +185,7 @@ role: Data analyst
 
 ---
 
-## 4. RCAF YAML STRUCTURE
+## 5. RCAF YAML STRUCTURE
 
 ### Template
 
@@ -228,7 +229,7 @@ format:
 
 ---
 
-## 5. CRAFT YAML STRUCTURE
+## 6. CRAFT YAML STRUCTURE
 
 ### Template
 
@@ -298,7 +299,7 @@ target:
 
 ---
 
-## 6. ADVANCED YAML PATTERNS
+## 7. ADVANCED YAML PATTERNS
 
 ### Multi-Phase Process
 
@@ -366,7 +367,7 @@ format:
 
 ---
 
-## 7. FORMAT CONVERSIONS
+## 8. FORMAT CONVERSIONS
 
 **Cross-format guidance:** See Markdown Format Guide, JSON Format Guide, Interactive Mode
 
@@ -399,7 +400,7 @@ format: Dashboard with charts
 
 ---
 
-## 8. EXAMPLES & TEMPLATES
+## 9. EXAMPLES & TEMPLATES
 
 ### Research Template
 
@@ -437,7 +438,7 @@ format:
 
 ---
 
-## 9. ✅ SYNTAX VALIDATION
+## 10. ✅ SYNTAX VALIDATION
 
 ### Pre-Delivery Checklist
 
@@ -475,7 +476,7 @@ format:
 
 ---
 
-## 10. BEST PRACTICES
+## 11. BEST PRACTICES
 
 ### Do's and Don'ts
 

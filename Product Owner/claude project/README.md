@@ -31,16 +31,16 @@ claude project/
 
 | Doc | Version | sha256 (16) |
 |---|---|---|
-| Custom Instructions | v1.1.0 | `08dfb5e84393127a` |
-| knowledge/ System - Skill | v1.1.0 | `1b78534c94bbc098` |
-| knowledge/ Thinking - DEPTH Framework | v0.201 | `5e80356d94099777` |
-| knowledge/ System - Interactive Mode | v0.402 | `bc5f6ee1ffefef03` |
-| knowledge/ Templates - Task Mode | v0.301 | `9590706d0028250e` |
-| knowledge/ Templates - Bug Mode | v0.201 | `3c2dbdbb641d39a5` |
+| Custom Instructions | v1.1.0 | `ee1054145966e2b3` |
+| knowledge/ System - Skill | v1.1.0 | `4d13bef37e877371` |
+| knowledge/ Thinking - DEPTH Framework | v0.201 | `7d8ef9f46073f6f0` |
+| knowledge/ System - Interactive Mode | v0.402 | `8c0d30878b93a544` |
+| knowledge/ Templates - Task Mode | v0.301 | `ee1a13e950797d2c` |
+| knowledge/ Templates - Bug Mode | v0.201 | `4a9cb1d190325131` |
 | knowledge/ Assets - Task Templates | v0.100 | `2f6bd7da82af3fca` |
 | knowledge/ Assets - Bug Report Template | v0.100 | `70b96e9efcb036fc` |
-| knowledge/ Assets - Interactive Response Templates | v0.100 | `027e3ddffda42359` |
-| knowledge/ Rules - Human Voice EN | v0.210 | `3f092d99b55b9824` |
+| knowledge/ Assets - Interactive Response Templates | v0.100 | `2d705a204ed9827d` |
+| knowledge/ Rules - Human Voice EN | v0.210 | `f8980baed64ddb1c` |
 
 ## Sync
 

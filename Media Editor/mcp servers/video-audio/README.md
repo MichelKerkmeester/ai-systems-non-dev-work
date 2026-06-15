@@ -2,21 +2,9 @@
 
 > Docker-based MCP server for video and audio editing powered by FFmpeg.
 
-## TABLE OF CONTENTS
-
-  - 1. 📖 OVERVIEW
-  - 2. 🚀 QUICK START
-  - 3. 📁 STRUCTURE
-  - 4. ⚡ FEATURES
-  - 5. ⚙️ CONFIGURATION
-  - 6. 💡 USAGE EXAMPLES
-  - 7. 🛠️ TROUBLESHOOTING
-  - 8. ❓ FAQ
-  - 9. 📚 RELATED DOCUMENTS
-
 ---
 
-## 1. 📖 OVERVIEW
+## 1. OVERVIEW
 
 ### What is Video-Audio?
 
@@ -53,7 +41,7 @@ Video-Audio is a comprehensive Model Context Protocol (MCP) server that provides
 
 ---
 
-## 2. 🚀 QUICK START
+## 2. QUICK START
 
 ### Prerequisites
 
@@ -99,7 +87,7 @@ docker exec -i video-audio python /app/server.py <<< '{"jsonrpc":"2.0","id":1,"m
 
 ---
 
-## 3. 📁 STRUCTURE
+## 3. STRUCTURE
 
 ```
 video-audio/
@@ -132,7 +120,7 @@ Inside the container (`/app/`):
 
 ---
 
-## 4. ⚡ FEATURES
+## 4. FEATURES
 
 ### Core Video Operations
 
@@ -309,7 +297,7 @@ Inside the container (`/app/`):
 
 ---
 
-## 5. ⚙️ CONFIGURATION
+## 5. CONFIGURATION
 
 ### Configuration File
 
@@ -358,7 +346,7 @@ services:
 
 ---
 
-## 6. 💡 USAGE EXAMPLES
+## 6. USAGE EXAMPLES
 
 ### Example 1: Convert Video Format
 
@@ -421,7 +409,7 @@ services:
 
 ---
 
-## 7. 🛠️ TROUBLESHOOTING
+## 7. TROUBLESHOOTING
 
 ### Common Issues
 
@@ -516,7 +504,7 @@ docker exec video-audio df -h /videos
 
 ---
 
-## 8. ❓ FAQ
+## 8. FAQ
 
 ### General Questions
 
@@ -582,7 +570,7 @@ A: Use `-c copy` mode when only changing container format without re-encoding. T
 
 ---
 
-## 9. 📚 RELATED DOCUMENTS
+## 9. RELATED DOCUMENTS
 
 ### Internal Documentation
 

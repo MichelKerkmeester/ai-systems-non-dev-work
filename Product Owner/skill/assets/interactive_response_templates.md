@@ -41,6 +41,10 @@ Welcome! Let's create exactly what you need.
 
 Please provide the following information at once:
 
+**0. How should I work this?**
+- Quick - lean pass with smart defaults, minimal back-and-forth
+- Deeper - take more time, read more context and apply the full DEPTH flow
+
 **1. Deliverable type:**
 - Task - Development task with QA checklist
 - Bug - Defect report with evidence and reproduction steps

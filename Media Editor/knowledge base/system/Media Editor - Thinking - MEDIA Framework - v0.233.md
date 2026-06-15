@@ -6,20 +6,9 @@ A comprehensive methodology combining systematic media analysis with **automatic
 **Purpose:** Defines the MEDIA methodology (Measure, Evaluate, Decide, Implement, Analyze) for intelligent media optimization with automatic professional-grade analysis and quality assurance
 **Scope:** Framework overview, MEDIA principles, cognitive rigor techniques, RICCE structural validation, transparency model, quality assurance gates, tool integration (MCP/FFmpeg), and quick reference guides
 
-## TABLE OF CONTENTS
-
-  - 1. 🎯 FRAMEWORK OVERVIEW
-  - 2. 💡 MEDIA PRINCIPLES
-  - 3. 🔬 COGNITIVE RIGOR FRAMEWORK
-  - 4. 🧠 THE MEDIA METHODOLOGY
-  - 5. 🏗️ RICCE FRAMEWORK
-  - 6. 🔄 TRANSPARENCY MODEL
-  - 7. ✅ QUALITY ASSURANCE
-  - 8. 🏎️ QUICK REFERENCE
-
 ---
 
-## 1. 🎯 FRAMEWORK OVERVIEW
+## 1. FRAMEWORK OVERVIEW
 
 ### Core Definition
 **MEDIA** - **M**easure **E**valuate **D**ecide **I**mplement **A**nalyze
@@ -58,7 +47,7 @@ An intelligent framework that acts as a **perfect media context assessor** and *
 
 ---
 
-## 2. 💡 MEDIA PRINCIPLES
+## 2. MEDIA PRINCIPLES
 
 ### The MEDIA Method
 
@@ -174,7 +163,7 @@ final_decision:
 
 ---
 
-## 3. 🔬 COGNITIVE RIGOR FRAMEWORK
+## 3. COGNITIVE RIGOR FRAMEWORK
 
 ### Media-Focused Cognitive Approach
 
@@ -256,17 +245,17 @@ Before processing, validate (show summary to user):
 
 ---
 
-## 4. 🧠 THE MEDIA METHODOLOGY
+## 4. THE MEDIA METHODOLOGY
 
 ### Phase Breakdown with Round Distribution
 
 | Phase         | Standard (10 rounds) | User Update Format                   |
 | ------------- | -------------------- | ------------------------------------ |
-| **M**easure   | Rounds 1-2           | "📊 Analyzing source (4K PNG, 8.5MB)" |
-| **E**valuate  | Rounds 3-5           | "⚙️ Evaluating (WebP optimal)"        |
+| **M**easure   | Rounds 1-2           | " Analyzing source (4K PNG, 8.5MB)" |
+| **E**valuate  | Rounds 3-5           | " Evaluating (WebP optimal)"        |
 | **D**ecide    | Rounds 6-7           | "✅ Deciding (85% quality, 1080p)"    |
-| **I**mplement | Round 8              | "🔄 Processing (95% reduction)"       |
-| **A**nalyze   | Rounds 9-10          | "📈 Complete (quality verified)"      |
+| **I**mplement | Round 8              | " Processing (95% reduction)"       |
+| **A**nalyze   | Rounds 9-10          | " Complete (quality verified)"      |
 
 ### State Management (Focused & Efficient)
 
@@ -387,7 +376,7 @@ next_suggestions: {batch: "Process multiple images with same settings", alternat
 
 ---
 
-## 5. 🏗️ RICCE FRAMEWORK
+## 5. RICCE FRAMEWORK
 
 ### Core Definition
 
@@ -543,7 +532,7 @@ ricce_media_integration_check:
 
 ---
 
-## 6. 🔄 TRANSPARENCY MODEL
+## 6. TRANSPARENCY MODEL
 
 ### Two-Layer Processing Architecture
 
@@ -581,12 +570,12 @@ ricce_media_integration_check:
 
 **Example External Updates:**
 ```markdown
-📊 **Phase M - Measure**
+ **Phase M - Measure**
 Source: 4K PNG image, 8.5MB, RGB
 Target: Web display, quality vs size optimization
 MCP Status: Imagician connected ✅
 
-⚙️ **Phase E - Evaluate**
+ **Phase E - Evaluate**
 Analyzed 4 formats: JPEG, PNG, WebP, AVIF
 Selected: WebP (30-50% smaller than PNG, 96% browser support)
 Alternative: AVIF for future (better compression, growing support)
@@ -596,11 +585,11 @@ Format: WebP at 85% quality, 1080p resolution
 Trade-offs: 95% size reduction, visually identical, <2 sec processing
 Compatibility: Web 96%+, email fallback PNG available
 
-🔄 **Phase I - Implement**
+ **Phase I - Implement**
 Processing: Resize → Convert → Optimize
 ✅ Complete: 8.5MB → 425KB (95% reduction)
 
-📈 **Phase A - Analyze**
+ **Phase A - Analyze**
 Results: SSIM 0.98 (visually identical quality)
 Processing: 1.8 seconds
 Next: Batch processing available, consider AVIF for future
@@ -711,17 +700,17 @@ improvement_cycle:
 
 ---
 
-## 8. 🏎️ QUICK REFERENCE
+## 8. QUICK REFERENCE
 
 ### MEDIA Phase Summary
 
 | Phase         | Standard        | Key Actions                    | User Sees                                        |
 | ------------- | --------------- | ------------------------------ | ------------------------------------------------ |
-| **M**easure   | Full analysis   | Tool verify, media analyzed    | "📊 Measuring (4K PNG, 8.5MB, web target)"        |
-| **E**valuate  | Pattern eval    | Optimization patterns selected | "⚙️ Evaluating (WebP optimal for web)"            |
-| **D**ecide    | Sequential      | Processing pipeline sequenced  | "🔄 Deciding (Resize → Convert → Optimize)"       |
+| **M**easure   | Full analysis   | Tool verify, media analyzed    | " Measuring (4K PNG, 8.5MB, web target)"        |
+| **E**valuate  | Pattern eval    | Optimization patterns selected | " Evaluating (WebP optimal for web)"            |
+| **D**ecide    | Sequential      | Processing pipeline sequenced  | " Deciding (Resize → Convert → Optimize)"       |
 | **I**mplement | Full validation | Best practices verified        | "✅ Implementing (Quality standards met)"         |
-| **A**nalyze   | Complete        | Integration delivered          | "📈 Analyzing (95% reduction, quality preserved)" |
+| **A**nalyze   | Complete        | Integration delivered          | " Analyzing (95% reduction, quality preserved)" |
 
 ### Cognitive Rigor Quick Check
 

@@ -16,13 +16,23 @@ trigger_phrases:
 
 Visual UI Concepting Mode for transforming technical specifications into evocative, inspiration-based prompts optimized for AI design tools (MagicPath.ai, Lovable, Aura, Bolt, v0.dev).
 
-**Loading Condition:** TRIGGER
-**Purpose:** Transform technical/detailed prompts into evocative, creative prompts that maximize AI design tool creativity
-**Scope:** VIBE framework, EVOKE scoring, Design Direction detection, Vocabulary transformation, Platform optimization, MagicPath.ai specialization
+---
+
+## 1. OVERVIEW
+
+### Purpose
+
+Transform technical/detailed prompts into evocative, creative prompts that maximize AI design tool creativity.
+
+### When to Use
+
+- **Loading Condition:** TRIGGER. Activated by `$vibe` / `$v` commands for AI design tools.
+- VIBE framework, EVOKE scoring, and Design Direction detection.
+- Vocabulary transformation, platform optimization, and MagicPath.ai specialization.
 
 ---
 
-## 1. CORE PHILOSOPHY
+## 2. CORE PHILOSOPHY
 
 > **"Specification constrains. Inspiration liberates."**
 
@@ -64,7 +74,7 @@ Visual Mode prompts should:
 
 ---
 
-## 2. THE VIBE FRAMEWORK
+## 3. THE VIBE FRAMEWORK
 
 ### Overview
 
@@ -250,7 +260,7 @@ When dimensions are incomplete, ask:
 
 ---
 
-## 3. DESIGN DIRECTION DETECTION
+## 4. DESIGN DIRECTION DETECTION
 
 ### The Eight Directions
 
@@ -359,7 +369,7 @@ when_direction_unclear:
 
 ---
 
-## 4. EVOKE SCORING SYSTEM
+## 5. EVOKE SCORING SYSTEM
 
 ### Overview
 
@@ -533,7 +543,7 @@ when_direction_unclear:
 
 ---
 
-## 5. EVOCATIVE VOCABULARY & TRANSFORMATION
+## 6. EVOCATIVE VOCABULARY & TRANSFORMATION
 
 > **Philosophy:** Don't map technical specs to feelings. Generate evocative language naturally. Think like a Creative Director, not a lookup table.
 
@@ -562,7 +572,7 @@ Templates: see [visual_mode_library](../assets/visual_mode_library.md)
 
 ---
 
-## 6. TRANSFORMATION PIPELINE
+## 7. TRANSFORMATION PIPELINE
 
 ### Processing Flow
 
@@ -696,14 +706,14 @@ Transform observations into evocative language. DO NOT estimate pixels or guess 
 
 ---
 
-## 7. VISUAL STYLE KEYWORDS
+## 8. VISUAL STYLE KEYWORDS
 
 Templates: see [visual_mode_library](../assets/visual_mode_library.md)
 
 ---
 
 
-## 8. TARGET PLATFORM OPTIMIZATION
+## 9. TARGET PLATFORM OPTIMIZATION
 
 ### Platform Hierarchy
 
@@ -779,7 +789,7 @@ Templates: see [visual_mode_library](../assets/visual_mode_library.md)
 
 ---
 
-## 9. MAGICPATH.AI SPECIALIZATION
+## 10. MAGICPATH.AI SPECIALIZATION
 
 ### Platform Context
 
@@ -885,7 +895,7 @@ Templates: see [visual_mode_library](../assets/visual_mode_library.md)
 
 ---
 
-## 10. ITERATIVE REFINEMENT FLOW
+## 11. ITERATIVE REFINEMENT FLOW
 
 Templates: see [visual_mode_library](../assets/visual_mode_library.md)
 
@@ -918,7 +928,7 @@ Need another UI concept? Just share your next idea.
 
 ---
 
-## 11. QUICK REFERENCE
+## 12. QUICK REFERENCE
 
 ### Commands
 

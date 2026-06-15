@@ -6,20 +6,9 @@ Technical reference for Imagician MCP server capabilities and integration for im
 **Purpose:** Define Imagician MCP server capabilities, technical specifications, and operation parameters for image processing integration
 **Scope:** Server overview, core capabilities, format support, operation specifications, quality optimization, resize/crop strategies, transforms, and quick reference
 
-## TABLE OF CONTENTS
-
-  - 1. 🔌 SERVER OVERVIEW
-  - 2. 🛠️ CORE CAPABILITIES
-  - 3. 📊 FORMAT SUPPORT
-  - 4. ⚙️ OPERATION SPECIFICATIONS
-  - 5. 🎯 QUALITY OPTIMIZATION
-  - 6. � RESIZE & CROP
-  - 7. 🔄 TRANSFORMS
-  - 8. 🏎️ QUICK REFERENCE
-
 ---
 
-## 1. 🔌 SERVER OVERVIEW
+## 1. SERVER OVERVIEW
 
 ### MCP Server Details
 
@@ -52,7 +41,7 @@ Connection verification must be the **first action before all operations**. Use 
 
 ---
 
-## 2. 🛠️ CORE CAPABILITIES
+## 2. CORE CAPABILITIES
 
 ### Available Operations
 
@@ -110,7 +99,7 @@ For optimal results, process images in this sequence:
 
 ---
 
-## 3. 📊 FORMAT SUPPORT
+## 3. FORMAT SUPPORT
 
 ### Supported Formats
 
@@ -144,7 +133,7 @@ Imagician supports modern image formats with full input/output capabilities.
 
 ---
 
-## 4. ⚙️ OPERATION SPECIFICATIONS
+## 4. OPERATION SPECIFICATIONS
 
 ### Resize Operation
 
@@ -213,7 +202,7 @@ compress:
 
 ---
 
-## 5. 🎯 QUALITY OPTIMIZATION
+## 5. QUALITY OPTIMIZATION
 
 ### Quality Guidelines
 
@@ -249,7 +238,7 @@ Quality settings determine the balance between file size and visual fidelity. Hi
 
 ---
 
-## 6. 📐 RESIZE & CROP
+## 6. RESIZE & CROP
 
 ### Resize Strategies
 
@@ -326,7 +315,7 @@ social_media:
 
 ---
 
-## 7. 🔄 TRANSFORMS
+## 7. TRANSFORMS
 
 ### Rotation Operation
 
@@ -384,7 +373,7 @@ auto_orientation:
 
 ---
 
-## 8. 🏎️ QUICK REFERENCE
+## 8. QUICK REFERENCE
 
 ### MCP Tools Summary
 

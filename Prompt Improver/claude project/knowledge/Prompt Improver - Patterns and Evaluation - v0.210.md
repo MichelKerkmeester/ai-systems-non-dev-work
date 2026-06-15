@@ -16,19 +16,29 @@ trigger_phrases:
 
 Enhancement patterns and CLEAR evaluation methodology for systematic prompt engineering excellence.
 
-**Loading Condition:** TRIGGER
-**Purpose:** Provides the evaluation and enhancement reference set: systematic enhancement patterns and the CLEAR, EVOKE and VISUAL evaluation methodology.
-**Scope:** Enhancement patterns, CLEAR/EVOKE/VISUAL scoring methodologies, recovery protocols and mastery principles. The framework library and selection algorithms live in `assets/framework_pattern_library.md`.
+---
+
+## 1. OVERVIEW
+
+### Purpose
+
+Provides the evaluation and enhancement reference set: systematic enhancement patterns and the CLEAR, EVOKE and VISUAL evaluation methodology.
+
+### When to Use
+
+- **Loading Condition:** TRIGGER. Loaded when enhancement patterns or scoring methodology are needed.
+- Enhancement patterns, CLEAR/EVOKE/VISUAL scoring, recovery protocols, and mastery principles.
+- The framework library and selection algorithms live in `assets/framework_pattern_library.md`.
 
 ---
 
-## 1. FRAMEWORK PATTERN LIBRARY
+## 2. FRAMEWORK PATTERN LIBRARY
 
 Framework matrix, deep dives, combinations and optimization strategies: see [framework_pattern_library](../assets/framework_pattern_library.md).
 
 ---
 
-## 2. SYSTEMATIC ENHANCEMENT METHODOLOGY
+## 3. SYSTEMATIC ENHANCEMENT METHODOLOGY
 
 ### Enhancement Pipeline
 
@@ -68,7 +78,7 @@ enhancement_pipeline:
 
 ---
 
-## 3. PATTERN-BASED REFINEMENTS
+## 4. PATTERN-BASED REFINEMENTS
 
 ### Vague to Specific Transformation
 
@@ -111,7 +121,7 @@ scope_boundaries:
 
 ---
 
-## 4. EXCELLENCE PATTERNS
+## 5. EXCELLENCE PATTERNS
 
 ### Complete Context Layering (45+ CLEAR)
 
@@ -159,7 +169,7 @@ scope_boundaries:
 
 ---
 
-## 5. RECOVERY & REPAIR PROTOCOLS
+## 6. RECOVERY & REPAIR PROTOCOLS
 
 ### REPAIR Framework
 
@@ -198,7 +208,7 @@ repair_framework:
 
 ---
 
-## 6. ✅ CLEAR EVALUATION MASTERY
+## 7. ✅ CLEAR EVALUATION MASTERY
 
 > **Note:** For Visual UI Concepting (`$vibe`, `$v`), use **EVOKE scoring**. For Image/Video (`$image`, `$video`), use **VISUAL scoring**.
 
@@ -309,7 +319,7 @@ contextual_clear_scoring:
 
 ---
 
-## 7. VISUAL SCORING FOR IMAGE & VIDEO
+## 8. VISUAL SCORING FOR IMAGE & VIDEO
 
 ### VISUAL - Image Mode (60 points)
 
@@ -391,7 +401,7 @@ calculate_visual_score:
 
 ---
 
-## 8. ADVANCED SCORING TECHNIQUES
+## 9. ADVANCED SCORING TECHNIQUES
 
 ### Multi-Pass Scoring
 
@@ -432,7 +442,7 @@ comparative_scoring:
 
 ---
 
-## 9. WEAKNESS DETECTION & ANALYSIS
+## 10. WEAKNESS DETECTION & ANALYSIS
 
 ```yaml
 detect_prompt_weaknesses:
@@ -467,7 +477,7 @@ detect_prompt_weaknesses:
 
 ---
 
-## 10. USE CASE TEMPLATES
+## 11. USE CASE TEMPLATES
 
 ### Software Development
 
@@ -513,7 +523,7 @@ exploratory_data_analysis:
 
 ---
 
-## 11. MASTERY PRINCIPLES
+## 12. MASTERY PRINCIPLES
 
 ### Ten Commandments of Prompt Excellence
 
@@ -578,7 +588,7 @@ excellence_formula:
 
 ---
 
-## 12. QUICK REFERENCE CARD
+## 13. QUICK REFERENCE CARD
 
 ### Framework Quick Select
 

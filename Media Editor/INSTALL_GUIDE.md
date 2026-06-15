@@ -4,7 +4,7 @@ A comprehensive guide to installing, configuring, and using the Imagician and Vi
 
 ---
 
-## 🤖 AI-FIRST INSTALL GUIDE
+## AI-FIRST INSTALL GUIDE
 
 **Copy and paste this prompt to your AI assistant to get installation help:**
 
@@ -39,22 +39,9 @@ Guide me through each step with the exact commands I need to run.
 
 ---
 
-#### TABLE OF CONTENTS
-
-  - 1. 📖 OVERVIEW
-  - 2. 📋 PREREQUISITES
-  - 3. 📥 INSTALLATION
-  - 4. ⚙️ CONFIGURATION
-  - 5. ✅ VERIFICATION
-  - 6. 🚀 USAGE
-  - 7. 🎯 FEATURES
-  - 8. 💡 EXAMPLES
-  - 9. 🔧 TROUBLESHOOTING
-  - 10. 📚 RESOURCES
-
 ---
 
-## 1. 📖 OVERVIEW
+## 1. OVERVIEW
 
 The Media Editor MCP system provides AI-powered image and video processing through two complementary MCP servers running in Docker containers. This enables Claude and other AI assistants to perform sophisticated media editing operations.
 
@@ -80,7 +67,7 @@ The Media Editor MCP system provides AI-powered image and video processing throu
 │  (Claude Desktop, OpenCode, VS Code Copilot, etc.)          │
 └──────────────────────┬──────────────────┬───────────────────┘
                        │                  │
-                       ▼                  ▼
+                                         
 ┌─────────────────────────────┐  ┌────────────────────────────┐
 │   Imagician MCP Server      │  │  Video-Audio MCP Server    │
 │   (Docker: imagician)       │  │  (Docker: video-audio)     │
@@ -89,7 +76,7 @@ The Media Editor MCP system provides AI-powered image and video processing throu
 │   • Filters and effects     │  │  • HLS conversion          │
 └──────────────┬──────────────┘  └─────────────┬──────────────┘
                │                               │
-               ▼                               ▼
+                                              
 ┌─────────────────────────────┐  ┌────────────────────────────┐
 │  /images (Docker Volume)    │  │  /videos (Docker Volume)   │
 │  ├── Original/              │  │  ├── Original/             │
@@ -99,7 +86,7 @@ The Media Editor MCP system provides AI-powered image and video processing throu
 
 ---
 
-## 2. 📋 PREREQUISITES
+## 2. PREREQUISITES
 
 Before installing the Media Editor MCP servers, ensure you have:
 
@@ -132,7 +119,7 @@ Before installing the Media Editor MCP servers, ensure you have:
 
 ---
 
-## 3. 📥 INSTALLATION
+## 3. INSTALLATION
 
 ### Step 1: Create Folder Structure
 
@@ -232,7 +219,7 @@ video-audio    video-audio:latest    "sh -c 'echo..."    Up X minutes
 
 ---
 
-## 4. ⚙️ CONFIGURATION
+## 4. CONFIGURATION
 
 Configure the MCP servers for your AI platform:
 
@@ -376,7 +363,7 @@ This runs connection verification for both MCP servers.
 
 ---
 
-## 6. 🚀 USAGE
+## 6. USAGE
 
 ### File Workflow
 
@@ -428,7 +415,7 @@ The Media Editor system supports these command shortcuts in Claude:
 
 ---
 
-## 7. 🎯 FEATURES
+## 7. FEATURES
 
 ### Imagician Capabilities
 
@@ -456,7 +443,7 @@ The Media Editor system supports these command shortcuts in Claude:
 
 ---
 
-## 8. 💡 EXAMPLES
+## 8. EXAMPLES
 
 ### Image Processing Examples
 
@@ -492,7 +479,7 @@ Merge all videos in /videos/Original/ into one file
 
 ---
 
-## 9. 🔧 TROUBLESHOOTING
+## 9. TROUBLESHOOTING
 
 ### Docker Containers Not Running
 
@@ -523,7 +510,7 @@ docker logs video-audio --tail 50
 
 3. **Validate JSON syntax** (no trailing commas, proper brackets)
 
-4. **Restart Claude Desktop completely** (⌘Q, not just close window)
+4. **Restart Claude Desktop completely** (Q, not just close window)
 
 ### Permission Issues
 
@@ -562,7 +549,7 @@ docker run --rm -v /your/path/to/images:/test alpine ls /test
 
 ---
 
-## 10. 📚 RESOURCES
+## 10. RESOURCES
 
 ### Official Repositories
 
@@ -593,7 +580,7 @@ docker run --rm -v /your/path/to/images:/test alpine ls /test
 
 ---
 
-## 🎉 Ready to Go!
+## Ready to Go!
 
 Your Media Editor MCP system is now configured. Place media files in the `Original/` folders and start editing with AI!
 

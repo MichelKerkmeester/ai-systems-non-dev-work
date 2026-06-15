@@ -16,13 +16,23 @@ trigger_phrases:
 
 Specialized mode for optimizing prompts for AI image generators including Flux 2 Pro, Google Imagen 4 (Nano Banana Pro), Runway, Midjourney, DALL-E 3, Stable Diffusion, Seedream, Leonardo, and Ideogram.
 
-**Loading Condition:** TRIGGER
-**Purpose:** Transform vague visual requests into structured, platform-optimized image prompts using the FRAME framework and VISUAL scoring system.
-**Scope:** Image generation prompts, platform-specific optimization, composition vocabulary, style references, anti-pattern detection.
+---
+
+## 1. OVERVIEW
+
+### Purpose
+
+Transform vague visual requests into structured, platform-optimized image prompts using the FRAME framework and VISUAL scoring system.
+
+### When to Use
+
+- **Loading Condition:** TRIGGER. Activated by `$image` / `$img` commands.
+- Image generation prompts and platform-specific optimization.
+- Composition vocabulary, style references, and anti-pattern detection.
 
 ---
 
-## 1. OBJECTIVE
+## 2. OBJECTIVE
 
 Transform vague visual descriptions into detailed, evocative prompts optimized for AI image generators.
 
@@ -44,7 +54,7 @@ Transform vague visual descriptions into detailed, evocative prompts optimized f
 
 ---
 
-## 2. FRAME FRAMEWORK
+## 3. FRAME FRAMEWORK
 
 - **F**ocus
   - Focus: Subject & Composition
@@ -111,7 +121,7 @@ frame_process:
 
 ---
 
-## 3. VISUAL SCORING (IMAGE)
+## 4. VISUAL SCORING (IMAGE)
 
 - **V**ivid
   - Points: 15
@@ -144,7 +154,7 @@ frame_process:
 
 ---
 
-## 4. PLATFORM OPTIMIZATION
+## 5. PLATFORM OPTIMIZATION
 
 ### Platform Detection & Capabilities
 
@@ -192,7 +202,7 @@ Templates: see [image_mode_library](../assets/image_mode_library.md)
 ---
 
 
-## 5. COMPOSITION & FRAMING
+## 6. COMPOSITION & FRAMING
 
 ### Shot Types
 
@@ -267,7 +277,7 @@ composition_techniques:
 
 ---
 
-## 6. STYLE & AESTHETICS
+## 7. STYLE & AESTHETICS
 
 ### Art Styles Reference
 
@@ -346,7 +356,7 @@ composition_techniques:
 
 ---
 
-## 7. VOCABULARY BANKS
+## 8. VOCABULARY BANKS
 
 ### Subject Descriptors
 
@@ -370,7 +380,7 @@ composition_techniques:
 
 ---
 
-## 8. ANTI-PATTERNS
+## 9. ANTI-PATTERNS
 
 ### Universal Anti-Patterns
 
@@ -434,14 +444,14 @@ vague_to_specific:
 
 ---
 
-## 9. TRANSFORMATION EXAMPLES
+## 10. TRANSFORMATION EXAMPLES
 
 Templates: see [image_mode_library](../assets/image_mode_library.md)
 
 ---
 
 
-## 10. ITERATIVE REFINEMENT FLOW
+## 11. ITERATIVE REFINEMENT FLOW
 
 ### Post-Delivery Question (MANDATORY)
 
@@ -485,7 +495,7 @@ Need another image prompt? Just share your next concept.
 
 ---
 
-## 11. QUICK REFERENCE
+## 12. QUICK REFERENCE
 
 Templates: see [image_mode_library](../assets/image_mode_library.md)
 

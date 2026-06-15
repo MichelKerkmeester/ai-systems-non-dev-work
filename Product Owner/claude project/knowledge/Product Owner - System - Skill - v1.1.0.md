@@ -541,6 +541,8 @@ Do not invent features, evidence, root causes, platform details or acceptance co
 
 Ask one comprehensive question and wait when required information is missing.
 
+For an ambiguous no-command request, open that single question with the energy choice (quick lean pass with smart defaults, or deeper read with full DEPTH) before gathering the rest.
+
 Do not ask multiple rounds unless the fallback chain allows it and the previous answer remains incomplete.
 
 Do not answer your own question.

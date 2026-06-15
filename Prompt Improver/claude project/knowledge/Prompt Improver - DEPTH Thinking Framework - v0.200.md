@@ -15,13 +15,23 @@ trigger_phrases:
 
 The single thinking system for all prompt improvement work. Five phases, five energy levels, cognitive techniques applied when they add value.
 
-**Loading Condition:** ALWAYS
-**Purpose:** Defines DEPTH (Discover, Engineer, Prototype, Test, Harmonize) as a 5-phase thinking system with energy-level scaling, cognitive rigor techniques, CLEAR quality scoring (40+/50), mode-specific scoring for Creative energy (EVOKE, VISUAL), and proof-through-output transparency.
-**Scope:** Multi-perspective analysis (min 3, target 5), cognitive rigor toolkit, CLEAR quality gates (40+/50), energy-level-driven phase execution.
+---
+
+## 1. OVERVIEW
+
+### Purpose
+
+Defines DEPTH (Discover, Engineer, Prototype, Test, Harmonize) as a 5-phase thinking system with energy-level scaling, cognitive rigor techniques, CLEAR quality scoring (40+/50), mode-specific scoring for Creative energy (EVOKE, VISUAL), and proof-through-output transparency.
+
+### When to Use
+
+- **Loading Condition:** ALWAYS. This is the one thinking system applied to every prompt improvement task.
+- Multi-perspective analysis (min 3, target 5) and the cognitive rigor toolkit.
+- CLEAR quality gates (40+/50) and energy-level-driven phase execution.
 
 ---
 
-## 1. FRAMEWORK OVERVIEW
+## 2. FRAMEWORK OVERVIEW
 
 ### Core Definition
 
@@ -69,7 +79,7 @@ This table is the source of truth. Other files reference it.
 
 ---
 
-## 2. DEPTH PHASES
+## 3. DEPTH PHASES
 
 - **D** — Discover
   - Purpose: Deep understanding of prompt and improvement needs
@@ -104,7 +114,7 @@ Understand the current prompt, identify improvement needs, select framework appr
   - Focus: Prompt complexity level 1-10
   - Constraint: Do not add unrequested complexity
 - **Perspective Analysis**
-  - Focus: Analyse from multiple viewpoints (see Section 3)
+  - Focus: Analyse from multiple viewpoints (see Section 4)
   - Constraint: Count per energy level
 - **Perspective Inversion**
   - Focus: Argue against approach, find merit in objections
@@ -170,7 +180,7 @@ Build enhanced prompt structure.
 Validate enhancement quality.
 
 - **CLEAR Scoring**
-  - Criteria: Calculate each dimension, weight by use case (see Section 4)
+  - Criteria: Calculate each dimension, weight by use case (see Section 5)
   - Threshold: **40+/50 required**
 - **Content Validation**
   - Criteria: Intent preserved, improvements clear, format compliant
@@ -237,7 +247,7 @@ system_state:
 
 ---
 
-## 3. COGNITIVE RIGOR
+## 4. COGNITIVE RIGOR
 
 ### Standard Perspectives (Per-Prompt, Not Per-Iteration)
 
@@ -310,7 +320,7 @@ If any gate fails → apply technique → re-validate.
 
 ---
 
-## 4. CLEAR SCORING & INTEGRATION
+## 5. CLEAR SCORING & INTEGRATION
 
 **CLEAR** is the quality scoring framework for prompt improvement deliverables. CLEAR validates quality; DEPTH provides process methodology. **C**orrectness · **L**ogic · **E**xpression · **A**rrangement · **R**eusability.
 
@@ -475,7 +485,7 @@ clear_depth_check:
 
 ---
 
-## 5. ✅ QUALITY & TRANSPARENCY
+## 6. ✅ QUALITY & TRANSPARENCY
 
 ### Proof Through Output Metadata
 
@@ -545,7 +555,7 @@ For structural recovery when enhancement fails validation repeatedly, reference 
 
 ---
 
-## 6. QUICK REFERENCE
+## 7. QUICK REFERENCE
 
 ### Energy Level Summary
 

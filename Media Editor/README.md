@@ -2,21 +2,9 @@
 
 Transforms natural language requests into optimized images, videos, audio, and HLS streaming with **automatic MEDIA processing and 10-round optimization**.
 
-## TABLE OF CONTENTS
-
-  - 1. 🆕 WHAT'S NEW IN V0.212
-  - 2. ✨ KEY FEATURES
-  - 3. 🌳 SYSTEM ARCHITECTURE
-  - 4. 🚀 QUICK SETUP
-  - 5. 🔧 INSTALLING MCP TOOLS
-  - 6. 🧠 HOW IT WORKS
-  - 7. 🎛️ OPERATING MODES
-  - 8. 💬 EXAMPLE INTERACTIONS
-  - 9. 📚 RESOURCES
-
 ---
 
-## 1. 🆕 WHAT'S NEW IN V0.212
+## 1. WHAT'S NEW IN V0.212
 
 ### Documentation Improvements
 - **Enhanced Readability**: Improved balance between YAML and markdown prose across MCP Intelligence documents
@@ -34,7 +22,7 @@ Transforms natural language requests into optimized images, videos, audio, and H
 - **Command shortcuts**: Use `$hls` mode for quick HLS conversion
 - **Complete guide**: Dedicated HLS Video Conversion documentation (v0.100)
 
-### 🔧 System Improvements
+### System Improvements
 
 **Critical Bug Fixes:**
 - **Version reference corrections**: Fixed all file references from v0.200 to v0.211
@@ -52,7 +40,7 @@ Transforms natural language requests into optimized images, videos, audio, and H
   - HLS Streaming → FFmpeg (Terminal)
 - **Better error handling**: Clear setup guidance when tools unavailable
 
-### 📊 Evolution: v0.211 → v0.200 → v0.114
+### Evolution: v0.211 → v0.200 → v0.114
 
 **v0.211:** HLS streaming support, critical bug fixes, improved tool integration, enhanced documentation  
 **v0.200:** Streamlined cognitive approach, pure MCP capabilities focus, enhanced conversation architecture  
@@ -60,7 +48,7 @@ Transforms natural language requests into optimized images, videos, audio, and H
 
 ---
 
-## 2. ✨ KEY FEATURES
+## 2. KEY FEATURES
 
 ### Core Capabilities
 - **Tool Verification First**: Always checks required tools before operations (blocking)
@@ -115,7 +103,7 @@ Transforms natural language requests into optimized images, videos, audio, and H
 
 ---
 
-## 3. 🌳 SYSTEM ARCHITECTURE
+## 3. SYSTEM ARCHITECTURE
 
 ```
 AGENTS.md → Entry point with intelligent routing logic
@@ -138,7 +126,7 @@ Output → Optimized media files via MCP servers or Terminal commands
 
 ---
 
-## 4. 🚀 QUICK SETUP
+## 4. QUICK SETUP
 
 ### Step 1: Create a Claude Project
 1. Go to claude.ai
@@ -171,7 +159,7 @@ $video compress presentation.mp4     # Video processing with 10 rounds
 
 ---
 
-## 5. 🔧 INSTALLING MCP TOOLS
+## 5. INSTALLING MCP TOOLS
 
 The Media Editor requires two MCP servers:
 
@@ -232,7 +220,7 @@ I'm on [Windows/Mac/Linux].
 ### Verification
 After installation, restart Claude Desktop and check:
 ```
-🔧 Setup Verification
+ Setup Verification
 
 ✔ Imagician: Connected (Images)
 ✔ Video-Audio: Connected (Video/Audio)
@@ -245,13 +233,13 @@ Ready for professional media processing including HLS streaming!
 
 ---
 
-## 6. 🧠 HOW IT WORKS
+## 6. HOW IT WORKS
 
 ### MCP Connection Verification
 
 System always verifies MCP connections first:
 ```
-🔌 MCP Connection Check
+ MCP Connection Check
 
 • Imagician: ✅ Connected
 • Video-Audio: ✅ Connected
@@ -308,7 +296,7 @@ The system automatically applies:
 
 ---
 
-## 7. 🎛️ OPERATING MODES
+## 7. OPERATING MODES
 
 | Mode | Command | Thinking Applied | Tool Used | Use When |
 |------|---------|-----------------|-----------|----------|
@@ -336,7 +324,7 @@ What type of media?
 
 ---
 
-## 8. 💬 EXAMPLE INTERACTIONS
+## 8. EXAMPLE INTERACTIONS
 
 ### Simple Image Optimization
 ```
@@ -346,16 +334,16 @@ System: I'll optimize your photo for the web!
 
 Applying professional optimization (10 rounds of deep analysis)...
 
-🎬 Image Processing Operation
+ Image Processing Operation
 
 Thinking: Deep analysis (10 rounds applied)
 Operation: Web optimization
 
-📂 Input:
+ Input:
 • File: photo.jpg (4.2 MB)
 • Format: JPEG
 
-🔄 Processing:
+ Processing:
 • Resize to 1920px ✔
 • Convert to WebP ✔
 • Optimize quality to 85% ✔
@@ -365,15 +353,15 @@ API calls: 2/60 🟢
 
 ✅ Operation Complete!
 
-📊 Results:
+ Results:
 • Size: 4.2 MB → 487 KB (88% reduction)
 • Quality: 85% maintained
 • Load time: 5× faster
 
-💡 WebP provides better compression than JPEG
+ WebP provides better compression than JPEG
    Optimization determined via deep analysis
 
-📁 Output: [Location]
+ Output: [Location]
 ```
 
 ### HLS Streaming Conversion (NEW)
@@ -384,16 +372,16 @@ System: I'll convert your video to HLS adaptive streaming!
 
 Applying professional optimization (10 rounds)...
 
-🎬 HLS Streaming Conversion
+ HLS Streaming Conversion
 
 Thinking: Deep analysis (10 rounds applied)
 Operation: Multi-quality adaptive streaming
 
-📂 Input:
+ Input:
 • File: presentation.mp4 (450 MB)
 • Format: H.264 MP4
 
-🔄 Processing:
+ Processing:
 • Generate 1080p stream ✔
 • Generate 720p stream ✔
 • Generate 480p stream ✔
@@ -403,19 +391,19 @@ Operation: Multi-quality adaptive streaming
 
 ✅ HLS Conversion Complete!
 
-📊 Results:
+ Results:
 • Quality levels: 4 (1080p/720p/480p/360p)
 • Segments: 2-second adaptive delivery
 • Total output: 485 MB (multiple quality variants)
 • Bandwidth: Automatic adaptation
 • Compatibility: All modern browsers + HLS.js
 
-💡 HLS enables adaptive quality switching based on viewer's bandwidth
+ HLS enables adaptive quality switching based on viewer's bandwidth
    Professional streaming optimized for web delivery
 
-📁 Output: [HLS package folder with master.m3u8]
+ Output: [HLS package folder with master.m3u8]
 
-🎯 Next Steps:
+ Next Steps:
 • Upload HLS package to web server
 • Use HLS.js for browser playback
 • Test on different bandwidths
@@ -426,7 +414,7 @@ Operation: Multi-quality adaptive streaming
 
 ---
 
-## 9. 📚 RESOURCES
+## 9. RESOURCES
 
 ### MCP Server Documentation
 - [Imagician MCP](https://github.com/flowy11/imagician) - Image processing

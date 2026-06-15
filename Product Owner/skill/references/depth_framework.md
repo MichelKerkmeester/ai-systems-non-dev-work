@@ -22,7 +22,19 @@ The single thinking system for all Product Owner deliverables. Five phases, four
 
 ---
 
-## 1. FRAMEWORK OVERVIEW
+## 1. OVERVIEW
+
+### Purpose
+
+Defines the DEPTH methodology (Discover, Engineer, Prototype, Test, Harmonize) as a five-phase thinking system with energy-level scaling, cognitive rigor techniques, proof-through-output transparency and integrated six-dimension quality scoring for all Product Owner deliverables. It is the single thinking system, so no other thinking framework is referenced or needed.
+
+### When to Use
+
+Apply DEPTH to every Product Owner deliverable, scaling the energy level to the task:
+- Raw skips DEPTH only on explicit "skip depth" or `$quick` in minimal mode
+- Quick (`$quick` / `$q`) runs D, P, H with 1-2 perspectives recommended
+- Standard is the default for all modes and runs all five phases with 3 perspectives minimum
+- Deep runs the extended flow with all 5 perspectives and all 4 cognitive techniques for explicit requests or complex tasks
 
 ### Core Definition
 

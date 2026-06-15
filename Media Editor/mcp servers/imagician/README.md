@@ -2,21 +2,9 @@
 
 > Docker-based MCP server for image manipulation using Sharp and ImageMagick.
 
-## TABLE OF CONTENTS
-
-  - 1. 📖 OVERVIEW
-  - 2. 🚀 QUICK START
-  - 3. 📁 STRUCTURE
-  - 4. ⚡ FEATURES
-  - 5. ⚙️ CONFIGURATION
-  - 6. 💡 USAGE EXAMPLES
-  - 7. 🛠️ TROUBLESHOOTING
-  - 8. ❓ FAQ
-  - 9. 📚 RELATED DOCUMENTS
-
 ---
 
-## 1. 📖 OVERVIEW
+## 1. OVERVIEW
 
 ### What is Imagician?
 
@@ -52,7 +40,7 @@ Imagician is a Model Context Protocol (MCP) server that provides comprehensive i
 
 ---
 
-## 2. 🚀 QUICK START
+## 2. QUICK START
 
 ### Prerequisites
 
@@ -94,7 +82,7 @@ docker exec -i imagician node /app/dist/index.js <<< '{"jsonrpc":"2.0","id":1,"m
 
 ---
 
-## 3. 📁 STRUCTURE
+## 3. STRUCTURE
 
 ```
 imagician/
@@ -118,7 +106,7 @@ imagician/
 
 ---
 
-## 4. ⚡ FEATURES
+## 4. FEATURES
 
 ### Image Transformation
 
@@ -190,7 +178,7 @@ imagician/
 
 ---
 
-## 5. ⚙️ CONFIGURATION
+## 5. CONFIGURATION
 
 ### Configuration File
 
@@ -237,7 +225,7 @@ services:
 
 ---
 
-## 6. 💡 USAGE EXAMPLES
+## 6. USAGE EXAMPLES
 
 ### Example 1: Resize an Image
 
@@ -282,7 +270,7 @@ services:
 
 ---
 
-## 7. 🛠️ TROUBLESHOOTING
+## 7. TROUBLESHOOTING
 
 ### Common Issues
 
@@ -355,7 +343,7 @@ docker exec -i imagician node /app/dist/index.js <<< '{"jsonrpc":"2.0","id":1,"m
 
 ---
 
-## 8. ❓ FAQ
+## 8. FAQ
 
 ### General Questions
 
@@ -401,7 +389,7 @@ A: Use image overlay functionality through the add_image_overlay tool, positioni
 
 ---
 
-## 9. 📚 RELATED DOCUMENTS
+## 9. RELATED DOCUMENTS
 
 ### Internal Documentation
 

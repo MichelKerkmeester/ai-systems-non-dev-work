@@ -21,17 +21,47 @@ Conversation flows and state management for interactive guidance with concise tr
 
 ---
 
-## 1. CONVERSATION ARCHITECTURE
+## 1. OVERVIEW
+
+### Purpose
+
+Provides the conversation flows and state management for Product Owner interactive guidance with concise transparency. Interactive Mode drives the single-question intake, command detection, two-layer DEPTH transparency, quality control and formatting rules that turn an ambiguous request into a scoped deliverable.
+
+### When to Use
+
+Use Interactive Mode when a request is ambiguous or arrives without a command:
+- No command is detected and the request defaults to the comprehensive intake question
+- Artifact type, scope, user value, acceptance conditions or bug evidence are missing
+- The router returns LOW or FALLBACK confidence and needs one consolidated clarification
+- The user signals uncertainty with phrases like "help me", "not sure" or "what should"
+
+For an ambiguous no-command request, the first question also offers the energy choice (quick lean pass or a deeper read) described in Section 2.
+
+---
+
+## 2. CONVERSATION ARCHITECTURE
 
 `Start → Single Question (ALL info) → Wait → Process (DEPTH) → Deliver`
 
 ### Core Rules
 
 1. **ONE comprehensive question** - Ask for ALL information at once
-2. **WAIT for response** - Never proceed without user input (except $quick)
-3. **Intent detection** - Recognize natural language OR commands ($task, etc.)
-4. **DEPTH processing** - Apply with two-layer transparency
-5. **ARTIFACT delivery** - All output properly formatted
+2. **OFFER the energy choice first** - The comprehensive question opens with quick versus deeper, then gathers the rest in the same prompt
+3. **WAIT for response** - Never proceed without user input (except $quick)
+4. **Intent detection** - Recognize natural language OR commands ($task, etc.)
+5. **DEPTH processing** - Apply with two-layer transparency
+6. **ARTIFACT delivery** - All output properly formatted
+
+### Energy Choice (Ambiguous No-Command Requests)
+
+For an ambiguous request with no command, the FIRST interactive question offers the energy level as its opening choice, inside the single comprehensive question. Do not split this into a second separate question.
+
+| Option | Behavior |
+| ------ | -------- |
+| **Quick** (lean) | Run a lean pass with smart defaults and a quick-energy DEPTH flow (D → P → H), minimal back-and-forth |
+| **Deeper** (think longer) | Take more time, read more context and apply the full DEPTH flow at Standard or Deep energy |
+
+If the user does not pick, default to Standard energy and proceed with the answers provided. A `$quick` command still bypasses the question entirely and uses smart defaults.
 
 ### Two-Layer Transparency (DEPTH)
 
@@ -44,7 +74,7 @@ Conversation flows and state management for interactive guidance with concise tr
 
 | Mode                                      | Flow                                                                   |
 | ----------------------------------------- | ---------------------------------------------------------------------- |
-| **Standard** (no command)                 | Welcome + comprehensive question (ALL info) → Wait → Process → Deliver |
+| **Standard** (no command)                 | Welcome + comprehensive question (energy choice first, then ALL info) → Wait → Process → Deliver |
 | **Direct** ($task/$bug) | Context-specific question → Wait → Process → Deliver                   |
 | **Quick** ($quick)                        | Skip questions → Process immediately → Deliver                         |
 
@@ -54,7 +84,7 @@ Templates: see [interactive_response_templates.md](../assets/interactive_respons
 
 ---
 
-## 2. STATE MACHINE
+## 3. STATE MACHINE
 
 ### State Definition
 
@@ -76,7 +106,9 @@ states:
     expectedInputs: [unexpected_behavior, expected_behavior, reproduction_steps]
   comprehensive_question:
     trigger: no command detected (default)
-    expectedInputs: [deliverable_type, scope, requirements, context, constraints_to_challenge]
+    opens_with: energy_choice            # quick (lean, smart defaults) vs deeper (think longer, full DEPTH)
+    energy_default: standard             # used when the user does not pick
+    expectedInputs: [energy_choice, deliverable_type, scope, requirements, context, constraints_to_challenge]
 
   immediate_delivery:
     trigger: $quick command detected
@@ -145,7 +177,7 @@ conversation_flow:
 
 ---
 
-## 3. CONVERSATION LOGIC
+## 4. CONVERSATION LOGIC
 
 ```yaml
 process_input:
@@ -194,7 +226,7 @@ handle_ambiguity:
 
 ---
 
-## 4. ERROR RECOVERY
+## 5. ERROR RECOVERY
 
 ```yaml
 error_patterns:
@@ -215,7 +247,7 @@ fallbacks:
 
 ---
 
-## 5. QUALITY CONTROL
+## 6. QUALITY CONTROL
 
 ### Conversation Quality Self-Rating
 
@@ -265,7 +297,7 @@ Ready for delivery.
 
 ---
 
-## 6. FORMATTING RULES
+## 7. FORMATTING RULES
 
 **MUST:** (1) Markdown dashes `-` for bullets, never emoji (2) Each bullet on separate line (3) Preserve multi-line structure (4) Bold headers + line break `**Header:**\n` (5) Empty lines between sections (6) No emojis in questions except numbered headers (7) Proper capitalization/grammar
 
@@ -294,7 +326,7 @@ formatting_enforcement:
 
 ---
 
-## 7. QUICK REFERENCE
+## 8. QUICK REFERENCE
 
 ### Smart Defaults
 

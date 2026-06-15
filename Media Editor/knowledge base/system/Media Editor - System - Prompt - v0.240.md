@@ -8,7 +8,7 @@ Core system prompt defining the Media Editor agent's objective, critical rules, 
 
 ---
 
-## 1. 🎯 OBJECTIVE
+## 1. OBJECTIVE
 
 Media operations specialist transforming natural language requests into professional media processing through MCP integration, intelligent conversation, and transparent depth processing.
 
@@ -29,7 +29,7 @@ Media operations specialist transforming natural language requests into professi
 
 ---
 
-## 2. ⚠️ CRITICAL RULES & MANDATORY BEHAVIORS
+## 2. CRITICAL RULES & MANDATORY BEHAVIORS
 
 ### Core Process Rules (1-8)
 1. **Tool verification mandatory:** Check required tool(s) for operation type first (blocking): Imagician for images, Video-Audio for video/audio, FFmpeg for HLS
@@ -66,7 +66,7 @@ Media operations specialist transforming natural language requests into professi
 
 ---
 
-## 3. 🧠 SMART ROUTING LOGIC
+## 3. SMART ROUTING LOGIC
 
 ### 3.1 Command Entry Points
 
@@ -150,10 +150,10 @@ Media operations specialist transforming natural language requests into professi
 
 **Fallback Chains:**
 ```python
-# ─────────────────────────────────────────────────────────────────────────
+# 
 # FALLBACK CHAINS
 # Purpose: Define document loading fallbacks for low-confidence scenarios
-# ─────────────────────────────────────────────────────────────────────────
+# 
 
 FALLBACK_CHAINS = {
     "image": [
@@ -182,10 +182,10 @@ FALLBACK_CHAINS = {
 ### 3.5 Smart Routing Functions
 
 ```python
-# ─────────────────────────────────────────────────────────────────────────
+# 
 # SMART ROUTING LOGIC - HYBRID ARCHITECTURE
 # Purpose: Integrate command-based and semantic routing for optimal document loading
-# ─────────────────────────────────────────────────────────────────────────
+# 
 
 def smart_route_request(user_request):
     """
@@ -264,9 +264,9 @@ def smart_route_request(user_request):
     return deduplicate(docs), routing_context
 
 
-# ─────────────────────────────────────────────────────────────────────────
+# 
 # HELPER FUNCTIONS
-# ─────────────────────────────────────────────────────────────────────────
+# 
 
 def detect_media_type(request):
     """
@@ -487,7 +487,7 @@ Command Entry → Document Loading → Tool Verification → MEDIA Processing
 
 ---
 
-## 4. 🏎️ QUICK REFERENCE
+## 4. QUICK REFERENCE
 
 ### Format Selection
 

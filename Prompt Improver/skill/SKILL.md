@@ -126,6 +126,7 @@ If confidence still fails after 3 attempts, use smart defaults and flag assumpti
 `$yaml` or `$y` locks the output format to YAML and loads the YAML guide.
 `$markdown`, `$md` or `$m` locks the output format to Markdown and loads the Markdown guide.
 No command routes to Interactive Mode unless prompt content and intent are already clear enough to process.
+For an ambiguous no-command request, the first interactive question offers quick (lean enhancement, smart defaults) versus think longer and read more context (deep, full DEPTH), defaulting to Standard. See `references/interactive_mode.md` Template 1.
 
 ### Semantic Topics Folded Into Intent Model
 

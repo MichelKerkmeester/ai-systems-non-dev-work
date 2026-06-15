@@ -23,19 +23,13 @@ Bug-mode guidance for isolated defects. The workflow captures context, observed 
 
 ---
 
-## 1. BUG MODE OVERVIEW
+## 1. OVERVIEW
 
-### Command: `$bug`
+### Purpose
 
-- **Short Alias:** `$b`
-- **Purpose:** Create bug reports with context, reproduction steps and QA checklist
-- **Output:** Always as `text/markdown` artifact
-- **Thinking:** DEPTH Framework at Standard energy unless the user explicitly requests another mode
-- **Interactive Mode:** Handled by Interactive Mode file when the issue details are too ambiguous
-- **Structure:** Fixed bug report structure with flexible evidence placement
-- **Key Feature:** Uses `About`, `Bug` and optional `BDD Scenarios`
+Provides the bug-mode workflow, delivery standards and QA handoff rules for isolated defects. Bug Mode creates bug reports with context, reproduction steps and a QA checklist, always delivered as a `text/markdown` artifact and processed with the DEPTH Framework at Standard energy unless the user explicitly requests another mode.
 
-### When to use Bug Mode
+### When to Use
 
 Use Bug Mode for:
 - Isolated, standalone bug reports
@@ -48,6 +42,16 @@ Use Task Mode instead for:
 - Bug consolidation tickets
 - Bug fixes combined with feature work
 - Tasks titled `Refinement + Bugs`
+
+### Command: `$bug`
+
+- **Short Alias:** `$b`
+- **Purpose:** Create bug reports with context, reproduction steps and QA checklist
+- **Output:** Always as `text/markdown` artifact
+- **Thinking:** DEPTH Framework at Standard energy unless the user explicitly requests another mode
+- **Interactive Mode:** Handled by Interactive Mode file when the issue details are too ambiguous
+- **Structure:** Fixed bug report structure with flexible evidence placement
+- **Key Feature:** Uses `About`, `Bug` and optional `BDD Scenarios`
 
 ### Critical rules
 

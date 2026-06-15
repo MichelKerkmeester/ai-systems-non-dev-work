@@ -6,20 +6,9 @@ Technical reference for Terminal-based FFMPEG commands for HLS (HTTP Live Stream
 **Purpose:** Provides Terminal-based FFMPEG command patterns for HLS multi-quality video conversion with adaptive streaming capabilities
 **Scope:** HLS fundamentals, FFMPEG command specifications, quality optimization, codec configurations, batch processing workflows, and integration with MCP operations
 
-## TABLE OF CONTENTS
-
-  - 1. 🔌 OVERVIEW
-  - 2. 🛠️ CORE CAPABILITIES
-  - 3. 📊 FORMAT SUPPORT
-  - 4. ⚙️ OPERATION SPECIFICATIONS
-  - 5. 🎯 QUALITY OPTIMIZATION
-  - 6. ⚙️ CODEC SPECIFICATIONS
-  - 7. 🏗️ BATCH PROCESSING
-  - 8. 🏎️ QUICK REFERENCE
-
 ---
 
-## 1. 🔌 OVERVIEW
+## 1. OVERVIEW
 
 ### Terminal System Details
 
@@ -58,7 +47,7 @@ dependencies:
 
 ---
 
-## 2. 🛠️ CORE CAPABILITIES
+## 2. CORE CAPABILITIES
 
 ### Available Operations
 
@@ -125,7 +114,7 @@ The optimal sequence for HLS video conversion:
 
 ---
 
-## 3. 📊 FORMAT SUPPORT
+## 3. FORMAT SUPPORT
 
 ### HLS Protocol Overview
 
@@ -235,7 +224,7 @@ variant_playlist:
 
 ---
 
-## 4. ⚙️ OPERATION SPECIFICATIONS
+## 4. OPERATION SPECIFICATIONS
 
 ### Multi-Quality HLS Conversion
 
@@ -507,7 +496,7 @@ test_conversion:
 
 ---
 
-## 5. 🎯 QUALITY OPTIMIZATION
+## 5. QUALITY OPTIMIZATION
 
 ### Quality Presets
 
@@ -593,7 +582,7 @@ HLS enables browsers to automatically select the best quality based on available
 
 ---
 
-## 6. ⚙️ CODEC SPECIFICATIONS
+## 6. CODEC SPECIFICATIONS
 
 ### H.264 Profile Details
 
@@ -710,7 +699,7 @@ segment_duration_options:
 
 ---
 
-## 7. 🏗️ BATCH PROCESSING
+## 7. BATCH PROCESSING
 
 ### Bash Script for Multiple Videos
 
@@ -719,11 +708,11 @@ segment_duration_options:
 ```bash
 #!/bin/bash
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # HLS Hero Video Converter
 # Converts multiple videos to HLS with 4 quality levels
 # Optimized for website hero background videos
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 # Color output
 RED='\033[0;31m'
@@ -771,9 +760,9 @@ declare -A PROFILES=(
   ["360p"]="baseline"
 )
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Functions
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 check_ffmpeg() {
   if ! command -v ffmpeg &> /dev/null; then
@@ -858,9 +847,9 @@ convert_to_hls() {
   fi
 }
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Main Execution
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "${GREEN}🎬 HLS Hero Video Converter${NC}"
@@ -1012,7 +1001,7 @@ python3 -m http.server 8000
 
 ---
 
-## 8. 🏎️ QUICK REFERENCE
+## 8. QUICK REFERENCE
 
 ### Command Templates
 

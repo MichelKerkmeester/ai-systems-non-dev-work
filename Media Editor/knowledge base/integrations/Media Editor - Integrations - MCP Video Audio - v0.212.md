@@ -6,20 +6,9 @@ Technical reference for Video-Audio MCP server capabilities and integration for 
 **Purpose:** Defines comprehensive technical specifications and operational capabilities for the Video-Audio MCP server powered by FFmpeg, enabling systematic video and audio processing workflows
 **Scope:** MCP server integration, video/audio format conversion, editing operations, codec specifications, advanced effects (overlays, transitions, subtitles), performance characteristics, and tool reference
 
-## TABLE OF CONTENTS
-
-  - 1. 🔌 SERVER OVERVIEW
-  - 2. 🛠️ CORE CAPABILITIES
-  - 3. 🎬 VIDEO OPERATIONS
-  - 4. 🎵 AUDIO OPERATIONS
-  - 5. 🎨 ADVANCED FEATURES
-  - 6. 📊 FORMAT SUPPORT
-  - 7. ⚙️ CODEC SPECIFICATIONS
-  - 8. 🏎️ QUICK REFERENCE
-
 ---
 
-## 1. 🔌 SERVER OVERVIEW
+## 1. SERVER OVERVIEW
 
 ### MCP Server Details
 
@@ -53,7 +42,7 @@ Connection verification must be the **first action before all operations**. Use 
 
 ---
 
-## 2. 🛠️ CORE CAPABILITIES
+## 2. CORE CAPABILITIES
 
 ### Available Operations
 
@@ -100,7 +89,7 @@ The Video-Audio MCP server provides comprehensive media processing capabilities 
 
 ---
 
-## 3. 🎬 VIDEO OPERATIONS
+## 3. VIDEO OPERATIONS
 
 ### Format Conversion
 
@@ -258,7 +247,7 @@ change_aspect_ratio:
 
 ---
 
-## 4. 🎵 AUDIO OPERATIONS
+## 4. AUDIO OPERATIONS
 
 ### Audio Extraction and Conversion
 
@@ -391,7 +380,7 @@ remove_silence:
 
 ---
 
-## 5. 🎨 ADVANCED FEATURES
+## 5. ADVANCED FEATURES
 
 ### Overlays
 
@@ -557,7 +546,7 @@ insert_broll:
 
 ---
 
-## 6. 📦 FORMAT SUPPORT
+## 6. FORMAT SUPPORT
 
 ### Video Formats
 
@@ -631,7 +620,7 @@ formats:
 
 ---
 
-## 7. ⚙️ CODEC SPECIFICATIONS
+## 7. CODEC SPECIFICATIONS
 
 ### Video Codecs
 
@@ -712,7 +701,7 @@ audio_codecs:
 
 ---
 
-## 8. 🏎️ QUICK REFERENCE
+## 8. QUICK REFERENCE
 
 ### MCP Tools Summary
 

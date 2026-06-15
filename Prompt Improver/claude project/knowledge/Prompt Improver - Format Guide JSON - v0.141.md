@@ -15,21 +15,22 @@ trigger_phrases:
 
 Formatting guide for JSON output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 
-**Loading Condition:** ON-DEMAND
-**Purpose:** Define JSON syntax specifications, structure patterns, validation rules, and file delivery standards for prompt engineering output.
-**Scope:** JSON format fundamentals, RCAF/CRAFT JSON structures, file delivery standards, syntax validation, format conversions, advanced patterns, and best practices.
+---
+
+## 1. OVERVIEW
+
+### Purpose
+
+Reusable JSON format rules for exported Prompt Improver deliverables. Defines JSON syntax specifications, structure patterns, validation rules, and file delivery standards for prompt engineering output, covering JSON fundamentals, RCAF/CRAFT JSON structures, file delivery standards, syntax validation, format conversions, advanced patterns, and best practices.
+
+### Usage
+
+- **Loading Condition:** ON-DEMAND.
+- Load for the routed `$json` command or when the final prompt must be valid JSON.
 
 ---
 
-## OVERVIEW
-
-**Purpose:** Reusable JSON format rules for exported Prompt Improver deliverables.
-
-**Usage:** Load for the routed `$json` command or when the final prompt must be valid JSON.
-
----
-
-## 1. OVERVIEW & PURPOSE
+## 2. FORMAT RATIONALE
 
 ### Why JSON Format?
 
@@ -61,7 +62,7 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 
 ---
 
-## 2. JSON FORMAT FUNDAMENTALS
+## 3. JSON FORMAT FUNDAMENTALS
 
 ### Core Principles
 
@@ -108,7 +109,7 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 
 ---
 
-## 3. FILE DELIVERY STANDARDS
+## 4. FILE DELIVERY STANDARDS
 
 ### Mandatory Requirements
 
@@ -169,7 +170,7 @@ If YES → DELIVER as file
 
 ---
 
-## 4. RCAF JSON STRUCTURE
+## 5. RCAF JSON STRUCTURE
 
 ### Template
 
@@ -224,7 +225,7 @@ Mode: $json | Complexity: Medium | Framework: RCAF
 
 ---
 
-## 5. CRAFT JSON STRUCTURE
+## 6. CRAFT JSON STRUCTURE
 
 ### Template
 
@@ -298,7 +299,7 @@ Mode: $json | Complexity: High | Framework: CRAFT
 
 ---
 
-## 6. ADVANCED JSON PATTERNS
+## 7. ADVANCED JSON PATTERNS
 
 ### Multi-Step Process
 
@@ -368,7 +369,7 @@ Mode: $json | Complexity: High | Framework: CRAFT
 
 ---
 
-## 7. FORMAT CONVERSIONS
+## 8. FORMAT CONVERSIONS
 
 **Cross-format guidance:** See Markdown Format Guide, YAML Format Guide, Interactive Mode
 
@@ -405,7 +406,7 @@ Mode: $json | Complexity: High | Framework: CRAFT
 
 ---
 
-## 8. ✅ SYNTAX VALIDATION
+## 9. ✅ SYNTAX VALIDATION
 
 ### Pre-Delivery Checklist
 
@@ -471,7 +472,7 @@ Mode: $json | Complexity: High | Framework: CRAFT
 
 ---
 
-## 9. BEST PRACTICES
+## 10. BEST PRACTICES
 
 ### Do's and Don'ts
 

@@ -15,21 +15,22 @@ trigger_phrases:
 
 Formatting guide for Markdown (Standard) output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 
-**Loading Condition:** ON-DEMAND
-**Purpose:** Defines Markdown syntax specifications, structure patterns, validation rules, and file delivery standards for natural language prompt output.
-**Scope:** RCAF/CRAFT frameworks in Markdown format, file delivery standards, syntax validation, format conversions, advanced patterns, best practices.
+---
+
+## 1. OVERVIEW
+
+### Purpose
+
+Reusable Markdown format rules for exported Prompt Improver deliverables. Defines Markdown syntax specifications, structure patterns, validation rules, and file delivery standards for natural language prompt output, covering RCAF/CRAFT frameworks in Markdown format, file delivery standards, syntax validation, format conversions, advanced patterns, and best practices.
+
+### Usage
+
+- **Loading Condition:** ON-DEMAND.
+- Load for the routed `$markdown` command or when the final prompt must be valid Markdown.
 
 ---
 
-## OVERVIEW
-
-**Purpose:** Reusable Markdown format rules for exported Prompt Improver deliverables.
-
-**Usage:** Load for the routed `$markdown` command or when the final prompt must be valid Markdown.
-
----
-
-## 1. OVERVIEW & PURPOSE
+## 2. FORMAT RATIONALE
 
 ### Why Markdown (Standard) Format?
 
@@ -64,7 +65,7 @@ Markdown provides natural language prompt engineering with optimal human readabi
 
 ---
 
-## 2. MARKDOWN FORMAT FUNDAMENTALS
+## 3. MARKDOWN FORMAT FUNDAMENTALS
 
 ### Core Principles
 
@@ -103,7 +104,7 @@ Markdown provides natural language prompt engineering with optimal human readabi
 
 ---
 
-## 3. FILE DELIVERY STANDARDS
+## 4. FILE DELIVERY STANDARDS
 
 ### Delivery Methods
 
@@ -159,7 +160,7 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 
 ---
 
-## 4. RCAF MARKDOWN STRUCTURE
+## 5. RCAF MARKDOWN STRUCTURE
 
 ### Template
 
@@ -202,7 +203,7 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 
 ---
 
-## 5. CRAFT MARKDOWN STRUCTURE
+## 6. CRAFT MARKDOWN STRUCTURE
 
 ### Template
 
@@ -249,7 +250,7 @@ Mode: $refine | Complexity: High | Framework: CRAFT
 
 ---
 
-## 6. ADVANCED MARKDOWN PATTERNS
+## 7. ADVANCED MARKDOWN PATTERNS
 
 ### Multi-Step Process
 
@@ -284,7 +285,7 @@ Mode: $improve | Complexity: High | Framework: RCAF
 
 ---
 
-## 7. FORMAT CONVERSIONS
+## 8. FORMAT CONVERSIONS
 
 **Cross-format guidance:** See YAML Format Guide, JSON Format Guide, Interactive Mode
 
@@ -333,7 +334,7 @@ format: Dashboard with charts and executive summary
 
 ---
 
-## 8. ✅ SYNTAX VALIDATION
+## 9. ✅ SYNTAX VALIDATION
 
 ### Pre-Delivery Checklist
 
@@ -380,7 +381,7 @@ format: Dashboard with charts and executive summary
 
 ---
 
-## 9. BEST PRACTICES
+## 10. BEST PRACTICES
 
 ### Do's and Don'ts
 

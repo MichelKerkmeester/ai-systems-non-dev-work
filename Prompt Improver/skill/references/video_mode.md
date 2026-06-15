@@ -16,13 +16,23 @@ trigger_phrases:
 
 Specialized mode for optimizing prompts for AI video generators including Runway Gen-4/4.5, Sora, Kling 2.5/2.6, Veo 3.1+, Pika 2.5, Luma Ray3, Minimax, Seedance, OmniHuman, and Wan 2.1.
 
-**Loading Condition:** TRIGGER
-**Purpose:** Transform static descriptions into motion-focused prompts using the MOTION framework and VISUAL scoring system.
-**Scope:** Video generation prompts, platform-specific optimization, temporal vocabulary, audio integration, anti-pattern detection.
+---
+
+## 1. OVERVIEW
+
+### Purpose
+
+Transform static descriptions into motion-focused prompts using the MOTION framework and VISUAL scoring system.
+
+### When to Use
+
+- **Loading Condition:** TRIGGER. Activated by `$video` / `$vid` commands.
+- Video generation prompts and platform-specific optimization.
+- Temporal vocabulary, audio integration, and anti-pattern detection.
 
 ---
 
-## 1. OBJECTIVE
+## 2. OBJECTIVE
 
 Transform static scene descriptions into dynamic, motion-focused prompts optimized for AI video generators.
 
@@ -44,7 +54,7 @@ Transform static scene descriptions into dynamic, motion-focused prompts optimiz
 
 ---
 
-## 2. MOTION FRAMEWORK
+## 3. MOTION FRAMEWORK
 
 - **M**ovement
   - Focus: Subject & Camera Motion
@@ -108,7 +118,7 @@ motion_process:
 
 ---
 
-## 3. VISUAL SCORING (VIDEO)
+## 4. VISUAL SCORING (VIDEO)
 
 - **V**ivid
   - Points: 15
@@ -145,28 +155,28 @@ motion_process:
 
 ---
 
-## 4. PLATFORM OPTIMIZATION
+## 5. PLATFORM OPTIMIZATION
 
 Templates: see [video_mode_library](../assets/video_mode_library.md)
 
 ---
 
 
-## 5. PLATFORM MENTAL MODELS
+## 6. PLATFORM MENTAL MODELS
 
 Templates: see [video_mode_library](../assets/video_mode_library.md)
 
 ---
 
 
-## 6. TEMPORAL CONSISTENCY
+## 7. TEMPORAL CONSISTENCY
 
 Templates: see [video_mode_library](../assets/video_mode_library.md)
 
 ---
 
 
-## 9. ANTI-PATTERNS
+## 10. ANTI-PATTERNS
 
 ### Universal Anti-Patterns (All Platforms)
 
@@ -246,14 +256,14 @@ static_to_dynamic:
 
 ---
 
-## 10. TRANSFORMATION EXAMPLES
+## 11. TRANSFORMATION EXAMPLES
 
 Templates: see [video_mode_library](../assets/video_mode_library.md)
 
 ---
 
 
-## 11. ITERATIVE REFINEMENT FLOW
+## 12. ITERATIVE REFINEMENT FLOW
 
 ### Post-Delivery Question (MANDATORY)
 
@@ -308,7 +318,7 @@ Need another video prompt? Just share your next concept.
 
 ---
 
-## 12. QUICK REFERENCE
+## 13. QUICK REFERENCE
 
 Templates: see [video_mode_library](../assets/video_mode_library.md)
 

@@ -16,11 +16,23 @@ trigger_phrases:
 
 Conversation flows, state management, and response patterns for interactive prompt enhancement with energy-level-driven DEPTH processing.
 
-**Loading Condition:** ALWAYS. Commands ($raw, $short, $deep, $vibe, etc.) override the question flow.
+---
+
+## 1. OVERVIEW
+
+### Purpose
+
+Defines the conversation architecture, state machine, question protocol, and response patterns that drive interactive prompt enhancement with energy-level-driven DEPTH processing.
+
+### When to Use
+
+- **Loading Condition:** ALWAYS. Commands ($raw, $short, $deep, $vibe, etc.) override the question flow.
+- Routing a request through the single-question flow when no command is supplied.
+- Managing conversation state, error recovery, and quality-controlled delivery.
 
 ---
 
-## 1. CONVERSATION ARCHITECTURE
+## 2. CONVERSATION ARCHITECTURE
 
 ### Primary Flow
 
@@ -40,13 +52,16 @@ Start --> Single Question (ALL info) --> Wait --> Process (DEPTH) --> Deliver --
 
 **Internal (Applied Fully):** Multi-perspective analysis (min 3, target 5) MANDATORY, DEPTH processing with energy-level scaling, all cognitive rigour, quality self-rating (target 8+).
 
-**External (Concise Updates):** Progress updates by energy level, key insights only, critical assumptions flagged, quality score summary. Full methodology details in DEPTH Framework (Section 2). Interactive Mode applies these through conversation flow without exposing internal complexity.
+**External (Concise Updates):** Progress updates by energy level, key insights only, critical assumptions flagged, quality score summary. Full methodology details in DEPTH Framework (Section 3). Interactive Mode applies these through conversation flow without exposing internal complexity.
 
 ### Activation Triggers
 
 - **No prompt provided**
   - Condition: User does not share a prompt or request
-  - Action: Comprehensive Question (welcome + request)
+  - Action: Comprehensive Question (welcome + depth choice + request)
+- **Ambiguous, no command**
+  - Condition: Request is unclear and no command/keyword sets the energy
+  - Action: Comprehensive Question leads with the fast-or-deep choice (Quick vs. think longer and read more context), defaulting to Standard
 - **Complexity 5-6**
   - Condition: Moderate complexity detected
   - Action: Framework Choice (A/B/C)
@@ -83,20 +98,27 @@ Keywords auto-detected: `improve`, `better`, `refine`, `optimise`, `shorten`, `c
 
 ---
 
-## 2. RESPONSE TEMPLATES
+## 3. RESPONSE TEMPLATES
 
 ### Template 1: Comprehensive Question (Default)
 
 **CRITICAL: Must be multi-line markdown. Never convert to single-line text.**
 
+For an ambiguous request with no command, this single comprehensive question also offers a fast-or-deep choice so the user can steer effort up front: **quick** (lean enhancement, smart defaults) or **think longer and read more context** (deep, full DEPTH). The depth line is the first decision and defaults to Standard if the user only supplies a prompt.
+
 ```markdown
 Welcome! I'll help enhance your prompt for maximum effectiveness.
+
+How much depth would you like?
+- **Quick** - lean enhancement with smart defaults, fast turnaround
+- **Think longer and read more context** - deep, full DEPTH with maximum rigour
+- (No preference defaults to Standard)
 
 Please share:
 - Your current prompt, or
 - What you need the AI to do
 
-Your prompt or request:
+Your depth choice (Quick / Think longer) and your prompt or request:
 ```
 
 ### Template 2: Framework Choice (Complexity 5-6)
@@ -176,7 +198,7 @@ Adapt questions when context is already known:
 
 ---
 
-## 3. STATE MACHINE
+## 4. STATE MACHINE
 
 ### State Definition
 
@@ -199,6 +221,7 @@ states:
     wait: true
   comprehensive_question:
     message: welcome_and_request_template
+    depth_choice: { quick: quick_energy, think_longer: deep_processing, none: complexity_check }
     nextState: complexity_check
     waitForInput: true
   complexity_check:
@@ -315,7 +338,7 @@ trigger_detection:
 
 ---
 
-## 4. CONVERSATION LOGIC
+## 5. CONVERSATION LOGIC
 
 ### Processing Pipeline
 
@@ -346,7 +369,7 @@ handle_ambiguity:
 
 ---
 
-## 5. ERROR RECOVERY
+## 6. ERROR RECOVERY
 
 ```yaml
 error_patterns:
@@ -355,7 +378,7 @@ error_patterns:
     respond: "I need a prompt or request to enhance. What would you like me to improve?"
   ambiguous_intent:
     detect: Cannot determine mode or improvement target
-    respond: "Are you looking to improve an existing prompt, or create a new one from scratch?"
+    respond: "Want me to go quick (lean enhancement, smart defaults) or think longer and read more context (deep, full DEPTH)? Share your prompt or request and I'll take it from there."
   invalid_command:
     detect: Unrecognised $ command
     respond: "Available commands: $improve, $refine, $short, $deep, $raw, $vibe, $image, $video, $text"
@@ -395,7 +418,7 @@ fallbacks:
 
 ---
 
-## 6. ✅ QUALITY CONTROL
+## 7. ✅ QUALITY CONTROL
 
 ### Scoring Systems
 
@@ -416,7 +439,7 @@ fallbacks:
   - Threshold: 56+
   - Mode: Video ($video)
 
-Full scoring dimensions and criteria in DEPTH Framework (Section 4) and Patterns & Evaluation guide.
+Full scoring dimensions and criteria in DEPTH Framework (Section 5) and Patterns & Evaluation guide.
 
 ### Conversation Quality Self-Rating
 
@@ -470,7 +493,7 @@ Ready for delivery.
 
 ---
 
-## 7. FORMATTING RULES
+## 8. FORMATTING RULES
 
 ### Critical Requirements
 
@@ -502,7 +525,7 @@ See Format Guide for JSON, YAML, and Markdown output standards.
 
 ---
 
-## 8. QUICK REFERENCE
+## 9. QUICK REFERENCE
 
 ### Command Summary
 

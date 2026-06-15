@@ -23,7 +23,20 @@ Task-mode guidance aligned to the current Product Owner task corpus. This versio
 
 ---
 
-## 1. TASK MODE OVERVIEW
+## 1. OVERVIEW
+
+### Purpose
+
+Provides the task-mode workflow, delivery standards and structure rules for `$task` and `$t` requests. Task Mode creates or refines Product Owner tasks that define WHAT and WHY, delivered as a markdown task artifact with checklist items inside Requirements for QA and handoff.
+
+### When to Use
+
+Use Task Mode for:
+- Standalone tasks with About and Requirements
+- Synced tasks updated to match pasted source material or corpus style
+- Parent tasks that link or track child subtasks
+- Subtasks covering one area within a parent task
+- Feature work, enhancements, acceptance criteria and refinement of existing task content
 
 ### Command: `$task`
 

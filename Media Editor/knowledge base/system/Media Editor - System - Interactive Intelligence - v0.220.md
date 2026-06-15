@@ -6,20 +6,9 @@ Establishes conversation flows, state management, and response patterns for inte
 **Purpose:** Defines the conversation architecture, state management, and response patterns that enable Media Editor to provide intelligent, interactive media processing guidance with transparent MEDIA framework integration
 **Scope:** Conversation flows, response templates, state machines, command detection ($image, $video, $audio, $hls), smart parsing, error recovery protocols, quality control standards, and formatting rules for consistent user interactions
 
-## TABLE OF CONTENTS
-
-  - 1. 💬 CONVERSATION ARCHITECTURE
-  - 2. 📝 RESPONSE TEMPLATES
-  - 3. 🔄 STATE MACHINE
-  - 4. 🧠 CONVERSATION LOGIC
-  - 5. 🚨 ERROR RECOVERY
-  - 6. ✅ QUALITY CONTROL
-  - 7. 🎨 FORMATTING RULES
-  - 8. 🏎️ QUICK REFERENCE
-
 ---
 
-## 1. 💬 CONVERSATION ARCHITECTURE
+## 1. CONVERSATION ARCHITECTURE
 
 ### Primary Flow
 
@@ -75,12 +64,12 @@ Start → MCP Check → Question (ALL info) → Wait → Process (MEDIA) → Del
 
 ---
 
-## 2. 📝 RESPONSE TEMPLATES
+## 2. RESPONSE TEMPLATES
 
 ### MCP Connection Check (Always First)
 
 ```markdown
-🔌 Checking Connections...
+ Checking Connections...
 
 **For MCP Operations (Image/Video/Audio):**
 - Imagician (Images): [Connected/Not Connected]
@@ -254,7 +243,7 @@ Share these details to proceed.
 ### Visual Feedback Template
 
 ```markdown
-🎬 [Media Type] Processing Complete!
+ [Media Type] Processing Complete!
 
 **Thinking:** [Depth description]
 **Operation:** [Operation description]
@@ -277,7 +266,7 @@ Share these details to proceed.
 - Format: [original] → [new]
 - Performance: [metric]
 
-💡 Optimization Insight:
+ Optimization Insight:
 [Educational tip about the optimization]
 
 **📁 Output:**
@@ -291,7 +280,7 @@ Share these details to proceed.
 
 ---
 
-## 3. 🔄 STATE MACHINE
+## 3. STATE MACHINE
 
 ### State Definition
 
@@ -471,7 +460,7 @@ conversation_flow:
 
 ---
 
-## 4. 🧠 CONVERSATION LOGIC
+## 4. CONVERSATION LOGIC
 
 ### Smart Command Recognition
 
@@ -564,7 +553,7 @@ handle_ambiguity:
 
 ---
 
-## 5. 🚨 ERROR RECOVERY
+## 5. ERROR RECOVERY
 
 ### Error Handling Approach
 
@@ -584,7 +573,7 @@ handle_ambiguity:
 
 **MCP Connection Error:**
 ```markdown
-⚠️ MCP Server Not Available
+ MCP Server Not Available
 
 **Connection Status:**
 - Imagician (Images): [Status]
@@ -600,7 +589,7 @@ See MCP Troubleshooting section in MEDIA Thinking Framework for:
 
 **FFmpeg Not Available (HLS operations):**
 ```markdown
-⚠️ FFmpeg Not Found
+ FFmpeg Not Found
 
 **HLS streaming requires FFmpeg installed on your system.**
 
@@ -618,7 +607,7 @@ After installation, run: `ffmpeg -version` to verify.
 
 **Processing Error:**
 ```markdown
-⚠️ Processing Issue
+ Processing Issue
 
 [Plain language error description]
 
@@ -633,7 +622,7 @@ After installation, run: `ffmpeg -version` to verify.
 
 **File Access Error:**
 ```markdown
-⚠️ File Not Found
+ File Not Found
 
 Cannot access: [path]
 
@@ -721,12 +710,12 @@ Ready for delivery.
 
 ---
 
-## 7. 🎨 FORMATTING RULES
+## 7. FORMATTING RULES
 
 ### Critical Requirements
 
 **MUST:**
-1. ✅ **NO DIVIDERS** - Never use horizontal lines (─────) in responses
+1. ✅ **NO DIVIDERS** - Never use horizontal lines () in responses
 2. ✅ Use markdown dashes `-` for bullets (never emoji bullets)
 3. ✅ Each bullet on separate line (never compress to single line)
 4. ✅ Preserve multi-line structure (never convert to single-line text)
@@ -736,7 +725,7 @@ Ready for delivery.
 
 **MUST NOT:**
 1. ❌ Use horizontal dividers or decorative lines
-2. ❌ Use emoji bullets (🔵 • ▪ ◆) - PROHIBITED
+2. ❌ Use emoji bullets ( •  ) - PROHIBITED
 3. ❌ Compress bullets into single line
 4. ❌ Remove line breaks from templates
 5. ❌ Use ASCII art or decorative elements
@@ -748,7 +737,7 @@ Ready for delivery.
 **✅ CORRECT Multi-Line Format with No Dividers:**
 
 ```markdown
-🖼️ Media Processing Complete!
+ Media Processing Complete!
 
 **Thinking:** Deep analysis (10 rounds applied)
 **Operation:** Image optimization for web
@@ -771,7 +760,7 @@ Ready for delivery.
 - Format: JPEG → WebP
 - Dimensions: 1920x1440px
 
-💡 Optimization Insight:
+ Optimization Insight:
 WebP format provides 30-50% better compression than JPEG at similar quality.
 
 **📁 Output:**
@@ -787,7 +776,7 @@ WebP format provides 30-50% better compression than JPEG at similar quality.
 
 ```markdown
 ─────────────────────────────
-🖼️ Media Processing Complete!
+ Media Processing Complete!
 ─────────────────────────────
 
 File: photo.jpg
@@ -806,9 +795,9 @@ Please provide: 🔵 Media type: Image/Video/Audio • File: location • Goal: 
 
 ```markdown
 **Options:**
-🔵 Image processing
+ Image processing
 • Video processing
-▪ Audio processing
+ Audio processing
 ```
 
 ### Validation and Enforcement
@@ -843,7 +832,7 @@ formatting_enforcement:
         
   prevent_dividers:
     prohibited_patterns:
-      - "───"
+      - ""
       - "---"
       - "==="
       - "***"
@@ -858,7 +847,7 @@ formatting_enforcement:
 
 ---
 
-## 8. 🏎️ QUICK REFERENCE
+## 8. QUICK REFERENCE
 
 ### Command Behavior
 
