@@ -6,6 +6,18 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 
 ## 1. WHAT'S NEW IN V0.980
 
+### MAJOR UPDATE: Visual Mode Grounding-First Reconciliation
+
+Visual Mode (`$vibe`/`$v`) has been reconciled with the upstream anti-default design canon:
+
+- **Step 0 Grounding** — A non-negotiable "Ground the Subject" step (Subject / Audience / Single Job) runs before the VIBE framework.
+- **Anti-Default Avoid-List** — Emitted briefs carry a named median avoidance list (generic SaaS gradient, centered hero + three cards, untouched component-library surface, three AI-default clusters) plus one justified aesthetic risk.
+- **UX Quality Floor** — Responsive, visible focus, reduced motion, WCAG AA.
+- **Eight Category Defaults** — The eight design directions are now *category defaults to name and then deliberately deviate from*, not a pick-one menu. Reusable-across-briefs style sets (presets) are prohibited.
+- **EVOKE Grounding Pre-Check** — A brief that lacks subject grounding or reads as a templated default scores 0 regardless of evocative quality. The 50-point dimension weights are unchanged.
+- **Pre-Output Critique Gate** — A "would I produce this for any similar brief?" check runs before output; if yes, the brief is revised.
+- **Seed-of-Thought Debias** — For N≥2 variations, distinct subject-grounded angles are selected.
+
 ### MAJOR UPDATE: Visual Mode for AI Design Tools
 
 **Brand New Mode for UI Concepting** — Transform technical specifications into evocative, inspiration-based prompts optimized for AI design tools like **Lovable**, **Aura**, **Bolt**, and **v0.dev**.
@@ -22,7 +34,7 @@ Transforms vague requests into clear, effective AI prompts using proven framewor
 **Key Capabilities:**
 -  **MagicPath.ai Specialization** — Creative Director voice, 150-400 word narrative prompts
 -  **Screenshot Analysis** — Extract VIBE elements from visual references
--  **Eight Design Directions** — Precision, Warmth, Sophistication, Boldness, Utility, Data, **Journey & Flow**, **Narrative & Story**
+-  **Eight Category Defaults** — Name then deviate from: Precision, Warmth, Sophistication, Boldness, Utility, Data, Journey & Flow, Narrative & Story
 -  **Technical-to-Evocative Transformation** — Convert specs to feelings
 -  **Platform Optimization** — Tailored prompts for MagicPath.ai, Lovable, Aura, Bolt, v0.dev
 -  **Quality Spam Detection** — Remove non-directional words (beautiful, modern, trending)
@@ -163,8 +175,8 @@ Add these documents to your project:
 - `./claude project/knowledge/Prompt Improver - System - Skill - v1.1.0.md` (single brain: identity, routing, rules, fallback chains and delivery)
 - `./claude project/knowledge/Prompt Improver - DEPTH Thinking Framework - v0.200.md` (two-layer transparency, mandatory perspectives, RICCE integration, **signal-based routing**)
 - `./claude project/knowledge/Prompt Improver - Interactive Mode - v0.700.md` (conversation flow, state management, smart routing, MagicPath support)
-- `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.201.md` (complete framework library, CLEAR scoring, 8 design directions)
-- `./claude project/knowledge/Prompt Improver - Visual Mode - v0.201.md` — VIBE/VIBE-MP framework, EVOKE scoring, **MagicPath.ai specialization**
+- `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.211.md` (complete framework library, CLEAR scoring, 8 category defaults)
+- `./claude project/knowledge/Prompt Improver - Visual Mode - v0.300.md` — VIBE/VIBE-MP framework, EVOKE scoring, **MagicPath.ai specialization**
 - `./claude project/knowledge/Prompt Improver - Image Mode - v0.122.md` — FRAME framework (30 sub-categories), VISUAL scoring, platform optimization
 - `./claude project/knowledge/Prompt Improver - Video Mode - v0.122.md` — MOTION framework, platform mental models, physics language, audio integration
 
@@ -235,8 +247,10 @@ System waits for complete response before proceeding with full DEPTH processing.
 ### Visual Mode Highlights
 Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 - **VIBE Framework** instead of RCAF/COSTAR — focuses on Vision, Inspiration, Behavior, Experience
-- **EVOKE Scoring** instead of CLEAR — measures evocativeness, not precision
-- **5 DEPTH Rounds** instead of 10 — optimized for creative iteration
+- **Step 0 Grounding** — Non-negotiable Subject/Audience/Single Job before VIBE; avoids generic defaults
+- **EVOKE Scoring** instead of CLEAR — measures evocativeness with non-skippable grounding pre-check (templated/default briefs score 0)
+- **5 DEPTH Rounds** instead of 10 — optimized for creative iteration with pre-output critique gate
+- **Avoid-List + UX Floor** — Enforces anti-default guardrails (gradients, hero+cards, component-library defaults) and WCAG AA
 - **Target Platforms** — Lovable, Aura, Bolt, v0.dev and other AI design tools
 
 ---
@@ -405,6 +419,8 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 
 ### The EVOKE Scoring System
 
+**Grounding Pre-Check (non-skippable):** A brief that lacks subject-grounding or reads as a templated default scores 0 regardless of evocative quality. The 50-point dimension weights are unchanged.
+
 | Dimension     | Points | Threshold | What It Measures               |
 | ------------- | ------ | --------- | ------------------------------ |
 | **E**vocative | 15     | 12+       | Creates vivid mental imagery   |
@@ -414,20 +430,20 @@ Visual Mode (`$vibe`, `$v`) uses a completely different approach:
 | **E**motional | 5      | 4+        | Conveys experiential goals     |
 | **Total**     | 50     | 40+       | Quality threshold              |
 
-### Eight Design Directions
+### Eight Category Defaults (Name, Then Deviate)
 
-Visual Mode auto-detects which direction fits your prompt:
+Visual Mode recognizes eight category defaults and deliberately deviates from them — they are **not a pick-one menu**. A reusable-across-briefs style set is a preset and is prohibited.
 
-| Direction                    | Reference Products       | Emotional Core                   |
-| ---------------------------- | ------------------------ | -------------------------------- |
-| **Precision & Density**      | Linear, Raycast          | Efficiency, power, mastery       |
-| **Warmth & Approachability** | Notion, Coda             | Comfort, collaboration           |
-| **Sophistication & Trust**   | Stripe, Mercury          | Trust, security, professionalism |
-| **Boldness & Clarity**       | Vercel                   | Decisiveness, modernity          |
-| **Utility & Function**       | GitHub, VS Code          | Focus, productivity              |
-| **Data & Analysis**          | Mixpanel, Amplitude      | Understanding, insight           |
-| **Journey & Flow**           | Duolingo, Headspace      | Progress, achievement, discovery |
-| **Narrative & Story**        | Apple Pages, Stripe Atlas| Storytelling, revelation         |
+| Category Default            | Reference Products       | Emotional Core                   |
+| --------------------------- | ------------------------ | -------------------------------- |
+| **Precision & Density**     | Linear, Raycast          | Efficiency, power, mastery       |
+| **Warmth & Approachability**| Notion, Coda             | Comfort, collaboration           |
+| **Sophistication & Trust**  | Stripe, Mercury          | Trust, security, professionalism |
+| **Boldness & Clarity**      | Vercel                   | Decisiveness, modernity          |
+| **Utility & Function**      | GitHub, VS Code          | Focus, productivity              |
+| **Data & Analysis**         | Mixpanel, Amplitude      | Understanding, insight           |
+| **Journey & Flow**          | Duolingo, Headspace      | Progress, achievement, discovery |
+| **Narrative & Story**       | Apple Pages, Stripe Atlas| Storytelling, revelation         |
 
 ### Screenshot Analysis
 
@@ -443,9 +459,8 @@ VIBE EXTRACTION:
 - Behavior: Likely snappy interactions, minimal animation, immediate feedback
 - Experience: Makes users feel capable and in control. Expert tool energy.
 
-DESIGN DIRECTION:
-Primary: Precision & Density
-Secondary: Data & Analysis
+CATEGORY DEFAULT RECOGNIZED (then deviate):
+Precision & Density, Data & Analysis — start here then depart deliberately
 ```
 
 ### Target Platform Optimization
@@ -458,14 +473,15 @@ Secondary: Data & Analysis
 | **Bolt**       | Rapid prototyping | 50-150 words  | neumorphism, cyberpunk, material design   |
 | **v0.dev**     | UI components     | 100-300 words | shadcn components, Tailwind classes       |
 
-### Visual Mode Process (5 DEPTH Rounds)
+### Visual Mode Process (5 DEPTH Rounds + Step 0 Grounding)
 
 ```
-Round 1 (Discover): Screenshot Analysis + Technical Constraint Detection + Direction Detection
-Round 2 (Engineer): VIBE Extraction (Vision, Inspiration, Behavior, Experience)
-Round 3 (Prototype): Vocabulary Transformation + Evocative Prompt Construction
-Round 4 (Test): EVOKE Scoring (all 5 dimensions, 40+ threshold)
-Round 5 (Harmonize): Final Polish + Platform Optimization
+Step 0 (Ground): Subject / Audience / Single Job — non-negotiable grounding before VIBE
+Round 1 (Discover): Screenshot Analysis + Technical Constraint Detection + Category Default Recognition
+Round 2 (Engineer): VIBE Extraction (Vision, Inspiration, Behavior, Experience) + Avoid-List Application
+Round 3 (Prototype): Vocabulary Transformation + Evocative Prompt Construction + UX Floor (responsive, visible focus, reduced motion, WCAG AA)
+Round 4 (Test): EVOKE Scoring (all 5 dimensions, 40+ threshold) + Grounding Pre-Check
+Round 5 (Harmonize): Pre-Output Critique Gate ("would I produce this for any similar brief?") → Revise if yes → Final Polish + Platform Optimization
 ```
 
 **Example Usage:**
@@ -475,7 +491,7 @@ $vibe Design a landing page for a meditation app
 $v Build a settings panel for a developer tool
 ```
 
-**Full details:** `./claude project/knowledge/Prompt Improver - Visual Mode - v0.201.md`
+**Full details:** `./claude project/knowledge/Prompt Improver - Visual Mode - v0.300.md`
 
 ---
 
@@ -803,7 +819,7 @@ framework_selection:
 - **RACE + ToT (Tree of Thoughts)**: Rapid decision trees
 - **Master-Detail Pattern**: Nested framework hierarchies
 
-**Full details:** `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.201.md` (Sections 1-4)
+**Full details:** `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.211.md` (Sections 1-4)
 
 ---
 
@@ -854,7 +870,7 @@ by_score:
 - Adaptive response formats (quick review vs comprehensive)
 - Self-documenting structure (what, why, how, example)
 
-**Full details:** `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.201.md` (Sections 5-7)
+**Full details:** `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.211.md` (Sections 5-7)
 
 ---
 
@@ -908,4 +924,4 @@ contextual_clear_scoring:
 2. **Deep Pass**: Ambiguity detection, assumption analysis
 3. **Interaction Pass**: AI interpretation testing, failure mode analysis
 
-**Full details:** `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.201.md` (Sections 9-11)
+**Full details:** `./claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.211.md` (Sections 9-11)

@@ -1,7 +1,7 @@
 ---
 title: "Visual Mode Library"
 description: "Reusable visual UI vocabulary, transformation tables, platform templates and refinement examples."
-version: "0.101"
+version: "0.110"
 contextType: asset
 importance_tier: normal
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "design refinement templates"
 ---
 
-# Visual Mode Library - v0.101
+# Visual Mode Library - v0.110
 
 Reusable visual UI vocabulary, transformation tables, platform templates, MagicPath examples and refinement templates for design prompts.
 
@@ -26,7 +26,7 @@ Provides copyable vocabulary banks, transformation tables, platform templates, M
 
 ### Usage
 
-Load this with `references/visual_mode.md` for `$vibe`, `$v` or design-tool work. Copy, adapt or consult the relevant section after the reference workflow identifies the design direction and target platform.
+Load this with `references/visual_mode.md` for `$vibe`, `$v` or design-tool work. Copy, adapt or consult the relevant section after the reference workflow grounds the subject, names the category default to deviate from, and identifies the target platform.
 
 ---
 
@@ -155,7 +155,9 @@ Don't describe ELEMENTS. Describe their PURPOSE and CHARACTER.
 | "navigation menu" | "wayfinding system that orients users"          |
 | "loading spinner" | "patient indicator that something is happening" |
 
-### 5.6 Component Language by Design Direction
+### 5.6 Component Language by Category Default
+
+> **Not a direction chooser.** Each entry below names the vocabulary a recognizable category default speaks — use it to RECOGNIZE the expected cliche, then articulate deliberate deviations. Reusing any direction unchanged across briefs is a preset and must not ship.
 
 - **Button**
   - Precision & Density: commanding control
@@ -220,38 +222,42 @@ useState, useEffect, component lifecycle, TypeScript, props, state management
 
 ### The 10 Core Visual Styles
 
+> **Not a style chooser.** These are the named cliches and recognizable defaults to identify, so you can deliberately deviate from or subvert them — not a menu to pick from. A direction/style set reused across briefs unchanged is a preset and must not ship.
+
 - **Glassmorphism**
   - Description: Frosted glass with blur
-  - Best For: Modern SaaS, fintech
+  - Recognizable Default For: Modern SaaS, fintech generic
 - **Neumorphism**
   - Description: Soft extruded surfaces
-  - Best For: Premium, meditative apps
+  - Recognizable Default For: Premium, meditative app cliche
 - **Brutalism**
   - Description: Harsh, raw layouts
-  - Best For: Bold startups, agencies
+  - Recognizable Default For: Bold agency/startup cliche
 - **Hyper-minimalism**
   - Description: Maximum restraint
-  - Best For: Productivity, premium tools
+  - Recognizable Default For: Productivity, premium tool cliche
 - **Material Design**
   - Description: Layered surfaces, shadows
-  - Best For: Professional, utility apps
+  - Recognizable Default For: Professional, utility app cliche
 - **Flat Design**
   - Description: Bold color blocks, no shadows
-  - Best For: Bright, straightforward apps
+  - Recognizable Default For: Bright, straightforward app cliche
 - **Claymorphism**
   - Description: Soft, chunky, clay-like
-  - Best For: Friendly, consumer apps
+  - Recognizable Default For: Friendly, consumer app cliche
 - **Retro/Vaporwave**
   - Description: Neon gradients, 80s-90s energy
-  - Best For: Creative, entertainment
+  - Recognizable Default For: Creative, entertainment cliche
 - **Cyberpunk**
   - Description: Neon against black
-  - Best For: Gaming, AI tools
+  - Recognizable Default For: Gaming, AI tool cliche
 - **Skeuomorphism**
   - Description: Real-world textures
-  - Best For: Nostalgic, cozy apps
+  - Recognizable Default For: Nostalgic, cozy app cliche
 
 ### Design Persona Buzzwords
+
+> **Not a style chooser.** These personas and their buzzwords are recognizable defaults to identify and deviate from — not a menu to pick from.
 
 | Persona                    | Buzzwords                                             |
 | -------------------------- | ----------------------------------------------------- |

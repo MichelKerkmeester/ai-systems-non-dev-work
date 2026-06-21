@@ -2,7 +2,7 @@
 name: prompt-improver
 description: "Prompt Improver refines text, JSON, YAML, markdown, visual UI, image and video prompts with mode-specific gates."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.1.1
+version: 1.1.2
 ---
 
 <!-- Keywords: prompt improver, prompt engineering, improve prompt, refine prompt, RCAF, COSTAR, DEPTH, CLEAR scoring, EVOKE scoring, VISUAL scoring, VIBE, FRAME, MOTION, JSON prompt, YAML prompt, markdown prompt, image prompt, video prompt, MagicPath, export-first -->
@@ -76,7 +76,7 @@ Routing logic must not live only in any reference file.
 `references/depth_framework.md` contains DEPTH phases, energy levels, cognitive rigor and detailed CLEAR gates.
 `references/interactive_mode.md` contains one-question state machine, conversation templates, error recovery and response patterns.
 `references/patterns_evaluation.md` contains the enhancement patterns, CLEAR, EVOKE, VISUAL, REPAIR and scoring rubrics; `assets/framework_pattern_library.md` holds the framework matrix, deep dives and selection algorithms.
-`references/visual_mode.md` contains VIBE and VIBE-MP workflow, EVOKE scoring, MagicPath routing and UI concepting process.
+`references/visual_mode.md` contains the grounding-first Visual Mode: Step 0 subject grounding, VIBE and VIBE-MP workflow, EVOKE scoring with a non-skippable anti-default grounding gate, MagicPath routing, and the name-then-deviate treatment of the eight category defaults.
 `references/image_mode.md` contains FRAME workflow, VISUAL image scoring, image platform routing and image anti-patterns.
 `references/video_mode.md` contains MOTION workflow, VISUAL video scoring, video platform routing, audio and temporal rules.
 `assets/format_guide_markdown.md` contains Markdown output syntax and file delivery rules.
@@ -449,7 +449,7 @@ Improve uses automatic framework selection, CLEAR and Standard energy.
 Refine uses automatic framework selection, CLEAR and Standard energy.
 Short uses automatic framework selection, CLEAR and Quick energy.
 Deep uses complexity-matched framework selection, CLEAR and Deep energy.
-Visual uses VIBE or VIBE-MP, EVOKE and Creative energy.
+Visual uses VIBE or VIBE-MP, EVOKE and Creative energy; it grounds the subject first (Step 0) and an anti-default grounding gate rejects briefs that read as templated defaults.
 MagicPath uses VIBE-MP, EVOKE 42+ and Creative energy.
 Image uses FRAME, VISUAL image scoring and Creative energy.
 Video uses MOTION, VISUAL video scoring and Creative energy.

@@ -1,7 +1,7 @@
 ---
 title: "Visual Mode"
-description: "VIBE and VIBE-MP guidance for evocative UI concept prompts and design-tool routing."
-version: "0.201"
+description: "Grounding-first, anti-default Visual UI concepting with VIBE framework, EVOKE scoring, and design-tool routing."
+version: "0.300"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -12,9 +12,9 @@ trigger_phrases:
   - "design tool routing"
 ---
 
-# Prompt - Templates - Visual Mode - v0.201
+# Prompt - Templates - Visual Mode - v0.300
 
-Visual UI Concepting Mode for transforming technical specifications into evocative, inspiration-based prompts optimized for AI design tools (MagicPath.ai, Lovable, Aura, Bolt, v0.dev).
+Grounding-first, anti-default Visual UI Concepting Mode that transforms technical specifications into evocative, inspiration-based prompts optimized for AI design tools (MagicPath.ai, Lovable, Aura, Bolt, v0.dev). Subject-grounding runs before any aesthetic choice; every output deviates from a named default.
 
 ---
 
@@ -27,7 +27,7 @@ Transform technical/detailed prompts into evocative, creative prompts that maxim
 ### When to Use
 
 - **Loading Condition:** TRIGGER. Activated by `$vibe` / `$v` commands for AI design tools.
-- VIBE framework, EVOKE scoring, and Design Direction detection.
+- VIBE framework, EVOKE scoring with grounding pre-check, and default-naming + deviation.
 - Vocabulary transformation, platform optimization, and MagicPath.ai specialization.
 
 ---
@@ -40,14 +40,16 @@ Visual concepting prompts should maximize the AI's creative freedom while provid
 
 ### The Inversion Principle
 
-| Traditional Prompt Improvement | Visual UI Concepting  |
-| ------------------------------ | --------------------- |
-| Add specificity                | Remove specificity    |
-| Include technical details      | Transform to feelings |
-| Constrain interpretation       | Enable exploration    |
-| Precision = quality            | Evocation = quality   |
-| CLEAR scoring                  | EVOKE scoring         |
-| RCAF/COSTAR framework          | VIBE framework        |
+| Traditional Prompt Improvement | Visual UI Concepting                 |
+| ------------------------------ | ------------------------------------ |
+| Add specificity                | Remove decorative specificity only   |
+| Include technical details      | Transform to feelings                |
+| Constrain interpretation       | Enable exploration                   |
+| Precision = quality            | Evocation = quality                  |
+| CLEAR scoring                  | EVOKE scoring                        |
+| RCAF/COSTAR framework          | VIBE framework                       |
+
+> **The specificity removed is decorative layering, not grounding.** Subject-grounding (concrete subject, audience, page job) and the avoid-list (named median defaults to steer away from) are prerequisites that anchor the brief — they are never stripped. Without them, the output collapses into the generic default. Strip ornament; preserve anchors.
 
 > **Cross-Reference:** For precision-focused prompts (not visual concepting), use CLEAR scoring from the Patterns & Evaluation guide. Visual Mode is specifically for AI design tools where evocativeness outweighs precision.
 
@@ -71,6 +73,31 @@ Visual Mode prompts should:
 | **Scoring**       | EVOKE (not CLEAR)                        |
 | **Threshold**     | 40+/50 (MagicPath: 42+/50)               |
 | **Output Length** | 100-300 words (MagicPath: 150-400 words) |
+
+---
+
+## 2.5 STEP 0: GROUND THE SUBJECT
+
+> **Run before any aesthetic framework, vocabulary transformation, or design-direction work.**
+
+Grounding is non-negotiable. Distinctive design choices come from the subject's own world, not from a style menu. Before VIBE extraction, name three concrete anchors:
+
+### The Three Grounding Anchors
+
+| Anchor | Question | Output |
+|--------|----------|--------|
+| **Subject** | What is this, concretely? | A named product, tool, page, or flow — not a category label |
+| **Audience** | Who uses it, and when? | A specific person in a specific context (role + situation) |
+| **Single Job** | What must this page/screen accomplish? | One primary action or understanding the user must achieve |
+
+### Grounding Check
+
+Before proceeding to VIBE, verify:
+- The subject is named concretely (not "a dashboard" but "a cold-chain logistics monitoring dashboard for warehouse shift supervisors")
+- The audience has a role and a moment (not "users" but "shift supervisors during a 2am temperature excursion alert")
+- The single job is falsifiable (not "manage data" but "decide within 30 seconds whether to escalate the alert or dismiss it")
+
+> **If any anchor is missing, stop and ask — do not proceed to VIBE.** Grounding is the prerequisite for all subsequent creative choices.
 
 ---
 
@@ -260,112 +287,53 @@ When dimensions are incomplete, ask:
 
 ---
 
-## 4. DESIGN DIRECTION DETECTION
+## 4. EIGHT DESIGN DEFAULTS (NAME, THEN DEVIATE)
 
-### The Eight Directions
+> **These eight directions describe the expected defaults for common UI categories.** They are NOT a style chooser, a pick-a-vibe menu, or a set of reusable aesthetic dials. Their sole purpose: name what the median output would look like for this category, then articulate a deliberate deviation grounded in the subject.
+
+### The Eight Category Defaults
 
 - **Precision & Density**
-  - Reference Products: Linear, Raycast
-  - Emotional Core: Efficiency, power, mastery
+  - Typical Default: Linear, Raycast — tight command-palette layouts, monospaced numerals, keyboard-first chrome
+  - Deviation Question: "What about *this* subject makes the compact default wrong?"
+
 - **Warmth & Approachability**
-  - Reference Products: Notion, Coda
-  - Emotional Core: Comfort, collaboration
+  - Typical Default: Notion, Coda — generous rounded containers, pastel accents, friendly illustration, emoji-forward
+  - Deviation Question: "Where does the subject demand edge that comfort would blunt?"
+
 - **Sophistication & Trust**
-  - Reference Products: Stripe, Mercury
-  - Emotional Core: Trust, security, professionalism
+  - Typical Default: Stripe, Mercury — restrained neutral palettes, geometric precision, polished form fields, zero ornament
+  - Deviation Question: "What about this audience means restraint tips into cold?"
+
 - **Boldness & Clarity**
-  - Reference Products: Vercel
-  - Emotional Core: Decisiveness, modernity
+  - Typical Default: Vercel — high-contrast hero, one electric accent, oversized sans-serif, dramatic negative space
+  - Deviation Question: "When does bold become brittle for this subject's job?"
+
 - **Utility & Function**
-  - Reference Products: GitHub, VS Code
-  - Emotional Core: Focus, productivity
+  - Typical Default: GitHub, VS Code — dark sidebar + light canvas, monospaced data zones, utilitarian chrome, dense tabs
+  - Deviation Question: "Where does pure utility hide the insight this audience needs first?"
+
 - **Data & Analysis**
-  - Reference Products: Mixpanel, Amplitude
-  - Emotional Core: Understanding, insight
+  - Typical Default: Mixpanel, Amplitude — card-grid dashboards, muted categorical palettes, data-above-narrative
+  - Deviation Question: "What story does the data tell that a card grid buries?"
+
 - **Journey & Flow**
-  - Reference Products: Duolingo, Headspace
-  - Emotional Core: Progress, achievement, discovery
+  - Typical Default: Duolingo, Headspace — progressive reveal, celebration micro-interactions, gamified milestones, full-bleed illustrations
+  - Deviation Question: "Where does gamification distract from the single job?"
+
 - **Narrative & Story**
-  - Reference Products: Apple Pages, Stripe Atlas
-  - Emotional Core: Storytelling, revelation
+  - Typical Default: Apple Pages, Stripe Atlas — cinematic scroll, chapter-like sections, dramatic reveals, long-form typography
+  - Deviation Question: "What if the subject's story is told best in a single glance, not a scroll?"
 
-### Detection Keywords
+### Deviation Mandate
 
-| Detection Signal                          | Direction                |
-| ----------------------------------------- | ------------------------ |
-| "dashboard", "analytics", "power user"    | Precision & Density      |
-| "collaboration", "team", "workspace"      | Warmth & Approachability |
-| "payment", "banking", "security"          | Sophistication & Trust   |
-| "startup", "developer", "modern"          | Boldness & Clarity       |
-| "code", "repository", "tool"              | Utility & Function       |
-| "charts", "metrics", "insights"           | Data & Analysis          |
-| "onboarding", "wizard", "flow", "journey" | Journey & Flow           |
-| "landing", "story", "narrative", "reveal" | Narrative & Story        |
+For every brief, the model MUST:
+1. Identify which category default the brief would otherwise produce.
+2. Name one concrete thing that default gets wrong for *this* subject.
+3. Describe the deviation in specific spatial, chromatic, or typographic terms.
+4. Justify the deviation by reference to a grounding anchor (subject, audience, or single job).
 
-### Direction Vocabulary Samples
-
-**Precision & Density:**
-- Spatial: "tight", "dense", "compact", "efficient", "zero-waste"
-- Aesthetic: "sharp", "crisp", "clean lines", "pixel-perfect"
-- Philosophy: "every pixel earned", "nothing decorative"
-
-**Warmth & Approachability:**
-- Spatial: "generous", "breathing room", "comfortable", "inviting"
-- Aesthetic: "soft", "rounded", "gentle", "friendly"
-- Philosophy: "comfortable complexity", "collaboration-first"
-
-**Sophistication & Trust:**
-- Spatial: "deliberate", "restrained", "premium"
-- Aesthetic: "refined", "elegant", "understated"
-- Philosophy: "quiet confidence", "trust through design"
-
-**Boldness & Clarity:**
-- Spatial: "dramatic", "commanding", "striking"
-- Aesthetic: "high-contrast", "sharp", "electric"
-- Philosophy: "unapologetic statements", "standing out as strategy"
-
-**Utility & Function:**
-- Spatial: "workspace", "toolbox-like", "functional zones"
-- Aesthetic: "purposeful", "no-frills", "tool-first"
-- Philosophy: "form follows function", "everything has purpose"
-
-**Data & Analysis:**
-- Spatial: "dashboard-driven", "visualization-forward", "grid-organized"
-- Aesthetic: "clear metrics", "scannable", "information-hierarchy"
-- Philosophy: "data speaks first", "insight over decoration"
-
-**Journey & Flow:**
-- Spatial: "progressive", "stepped", "guided pathways"
-- Aesthetic: "celebratory", "milestone-marked", "achievement-oriented"
-- Philosophy: "progress made visible", "every step rewarded"
-
-**Narrative & Story:**
-- Spatial: "cinematic", "chapter-like", "revelation-paced"
-- Aesthetic: "theatrical", "story-driven", "scroll-choreographed"
-- Philosophy: "information as narrative", "understanding through story"
-
-### Handling Ambiguous Design Direction
-
-```yaml
-when_direction_unclear:
-  strategy: "Ask clarifying question OR use hybrid approach"
-
-  clarifying_question:
-    template: |
-      "I notice your prompt could work with different design directions:
-      - **Option A:** [Direction 1] - [brief description]
-      - **Option B:** [Direction 2] - [brief description]
-      Which direction resonates more with your vision?"
-
-  hybrid_approach:
-    when_to_use: "When multiple directions are equally valid"
-    method: "Blend vocabulary from both directions"
-    example: "Precision-meets-Warmth: 'efficient yet approachable, dense but not overwhelming'"
-
-  default_fallback:
-    direction: "Warmth & Approachability"
-    reason: "Most versatile for general UI concepting"
-```
+> **No direction vocabulary may be reused unchanged across briefs.** A direction set that ships unchanged across different subjects is a preset and is prohibited.
 
 ---
 
@@ -385,6 +353,32 @@ when_direction_unclear:
 - **Alternative To**
   - Standard: CLEAR
   - MagicPath.ai: CLEAR
+
+### Grounding Pre-Check (NON-SKIPPABLE — runs before EVOKE scoring)
+
+A brief that lacks subject-grounding or reads as a templated default CANNOT reach threshold, regardless of its EVOKE score. The grounding pre-check must pass before dimensions are scored.
+
+| Check | Requirement | Action on Failure |
+|-------|-------------|-------------------|
+| **Subject** | Concrete named subject (not a category label) | Block — score = 0 |
+| **Audience** | Specific audience with role + context | Block — score = 0 |
+| **Single Job** | One falsifiable primary action | Block — score = 0 |
+| **Anti-Default** | Avoid-list deviations named; median default identified and steered away from | Block — score = 0 |
+
+> **If any of the four grounding checks fails, the brief is rejected with score 0 regardless of evocative quality.** A beautifully-written templated default is still a default.
+
+### Avoid-List (Named Median, Always Active)
+
+The median to name and steer away from when generating any visual brief:
+
+| Default Pattern | Why It Must Be Avoided |
+|-----------------|------------------------|
+| Generic SaaS gradient (purple-to-blue hero) | Produces the same first impression across unrelated products |
+| Centered hero + three feature cards | The default layout template for every AI-generated landing page |
+| Untouched component-library surface | Shadcn/Untitled UI shipped with zero customization reads as template |
+| **AI-default cluster 1:** warm cream (~#F4F1EA) + high-contrast serif + terracotta accent | The "warm startup" default |
+| **AI-default cluster 2:** near-black + one acid-green or vermilion accent | The "developer tool" default |
+| **AI-default cluster 3:** broadsheet hairline rules + zero border-radius + dense columns | The "editorial" default |
 
 ### Dimensions
 
@@ -525,12 +519,15 @@ when_direction_unclear:
 
 ### Score Interpretation
 
+- **Grounding Failed (score=0)**
+  - Assessment: Rejected — subject, audience, single job, or anti-default check missing
+  - Action: Return to grounding; do not output
 - **45-50**
   - Assessment: Excellent
-  - Action: Output immediately
+  - Action: Output after critique gate pass
 - **42-44**
   - Assessment: Good
-  - Action: Output with minor suggestions
+  - Action: Output after critique gate pass, with minor suggestions
 - **38-41**
   - Assessment: Adequate
   - Action: Offer refinement options
@@ -583,14 +580,17 @@ Input (Text OR Screenshot)
 [0. Quality Spam Detection] ← Remove: beautiful, modern, trending, etc.
      │
      ▼
+[0.5 Subject Grounding] ← MANDATORY: Name subject, audience, single job
+     │ Verify: all three anchors present before proceeding
+     ▼
 [1. Screenshot Analysis] ← If visual input detected
      │ Extract: VIBE elements, design direction, mood
      ▼
 [2. Technical Constraint Detection]
      │ Flag: pixels, hex codes, framework names
      ▼
-[3. Design Direction Detection]
-     │ Identify: which of 8 directions
+[3. Default-Naming & Deviation]
+     │ Identify: which direction's default to steer away from
      ▼
 [4. Platform Detection]
      │ Detect: MagicPath, Lovable, Aura, Bolt, v0.dev
@@ -617,7 +617,12 @@ Input (Text OR Screenshot)
      │ Verify: reads like brief, not query
      ▼
 [12. EVOKE Scoring]
-     │ Validate: 40+ threshold (42+ for MagicPath)
+     │ Validate: grounding gate + 40+ threshold (42+ for MagicPath)
+     ▼
+[12.5 Anti-Default Critique Gate] ← NON-SKIPPABLE
+     │ Test: "Does any part read like the generic default you would
+     │        produce for any similar brief?" Revise and note what
+     │        changed and why.
      ▼
 [13. Output or Iterate]
      │ If below threshold → improve and rescore
@@ -632,15 +637,16 @@ visual_depth_mapping:
   description: "How transformation pipeline maps to 5 Visual Mode DEPTH rounds"
 
   round_1_discover:
-    pipeline_steps: [0, 1, 2, 3, 4, 5]
+    pipeline_steps: [0, 0.5, 1, 2, 3, 4, 5]
     actions:
       - "Quality Spam Detection"
+      - "Subject Grounding (MANDATORY: subject, audience, single job)"
       - "Screenshot Analysis (if applicable)"
       - "Technical Constraint Detection"
-      - "Design Direction Detection"
+      - "Default-Naming & Deviation"
       - "Platform Detection"
       - "Component Library Question (MANDATORY)"
-    output: "Foundation identified, platform selected, library chosen"
+    output: "Subject grounded, default named, platform selected, library chosen"
 
   round_2_engineer:
     pipeline_steps: [6, 7]
@@ -659,20 +665,22 @@ visual_depth_mapping:
     output: "Transformed prompt draft with library instruction"
 
   round_4_test:
-    pipeline_steps: [12]
+    pipeline_steps: [12, 12.5]
     actions:
-      - "EVOKE Scoring (all 5 dimensions)"
+      - "EVOKE Scoring (all dimensions + grounding gate)"
       - "Threshold validation (40+/50, 42+ MagicPath)"
       - "Gate checks (K+V minimum for MagicPath)"
-    output: "Scored and validated prompt"
+      - "Anti-Default Critique Gate: similar-brief test"
+    output: "Scored, critiqued, and validated prompt"
 
   round_5_harmonize:
     pipeline_steps: [13]
     actions:
       - "Output or Iterate decision"
       - "Final polish and platform optimization"
+      - "Inject UX-floor requirements"
       - "Add iteration hooks for conversational follow-up"
-    output: "Deliverable visual prompt"
+    output: "Deliverable anti-default visual prompt"
 ```
 
 ---
@@ -696,9 +704,9 @@ visual_depth_mapping:
 **B — Behavior:** Likely hover behavior, interaction response, transition style
 **E — Experience:** Cognitive load, visual hierarchy, personality, user relationship
 
-#### Phase 3: Design Direction Identification
+#### Phase 3: Default Identification & Deviation
 
-Match screenshot to one or more of the eight directions. Note primary, secondary, and confidence level.
+Match screenshot to one of the eight category defaults. Name what the default would produce; then identify what this specific design does differently and why.
 
 #### Phase 4: Evocative Description
 
@@ -804,7 +812,7 @@ Templates: see [visual_mode_library](../assets/visual_mode_library.md)
 
 ### UI Structure Elements (Mandatory for MagicPath)
 
-Every MagicPath prompt should address these six elements:
+Every MagicPath prompt must address these eight elements:
 
 - **Product Type**
   - Description: What kind of UI with character adjectives
@@ -824,6 +832,13 @@ Every MagicPath prompt should address these six elements:
 - **Constraints**
   - Description: Specific requirements and limitations
   - Example: "Must work beautifully on both desktop and tablet"
+- **Avoid-List** ← LOAD-BEARING
+  - Description: Named median defaults this brief deliberately steers away from
+  - Default: The full avoid-list (SaaS gradient, centered-hero+cards, untouched component surface, AI-default clusters 1-3)
+  - Example: "Steer away from the warm-cream+serif startup default; this is logistics, not lifestyle. Avoid untouched shadcn card grids — every surface is customized."
+- **Single Aesthetic Risk** ← LOAD-BEARING
+  - Description: One justified, subject-grounded aesthetic choice that breaks from the category default
+  - Example: "Use an amber-on-charcoal alert severity scale instead of the standard red-yellow-green — this mirrors the thermal-imaging language cold-chain operators already read."
 
 ### Component Library Selection (MANDATORY QUESTION)
 
@@ -915,6 +930,22 @@ Templates: see [visual_mode_library](../assets/visual_mode_library.md)
   - Focus: Variations
   - Typical Adjustments: Exploring alternatives within direction
 
+### Multi-Variation Seed-of-Thought (N >= 2)
+
+When the user requests N >= 2 variations, use the seed-of-thought debias to prevent same-default drift across variations:
+
+1. **Generate a 12-character random alphanumeric string** (e.g., `Xk9mP2vQ7rJ1`).
+2. **Sum the ASCII codes** of all 12 characters.
+3. **Mod N** to select the starting angle index from the subject-grounded angle set.
+4. **Re-seed per variation** — a fresh random string for each new variation.
+
+The angle set is grounded in the subject, NOT in a style menu. Example angles for a cold-chain dashboard:
+- Angle 0: "The thermal camera view — what the sensor sees first"
+- Angle 1: "The shift supervisor's 2am mental model"
+- Angle 2: "The compliance auditor's traceability question"
+
+> The seed mechanism ensures variation diversity is driven by different facets of the subject, not by rotating through a fixed style palette.
+
 **Convergence Signal:** When user expresses satisfaction or output matches intent, close the loop:
 
 ```markdown
@@ -925,6 +956,21 @@ Save this final prompt for future use:
 
 Need another UI concept? Just share your next idea.
 ```
+
+---
+
+## 11.5 UX-FLOOR REQUIREMENTS
+
+Every emitted brief must carry these minimum quality requirements as non-negotiable constraints:
+
+| Requirement | Specification |
+|-------------|---------------|
+| **Responsive** | Layout must adapt across viewport widths; no fixed-desktop-only designs |
+| **Keyboard focus** | All interactive elements must have visible, high-contrast focus indicators |
+| **Reduced motion** | Respect `prefers-reduced-motion`; no auto-playing animations without user initiation |
+| **Contrast floor** | Text meets WCAG AA contrast minimums against its background |
+
+These requirements are injected into every output brief automatically — the user does not need to request them.
 
 ---
 
@@ -949,6 +995,8 @@ E - Experience  → How it makes you feel
 ### EVOKE Scoring
 
 ```
+Pre-Check: Grounding (subject, audience, single job, anti-default) → pass/fail (score=0 if fail)
+
 Standard (50pt, 40+ threshold):
 E - Evocative   (15pts) → Stirs imagination
 V - Visual      (10pts) → Paints a picture
@@ -964,17 +1012,17 @@ K - Kinetic     (13pts) → Transitions & flow
 E - Emotional   (5pts)  → User feeling
 ```
 
-### Design Directions
+### Design Defaults (Name, Then Deviate)
 
 ```
-Precision & Density      → Linear, Raycast (efficiency, power)
-Warmth & Approachability → Notion, Coda (comfort, collaboration)
-Sophistication & Trust   → Stripe, Mercury (trust, professionalism)
-Boldness & Clarity       → Vercel (decisiveness, modernity)
-Utility & Function       → GitHub, VS Code (focus, productivity)
-Data & Analysis          → Mixpanel, Amplitude (understanding, insight)
-Journey & Flow           → Duolingo, Headspace (progress, discovery)
-Narrative & Story        → Apple Pages, Stripe Atlas (storytelling)
+Precision & Density      → Default: Linear, Raycast. Deviation: where compact fails this subject.
+Warmth & Approachability → Default: Notion, Coda. Deviation: where comfort blunts the need.
+Sophistication & Trust   → Default: Stripe, Mercury. Deviation: where restraint tips into cold.
+Boldness & Clarity       → Default: Vercel. Deviation: where bold becomes brittle.
+Utility & Function       → Default: GitHub, VS Code. Deviation: where utility hides insight.
+Data & Analysis          → Default: Mixpanel, Amplitude. Deviation: where card grids bury story.
+Journey & Flow           → Default: Duolingo, Headspace. Deviation: where gamification distracts.
+Narrative & Story        → Default: Apple Pages, Stripe Atlas. Deviation: where scroll loses the point.
 ```
 
 ### Quality Spam (Remove Entirely)
@@ -998,17 +1046,25 @@ nice, good, cool, awesome, high quality, stunning
 ### MagicPath Checklist
 
 ```
+□ Subject grounded (concrete subject, audience, single job)
 □ Product type with character adjectives
 □ Layout with spatial relationships
 □ Interactions with motion character
 □ User context (who, when, why)
 □ Visual style with references
 □ Constraints and requirements
+□ Avoid-list deviations named (median defaults steered away from)
+□ Single aesthetic risk justified by subject grounding
 □ Narrative prose (not keyword list)
 □ No quality spam words
-□ EVOKE 42+/50
+□ UX-floor injected (responsive, keyboard focus, reduced motion, contrast)
+□ EVOKE 42+/50 after grounding pre-check passed
 ```
 
 ---
 
-*This mode transforms technical specifications into evocative prompts that inspire AI design tools. For MagicPath.ai, think like a Creative Director briefing a talented designer.*
+*This mode transforms technical specifications into grounding-first, anti-default evocative prompts that inspire AI design tools. For MagicPath.ai, think like a Creative Director briefing a talented designer.*
+
+---
+
+*Provenance: Anti-default discipline, avoid-lists, subject-grounding, and the pre-output critique gate derive from the upstream design-generation canon (`design_generation_patterns.md`). This document codifies those principles for the Visual Mode pipeline.*

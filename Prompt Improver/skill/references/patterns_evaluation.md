@@ -1,7 +1,7 @@
 ---
 title: "Patterns and Evaluation"
 description: "Enhancement patterns and CLEAR, EVOKE and VISUAL evaluation methods; the framework library lives in assets/framework_pattern_library.md."
-version: "0.210"
+version: "0.211"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "enhancement patterns"
 ---
 
-# Prompt - Reference - Patterns & Evaluation - v0.210
+# Prompt - Reference - Patterns & Evaluation - v0.211
 
 Enhancement patterns and CLEAR evaluation methodology for systematic prompt engineering excellence.
 
@@ -303,6 +303,32 @@ contextual_clear_scoring:
   - EVOKE-MP: 42+
   - VISUAL: 48+ / 56+
 
+### Grounding Pre-Check (NON-SKIPPABLE — runs before EVOKE scoring)
+
+A brief that lacks subject-grounding or reads as a templated default CANNOT reach threshold, regardless of its EVOKE score. The grounding pre-check must pass before dimensions are scored.
+
+| Check | Requirement | Action on Failure |
+|-------|-------------|-------------------|
+| **Subject** | Concrete named subject (not a category label) | Block — score = 0 |
+| **Audience** | Specific audience with role + context | Block — score = 0 |
+| **Single Job** | One falsifiable primary action | Block — score = 0 |
+| **Anti-Default** | Avoid-list deviations named; median default identified and steered away from | Block — score = 0 |
+
+> **If any of the four grounding checks fails, the brief is rejected with score 0 regardless of evocative quality.** A beautifully-written templated default is still a default.
+
+### Avoid-List (Named Median, Always Active)
+
+The median to name and steer away from when generating any visual brief:
+
+| Default Pattern | Why It Must Be Avoided |
+|-----------------|------------------------|
+| Generic SaaS gradient (purple-to-blue hero) | Produces the same first impression across unrelated products |
+| Centered hero + three feature cards | The default layout template for every AI-generated landing page |
+| Untouched component-library surface | Shadcn/Untitled UI shipped with zero customization reads as template |
+| **AI-default cluster 1:** warm cream (~#F4F1EA) + high-contrast serif + terracotta accent | The "warm startup" default |
+| **AI-default cluster 2:** near-black + one acid-green or vermilion accent | The "developer tool" default |
+| **AI-default cluster 3:** broadsheet hairline rules + zero border-radius + dense columns | The "editorial" default |
+
 **Standard EVOKE Weights (50 points):**
 - Evocative: 15pts - Creates vivid mental imagery
 - Visual: 10pts - Paints a picture AI can render
@@ -316,6 +342,8 @@ contextual_clear_scoring:
 - Evocative: 12pts (vs 15 standard) - Clear directional language
 - Open: 8pts (vs 10 standard) - More structured flows
 - Emotional: 5pts (same)
+
+> **Operational copy:** `visual_mode.md` §5 is the operational EVOKE copy with grounding pre-check, avoid-list, and full dimension detail. `design_generation_patterns.md` is the upstream canon for anti-default rules. This section mirrors that structure so the two copies cannot drift.
 
 ---
 
