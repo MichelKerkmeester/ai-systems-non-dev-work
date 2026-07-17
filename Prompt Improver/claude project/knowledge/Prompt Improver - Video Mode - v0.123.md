@@ -1,7 +1,7 @@
 ---
 title: "Video Mode"
 description: "MOTION framework, temporal consistency and platform guidance for video generators."
-version: "0.122"
+version: "0.123"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "Runway Sora Kling Veo"
 ---
 
-# Prompt - Templates - Video Mode - v0.122
+# Prompt - Templates - Video Mode - v0.123
 
 Specialized mode for optimizing prompts for AI video generators including Runway Gen-4/4.5, Sora, Kling 2.5/2.6, Veo 3.1+, Pika 2.5, Luma Ray3, Minimax, Seedance, OmniHuman, and Wan 2.1.
 
@@ -157,21 +157,21 @@ motion_process:
 
 ## 5. PLATFORM OPTIMIZATION
 
-Templates: see [video-mode-library](../assets/video-mode-library.md)
+Templates: see the video-mode-library asset
 
 ---
 
 
 ## 6. PLATFORM MENTAL MODELS
 
-Templates: see [video-mode-library](../assets/video-mode-library.md)
+Templates: see the video-mode-library asset
 
 ---
 
 
 ## 7. TEMPORAL CONSISTENCY
 
-Templates: see [video-mode-library](../assets/video-mode-library.md)
+Templates: see the video-mode-library asset
 
 ---
 
@@ -258,7 +258,7 @@ static_to_dynamic:
 
 ## 11. TRANSFORMATION EXAMPLES
 
-Templates: see [video-mode-library](../assets/video-mode-library.md)
+Templates: see the video-mode-library asset
 
 ---
 
@@ -267,7 +267,7 @@ Templates: see [video-mode-library](../assets/video-mode-library.md)
 
 ### Post-Delivery Question (MANDATORY)
 
-Templates: see [video-mode-library](../assets/video-mode-library.md)
+Templates: see the video-mode-library asset
 
 
 ### Iteration Best Practices
@@ -320,7 +320,7 @@ Need another video prompt? Just share your next concept.
 
 ## 13. QUICK REFERENCE
 
-Templates: see [video-mode-library](../assets/video-mode-library.md)
+Templates: see the video-mode-library asset
 
 
 ---

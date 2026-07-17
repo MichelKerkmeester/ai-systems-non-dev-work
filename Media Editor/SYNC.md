@@ -60,7 +60,7 @@ The Project Knowledge package contains exactly these seven mirrors:
 | `sk-media-editor/assets/hls-video-conversion.md` | `Media Editor - Reference - HLS Video Conversion - v0.110.md` |
 | `sk-media-editor/references/human-voice-rules.md` | `Media Editor - Rules - Human Voice - EN - v0.210.md` |
 
-The Media Editor Skill is pinned to `1.1.0`. The Custom Instructions kernel is pinned to `1.0.0` and must declare alignment with Skill `1.1.0`. These filenames and versions belong to the current package: contract corrections reuse the pinned names, replace the derived mirror bytes and regenerate the checksum manifest instead of creating parallel versioned mirrors.
+The Media Editor Skill is pinned to `1.1.0`. The Custom Instructions kernel is pinned to `1.0.1` and must declare alignment with Skill `1.1.0`. These filenames and versions belong to the current package: contract corrections reuse the pinned names, replace the derived mirror bytes and regenerate the checksum manifest instead of creating parallel versioned mirrors.
 
 ---
 

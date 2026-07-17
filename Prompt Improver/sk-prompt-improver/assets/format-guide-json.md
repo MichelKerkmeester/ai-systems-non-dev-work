@@ -1,7 +1,7 @@
 ---
 title: "Format Guide JSON"
 description: "JSON output structure, schema guidance and syntax rules for prompt deliverables."
-version: "0.141"
+version: "0.142"
 contextType: asset
 importance_tier: high
 trigger_phrases:
@@ -11,7 +11,7 @@ trigger_phrases:
   - "valid JSON delivery"
 ---
 
-# Prompt - Asset - Format Guide JSON - v0.141
+# Prompt - Asset - Format Guide JSON - v0.142
 
 Formatting guide for JSON output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 
@@ -118,6 +118,7 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 **Delivery Methods:**
 1. **Claude Desktop/IDE:** Create actual downloadable file using file creation tool
 2. **CLI/Agent Mode:** Use `/Export` folder with format `[###] - descriptive-filename.json`
+3. **Claude.ai Projects:** Cannot write files. The Deliverable Block stands in for the file, and chat reports the export-equivalent path instead.
 
 ### Mandatory Header Format
 

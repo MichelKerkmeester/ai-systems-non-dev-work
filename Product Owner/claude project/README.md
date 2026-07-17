@@ -138,9 +138,9 @@ Push shape: artifact H1 becomes the task name; Deliverable Block framing and att
 - With the ClickUp connector present, every export response offers ClickUp delivery and nothing is written to ClickUp without explicit approval in that conversation.
 - An approved ClickUp push uses `markdown_description` (never plain `description`) and the created task renders real headings, bold and checkboxes with zero literal `###`, `**` or `- [ ]` text.
 - `$task`, `$bug` and `$story` each consult only their own routed knowledge pair (Task Mode + Task Templates, Bug Mode + Bug Report Template, Story Mode + Story Templates) and load no unrelated mode resource.
-- `skip depth` explicitly selects Raw energy and skips DEPTH; `$quick` never selects Raw, and Raw never fires without the explicit phrase.
+- `skip depth` explicitly selects Raw energy and skips DEPTH. `$quick` never selects Raw, and Raw never fires without the explicit phrase.
 - `$quick $story` and `$story $quick` both select Story with Quick energy, matching the `$quick $doc` / `$doc $quick` order equivalence.
-- New Task, Bug and Story exports report `export/NNN - {task|bug|story}-[description].md`; a Task source sync retains the existing task filename.
+- New Task, Bug and Story exports report `export/NNN - {task|bug|story}-[description].md`. A Task source sync retains the existing task filename.
 - An approved task read-back uses `include_markdown_description=true` and confirms the rendered body matches the pushed artifact before delivery is reported complete.
 - An approved ClickUp document or page create uses markdown content with the markdown `content_format` value, never the plain `description` field.
 - New Doc and Story artifacts use same-level empty spacer headings only in ClickUp-bound content, never in a file export.

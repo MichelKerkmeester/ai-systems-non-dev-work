@@ -50,7 +50,7 @@ The Project is a chat-advisory variant. A claude.ai Project cannot run the Imagi
 
 | Doc | Sync stamp |
 | --- | --- |
-| **Custom Instructions** | project kernel v1.0.0 -> Skill v1.1.0, sha16 `3f58af33347deddc` |
+| **Custom Instructions** | project kernel v1.0.1 -> Skill v1.1.0, sha16 `a24a88fcdcd30a0b` |
 | knowledge/ System - Skill | v1.1.0 -> v1.1.0, sha16 `0ae1bbef9b45887c` |
 | knowledge/ Thinking - MEDIA Framework | v0.233 -> v0.233, sha16 `6b30effbcdfe03be` |
 | knowledge/ System - Interactive Intelligence | v0.220 -> v0.220, sha16 `94ea34d54c474f9b` |
@@ -66,9 +66,9 @@ Full hashes can be recomputed with `shasum -a 256`.
 1. Create or open a claude.ai Project named Media Editor.
 2. Paste `Custom Instructions.md` into the Project custom instructions field.
 3. Upload every file in `knowledge/` as Project Knowledge.
-4. Keep filenames unchanged so the kernel can reference the documents clearly.
-5. Smoke test `$image`, `$video`, `$audio`, `$hls` and one ambiguous request.
-6. Confirm the Guidance Block appears first, includes the attestation footer and states the advisory-only limitation.
+4. Keep the house display name for each mirror, `Media Editor - <Section> - <Title> - v<version>.md`, bumping only the version number on change and removing any superseded mirror.
+5. Smoke test `$image`, `$video`, `$audio`, `$hls`, `$repair`, `$interactive` and one ambiguous request.
+6. Confirm the Guidance Block appears first with all six fields (Deliverable, Tool, Recipe, Settings, Expected result, Attestation) and confirm the two-to-three sentence post-block instructions follow, per Custom Instructions Section 7.
 
 ## Change Checklist
 
@@ -77,6 +77,7 @@ Full hashes can be recomputed with `shasum -a 256`.
 - If scope, routing, tool guidance or delivery behavior changes, re-derive `Custom Instructions.md` from the Skill kernel.
 - Update this README with the new version stamps and sha256-16 values.
 - Re-upload changed files to the live Project and confirm the upload took.
+- Run every `SYNC.md` section 7 drift check before release and confirm all pass.
 
 ## Known Notes
 

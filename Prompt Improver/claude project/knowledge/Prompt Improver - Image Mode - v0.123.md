@@ -1,7 +1,7 @@
 ---
 title: "Image Mode"
 description: "FRAME framework, visual prompt vocabulary and platform guidance for image generators."
-version: "0.122"
+version: "0.123"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "Flux Midjourney Imagen"
 ---
 
-# Prompt - Templates - Image Mode - v0.122
+# Prompt - Templates - Image Mode - v0.123
 
 Specialized mode for optimizing prompts for AI image generators including Flux 2 Pro, Google Imagen 4 (Nano Banana Pro), Runway, Midjourney, DALL-E 3, Stable Diffusion, Seedream, Leonardo, and Ideogram.
 
@@ -79,7 +79,7 @@ Transform vague visual descriptions into detailed, evocative prompts optimized f
 
 ---
 
-Templates: see [image-mode-library](../assets/image-mode-library.md)
+Templates: see the image-mode-library asset
 
 ---
 
@@ -197,7 +197,7 @@ frame_process:
 
 ### Platform-Specific Syntax
 
-Templates: see [image-mode-library](../assets/image-mode-library.md)
+Templates: see the image-mode-library asset
 
 ---
 
@@ -446,7 +446,7 @@ vague_to_specific:
 
 ## 10. TRANSFORMATION EXAMPLES
 
-Templates: see [image-mode-library](../assets/image-mode-library.md)
+Templates: see the image-mode-library asset
 
 ---
 
@@ -455,7 +455,7 @@ Templates: see [image-mode-library](../assets/image-mode-library.md)
 
 ### Post-Delivery Question (MANDATORY)
 
-Templates: see [image-mode-library](../assets/image-mode-library.md)
+Templates: see the image-mode-library asset
 
 
 ### Iteration Best Practices
@@ -497,7 +497,7 @@ Need another image prompt? Just share your next concept.
 
 ## 12. QUICK REFERENCE
 
-Templates: see [image-mode-library](../assets/image-mode-library.md)
+Templates: see the image-mode-library asset
 
 
 ---

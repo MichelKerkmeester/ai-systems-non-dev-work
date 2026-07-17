@@ -2,7 +2,7 @@
 name: prompt-improver
 description: "Prompt Improver refines text, JSON, YAML, markdown, visual UI, image and video prompts with mode-specific gates."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.2.0
+version: 1.2.1
 ---
 
 <!-- Keywords: prompt improver, prompt engineering, improve prompt, refine prompt, RCAF, COSTAR, DEPTH, CLEAR scoring, EVOKE scoring, VISUAL scoring, VIBE, FRAME, MOTION, JSON prompt, YAML prompt, markdown prompt, image prompt, video prompt, MagicPath, export-first -->
@@ -440,6 +440,12 @@ If no export exists, start at `001`.
 Verify the file exists before responding.
 Never paste the full deliverable in chat.
 Respond with path, score, gate status and a 2-3 sentence summary.
+
+### Claude Projects Delivery Override
+
+claude.ai Projects cannot write files, so this export-first sequence does not apply there.
+Render the final prompt as an Artifact or one fenced Deliverable Block first, then report the export-equivalent path `export/[###] - enhanced-[description].[md|json|yaml]` in chat instead of a saved file.
+This override changes only the delivery mechanism. Prompt content, scope discipline and naming stay identical to CLI delivery.
 
 ### Compacted Print Formats
 

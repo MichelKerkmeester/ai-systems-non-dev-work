@@ -1,7 +1,7 @@
 ---
 title: "Visual Mode"
 description: "Grounding-first, anti-default Visual UI concepting with VIBE framework, EVOKE scoring, and design-tool routing."
-version: "0.300"
+version: "0.301"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "design tool routing"
 ---
 
-# Prompt - Templates - Visual Mode - v0.300
+# Prompt - Templates - Visual Mode - v0.301
 
 Grounding-first, anti-default Visual UI Concepting Mode that transforms technical specifications into evocative, inspiration-based prompts optimized for AI design tools (MagicPath.ai, Lovable, Aura, Bolt, v0.dev). Subject-grounding runs before any aesthetic choice; every output deviates from a named default.
 
@@ -562,7 +562,7 @@ stunning, gorgeous, sleek, cutting-edge
 
 ### Reusable Vocabulary and Transformation Material
 
-Templates: see [visual-mode-library](../assets/visual-mode-library.md)
+Templates: see the visual-mode-library asset
 
 ---
 
@@ -716,7 +716,7 @@ Transform observations into evocative language. DO NOT estimate pixels or guess 
 
 ## 8. VISUAL STYLE KEYWORDS
 
-Templates: see [visual-mode-library](../assets/visual-mode-library.md)
+Templates: see the visual-mode-library asset
 
 ---
 
@@ -771,7 +771,7 @@ Templates: see [visual-mode-library](../assets/visual-mode-library.md)
 
 ### Platform-Specific Templates
 
-Templates: see [visual-mode-library](../assets/visual-mode-library.md)
+Templates: see the visual-mode-library asset
 
 
 ### Platform Anti-Patterns
@@ -903,7 +903,7 @@ component_library_question:
 
 ### MagicPath Prompt Templates
 
-Templates: see [visual-mode-library](../assets/visual-mode-library.md)
+Templates: see the visual-mode-library asset
 
 ---
 
@@ -912,7 +912,7 @@ Templates: see [visual-mode-library](../assets/visual-mode-library.md)
 
 ## 11. ITERATIVE REFINEMENT FLOW
 
-Templates: see [visual-mode-library](../assets/visual-mode-library.md)
+Templates: see the visual-mode-library asset
 
 
 ### Iteration Best Practices

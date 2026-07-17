@@ -56,24 +56,24 @@ The Project Knowledge package contains exactly these fourteen mirrors:
 
 | Authoritative source | Claude Project Knowledge mirror |
 | --- | --- |
-| `sk-prompt-improver/SKILL.md` | `Prompt Improver - System - Skill - v1.2.0.md` |
+| `sk-prompt-improver/SKILL.md` | `Prompt Improver - System - Skill - v1.2.1.md` |
 | `sk-prompt-improver/references/depth-framework.md` | `Prompt Improver - DEPTH Thinking Framework - v0.200.md` |
 | `sk-prompt-improver/references/interactive-mode.md` | `Prompt Improver - Interactive Mode - v0.700.md` |
-| `sk-prompt-improver/references/patterns-evaluation.md` | `Prompt Improver - Patterns and Evaluation - v0.211.md` |
-| `sk-prompt-improver/references/visual-mode.md` | `Prompt Improver - Visual Mode - v0.300.md` |
-| `sk-prompt-improver/references/image-mode.md` | `Prompt Improver - Image Mode - v0.122.md` |
-| `sk-prompt-improver/references/video-mode.md` | `Prompt Improver - Video Mode - v0.122.md` |
+| `sk-prompt-improver/references/patterns-evaluation.md` | `Prompt Improver - Patterns and Evaluation - v0.212.md` |
+| `sk-prompt-improver/references/visual-mode.md` | `Prompt Improver - Visual Mode - v0.301.md` |
+| `sk-prompt-improver/references/image-mode.md` | `Prompt Improver - Image Mode - v0.123.md` |
+| `sk-prompt-improver/references/video-mode.md` | `Prompt Improver - Video Mode - v0.123.md` |
 | `sk-prompt-improver/assets/framework-pattern-library.md` | `Prompt Improver - Assets - Framework Pattern Library - v0.100.md` |
 | `sk-prompt-improver/assets/format-guide-markdown.md` | `Prompt Improver - Format Guide Markdown - v0.141.md` |
-| `sk-prompt-improver/assets/format-guide-json.md` | `Prompt Improver - Format Guide JSON - v0.141.md` |
-| `sk-prompt-improver/assets/format-guide-yaml.md` | `Prompt Improver - Format Guide YAML - v0.141.md` |
+| `sk-prompt-improver/assets/format-guide-json.md` | `Prompt Improver - Format Guide JSON - v0.142.md` |
+| `sk-prompt-improver/assets/format-guide-yaml.md` | `Prompt Improver - Format Guide YAML - v0.142.md` |
 | `sk-prompt-improver/assets/visual-mode-library.md` | `Prompt Improver - Assets - Visual Mode Library - v0.110.md` |
 | `sk-prompt-improver/assets/image-mode-library.md` | `Prompt Improver - Assets - Image Mode Library - v0.101.md` |
 | `sk-prompt-improver/assets/video-mode-library.md` | `Prompt Improver - Assets - Video Mode Library - v0.101.md` |
 
 There is no separate worked-examples folder for this system: the three mode libraries carry their transformation examples and quick lookups inline, so the Project Knowledge package contains exactly these fourteen files and no more.
 
-The Prompt Improver Skill is pinned to `1.2.0`. Claude Custom Instructions are pinned to `1.2.0` and declare alignment with Skill `1.2.0`. Every other reference and asset mirror keeps its existing version because its source content is unchanged. A future content edit bumps that source's version, renames its mirror and regenerates the checksum manifest in the same pass.
+The Prompt Improver Skill is pinned to `1.2.1`. Claude Custom Instructions are pinned to `1.2.1` and declare alignment with Skill `1.2.1`. This pass also bumps Patterns and Evaluation to `0.212`, Visual Mode to `0.301`, Image Mode to `0.123`, Video Mode to `0.123`, Format Guide JSON to `0.142` and Format Guide YAML to `0.142` for the Claude Projects delivery override and package-relative link fixes. Every other reference and asset mirror keeps its existing version because its source content is unchanged. A future content edit bumps that source's version, renames its mirror and regenerates the checksum manifest in the same pass.
 
 Archived knowledge under `z_legacy/` is for manual comparison only and is not a sync source.
 

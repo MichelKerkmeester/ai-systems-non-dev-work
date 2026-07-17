@@ -376,10 +376,10 @@ There is no separate worked-examples folder for this system. The mode libraries 
 
 | File | Carries |
 |---|---|
-| [`references/patterns-evaluation.md`](./references/patterns-evaluation.md) | CLEAR, EVOKE, VISUAL and REPAIR scoring detail (v0.211) |
-| [`references/visual-mode.md`](./references/visual-mode.md) | Grounding-first VIBE/VIBE-MP workflow, EVOKE scoring, MagicPath routing (v0.300) |
-| [`references/image-mode.md`](./references/image-mode.md) | FRAME workflow, VISUAL image scoring, platform routing (v0.122) |
-| [`references/video-mode.md`](./references/video-mode.md) | MOTION workflow, VISUAL video scoring, temporal rules (v0.122) |
+| [`references/patterns-evaluation.md`](./references/patterns-evaluation.md) | CLEAR, EVOKE, VISUAL and REPAIR scoring detail (v0.212) |
+| [`references/visual-mode.md`](./references/visual-mode.md) | Grounding-first VIBE/VIBE-MP workflow, EVOKE scoring, MagicPath routing (v0.301) |
+| [`references/image-mode.md`](./references/image-mode.md) | FRAME workflow, VISUAL image scoring, platform routing (v0.123) |
+| [`references/video-mode.md`](./references/video-mode.md) | MOTION workflow, VISUAL video scoring, temporal rules (v0.123) |
 
 ### Framework and Format Assets
 
@@ -387,8 +387,8 @@ There is no separate worked-examples folder for this system. The mode libraries 
 |---|---|
 | [`assets/framework-pattern-library.md`](./assets/framework-pattern-library.md) | Eleven-framework matrix, deep dives, combination patterns (v0.100) |
 | [`assets/format-guide-markdown.md`](./assets/format-guide-markdown.md) | Markdown header contract and RCAF/CRAFT structure (v0.141) |
-| [`assets/format-guide-json.md`](./assets/format-guide-json.md) | JSON header contract and syntax validation (v0.141) |
-| [`assets/format-guide-yaml.md`](./assets/format-guide-yaml.md) | YAML header contract and syntax validation (v0.141) |
+| [`assets/format-guide-json.md`](./assets/format-guide-json.md) | JSON header contract and syntax validation (v0.142) |
+| [`assets/format-guide-yaml.md`](./assets/format-guide-yaml.md) | YAML header contract and syntax validation (v0.142) |
 
 ### Creative Mode Libraries
 
