@@ -1,0 +1,149 @@
+{
+  "schema_version": 2,
+  "skill_id": "media-editor",
+  "family": "media-production",
+  "category": "media-editing-and-transcoding",
+  "edges": {
+    "depends_on": [],
+    "enhances": [
+      {
+        "target": "mcp-tooling",
+        "weight": 0.3,
+        "context": "drives the Imagician and Video-Audio MCP servers as its execution tools rather than authoring its own transport layer"
+      }
+    ],
+    "siblings": [
+      {
+        "target": "sk-product-owner",
+        "weight": 0.2,
+        "context": "sibling standalone Barter skill: product-owner authors backlog and documentation artifacts, media-editor edits and packages existing image, video and audio deliverables"
+      }
+    ],
+    "conflicts_with": [],
+    "prerequisite_for": []
+  },
+  "manual": {
+    "depends_on": [],
+    "related_to": [
+      "mcp-tooling"
+    ]
+  },
+  "domains": [
+    "media-editing",
+    "image-processing",
+    "video-transcoding",
+    "audio-processing",
+    "hls-streaming",
+    "ffmpeg",
+    "mcp-imagician",
+    "mcp-video-audio"
+  ],
+  "intent_signals": [
+    "resize or convert an image",
+    "compress or transcode a video",
+    "extract or convert audio",
+    "convert to HLS adaptive streaming",
+    "repair or diagnose a broken media file"
+  ],
+  "derived": {
+    "trigger_phrases": [
+      "media editor",
+      "resize image",
+      "compress photo",
+      "convert to webp",
+      "compress video",
+      "trim clip",
+      "transcode to mp4",
+      "extract audio",
+      "convert to mp3",
+      "remove silence",
+      "make it stream",
+      "adaptive streaming",
+      "hls",
+      "optimize for web",
+      "shrink the file",
+      "reduce size",
+      "repair broken file",
+      "diagnose media file"
+    ],
+    "key_topics": [
+      "image-mode",
+      "video-mode",
+      "audio-mode",
+      "hls-mode",
+      "repair-mode",
+      "interactive-mode",
+      "media-framework",
+      "human-voice-rules",
+      "tool-verification",
+      "format-and-quality-intelligence",
+      "export-protocol"
+    ],
+    "intent_signals": [
+      "image edit or conversion",
+      "video transcode or edit",
+      "audio extraction or conversion",
+      "HLS adaptive streaming conversion",
+      "broken media file repair or diagnosis"
+    ],
+    "key_files": [
+      "sk-media-editor/SKILL.md",
+      "sk-media-editor/references/media-framework.md",
+      "sk-media-editor/references/human-voice-rules.md",
+      "sk-media-editor/references/interactive-intelligence.md",
+      "sk-media-editor/references/mcp-imagician.md",
+      "sk-media-editor/references/mcp-video-audio.md",
+      "sk-media-editor/assets/hls-video-conversion.md"
+    ],
+    "entities": [
+      {
+        "name": "media-editor",
+        "kind": "skill",
+        "path": "sk-media-editor/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "media-framework",
+        "kind": "reference",
+        "path": "sk-media-editor/references/media-framework.md",
+        "source": "derived"
+      },
+      {
+        "name": "mcp-imagician",
+        "kind": "reference",
+        "path": "sk-media-editor/references/mcp-imagician.md",
+        "source": "derived"
+      },
+      {
+        "name": "mcp-video-audio",
+        "kind": "reference",
+        "path": "sk-media-editor/references/mcp-video-audio.md",
+        "source": "derived"
+      },
+      {
+        "name": "interactive-intelligence",
+        "kind": "reference",
+        "path": "sk-media-editor/references/interactive-intelligence.md",
+        "source": "derived"
+      },
+      {
+        "name": "hls-video-conversion",
+        "kind": "asset",
+        "path": "sk-media-editor/assets/hls-video-conversion.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Standalone Media Editor skill for Barter that edits, converts, compresses and streams existing images, video and audio. Routes every request into one of five intents (Image, Video, Audio, HLS, Repair) through an exact-command then semantic-keyword detection sequence, binds and verifies the required tool (Imagician MCP, Video-Audio MCP or Terminal FFmpeg) before any operation, applies the MEDIA thinking framework, and exports a verified result before responding. It matters because it is the one discoverable identity for Barter media editing work, keeping tool-capability promises honest and deliverables saved and verified before every response.",
+    "source_docs": [
+      "SKILL.md",
+      "references/media-framework.md",
+      "references/human-voice-rules.md",
+      "references/interactive-intelligence.md",
+      "references/mcp-imagician.md",
+      "references/mcp-video-audio.md",
+      "assets/hls-video-conversion.md"
+    ],
+    "created_at": "2026-07-16T00:00:00Z",
+    "last_updated_at": "2026-07-16T00:00:00Z"
+  }
+}

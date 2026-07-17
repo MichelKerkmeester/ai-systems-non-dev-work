@@ -1,0 +1,167 @@
+{
+  "schema_version": 2,
+  "skill_id": "prompt-improver",
+  "family": "prompt-engineering",
+  "category": "prompt-authoring-and-refinement",
+  "edges": {
+    "depends_on": [],
+    "enhances": [],
+    "siblings": [
+      {
+        "target": "sk-prompt",
+        "weight": 0.4,
+        "context": "prompt-craft peer; sk-prompt is the Public repo's parent hub for general prompt-improve and prompt-models work, this skill is the standalone Barter CLI/claude.ai packaging of prompt improvement"
+      },
+      {
+        "target": "sk-doc",
+        "weight": 0.2,
+        "context": "documentation-authoring peer for packaging and export conventions; sk-doc owns OpenCode component and general doc authoring, prompt-improver owns AI prompt refinement"
+      }
+    ],
+    "conflicts_with": [],
+    "prerequisite_for": []
+  },
+  "manual": {
+    "depends_on": [],
+    "related_to": [
+      "sk-prompt",
+      "sk-doc"
+    ]
+  },
+  "domains": [
+    "prompt-engineering",
+    "prompt-refinement",
+    "framework-selection",
+    "depth-framework",
+    "visual-ui-prompts",
+    "magicpath-prompts",
+    "image-generation-prompts",
+    "video-generation-prompts",
+    "structured-output-formats"
+  ],
+  "intent_signals": [
+    "improve this prompt",
+    "refine this prompt",
+    "make a prompt shorter or more concise",
+    "write a deep or complex prompt",
+    "$vibe design concept prompt",
+    "magicpath user journey prompt",
+    "$image generation prompt",
+    "$video generation prompt",
+    "convert prompt to json, yaml or markdown"
+  ],
+  "derived": {
+    "trigger_phrases": [
+      "prompt improver",
+      "prompt engineering",
+      "improve prompt",
+      "refine prompt",
+      "RCAF",
+      "COSTAR",
+      "DEPTH",
+      "CLEAR scoring",
+      "EVOKE scoring",
+      "VISUAL scoring",
+      "VIBE",
+      "FRAME",
+      "MOTION",
+      "JSON prompt",
+      "YAML prompt",
+      "markdown prompt",
+      "image prompt",
+      "video prompt",
+      "MagicPath",
+      "export-first"
+    ],
+    "key_topics": [
+      "text-mode",
+      "visual-mode",
+      "image-mode",
+      "video-mode",
+      "interactive-mode",
+      "depth-framework",
+      "patterns-and-evaluation",
+      "framework-pattern-library",
+      "format-guides",
+      "quality-gates"
+    ],
+    "intent_signals": [
+      "text, improve, refine, short or deep prompt enhancement",
+      "visual UI or MagicPath concept prompt creation",
+      "image or video generation prompt creation",
+      "structured JSON, YAML or markdown prompt output"
+    ],
+    "key_files": [
+      "sk-prompt-improver/SKILL.md",
+      "sk-prompt-improver/references/depth-framework.md",
+      "sk-prompt-improver/references/interactive-mode.md",
+      "sk-prompt-improver/references/patterns-evaluation.md",
+      "sk-prompt-improver/references/visual-mode.md",
+      "sk-prompt-improver/references/image-mode.md",
+      "sk-prompt-improver/references/video-mode.md",
+      "sk-prompt-improver/assets/framework-pattern-library.md",
+      "sk-prompt-improver/assets/format-guide-markdown.md",
+      "sk-prompt-improver/assets/format-guide-json.md",
+      "sk-prompt-improver/assets/format-guide-yaml.md",
+      "sk-prompt-improver/assets/visual-mode-library.md",
+      "sk-prompt-improver/assets/image-mode-library.md",
+      "sk-prompt-improver/assets/video-mode-library.md"
+    ],
+    "entities": [
+      {
+        "name": "prompt-improver",
+        "kind": "skill",
+        "path": "sk-prompt-improver/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "depth-framework",
+        "kind": "reference",
+        "path": "sk-prompt-improver/references/depth-framework.md",
+        "source": "derived"
+      },
+      {
+        "name": "interactive-mode",
+        "kind": "reference",
+        "path": "sk-prompt-improver/references/interactive-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "patterns-evaluation",
+        "kind": "reference",
+        "path": "sk-prompt-improver/references/patterns-evaluation.md",
+        "source": "derived"
+      },
+      {
+        "name": "visual-mode",
+        "kind": "reference",
+        "path": "sk-prompt-improver/references/visual-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "image-mode",
+        "kind": "reference",
+        "path": "sk-prompt-improver/references/image-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "video-mode",
+        "kind": "reference",
+        "path": "sk-prompt-improver/references/video-mode.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Standalone Prompt Improver skill for Barter that turns vague or underpowered requests into reliable AI prompts. It routes every request into one of ten intents (Raw, Text, Improve, Refine, Short, Deep, Visual, MagicPath, Image, Video) plus an Interactive fallback through keyword-weighted intent scoring and a confidence floor, applies DEPTH at the detected energy level, selects a framework or scoring system (CLEAR, EVOKE or VISUAL) matched to the target medium, and exports a verified prompt file before responding. It matters because it is the one discoverable identity for Barter prompt-engineering work, keeping the prompt-writing task distinct from the downstream work the produced prompt asks another AI to perform.",
+    "source_docs": [
+      "SKILL.md",
+      "references/depth-framework.md",
+      "references/interactive-mode.md",
+      "references/patterns-evaluation.md",
+      "references/visual-mode.md",
+      "references/image-mode.md",
+      "references/video-mode.md"
+    ],
+    "created_at": "2026-07-16T00:00:00Z",
+    "last_updated_at": "2026-07-16T00:00:00Z"
+  }
+}

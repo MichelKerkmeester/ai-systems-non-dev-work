@@ -76,28 +76,28 @@ Violation of this protocol invalidates the response.
 
 # 3. SKILL READING INSTRUCTIONS
 
-> These instructions define WHICH documents to load and WHEN. `skill/SKILL.md` defines HOW to route.
+> These instructions define WHICH documents to load and WHEN. `sk-prompt-improver/SKILL.md` defines HOW to route.
 
 ## STEP 1: Load Skill Logic FIRST
 
-Manual load is valid: the skill does not need to be loaded through the traditional skill-loading mechanism. If that mechanism is unavailable, read `skill/SKILL.md` directly and apply its routing, identity handoff, loading rules and required references before continuing.
+Manual load is valid: the skill does not need to be loaded through the traditional skill-loading mechanism. If that mechanism is unavailable, read `sk-prompt-improver/SKILL.md` directly and apply its routing, identity handoff, loading rules and required references before continuing.
 
-Read `skill/SKILL.md` before processing any request. On load you ARE Prompt Improver. Its routing, DEPTH energy levels, CLEAR, EVOKE, VISUAL, format handling and export protocol replace generic assistant behavior.
+Read `sk-prompt-improver/SKILL.md` before processing any request. On load you ARE Prompt Improver. Its routing, DEPTH energy levels, CLEAR, EVOKE, VISUAL, format handling and export protocol replace generic assistant behavior.
 
 ## STEP 2: Load Required References
 
 Always load:
 
-- `skill/references/depth_framework.md`
-- `skill/references/interactive_mode.md`
+- `sk-prompt-improver/references/depth-framework.md`
+- `sk-prompt-improver/references/interactive-mode.md`
 
 Load on demand through the skill router:
 
-- `skill/references/patterns_evaluation.md` for scoring detail, repair and quality validation; `skill/assets/framework_pattern_library.md` for framework selection.
-- `skill/references/visual_mode.md` plus `skill/assets/visual_mode_library.md` for `$vibe`, MagicPath and UI concept prompts.
-- `skill/references/image_mode.md` plus `skill/assets/image_mode_library.md` for image-generation prompts.
-- `skill/references/video_mode.md` plus `skill/assets/video_mode_library.md` for video-generation prompts.
-- `skill/assets/format_guide_markdown.md`, `skill/assets/format_guide_json.md` or `skill/assets/format_guide_yaml.md` when the output format requires it.
+- `sk-prompt-improver/references/patterns-evaluation.md` for scoring detail, repair and quality validation; `sk-prompt-improver/assets/framework-pattern-library.md` for framework selection.
+- `sk-prompt-improver/references/visual-mode.md` plus `sk-prompt-improver/assets/visual-mode-library.md` for `$vibe`, MagicPath and UI concept prompts.
+- `sk-prompt-improver/references/image-mode.md` plus `sk-prompt-improver/assets/image-mode-library.md` for image-generation prompts.
+- `sk-prompt-improver/references/video-mode.md` plus `sk-prompt-improver/assets/video-mode-library.md` for video-generation prompts.
+- `sk-prompt-improver/assets/format-guide-markdown.md`, `sk-prompt-improver/assets/format-guide-json.md` or `sk-prompt-improver/assets/format-guide-yaml.md` when the output format requires it.
 
 Do not bulk-read optional resources.
 
@@ -122,7 +122,7 @@ Do not bulk-read optional resources.
 
 ```text
 AGENTS.md
-  -> skill/SKILL.md
+  -> sk-prompt-improver/SKILL.md
   -> DEPTH and interactive mode
   -> mode and format routing
   -> scoring and format references
@@ -134,22 +134,25 @@ AGENTS.md
 ```text
 AGENTS.md
   |
-  +-> skill/SKILL.md
+  +-> sk-prompt-improver/SKILL.md
   |
-  +-> skill/references/depth_framework.md
-  +-> skill/references/interactive_mode.md
+  +-> sk-prompt-improver/references/depth-framework.md
+  +-> sk-prompt-improver/references/interactive-mode.md
   |
-  +-> skill/references/patterns_evaluation.md
-  +-> skill/assets/framework_pattern_library.md
-  +-> skill/references/visual_mode.md
-  +-> skill/references/image_mode.md
-  +-> skill/references/video_mode.md
-  +-> skill/assets/format_guide_markdown.md
-  +-> skill/assets/format_guide_json.md
-  +-> skill/assets/format_guide_yaml.md
+  +-> sk-prompt-improver/references/patterns-evaluation.md
+  +-> sk-prompt-improver/assets/framework-pattern-library.md
+  +-> sk-prompt-improver/references/visual-mode.md
+  +-> sk-prompt-improver/assets/visual-mode-library.md
+  +-> sk-prompt-improver/references/image-mode.md
+  +-> sk-prompt-improver/assets/image-mode-library.md
+  +-> sk-prompt-improver/references/video-mode.md
+  +-> sk-prompt-improver/assets/video-mode-library.md
+  +-> sk-prompt-improver/assets/format-guide-markdown.md
+  +-> sk-prompt-improver/assets/format-guide-json.md
+  +-> sk-prompt-improver/assets/format-guide-yaml.md
 ```
 
-**DAG Rule:** no document may trigger bulk loading of the whole reference set. `skill/SKILL.md` is the routing authority. `AGENTS.md` is the entry point and enforcement wrapper.
+**DAG Rule:** no document may trigger bulk loading of the whole reference set. `sk-prompt-improver/SKILL.md` is the routing authority. `AGENTS.md` is the entry point and enforcement wrapper.
 
 ---
 
@@ -157,18 +160,18 @@ AGENTS.md
 
 > Execute these steps in strict order for every request.
 
-| Step | Action | Details |
-| --- | --- | --- |
-| 1 | Context Override | Apply Prompt Improver boundaries and refuse direct task execution. |
-| 2 | Skill Logic | Read `skill/SKILL.md` or use the loaded `prompt-improver` skill. |
-| 3 | Required References | Load DEPTH, interactive mode and routed mode references. |
-| 4 | Detect Intent | Match mode, format, target model, platform, complexity and creative medium. |
-| 5 | Clarify | Ask one consolidated question when source prompt, use case or mode is missing. |
-| 6 | Improve | Generate the enhanced prompt internally while preserving user intent. |
-| 7 | Validate | Apply CLEAR, EVOKE or VISUAL gates and syntax checks when relevant. |
-| 8 | Export | Save to `export/` with the routed extension and verify the file. |
-| 9 | Respond | Provide file path, compact score if required and summary only. |
-| 10 | Follow Up | Offer refinement if useful without pasting the full prompt. |
+| Step | Action              | Details                                                                        |
+| ------| ---------------------| --------------------------------------------------------------------------------|
+| 1    | Context Override    | Apply Prompt Improver boundaries and refuse direct task execution.             |
+| 2    | Skill Logic         | Read `sk-prompt-improver/SKILL.md` or use the loaded `prompt-improver` skill.               |
+| 3    | Required References | Load DEPTH, interactive mode and routed mode references.                       |
+| 4    | Detect Intent       | Match mode, format, target model, platform, complexity and creative medium.    |
+| 5    | Clarify             | Ask one consolidated question when source prompt, use case or mode is missing. |
+| 6    | Improve             | Generate the enhanced prompt internally while preserving user intent.          |
+| 7    | Validate            | Apply CLEAR, EVOKE or VISUAL gates and syntax checks when relevant.            |
+| 8    | Export              | Save to `export/` with the routed extension and verify the file.               |
+| 9    | Respond             | Provide file path, compact score if required and summary only.                 |
+| 10   | Follow Up           | Offer refinement if useful without pasting the full prompt.                    |
 
 ---
 

@@ -1,0 +1,179 @@
+{
+  "schema_version": 2,
+  "skill_id": "product-owner",
+  "family": "product-management",
+  "category": "backlog-and-documentation",
+  "edges": {
+    "depends_on": [],
+    "enhances": [
+      {
+        "target": "mcp-tooling",
+        "weight": 0.5,
+        "context": "hands an approved Task, Bug, Doc or Story export to the ClickUp workflow mode for markdown-aware push after explicit user approval"
+      }
+    ],
+    "siblings": [
+      {
+        "target": "sk-doc",
+        "weight": 0.3,
+        "context": "documentation-authoring peer; sk-doc authors OpenCode components and general docs, product-owner owns Barter backlog artifacts and source-safe product/engineering documentation"
+      }
+    ],
+    "conflicts_with": [],
+    "prerequisite_for": []
+  },
+  "manual": {
+    "depends_on": [],
+    "related_to": [
+      "mcp-tooling",
+      "sk-doc"
+    ]
+  },
+  "domains": [
+    "product-management",
+    "backlog",
+    "user-stories",
+    "bug-reports",
+    "acceptance-criteria",
+    "product-documentation",
+    "engineering-documentation",
+    "clickup",
+    "depth-framework"
+  ],
+  "intent_signals": [
+    "create task",
+    "write bug report",
+    "write user story",
+    "document how X works",
+    "create api reference",
+    "create architecture proposal",
+    "refine this document",
+    "refine this story"
+  ],
+  "derived": {
+    "trigger_phrases": [
+      "product owner",
+      "create task",
+      "dev task",
+      "acceptance criteria",
+      "bug report",
+      "defect report",
+      "user story",
+      "connextra story",
+      "given when then",
+      "document how",
+      "write a guide",
+      "product documentation",
+      "engineering documentation",
+      "api reference",
+      "schema reference",
+      "architecture document",
+      "runbook",
+      "troubleshooting guide",
+      "technical proposal",
+      "decision record",
+      "clickup task",
+      "clickup document"
+    ],
+    "key_topics": [
+      "backlog-artifacts",
+      "task-mode",
+      "bug-mode",
+      "doc-mode",
+      "story-mode",
+      "interactive-mode",
+      "depth-framework",
+      "human-voice-rules",
+      "source-authority",
+      "source-fidelity",
+      "clickup-transport",
+      "quality-gates"
+    ],
+    "intent_signals": [
+      "backlog artifact creation or refinement",
+      "narrative user story creation or refinement",
+      "product or engineering documentation creation or refinement",
+      "ClickUp-formatted export and handoff"
+    ],
+    "key_files": [
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/README.md",
+      "sk-product-owner/references/task-mode.md",
+      "sk-product-owner/references/bug-mode.md",
+      "sk-product-owner/references/doc-mode.md",
+      "sk-product-owner/references/story-mode.md",
+      "sk-product-owner/references/interactive-mode.md",
+      "sk-product-owner/references/depth-framework.md",
+      "sk-product-owner/references/human-voice-rules.md",
+      "sk-product-owner/assets/task-templates.md",
+      "sk-product-owner/assets/bug-report-template.md",
+      "sk-product-owner/assets/doc-templates.md",
+      "sk-product-owner/assets/story-templates.md",
+      "sk-product-owner/assets/interactive-response-templates.md"
+    ],
+    "entities": [
+      {
+        "name": "product-owner",
+        "kind": "skill",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "task-mode",
+        "kind": "reference",
+        "path": "sk-product-owner/references/task-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "bug-mode",
+        "kind": "reference",
+        "path": "sk-product-owner/references/bug-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "doc-mode",
+        "kind": "reference",
+        "path": "sk-product-owner/references/doc-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-mode",
+        "kind": "reference",
+        "path": "sk-product-owner/references/story-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "interactive-mode",
+        "kind": "reference",
+        "path": "sk-product-owner/references/interactive-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "depth-framework",
+        "kind": "reference",
+        "path": "sk-product-owner/references/depth-framework.md",
+        "source": "derived"
+      },
+      {
+        "name": "human-voice-rules",
+        "kind": "reference",
+        "path": "sk-product-owner/references/human-voice-rules.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Standalone Product Owner skill for Barter backlog work and source-safe product or engineering documentation. Routes every request into one of five intents (Task, Bug, Doc, Story, Interactive) through an exact-command, artifact-framing, then semantic-confidence detection sequence, applies the DEPTH thinking system at the detected energy level, and exports a verified markdown artifact before offering ClickUp delivery. It matters because it is the one discoverable identity for Barter Product Owner artifact creation and refinement, keeping backlog outcomes and documentation source-status distinct and export-verified.",
+    "source_docs": [
+      "SKILL.md",
+      "README.md",
+      "references/task-mode.md",
+      "references/bug-mode.md",
+      "references/doc-mode.md",
+      "references/story-mode.md",
+      "references/interactive-mode.md",
+      "references/depth-framework.md",
+      "references/human-voice-rules.md"
+    ],
+    "created_at": "2026-01-01T00:00:00Z",
+    "last_updated_at": "2026-07-16T00:00:00Z"
+  }
+}

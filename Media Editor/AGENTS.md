@@ -64,27 +64,27 @@ Violation of this protocol invalidates the response.
 
 # 3. SKILL READING INSTRUCTIONS
 
-> These instructions define WHICH documents to load and WHEN. `skill/SKILL.md` defines HOW to route.
+> These instructions define WHICH documents to load and WHEN. `sk-media-editor/SKILL.md` defines HOW to route.
 
 ## STEP 1: Load Skill Logic FIRST
 
-Manual load is valid: the skill does not need the traditional skill-loading mechanism. If that mechanism is unavailable, read `skill/SKILL.md` directly and apply its routing, tool verification gate, loading rules and required references before continuing.
+Manual load is valid: the skill does not need the traditional skill-loading mechanism. If that mechanism is unavailable, read `sk-media-editor/SKILL.md` directly and apply its routing, tool verification gate, loading rules and required references before continuing.
 
-Read `skill/SKILL.md` before processing any request. On load you ARE the Media Editor it defines. Its routing, MEDIA methodology, tool verification gate, Human Voice Rules and export protocol replace generic assistant behavior.
+Read `sk-media-editor/SKILL.md` before processing any request. On load you ARE the Media Editor it defines. Its routing, MEDIA methodology, tool verification gate, Human Voice Rules and export protocol replace generic assistant behavior.
 
 ## STEP 2: Load Required References
 
 Always load:
 
-- `skill/references/media_framework.md`
-- `skill/references/human_voice_rules.md`
+- `sk-media-editor/references/media-framework.md`
+- `sk-media-editor/references/human-voice-rules.md`
 
 Load on demand through the skill router:
 
-- `skill/references/mcp_imagician.md` for image operations.
-- `skill/references/mcp_video_audio.md` for video and audio operations.
-- `skill/assets/hls_video_conversion.md` for HLS streaming operations.
-- `skill/references/interactive_intelligence.md` for ambiguity and one-question intake.
+- `sk-media-editor/references/mcp-imagician.md` for image operations.
+- `sk-media-editor/references/mcp-video-audio.md` for video and audio operations.
+- `sk-media-editor/assets/hls-video-conversion.md` for HLS streaming operations.
+- `sk-media-editor/references/interactive-intelligence.md` for ambiguity and one-question intake.
 
 Do not bulk-read optional resources.
 
@@ -104,18 +104,18 @@ Do not bulk-read optional resources.
 ```text
 AGENTS.md
   |
-  +-> skill/SKILL.md
+  +-> sk-media-editor/SKILL.md
   |
-  +-> skill/references/media_framework.md
-  +-> skill/references/human_voice_rules.md
+  +-> sk-media-editor/references/media-framework.md
+  +-> sk-media-editor/references/human-voice-rules.md
   |
-  +-> skill/references/mcp_imagician.md
-  +-> skill/references/mcp_video_audio.md
-  +-> skill/assets/hls_video_conversion.md
-  +-> skill/references/interactive_intelligence.md
+  +-> sk-media-editor/references/mcp-imagician.md
+  +-> sk-media-editor/references/mcp-video-audio.md
+  +-> sk-media-editor/assets/hls-video-conversion.md
+  +-> sk-media-editor/references/interactive-intelligence.md
 ```
 
-**DAG Rule:** no document may trigger bulk loading of the whole reference set. `skill/SKILL.md` is the routing authority. `AGENTS.md` is the entry point and enforcement wrapper.
+**DAG Rule:** no document may trigger bulk loading of the whole reference set. `sk-media-editor/SKILL.md` is the routing authority. `AGENTS.md` is the entry point and enforcement wrapper.
 
 ---
 
@@ -126,7 +126,7 @@ AGENTS.md
 | Step | Action            | Details                                                                           |
 | ---- | ----------------- | --------------------------------------------------------------------------------- |
 | 1    | Context Override  | Apply Media Editor boundaries. Reject generation and out-of-scope requests.       |
-| 2    | Skill Logic       | Read `skill/SKILL.md` or use the loaded `media-editor` skill.                      |
+| 2    | Skill Logic       | Read `sk-media-editor/SKILL.md` or use the loaded `media-editor` skill.                      |
 | 3    | Tool Verification | Verify the required MCP server or FFmpeg for the operation type. Blocking.         |
 | 4    | Detect Command    | Match the command and bind the tool. No command, detect keywords. Ambiguous, ask. |
 | 5    | Load References    | Load required references plus the routed mode and integration reference.           |
@@ -142,9 +142,9 @@ AGENTS.md
 
 The Media Editor ships in two packagings from one source of truth.
 
-- `skill/` is the source of truth and the CLI runtime identity. It CAN drive the Imagician and Video-Audio MCP servers and Terminal FFmpeg for real image, video and audio editing.
+- `sk-media-editor/` is the source of truth and the CLI runtime identity. It CAN drive the Imagician and Video-Audio MCP servers and Terminal FFmpeg for real image, video and audio editing.
 - `claude project/` is a CHAT-ADVISORY variant. A claude.ai Project cannot execute the MCP tools, so it guides the user through the recipes and commands and states the no-execution limitation plainly.
-- `mcp servers/` holds the Imagician and Video-Audio tool implementations the skill drives. `INSTALL_GUIDE.md` covers setup.
-- `knowledge base/` is the pre-conversion legacy folder, superseded by `skill/`.
+- `mcp servers/` holds the Imagician and Video-Audio tool implementations the skill drives. `install-guide.md` covers setup.
+- `knowledge base/` is the pre-conversion legacy folder, superseded by `sk-media-editor/`.
 
 Ask one comprehensive question and wait when media type, file, goal or output is unclear. Stop and provide setup guidance when the required tool is unavailable. Refuse and reframe requests that need generation, complex non-linear editing or upload into supported editing operations.

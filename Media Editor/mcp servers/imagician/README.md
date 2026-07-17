@@ -92,7 +92,7 @@ imagician/
 ├── Dockerfile              # Container build definition
 ├── package.json            # Node.js dependencies
 ├── README.md               # This file
-└── VOLUME_REFERENCE.md     # Volume mounting guide
+└── volume-reference.md     # Volume mounting guide
 ```
 
 ### Key Files
@@ -102,7 +102,7 @@ imagician/
 | `docker-compose.yml` | Defines container, volumes, and environment |
 | `Dockerfile` | Builds Node.js image with Sharp and ImageMagick |
 | `dist/index.js` | Compiled MCP server code |
-| `VOLUME_REFERENCE.md` | Detailed volume configuration guide |
+| `volume-reference.md` | Detailed volume configuration guide |
 
 ---
 
@@ -395,9 +395,9 @@ A: Use image overlay functionality through the add_image_overlay tool, positioni
 
 | Document | Purpose |
 |----------|---------|
-| [VOLUME_REFERENCE.md](./VOLUME_REFERENCE.md) | Detailed volume mounting configuration |
+| [volume-reference.md](./volume-reference.md) | Detailed volume mounting configuration |
 | [Media Editor README](../../README.md) | Parent system documentation |
-| [INSTALL_GUIDE.md](../../INSTALL_GUIDE.md) | Complete installation instructions |
+| [install-guide.md](../../install-guide.md) | Complete installation instructions |
 
 ### External Resources
 

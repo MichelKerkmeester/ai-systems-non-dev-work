@@ -94,7 +94,7 @@ video-audio/
 ├── docker-compose.yml       # Container orchestration
 ├── Dockerfile               # Container build with FFmpeg
 ├── README.md                # This file
-└── VOLUME_REFERENCE.md      # Volume mounting guide
+└── volume-reference.md      # Volume mounting guide
 ```
 
 Inside the container (`/app/`):
@@ -116,7 +116,7 @@ Inside the container (`/app/`):
 | `docker-compose.yml` | Defines container, volumes, and environment |
 | `Dockerfile` | Builds Python image with FFmpeg |
 | `/app/server.py` | FastMCP server implementation |
-| `VOLUME_REFERENCE.md` | Detailed volume configuration guide |
+| `volume-reference.md` | Detailed volume configuration guide |
 
 ---
 
@@ -576,9 +576,9 @@ A: Use `-c copy` mode when only changing container format without re-encoding. T
 
 | Document | Purpose |
 |----------|---------|
-| [VOLUME_REFERENCE.md](./VOLUME_REFERENCE.md) | Detailed volume mounting configuration |
+| [volume-reference.md](./volume-reference.md) | Detailed volume mounting configuration |
 | [Media Editor README](../../README.md) | Parent system documentation |
-| [INSTALL_GUIDE.md](../../INSTALL_GUIDE.md) | Complete installation instructions |
+| [install-guide.md](../../install-guide.md) | Complete installation instructions |
 
 ### External Resources
 
