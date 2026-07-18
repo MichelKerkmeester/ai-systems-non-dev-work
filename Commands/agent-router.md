@@ -41,7 +41,8 @@ Direct identity adoption architecture for routing requests to specialized AI Sys
 
 ## 1. PURPOSE
 
-The Agent Router **ADOPTS** the target system's identity and executes directly. It:
+The Agent Router **ADOPTS** the target system's identity and executes System
+execution requests directly. It:
 
 1. **Discovers** available systems by scanning the filesystem for `AGENTS.md` files
 2. **Resolves** the target system from user input, fuzzy matching, or explicit paths
@@ -52,6 +53,11 @@ The Agent Router **ADOPTS** the target system's identity and executes directly. 
 
 **Core Principle:** The router BECOMES the target agent. After loading the skill identity, you ARE that agent and execute directly with full authority.
 
+**Scope boundary:** This router handles System execution, not System maintenance.
+If the request would change a system's identity, routing, knowledge, assets,
+quality gates, packaging, or source documentation, stop before identity adoption
+and route the request through the repository's System maintenance workflow.
+
 ---
 
 ## 2. CONTRACT
@@ -59,14 +65,13 @@ The Agent Router **ADOPTS** the target system's identity and executes directly. 
 **Inputs:** `$ARGUMENTS` — Request with optional system selector
 **Format:** `[system|path:<path>] <request>`
 
-**Outputs:** `STATUS=<OK|FAIL> [ERROR="<message>"]`
+**Success output:** The selected project's response contract, emitted without a
+router wrapper.
 
-| Output Field | Description                           |
-| ------------ | ------------------------------------- |
-| `STATUS`     | `OK` on success, `FAIL` on error      |
-| `ERROR`      | Error message (only when STATUS=FAIL) |
-| `SYSTEM`     | Resolved system name                  |
-| `OUTPUT`     | Execution result summary              |
+**Pre-adoption failure output:** `STATUS=FAIL ERROR="<message>"`
+
+Once identity adoption succeeds, the project contract owns successful output
+and any project-defined failure response.
 
 ---
 
@@ -82,7 +87,10 @@ $ARGUMENTS
 
 ### Dynamic Registry (No Hardcoded Systems)
 
-Systems are discovered at runtime by scanning the filesystem. A **system** is any directory containing an `AGENTS.md` file.
+Systems are discovered at runtime by scanning the filesystem. A **system** is a
+descendant directory below `ai_systems_root` that contains an `AGENTS.md` file.
+The `AGENTS.md` located directly at `ai_systems_root` is the repository contract,
+not a routable system.
 
 ### Base Scan Path (Dynamic)
 
@@ -111,11 +119,16 @@ Derive `ai_systems_root` from the current workspace path. Do not hardcode user-s
     - `system_name` — the folder name, with number prefix stripped (e.g., `1. Copywriter` → `Copywriter`)
     - `group` — the first directory under `ai_systems_root` for nested systems (e.g., `MCP`), otherwise the resolved workspace folder's own name
 
-3. **Deduplication:** If the same system name exists in multiple locations, prefer the shallower path under `ai_systems_root`. If depth is equal, prefer the non-archive/non-backup path.
+3. **Root exclusion:** Skip any result whose parent directory equals
+   `ai_systems_root`.
 
-4. **Exclusions:** Skip directories where the folder name starts with:
+4. **Other exclusions:** Skip directories where the folder name starts with:
    - `z` (backups, e.g., `z — Back-up`)
    - `0.` (shared resources, e.g., `z — Global (Shared)`)
+
+5. **Deduplication:** If the same system name exists in multiple locations,
+   prefer the shallower path under `ai_systems_root`. If depth is equal, prefer
+   the non-archive/non-backup path.
 
 ### Name Normalization
 
@@ -129,7 +142,9 @@ Pattern: Remove leading `\d+\.\s*` from folder name.
 
 ### Discovery Output
 
-Build a runtime registry as a list of `{ system_name, agent_folder, group }` entries — one per discovered AGENTS.md. **No systems are listed in this file.** The registry is built fresh from the filesystem on every invocation.
+Build a runtime registry as a list of `{ system_name, agent_folder, group }`
+entries, one per eligible project `AGENTS.md`. **No systems are listed in this
+file.** The registry is built fresh from the filesystem on every invocation.
 
 ---
 
@@ -137,8 +152,11 @@ Build a runtime registry as a list of `{ system_name, agent_folder, group }` ent
 
 ### Dispatch Logic
 
-```
+```text
 $ARGUMENTS
+    │
+    ├─► Requests SYSTEM MAINTENANCE
+    │   └─► STOP before identity adoption → Use repository maintenance workflow
     │
     ├─► Contains "path:" pattern
     │   └─► CUSTOM PATH: Extract path value → Use as agent_folder
@@ -204,11 +222,11 @@ Reply with letter:
 | Step | Name                          | Purpose                                    | Outputs                                       |
 | ---- | ----------------------------- | ------------------------------------------ | --------------------------------------------- |
 | 0    | Discover Systems              | Scan filesystem for AGENTS.md files        | `discovered_systems[]`                        |
-| 1    | Resolve Target                | Match user input to a discovered system    | `agents_md_path`, `agent_scope_root`          |
+| 1    | Guard and Resolve Target      | Enforce execution scope, then match target | `agents_md_path`, `agent_scope_root`          |
 | 2    | Read AGENTS.md                | Parse routing instructions                 | `routing_directive`, `behavioral_guidelines`  |
 | 3    | Locate and Read Skill Identity | Load the AGENTS.md-named `{skill_folder}/SKILL.md` | `skill_path`, `skill_content`          |
 | 4    | Adopt Identity and Execute    | BECOME the agent, process request directly | `execution_result`                            |
-| 5    | Return Results                | Report completion                          | `STATUS`, formatted report                    |
+| 5    | Return Results                | Apply the project response contract        | Project-defined response                      |
 
 ---
 
@@ -228,23 +246,31 @@ Reply with letter:
       - If nested, use the first directory under `ai_systems_root` (for example, `MCP`)
     - Extract raw folder name and normalize to `system_name`:
       - Strip leading number prefix: `\d+\.\s*` → empty (e.g., `3. TikTok SEO` → `TikTok SEO`)
-4. **Exclude** folders where the name starts with `z` or `0.`
-5. **Deduplicate** by `system_name`: prefer the shallower path under `ai_systems_root`; avoid archive/backup paths
-6. Store as `discovered_systems[]`
+4. **Exclude** the result when `agent_folder == ai_systems_root`; the root
+   `AGENTS.md` is the repository contract, not a system
+5. **Exclude** folders where the name starts with `z` or `0.`
+6. **Deduplicate** by `system_name`: prefer the shallower path under `ai_systems_root`; avoid archive/backup paths
+7. Store as `discovered_systems[]`
 
 **Validation checkpoint:**
 - [ ] At least 1 system discovered
 - [ ] No duplicate system names in final list
+- [ ] `ai_systems_root` itself is absent from the final list
 
 **Failure:** `STATUS=FAIL ERROR="No AI Systems found. Check resolved ai_systems_root or use path:<path>."`
 
 ---
 
-### Step 1: Resolve Target
+### Step 1: Guard and Resolve Target
 
-**Purpose:** Match user input against the discovered registry to find the target system
+**Purpose:** Enforce the execution boundary, then match user input against the
+discovered registry to find the target system
 
 **Activities:**
+- If the request would modify a system's identity, routing, knowledge, assets,
+  quality gates, packaging, or source documentation, stop before selecting or
+  adopting a system and direct the request to the repository System maintenance
+  workflow
 - If `path:` override present → use as `agent_folder` directly, skip matching
 - Otherwise, apply match algorithm from Section 5 against `discovered_systems[]`:
   1. Exact match on `system_name` (case-insensitive)
@@ -320,7 +346,7 @@ Reply with letter:
 
 ### Step 4: Adopt Identity and Execute
 
-**Purpose:** BECOME the target agent and process the request directly
+**Purpose:** BECOME the target agent and process the System execution request directly
 
 **🚨 CRITICAL: FULL IDENTITY ADOPTION**
 
@@ -363,11 +389,12 @@ After reading the skill identity, you ARE that agent. This is not delegation—i
 **Purpose:** Report execution results back to user
 
 **Activities:**
-- Complete request processing as the adopted agent
-- Format completion report (see Section 10)
-- Set `STATUS` based on execution result:
-  - Request completed successfully: `STATUS=OK`
-  - Execution failed: `STATUS=FAIL`
+- Complete request processing as the adopted agent.
+- On success, emit exactly the response required by the adopted project.
+- Do not prepend or append router metadata, `STATUS=OK`, skill paths, scope
+  paths, or a generic result summary.
+- If execution fails after adoption, follow the project's failure protocol. Use
+  a concise error only when that project defines no failure format.
 
 ---
 
@@ -420,11 +447,12 @@ Once identity is adopted:
 | Condition               | Action                                                     | Status Output                                                   |
 | ----------------------- | ---------------------------------------------------------- | --------------------------------------------------------------- |
 | Empty `$ARGUMENTS`      | Trigger mandatory gate                                     | (wait for input)                                                |
+| System maintenance request | Stop before identity adoption; use root maintenance workflow | `STATUS=FAIL ERROR="System maintenance is outside Agent Router scope"` |
 | No systems discovered   | Report base path, check directory structure                | `STATUS=FAIL ERROR="No AI Systems found"`                       |
 | No match found          | Present dynamic selection menu from `discovered_systems[]` | (wait for selection)                                            |
 | AGENTS.md not found     | Report path tried, list discovered systems                 | `STATUS=FAIL ERROR="AGENTS.md not found at {path}"`             |
 | Skill identity not found | Report search order, suggest fixes                        | `STATUS=FAIL ERROR="Skill identity ({skill_folder}/SKILL.md) not found"` |
-| Execution failure       | Report error details                                       | `STATUS=FAIL ERROR="{error_details}"`                           |
+| Execution failure after adoption | Follow the adopted project's failure protocol       | Project-defined response, or a concise error if none exists      |
 | Missing required tool   | Report tool needed, suggest alternatives                   | `STATUS=FAIL ERROR="Required tool unavailable"`                 |
 
 ### Error Message Templates
@@ -466,24 +494,12 @@ STATUS=FAIL ERROR="Skill identity ({skill_folder}/SKILL.md) not found"
 
 ## 10. COMPLETION REPORT
 
-After successful execution, report:
+After successful execution, return only the response required by the adopted
+project's `AGENTS.md` and skill identity.
 
-```
-Agent Router Complete
-
-Adopted Identity: {system_name}
-Skill: {skill_path}
-Agent Scope: {agent_scope_root}
-
-Request: {user_request_summary}
-
-Result:
-{execution_result_summary}
-
-Output Location: {output_location_if_any}
-
-STATUS=OK
-```
+Do not wrap, reformat, summarize, or append router metadata to that response.
+The router's structured `STATUS=FAIL` envelope is reserved for failures that
+occur before identity adoption.
 
 ---
 
@@ -494,6 +510,7 @@ STATUS=OK
 | Rule                                                  | Reason                              |
 | ----------------------------------------------------- | ----------------------------------- |
 | Run discovery (Step 0) before matching                | Systems may have been added/removed |
+| Exclude `ai_systems_root` from discovered systems     | Root AGENTS.md is repository policy |
 | Read the FULL skill identity before adopting it       | Complete identity required          |
 | BECOME the target agent after reading the skill identity | Direct execution, no delegation  |
 | Follow the adopted identity's operating mode exactly  | You ARE that agent now              |
@@ -501,12 +518,15 @@ STATUS=OK
 | Set agent_scope_root to folder containing AGENTS.md   | Proper scoping                      |
 | Validate the skill identity exists before adoption    | Prevent incomplete identity         |
 | Honor Interactive Mode if the adopted identity has it | Protocols bind you after adoption   |
+| Return the project's successful response unchanged    | Project owns its delivery contract  |
 
 ### ❌ NEVER
 
 | Anti-Pattern                                        | Problem                                   |
 | --------------------------------------------------- | ----------------------------------------- |
 | Hardcode system names or aliases in this file       | Discovery must be dynamic                 |
+| Treat root AGENTS.md as a routable system           | Root is repository policy, not identity   |
+| Adopt a project identity for System maintenance     | Maintenance uses repository workflow      |
 | Delegate to sub-agents                              | Single primary agent architecture         |
 | Skip skill identity reading                         | Incomplete identity adoption              |
 | Override adopted identity's operating mode          | You must follow its protocols             |
@@ -515,3 +535,4 @@ STATUS=OK
 | Skip Interactive Mode questions                     | Adopted identity's protocols bind you     |
 | Assume user provided enough context                 | Let adopted identity's logic decide       |
 | Half-adopt identity (reading but not following)     | Full adoption means full compliance       |
+| Wrap a successful project response in router output | Project response contract is exclusive    |
