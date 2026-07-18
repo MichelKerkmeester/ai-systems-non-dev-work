@@ -8,7 +8,7 @@ trigger_phrases:
   - "$audio"
   - "$hls"
   - "$repair"
-version: 1.1.0.0
+version: 1.2.0.0
 ---
 
 # sk-media-editor
@@ -18,7 +18,7 @@ version: 1.1.0.0
 | Core layer | What it adds |
 |---|---|
 | 🧭 **Smart Router** | Five media intents behind exact commands and keyword-weighted semantic scoring |
-| 🔒 **Tool Verification Gate** | A blocking check for Imagician, Video-Audio or FFmpeg before any operation runs |
+| 🔒 **Tool Verification Gate** | Prefers Imagician, Video-Audio or FFmpeg before any operation, falls back to Terminal FFmpeg when the MCP server is down, blocks only when both are down |
 | 🧠 **MEDIA Thinking** | Five phases (Measure, Evaluate, Decide, Implement, Analyze) with two-layer transparency |
 | 🎚️ **Format & Quality Intelligence** | Use-case-driven format and quality selection, with the trade-off named in plain language |
 | 📤 **Export-First Delivery** | Every result saves to `export/` and is verified before the chat response |
@@ -51,10 +51,11 @@ The Media Editor drives three tool surfaces and reimplements none of them: the I
                            │
                            ▼
 ┌────────────────────────────────────────────────────┐
-│   TOOL VERIFICATION GATE (blocking)                 │
+│   TOOL VERIFICATION GATE (MCP first)                │
 │   Imagician: list_images                            │
 │   Video-Audio: health_check                         │
-│   FFmpeg: ffmpeg -version                           │
+│   FFmpeg: ffmpeg -version  (also the fallback)      │
+│   MCP down -> Terminal FFmpeg fallback              │
 └────────────────────────────────────────────────────┘
                            │
                            ▼
@@ -242,7 +243,7 @@ The MEDIA framework runs this selection through five phases, each showing a shor
 | Implement (10%) | "Processing (95% reduction)" |
 | Analyze (20%) | "Complete (quality verified)" |
 
-A quality metric below its threshold, an unsupported format or a disconnected tool triggers the improvement protocol: identify the issue, try an alternative format or quality, then fall back to the best compromise, capped at three iterations. A tool that stays unavailable stops the operation and reports setup guidance instead of an unverified promise.
+A quality metric below its threshold, an unsupported format or a disconnected tool triggers the improvement protocol: identify the issue, try an alternative format or quality, then fall back to the best compromise, capped at three iterations. A disconnected MCP server falls back to Terminal FFmpeg for the operation. Only when the MCP server and FFmpeg are both unavailable does the operation stop and report setup guidance instead of an unverified promise.
 
 ---
 
@@ -341,7 +342,7 @@ Format and codec references worth bookmarking, carried over from the pre-alignme
 ## 10. FAQ
 
 **What happens when a required tool is not connected?**
-The operation stops before it starts. The response reports the connection status in plain language and gives setup guidance instead of promising a result the bound tool cannot deliver.
+When the MCP server is down, the operation falls back to Terminal FFmpeg for that operation, and the response says plainly it ran via FFmpeg rather than the named MCP server. The operation stops only when the MCP server and FFmpeg are both unavailable (HLS runs on FFmpeg alone, so a missing FFmpeg stops it). A stop reports the connection status in plain language and gives setup guidance instead of promising a result no available tool can deliver.
 
 **Can it generate a new image, video or clip from a text prompt?**
 No. The Media Editor edits, converts, compresses and streams media that already exists. A generation request gets refused and reframed into a supported editing operation where one applies.
@@ -364,11 +365,11 @@ No. That is out of scope and gets refused and reframed into a supported operatio
 
 | What you see | What to do |
 |---|---|
-| The response stops before any processing with a connection warning | The bound tool is not verified. Follow the setup guidance in the response, or see `../install-guide.md` for the full Docker and direct-install paths |
+| The response stops before any processing with a connection warning | Neither the MCP server nor Terminal FFmpeg is verified (for HLS, FFmpeg alone). Follow the setup guidance in the response, or see `../install-guide.md` for the full Docker and direct-install paths |
 | A response shows a wall of processing log or metadata | That violates the export protocol. Treat the response as non-compliant and ask for the path and summary form instead |
 | A request routed to the wrong mode | Add the exact command token (`$image`, `$video`, `$audio`, `$hls`, `$repair`) instead of relying on keyword scoring |
 | The system keeps asking one comprehensive question | No command and no keyword scored above zero. Answer the question in one reply, or add a command token to skip straight to that mode |
-| An HLS conversion request got declined | Confirm Terminal FFmpeg is installed (`ffmpeg -version`). The Video-Audio MCP server handles single-format conversion as a fallback when FFmpeg is unavailable |
+| An HLS conversion request got declined | Confirm Terminal FFmpeg is installed (`ffmpeg -version`). HLS runs on FFmpeg alone with no MCP fallback. For image, video or audio, Terminal FFmpeg is the fallback when the MCP server is down |
 | A generation or upload request got refused | Working as intended. Rephrase as an edit of a file that already exists, or use a different tool for generation or platform upload |
 
 ---

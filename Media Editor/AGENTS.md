@@ -35,8 +35,8 @@ This Context Override supersedes:
 
 ## Strict Sequence
 
-1. Verify the required tool connection (blocking).
-2. Process the media through the MCP server or FFmpeg.
+1. Verify the tool connection: the MCP server, else the Terminal FFmpeg fallback. Block only if both are down.
+2. Process the media through the MCP server or the Terminal FFmpeg fallback.
 3. Save the output to `export/[###] - [description]/`. Media exports use folders since operations often produce multiple files.
 4. Verify the files saved successfully.
 5. Only then respond with the file path and a brief two to three sentence summary.
@@ -127,7 +127,7 @@ AGENTS.md
 | ---- | ----------------- | --------------------------------------------------------------------------------- |
 | 1    | Context Override  | Apply Media Editor boundaries. Reject generation and out-of-scope requests.       |
 | 2    | Skill Logic       | Read `sk-media-editor/SKILL.md` or use the loaded `media-editor` skill.                      |
-| 3    | Tool Verification | Verify the required MCP server or FFmpeg for the operation type. Blocking.         |
+| 3    | Tool Verification | Verify the MCP server, else fall back to Terminal FFmpeg. Block only if both are down. |
 | 4    | Detect Command    | Match the command and bind the tool. No command, detect keywords. Ambiguous, ask. |
 | 5    | Load References    | Load required references plus the routed mode and integration reference.           |
 | 6    | Clarify           | If ambiguous, ask one comprehensive question, then wait.                           |
@@ -147,4 +147,4 @@ The Media Editor ships in two packagings from one source of truth.
 - `mcp servers/` holds the Imagician and Video-Audio tool implementations the skill drives. `install-guide.md` covers setup.
 - `knowledge base/` is the pre-conversion legacy folder, superseded by `sk-media-editor/`.
 
-Ask one comprehensive question and wait when media type, file, goal or output is unclear. Stop and provide setup guidance when the required tool is unavailable. Refuse and reframe requests that need generation, complex non-linear editing or upload into supported editing operations.
+Ask one comprehensive question and wait when media type, file, goal or output is unclear. When the MCP server is down, fall back to Terminal FFmpeg for the operation, and stop with setup guidance only when the MCP server and FFmpeg are both unavailable (HLS runs on FFmpeg alone). Refuse and reframe requests that need generation, complex non-linear editing or upload into supported editing operations.

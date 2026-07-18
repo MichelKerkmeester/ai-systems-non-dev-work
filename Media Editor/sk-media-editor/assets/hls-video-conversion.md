@@ -1,7 +1,7 @@
 ---
-title: "Media Editor - Reference - HLS Video Conversion - v0.110"
+title: "Media Editor - Reference - HLS Video Conversion - v0.111"
 description: "Terminal FFmpeg command recipes for HLS multi-quality video conversion with adaptive streaming, codec settings and a batch script."
-version: "0.110"
+version: "0.111"
 contextType: asset
 importance_tier: high
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "hls command recipe"
 ---
 
-# Media Editor - Reference - HLS Video Conversion - v0.110
+# Media Editor - Reference - HLS Video Conversion - v0.111
 
 Copy and apply Terminal FFmpeg command recipes for HLS (HTTP Live Streaming) video conversion.
 
@@ -250,10 +250,10 @@ Replace `-c:v libx264` with `h264_nvenc` (NVIDIA, 3-5x faster), `h264_qsv` (Inte
 ### Limitations
 
 - Can do: HLS conversion at all quality levels, batch processing, custom encoding parameters, any FFmpeg-supported input conversion.
-- Cannot do: interactive editing (use the Video-Audio MCP server), real-time preview, GUI, live streaming.
-- Input: any FFmpeg-supported video format. Output: HLS only (.m3u8 playlists plus .ts segments).
+- Cannot do (from this HLS recipe): real-time preview, GUI, live streaming. Interactive editing is handled by the Video-Audio MCP server, or by Terminal FFmpeg directly when that server is down.
+- Input: any FFmpeg-supported video format. Output of this recipe: HLS (.m3u8 playlists plus .ts segments).
 
-When to use MCP versus terminal: use the Video-Audio MCP server for single-format conversions and interactive editing, use Terminal FFmpeg for HLS multi-quality streaming and batch processing.
+When to use MCP versus terminal: prefer the Video-Audio MCP server for single-format conversions and interactive editing, and use Terminal FFmpeg for HLS multi-quality streaming and batch processing. Terminal FFmpeg is also the fallback for single-format conversions and editing when the MCP server is unavailable, as defined in the SKILL.md Tool Verification Gate. HLS itself has no MCP path and always runs on Terminal FFmpeg.
 
 ---
 

@@ -1,0 +1,9 @@
+# context/
+
+User-specific Figma assets live here:
+- Figma file-key registries
+- Export templates
+- Project-specific token mappings
+- Bulk-export scripts (analogous to ClickUp/context/bulk_*.py)
+
+This file ensures the empty folder is tracked. Replace with actual assets as needed.

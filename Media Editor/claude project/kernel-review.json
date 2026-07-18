@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "systemId": "media-editor",
+  "reviewer": "claude-fable-5",
+  "reason": "MCP-to-FFmpeg fallback added per spec 023, verified both surfaces agree on fallback direction, HLS exception, disclosure rule and covered-versus-not-covered operation scope",
+  "decision": "updated",
+  "reviewedAt": "2026-07-17T18:56:23+02:00",
+  "contractDigest": "0e31355ca56084d75badcbf7b6f290bafb6db26e6f5deca68d52a1ed81f40288",
+  "kernelSha256": "1ee57079d87bb36a94ae9601b879123b993729beba2abc626cc9506e71dc5ec0",
+  "kernelVersion": "1.1.0",
+  "alignedSkillVersion": "1.2.0"
+}

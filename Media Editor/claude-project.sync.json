@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "media-editor",
+  "skillRoot": "sk-media-editor",
+  "skillId": "media-editor",
+  "knowledgeRoot": "claude project/knowledge",
+  "kernel": {
+    "path": "claude project/Custom Instructions.md",
+    "version": "1.1.0",
+    "alignedSkillVersion": "1.2.0"
+  },
+  "sourceCoverage": {
+    "include": [
+      "sk-media-editor/SKILL.md",
+      "sk-media-editor/references",
+      "sk-media-editor/assets"
+    ]
+  },
+  "mirrors": [
+    {
+      "source": "sk-media-editor/SKILL.md",
+      "target": "Media Editor - System - Skill - v1.2.0.md",
+      "sourceVersion": "1.2.0",
+      "projectVersion": "1.2.0"
+    },
+    {
+      "source": "sk-media-editor/references/media-framework.md",
+      "target": "Media Editor - Thinking - MEDIA Framework - v0.233.md",
+      "sourceVersion": "0.233",
+      "projectVersion": "0.233"
+    },
+    {
+      "source": "sk-media-editor/references/interactive-intelligence.md",
+      "target": "Media Editor - System - Interactive Intelligence - v0.220.md",
+      "sourceVersion": "0.220",
+      "projectVersion": "0.220"
+    },
+    {
+      "source": "sk-media-editor/references/mcp-imagician.md",
+      "target": "Media Editor - Integrations - MCP Imagician - v0.211.md",
+      "sourceVersion": "0.211",
+      "projectVersion": "0.211"
+    },
+    {
+      "source": "sk-media-editor/references/mcp-video-audio.md",
+      "target": "Media Editor - Integrations - MCP Video Audio - v0.212.md",
+      "sourceVersion": "0.212",
+      "projectVersion": "0.212"
+    },
+    {
+      "source": "sk-media-editor/assets/hls-video-conversion.md",
+      "target": "Media Editor - Reference - HLS Video Conversion - v0.111.md",
+      "sourceVersion": "0.111",
+      "projectVersion": "0.111"
+    },
+    {
+      "source": "sk-media-editor/references/human-voice-rules.md",
+      "target": "Media Editor - Rules - Human Voice - EN - v0.210.md",
+      "sourceVersion": "0.210",
+      "projectVersion": "0.210"
+    }
+  ],
+  "contractInputs": [
+    "claude project/Custom Instructions.md",
+    "sk-media-editor/SKILL.md",
+    "SYNC.md"
+  ],
+  "generatedRegions": [
+    { "target": "SYNC.md", "sections": ["INVENTORY"] },
+    { "target": "claude project/README.md", "sections": ["CHECKSUMS"] }
+  ],
+  "validators": [],
+  "retiredNames": [
+    "v1.0.0",
+    "v1.0.1"
+  ],
+  "scanExcludes": [
+    "sk-media-editor/changelog"
+  ],
+  "expectedKnowledgeCount": 7
+}

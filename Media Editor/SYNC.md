@@ -20,7 +20,7 @@ The Media Editor ships in two packagings from one source of truth. The skill is 
 | `mcp servers/` | Tool layer the skill drives: `imagician/` (image editing) and `video-audio/` (video and audio editing). Not touched by this contract. |
 | `knowledge base/` | Pre-conversion legacy folder. Superseded by `sk-media-editor/`. Kept for manual comparison, read-only. |
 
-This is the key distinction recorded in the rollout ruling for MCP-agent systems: the CLI `sk-media-editor/` package has live tool connections, verifies the tool first (blocking), runs the MCP operation or FFmpeg command, saves to `export/` and reports the result. The claude.ai Project has no tool connections. It applies the same MEDIA thinking and format intelligence, then returns a Guidance Block: the recipe, settings and exact commands for the user to run in the CLI runtime or their own terminal, stating the no-execution limitation plainly.
+This is the key distinction recorded in the rollout ruling for MCP-agent systems: the CLI `sk-media-editor/` package has live tool connections, verifies the tool first and prefers the MCP server, falls back to Terminal FFmpeg when the MCP server is down and blocks only when both are down, runs the MCP operation or FFmpeg command, saves to `export/` and reports the result. The claude.ai Project has no tool connections. It applies the same MEDIA thinking and format intelligence, then returns a Guidance Block: the recipe, settings and exact commands for the user to run in the CLI runtime or their own terminal, stating the no-execution limitation plainly.
 
 This system has no derive script. Synchronization is manual copy or a simple shell copy only. `sk-media-editor/` remains authoritative and `claude project/knowledge/` remains disposable.
 
@@ -48,19 +48,25 @@ Keep `AGENTS.md`, `sk-media-editor/SKILL.md` and `claude project/Custom Instruct
 
 ## 4. SOURCE-TO-MIRROR INVENTORY
 
-The Project Knowledge package contains exactly these seven mirrors:
+The Project Knowledge package contains exactly the mirrors in the declared inventory below.
 
+<!-- BEGIN GENERATED: AI-SYSTEM-SYNC INVENTORY -->
 | Authoritative source | Claude Project Knowledge mirror |
 | --- | --- |
-| `sk-media-editor/SKILL.md` | `Media Editor - System - Skill - v1.1.0.md` |
+| `sk-media-editor/SKILL.md` | `Media Editor - System - Skill - v1.2.0.md` |
 | `sk-media-editor/references/media-framework.md` | `Media Editor - Thinking - MEDIA Framework - v0.233.md` |
 | `sk-media-editor/references/interactive-intelligence.md` | `Media Editor - System - Interactive Intelligence - v0.220.md` |
 | `sk-media-editor/references/mcp-imagician.md` | `Media Editor - Integrations - MCP Imagician - v0.211.md` |
 | `sk-media-editor/references/mcp-video-audio.md` | `Media Editor - Integrations - MCP Video Audio - v0.212.md` |
-| `sk-media-editor/assets/hls-video-conversion.md` | `Media Editor - Reference - HLS Video Conversion - v0.110.md` |
+| `sk-media-editor/assets/hls-video-conversion.md` | `Media Editor - Reference - HLS Video Conversion - v0.111.md` |
 | `sk-media-editor/references/human-voice-rules.md` | `Media Editor - Rules - Human Voice - EN - v0.210.md` |
 
-The Media Editor Skill is pinned to `1.1.0`. The Custom Instructions kernel is pinned to `1.0.1` and must declare alignment with Skill `1.1.0`. These filenames and versions belong to the current package: contract corrections reuse the pinned names, replace the derived mirror bytes and regenerate the checksum manifest instead of creating parallel versioned mirrors.
+**Declared mirrors:** 7
+**Skill version:** 1.2.0
+**Custom Instructions version:** 1.1.0 (aligned to Skill 1.2.0)
+<!-- END GENERATED: AI-SYSTEM-SYNC INVENTORY -->
+
+Skill and Custom Instructions pins live in the declared inventory above. These filenames and versions belong to the current package: contract corrections reuse the pinned names, replace the derived mirror bytes and run `sync --write` to regenerate the mirror bytes, inventory and lock instead of creating parallel versioned mirrors.
 
 ---
 
@@ -83,7 +89,7 @@ Apply this sequence whenever a source reference, asset, router or delivery contr
 Both packagings must agree on:
 
 - The tool-binding table: Image to Imagician, Video and Audio to Video-Audio, HLS to Terminal FFmpeg, Repair to auto-detect.
-- The tool verification gate. The CLI blocks on a live check (`list_images`, `health_check`, `ffmpeg -version`). The Project cannot run these checks, so it must name the same verification command for the user to run first.
+- The tool verification gate and its fallback direction. The CLI runs a live check (`list_images`, `health_check`, `ffmpeg -version`), prefers the MCP server, falls back to Terminal FFmpeg for image, video and audio operations when the MCP server is down, and blocks only when both are down (HLS runs on FFmpeg alone). The Project cannot run these checks, so it must name the same verification command and describe the same fallback for the user to run first.
 - Format and quality defaults: WebP at 85 percent for web images, JPEG at 80 percent for compatibility, H.264 MP4 with AAC audio for web video, H.265 for smaller modern files, MP3 at 192 kbps or AAC for audio, and the 1080p, 720p, 480p, 360p HLS ladder.
 - One comprehensive question, then wait, when media type, file, goal or output is unclear.
 - No new-media generation, no platform upload, no application code and no complex non-linear editing beyond the bound tool's scope. Both packagings refuse and reframe these identically.

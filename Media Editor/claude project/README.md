@@ -8,15 +8,15 @@ This folder is the source for the live claude.ai **Media Editor** Project. The l
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- advisory Project kernel, Skill v1.1.0 aligned
+|-- Custom Instructions.md        <- advisory Project kernel, Skill v1.2.0 aligned
 |-- README.md                     <- this manifest and sync contract
 `-- knowledge/                    <- upload every file below as Project Knowledge
-    |-- Media Editor - System - Skill - v1.1.0.md
+    |-- Media Editor - System - Skill - v1.2.0.md
     |-- Media Editor - Thinking - MEDIA Framework - v0.233.md
     |-- Media Editor - System - Interactive Intelligence - v0.220.md
     |-- Media Editor - Integrations - MCP Imagician - v0.211.md
     |-- Media Editor - Integrations - MCP Video Audio - v0.212.md
-    |-- Media Editor - Reference - HLS Video Conversion - v0.110.md
+    |-- Media Editor - Reference - HLS Video Conversion - v0.111.md
     `-- Media Editor - Rules - Human Voice - EN - v0.210.md
 ```
 
@@ -28,7 +28,7 @@ claude project/
 
 ## Custom Instructions = Advisory Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` is the synthesized claude.ai Project kernel aligned to **Media Editor Skill v1.1.0**. It preserves existing-media scope, MEDIA thinking, image, video, audio and HLS modes, tool routing, Human Voice Rules and guidance-first delivery.
+`Custom Instructions.md` is the synthesized claude.ai Project kernel aligned to **Media Editor Skill v1.2.0**. It preserves existing-media scope, MEDIA thinking, image, video, audio and HLS modes, tool routing with the Terminal FFmpeg fallback, Human Voice Rules and guidance-first delivery.
 
 CLI-only mechanics are adapted for claude.ai Projects. Tool execution becomes advisory recipes, direct file loading becomes Project Knowledge consultation and media export becomes a user-run `export/NNN - [description]/` path in the CLI runtime or terminal.
 
@@ -48,18 +48,20 @@ The Project is a chat-advisory variant. A claude.ai Project cannot run the Imagi
 
 ## Paired-Version + Checksum Table
 
-| Doc | Sync stamp |
+<!-- BEGIN GENERATED: AI-SYSTEM-SYNC CHECKSUMS -->
+| Document | Sync stamp |
 | --- | --- |
-| **Custom Instructions** | project kernel v1.0.1 -> Skill v1.1.0, sha16 `a24a88fcdcd30a0b` |
-| knowledge/ System - Skill | v1.1.0 -> v1.1.0, sha16 `0ae1bbef9b45887c` |
+| **Custom Instructions** | project kernel v1.1.0 -> Skill v1.2.0, sha16 `1ee57079d87bb36a` |
+| knowledge/ System - Skill | v1.2.0 -> v1.2.0, sha16 `8b915b40224a217d` |
 | knowledge/ Thinking - MEDIA Framework | v0.233 -> v0.233, sha16 `6b30effbcdfe03be` |
 | knowledge/ System - Interactive Intelligence | v0.220 -> v0.220, sha16 `94ea34d54c474f9b` |
 | knowledge/ Integrations - MCP Imagician | v0.211 -> v0.211, sha16 `17216d1a10f81522` |
 | knowledge/ Integrations - MCP Video Audio | v0.212 -> v0.212, sha16 `d942636ef0073571` |
-| knowledge/ Reference - HLS Video Conversion | v0.110 -> v0.110, sha16 `5044382e7ce496dc` |
-| knowledge/ Rules - Human Voice EN | v0.210 -> v0.210, sha16 `f8980baed64ddb1c` |
+| knowledge/ Reference - HLS Video Conversion | v0.111 -> v0.111, sha16 `7ef6c7b4da9fd07b` |
+| knowledge/ Rules - Human Voice - EN | v0.210 -> v0.210, sha16 `f8980baed64ddb1c` |
+<!-- END GENERATED: AI-SYSTEM-SYNC CHECKSUMS -->
 
-Full hashes can be recomputed with `shasum -a 256`.
+`sync --write` recomputes every value above from live bytes and writes them into `package-lock.json`. Never hand-carry an old checksum forward after content changes.
 
 ## Set Up The Live Project
 
@@ -69,6 +71,7 @@ Full hashes can be recomputed with `shasum -a 256`.
 4. Keep the house display name for each mirror, `Media Editor - <Section> - <Title> - v<version>.md`, bumping only the version number on change and removing any superseded mirror.
 5. Smoke test `$image`, `$video`, `$audio`, `$hls`, `$repair`, `$interactive` and one ambiguous request.
 6. Confirm the Guidance Block appears first with all six fields (Deliverable, Tool, Recipe, Settings, Expected result, Attestation) and confirm the two-to-three sentence post-block instructions follow, per Custom Instructions Section 7.
+7. Smoke test the fallback: for an image, video or audio request, confirm the advisor names the MCP server as the preferred path and Terminal FFmpeg as the fallback when the MCP server is down, sets `fallback = Terminal FFmpeg` in the Attestation when the fallback path applies, states the covered-versus-not-covered scope, and discloses that a fallback result comes from Terminal FFmpeg rather than the named MCP server. Confirm HLS still shows Terminal FFmpeg with no fallback.
 
 ## Change Checklist
 

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "systems": [
+    {
+      "id": "product-owner",
+      "packageRoot": "Product Owner",
+      "skillRoot": "sk-product-owner",
+      "kernelPath": "claude project/Custom Instructions.md",
+      "manifestPath": "claude-project.sync.json",
+      "validators": []
+    },
+    {
+      "id": "sales-communication",
+      "packageRoot": "Sales - Direct Communication",
+      "skillRoot": "sk-sales-communication",
+      "kernelPath": "claude project/Custom Instructions.md",
+      "manifestPath": "claude-project.sync.json",
+      "validators": []
+    },
+    {
+      "id": "sales-hubspot-automation",
+      "packageRoot": "Sales - HubSpot & Automation",
+      "skillRoot": "sk-sales-hubspot-automation",
+      "kernelPath": "claude project/Custom Instructions.md",
+      "manifestPath": "claude-project.sync.json",
+      "validators": []
+    },
+    {
+      "id": "media-editor",
+      "packageRoot": "Media Editor",
+      "skillRoot": "sk-media-editor",
+      "kernelPath": "claude project/Custom Instructions.md",
+      "manifestPath": "claude-project.sync.json",
+      "validators": []
+    },
+    {
+      "id": "linkedin-pieter-bertram",
+      "packageRoot": "LinkedIn - Pieter Bertram",
+      "skillRoot": "sk-linkedin-pieter-bertram",
+      "kernelPath": "claude project/Custom Instructions.md",
+      "manifestPath": "claude-project.sync.json",
+      "validators": []
+    },
+    {
+      "id": "linkedin-nigel-de-lange",
+      "packageRoot": "LinkedIn - Nigel de Lange",
+      "skillRoot": "sk-linkedin-nigel-de-lange",
+      "kernelPath": "claude project/Custom Instructions.md",
+      "manifestPath": "claude-project.sync.json",
+      "validators": []
+    },
+    {
+      "id": "barter-deal-templates",
+      "packageRoot": "Barter - Deal Templates",
+      "skillRoot": "sk-barter-deal-templates",
+      "kernelPath": "claude project/Custom Instructions.md",
+      "manifestPath": "claude-project.sync.json",
+      "validators": []
+    },
+    {
+      "id": "barter-copywriter",
+      "packageRoot": "Barter - Copywriter",
+      "skillRoot": "sk-barter-copywriter",
+      "kernelPath": "claude project/Custom Instructions.md",
+      "manifestPath": "claude-project.sync.json",
+      "validators": []
+    },
+    {
+      "id": "barter-blog-posts",
+      "packageRoot": "Barter - Blog Posts",
+      "skillRoot": "sk-barter-blog-posts",
+      "kernelPath": "claude project/Custom Instructions.md",
+      "manifestPath": "claude-project.sync.json",
+      "validators": []
+    },
+    {
+      "id": "prompt-improver",
+      "packageRoot": "Prompt Improver",
+      "skillRoot": "sk-prompt-improver",
+      "kernelPath": "claude project/Custom Instructions.md",
+      "manifestPath": "claude-project.sync.json",
+      "validators": []
+    }
+  ]
+}

@@ -63,7 +63,7 @@ The Media Editor MCP system provides AI-powered image and video processing throu
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Your AI Assistant                        │
+│                    Your AI Assistant                         │
 │  (Claude Desktop, OpenCode, VS Code Copilot, etc.)          │
 └──────────────────────┬──────────────────┬───────────────────┘
                        │                  │
