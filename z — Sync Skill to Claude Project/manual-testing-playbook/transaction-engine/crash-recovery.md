@@ -16,7 +16,7 @@ This scenario validates Crash Recovery for `TXN-002`. It focuses on detecting a 
 
 ### Why This Matters
 
-The recovery path must roll back from the journal rather than guessing how to complete an unknown crash point. It must also leave the package ready for a later sync.
+The recovery path must acquire the fleet lock and validate the journal before rollback rather than guessing how to complete an unknown crash point. It must preserve corrupt or unsafe evidence and leave a valid recovered package ready for a later sync.
 
 ---
 
@@ -42,11 +42,11 @@ Operators run the exact prompt and command sequence for `TXN-002` against a disp
 
 ### Commands
 
-1. `node -e 'const fs=require("node:fs"),path=require("node:path"); const root="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/recovery"; fs.rmSync(root,{recursive:true,force:true}); fs.mkdirSync(root,{recursive:true}); const tool=fs.readdirSync(".").find((name)=>fs.existsSync(path.join(name,"ai-system-sync.cjs"))); const h=require(path.resolve(tool,"tests","helpers.cjs")); h.buildCleanPackage(root,{id:"product-owner",packageRoot:"Product Owner",skillRoot:"sk-product-owner"}); const pkg=path.join(root,"Product Owner"); h.writeFile(root,"Product Owner/recovery.md","original\n"); fs.renameSync(path.join(pkg,"recovery.md"),path.join(pkg,"recovery.md.ai-system-sync.bak")); h.writeFile(root,"Product Owner/recovery.md","half-applied\n"); h.writeJson(root,"Product Owner/claude project/sync-journal.json",{schemaVersion:1,operations:[{type:"write",target:"recovery.md",staged:null,backup:"recovery.md.ai-system-sync.bak",existedBefore:true,done:true}]});'`
-2. `AI_SYSTEM_SYNC_REPO_ROOT="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/recovery" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --system product-owner`
-3. `AI_SYSTEM_SYNC_REPO_ROOT="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/recovery" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" sync --system product-owner --recover`
-4. `node -e 'const fs=require("node:fs"),path=require("node:path"); const root="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/recovery"; const pkg=path.join(root,"Product Owner"); if(fs.readFileSync(path.join(pkg,"recovery.md"),"utf8")!=="original\n"||fs.existsSync(path.join(pkg,"claude project","sync-journal.json"))) process.exit(1); process.stdout.write("recovery restored original bytes and removed journal\n");'`
-5. `AI_SYSTEM_SYNC_REPO_ROOT="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/recovery" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --system product-owner`
+1. `node -e 'const fs=require("node:fs"),os=require("node:os"),path=require("node:path"); const root=path.join(os.tmpdir(),"ai-system-sync-playbook-fixtures","recovery"); fs.rmSync(root,{recursive:true,force:true}); fs.mkdirSync(root,{recursive:true}); const tool=fs.readdirSync(".").find((name)=>fs.existsSync(path.join(name,"ai-system-sync.cjs"))); const h=require(path.resolve(tool,"tests","helpers.cjs")); h.buildCleanPackage(root,{id:"product-owner",packageRoot:"Product Owner",skillRoot:"sk-product-owner"}); const pkg=path.join(root,"Product Owner"); h.writeFile(root,"Product Owner/recovery.md","original\n"); fs.renameSync(path.join(pkg,"recovery.md"),path.join(pkg,"recovery.md.ai-system-sync.bak")); h.writeFile(root,"Product Owner/recovery.md","half-applied\n"); h.writeJson(root,"Product Owner/claude project/sync-journal.json",{schemaVersion:1,operations:[{type:"write",target:"recovery.md",staged:null,backup:"recovery.md.ai-system-sync.bak",existedBefore:true,done:true}]});'`
+2. `AI_SYSTEM_SYNC_REPO_ROOT="$(node -p 'require("node:path").join(require("node:os").tmpdir(),"ai-system-sync-playbook-fixtures","recovery")')" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --system product-owner`
+3. `AI_SYSTEM_SYNC_REPO_ROOT="$(node -p 'require("node:path").join(require("node:os").tmpdir(),"ai-system-sync-playbook-fixtures","recovery")')" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" sync --system product-owner --recover`
+4. `node -e 'const fs=require("node:fs"),os=require("node:os"),path=require("node:path"); const root=path.join(os.tmpdir(),"ai-system-sync-playbook-fixtures","recovery"); const pkg=path.join(root,"Product Owner"); if(fs.readFileSync(path.join(pkg,"recovery.md"),"utf8")!=="original\n"||fs.existsSync(path.join(pkg,"claude project","sync-journal.json"))) process.exit(1); process.stdout.write("recovery restored original bytes and removed journal\n");'`
+5. `AI_SYSTEM_SYNC_REPO_ROOT="$(node -p 'require("node:path").join(require("node:os").tmpdir(),"ai-system-sync-playbook-fixtures","recovery")')" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --system product-owner`
 
 | Feature ID | Feature Name | Scenario Name/Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
@@ -89,6 +89,7 @@ Capture the synthetic journal, original and half-applied bytes, both check outpu
 |---|---|
 | `../../lib/transaction.cjs` | Detects journals and performs reverse rollback |
 | `../../ai-system-sync.cjs` | Blocks interrupted syncs and exposes recovery |
+| `../../lib/path-safety.cjs` | Rejects unsafe journal operation paths |
 | `../../lib/util.cjs` | Parses journal JSON and typed read errors |
 | `../../lib/paths.cjs` | Defines the journal path |
 | `../../tests/transaction.test.cjs` | Covers crash journals, rollback and cleanup |

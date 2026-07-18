@@ -9,6 +9,8 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const { PROJECT_SKILL_RENDERER } = require('./mirrors.cjs');
+const { relativePathProblem } = require('./path-safety.cjs');
 const { readJsonStrict, findDuplicates } = require('./util.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -18,6 +20,8 @@ const { readJsonStrict, findDuplicates } = require('./util.cjs');
 const MANIFEST_FILENAME_DEFAULT = 'claude-project.sync.json';
 const FIXED_KNOWLEDGE_ROOT = 'claude project/knowledge';
 const FIXED_KERNEL_PATH = 'claude project/Custom Instructions.md';
+const GENERATED_REGION_TARGETS = new Set(['SYNC.md', 'claude project/README.md']);
+const GENERATED_REGION_SECTIONS = new Set(['INVENTORY', 'CHECKSUMS', 'SMOKE_VERSION_PINS']);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 3. HELPERS
@@ -54,6 +58,16 @@ function isStringArray(value) {
   return Array.isArray(value) && value.every((item) => typeof item === 'string');
 }
 
+function isPathWithin(relativePath, root) {
+  return relativePath === root || relativePath.startsWith(`${root}/`);
+}
+
+function validateRelativePath(value, label, addProblem, options) {
+  const problem = relativePathProblem(value, options);
+  if (problem) addProblem(`${label} ${problem}`);
+  return !problem;
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // 4. CORE LOGIC
 // ─────────────────────────────────────────────────────────────────────────────
@@ -85,6 +99,8 @@ function validateManifestShape(data, expected) {
     addProblem(
       `skillRoot must equal registry skillRoot "${expected.skillRoot}", got "${data.skillRoot}"`
     );
+  } else {
+    validateRelativePath(data.skillRoot, 'skillRoot', addProblem, { basenameOnly: true });
   }
   if (!isNonEmptyString(data.skillId)) addProblem('skillId must be a non-empty string');
   if (data.knowledgeRoot !== FIXED_KNOWLEDGE_ROOT) {
@@ -116,9 +132,29 @@ function validateManifestShape(data, expected) {
       addProblem('sourceCoverage.include must be a non-empty array');
     } else if (!isStringArray(data.sourceCoverage.include)) {
       addProblem('sourceCoverage.include must contain only strings');
+    } else {
+      data.sourceCoverage.include.forEach((entry, index) => {
+        if (
+          validateRelativePath(entry, `sourceCoverage.include[${index}]`, addProblem) &&
+          isNonEmptyString(data.skillRoot) &&
+          !isPathWithin(entry, data.skillRoot)
+        ) {
+          addProblem(`sourceCoverage.include[${index}] must stay under skillRoot "${data.skillRoot}"`);
+        }
+      });
     }
     if ('exclude' in data.sourceCoverage && !isStringArray(data.sourceCoverage.exclude)) {
       addProblem('sourceCoverage.exclude must be an array of strings');
+    } else if (Array.isArray(data.sourceCoverage.exclude)) {
+      data.sourceCoverage.exclude.forEach((entry, index) => {
+        if (
+          validateRelativePath(entry, `sourceCoverage.exclude[${index}]`, addProblem) &&
+          isNonEmptyString(data.skillRoot) &&
+          !isPathWithin(entry, data.skillRoot)
+        ) {
+          addProblem(`sourceCoverage.exclude[${index}] must stay under skillRoot "${data.skillRoot}"`);
+        }
+      });
     }
   }
 
@@ -132,9 +168,19 @@ function validateManifestShape(data, expected) {
       }
       if (!isNonEmptyString(mirror.source)) {
         addProblem(`mirrors[${index}].source must be a non-empty string`);
+      } else if (
+        validateRelativePath(mirror.source, `mirrors[${index}].source`, addProblem) &&
+        isNonEmptyString(data.skillRoot) &&
+        !isPathWithin(mirror.source, data.skillRoot)
+      ) {
+        addProblem(`mirrors[${index}].source must stay under skillRoot "${data.skillRoot}"`);
       }
       if (!isNonEmptyString(mirror.target)) {
         addProblem(`mirrors[${index}].target must be a non-empty string`);
+      } else {
+        validateRelativePath(mirror.target, `mirrors[${index}].target`, addProblem, {
+          basenameOnly: true,
+        });
       }
       if (!('sourceVersion' in mirror) || typeof mirror.sourceVersion !== 'string') {
         addProblem(`mirrors[${index}].sourceVersion must be a string`);
@@ -159,6 +205,10 @@ function validateManifestShape(data, expected) {
     addProblem('contractInputs must be a non-empty array');
   } else if (!isStringArray(data.contractInputs)) {
     addProblem('contractInputs must contain only strings');
+  } else {
+    data.contractInputs.forEach((entry, index) =>
+      validateRelativePath(entry, `contractInputs[${index}]`, addProblem)
+    );
   }
 
   if ('validators' in data) {
@@ -182,6 +232,10 @@ function validateManifestShape(data, expected) {
         }
         if (!isNonEmptyString(validator.cwd)) {
           addProblem(`validators[${index}].cwd must be a non-empty string`);
+        } else {
+          validateRelativePath(validator.cwd, `validators[${index}].cwd`, addProblem, {
+            allowDot: true,
+          });
         }
       });
     }
@@ -190,8 +244,14 @@ function validateManifestShape(data, expected) {
   if ('retiredNames' in data && !isStringArray(data.retiredNames)) {
     addProblem('retiredNames must be an array of strings');
   }
-  if ('scanExcludes' in data && !isStringArray(data.scanExcludes)) {
-    addProblem('scanExcludes must be an array of strings');
+  if ('scanExcludes' in data) {
+    if (!isStringArray(data.scanExcludes)) {
+      addProblem('scanExcludes must be an array of strings');
+    } else {
+      data.scanExcludes.forEach((entry, index) =>
+        validateRelativePath(entry, `scanExcludes[${index}]`, addProblem)
+      );
+    }
   }
 
   if (!Number.isInteger(data.expectedKnowledgeCount) || data.expectedKnowledgeCount < 0) {
@@ -214,11 +274,71 @@ function validateManifestShape(data, expected) {
         }
         if (!isNonEmptyString(exception.path)) {
           addProblem(`derivationExceptions[${index}].path must be a non-empty string`);
+        } else {
+          validateRelativePath(
+            exception.path,
+            `derivationExceptions[${index}].path`,
+            addProblem,
+            { basenameOnly: true }
+          );
         }
         if (!isNonEmptyString(exception.reason)) {
           addProblem(`derivationExceptions[${index}].reason must be a non-empty string`);
         }
+        if (exception.renderer !== PROJECT_SKILL_RENDERER) {
+          addProblem(
+            `derivationExceptions[${index}].renderer must be "${PROJECT_SKILL_RENDERER}"`
+          );
+        }
+        const project = exception.projectFrontmatter;
+        if (typeof project !== 'object' || project === null || Array.isArray(project)) {
+          addProblem(`derivationExceptions[${index}].projectFrontmatter must be an object`);
+        } else {
+          if (!isNonEmptyString(project.contextType)) {
+            addProblem(
+              `derivationExceptions[${index}].projectFrontmatter.contextType must be a non-empty string`
+            );
+          }
+          if (!isNonEmptyString(project.importanceTier)) {
+            addProblem(
+              `derivationExceptions[${index}].projectFrontmatter.importanceTier must be a non-empty string`
+            );
+          }
+          if (!isStringArray(project.triggerPhrases) || project.triggerPhrases.length === 0) {
+            addProblem(
+              `derivationExceptions[${index}].projectFrontmatter.triggerPhrases must be a non-empty string array`
+            );
+          }
+          const projectKeys = new Set(['contextType', 'importanceTier', 'triggerPhrases']);
+          for (const key of Object.keys(project)) {
+            if (!projectKeys.has(key)) {
+              addProblem(`derivationExceptions[${index}].projectFrontmatter has unknown field "${key}"`);
+            }
+          }
+        }
+        const exceptionKeys = new Set(['path', 'reason', 'renderer', 'projectFrontmatter']);
+        for (const key of Object.keys(exception)) {
+          if (!exceptionKeys.has(key)) {
+            addProblem(`derivationExceptions[${index}] has unknown field "${key}"`);
+          }
+        }
       });
+      const exceptionPaths = data.derivationExceptions
+        .map((exception) => exception && exception.path)
+        .filter(Boolean);
+      const duplicateExceptions = findDuplicates(exceptionPaths);
+      if (duplicateExceptions.length) {
+        addProblem(`derivationExceptions has duplicate paths: ${duplicateExceptions.join(', ')}`);
+      }
+      const mirrorTargets = new Set(
+        Array.isArray(data.mirrors) ? data.mirrors.map((mirror) => mirror && mirror.target) : []
+      );
+      const undeclaredExceptions = exceptionPaths.filter((exceptionPath) => !mirrorTargets.has(exceptionPath));
+      if (undeclaredExceptions.length) {
+        addProblem(
+          `derivationExceptions path(s) must match declared mirror targets: ${undeclaredExceptions.join(', ')}`
+        );
+      }
     }
   }
 
@@ -233,6 +353,13 @@ function validateManifestShape(data, expected) {
         }
         if (!isNonEmptyString(region.target)) {
           addProblem(`generatedRegions[${index}].target must be a non-empty string`);
+        } else if (
+          validateRelativePath(region.target, `generatedRegions[${index}].target`, addProblem) &&
+          !GENERATED_REGION_TARGETS.has(region.target)
+        ) {
+          addProblem(
+            `generatedRegions[${index}].target must be one of: ${[...GENERATED_REGION_TARGETS].join(', ')}`
+          );
         }
         if (
           !Array.isArray(region.sections) ||
@@ -240,6 +367,15 @@ function validateManifestShape(data, expected) {
           !isStringArray(region.sections)
         ) {
           addProblem(`generatedRegions[${index}].sections must be a non-empty array of strings`);
+        } else {
+          const unsupported = region.sections.filter(
+            (section) => !GENERATED_REGION_SECTIONS.has(section)
+          );
+          if (unsupported.length) {
+            addProblem(
+              `generatedRegions[${index}].sections contains unsupported renderer(s): ${unsupported.join(', ')}`
+            );
+          }
         }
       });
     }
@@ -296,6 +432,8 @@ module.exports = {
   MANIFEST_FILENAME_DEFAULT,
   FIXED_KNOWLEDGE_ROOT,
   FIXED_KERNEL_PATH,
+  GENERATED_REGION_TARGETS,
+  GENERATED_REGION_SECTIONS,
   validateManifestShape,
   loadManifest,
   ManifestMissingError,

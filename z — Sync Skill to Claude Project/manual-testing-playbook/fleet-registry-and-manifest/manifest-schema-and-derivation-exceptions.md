@@ -42,8 +42,8 @@ Operators run the exact prompt and command sequence for `REG-002` against a disp
 
 ### Commands
 
-1. `node -e 'const fs=require("node:fs"),path=require("node:path"); const root="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/manifest_invalid"; fs.rmSync(root,{recursive:true,force:true}); fs.mkdirSync(root,{recursive:true}); const tool=fs.readdirSync(".").find((name)=>fs.existsSync(path.join(name,"ai-system-sync.cjs"))); const h=require(path.resolve(tool,"tests","helpers.cjs")); const f=h.buildCleanPackage(root,{id:"product-owner",packageRoot:"Product Owner",skillRoot:"sk-product-owner"}); f.manifest.unexpected=true; h.writeJson(root,"Product Owner/claude-project.sync.json",f.manifest);'`
-2. `AI_SYSTEM_SYNC_REPO_ROOT="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/manifest_invalid" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" plan --system product-owner`
+1. `node -e 'const fs=require("node:fs"),os=require("node:os"),path=require("node:path"); const root=path.join(os.tmpdir(),"ai-system-sync-playbook-fixtures","manifest_invalid"); fs.rmSync(root,{recursive:true,force:true}); fs.mkdirSync(root,{recursive:true}); const tool=fs.readdirSync(".").find((name)=>fs.existsSync(path.join(name,"ai-system-sync.cjs"))); const h=require(path.resolve(tool,"tests","helpers.cjs")); const f=h.buildCleanPackage(root,{id:"product-owner",packageRoot:"Product Owner",skillRoot:"sk-product-owner"}); f.manifest.unexpected=true; h.writeJson(root,"Product Owner/claude-project.sync.json",f.manifest);'`
+2. `AI_SYSTEM_SYNC_REPO_ROOT="$(node -p 'require("node:path").join(require("node:os").tmpdir(),"ai-system-sync-playbook-fixtures","manifest_invalid")')" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" plan --system product-owner`
 
 | Feature ID | Feature Name | Scenario Name/Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
@@ -84,13 +84,15 @@ Capture the invalid manifest, the plan output and the exit code.
 
 | File | Role |
 |---|---|
-| `../../lib/manifest.cjs` | Enforces manifest shape and exception fields |
+| `../../lib/manifest.cjs` | Enforces manifest shape, registered renderers and exception fields |
 | `../../package.schema.json` | Documents the manifest contract |
-| `../../lib/mechanical-checks.cjs` | Applies derivation exceptions to parity |
-| `../../ai-system-sync.cjs` | Applies exceptions during sync planning |
+| `../../lib/path-safety.cjs` | Rejects unsafe relative path declarations |
+| `../../lib/mirrors.cjs` | Implements deterministic exception rendering |
+| `../../lib/mechanical-checks.cjs` | Checks parity against compiler-rendered bytes |
+| `../../ai-system-sync.cjs` | Uses rendered bytes during sync planning |
 | `../../tests/manifest.test.cjs` | Covers unknown fields and fixed paths |
 | `../../tests/mechanical-checks.test.cjs` | Covers exception behavior |
-| `../../tests/sync-write.test.cjs` | Covers exception preservation |
+| `../../tests/sync-write.test.cjs` | Covers deterministic exception rendering |
 
 ---
 

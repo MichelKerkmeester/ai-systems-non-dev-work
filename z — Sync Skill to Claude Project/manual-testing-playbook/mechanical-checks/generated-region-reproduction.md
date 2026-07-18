@@ -28,7 +28,7 @@ Operators run the exact prompt and command sequence for `MCH-004` against a disp
 - Real user request: `Sync a disposable generated region, edit its locked body and check for region drift.`
 - Prompt: `Sync a disposable generated region, edit its locked body and check for region drift.`
 - Expected execution process: Prepare markers, run `sync --write`, replace one generated line and run `check`.
-- Expected signals: Sync applies one change. The later check exits 1 with `[REGION_DRIFT]` and names `INVENTORY` in `SYNC.md`.
+- Expected signals: Sync applies two changes for the generated region and final package lock. The later check exits 1 with `[REGION_DRIFT]` and names `INVENTORY` in `SYNC.md`.
 - Desired user-visible outcome: The operator sees that a hand edit inside compiler-owned bytes requires regeneration.
 - Pass/fail: PASS if the locked body edit produces `REGION_DRIFT`. FAIL if the check accepts or overwrites the edit without reporting it.
 
@@ -42,18 +42,18 @@ Operators run the exact prompt and command sequence for `MCH-004` against a disp
 
 ### Commands
 
-1. `node -e 'const fs=require("node:fs"),path=require("node:path"); const root="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/region"; fs.rmSync(root,{recursive:true,force:true}); fs.mkdirSync(root,{recursive:true}); const tool=fs.readdirSync(".").find((name)=>fs.existsSync(path.join(name,"ai-system-sync.cjs"))); const h=require(path.resolve(tool,"tests","helpers.cjs")); h.buildCleanPackage(root,{id:"product-owner",packageRoot:"Product Owner",skillRoot:"sk-product-owner",generatedRegions:[{target:"SYNC.md",sections:["INVENTORY"]}]}); h.writeFile(root,"Product Owner/SYNC.md","# Sync\n\n<!-- BEGIN GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n(pending)\n<!-- END GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n");'`
-2. `AI_SYSTEM_SYNC_REPO_ROOT="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/region" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" sync --system product-owner --write`
-3. `node -e 'const fs=require("node:fs"),path=require("node:path"); const file="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/region/Product Owner/SYNC.md"; const content=fs.readFileSync(file,"utf8"); fs.writeFileSync(file,content.replace("**Declared mirrors:** 1","hand edited region"));'`
-4. `AI_SYSTEM_SYNC_REPO_ROOT="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/region" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --system product-owner`
+1. `node -e 'const fs=require("node:fs"),os=require("node:os"),path=require("node:path"); const root=path.join(os.tmpdir(),"ai-system-sync-playbook-fixtures","region"); fs.rmSync(root,{recursive:true,force:true}); fs.mkdirSync(root,{recursive:true}); const tool=fs.readdirSync(".").find((name)=>fs.existsSync(path.join(name,"ai-system-sync.cjs"))); const h=require(path.resolve(tool,"tests","helpers.cjs")); h.buildCleanPackage(root,{id:"product-owner",packageRoot:"Product Owner",skillRoot:"sk-product-owner",generatedRegions:[{target:"SYNC.md",sections:["INVENTORY"]}]}); h.writeFile(root,"Product Owner/SYNC.md","# Sync\n\n<!-- BEGIN GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n(pending)\n<!-- END GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n");'`
+2. `AI_SYSTEM_SYNC_REPO_ROOT="$(node -p 'require("node:path").join(require("node:os").tmpdir(),"ai-system-sync-playbook-fixtures","region")')" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" sync --system product-owner --write`
+3. `node -e 'const fs=require("node:fs"),os=require("node:os"),path=require("node:path"); const root=path.join(os.tmpdir(),"ai-system-sync-playbook-fixtures","region"); const file=path.join(root,"Product Owner","SYNC.md"); const content=fs.readFileSync(file,"utf8"); fs.writeFileSync(file,content.replace("**Declared mirrors:** 1","hand edited region"));'`
+4. `AI_SYSTEM_SYNC_REPO_ROOT="$(node -p 'require("node:path").join(require("node:os").tmpdir(),"ai-system-sync-playbook-fixtures","region")')" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --system product-owner`
 
 | Feature ID | Feature Name | Scenario Name/Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| MCH-004 | Generated Region Reproduction | Detect drift inside a locked generated region | `Sync a disposable generated region, edit its locked body and check for region drift.` | `fixture setup -> sync --write -> edit locked body -> check --system product-owner` using the exact commands above | Step 2: `applied 1 change(s)`. Step 4: exit 1 with `[REGION_DRIFT]` for `INVENTORY` in `SYNC.md` | Generated file before and after edit, package lock region hash and check output | PASS if the body edit produces `REGION_DRIFT`. FAIL if it is accepted silently. | Confirm the markers and section name, compare `lock.regions` with the extracted body and inspect `regions.cjs`. |
+| MCH-004 | Generated Region Reproduction | Detect drift against fresh renderer output | `Sync a disposable generated region, edit its locked body and check for region drift.` | `fixture setup -> sync --write -> edit generated body -> check --system product-owner` using the exact commands above | Step 2: `applied 2 change(s)`. Step 4: exit 1 with `[REGION_DRIFT]` for `INVENTORY` in `SYNC.md` | Generated file before and after edit, package lock region hash and check output | PASS if the body edit produces `REGION_DRIFT`. FAIL if it is accepted silently. | Confirm the markers and section name, compare the live body with `renderSection` output and inspect `regions.cjs`. |
 
 ### Expected
 
-The observed sync printed `sync: applied 1 change(s) for product-owner.` The later check printed exit 1 with `[REGION_DRIFT] Generated region "INVENTORY" in SYNC.md`.
+The observed sync printed `sync: applied 2 change(s) for product-owner.` The later check printed exit 1 with `[REGION_DRIFT] Generated region "INVENTORY" in SYNC.md does not match current renderer output.`
 
 ### Evidence
 
@@ -68,8 +68,8 @@ Capture the scaffold, rendered body, `package-lock.json` region record, edit com
 ### Failure Triage
 
 1. Confirm the generated target and section are present in the manifest.
-2. Extract the live region body and compare its SHA-256 with `lock.regions`.
-3. Check `extractRegion` and `checkGeneratedRegions` for the target and section key.
+2. Extract the live region body and compare it with fresh `renderSection` output.
+3. Check `extractRegion`, `renderSection` and `checkGeneratedRegions` for the target and section key.
 
 ---
 
@@ -86,11 +86,11 @@ Capture the scaffold, rendered body, `package-lock.json` region record, edit com
 
 | File | Role |
 |---|---|
-| `../../lib/mechanical-checks.cjs` | Checks markers and locked region hashes |
+| `../../lib/mechanical-checks.cjs` | Checks markers and fresh renderer output |
 | `../../lib/regions.cjs` | Extracts and replaces generated regions |
-| `../../lib/hashing.cjs` | Hashes region bodies |
+| `../../lib/render.cjs` | Re-renders region bodies from current state |
 | `../../lib/manifest.cjs` | Validates region declarations |
-| `../../tests/mechanical-checks.test.cjs` | Covers structural and drift findings |
+| `../../tests/mechanical-checks.test.cjs` | Covers structural and fresh-render drift findings |
 | `../../tests/regions.test.cjs` | Covers marker and extraction behavior |
 | `../../tests/sync-write.test.cjs` | Covers CLI region writes and refusal |
 

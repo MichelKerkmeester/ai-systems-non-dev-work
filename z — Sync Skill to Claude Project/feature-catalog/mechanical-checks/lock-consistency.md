@@ -1,6 +1,6 @@
 ---
 title: "Lock Consistency"
-description: "Verifies that package-lock hashes still describe the live kernel and mirror bytes."
+description: "Requires complete package-lock state and verifies its inventories, hashes and byte counts against the live package."
 trigger_phrases:
   - "Lock Consistency"
   - "package lock hash check"
@@ -13,17 +13,17 @@ version: 1.0.0.0
 
 ## 1. OVERVIEW
 
-Verifies that package-lock hashes still describe the live kernel and mirror bytes.
+Requires complete package-lock state and verifies its inventories, hashes and byte counts against the live package.
 
-The lock check adds a recorded-byte comparison after inventory checks have identified missing package files.
+The lock check makes compiler-owned package state explicit after inventory checks have identified missing package files.
 
 ---
 
 ## 2. HOW IT WORKS
 
-When `claude project/package-lock.json` is absent, the check has no recorded lock state to compare and does not create a lock finding. When the file exists, it parses the records and validates that each `sha16` is exactly the first 16 hexadecimal characters of its recorded `sha256`.
+A missing `claude project/package-lock.json` produces `LOCK_MISSING`. A present lock must use schema version 1, match the selected system ID, carry an ISO-8601 `generatedAt` value and list exactly the expected kernel, mirror, generated-region and deletable records with no duplicates or extras.
 
-For every existing recorded file, the check hashes the live bytes and compares the full digest with the lock. Any changed kernel or mirror produces `LOCK_HASH_MISMATCH`. An invalid lock JSON file produces a single invalid-path finding during lock loading.
+For every expected file record, the check validates full and prefix SHA formats, byte counts and live bytes. It also validates generated-region hashes. Changed content or byte counts produce `LOCK_HASH_MISMATCH`; incomplete inventories produce `LOCK_STRUCTURE_MISMATCH`; invalid JSON produces an invalid-path finding. `sync --write` rebuilds a missing or stale lock as its final journaled operation.
 
 ---
 
@@ -33,7 +33,8 @@ For every existing recorded file, the check hashes the live bytes and compares t
 
 | File | Layer | Role |
 |---|---|---|
-| [`../../lib/mechanical-checks.cjs`](../../lib/mechanical-checks.cjs) | Shared | Loads package locks and checks hash prefixes and live file hashes. |
+| [`../../lib/mechanical-checks.cjs`](../../lib/mechanical-checks.cjs) | Shared | Loads package locks and checks structure, inventories, hashes, bytes and live files. |
+| [`../../lib/lockfile.cjs`](../../lib/lockfile.cjs) | Shared | Builds complete desired lock state for sync repair. |
 | [`../../lib/hashing.cjs`](../../lib/hashing.cjs) | Shared | Computes live file hashes and validates the sha16 format. |
 | [`../../lib/paths.cjs`](../../lib/paths.cjs) | Shared | Defines the package-lock path. |
 | [`../../lib/util.cjs`](../../lib/util.cjs) | Shared | Parses lock JSON with typed errors. |
@@ -42,8 +43,8 @@ For every existing recorded file, the check hashes the live bytes and compares t
 
 | File | Type | Role |
 |---|---|---|
-| [`../../tests/mechanical-checks.test.cjs`](../../tests/mechanical-checks.test.cjs) | Automated test | Covers lock hash, prefix and invalid JSON findings. |
-| [`../../tests/sync-write.test.cjs`](../../tests/sync-write.test.cjs) | Automated test | Verifies package-lock creation after a successful sync. |
+| [`../../tests/mechanical-checks.test.cjs`](../../tests/mechanical-checks.test.cjs) | Automated test | Covers missing locks, structure, inventories, bytes, hashes, prefixes and invalid JSON. |
+| [`../../tests/sync-write.test.cjs`](../../tests/sync-write.test.cjs) | Automated test | Verifies package-lock creation and missing-lock repair after sync. |
 
 ---
 

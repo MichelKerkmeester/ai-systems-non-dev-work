@@ -15,15 +15,15 @@ version: 1.0.0.0
 
 Loads and validates the exact ten-system fleet registry used by every command.
 
-The registry is a closed allowlist. It names package roots, skill roots, fixed kernel paths, manifest paths and validator placeholders for the managed systems.
+The registry is the sole closed membership authority. It names package roots, skill roots, fixed kernel paths, manifest paths and validator placeholders for the managed systems.
 
 ---
 
 ## 2. HOW IT WORKS
 
-The loader reads `registry.json` relative to the tool directory and validates schema version 1, an array of systems and exactly ten entries. Each entry must carry the required identity and path fields, an array of validators and the fixed kernel path.
+The loader reads `registry.json` relative to the tool directory and validates schema version 1, an array of systems and exactly ten entries. Each entry must carry a lowercase kebab-case ID, required identity and path fields, an array of validators and the fixed kernel and manifest paths.
 
-The validator rejects duplicate ids, duplicate package roots, duplicate skill roots, absolute package roots, missing required identifiers and unexpected identifiers. Commands use `findSystem` for a single target or stable sorting for fleet traversal, so an unregistered directory cannot expand the managed fleet.
+The validator rejects duplicate IDs, duplicate package roots, duplicate skill roots and absolute, traversing or non-basename roots. It does not maintain a second list of expected IDs: a reviewed membership replacement declared in `registry.json` is valid when the ten-entry and path constraints still hold. Commands use `findSystem` for a single target or stable sorting for fleet traversal, so an unregistered directory cannot expand the managed fleet.
 
 ---
 
@@ -33,9 +33,10 @@ The validator rejects duplicate ids, duplicate package roots, duplicate skill ro
 
 | File | Layer | Role |
 |---|---|---|
-| [`../../lib/registry.cjs`](../../lib/registry.cjs) | Shared | Defines the expected id set, validates registry shape and finds systems. |
+| [`../../lib/registry.cjs`](../../lib/registry.cjs) | Shared | Enforces the fleet count, validates registry shape and finds systems. |
 | [`../../registry.json`](../../registry.json) | Shared | Declares the ten registered system entries. |
 | [`../../ai-system-sync.cjs`](../../ai-system-sync.cjs) | Handler | Loads the registry before dispatching every command. |
+| [`../../lib/path-safety.cjs`](../../lib/path-safety.cjs) | Shared | Validates normalized, containment-safe registry roots. |
 | [`../../lib/util.cjs`](../../lib/util.cjs) | Shared | Provides duplicate detection and strict JSON parsing. |
 
 ### Validation And Tests

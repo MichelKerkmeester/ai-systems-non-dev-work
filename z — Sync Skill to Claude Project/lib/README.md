@@ -16,7 +16,7 @@ trigger_phrases:
 
 Current state:
 
-- 13 modules expose their own `module.exports` values.
+- 16 modules expose their own `module.exports` values.
 - The CLI loads the modules through its `req` helper.
 - The modules read package files and Git state, then return reports or support generated writes.
 - The hook delegate and test inventory are documented in [`scripts/README.md`](../scripts/README.md) and [`tests/README.md`](../tests/README.md).
@@ -57,9 +57,9 @@ ai-system-sync.cjs -> lib/* -> package files or Git state
 
 ```text
 lib/
-+-- repo-root.cjs, registry.cjs, manifest.cjs, paths.cjs
-+-- contract-digest.cjs, hashing.cjs, mechanical-checks.cjs
-+-- regions.cjs, render.cjs
++-- repo-root.cjs, registry.cjs, manifest.cjs, path-safety.cjs, paths.cjs
++-- contract-digest.cjs, hashing.cjs, lockfile.cjs, mechanical-checks.cjs
++-- mirrors.cjs, regions.cjs, render.cjs
 +-- transaction.cjs
 `-- exit-codes.cjs, git-utils.cjs, util.cjs
 ```
@@ -68,11 +68,12 @@ Allowed dependency direction:
 
 ```text
 ai-system-sync.cjs -> lib/*
-registry.cjs -> util.cjs
-manifest.cjs -> util.cjs
-mechanical-checks.cjs -> contract-digest.cjs, exit-codes.cjs, hashing.cjs, manifest.cjs, paths.cjs, regions.cjs, util.cjs
-render.cjs -> hashing.cjs
-transaction.cjs -> hashing.cjs, paths.cjs, util.cjs
+registry.cjs -> path-safety.cjs, util.cjs
+manifest.cjs -> mirrors.cjs, path-safety.cjs, util.cjs
+lockfile.cjs -> hashing.cjs, manifest.cjs, paths.cjs, util.cjs
+mechanical-checks.cjs -> contract-digest.cjs, exit-codes.cjs, hashing.cjs, manifest.cjs, mirrors.cjs, path-safety.cjs, paths.cjs, regions.cjs, render.cjs, transaction.cjs, util.cjs
+render.cjs -> hashing.cjs, mirrors.cjs
+transaction.cjs -> hashing.cjs, path-safety.cjs, paths.cjs, util.cjs
 ```
 
 `manifest.cjs` validates the manifest shape in code. [`package.schema.json`](../package.schema.json) is the schema reference and is not required by the module.
@@ -93,8 +94,11 @@ lib/
 +-- exit-codes.cjs        # Fixed exit codes and worst-code aggregation
 +-- git-utils.cjs         # Thin wrapper around the git binary
 +-- hashing.cjs           # Shared sha256, sha16 and file hashing
++-- lockfile.cjs          # Complete package-lock rendering and no-op comparison
 +-- manifest.cjs          # Manifest loading and strict shape validation
 +-- mechanical-checks.cjs # Byte-based check and release-check findings
++-- mirrors.cjs           # Raw and deterministic Project Skill mirror rendering
++-- path-safety.cjs       # Relative-path validation and containment-safe resolution
 +-- paths.cjs             # Package-relative generated and state paths
 +-- regions.cjs           # Generated-region markers and replacements
 +-- registry.cjs          # Closed registry loading and validation
@@ -115,14 +119,17 @@ lib/
 | `exit-codes.cjs` | Defines fixed codes 0 through 6 plus `USAGE` 64 and aggregates fleet results with `worstExitCode`. |
 | `git-utils.cjs` | Runs `git`, reads staged names and staged file content and gets last commit timestamps. |
 | `hashing.cjs` | Provides `sha256Hex`, `sha16`, `hashFile`, `isSha16` and `isSha256` under one prefix convention. |
-| `manifest.cjs` | Loads and strictly validates `claude-project.sync.json` against the manifest shape. |
-| `mechanical-checks.cjs` | Runs byte-based package and release checks, short-circuits interrupted journals and invalid or missing manifests and aggregates findings. |
+| `lockfile.cjs` | Builds complete package-lock state for the kernel, mirrors, generated regions and deletable inventory and renders a write only when state changed. |
+| `manifest.cjs` | Loads and strictly validates `claude-project.sync.json`, including contained paths, supported generated sections and deterministic derivation configuration. |
+| `mechanical-checks.cjs` | Runs byte-based package and release checks, detects active or interrupted transactions and invalid or missing manifests and aggregates findings. |
+| `mirrors.cjs` | Reads raw mirror bytes or applies the registered `project-skill-mirror-v1` frontmatter and link renderer. |
+| `path-safety.cjs` | Rejects absolute, traversing or non-normalized paths and resolves paths within lexical and realpath boundaries. |
 | `paths.cjs` | Centralizes package-relative paths for the journal, lock, kernel review, upload receipt and repo lock. |
 | `regions.cjs` | Creates, finds, extracts, replaces and lists generated regions and tests exact reproduction. |
-| `registry.cjs` | Loads and validates the exact registry system ids and finds systems by id. |
+| `registry.cjs` | Loads the registry as the sole fleet membership authority, enforces the ten-system count and safe fixed paths and finds systems by id. |
 | `render.cjs` | Renders `INVENTORY`, `CHECKSUMS` and `SMOKE_VERSION_PINS` sections from manifest data and live bytes. |
 | `repo-root.cjs` | Resolves the repo root from `AI_SYSTEM_SYNC_REPO_ROOT` or the nearest `.git` directory. |
-| `transaction.cjs` | Stages writes, acquires the repo lock, journals operations, applies atomic swaps and rolls back or recovers. |
+| `transaction.cjs` | Acquires the repo lock, validates contained paths, stages and journals operations, writes the package lock last and rolls back or safely recovers. |
 | `util.cjs` | Provides deterministic sorting, JSON parsing, file walking, duplicate detection and case-insensitive collision checks. |
 
 ---
@@ -164,14 +171,17 @@ reports, package files, lock and journal
 | `exit-codes.cjs` | `EXIT`, `EXIT_MEANING`, `AGGREGATION_PRIORITY` and `worstExitCode` |
 | `git-utils.cjs` | `isGitRepo`, `stagedFiles`, `readStagedFile`, `lastCommitTimestamp` and `run` |
 | `hashing.cjs` | `PREFIX_LENGTH`, `sha256Hex`, `sha16`, `hashFile`, `isSha16` and `isSha256` |
-| `manifest.cjs` | `MANIFEST_FILENAME_DEFAULT`, `FIXED_KNOWLEDGE_ROOT`, `FIXED_KERNEL_PATH`, `validateManifestShape`, `loadManifest`, `ManifestMissingError` and `ManifestValidationError` |
-| `mechanical-checks.cjs` | `CODE`, `JOURNAL_REL_PATH`, `LOCK_REL_PATH`, `KERNEL_REVIEW_REL_PATH`, `UPLOAD_RECEIPT_REL_PATH`, `checkSystem`, `releaseCheckSystem`, `loadFleetRetiredNames`, `buildCoverageSet`, `expandCoverageEntry` and `isDerivationException` |
+| `lockfile.cjs` | `buildLockState`, `comparableLock` and `renderLockContentIfChanged` |
+| `manifest.cjs` | `MANIFEST_FILENAME_DEFAULT`, `FIXED_KNOWLEDGE_ROOT`, `FIXED_KERNEL_PATH`, `GENERATED_REGION_TARGETS`, `GENERATED_REGION_SECTIONS`, `validateManifestShape`, `loadManifest`, `ManifestMissingError` and `ManifestValidationError` |
+| `mechanical-checks.cjs` | `CODE`, `JOURNAL_REL_PATH`, `LOCK_REL_PATH`, `KERNEL_REVIEW_REL_PATH`, `UPLOAD_RECEIPT_REL_PATH`, `checkSystem`, `releaseCheckSystem`, `loadFleetRetiredNames`, `buildCoverageSet` and `expandCoverageEntry` |
+| `mirrors.cjs` | `PROJECT_SKILL_RENDERER`, `MirrorRenderError`, `findDerivationException` and `renderMirrorBytes` |
+| `path-safety.cjs` | `UnsafePathError`, `isPathInside`, `relativePathProblem` and `resolveContainedPath` |
 | `paths.cjs` | `JOURNAL_REL_PATH`, `LOCK_REL_PATH`, `KERNEL_REVIEW_REL_PATH`, `UPLOAD_RECEIPT_REL_PATH` and `REPO_LOCK_FILENAME` |
 | `regions.cjs` | `beginMarker`, `endMarker`, `renderRegion`, `extractRegion`, `replaceRegion`, `regionReproducesExactly`, `listSections` and `RegionNotFoundError` |
-| `registry.cjs` | `REGISTRY_FILENAME`, `EXPECTED_SYSTEM_IDS`, `REQUIRED_ENTRY_FIELDS`, `validateRegistryShape`, `loadRegistry`, `findSystem` and `RegistryValidationError` |
+| `registry.cjs` | `REGISTRY_FILENAME`, `EXPECTED_SYSTEM_COUNT`, `REQUIRED_ENTRY_FIELDS`, `validateRegistryShape`, `loadRegistry`, `findSystem` and `RegistryValidationError` |
 | `render.cjs` | `shortLabel`, `commonTargetPrefix`, `mirrorBySource`, `renderInventorySection`, `renderChecksumsSection`, `renderSmokeVersionPinsSection`, `renderSection`, `MirrorNotDeclaredError` and `UnknownSectionError` |
 | `repo-root.cjs` | `ENV_OVERRIDE`, `resolveRepoRoot` and `RepoRootError` |
-| `transaction.cjs` | `acquireRepoLock`, `detectInterruptedJournal`, `recoverInterruptedJournal`, `runSyncTransaction`, `journalPath`, `TransactionError`, `InterruptedTransactionError`, `RepoLockHeldError`, `SourceChangedError` and `DeleteNotAllowedError` |
+| `transaction.cjs` | `acquireRepoLock`, `inspectRepoLock`, `detectInterruptedJournal`, `recoverInterruptedJournal`, `runSyncTransaction`, `journalPath`, `TransactionError`, `InterruptedTransactionError`, `RepoLockHeldError`, `SourceChangedError`, `DeleteNotAllowedError` and `CorruptJournalError` |
 | `util.cjs` | `sortStable`, `readJsonStrict`, `findCaseInsensitiveCollisions`, `findDuplicates`, `walkFilesRecursive`, `IGNORED_BASENAMES`, `JsonReadError` and `JsonParseError` |
 
 ---
@@ -187,10 +197,10 @@ node --test "z — Sync Skill to Claude Project/tests/"*.test.cjs
 Expected result:
 
 ```text
-1..113
-# tests 113
+1..126
+# tests 126
 # suites 0
-# pass 113
+# pass 126
 # fail 0
 # cancelled 0
 # skipped 0

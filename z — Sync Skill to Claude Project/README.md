@@ -1,6 +1,6 @@
 ---
 title: "AI System Sync Compiler"
-description: "Dependency-free Node CLI that mechanically checks and (once written) syncs the ten Barter claude.ai Project packages against their authoritative sk-* skills."
+description: "Dependency-free Node CLI that mechanically checks and syncs the ten Barter claude.ai Project packages against their authoritative sk-* skills."
 ---
 
 # AI System Sync Compiler
@@ -21,10 +21,10 @@ Each Barter system keeps its real behavior in one place, the `sk-*` skill folder
 
 1. A `claude-project.sync.json` manifest declares which skill files become which knowledge mirrors, which files feed the kernel's contract digest and which files hold generated documentation regions.
 2. `check` reads that manifest against the live files and reports whether the derived package still matches its source. It never changes anything.
-3. `sync --write` derives the mirrors and regions fresh from the skill, applies every change as one all-or-nothing transaction and locks the result in `package-lock.json`.
+3. `sync --write` derives the mirrors and regions fresh from the skill, applies every change and the final package lock as one journaled all-or-nothing transaction and locks the result in `package-lock.json`.
 4. A kernel change needs a human `review-kernel` decision before `check` reports it current again. A live upload needs a recorded receipt before `release-check` reports it current. No single command can claim both at once.
 
-The compiler's guarantee stays mechanical. It confirms the derived package is byte-correct and reviewed. A human still writes the kernel and uploads it to claude.ai.
+The compiler's guarantee stays mechanical. It confirms reproducible derived bytes and a review record matching the current contract and kernel hashes. A named human still makes the review decision, writes the kernel and uploads it to claude.ai.
 
 ### Key Statistics
 
@@ -33,7 +33,7 @@ The compiler's guarantee stays mechanical. It confirms the derived package is by
 | Registered systems | 10 |
 | Commands | 6 |
 | Exit codes | 0-6 plus usage 64 |
-| Test count | 113 |
+| Test count | 126 |
 | Enforcement status | report-only |
 
 ### Three Separate Green States
@@ -42,7 +42,7 @@ A single `aligned: true` field would hide the failure classes this tool exists t
 
 | State | What makes it green |
 | --- | --- |
-| Local mechanical parity | `check` passes: mirrors, checksums, inventory, generated regions, references and (with `--run-validators`) package-native validators all agree |
+| Local mechanical parity | `check` passes: rendered mirrors, required lock state, freshly reproduced generated regions, references and (with `--run-validators`) package-native validators all agree |
 | Kernel review current | A human reviewed the current contract digest against the current kernel and recorded that with `review-kernel` |
 | Live deployment current | The package was manually uploaded to claude.ai, its smoke matrix passed and that was recorded as a receipt |
 
@@ -56,7 +56,7 @@ Run these commands from the Barter repo root. The tool folder starts with a spac
 
 ```bash
 node "z — Sync Skill to Claude Project/ai-system-sync.cjs" plan --all
-node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --all
+node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --all --run-validators
 ```
 
 Expected output from `plan --all`:
@@ -159,7 +159,7 @@ Expected output from `check --all`:
 | --- | --- |
 | `plan` | Reports each manifest's mirror count, contract input count and kernel versions without gating on package state. |
 | `check` | Runs the mechanical suite for one system, the whole fleet or staged changes. Add `--run-validators` to run each manifest's package-native validators. It never writes. |
-| `sync` | The only writing command. It requires `--write` for a normal sync. `--recover` rolls back a leftover interrupted transaction. |
+| `sync` | The only command that writes derived package bytes. It requires `--write` for a normal sync. `--recover` rolls back a validated leftover transaction. |
 | `review-kernel` | Computes the current contract digest, hashes the kernel and records the reviewer, reason, decision and review timestamp in `kernel-review.json`. |
 | `upload-plan` | Prints the manual deployment steps for one system or the whole fleet. It does not gate deployment. |
 | `release-check` | Reads only `upload-receipt.json` and compares the recorded package digest and smoke result with the current package. |
@@ -177,15 +177,15 @@ node "z — Sync Skill to Claude Project/ai-system-sync.cjs" release-check --all
 
 ### Mechanical Check Suite
 
-The suite short-circuits when an interrupted journal is present or when the manifest is missing or invalid. It then checks the declared source coverage, mirror sources, symlink safety, case-insensitive target collisions, knowledge inventory, byte parity, package-lock hashes, generated-region markers and bodies, retired tokens, graph targets, JSON files and kernel review. `--run-validators` adds the package-native validator commands declared by each manifest.
+The suite short-circuits when an interrupted journal is present or when the manifest is missing or invalid. It then checks declared source coverage, mirror sources, symlink safety, case-insensitive target collisions, knowledge inventory, deterministic mirror rendering, required and complete package-lock state, generated-region markers against fresh renderer output, retired tokens, graph targets, JSON files and kernel review. `--run-validators` adds the package-native validator commands declared by each manifest.
 
-An undeclared knowledge file is reported and is never deleted automatically. A declared `derivationExceptions` mirror is excluded from byte-copy writes and parity failures. This keeps approved hand-applied content intact.
+An undeclared knowledge file is reported and is never deleted automatically. A declared `derivationExceptions` mirror selects a registered deterministic renderer instead of waiving parity. The compiler writes and checks the rendered bytes like every other mirror.
 
 ### Transaction Engine
 
-`sync --write` stages each new file beside its target, validates staged content, re-hashes sources before applying, holds one repository-wide lock and journals every replacement or deletion. It applies each operation through an atomic rename, writes `package-lock.json` last and removes backups only after the transaction succeeds.
+`sync --write` acquires one repository-wide lock before inspecting journal state, validates every source and target path, stages each ordinary write beside its target and re-hashes sources before applying. It journals every replacement or deletion, applies each operation through an atomic rename, then stages, journals and writes `package-lock.json` as the final operation. Backups are removed only after the whole transaction succeeds.
 
-If any step fails, the engine rolls back every operation it touched. A leftover journal makes the next sync stop with exit 5. Run `sync --system <id> --recover` to roll back that transaction and restore the state from before it began.
+If any step fails, the engine rolls back every operation it touched, including the package lock. A leftover journal makes the next sync stop with exit 5. Recovery acquires the same repository lock before rolling back. It refuses to race a live transaction and preserves corrupt or unsafe journals for manual inspection instead of deleting evidence.
 
 ### Exit Codes
 
@@ -247,7 +247,7 @@ When `--all` or `--staged` covers more than one system, the process exit code is
 
 ### Registry
 
-[`registry.json`](registry.json) is the closed list of exactly ten systems. The registry validator checks the exact ID set rather than accepting any list with ten entries.
+[`registry.json`](registry.json) is the sole closed membership list of exactly ten systems. The registry validator enforces count, unique IDs and roots, fixed kernel and manifest paths, normalized containment-safe paths, and lowercase kebab-case IDs without maintaining a second ID list in code.
 
 | System ID | Package root |
 | --- | --- |
@@ -262,7 +262,7 @@ When `--all` or `--staged` covers more than one system, the process exit code is
 | `barter-blog-posts` | `Barter - Blog Posts` |
 | `prompt-improver` | `Prompt Improver` |
 
-Each entry also fixes the skill root, kernel path, manifest path and validator placeholder. Adding an eleventh system requires changes to both the registry and the expected ID list in code.
+Each entry also fixes the skill root, kernel path, manifest path and validator placeholder. Changing membership is a reviewed registry change; changing the closed fleet size additionally requires updating the explicit count contract.
 
 ### Manifest Schema
 
@@ -274,7 +274,7 @@ Each entry also fixes the skill root, kernel path, manifest path and validator p
 | Kernel versions | Records `kernel.version` and `kernel.alignedSkillVersion`. |
 | Coverage and mirrors | Declares `sourceCoverage`, explicit `mirrors` pairs and `expectedKnowledgeCount`. |
 | Contract and validators | Declares `contractInputs` and validator command arrays with their working directories. |
-| Retired names and exclusions | Controls `retiredNames`, `scanExcludes` and reviewed `derivationExceptions`. |
+| Retired names and exclusions | Controls `retiredNames`, `scanExcludes` and deterministic `derivationExceptions` renderer configuration. |
 | Generated regions | Declares target files and named sections owned between generated-region markers. |
 
 ---
@@ -289,16 +289,16 @@ Use this sequence when a system's kernel needs a change. Hand-edit the kernel on
 
 ```bash
 node "z — Sync Skill to Claude Project/ai-system-sync.cjs" plan --system product-owner
-node "z — Sync Skill to Claude Project/ai-system-sync.cjs" review-kernel --system product-owner --reviewer "$USER" --reason "manual kernel review"
 node "z — Sync Skill to Claude Project/ai-system-sync.cjs" sync --system product-owner --write
+node "z — Sync Skill to Claude Project/ai-system-sync.cjs" review-kernel --system product-owner --reviewer "<confirmed-human-name>" --reason "<confirmed-review-reason>" --decision <updated|no-change>
 node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --system product-owner --run-validators
 ```
 
 Expected result:
 
 ```text
-review-kernel: recorded for product-owner at claude project/kernel-review.json (digest <16 hex characters>...)
 sync: applied <number> change(s) for product-owner.
+review-kernel: recorded for product-owner at claude project/kernel-review.json (digest <16 hex characters>...)
 == product-owner: clean ==
 ```
 
@@ -336,7 +336,7 @@ sync --recover: rolled back <rolled-back>/<total> operation(s) for product-owner
 sync: applied <number> change(s) for product-owner.
 ```
 
-Recovery always rolls back the interrupted transaction. The final sync can instead report `product-owner already up to date (0 change(s)).` when the rollback restored current bytes.
+Recovery always acquires the repository lock and rolls back a valid interrupted transaction. It refuses a live lock and fails closed on corrupt journal bytes. The final sync can instead report `product-owner already up to date (0 change(s)).` when rollback restored current bytes and lock state.
 
 ---
 
@@ -357,6 +357,6 @@ Recovery always rolls back the interrupted transaction. The final sync can inste
 
 - [`lib/README.md`](lib/README.md) explains the domain modules and transaction engine.
 - [`scripts/README.md`](scripts/README.md) explains the opt-in pre-commit delegate.
-- [`tests/README.md`](tests/README.md) explains the 113-test suite and its fixtures.
+- [`tests/README.md`](tests/README.md) explains the 126-test suite and its fixtures.
 - [`feature-catalog/feature-catalog.md`](feature-catalog/feature-catalog.md) is the feature catalog for this tool.
 - [`manual-testing-playbook/manual-testing-playbook.md`](manual-testing-playbook/manual-testing-playbook.md) is the operator-facing manual validation playbook.

@@ -65,6 +65,7 @@ For a synthetic fixture, capture the fixture root, the files deliberately change
 
 - Run the CLI from the repository root with the quoted tool path, for example `node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --all`.
 - Use `AI_SYSTEM_SYNC_REPO_ROOT="<fixture-root>"` only when the scenario names a synthetic fixture.
+- Derive fixture roots with `os.tmpdir()` as shown in each scenario; never paste a machine-specific temporary path.
 - Use `node --test "z — Sync Skill to Claude Project/tests/<file>.test.cjs"` for a focused automated cross-reference run.
 - Use `bash "z — Sync Skill to Claude Project/scripts/precommit-check.sh"` for the delegate scenario.
 - Use `->` to separate sequential commands in a table cell.
@@ -208,7 +209,7 @@ Blocks an unmapped source under declared coverage and preserves the path in the 
 
 ### MCH-002 | Knowledge Inventory, Byte Parity And Derivation Exceptions
 
-Runs a sync against a hand-applied exception mirror and verifies that the exception target is not overwritten.
+Runs a sync against a declared `project-skill-mirror-v1` target and verifies deterministic frontmatter and link rendering.
 
 > **Scenario:** [MCH-002](mechanical-checks/knowledge-inventory-byte-parity-and-derivation-exceptions.md)  
 > **Catalog:** [Knowledge Inventory, Byte Parity And Derivation Exceptions](../feature-catalog/mechanical-checks/knowledge-inventory-byte-parity-and-derivation-exceptions.md)
@@ -279,7 +280,7 @@ Detects a synthetic interrupted journal, refuses normal checking with the recove
 
 ### REG-001 | Closed System Registry
 
-Confirms the real registry contains the exact ten expected IDs and rejects an unknown CLI system identifier.
+Confirms the real registry is the sole ten-entry membership authority and rejects an unknown CLI system identifier.
 
 > **Scenario:** [REG-001](fleet-registry-and-manifest/closed-system-registry.md)  
 > **Catalog:** [Closed System Registry](../feature-catalog/fleet-registry-and-manifest/closed-system-registry.md)
@@ -304,7 +305,7 @@ Runs the opt-in delegate in report mode, emits the staged check report to stderr
 
 ### ENF-002 | Documented CI Recipe
 
-Runs the documented full test command and all-system validator check, then records the observed 113 passing tests and ten clean systems.
+Runs the documented full test command and all-system validator check, then records the observed 126 passing tests and ten clean systems.
 
 > **Scenario:** [ENF-002](enforcement/documented-ci-recipe.md)  
 > **Catalog:** [Documented CI Recipe](../feature-catalog/enforcement/documented-ci-recipe.md)

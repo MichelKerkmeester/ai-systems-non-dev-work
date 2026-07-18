@@ -42,8 +42,8 @@ Operators run the exact prompt and command sequence for `MCH-001` against a disp
 
 ### Commands
 
-1. `node -e 'const fs=require("node:fs"),path=require("node:path"); const root="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/coverage"; fs.rmSync(root,{recursive:true,force:true}); fs.mkdirSync(root,{recursive:true}); const tool=fs.readdirSync(".").find((name)=>fs.existsSync(path.join(name,"ai-system-sync.cjs"))); const h=require(path.resolve(tool,"tests","helpers.cjs")); const f=h.buildCleanPackage(root,{id:"product-owner",packageRoot:"Product Owner",skillRoot:"sk-product-owner"}); f.manifest.sourceCoverage.include=["sk-product-owner"]; h.writeFile(root,"Product Owner/sk-product-owner/forgotten-reference.md","new file\n"); h.writeJson(root,"Product Owner/claude-project.sync.json",f.manifest);'`
-2. `AI_SYSTEM_SYNC_REPO_ROOT="/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/opencode/ai-system-sync-playbook-fixtures/coverage" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --system product-owner`
+1. `node -e 'const fs=require("node:fs"),os=require("node:os"),path=require("node:path"); const root=path.join(os.tmpdir(),"ai-system-sync-playbook-fixtures","coverage"); fs.rmSync(root,{recursive:true,force:true}); fs.mkdirSync(root,{recursive:true}); const tool=fs.readdirSync(".").find((name)=>fs.existsSync(path.join(name,"ai-system-sync.cjs"))); const h=require(path.resolve(tool,"tests","helpers.cjs")); const f=h.buildCleanPackage(root,{id:"product-owner",packageRoot:"Product Owner",skillRoot:"sk-product-owner"}); f.manifest.sourceCoverage.include=["sk-product-owner"]; h.writeFile(root,"Product Owner/sk-product-owner/forgotten-reference.md","new file\n"); h.writeJson(root,"Product Owner/claude-project.sync.json",f.manifest);'`
+2. `AI_SYSTEM_SYNC_REPO_ROOT="$(node -p 'require("node:path").join(require("node:os").tmpdir(),"ai-system-sync-playbook-fixtures","coverage")')" node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --system product-owner`
 
 | Feature ID | Feature Name | Scenario Name/Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
@@ -87,6 +87,8 @@ Capture the fixture manifest, the added file, the CLI output and the exit code.
 | `../../lib/mechanical-checks.cjs` | Expands coverage and emits unmapped-source findings |
 | `../../lib/util.cjs` | Walks covered directories and checks collisions |
 | `../../lib/manifest.cjs` | Validates coverage and mirror fields |
+| `../../lib/path-safety.cjs` | Rejects unsafe relative paths and escaping realpaths |
+| `../../lib/transaction.cjs` | Rechecks source and write-target containment before staging |
 | `../../tests/mechanical-checks.test.cjs` | Covers `UNMAPPED_SOURCE` and source safety |
 | `../../tests/manifest.test.cjs` | Covers source coverage shape |
 

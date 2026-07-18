@@ -17,7 +17,7 @@ const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
 const { ENV_OVERRIDE } = require('../lib/repo-root.cjs');
-const { EXPECTED_SYSTEM_IDS, loadRegistry } = require('../lib/registry.cjs');
+const { loadRegistry } = require('../lib/registry.cjs');
 const { mkTempRepo, writeJson } = require('./helpers.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -25,6 +25,7 @@ const { mkTempRepo, writeJson } = require('./helpers.cjs');
 // ─────────────────────────────────────────────────────────────────────────────
 
 const CLI_PATH = path.join(__dirname, '..', 'ai-system-sync.cjs');
+const SYSTEM_IDS = loadRegistry().systems.map((system) => system.id);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 3. HELPERS
@@ -77,7 +78,7 @@ test(
     const result = runCli(['check', '--all'], { repoRoot });
     assert.equal(result.status, 2);
     assert.equal(result.stderr, '', 'no stack trace on stderr');
-    for (const systemId of EXPECTED_SYSTEM_IDS) {
+    for (const systemId of SYSTEM_IDS) {
       assert.ok(result.stdout.includes(systemId), `expected a report line for ${systemId}`);
     }
   }
@@ -171,7 +172,7 @@ test(
   () => {
     const result = runCli(['upload-plan', '--all']);
     assert.equal(result.status, 0);
-    for (const systemId of EXPECTED_SYSTEM_IDS) {
+    for (const systemId of SYSTEM_IDS) {
       assert.ok(result.stdout.includes(systemId));
     }
   }
@@ -202,7 +203,7 @@ test(
   () => {
     const result = runCli(['release-check', '--all']);
     assert.equal(result.status, 2);
-    for (const systemId of EXPECTED_SYSTEM_IDS) {
+    for (const systemId of SYSTEM_IDS) {
       assert.ok(result.stdout.includes(systemId));
     }
   }

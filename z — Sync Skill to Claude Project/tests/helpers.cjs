@@ -179,7 +179,8 @@ function buildCleanPackage(repoRoot, options) {
           bytes: mirrorHash.bytes,
         },
       ],
-      deletable: [],
+      regions: [],
+      deletable: [`claude project/knowledge/${mirrorTarget}`],
     });
   }
 

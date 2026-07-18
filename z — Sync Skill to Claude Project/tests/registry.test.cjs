@@ -15,7 +15,7 @@ const {
   validateRegistryShape,
   loadRegistry,
   findSystem,
-  EXPECTED_SYSTEM_IDS,
+  EXPECTED_SYSTEM_COUNT,
   RegistryValidationError,
 } = require('../lib/registry.cjs');
 const { mkTempRepo, writeJson } = require('./helpers.cjs');
@@ -36,9 +36,10 @@ function validEntry(id, packageRoot) {
 }
 
 function validRegistryData() {
+  const ids = Array.from({ length: EXPECTED_SYSTEM_COUNT }, (_, index) => `system-${index + 1}`);
   return {
     schemaVersion: 1,
-    systems: EXPECTED_SYSTEM_IDS.map((id) => validEntry(id, id)),
+    systems: ids.map((id) => validEntry(id, `Package ${id}`)),
   };
 }
 
@@ -46,17 +47,11 @@ function validRegistryData() {
 // 3. TESTS
 // ─────────────────────────────────────────────────────────────────────────────
 
-test(
-  'the real registry.json in this package validates and declares exactly the ten expected ids',
-  () => {
-    const { systems } = loadRegistry();
-    assert.equal(systems.length, 10);
-    assert.deepEqual(
-      systems.map((system) => system.id).sort(),
-      [...EXPECTED_SYSTEM_IDS].sort()
-    );
-  }
-);
+test('the real registry.json validates and is the sole ten-system membership list', () => {
+  const { systems } = loadRegistry();
+  assert.equal(systems.length, EXPECTED_SYSTEM_COUNT);
+  assert.equal(new Set(systems.map((system) => system.id)).size, EXPECTED_SYSTEM_COUNT);
+});
 
 test('validateRegistryShape accepts a well-formed ten-system registry', () => {
   const { ok, problems } = validateRegistryShape(validRegistryData());
@@ -71,13 +66,20 @@ test('validateRegistryShape rejects a system count other than ten', () => {
   assert.ok(problems.some((problem) => problem.includes('exactly 10')));
 });
 
-test('validateRegistryShape rejects an unexpected id swapped in for a real one', () => {
+test('validateRegistryShape accepts a reviewed membership replacement declared by the registry', () => {
   const data = validRegistryData();
-  data.systems[0] = validEntry('not-a-real-system', 'Not A Real System');
+  data.systems[0] = validEntry('replacement-system', 'Replacement System');
+  const { ok, problems } = validateRegistryShape(data);
+  assert.equal(ok, true, problems.join('; '));
+});
+
+test('validateRegistryShape rejects traversal and malformed identifiers', () => {
+  const data = validRegistryData();
+  data.systems[0] = validEntry('Not Valid', '../Outside');
   const { ok, problems } = validateRegistryShape(data);
   assert.equal(ok, false);
-  assert.ok(problems.some((problem) => problem.includes('missing required system id')));
-  assert.ok(problems.some((problem) => problem.includes('unexpected system id')));
+  assert.ok(problems.some((problem) => problem.includes('kebab-case')));
+  assert.ok(problems.some((problem) => problem.includes('packageRoot')));
 });
 
 test('validateRegistryShape rejects duplicate ids/packageRoots/skillRoots', () => {
@@ -102,7 +104,8 @@ test(
     const fixtureRoot = mkTempRepo();
     const invalidRegistry = validRegistryData();
     invalidRegistry.systems = invalidRegistry.systems.slice(0, 3);
-    // Keep count and required-ID errors together so the complete error list is tested.
+    invalidRegistry.systems[0].kernelPath = 'wrong/path.md';
+    // Keep independent count and path errors together so the complete list is tested.
     writeJson(fixtureRoot, 'registry.json', invalidRegistry);
 
     assert.throws(
@@ -118,6 +121,6 @@ test(
 
 test('findSystem looks up by id and returns null for an unknown id', () => {
   const registry = { systems: validRegistryData().systems };
-  assert.equal(findSystem(registry, EXPECTED_SYSTEM_IDS[0]).id, EXPECTED_SYSTEM_IDS[0]);
+  assert.equal(findSystem(registry, 'system-1').id, 'system-1');
   assert.equal(findSystem(registry, 'nope'), null);
 });

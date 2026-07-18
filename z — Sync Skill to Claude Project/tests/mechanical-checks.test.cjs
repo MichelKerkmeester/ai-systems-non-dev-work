@@ -14,7 +14,10 @@ const path = require('node:path');
 
 const { checkSystem, CODE } = require('../lib/mechanical-checks.cjs');
 const { EXIT } = require('../lib/exit-codes.cjs');
-const { sha256Hex } = require('../lib/hashing.cjs');
+const { hashFile, sha256Hex } = require('../lib/hashing.cjs');
+const { renderMirrorBytes } = require('../lib/mirrors.cjs');
+const { renderInventorySection } = require('../lib/render.cjs');
+const { acquireRepoLock } = require('../lib/transaction.cjs');
 const { mkTempRepo, buildCleanPackage, writeFile, writeJson } = require('./helpers.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -221,6 +224,24 @@ test(
   }
 );
 
+test('a journal under an active repo lock is reported as in-progress, not recoverable', () => {
+  const repoRoot = mkTempRepo();
+  const { entry } = buildCleanPackage(repoRoot);
+  writeJson(repoRoot, path.join(entry.packageRoot, 'claude project/sync-journal.json'), {
+    schemaVersion: 1,
+    operations: [],
+  });
+  const lock = acquireRepoLock(repoRoot);
+  try {
+    const result = checkSystem({ repoRoot, entry });
+    assert.equal(result.exitCode, EXIT.INTERRUPTED_TRANSACTION);
+    assert.equal(result.findings[0].code, CODE.SYNC_IN_PROGRESS);
+    assert.match(result.findings[0].message, /Do not run recovery/);
+  } finally {
+    lock.release();
+  }
+});
+
 test('unknown knowledge file is reported, never auto-deleted', () => {
   const repoRoot = mkTempRepo();
   const { entry } = buildCleanPackage(repoRoot);
@@ -268,13 +289,23 @@ test('lock hash mismatch: a file changed after sync without re-locking is caught
   assert.ok(getFindingCodes(result).includes(CODE.LOCK_HASH_MISMATCH));
 });
 
+test('a missing package lock is mechanical drift and cannot produce a clean check', () => {
+  const repoRoot = mkTempRepo();
+  const { entry, packageAbsRoot } = buildCleanPackage(repoRoot);
+  fs.unlinkSync(path.join(packageAbsRoot, 'claude project/package-lock.json'));
+
+  const result = checkSystem({ repoRoot, entry });
+  assert.equal(result.exitCode, EXIT.MECHANICAL_DRIFT);
+  assert.ok(getFindingCodes(result).includes(CODE.LOCK_MISSING));
+});
+
 test(
   'generated regions: a declared region target missing its markers is flagged, ' +
     'not silently skipped',
   () => {
     const repoRoot = mkTempRepo();
     const { entry, manifest } = buildCleanPackage(repoRoot);
-    manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['PACKAGE FACTS'] }];
+    manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['INVENTORY'] }];
     writeJson(repoRoot, path.join(entry.packageRoot, entry.manifestPath), manifest);
     writeFile(
       repoRoot,
@@ -292,15 +323,22 @@ test(
   () => {
     const repoRoot = mkTempRepo();
     const { entry, manifest } = buildCleanPackage(repoRoot);
-    manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['PACKAGE FACTS'] }];
+    manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['INVENTORY'] }];
     writeJson(repoRoot, path.join(entry.packageRoot, entry.manifestPath), manifest);
+    const body = renderInventorySection(manifest);
     const scaffoldedRegion =
-      '# Sync\n\n<!-- BEGIN GENERATED: AI-SYSTEM-SYNC PACKAGE FACTS -->\nbody\n' +
-      '<!-- END GENERATED: AI-SYSTEM-SYNC PACKAGE FACTS -->\n';
+      `# Sync\n\n<!-- BEGIN GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n${body}\n` +
+      '<!-- END GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n';
     writeFile(repoRoot, path.join(entry.packageRoot, 'SYNC.md'), scaffoldedRegion);
+
+    const lockAbs = path.join(repoRoot, entry.packageRoot, 'claude project/package-lock.json');
+    const lock = JSON.parse(fs.readFileSync(lockAbs, 'utf8'));
+    lock.regions = [{ target: 'SYNC.md', section: 'INVENTORY', sha256: sha256Hex(body) }];
+    fs.writeFileSync(lockAbs, JSON.stringify(lock, null, 2));
 
     const result = checkSystem({ repoRoot, entry });
     assert.ok(!getFindingCodes(result).includes(CODE.REGION_NOT_SCAFFOLDED));
+    assert.ok(!getFindingCodes(result).includes(CODE.REGION_DRIFT));
   }
 );
 
@@ -309,27 +347,27 @@ test(
   () => {
     const repoRoot = mkTempRepo();
     const { entry, manifest, packageAbsRoot } = buildCleanPackage(repoRoot);
-    manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['PACKAGE FACTS'] }];
+    manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['INVENTORY'] }];
     writeJson(repoRoot, path.join(entry.packageRoot, entry.manifestPath), manifest);
 
-    const lockedBody = '30 mirrors locked.';
+    const lockedBody = renderInventorySection(manifest);
     writeFile(
       repoRoot,
       path.join(entry.packageRoot, 'SYNC.md'),
-      `# Sync\n\n<!-- BEGIN GENERATED: AI-SYSTEM-SYNC PACKAGE FACTS -->\n${lockedBody}\n` +
-        '<!-- END GENERATED: AI-SYSTEM-SYNC PACKAGE FACTS -->\n'
+      `# Sync\n\n<!-- BEGIN GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n${lockedBody}\n` +
+        '<!-- END GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n'
     );
 
     const lockAbs = path.join(packageAbsRoot, 'claude project/package-lock.json');
     const lock = JSON.parse(fs.readFileSync(lockAbs, 'utf8'));
-    lock.regions = [{ target: 'SYNC.md', section: 'PACKAGE FACTS', sha256: sha256Hex(lockedBody) }];
+    lock.regions = [{ target: 'SYNC.md', section: 'INVENTORY', sha256: sha256Hex(lockedBody) }];
     fs.writeFileSync(lockAbs, JSON.stringify(lock, null, 2));
 
     // Hand edit inside the markers, after the region was locked.
     const handEditedRegion =
-      '# Sync\n\n<!-- BEGIN GENERATED: AI-SYSTEM-SYNC PACKAGE FACTS -->\n' +
+      '# Sync\n\n<!-- BEGIN GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n' +
       'hand-edited, no longer 30.\n' +
-      '<!-- END GENERATED: AI-SYSTEM-SYNC PACKAGE FACTS -->\n';
+      '<!-- END GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n';
     writeFile(repoRoot, path.join(entry.packageRoot, 'SYNC.md'), handEditedRegion);
 
     const result = checkSystem({ repoRoot, entry });
@@ -341,24 +379,47 @@ test(
 test('region reproduction: a locked region left untouched checks clean, no false positive', () => {
   const repoRoot = mkTempRepo();
   const { entry, manifest, packageAbsRoot } = buildCleanPackage(repoRoot);
-  manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['PACKAGE FACTS'] }];
+  manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['INVENTORY'] }];
   writeJson(repoRoot, path.join(entry.packageRoot, entry.manifestPath), manifest);
 
-  const lockedBody = '30 mirrors locked.';
+  const lockedBody = renderInventorySection(manifest);
   writeFile(
     repoRoot,
     path.join(entry.packageRoot, 'SYNC.md'),
-    `# Sync\n\n<!-- BEGIN GENERATED: AI-SYSTEM-SYNC PACKAGE FACTS -->\n${lockedBody}\n` +
-      '<!-- END GENERATED: AI-SYSTEM-SYNC PACKAGE FACTS -->\n'
+    `# Sync\n\n<!-- BEGIN GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n${lockedBody}\n` +
+      '<!-- END GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n'
   );
 
   const lockAbs = path.join(packageAbsRoot, 'claude project/package-lock.json');
   const lock = JSON.parse(fs.readFileSync(lockAbs, 'utf8'));
-  lock.regions = [{ target: 'SYNC.md', section: 'PACKAGE FACTS', sha256: sha256Hex(lockedBody) }];
+  lock.regions = [{ target: 'SYNC.md', section: 'INVENTORY', sha256: sha256Hex(lockedBody) }];
   fs.writeFileSync(lockAbs, JSON.stringify(lock, null, 2));
 
   const result = checkSystem({ repoRoot, entry });
   assert.ok(!getFindingCodes(result).includes(CODE.REGION_DRIFT));
+});
+
+test('region reproduction re-renders current manifest state instead of trusting a stale lock', () => {
+  const repoRoot = mkTempRepo();
+  const { entry, manifest, packageAbsRoot } = buildCleanPackage(repoRoot);
+  manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['INVENTORY'] }];
+  const staleBody = renderInventorySection(manifest);
+  writeFile(
+    repoRoot,
+    path.join(entry.packageRoot, 'SYNC.md'),
+    `# Sync\n\n<!-- BEGIN GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n${staleBody}\n` +
+      '<!-- END GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n'
+  );
+  const lockAbs = path.join(packageAbsRoot, 'claude project/package-lock.json');
+  const lock = JSON.parse(fs.readFileSync(lockAbs, 'utf8'));
+  lock.regions = [{ target: 'SYNC.md', section: 'INVENTORY', sha256: sha256Hex(staleBody) }];
+  fs.writeFileSync(lockAbs, JSON.stringify(lock, null, 2));
+
+  manifest.kernel.alignedSkillVersion = '2.0.0';
+  writeJson(repoRoot, path.join(entry.packageRoot, entry.manifestPath), manifest);
+
+  const result = checkSystem({ repoRoot, entry });
+  assert.ok(getFindingCodes(result).includes(CODE.REGION_DRIFT));
 });
 
 test('retired-token scanning finds a stale reference and reports file:line', () => {
@@ -429,29 +490,81 @@ test(
 );
 
 test(
-  'derivation exceptions: a declared exception skips byte-parity for that one mirror only',
+  'derivation exceptions: deterministic rendering is checked instead of skipping parity',
   () => {
     const repoRoot = mkTempRepo();
-    const { entry, manifest, mirrorTarget } = buildCleanPackage(repoRoot);
+    const source =
+      '---\nname: fixture-system\nversion: 1.0.0\n---\n\n' +
+      '# Fixture Skill\n\n[Reference](./references/example.md)\n';
+    const { entry, manifest, mirrorTarget, packageAbsRoot } = buildCleanPackage(repoRoot, {
+      skillMdContent: source,
+    });
+    const referenceTarget = 'fixture-system - Reference - Example - v1.0.0.md';
+    writeFile(repoRoot, path.join(entry.packageRoot, entry.skillRoot, 'references/example.md'), 'Reference.\n');
+    writeFile(
+      repoRoot,
+      path.join(entry.packageRoot, 'claude project/knowledge', referenceTarget),
+      'Reference.\n'
+    );
+    manifest.mirrors.push({
+      source: `${entry.skillRoot}/references/example.md`,
+      target: referenceTarget,
+      sourceVersion: '1.0.0',
+      projectVersion: '1.0.0',
+    });
+    manifest.expectedKnowledgeCount = 2;
     manifest.derivationExceptions = [{
       path: mirrorTarget,
-      reason: 'link retargeting plus added frontmatter',
+      reason: 'Retarget links and add Project retrieval metadata.',
+      renderer: 'project-skill-mirror-v1',
+      projectFrontmatter: {
+        contextType: 'reference',
+        importanceTier: 'high',
+        triggerPhrases: ['fixture skill'],
+      },
     }];
     writeJson(repoRoot, path.join(entry.packageRoot, entry.manifestPath), manifest);
+    const rendered = renderMirrorBytes({ packageAbsRoot, manifest, mirror: manifest.mirrors[0] });
     writeFile(
       repoRoot,
       path.join(entry.packageRoot, 'claude project/knowledge', mirrorTarget),
-      'retargeted content, deliberately different from source\n'
+      rendered.toString('utf8')
     );
-    // Remove the lock so the derivation exception is isolated from hash validation.
-    const lockAbs = path.join(repoRoot, entry.packageRoot, 'claude project/package-lock.json');
-    fs.unlinkSync(lockAbs);
+
+    const lockAbs = path.join(packageAbsRoot, 'claude project/package-lock.json');
+    const lock = JSON.parse(fs.readFileSync(lockAbs, 'utf8'));
+    const skillHash = hashFile(
+      path.join(packageAbsRoot, 'claude project/knowledge', mirrorTarget)
+    );
+    const referenceHash = hashFile(
+      path.join(packageAbsRoot, 'claude project/knowledge', referenceTarget)
+    );
+    lock.files[1] = {
+      path: `claude project/knowledge/${mirrorTarget}`,
+      sha256: skillHash.sha256,
+      sha16: skillHash.sha16,
+      bytes: skillHash.bytes,
+    };
+    lock.files.push({
+      path: `claude project/knowledge/${referenceTarget}`,
+      sha256: referenceHash.sha256,
+      sha16: referenceHash.sha16,
+      bytes: referenceHash.bytes,
+    });
+    lock.deletable = [
+      `claude project/knowledge/${mirrorTarget}`,
+      `claude project/knowledge/${referenceTarget}`,
+    ];
+    fs.writeFileSync(lockAbs, JSON.stringify(lock, null, 2));
+
+    writeFile(
+      repoRoot,
+      path.join(entry.packageRoot, 'claude project/knowledge', mirrorTarget),
+      'tampered transformed mirror\n'
+    );
 
     const result = checkSystem({ repoRoot, entry });
-    assert.ok(
-      !getFindingCodes(result).includes(CODE.MIRROR_BYTE_MISMATCH),
-      JSON.stringify(result.findings)
-    );
+    assert.ok(getFindingCodes(result).includes(CODE.MIRROR_BYTE_MISMATCH));
   }
 );
 

@@ -8,6 +8,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 const path = require('node:path');
+const { relativePathProblem } = require('./path-safety.cjs');
 const { readJsonStrict, findDuplicates } = require('./util.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -16,19 +17,8 @@ const { readJsonStrict, findDuplicates } = require('./util.cjs');
 
 const REGISTRY_FILENAME = 'registry.json';
 
-// Keep the fleet closed so an unexpected directory cannot expand the managed systems.
-const EXPECTED_SYSTEM_IDS = Object.freeze([
-  'product-owner',
-  'sales-communication',
-  'sales-hubspot-automation',
-  'media-editor',
-  'linkedin-pieter-bertram',
-  'linkedin-nigel-de-lange',
-  'barter-deal-templates',
-  'barter-copywriter',
-  'barter-blog-posts',
-  'prompt-improver',
-]);
+// The registry is the sole membership authority; the closed fleet size remains explicit.
+const EXPECTED_SYSTEM_COUNT = 10;
 
 const REQUIRED_ENTRY_FIELDS = [
   'id',
@@ -76,10 +66,10 @@ function validateRegistryShape(data) {
     problems.push('registry.json "systems" must be an array');
     return { ok: false, problems };
   }
-  if (data.systems.length !== EXPECTED_SYSTEM_IDS.length) {
+  if (data.systems.length !== EXPECTED_SYSTEM_COUNT) {
     problems.push(
-      `registry.json must declare exactly ${EXPECTED_SYSTEM_IDS.length} systems, ` +
-        `found ${data.systems.length}`
+      `registry.json must declare exactly ${EXPECTED_SYSTEM_COUNT} systems, ` +
+      `found ${data.systems.length}`
     );
   }
 
@@ -98,6 +88,9 @@ function validateRegistryShape(data) {
         problems.push(`systems[${index}].${field} must be a string`);
       }
     }
+    if (typeof entry.id === 'string' && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(entry.id)) {
+      problems.push(`systems[${index}].id must be a lowercase kebab-case identifier`);
+    }
     if ('validators' in entry && !Array.isArray(entry.validators)) {
       problems.push(`systems[${index}].validators must be an array`);
     }
@@ -111,9 +104,20 @@ function validateRegistryShape(data) {
           `got "${entry.kernelPath}"`
       );
     }
-    if (typeof entry.packageRoot === 'string' && path.isAbsolute(entry.packageRoot)) {
+    if (typeof entry.packageRoot === 'string') {
+      const problem = relativePathProblem(entry.packageRoot, { basenameOnly: true });
+      if (problem) problems.push(`systems[${index}].packageRoot ${problem}`);
+    }
+    if (typeof entry.skillRoot === 'string') {
+      const problem = relativePathProblem(entry.skillRoot, { basenameOnly: true });
+      if (problem) problems.push(`systems[${index}].skillRoot ${problem}`);
+    }
+    if (
+      typeof entry.manifestPath === 'string' &&
+      entry.manifestPath !== 'claude-project.sync.json'
+    ) {
       problems.push(
-        `systems[${index}] ("${entry.id}").packageRoot must be repo-root-relative, not absolute`
+        `systems[${index}] ("${entry.id}").manifestPath must be "claude-project.sync.json"`
       );
     }
   });
@@ -138,17 +142,6 @@ function validateRegistryShape(data) {
   const dupSkillRoots = findDuplicates(skillRoots);
   if (dupSkillRoots.length) {
     problems.push(`registry.json has duplicate skillRoot values: ${dupSkillRoots.join(', ')}`);
-  }
-
-  const idSet = new Set(ids);
-  const expectedSet = new Set(EXPECTED_SYSTEM_IDS);
-  const missing = EXPECTED_SYSTEM_IDS.filter((id) => !idSet.has(id));
-  const unexpected = ids.filter((id) => !expectedSet.has(id));
-  if (missing.length) {
-    problems.push(`registry.json is missing required system id(s): ${missing.join(', ')}`);
-  }
-  if (unexpected.length) {
-    problems.push(`registry.json declares unexpected system id(s): ${unexpected.join(', ')}`);
   }
 
   return { ok: problems.length === 0, problems };
@@ -191,7 +184,7 @@ function findSystem(registry, id) {
 
 module.exports = {
   REGISTRY_FILENAME,
-  EXPECTED_SYSTEM_IDS,
+  EXPECTED_SYSTEM_COUNT,
   REQUIRED_ENTRY_FIELDS,
   validateRegistryShape,
   loadRegistry,

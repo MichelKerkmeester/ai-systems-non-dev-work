@@ -91,12 +91,12 @@
           "source": {
             "type": "string",
             "minLength": 1,
-            "description": "Authoritative source path, package-root-relative (e.g. \"sk-product-owner/SKILL.md\")."
+            "description": "Normalized package-root-relative authoritative source path under skillRoot (e.g. \"sk-product-owner/SKILL.md\"); absolute paths and traversal are rejected."
           },
           "target": {
             "type": "string",
             "minLength": 1,
-            "description": "Exact Project Knowledge filename this source mirrors to, inside knowledgeRoot. Never derived from frontmatter or version text - always an explicit human naming decision."
+            "description": "Exact Project Knowledge filename inside knowledgeRoot. Directory components, absolute paths and traversal are rejected; naming remains an explicit human decision."
           },
           "sourceVersion": {
             "type": "string",
@@ -132,7 +132,7 @@
           "cwd": {
             "type": "string",
             "minLength": 1,
-            "description": "Package-root-relative directory to run the command from."
+            "description": "Normalized package-root-relative directory to run the command from; absolute paths and traversal are rejected."
           }
         }
       }
@@ -157,21 +157,39 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["path", "reason"],
+        "required": ["path", "reason", "renderer", "projectFrontmatter"],
         "properties": {
           "path": {
             "type": "string",
             "minLength": 1,
-            "description": "The mirror target path (knowledgeRoot-relative) or kernel path this exception applies to."
+            "description": "Exact mirror target filename (knowledgeRoot-relative) rendered by the declared deterministic renderer."
           },
           "reason": {
             "type": "string",
             "minLength": 1,
-            "description": "Documented reason the byte-parity check is waived for this path (e.g. link retargeting plus frontmatter addition)."
+            "description": "Documented reason this mirror needs deterministic transformation instead of a byte copy."
+          },
+          "renderer": {
+            "const": "project-skill-mirror-v1",
+            "description": "Deterministic renderer that adds Project retrieval frontmatter and retargets mapped references/assets to sibling Project Knowledge filenames."
+          },
+          "projectFrontmatter": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["contextType", "importanceTier", "triggerPhrases"],
+            "properties": {
+              "contextType": { "type": "string", "minLength": 1 },
+              "importanceTier": { "type": "string", "minLength": 1 },
+              "triggerPhrases": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string", "minLength": 1 }
+              }
+            }
           }
         }
       },
-      "description": "Declared, reviewed exceptions to the plain byte-copy mirror rule. Every other mirror not listed here must be byte-identical to its dereferenced source."
+      "description": "Declared, reviewed deterministic transformations of the plain byte-copy mirror rule. Sync renders and parity-checks every listed target; no declared mirror remains hand-maintained."
     },
     "generatedRegions": {
       "type": "array",
@@ -183,13 +201,13 @@
           "target": {
             "type": "string",
             "minLength": 1,
-            "description": "Package-root-relative file containing the generated region(s), e.g. \"SYNC.md\" or \"claude project/README.md\"."
+            "description": "Fixed package-root-relative host file: \"SYNC.md\" or \"claude project/README.md\"."
           },
           "sections": {
             "type": "array",
             "minItems": 1,
             "items": { "type": "string", "minLength": 1 },
-            "description": "Section names used in that file's BEGIN/END markers."
+            "description": "Registered renderer names used in BEGIN/END markers: INVENTORY, CHECKSUMS or SMOKE_VERSION_PINS."
           }
         }
       }

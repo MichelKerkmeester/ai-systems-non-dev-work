@@ -21,9 +21,9 @@ The transaction engine protects the fleet from partial swaps and concurrent sync
 
 ## 2. HOW IT WORKS
 
-Before changing a live path, the engine rejects a prior interrupted journal, authorizes any delete operation against the previous package lock and acquires the repository-wide `.ai-system-sync.lock`. It stages every write as a same-filesystem sibling, validates the staged set when a validator is supplied and rehashes declared sources immediately before apply.
+Before inspecting transaction state or changing a live path, the engine acquires the repository-wide `.ai-system-sync.lock`. It then rejects a prior interrupted journal, validates every operation and source path against its allowed boundary, authorizes any delete against the previous package lock, stages every ordinary write as a same-filesystem sibling, validates the staged set when a validator is supplied and rehashes declared sources immediately before apply.
 
-The engine journals each operation before the first real path changes. Each write moves the prior target to a backup, renames the staged file into place and updates the journal after success. The caller writes `package-lock.json` last, after every requested operation is in place.
+The engine journals each ordinary operation before the first real path changes. Each write moves the prior target to a backup, renames the staged file into place and updates the journal after success. It then renders, stages, appends and applies `package-lock.json` as the final journaled operation, so lock failures roll back with the rest of the package.
 
 After success the engine removes backups and the journal and releases the lock. If apply fails, it restores operations in reverse order, cleans staging and backups and removes the journal before returning the error.
 
@@ -36,15 +36,17 @@ After success the engine removes backups and the journal and releases the lock. 
 | File | Layer | Role |
 |---|---|---|
 | [`../../lib/transaction.cjs`](../../lib/transaction.cjs) | Shared | Implements repository locking, staging, journaling, atomic swaps and rollback. |
-| [`../../ai-system-sync.cjs`](../../ai-system-sync.cjs) | Handler | Supplies operations and writes the final package lock after apply. |
+| [`../../ai-system-sync.cjs`](../../ai-system-sync.cjs) | Handler | Supplies operations and the final package-lock renderer. |
+| [`../../lib/lockfile.cjs`](../../lib/lockfile.cjs) | Shared | Builds complete lock bytes for the transaction's final operation. |
 | [`../../lib/hashing.cjs`](../../lib/hashing.cjs) | Shared | Rehashes sources before apply and computes lock values. |
+| [`../../lib/path-safety.cjs`](../../lib/path-safety.cjs) | Shared | Constrains operation and source paths before staging. |
 | [`../../lib/paths.cjs`](../../lib/paths.cjs) | Shared | Defines lock, journal, backup and repository lock paths. |
 
 ### Validation And Tests
 
 | File | Type | Role |
 |---|---|---|
-| [`../../tests/transaction.test.cjs`](../../tests/transaction.test.cjs) | Automated test | Covers locks, staging, delete authorization, source changes and rollback. |
+| [`../../tests/transaction.test.cjs`](../../tests/transaction.test.cjs) | Automated test | Covers locks, path containment, staging, delete authorization, source changes and lock rollback. |
 | [`../../tests/sync-write.test.cjs`](../../tests/sync-write.test.cjs) | Automated test | Covers end-to-end sync writes, package locks and idempotence. |
 
 ---

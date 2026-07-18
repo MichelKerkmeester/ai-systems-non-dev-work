@@ -167,6 +167,36 @@ test('a second sync --write against unchanged sources is a true no-op', () => {
   );
 });
 
+test('sync --write rebuilds a missing package lock even when package bytes are current', () => {
+  const { repoRoot } = buildFixture();
+  const first = runCli(['sync', '--system', 'product-owner', '--write'], repoRoot);
+  assert.equal(first.status, 0, first.stdout + first.stderr);
+  const lockPath = path.join(repoRoot, 'Product Owner/claude project/package-lock.json');
+  fs.unlinkSync(lockPath);
+
+  const repair = runCli(['sync', '--system', 'product-owner', '--write'], repoRoot);
+  assert.equal(repair.status, 0, repair.stdout + repair.stderr);
+  assert.match(repair.stdout, /applied 1 change\(s\)/);
+  assert.equal(fs.existsSync(lockPath), true);
+
+  const noOp = runCli(['sync', '--system', 'product-owner', '--write'], repoRoot);
+  assert.match(noOp.stdout, /already up to date \(0 change\(s\)\)/);
+});
+
+test('sync --write rejects manifest traversal before touching protected files', () => {
+  const { repoRoot } = buildFixture();
+  const manifestPath = path.join(repoRoot, 'Product Owner/claude-project.sync.json');
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  manifest.mirrors[0].target = '../../../AGENTS.md';
+  fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+  const protectedPath = writeFile(repoRoot, 'AGENTS.md', 'protected\n');
+
+  const result = runCli(['sync', '--system', 'product-owner', '--write'], repoRoot);
+  assert.equal(result.status, 2);
+  assert.match(result.stdout, /must not traverse|filename without directory components/);
+  assert.equal(fs.readFileSync(protectedPath, 'utf8'), 'protected\n');
+});
+
 test('sync --write refuses when a declared generated-region target is missing its markers', () => {
   const { repoRoot } = buildFixture();
   // Remove markers to verify that sync refuses an unscaffolded target.
@@ -186,16 +216,20 @@ test('check after sync --write reports the region body as reproduced, not drifte
   assert.doesNotMatch(result.stdout, /REGION_NOT_SCAFFOLDED/);
 });
 
-test('sync --write never overwrites a mirror declared as a derivation exception', () => {
+test('sync --write deterministically renders a declared derivation exception', () => {
   const repoRoot = mkTempRepo();
-  writeFile(repoRoot, 'Product Owner/sk-product-owner/SKILL.md', '# Raw Skill\n\nSource body.\n');
+  writeFile(
+    repoRoot,
+    'Product Owner/sk-product-owner/SKILL.md',
+    '---\nname: product-owner\nversion: 1.0.0\n---\n\n' +
+      '# Raw Skill\n\n[Reference](./references/example.md)\n'
+  );
+  writeFile(repoRoot, 'Product Owner/sk-product-owner/references/example.md', '# Reference\n');
   writeFile(repoRoot, 'Product Owner/claude project/Custom Instructions.md', '# Fixture Kernel\n');
-  const handAppliedContent =
-    '---\ntitle: Retargeted\n---\n\n# Raw Skill\n\nSource body, with links retargeted by hand.\n';
   writeFile(
     repoRoot,
     'Product Owner/claude project/knowledge/Product Owner - System - Skill - v1.0.0.md',
-    handAppliedContent
+    'stale hand-applied content\n'
   );
   writeFile(
     repoRoot,
@@ -222,11 +256,19 @@ test('sync --write never overwrites a mirror declared as a derivation exception'
       version: '1.0.0',
       alignedSkillVersion: '1.0.0',
     },
-    sourceCoverage: { include: ['sk-product-owner/SKILL.md'] },
+    sourceCoverage: {
+      include: ['sk-product-owner/SKILL.md', 'sk-product-owner/references/example.md'],
+    },
     mirrors: [
       {
         source: 'sk-product-owner/SKILL.md',
         target: 'Product Owner - System - Skill - v1.0.0.md',
+        sourceVersion: '1.0.0',
+        projectVersion: '1.0.0',
+      },
+      {
+        source: 'sk-product-owner/references/example.md',
+        target: 'Product Owner - Reference - Example - v1.0.0.md',
         sourceVersion: '1.0.0',
         projectVersion: '1.0.0',
       },
@@ -238,12 +280,16 @@ test('sync --write never overwrites a mirror declared as a derivation exception'
     derivationExceptions: [
       {
         path: 'Product Owner - System - Skill - v1.0.0.md',
-        reason:
-          'Fixture proof: this mirror carries hand-applied link retargeting and must ' +
-          'survive sync --write untouched.',
+        reason: 'Retarget links and add Project retrieval metadata.',
+        renderer: 'project-skill-mirror-v1',
+        projectFrontmatter: {
+          contextType: 'reference',
+          importanceTier: 'high',
+          triggerPhrases: ['product owner skill'],
+        },
       },
     ],
-    expectedKnowledgeCount: 1,
+    expectedKnowledgeCount: 2,
     generatedRegions: [
       { target: 'SYNC.md', sections: ['INVENTORY'] },
       { target: 'claude project/README.md', sections: ['CHECKSUMS'] },
@@ -256,5 +302,15 @@ test('sync --write never overwrites a mirror declared as a derivation exception'
   );
   const result = runCli(['sync', '--system', 'product-owner', '--write'], repoRoot);
   assert.equal(result.status, 0, result.stdout + result.stderr);
-  assert.equal(fs.readFileSync(mirrorAbs, 'utf8'), handAppliedContent);
+  const rendered = fs.readFileSync(mirrorAbs, 'utf8');
+  assert.match(rendered, /title: Product Owner - System - Skill - v1\.0\.0/);
+  assert.match(rendered, /contextType: reference/);
+  assert.match(rendered, /\[Reference\]\(<Product Owner - Reference - Example - v1\.0\.0\.md>\)/);
+  assert.doesNotMatch(rendered, /stale hand-applied content/);
+
+  const readme = fs.readFileSync(
+    path.join(repoRoot, 'Product Owner/claude project/README.md'),
+    'utf8'
+  );
+  assert.match(readme, new RegExp(hashFile(mirrorAbs).sha16));
 });

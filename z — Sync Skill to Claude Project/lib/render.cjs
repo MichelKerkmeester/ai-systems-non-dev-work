@@ -7,8 +7,8 @@
 // 1. IMPORTS/REQUIRES
 // ─────────────────────────────────────────────────────────────────────────────
 
-const path = require('node:path');
-const { hashFile } = require('./hashing.cjs');
+const { hashFile, sha256Hex } = require('./hashing.cjs');
+const { renderMirrorBytes } = require('./mirrors.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 2. HELPERS
@@ -96,11 +96,11 @@ function renderChecksumsSection({ manifest, packageAbsRoot, kernelAbsPath }) {
   );
   const prefix = commonTargetPrefix(manifest.mirrors);
   for (const mirror of manifest.mirrors) {
-    const sourceAbs = path.join(packageAbsRoot, mirror.source);
-    const hash = hashFile(sourceAbs);
+    const renderedBytes = renderMirrorBytes({ packageAbsRoot, manifest, mirror });
+    const mirrorSha16 = sha256Hex(renderedBytes).slice(0, 16);
     lines.push(
       `| knowledge/ ${shortLabel(mirror.target, prefix)} | v${mirror.projectVersion} -> ` +
-        `v${mirror.sourceVersion}, sha16 \`${hash.sha16}\` |`
+        `v${mirror.sourceVersion}, sha16 \`${mirrorSha16}\` |`
     );
   }
   return lines.join('\n');

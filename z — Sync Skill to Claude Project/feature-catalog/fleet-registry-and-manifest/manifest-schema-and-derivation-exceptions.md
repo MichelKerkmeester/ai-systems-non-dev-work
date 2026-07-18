@@ -1,6 +1,6 @@
 ---
 title: "Manifest Schema And Derivation Exceptions"
-description: "Validates each system manifest and defines the reviewed exception mechanism for non-identical mirror derivation."
+description: "Validates each system manifest and defines deterministic rendering for non-identical Project Skill mirrors."
 trigger_phrases:
   - "Manifest Schema And Derivation Exceptions"
   - "claude-project.sync.json schema"
@@ -13,7 +13,7 @@ version: 1.0.0.0
 
 ## 1. OVERVIEW
 
-Validates each system manifest and defines the reviewed exception mechanism for non-identical mirror derivation.
+Validates each system manifest and defines deterministic rendering for non-identical Project Skill mirrors.
 
 The manifest is hand-authored package contract data. The runtime validator in `manifest.cjs` enforces the same documented shape described by `package.schema.json` without requiring a JSON Schema dependency.
 
@@ -21,9 +21,9 @@ The manifest is hand-authored package contract data. The runtime validator in `m
 
 ## 2. HOW IT WORKS
 
-The validator requires schema version 1, registry-aligned identity, fixed knowledge and kernel paths, source coverage, non-empty mirror declarations, contract inputs and an expected knowledge count equal to the mirror count. It validates optional validators, retired-name settings, scan exclusions, derivation exceptions and generated-region declarations and rejects unknown fields.
+The validator requires schema version 1, registry-aligned identity, fixed knowledge and kernel paths, source coverage, non-empty mirror declarations, contract inputs and an expected knowledge count equal to the mirror count. It rejects absolute, traversing or non-normalized paths; validates optional validators, retired-name settings and scan exclusions; permits only registered generated targets and sections; and rejects unknown fields.
 
-Each mirror carries explicit source, target, source version and project version values. A `derivationExceptions` item carries a target path and a non-empty reason. The mechanical parity check skips only that target and the sync planner skips it too, preserving a reviewed mirror that contains intentional hand-applied changes.
+Each mirror carries explicit source, target, source version and project version values. A `derivationExceptions` item must match a declared target and carry a reason, the `project-skill-mirror-v1` renderer and complete `contextType`, `importanceTier` and `triggerPhrases` configuration. Mechanical parity and sync both invoke the same renderer, so an exception is deterministic configuration rather than a waiver.
 
 ---
 
@@ -35,16 +35,18 @@ Each mirror carries explicit source, target, source version and project version 
 |---|---|---|
 | [`../../lib/manifest.cjs`](../../lib/manifest.cjs) | Shared | Implements strict manifest shape validation and loading. |
 | [`../../package.schema.json`](../../package.schema.json) | Shared | Documents the manifest fields and constraints enforced by the runtime validator. |
-| [`../../lib/mechanical-checks.cjs`](../../lib/mechanical-checks.cjs) | Shared | Applies derivation exceptions during byte parity checks. |
-| [`../../ai-system-sync.cjs`](../../ai-system-sync.cjs) | Handler | Applies derivation exceptions during sync operation planning. |
+| [`../../lib/path-safety.cjs`](../../lib/path-safety.cjs) | Shared | Validates normalized relative paths and containment constraints. |
+| [`../../lib/mirrors.cjs`](../../lib/mirrors.cjs) | Shared | Implements the registered deterministic mirror renderer. |
+| [`../../lib/mechanical-checks.cjs`](../../lib/mechanical-checks.cjs) | Shared | Compares targets with raw or rendered expected bytes. |
+| [`../../ai-system-sync.cjs`](../../ai-system-sync.cjs) | Handler | Uses the same renderer during sync operation planning. |
 
 ### Validation And Tests
 
 | File | Type | Role |
 |---|---|---|
-| [`../../tests/manifest.test.cjs`](../../tests/manifest.test.cjs) | Automated test | Covers fixed paths, duplicates, unknown fields and invalid JSON handling. |
-| [`../../tests/mechanical-checks.test.cjs`](../../tests/mechanical-checks.test.cjs) | Automated test | Covers manifest-driven parity and exception behavior. |
-| [`../../tests/sync-write.test.cjs`](../../tests/sync-write.test.cjs) | Automated test | Verifies an exception mirror is preserved during sync. |
+| [`../../tests/manifest.test.cjs`](../../tests/manifest.test.cjs) | Automated test | Covers fixed and contained paths, registered renderers, duplicates, unknown fields and invalid JSON handling. |
+| [`../../tests/mechanical-checks.test.cjs`](../../tests/mechanical-checks.test.cjs) | Automated test | Covers manifest-driven raw and deterministic mirror parity. |
+| [`../../tests/sync-write.test.cjs`](../../tests/sync-write.test.cjs) | Automated test | Verifies deterministic exception rendering during sync. |
 
 ---
 

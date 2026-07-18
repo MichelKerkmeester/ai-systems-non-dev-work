@@ -13,10 +13,14 @@ const path = require('node:path');
 
 const { computeContractDigest, computePackageDigest, ContractInputMissingError } = require('./contract-digest.cjs');
 const { EXIT, worstExitCode } = require('./exit-codes.cjs');
-const { hashFile, isSha16, sha256Hex } = require('./hashing.cjs');
+const { hashFile, isSha16, isSha256, sha256Hex } = require('./hashing.cjs');
 const { loadManifest, ManifestMissingError, ManifestValidationError, FIXED_KNOWLEDGE_ROOT } = require('./manifest.cjs');
+const { MirrorRenderError, renderMirrorBytes } = require('./mirrors.cjs');
+const { UnsafePathError, resolveContainedPath } = require('./path-safety.cjs');
 const { JOURNAL_REL_PATH, LOCK_REL_PATH, KERNEL_REVIEW_REL_PATH, UPLOAD_RECEIPT_REL_PATH } = require('./paths.cjs');
+const { renderSection } = require('./render.cjs');
 const { extractRegion } = require('./regions.cjs');
+const { inspectRepoLock } = require('./transaction.cjs');
 const {
   readJsonStrict,
   findCaseInsensitiveCollisions,
@@ -30,6 +34,7 @@ const {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const CODE = Object.freeze({
+  SYNC_IN_PROGRESS: 'SYNC_IN_PROGRESS',
   INTERRUPTED_TRANSACTION: 'INTERRUPTED_TRANSACTION',
   PACKAGE_ROOT_MISSING: 'PACKAGE_ROOT_MISSING',
   MANIFEST_MISSING: 'MANIFEST_MISSING',
@@ -44,6 +49,8 @@ const CODE = Object.freeze({
   MISSING_KNOWLEDGE_FILE: 'MISSING_KNOWLEDGE_FILE',
   KNOWLEDGE_COUNT_MISMATCH: 'KNOWLEDGE_COUNT_MISMATCH',
   MIRROR_BYTE_MISMATCH: 'MIRROR_BYTE_MISMATCH',
+  LOCK_MISSING: 'LOCK_MISSING',
+  LOCK_STRUCTURE_MISMATCH: 'LOCK_STRUCTURE_MISMATCH',
   LOCK_HASH_MISMATCH: 'LOCK_HASH_MISMATCH',
   HASH_PREFIX_MISMATCH: 'HASH_PREFIX_MISMATCH',
   REGION_NOT_SCAFFOLDED: 'REGION_NOT_SCAFFOLDED',
@@ -236,17 +243,6 @@ function checkCoverageAndMirrors({ repoAbsRoot, packageAbsRoot, manifest, findin
 }
 
 /**
- * Determine whether a mirror target is exempt from byte derivation.
- *
- * @param {{derivationExceptions?: {path: string}[]}} manifest - Loaded manifest.
- * @param {string} targetRelPath - Package-relative mirror target.
- * @returns {boolean} Whether the target is a declared exception.
- */
-function isDerivationException(manifest, targetRelPath) {
-  return (manifest.derivationExceptions || []).some((e) => e.path === targetRelPath);
-}
-
-/**
  * Check the knowledge directory inventory and mirror byte parity.
  *
  * @param {object} context - Check context and finding accumulator.
@@ -301,44 +297,108 @@ function checkKnowledgeInventory({ packageAbsRoot, manifest, findings }) {
   }
 
   for (const mirror of manifest.mirrors) {
-    if (isDerivationException(manifest, mirror.target)) continue;
     const sourceAbs = path.join(packageAbsRoot, mirror.source);
     const targetAbs = path.join(knowledgeAbsDir, mirror.target);
     if (!fs.existsSync(sourceAbs) || !actualSet.has(mirror.target)) continue; // already reported above
-    const sourceHash = hashFile(sourceAbs);
+    let expectedBytes;
+    try {
+      expectedBytes = renderMirrorBytes({ packageAbsRoot, manifest, mirror });
+    } catch (err) {
+      if (err instanceof MirrorRenderError) {
+        findings.push(finding(CODE.MANIFEST_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, err.message));
+        continue;
+      }
+      throw err;
+    }
     const targetHash = hashFile(targetAbs);
-    if (sourceHash.sha256 !== targetHash.sha256) {
+    if (sha256Hex(expectedBytes) !== targetHash.sha256) {
       findings.push(
         finding(
           CODE.MIRROR_BYTE_MISMATCH,
           EXIT.MECHANICAL_DRIFT,
-          `Mirror not byte-identical to source: ${mirror.target} (from ${mirror.source})`
+          `Mirror does not match its compiler rendering: ${mirror.target} (from ${mirror.source})`
         )
       );
     }
   }
 }
 
-/** Reads package-lock.json once per system, shared by checkLockConsistency
- * and checkGeneratedRegions, so an invalid lock file is reported exactly
- * once instead of by whichever check happens to load it first. */
+/** Read package-lock.json once so missing and invalid states stay distinct. */
 function loadLock(packageAbsRoot, findings) {
   const lockAbs = path.join(packageAbsRoot, LOCK_REL_PATH);
-  if (!fs.existsSync(lockAbs)) return null; // no sync run yet; not itself a failure in report-only phase
+  if (!fs.existsSync(lockAbs)) return { status: 'missing', data: null };
   try {
-    return readJsonStrict(lockAbs);
+    return { status: 'ok', data: readJsonStrict(lockAbs) };
   } catch (err) {
     findings.push(
       finding(CODE.JSON_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, `Invalid ${LOCK_REL_PATH}: ${err.message}`)
     );
-    return null;
+    return { status: 'invalid', data: null };
   }
 }
 
-function checkLockConsistency({ packageAbsRoot, lock, findings }) {
-  if (!lock) return;
-  for (const record of lock.files || []) {
-    if (!isSha16(record.sha16) || record.sha16 !== String(record.sha256 || '').slice(0, 16)) {
+function sameStringSet(actual, expected) {
+  if (!Array.isArray(actual) || actual.length !== expected.length) return false;
+  return new Set(actual).size === actual.length && expected.every((value) => actual.includes(value));
+}
+
+function checkLockConsistency({ packageAbsRoot, entry, manifest, lockState, findings }) {
+  if (lockState.status === 'missing') {
+    findings.push(
+      finding(
+        CODE.LOCK_MISSING,
+        EXIT.MECHANICAL_DRIFT,
+        `${LOCK_REL_PATH} is missing; run sync --system ${entry.id} --write to rebuild package state.`
+      )
+    );
+    return;
+  }
+  if (lockState.status !== 'ok') return;
+  const lock = lockState.data;
+  const structureProblems = [];
+  const expectedFiles = [
+    entry.kernelPath,
+    ...manifest.mirrors.map((mirror) => `${FIXED_KNOWLEDGE_ROOT}/${mirror.target}`),
+  ];
+  const fileRecords = Array.isArray(lock.files) ? lock.files : [];
+  const filePaths = fileRecords.map((record) => record && record.path);
+  const expectedRegions = (manifest.generatedRegions || []).flatMap((region) =>
+    region.sections.map((section) => regionLockKey(region.target, section))
+  );
+  const regionRecords = Array.isArray(lock.regions) ? lock.regions : [];
+  const regionKeys = regionRecords.map((record) =>
+    record && regionLockKey(record.target, record.section)
+  );
+  const expectedDeletable = manifest.mirrors.map(
+    (mirror) => `${FIXED_KNOWLEDGE_ROOT}/${mirror.target}`
+  );
+
+  if (lock.schemaVersion !== 1) structureProblems.push('schemaVersion must be 1');
+  if (lock.systemId !== entry.id) structureProblems.push(`systemId must be ${entry.id}`);
+  if (!sameStringSet(filePaths, expectedFiles)) structureProblems.push('files inventory is incomplete or contains extras');
+  if (!sameStringSet(regionKeys, expectedRegions)) structureProblems.push('regions inventory is incomplete or contains extras');
+  if (!sameStringSet(lock.deletable, expectedDeletable)) structureProblems.push('deletable inventory does not match mirrors');
+  if (typeof lock.generatedAt !== 'string' || Number.isNaN(Date.parse(lock.generatedAt))) {
+    structureProblems.push('generatedAt must be an ISO-8601 timestamp');
+  }
+  if (structureProblems.length) {
+    findings.push(
+      finding(
+        CODE.LOCK_STRUCTURE_MISMATCH,
+        EXIT.MECHANICAL_DRIFT,
+        `${LOCK_REL_PATH} structure mismatch: ${structureProblems.join('; ')}`
+      )
+    );
+  }
+
+  const expectedFileSet = new Set(expectedFiles);
+  for (const record of fileRecords) {
+    if (!record || !expectedFileSet.has(record.path)) continue;
+    if (
+      !isSha256(record.sha256) ||
+      !isSha16(record.sha16) ||
+      record.sha16 !== record.sha256.slice(0, 16)
+    ) {
       findings.push(
         finding(
           CODE.HASH_PREFIX_MISMATCH,
@@ -348,15 +408,39 @@ function checkLockConsistency({ packageAbsRoot, lock, findings }) {
       );
       continue;
     }
-    const abs = path.join(packageAbsRoot, record.path);
+    let abs;
+    try {
+      abs = resolveContainedPath(packageAbsRoot, record.path);
+    } catch (err) {
+      if (err instanceof UnsafePathError) continue;
+      throw err;
+    }
     if (!fs.existsSync(abs)) continue; // reported elsewhere as missing knowledge/kernel file
     const live = hashFile(abs);
-    if (live.sha256 !== record.sha256) {
+    if (live.sha256 !== record.sha256 || live.bytes !== record.bytes) {
       findings.push(
         finding(
           CODE.LOCK_HASH_MISMATCH,
           EXIT.MECHANICAL_DRIFT,
           `${record.path} no longer matches the hash recorded in ${LOCK_REL_PATH}`
+        )
+      );
+    }
+  }
+
+  const expectedRegionSet = new Set(expectedRegions);
+  for (const record of regionRecords) {
+    const key = record && regionLockKey(record.target, record.section);
+    if (!record || !expectedRegionSet.has(key) || !isSha256(record.sha256)) continue;
+    const targetAbs = path.join(packageAbsRoot, record.target);
+    if (!fs.existsSync(targetAbs)) continue;
+    const body = extractRegion(fs.readFileSync(targetAbs, 'utf8'), record.section);
+    if (body !== null && sha256Hex(body) !== record.sha256) {
+      findings.push(
+        finding(
+          CODE.LOCK_HASH_MISMATCH,
+          EXIT.MECHANICAL_DRIFT,
+          `Generated region "${record.section}" in ${record.target} no longer matches ${LOCK_REL_PATH}`
         )
       );
     }
@@ -370,22 +454,10 @@ function regionLockKey(target, section) {
 }
 
 /**
- * Region reproduction: a scaffolded region's current body is compared
- * against the sha256 recorded for it in package-lock.json (`lock.regions`)
- * the last time `sync --write` locked it, when such a record exists. This
- * is the same "locked snapshot vs. live bytes" mechanism checkLockConsistency
- * already uses for mirrors and the kernel, applied at region-body
- * granularity so hand prose outside the markers stays freely editable while
- * a hand edit inside them is always caught as drift, not silently absorbed.
- * Silent (no finding either way) until a lock record exists for that region,
- * exactly like lock/hash-prefix checks are silent before the first lock.
+ * Compare every generated body with fresh renderer output from the live manifest.
  */
-function checkGeneratedRegions({ packageAbsRoot, manifest, lock, findings }) {
-  const lockedRegionShas = new Map();
-  for (const record of (lock && lock.regions) || []) {
-    lockedRegionShas.set(regionLockKey(record.target, record.section), record.sha256);
-  }
-
+function checkGeneratedRegions({ packageAbsRoot, entry, manifest, findings }) {
+  const kernelAbsPath = path.join(packageAbsRoot, entry.kernelPath);
   for (const region of manifest.generatedRegions || []) {
     const abs = path.join(packageAbsRoot, region.target);
     if (!fs.existsSync(abs)) {
@@ -411,14 +483,22 @@ function checkGeneratedRegions({ packageAbsRoot, manifest, lock, findings }) {
         );
         continue;
       }
-      const lockedSha = lockedRegionShas.get(regionLockKey(region.target, section));
-      if (lockedSha && sha256Hex(body) !== lockedSha) {
+      let expectedBody;
+      try {
+        expectedBody = renderSection(section, { manifest, packageAbsRoot, kernelAbsPath });
+      } catch (err) {
+        if (err instanceof MirrorRenderError) {
+          findings.push(finding(CODE.MANIFEST_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, err.message));
+          continue;
+        }
+        throw err;
+      }
+      if (body !== expectedBody) {
         findings.push(
           finding(
             CODE.REGION_DRIFT,
             EXIT.MECHANICAL_DRIFT,
-            `Generated region "${section}" in ${region.target} no longer matches the body recorded in ` +
-              `${LOCK_REL_PATH} at the last sync --write (hand edit inside a generated region).`
+            `Generated region "${section}" in ${region.target} does not match current renderer output.`
           )
         );
       }
@@ -595,7 +675,19 @@ function checkKernelReview({ packageAbsRoot, entry, manifest, findings }) {
 
 function runValidators({ packageAbsRoot, manifest, findings }) {
   for (const validator of manifest.validators || []) {
-    const cwdAbs = path.join(packageAbsRoot, validator.cwd);
+    let cwdAbs;
+    try {
+      cwdAbs = resolveContainedPath(packageAbsRoot, validator.cwd, {
+        allowDot: true,
+        mustExist: true,
+      });
+    } catch (err) {
+      if (err instanceof UnsafePathError) {
+        findings.push(finding(CODE.MANIFEST_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, err.message));
+        continue;
+      }
+      throw err;
+    }
     const [cmd, ...args] = validator.command;
     const result = spawnSync(cmd, args, { cwd: cwdAbs, encoding: 'utf8' });
     if (result.error || result.status !== 0) {
@@ -666,6 +758,18 @@ function checkSystem({ repoRoot, entry, options }) {
 
   const journalAbs = path.join(packageAbsRoot, JOURNAL_REL_PATH);
   if (fs.existsSync(journalAbs)) {
+    const lockState = inspectRepoLock(repoRoot).state;
+    if (lockState === 'held') {
+      findings.push(
+        finding(
+          CODE.SYNC_IN_PROGRESS,
+          EXIT.INTERRUPTED_TRANSACTION,
+          `A sync transaction is active for ${entry.id}; wait for the repo lock to clear. ` +
+            'Do not run recovery while the lock is held.'
+        )
+      );
+      return finalize(entry.id, findings);
+    }
     findings.push(
       finding(
         CODE.INTERRUPTED_TRANSACTION,
@@ -703,8 +807,8 @@ function checkSystem({ repoRoot, entry, options }) {
 
   checkCoverageAndMirrors({ repoAbsRoot: repoRoot, packageAbsRoot, manifest, findings });
   checkKnowledgeInventory({ packageAbsRoot, manifest, findings });
-  checkLockConsistency({ packageAbsRoot, lock, findings });
-  checkGeneratedRegions({ packageAbsRoot, manifest, lock, findings });
+  checkLockConsistency({ packageAbsRoot, entry, manifest, lockState: lock, findings });
+  checkGeneratedRegions({ packageAbsRoot, entry, manifest, findings });
   checkRetiredTokens({ packageAbsRoot, entry, manifest, findings });
   checkJsonAndGraphTargets({
     packageAbsRoot,
@@ -821,5 +925,4 @@ module.exports = {
   loadFleetRetiredNames,
   buildCoverageSet,
   expandCoverageEntry,
-  isDerivationException,
 };

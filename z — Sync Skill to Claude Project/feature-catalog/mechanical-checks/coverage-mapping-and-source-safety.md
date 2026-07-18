@@ -1,6 +1,6 @@
 ---
 title: "Coverage Mapping And Source Safety"
-description: "Verifies declared source coverage, mirror mapping, source existence, symlink containment and case-insensitive target uniqueness."
+description: "Verifies contained manifest paths, declared source coverage, mirror mapping, source existence, symlink containment and target uniqueness."
 trigger_phrases:
   - "Coverage Mapping And Source Safety"
   - "source coverage mapping"
@@ -13,7 +13,7 @@ version: 1.0.0.0
 
 ## 1. OVERVIEW
 
-Verifies declared source coverage, mirror mapping, source existence, symlink containment and case-insensitive target uniqueness.
+Verifies contained manifest paths, declared source coverage, mirror mapping, source existence, symlink containment and case-insensitive target uniqueness.
 
 The check protects the boundary between authoritative skill files and the derived Project Knowledge inventory before any sync writes can occur.
 
@@ -21,9 +21,9 @@ The check protects the boundary between authoritative skill files and the derive
 
 ## 2. HOW IT WORKS
 
-The check expands each `sourceCoverage.include` file or directory recursively, expands exclusions and computes the covered set. Every covered file must appear as a mirror source. Missing include paths and unmapped covered files create invalid-manifest or path findings.
+The manifest validator first rejects absolute, traversing and non-normalized paths and keeps coverage and mirror sources under `skillRoot`. The check then expands each `sourceCoverage.include` file or directory recursively, expands exclusions and computes the covered set. Every covered file must appear as a mirror source. Missing include paths and unmapped covered files create invalid-manifest or path findings.
 
-Each mirror source must exist. If a source is a symlink, the check rejects broken links and links whose resolved target leaves the repository. It also rejects mirror target names that collide case-insensitively, which prevents two targets from becoming ambiguous on case-insensitive filesystems.
+Each mirror source must exist. If a source is a symlink, the check rejects broken links and links whose resolved target leaves the repository. It also rejects mirror target names that collide case-insensitively, which prevents two targets from becoming ambiguous on case-insensitive filesystems. The transaction engine independently resolves write targets inside the selected package and source realpaths inside the repository before staging.
 
 ---
 
@@ -36,13 +36,16 @@ Each mirror source must exist. If a source is a symlink, the check rejects broke
 | [`../../lib/mechanical-checks.cjs`](../../lib/mechanical-checks.cjs) | Shared | Implements coverage expansion, mapping checks, source existence, symlink safety and target collision checks. |
 | [`../../lib/util.cjs`](../../lib/util.cjs) | Shared | Walks covered directories and detects case-insensitive collisions. |
 | [`../../lib/manifest.cjs`](../../lib/manifest.cjs) | Shared | Validates the source coverage and mirror fields consumed by the check. |
+| [`../../lib/path-safety.cjs`](../../lib/path-safety.cjs) | Shared | Validates relative paths and resolves existing ancestors inside allowed real boundaries. |
+| [`../../lib/transaction.cjs`](../../lib/transaction.cjs) | Shared | Rechecks source and write-target containment before staging. |
 
 ### Validation And Tests
 
 | File | Type | Role |
 |---|---|---|
 | [`../../tests/mechanical-checks.test.cjs`](../../tests/mechanical-checks.test.cjs) | Automated test | Covers source mapping, missing sources, symlink handling and target collisions. |
-| [`../../tests/manifest.test.cjs`](../../tests/manifest.test.cjs) | Automated test | Covers source coverage and mirror shape validation. |
+| [`../../tests/manifest.test.cjs`](../../tests/manifest.test.cjs) | Automated test | Covers source coverage, mirror shape and traversal rejection. |
+| [`../../tests/transaction.test.cjs`](../../tests/transaction.test.cjs) | Automated test | Covers escaping targets and source symlink swaps before apply. |
 
 ---
 

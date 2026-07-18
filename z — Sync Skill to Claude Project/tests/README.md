@@ -20,7 +20,7 @@ Current state:
 - `registry.test.cjs` also loads the tool's real `registry.json` for registry validation.
 - Focused tests cover contract digests, hashing, manifests, mechanical checks, generated regions, registry validation, rendering, repo-root resolution and transactions.
 - `cli.test.cjs` exercises the real CLI entry with black-box command checks.
-- `sync-write.test.cjs` exercises mirrors, generated regions, transaction locking, idempotence and derivation exceptions through the real CLI.
+- `sync-write.test.cjs` exercises raw and deterministically rendered mirrors, generated regions, transaction locking, package-lock repair and idempotence through the real CLI.
 
 ---
 
@@ -60,8 +60,8 @@ tests/
 +-- release-check.test.cjs       # Upload receipts and live package digest state
 +-- render.test.cjs              # Inventory, checksum, smoke-pin and section rendering
 +-- repo-root.test.cjs           # AI_SYSTEM_SYNC_REPO_ROOT and .git root resolution
-+-- sync-write.test.cjs          # CLI sync --write, locking, idempotence and exceptions
-+-- transaction.test.cjs         # Repo locks, staging, authorization, rollback and recovery
++-- sync-write.test.cjs          # CLI sync --write, deterministic mirrors, locks and idempotence
++-- transaction.test.cjs         # Repo locks, path safety, staging, rollback and recovery
 `-- README.md                    # Local orientation for tests/
 ```
 
@@ -76,15 +76,15 @@ tests/
 | `fleet-retired-names.test.cjs` | Checks lowercased retired-name aggregation and the skip path for an unloadable manifest. |
 | `hashing.test.cjs` | Checks SHA-256, the 16-character prefix, file hashing and digest format predicates. |
 | `helpers.cjs` | Provides shared temporary-repository and package-fixture builders for the suite. |
-| `manifest.test.cjs` | Checks manifest loading, registry cross-checks, fixed paths, duplicate targets and unknown fields. |
-| `mechanical-checks.test.cjs` | Checks package findings, exit codes 0 through 5, inventory, lock hashes, generated regions, retired names and validators. |
+| `manifest.test.cjs` | Checks manifest loading, registry cross-checks, contained paths, deterministic derivation configuration, generated renderer names, duplicate targets and unknown fields. |
+| `mechanical-checks.test.cjs` | Checks package findings, exit codes 0 through 5, deterministic mirror bytes, complete lock state, fresh generated regions, retired names and validators. |
 | `regions.test.cjs` | Checks marker rendering, extraction, replacement, missing markers and exact reproduction. |
-| `registry.test.cjs` | Checks the real ten-system registry, shape errors and `findSystem`. |
+| `registry.test.cjs` | Checks the real ten-system registry as the sole membership list, safe path constraints, reviewed membership replacement, shape errors and `findSystem`. |
 | `release-check.test.cjs` | Checks missing, stale, failed and current upload receipts without mixing local state. |
 | `render.test.cjs` | Checks target labels, inventory, checksum and Task or Bug version-pin rendering. |
 | `repo-root.test.cjs` | Checks the environment override and upward `.git` search. |
-| `sync-write.test.cjs` | Checks real CLI mirror writes, generated regions, package locks, no-op reruns, marker refusal and derivation exceptions. |
-| `transaction.test.cjs` | Checks repo locks, staged writes, delete authorization, source changes, rollback and crash recovery. |
+| `sync-write.test.cjs` | Checks real CLI mirror writes, deterministic Project Skill rendering, generated regions, package-lock repair, no-op reruns and marker refusal. |
+| `transaction.test.cjs` | Checks repo locks, contained paths, staged writes, delete authorization, source changes, rollback and lock-aware crash recovery. |
 
 ---
 
@@ -142,10 +142,10 @@ node --test "z — Sync Skill to Claude Project/tests/"*.test.cjs
 Expected result:
 
 ```text
-1..113
-# tests 113
+1..126
+# tests 126
 # suites 0
-# pass 113
+# pass 126
 # fail 0
 # cancelled 0
 # skipped 0

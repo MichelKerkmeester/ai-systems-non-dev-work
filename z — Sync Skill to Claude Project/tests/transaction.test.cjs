@@ -23,6 +23,7 @@ const {
   RepoLockHeldError,
   SourceChangedError,
   DeleteNotAllowedError,
+  CorruptJournalError,
 } = require('../lib/transaction.cjs');
 const { hashFile } = require('../lib/hashing.cjs');
 const { mkTempRepo, writeFile } = require('./helpers.cjs');
@@ -92,12 +93,13 @@ test(
       validateStaged(stagedPaths) {
         assert.equal(stagedPaths.size, 2);
       },
-      writeLockFileLast() {
+      renderLockFileLast() {
         lockFileWritten = true;
+        return Buffer.from('{"deletable":[]}\n');
       },
     });
 
-    assert.equal(result.applied, 3);
+    assert.equal(result.applied, 4);
     assert.equal(lockFileWritten, true);
     assert.equal(
       fs.readFileSync(path.join(packageAbsRoot, 'keep-me.md'), 'utf8'),
@@ -245,6 +247,49 @@ test(
   }
 );
 
+test('a lock renderer failure rolls back applied package operations and preserves the old lock', () => {
+  const repoRoot = mkTempRepo();
+  const packageAbsRoot = path.join(repoRoot, 'Pkg');
+  writeFile(repoRoot, 'Pkg/A.md', 'original A\n');
+  writeFile(repoRoot, 'Pkg/claude project/package-lock.json', 'old lock\n');
+
+  assert.throws(
+    () =>
+      runSyncTransaction({
+        repoRoot,
+        packageAbsRoot,
+        operations: [{ type: 'write', target: 'A.md', content: Buffer.from('new A\n') }],
+        renderLockFileLast() {
+          throw new Error('lock render failed');
+        },
+      }),
+    /lock render failed/
+  );
+  assert.equal(fs.readFileSync(path.join(packageAbsRoot, 'A.md'), 'utf8'), 'original A\n');
+  assert.equal(
+    fs.readFileSync(path.join(packageAbsRoot, 'claude project/package-lock.json'), 'utf8'),
+    'old lock\n'
+  );
+  assert.equal(detectInterruptedJournal(packageAbsRoot), null);
+});
+
+test('runSyncTransaction rejects an escaping target before creating transaction artifacts', () => {
+  const repoRoot = mkTempRepo();
+  const packageAbsRoot = path.join(repoRoot, 'Pkg');
+  fs.mkdirSync(packageAbsRoot, { recursive: true });
+  assert.throws(
+    () =>
+      runSyncTransaction({
+        repoRoot,
+        packageAbsRoot,
+        operations: [{ type: 'write', target: '../outside.md', content: Buffer.from('x') }],
+      }),
+    /Unsafe path/
+  );
+  assert.equal(fs.existsSync(path.join(repoRoot, 'outside.md')), false);
+  assert.equal(detectInterruptedJournal(packageAbsRoot), null);
+});
+
 test(
   'crash-and-recover: a journal left by a killed process is detected and rolled back on recovery',
   () => {
@@ -301,7 +346,7 @@ test(
     assert.ok(detected);
     assert.equal(detected.operations.length, 2);
 
-    const recovery = recoverInterruptedJournal(packageAbsRoot);
+    const recovery = recoverInterruptedJournal(repoRoot, packageAbsRoot);
     assert.equal(recovery.recovered, true);
     assert.equal(recovery.rolledBack, 1);
     assert.equal(recovery.totalOperations, 2);
@@ -329,8 +374,50 @@ test('recoverInterruptedJournal on a package with no journal is a clean no-op', 
   const repoRoot = mkTempRepo();
   const packageAbsRoot = path.join(repoRoot, 'Pkg');
   fs.mkdirSync(packageAbsRoot, { recursive: true });
-  const result = recoverInterruptedJournal(packageAbsRoot);
+  const result = recoverInterruptedJournal(repoRoot, packageAbsRoot);
   assert.deepEqual(result, { recovered: false, reason: 'no-journal' });
+});
+
+test('crash recovery restores the previous package lock with the rest of the transaction', () => {
+  const repoRoot = mkTempRepo();
+  const packageAbsRoot = path.join(repoRoot, 'Pkg');
+  writeFile(repoRoot, 'Pkg/A.md', 'old A\n');
+  writeFile(repoRoot, 'Pkg/claude project/package-lock.json', 'old lock\n');
+  fs.renameSync(path.join(packageAbsRoot, 'A.md'), path.join(packageAbsRoot, 'A.md.ai-system-sync.bak'));
+  fs.writeFileSync(path.join(packageAbsRoot, 'A.md'), 'new A\n');
+  const lockPath = path.join(packageAbsRoot, 'claude project/package-lock.json');
+  fs.renameSync(lockPath, `${lockPath}.ai-system-sync.bak`);
+  fs.writeFileSync(lockPath, 'new lock\n');
+  writeFile(
+    repoRoot,
+    'Pkg/claude project/sync-journal.json',
+    JSON.stringify({
+      schemaVersion: 1,
+      operations: [
+        {
+          type: 'write',
+          target: 'A.md',
+          staged: null,
+          backup: 'A.md.ai-system-sync.bak',
+          existedBefore: true,
+          done: true,
+        },
+        {
+          type: 'write',
+          target: 'claude project/package-lock.json',
+          staged: null,
+          backup: 'claude project/package-lock.json.ai-system-sync.bak',
+          existedBefore: true,
+          done: true,
+        },
+      ],
+    })
+  );
+
+  const result = recoverInterruptedJournal(repoRoot, packageAbsRoot);
+  assert.equal(result.rolledBack, 2);
+  assert.equal(fs.readFileSync(path.join(packageAbsRoot, 'A.md'), 'utf8'), 'old A\n');
+  assert.equal(fs.readFileSync(lockPath, 'utf8'), 'old lock\n');
 });
 
 test(
@@ -348,5 +435,34 @@ test(
       () => runSyncTransaction({ repoRoot, packageAbsRoot, operations: [] }),
       InterruptedTransactionError
     );
+    assert.throws(
+      () => recoverInterruptedJournal(repoRoot, packageAbsRoot),
+      CorruptJournalError
+    );
+    assert.equal(
+      fs.existsSync(journalPath(packageAbsRoot)),
+      true,
+      'fail-closed recovery must preserve corrupt evidence'
+    );
   }
 );
+
+test('recovery refuses to race a live transaction holding the repository lock', () => {
+  const repoRoot = mkTempRepo();
+  const packageAbsRoot = path.join(repoRoot, 'Pkg');
+  fs.mkdirSync(path.dirname(journalPath(packageAbsRoot)), { recursive: true });
+  fs.writeFileSync(
+    journalPath(packageAbsRoot),
+    JSON.stringify({ schemaVersion: 1, operations: [] })
+  );
+  const liveLock = acquireRepoLock(repoRoot);
+  try {
+    assert.throws(
+      () => recoverInterruptedJournal(repoRoot, packageAbsRoot),
+      RepoLockHeldError
+    );
+    assert.equal(fs.existsSync(journalPath(packageAbsRoot)), true);
+  } finally {
+    liveLock.release();
+  }
+});

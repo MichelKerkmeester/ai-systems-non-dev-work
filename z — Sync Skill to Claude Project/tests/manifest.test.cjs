@@ -93,6 +93,41 @@ test('validateManifestShape rejects a fixed-path violation on knowledgeRoot/kern
   assert.ok(problems.some((problem) => problem.includes('knowledgeRoot must be')));
 });
 
+test('validateManifestShape rejects source, target, contract, region, and validator traversal', () => {
+  const repoRoot = mkTempRepo();
+  const { entry, manifest } = buildCleanPackage(repoRoot);
+  const invalidManifest = structuredClone(manifest);
+  invalidManifest.mirrors[0].source = '../AGENTS.md';
+  invalidManifest.mirrors[0].target = '../../../AGENTS.md';
+  invalidManifest.contractInputs = ['../AGENTS.md'];
+  invalidManifest.validators = [{ name: 'escape', command: ['node'], cwd: '..' }];
+  invalidManifest.generatedRegions = [{ target: '../AGENTS.md', sections: ['INVENTORY'] }];
+  const { ok, problems } = validateManifestShape(invalidManifest, entry);
+  assert.equal(ok, false);
+  for (const field of ['mirrors[0].source', 'mirrors[0].target', 'contractInputs[0]', 'validators[0].cwd', 'generatedRegions[0].target']) {
+    assert.ok(problems.some((problem) => problem.includes(field)), problems.join('; '));
+  }
+});
+
+test('validateManifestShape rejects generated sections without a registered renderer', () => {
+  const repoRoot = mkTempRepo();
+  const { entry, manifest } = buildCleanPackage(repoRoot);
+  manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['PACKAGE FACTS'] }];
+  const { ok, problems } = validateManifestShape(manifest, entry);
+  assert.equal(ok, false);
+  assert.ok(problems.some((problem) => problem.includes('unsupported renderer')));
+});
+
+test('validateManifestShape requires deterministic configuration for derivation exceptions', () => {
+  const repoRoot = mkTempRepo();
+  const { entry, manifest, mirrorTarget } = buildCleanPackage(repoRoot);
+  manifest.derivationExceptions = [{ path: mirrorTarget, reason: 'manual content' }];
+  const { ok, problems } = validateManifestShape(manifest, entry);
+  assert.equal(ok, false);
+  assert.ok(problems.some((problem) => problem.includes('renderer')));
+  assert.ok(problems.some((problem) => problem.includes('projectFrontmatter')));
+});
+
 test(
   'loadManifest surfaces invalid JSON as ManifestValidationError-free JSON error, not a crash',
   () => {

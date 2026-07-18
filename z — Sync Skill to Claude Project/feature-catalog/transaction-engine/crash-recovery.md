@@ -21,9 +21,9 @@ Recovery treats the journal as the authoritative record of a possibly incomplete
 
 ## 2. HOW IT WORKS
 
-The CLI detects `claude project/sync-journal.json` before starting a normal sync and refuses to proceed until recovery runs. `sync --recover` loads the journal, including a typed corrupt-journal record when JSON parsing fails, then walks all recorded operations in reverse order.
+The CLI detects `claude project/sync-journal.json` before starting a normal sync. It reports an active transaction when the repository lock is held and otherwise requires recovery. `sync --recover` first acquires the same repository lock, then validates schema, operation types and every target, backup and staged path before rollback.
 
-Rollback restores backups for replaced or deleted targets, removes targets that did not exist before a write and cleans staged files. Recovery removes the journal after restoration and returns the rolled-back and total operation counts. A package without a journal returns a clean no-recovery result.
+Rollback restores backups for replaced or deleted targets, removes targets that did not exist before a write and cleans staged files. Recovery removes a valid journal only after restoration and returns the rolled-back and total operation counts. A corrupt, invalid or unsafe journal is preserved for manual inspection, a live lock blocks recovery and a package without a journal returns a clean no-recovery result.
 
 ---
 
@@ -33,8 +33,9 @@ Rollback restores backups for replaced or deleted targets, removes targets that 
 
 | File | Layer | Role |
 |---|---|---|
-| [`../../lib/transaction.cjs`](../../lib/transaction.cjs) | Shared | Detects journals, reverses operations and cleans recovery state. |
-| [`../../ai-system-sync.cjs`](../../ai-system-sync.cjs) | Handler | Blocks normal sync on interruption and exposes `--recover`. |
+| [`../../lib/transaction.cjs`](../../lib/transaction.cjs) | Shared | Inspects locks, validates journals, reverses operations and cleans valid recovery state. |
+| [`../../ai-system-sync.cjs`](../../ai-system-sync.cjs) | Handler | Distinguishes active and interrupted syncs and exposes `--recover`. |
+| [`../../lib/path-safety.cjs`](../../lib/path-safety.cjs) | Shared | Rejects journal paths outside the selected package. |
 | [`../../lib/util.cjs`](../../lib/util.cjs) | Shared | Parses journal JSON and preserves typed read or parse errors. |
 | [`../../lib/paths.cjs`](../../lib/paths.cjs) | Shared | Defines the journal path. |
 
@@ -42,7 +43,7 @@ Rollback restores backups for replaced or deleted targets, removes targets that 
 
 | File | Type | Role |
 |---|---|---|
-| [`../../tests/transaction.test.cjs`](../../tests/transaction.test.cjs) | Automated test | Covers crash journals, reverse rollback, cleanup and subsequent recovery. |
+| [`../../tests/transaction.test.cjs`](../../tests/transaction.test.cjs) | Automated test | Covers live locks, corrupt and unsafe journals, reverse rollback, package-lock restoration and cleanup. |
 | [`../../tests/sync-write.test.cjs`](../../tests/sync-write.test.cjs) | Automated test | Covers recovery through the real CLI path. |
 | [`../../tests/cli.test.cjs`](../../tests/cli.test.cjs) | Automated test | Covers interruption reporting and recovery command dispatch. |
 

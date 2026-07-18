@@ -1,6 +1,6 @@
 ---
 title: "Knowledge Inventory, Byte Parity And Derivation Exceptions"
-description: "Checks the fixed knowledge inventory, declared mirror count and byte parity while preserving reviewed derivation exceptions."
+description: "Checks the fixed knowledge inventory, declared mirror count and parity with raw or deterministically rendered source bytes."
 trigger_phrases:
   - "Knowledge Inventory, Byte Parity And Derivation Exceptions"
   - "knowledge mirror byte parity"
@@ -13,7 +13,7 @@ version: 1.0.0.0
 
 ## 1. OVERVIEW
 
-Checks the fixed knowledge inventory, declared mirror count and byte parity while preserving reviewed derivation exceptions.
+Checks the fixed knowledge inventory, declared mirror count and parity with raw or deterministically rendered source bytes.
 
 The check treats the `claude project/knowledge` directory as a manifest-owned inventory. It reports drift without deleting undeclared files.
 
@@ -23,7 +23,7 @@ The check treats the `claude project/knowledge` directory as a manifest-owned in
 
 The check reads the fixed knowledge root, ignores `.DS_Store`, compares actual filenames with declared mirror targets and checks the expected knowledge count. It reports unknown files, missing files and count mismatches independently.
 
-For each ordinary mirror, it hashes the source and target bytes and reports a mismatch when the digests differ. A target listed in `derivationExceptions` skips the byte comparison. The same exception is honored by sync planning, so a reviewed hand-derived mirror is not overwritten.
+For each ordinary mirror, the compiler compares the dereferenced source bytes with the target. A target listed in `derivationExceptions` must select `project-skill-mirror-v1`; the compiler adds declared Project retrieval frontmatter, retargets mapped reference and asset links and compares the resulting bytes. Sync uses the same renderer, so no exception target is skipped or preserved outside compiler ownership.
 
 ---
 
@@ -33,18 +33,19 @@ For each ordinary mirror, it hashes the source and target bytes and reports a mi
 
 | File | Layer | Role |
 |---|---|---|
-| [`../../lib/mechanical-checks.cjs`](../../lib/mechanical-checks.cjs) | Shared | Implements knowledge inventory, count checks, byte parity and derivation exception handling. |
+| [`../../lib/mechanical-checks.cjs`](../../lib/mechanical-checks.cjs) | Shared | Implements knowledge inventory, count checks and parity with compiler-rendered bytes. |
 | [`../../lib/hashing.cjs`](../../lib/hashing.cjs) | Shared | Hashes source and knowledge mirror bytes for parity comparison. |
-| [`../../lib/manifest.cjs`](../../lib/manifest.cjs) | Shared | Validates mirror counts and derivation exception entries. |
-| [`../../ai-system-sync.cjs`](../../ai-system-sync.cjs) | Handler | Skips exception mirrors while building sync writes. |
+| [`../../lib/manifest.cjs`](../../lib/manifest.cjs) | Shared | Validates mirror counts and deterministic derivation configuration. |
+| [`../../lib/mirrors.cjs`](../../lib/mirrors.cjs) | Shared | Renders raw mirrors and `project-skill-mirror-v1` targets. |
+| [`../../ai-system-sync.cjs`](../../ai-system-sync.cjs) | Handler | Uses the shared renderer while building sync writes. |
 
 ### Validation And Tests
 
 | File | Type | Role |
 |---|---|---|
-| [`../../tests/mechanical-checks.test.cjs`](../../tests/mechanical-checks.test.cjs) | Automated test | Covers inventory findings, byte mismatches and derivation exception behavior. |
-| [`../../tests/sync-write.test.cjs`](../../tests/sync-write.test.cjs) | Automated test | Verifies an exception mirror survives `sync --write`. |
-| [`../../tests/manifest.test.cjs`](../../tests/manifest.test.cjs) | Automated test | Covers expected mirror count and exception shape validation. |
+| [`../../tests/mechanical-checks.test.cjs`](../../tests/mechanical-checks.test.cjs) | Automated test | Covers inventory findings and raw or rendered byte mismatches. |
+| [`../../tests/sync-write.test.cjs`](../../tests/sync-write.test.cjs) | Automated test | Verifies deterministic Project Skill rendering through `sync --write`. |
+| [`../../tests/manifest.test.cjs`](../../tests/manifest.test.cjs) | Automated test | Covers mirror counts and required renderer and frontmatter fields. |
 
 ---
 

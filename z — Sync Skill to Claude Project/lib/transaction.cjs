@@ -13,6 +13,7 @@ const os = require('node:os');
 const path = require('node:path');
 
 const { hashFile } = require('./hashing.cjs');
+const { UnsafePathError, resolveContainedPath } = require('./path-safety.cjs');
 const { JOURNAL_REL_PATH, LOCK_REL_PATH, REPO_LOCK_FILENAME } = require('./paths.cjs');
 const { readJsonStrict } = require('./util.cjs');
 
@@ -43,6 +44,9 @@ class SourceChangedError extends Error {}
 
 /** Error raised when a deletion is not authorized by the prior lock. */
 class DeleteNotAllowedError extends Error {}
+
+/** Error raised when journal bytes cannot be trusted for automatic recovery. */
+class CorruptJournalError extends Error {}
 
 function randomToken() {
   return crypto.randomBytes(6).toString('hex');
@@ -131,6 +135,15 @@ function isLockStale(lockPath, staleMs) {
   return false;
 }
 
+function inspectRepoLock(repoRoot, options) {
+  const staleMs = options && options.staleMs !== undefined
+    ? options.staleMs
+    : DEFAULT_STALE_LOCK_MS;
+  const lockPath = path.join(repoRoot, REPO_LOCK_FILENAME);
+  if (!fs.existsSync(lockPath)) return { state: 'absent', lockPath };
+  return { state: isLockStale(lockPath, staleMs) ? 'stale' : 'held', lockPath };
+}
+
 function releaseLockIfOwned(lockPath, expectedPayload) {
   try {
     const current = fs.readFileSync(lockPath, 'utf8');
@@ -172,6 +185,44 @@ function detectInterruptedJournal(packageAbsRoot) {
   }
 }
 
+function validateJournal(packageAbsRoot, journal) {
+  if (journal.corrupt) {
+    throw new CorruptJournalError(
+      `Cannot recover corrupt ${JOURNAL_REL_PATH}: ${journal.error}. ` +
+        'The journal was preserved for manual inspection.'
+    );
+  }
+  if (journal.schemaVersion !== 1 || !Array.isArray(journal.operations)) {
+    throw new CorruptJournalError(
+      `Cannot recover invalid ${JOURNAL_REL_PATH}: expected schemaVersion 1 and operations array.`
+    );
+  }
+  for (const [index, operation] of journal.operations.entries()) {
+    if (!operation || !['write', 'delete'].includes(operation.type)) {
+      throw new CorruptJournalError(`Journal operation ${index} has an invalid type.`);
+    }
+    try {
+      resolveContainedPath(packageAbsRoot, operation.target);
+      resolveContainedPath(packageAbsRoot, operation.backup);
+      if (operation.staged) resolveContainedPath(packageAbsRoot, operation.staged);
+    } catch (err) {
+      if (err instanceof UnsafePathError) {
+        throw new CorruptJournalError(`Journal operation ${index} is unsafe: ${err.message}`);
+      }
+      throw err;
+    }
+    if (operation.backup !== `${operation.target}${BACKUP_SUFFIX}`) {
+      throw new CorruptJournalError(`Journal operation ${index} has an unexpected backup path.`);
+    }
+    if (
+      operation.staged &&
+      !operation.staged.startsWith(`${operation.target}${STAGED_SUFFIX}.`)
+    ) {
+      throw new CorruptJournalError(`Journal operation ${index} has an unexpected staged path.`);
+    }
+  }
+}
+
 /**
  * Roll back every operation the journal recorded as done, in reverse order,
  * then remove the journal and any leftover backup/staged files. This is the
@@ -180,40 +231,37 @@ function detectInterruptedJournal(packageAbsRoot) {
  * deterministic move on a known-inconsistent package is always to restore
  * exactly what was there before the transaction began.
  *
+ * @param {string} repoRoot - Absolute repository root.
  * @param {string} packageAbsRoot - Absolute package root.
  * @returns {{recovered: boolean, reason?: string, rolledBack?: number, totalOperations?: number}}
  *   Recovery result.
  */
-function recoverInterruptedJournal(packageAbsRoot) {
-  const journalAbsPath = journalPath(packageAbsRoot);
-  const journal = detectInterruptedJournal(packageAbsRoot);
-  if (!journal) return { recovered: false, reason: 'no-journal' };
+function recoverInterruptedJournal(repoRoot, packageAbsRoot) {
+  const lock = acquireRepoLock(repoRoot);
+  try {
+    const journalAbsPath = journalPath(packageAbsRoot);
+    const journal = detectInterruptedJournal(packageAbsRoot);
+    if (!journal) return { recovered: false, reason: 'no-journal' };
+    validateJournal(packageAbsRoot, journal);
 
-  const operations = Array.isArray(journal.operations) ? journal.operations : [];
-  const completedOperations = operations.filter((operation) => operation.done);
-  // Roll back every operation, not only ones marked done: a single
-  // The operation's apply step can move a backup before it is marked done,
-  // So rollback also covers operations that appear incomplete in the journal.
-  for (const operation of [...operations].reverse()) {
-    rollbackOperation(packageAbsRoot, operation);
-  }
-  // Clean up any staged files from operations that never completed.
-  for (const operation of operations) {
-    const stagedAbs = operation.staged && path.join(packageAbsRoot, operation.staged);
-    if (stagedAbs && fs.existsSync(stagedAbs)) {
-      try {
-        fs.unlinkSync(stagedAbs);
-      } catch {
-        // Best-effort cleanup is sufficient after recovery restored the target.
-      }
+    const operations = journal.operations;
+    const completedOperations = operations.filter((operation) => operation.done);
+    // Roll back every operation because a crash can happen after backup creation
+    // but before the journal records the operation as complete.
+    for (const operation of [...operations].reverse()) {
+      rollbackOperation(packageAbsRoot, operation);
     }
+    cleanupStagedFromJournal(packageAbsRoot, operations);
+    cleanupBackups(packageAbsRoot, operations);
+    fs.unlinkSync(journalAbsPath);
+    return {
+      recovered: true,
+      rolledBack: completedOperations.length,
+      totalOperations: operations.length,
+    };
+  } finally {
+    lock.release();
   }
-  fs.unlinkSync(journalAbsPath);
-  return {
-    recovered: true,
-    rolledBack: completedOperations.length,
-    totalOperations: operations.length,
-  };
 }
 
 function rollbackOperation(packageAbsRoot, operation) {
@@ -278,6 +326,43 @@ function assertDeletesAreAuthorized(packageAbsRoot, operations) {
   }
 }
 
+function assertTransactionPaths(repoRoot, packageAbsRoot, operations, rehashSources) {
+  for (const operation of operations) {
+    if (!operation || !['write', 'delete'].includes(operation.type)) {
+      throw new TransactionError('Sync operations must be write or delete records.');
+    }
+    resolveContainedPath(packageAbsRoot, operation.target);
+    if (operation.type === 'write' && !Buffer.isBuffer(operation.content)) {
+      throw new TransactionError(`Write operation content must be a Buffer: ${operation.target}`);
+    }
+  }
+  for (const source of rehashSources || []) {
+    resolveContainedPath(packageAbsRoot, source.path, {
+      mustExist: true,
+      realBoundaryAbs: repoRoot,
+    });
+  }
+}
+
+function stageWrite(packageAbsRoot, operation) {
+  const targetAbs = resolveContainedPath(packageAbsRoot, operation.target);
+  const stagedAbs = `${targetAbs}${STAGED_SUFFIX}.${randomToken()}`;
+  fs.mkdirSync(path.dirname(stagedAbs), { recursive: true });
+  fs.writeFileSync(stagedAbs, operation.content);
+  return stagedAbs;
+}
+
+function buildJournalOperation(packageAbsRoot, operation, stagedAbs) {
+  return {
+    type: operation.type,
+    target: operation.target,
+    staged: operation.type === 'write' ? path.relative(packageAbsRoot, stagedAbs) : null,
+    backup: `${operation.target}${BACKUP_SUFFIX}`,
+    existedBefore: fs.existsSync(path.join(packageAbsRoot, operation.target)),
+    done: false,
+  };
+}
+
 /**
  * Run a staged, journaled sync transaction with rollback on failure.
  *
@@ -293,10 +378,9 @@ function assertDeletesAreAuthorized(packageAbsRoot, operations) {
  * @param {(stagedPaths: Map<string,string>) => void} [params.validateStaged]
  *   Called after every operation's content is staged but before anything is
  *   applied; receives target -> staged absolute path. Throw to abort.
- * @param {() => void} [params.writeLockFileLast]
- *   Called after every apply succeeds, before the journal/backups are
- *   cleared - this is where the caller writes package-lock.json, satisfying
- *   "write package-lock.json last".
+ * @param {() => Buffer|null} [params.renderLockFileLast]
+ *   Called after normal operations apply. Returned bytes are journaled and
+ *   written to package-lock.json last; null leaves a current lock untouched.
  * @returns {{applied: number}} Transaction result.
  * @throws {InterruptedTransactionError} When a prior journal is present.
  * @throws {SourceChangedError} When a source changes during staging.
@@ -308,31 +392,27 @@ function runSyncTransaction(params) {
     operations,
     rehashSources,
     validateStaged,
-    writeLockFileLast,
+    renderLockFileLast,
   } = params;
-
-  const existing = detectInterruptedJournal(packageAbsRoot);
-  if (existing) {
-    throw new InterruptedTransactionError(
-      `Cannot start a new sync: an interrupted transaction is present at ` +
-        `${journalPath(packageAbsRoot)}. ` +
-        'Run the recovery path first.'
-    );
-  }
-
-  assertDeletesAreAuthorized(packageAbsRoot, operations);
 
   const lock = acquireRepoLock(repoRoot);
   try {
+    const existing = detectInterruptedJournal(packageAbsRoot);
+    if (existing) {
+      throw new InterruptedTransactionError(
+        `Cannot start a new sync: an interrupted transaction is present at ` +
+          `${journalPath(packageAbsRoot)}. Run the recovery path first.`
+      );
+    }
+
+    assertTransactionPaths(repoRoot, packageAbsRoot, operations, rehashSources);
+    assertDeletesAreAuthorized(packageAbsRoot, operations);
+
     // Stage every operation's new content into a same-filesystem sibling file.
     const stagedPaths = new Map();
     for (const operation of operations) {
       if (operation.type !== 'write') continue;
-      const targetAbs = path.join(packageAbsRoot, operation.target);
-      const stagedAbs = `${targetAbs}${STAGED_SUFFIX}.${randomToken()}`;
-      fs.mkdirSync(path.dirname(stagedAbs), { recursive: true });
-      fs.writeFileSync(stagedAbs, operation.content);
-      stagedPaths.set(operation.target, stagedAbs);
+      stagedPaths.set(operation.target, stageWrite(packageAbsRoot, operation));
     }
 
     try {
@@ -341,7 +421,10 @@ function runSyncTransaction(params) {
 
       // Rehash sources so a concurrent edit cannot be overwritten silently.
       for (const source of rehashSources || []) {
-        const absolutePath = path.join(packageAbsRoot, source.path);
+        const absolutePath = resolveContainedPath(packageAbsRoot, source.path, {
+          mustExist: true,
+          realBoundaryAbs: repoRoot,
+        });
         const liveHash = hashFile(absolutePath).sha256;
         if (liveHash !== source.expectedSha256) {
           throw new SourceChangedError(`Source changed during sync, aborting: ${source.path}`);
@@ -353,19 +436,16 @@ function runSyncTransaction(params) {
     }
 
     // Journal every replacement or deletion before touching a real path.
-    const journalOperations = operations.map((operation) => ({
-      type: operation.type,
-      target: operation.target,
-      staged: operation.type === 'write'
-        ? path.relative(packageAbsRoot, stagedPaths.get(operation.target))
-        : null,
-      backup: `${operation.target}${BACKUP_SUFFIX}`,
-      existedBefore: fs.existsSync(path.join(packageAbsRoot, operation.target)),
-      done: false,
-    }));
+    const journalOperations = operations.map((operation) =>
+      buildJournalOperation(packageAbsRoot, operation, stagedPaths.get(operation.target))
+    );
     const journalAbsPath = journalPath(packageAbsRoot);
-    fs.mkdirSync(path.dirname(journalAbsPath), { recursive: true });
-    writeJournal(journalAbsPath, journalOperations);
+    let journalWritten = false;
+    if (journalOperations.length) {
+      fs.mkdirSync(path.dirname(journalAbsPath), { recursive: true });
+      writeJournal(journalAbsPath, journalOperations);
+      journalWritten = true;
+    }
 
     try {
       // Apply atomically and update the journal after each successful operation.
@@ -374,24 +454,44 @@ function runSyncTransaction(params) {
         operation.done = true;
         writeJournal(journalAbsPath, journalOperations);
       }
+
+      if (renderLockFileLast) {
+        const lockContent = renderLockFileLast();
+        if (lockContent !== null && lockContent !== undefined) {
+          if (!Buffer.isBuffer(lockContent)) {
+            throw new TransactionError('renderLockFileLast must return a Buffer or null.');
+          }
+          const lockOperation = { type: 'write', target: LOCK_REL_PATH, content: lockContent };
+          assertTransactionPaths(repoRoot, packageAbsRoot, [lockOperation], []);
+          const stagedAbs = stageWrite(packageAbsRoot, lockOperation);
+          const journalOperation = buildJournalOperation(
+            packageAbsRoot,
+            lockOperation,
+            stagedAbs
+          );
+          journalOperations.push(journalOperation);
+          fs.mkdirSync(path.dirname(journalAbsPath), { recursive: true });
+          writeJournal(journalAbsPath, journalOperations);
+          journalWritten = true;
+          applyOperation(packageAbsRoot, journalOperation);
+          journalOperation.done = true;
+          writeJournal(journalAbsPath, journalOperations);
+        }
+      }
     } catch (err) {
-      // Roll back every operation because the in-flight operation may have moved
-      // The in-flight operation may have moved its backup before the failure.
+      // The in-flight operation may have moved its backup before failing.
       for (const operation of [...journalOperations].reverse()) {
         rollbackOperation(packageAbsRoot, operation);
       }
       cleanupBackups(packageAbsRoot, journalOperations);
       cleanupStagedFromJournal(packageAbsRoot, journalOperations);
-      fs.unlinkSync(journalAbsPath);
+      if (journalWritten && fs.existsSync(journalAbsPath)) fs.unlinkSync(journalAbsPath);
       throw err;
     }
 
-    // Write package-lock.json last, once every real file is in place.
-    if (writeLockFileLast) writeLockFileLast();
-
     // Drop backups and the journal only after the transaction is complete.
     cleanupBackups(packageAbsRoot, journalOperations);
-    fs.unlinkSync(journalAbsPath);
+    if (journalWritten) fs.unlinkSync(journalAbsPath);
 
     return { applied: journalOperations.length };
   } finally {
@@ -468,6 +568,7 @@ function cleanupBackups(packageAbsRoot, journalOperations) {
 
 module.exports = {
   acquireRepoLock,
+  inspectRepoLock,
   detectInterruptedJournal,
   recoverInterruptedJournal,
   runSyncTransaction,
@@ -477,4 +578,5 @@ module.exports = {
   RepoLockHeldError,
   SourceChangedError,
   DeleteNotAllowedError,
+  CorruptJournalError,
 };

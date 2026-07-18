@@ -27,11 +27,14 @@ const mech = req('mechanical-checks.cjs');
 const tx = req('transaction.cjs');
 const { computeContractDigest, ContractInputMissingError } = req('contract-digest.cjs');
 const { hashFile, sha256Hex } = req('hashing.cjs');
+const { renderLockContentIfChanged } = req('lockfile.cjs');
+const { MirrorRenderError, renderMirrorBytes } = req('mirrors.cjs');
+const { UnsafePathError, resolveContainedPath } = req('path-safety.cjs');
 const { extractRegion, replaceRegion, RegionNotFoundError } = req('regions.cjs');
 const { renderSection, UnknownSectionError } = req('render.cjs');
 const git = req('git-utils.cjs');
 const { sortStable } = req('util.cjs');
-const { LOCK_REL_PATH, KERNEL_REVIEW_REL_PATH } = req('paths.cjs');
+const { KERNEL_REVIEW_REL_PATH } = req('paths.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 2. CONSTANTS
@@ -326,24 +329,33 @@ function cmdSync(flags, ctx) {
   const packageAbsRoot = path.join(ctx.repoRoot, entry.packageRoot);
 
   if (flags.recover) {
-    const result = tx.recoverInterruptedJournal(packageAbsRoot);
-    if (!result.recovered) {
-      printLine(`sync --recover: no interrupted transaction found for ${entry.id}.`);
+    try {
+      const result = tx.recoverInterruptedJournal(ctx.repoRoot, packageAbsRoot);
+      if (!result.recovered) {
+        printLine(`sync --recover: no interrupted transaction found for ${entry.id}.`);
+        return EXIT.CLEAN;
+      }
+      printLine(
+        `sync --recover: rolled back ${result.rolledBack}/${result.totalOperations} ` +
+          `operation(s) for ${entry.id}.`
+      );
       return EXIT.CLEAN;
+    } catch (err) {
+      if (err instanceof tx.RepoLockHeldError || err instanceof tx.CorruptJournalError) {
+        printLine(`error: recovery refused for ${entry.id}: ${err.message}`);
+        return EXIT.INTERRUPTED_TRANSACTION;
+      }
+      throw err;
     }
-    printLine(
-      `sync --recover: rolled back ${result.rolledBack}/${result.totalOperations} ` +
-        `operation(s) for ${entry.id}.`
-    );
-    return EXIT.CLEAN;
   }
 
   const interrupted = tx.detectInterruptedJournal(packageAbsRoot);
   if (interrupted) {
-    printLine(
-      `error: an interrupted sync transaction is present for ${entry.id}. ` +
-        `Run: sync --system ${entry.id} --recover`
-    );
+    const lockState = tx.inspectRepoLock(ctx.repoRoot).state;
+    const action = lockState === 'held'
+      ? 'A sync transaction is still active; wait for it to finish and do not run recovery.'
+      : `Run: sync --system ${entry.id} --recover`;
+    printLine(`error: a sync journal is present for ${entry.id}. ${action}`);
     return EXIT.INTERRUPTED_TRANSACTION;
   }
 
@@ -392,22 +404,19 @@ function cmdSync(flags, ctx) {
 
   let plan;
   try {
-    plan = buildSyncOperations({ packageAbsRoot, entry, manifest });
+    plan = buildSyncOperations({ repoRoot: ctx.repoRoot, packageAbsRoot, entry, manifest });
   } catch (err) {
     if (
       err instanceof SyncRenderError ||
       err instanceof RegionNotFoundError ||
-      err instanceof UnknownSectionError
+      err instanceof UnknownSectionError ||
+      err instanceof MirrorRenderError ||
+      err instanceof UnsafePathError
     ) {
       printLine(`error: cannot sync ${entry.id}: ${err.message}`);
       return EXIT.INVALID_MANIFEST_OR_PATHS;
     }
     throw err;
-  }
-
-  if (plan.operations.length === 0) {
-    printLine(`sync: ${entry.id} already up to date (0 change(s)).`);
-    return EXIT.CLEAN;
   }
 
   try {
@@ -416,13 +425,26 @@ function cmdSync(flags, ctx) {
       packageAbsRoot,
       operations: plan.operations,
       rehashSources: plan.rehashSources,
-      writeLockFileLast: () =>
-        writeLockFile({ packageAbsRoot, entry, manifest, regionShas: plan.regionShas }),
+      renderLockFileLast: () =>
+        renderLockContentIfChanged({
+          packageAbsRoot,
+          entry,
+          manifest,
+          regionShas: plan.regionShas,
+        }),
     });
+    if (result.applied === 0) {
+      printLine(`sync: ${entry.id} already up to date (0 change(s)).`);
+      return EXIT.CLEAN;
+    }
     printLine(`sync: applied ${result.applied} change(s) for ${entry.id}.`);
     return EXIT.CLEAN;
   } catch (err) {
-    if (err instanceof tx.InterruptedTransactionError) {
+    if (
+      err instanceof tx.InterruptedTransactionError ||
+      err instanceof tx.RepoLockHeldError ||
+      err instanceof tx.CorruptJournalError
+    ) {
       printLine(`error: ${err.message}`);
       return EXIT.INTERRUPTED_TRANSACTION;
     }
@@ -441,35 +463,32 @@ function cmdSync(flags, ctx) {
  * bytes - the idempotence a compiler-style sync depends on to ever be
  * trusted as a no-op check.
  */
-function buildSyncOperations({ packageAbsRoot, entry, manifest }) {
+function buildSyncOperations({ repoRoot, packageAbsRoot, entry, manifest }) {
   const operations = [];
   const rehashSources = [];
   const regionShas = [];
 
   for (const mirror of manifest.mirrors) {
-    // Preserve hand-applied derivation exceptions because a raw source copy
-    // Would destroy them and diverge from the parity checker's exemption.
-    if (mech.isDerivationException(manifest, mirror.target)) {
-      continue;
-    }
-    const sourceAbs = path.join(packageAbsRoot, mirror.source);
-    if (!fs.existsSync(sourceAbs)) {
-      throw new SyncRenderError(`Mirror source missing, cannot render: ${mirror.source}`);
-    }
+    const sourceAbs = resolveContainedPath(packageAbsRoot, mirror.source, {
+      mustExist: true,
+      realBoundaryAbs: repoRoot,
+    });
     const sourceHash = hashFile(sourceAbs);
+    const renderedBytes = renderMirrorBytes({ packageAbsRoot, manifest, mirror });
+    const renderedSha256 = sha256Hex(renderedBytes);
     const targetRel = `${FIXED_KNOWLEDGE_ROOT}/${mirror.target}`;
-    const targetAbs = path.join(packageAbsRoot, targetRel);
+    const targetAbs = resolveContainedPath(packageAbsRoot, targetRel);
     const alreadyCurrent =
-      fs.existsSync(targetAbs) && hashFile(targetAbs).sha256 === sourceHash.sha256;
+      fs.existsSync(targetAbs) && hashFile(targetAbs).sha256 === renderedSha256;
     if (!alreadyCurrent) {
-      operations.push({ type: 'write', target: targetRel, content: sourceHash.buffer });
+      operations.push({ type: 'write', target: targetRel, content: renderedBytes });
       rehashSources.push({ path: mirror.source, expectedSha256: sourceHash.sha256 });
     }
   }
 
-  const kernelAbsPath = path.join(packageAbsRoot, entry.kernelPath);
+  const kernelAbsPath = resolveContainedPath(packageAbsRoot, entry.kernelPath, { mustExist: true });
   for (const region of manifest.generatedRegions || []) {
-    const targetAbs = path.join(packageAbsRoot, region.target);
+    const targetAbs = resolveContainedPath(packageAbsRoot, region.target, { mustExist: true });
     if (!fs.existsSync(targetAbs)) {
       throw new SyncRenderError(`Generated-region target does not exist: ${region.target}`);
     }
@@ -496,36 +515,6 @@ function buildSyncOperations({ packageAbsRoot, entry, manifest }) {
   }
 
   return { operations, rehashSources, regionShas };
-}
-
-/** Recomputes every hash from bytes now on disk (post-apply), never from the
- * plan's pre-apply snapshot, so package-lock.json always records what is
- * actually there rather than what the run intended to write. */
-function writeLockFile({ packageAbsRoot, entry, manifest, regionShas }) {
-  const files = [];
-  const kernelHash = hashFile(path.join(packageAbsRoot, entry.kernelPath));
-  files.push({
-    path: entry.kernelPath,
-    sha256: kernelHash.sha256,
-    sha16: kernelHash.sha16,
-    bytes: kernelHash.bytes,
-  });
-  for (const mirror of manifest.mirrors) {
-    const targetRel = `${FIXED_KNOWLEDGE_ROOT}/${mirror.target}`;
-    const hash = hashFile(path.join(packageAbsRoot, targetRel));
-    files.push({ path: targetRel, sha256: hash.sha256, sha16: hash.sha16, bytes: hash.bytes });
-  }
-  const deletable = manifest.mirrors.map((mirror) => `${FIXED_KNOWLEDGE_ROOT}/${mirror.target}`);
-  const lock = {
-    schemaVersion: 1,
-    systemId: entry.id,
-    generatedAt: new Date().toISOString(),
-    files,
-    regions: regionShas,
-    deletable,
-  };
-  const lockAbs = path.join(packageAbsRoot, LOCK_REL_PATH);
-  fs.writeFileSync(lockAbs, `${JSON.stringify(lock, null, 2)}\n`);
 }
 
 function cmdReviewKernel(flags, ctx) {
