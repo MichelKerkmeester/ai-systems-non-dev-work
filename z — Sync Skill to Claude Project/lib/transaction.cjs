@@ -8,12 +8,17 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 const crypto = require('node:crypto');
+const { spawnSync } = require('node:child_process');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 
 const { hashFile } = require('./hashing.cjs');
-const { UnsafePathError, resolveContainedPath } = require('./path-safety.cjs');
+const {
+  UnsafePathError,
+  resolveContainedPath,
+  resolvePackageRoot,
+} = require('./path-safety.cjs');
 const { JOURNAL_REL_PATH, LOCK_REL_PATH, REPO_LOCK_FILENAME } = require('./paths.cjs');
 const { readJsonStrict } = require('./util.cjs');
 
@@ -23,6 +28,9 @@ const { readJsonStrict } = require('./util.cjs');
 
 const STAGED_SUFFIX = '.ai-system-sync.staged';
 const BACKUP_SUFFIX = '.ai-system-sync.bak';
+const LOCK_OWNER_MARKER = '.owner.';
+const JOURNAL_STATE_APPLYING = 'applying';
+const JOURNAL_STATE_COMMITTED = 'committed';
 // Keep stale locks recoverable without interrupting a live transaction.
 const DEFAULT_STALE_LOCK_MS = 6 * 60 * 60 * 1000;
 
@@ -71,68 +79,185 @@ function acquireRepoLock(repoRoot, options) {
   const staleMs = normalizedOptions.staleMs !== undefined
     ? normalizedOptions.staleMs
     : DEFAULT_STALE_LOCK_MS;
-  const lockPath = path.join(repoRoot, REPO_LOCK_FILENAME);
+  const lockBasePath = path.join(repoRoot, REPO_LOCK_FILENAME);
+  const token = randomToken();
+  const ownerPath = `${lockBasePath}${LOCK_OWNER_MARKER}${token}`;
   const payload = JSON.stringify({
     pid: process.pid,
     host: os.hostname(),
     acquiredAt: new Date().toISOString(),
+    processIdentity: readProcessIdentity(process.pid),
+    token,
   });
 
-  for (let attempt = 0; attempt < 2; attempt += 1) {
-    try {
-      const fd = fs.openSync(lockPath, 'wx');
-      fs.writeFileSync(fd, payload);
-      fs.closeSync(fd);
-      return {
-        lockPath,
-        release() {
-          releaseLockIfOwned(lockPath, payload);
-        },
-      };
-    } catch (err) {
-      if (err.code !== 'EEXIST') throw err;
-      if (attempt === 0 && isLockStale(lockPath, staleMs)) {
-        try {
-          fs.unlinkSync(lockPath);
-        } catch {
-          // Another process may have cleared it first, so retry the create.
-        }
-        continue;
-      }
+  try {
+    createOwnedFile(ownerPath, payload);
+  } catch (err) {
+    throw err;
+  }
+
+  try {
+    const snapshots = listRepoLockSnapshots(repoRoot, staleMs);
+    const activeContenders = snapshots.filter(
+      (snapshot) => snapshot.path !== ownerPath && !snapshot.isStale
+    );
+    if (activeContenders.length) {
       throw new RepoLockHeldError(
-        `Another sync transaction holds the repo lock (${lockPath}). ` +
-          'Wait for it to finish, or investigate if it is stale.'
+        `Another sync transaction holds the repo lock (${activeContenders[0].path}). ` +
+          'Wait for it to finish.'
       );
     }
+    acquireFixedLock(lockBasePath, payload, staleMs);
+    for (const snapshot of snapshots) {
+      if (
+        snapshot.path !== ownerPath &&
+        snapshot.path.includes(LOCK_OWNER_MARKER) &&
+        snapshot.isStale
+      ) {
+        removeSnapshotIfUnchanged(snapshot);
+      }
+    }
+  } catch (err) {
+    releaseLockIfOwned(ownerPath, payload);
+    throw err;
   }
-  throw new RepoLockHeldError(
-    `Could not acquire the repo lock at ${lockPath} after breaking a stale copy.`
-  );
+  return {
+    lockPath: lockBasePath,
+    release() {
+      releaseLockIfOwned(lockBasePath, payload);
+      releaseLockIfOwned(ownerPath, payload);
+    },
+  };
 }
 
-function isLockStale(lockPath, staleMs) {
+function readProcessIdentity(pid) {
+  const result = spawnSync('ps', ['-o', 'lstart=', '-p', String(pid)], {
+    encoding: 'utf8',
+  });
+  if (result.status !== 0) return null;
+  const identity = (result.stdout || '').trim();
+  return identity || null;
+}
+
+function acquireFixedLock(lockPath, payload, staleMs) {
+  try {
+    createOwnedFile(lockPath, payload);
+    return;
+  } catch (err) {
+    if (err.code !== 'EEXIST') throw err;
+  }
+  const snapshot = inspectLockFile(lockPath, staleMs);
+  if (!snapshot || !snapshot.isStale || !removeSnapshotIfUnchanged(snapshot)) {
+    throw new RepoLockHeldError(
+      `Another sync transaction holds the repo lock (${lockPath}). Wait for it to finish.`
+    );
+  }
+  try {
+    createOwnedFile(lockPath, payload);
+  } catch (err) {
+    if (err.code !== 'EEXIST') throw err;
+    throw new RepoLockHeldError(
+      `Another sync transaction acquired the repo lock (${lockPath}). Wait for it to finish.`
+    );
+  }
+}
+
+function createOwnedFile(absolutePath, payload) {
+  let fd;
+  let created = false;
+  try {
+    fd = fs.openSync(absolutePath, 'wx');
+    created = true;
+    fs.writeFileSync(fd, payload);
+    fs.fsyncSync(fd);
+    fs.closeSync(fd);
+    fd = undefined;
+  } catch (err) {
+    if (fd !== undefined) {
+      try {
+        fs.closeSync(fd);
+      } catch {
+        // Cleanup below still removes the partially initialized ownership file.
+      }
+    }
+    if (created) {
+      try {
+        fs.unlinkSync(absolutePath);
+      } catch {
+        // Preserve the original creation failure.
+      }
+    }
+    throw err;
+  }
+}
+
+function inspectLockFile(lockPath, staleMs) {
   let stat;
+  let payload;
   try {
     stat = fs.statSync(lockPath);
+    payload = fs.readFileSync(lockPath, 'utf8');
   } catch {
-    return false;
+    return null;
   }
   const age = Date.now() - stat.mtimeMs;
-  if (age > staleMs) return true;
   try {
-    const data = readJsonStrict(lockPath);
+    const data = JSON.parse(payload);
     if (typeof data.pid === 'number' && data.host === os.hostname()) {
       try {
         process.kill(data.pid, 0);
-        return false; // The process is alive, so the lock is legitimate.
+        if (typeof data.processIdentity === 'string') {
+          const currentIdentity = readProcessIdentity(data.pid);
+          if (currentIdentity && currentIdentity !== data.processIdentity) {
+            return { path: lockPath, payload, stat, isStale: true };
+          }
+        } else if (age > staleMs) {
+          return { path: lockPath, payload, stat, isStale: true };
+        }
+        return { path: lockPath, payload, stat, isStale: false };
       } catch (err) {
-        return err.code === 'ESRCH'; // No such process means the previous holder died.
+        return { path: lockPath, payload, stat, isStale: err.code === 'ESRCH' };
       }
     }
   } catch {
-    return age > staleMs;
+    // Malformed and foreign-host locks become recoverable only after the age threshold.
   }
-  return false;
+  return { path: lockPath, payload, stat, isStale: age > staleMs };
+}
+
+function removeSnapshotIfUnchanged(snapshot) {
+  try {
+    const currentStat = fs.statSync(snapshot.path);
+    const currentPayload = fs.readFileSync(snapshot.path, 'utf8');
+    if (
+      currentPayload !== snapshot.payload ||
+      currentStat.dev !== snapshot.stat.dev ||
+      currentStat.ino !== snapshot.stat.ino
+    ) {
+      return false;
+    }
+    fs.unlinkSync(snapshot.path);
+    return true;
+  } catch (err) {
+    return err.code === 'ENOENT';
+  }
+}
+
+function listRepoLockSnapshots(repoRoot, staleMs) {
+  const lockBasename = path.basename(REPO_LOCK_FILENAME);
+  let names;
+  try {
+    names = fs.readdirSync(repoRoot);
+  } catch {
+    return [];
+  }
+  return names
+    .filter(
+      (name) =>
+        name === lockBasename || name.startsWith(`${lockBasename}${LOCK_OWNER_MARKER}`)
+    )
+    .map((name) => inspectLockFile(path.join(repoRoot, name), staleMs))
+    .filter(Boolean);
 }
 
 function inspectRepoLock(repoRoot, options) {
@@ -140,8 +265,10 @@ function inspectRepoLock(repoRoot, options) {
     ? options.staleMs
     : DEFAULT_STALE_LOCK_MS;
   const lockPath = path.join(repoRoot, REPO_LOCK_FILENAME);
-  if (!fs.existsSync(lockPath)) return { state: 'absent', lockPath };
-  return { state: isLockStale(lockPath, staleMs) ? 'stale' : 'held', lockPath };
+  const snapshots = listRepoLockSnapshots(repoRoot, staleMs);
+  if (snapshots.some((snapshot) => !snapshot.isStale)) return { state: 'held', lockPath };
+  if (snapshots.length) return { state: 'stale', lockPath };
+  return { state: 'absent', lockPath };
 }
 
 function releaseLockIfOwned(lockPath, expectedPayload) {
@@ -161,6 +288,15 @@ function releaseLockIfOwned(lockPath, expectedPayload) {
  */
 function journalPath(packageAbsRoot) {
   return path.join(packageAbsRoot, JOURNAL_REL_PATH);
+}
+
+function assertSafePackageRoot(repoRoot, packageAbsRoot) {
+  const relative = path.relative(path.resolve(repoRoot), path.resolve(packageAbsRoot));
+  const normalized = relative.split(path.sep).join('/');
+  const resolved = resolvePackageRoot(repoRoot, normalized);
+  if (path.resolve(resolved) !== path.resolve(packageAbsRoot)) {
+    throw new UnsafePathError(`Package root does not match its repository path: ${packageAbsRoot}`);
+  }
 }
 
 /**
@@ -185,21 +321,111 @@ function detectInterruptedJournal(packageAbsRoot) {
   }
 }
 
-function validateJournal(packageAbsRoot, journal) {
+function validateJournal(packageAbsRoot, journal, options) {
+  const normalizedOptions = options || {};
   if (journal.corrupt) {
     throw new CorruptJournalError(
       `Cannot recover corrupt ${JOURNAL_REL_PATH}: ${journal.error}. ` +
         'The journal was preserved for manual inspection.'
     );
   }
-  if (journal.schemaVersion !== 1 || !Array.isArray(journal.operations)) {
+  if (
+    typeof journal !== 'object' ||
+    journal === null ||
+    Array.isArray(journal) ||
+    journal.schemaVersion !== 1 ||
+    !Array.isArray(journal.operations)
+  ) {
     throw new CorruptJournalError(
       `Cannot recover invalid ${JOURNAL_REL_PATH}: expected schemaVersion 1 and operations array.`
     );
   }
+  if (
+    journal.operations.length > 0 &&
+    !(normalizedOptions.allowedTargets instanceof Set)
+  ) {
+    throw new CorruptJournalError(
+      `Cannot recover ${JOURNAL_REL_PATH} without a compiler-owned target allowlist.`
+    );
+  }
+  const allowedJournalKeys = new Set(['schemaVersion', 'state', 'updatedAt', 'operations']);
+  const unknownJournalKeys = Object.keys(journal).filter((key) => !allowedJournalKeys.has(key));
+  if (unknownJournalKeys.length) {
+    throw new CorruptJournalError(
+      `Cannot recover invalid ${JOURNAL_REL_PATH}: unknown field(s) ${unknownJournalKeys.join(', ')}.`
+    );
+  }
+  const state = journal.state || JOURNAL_STATE_APPLYING;
+  if (![JOURNAL_STATE_APPLYING, JOURNAL_STATE_COMMITTED].includes(state)) {
+    throw new CorruptJournalError(`Cannot recover invalid ${JOURNAL_REL_PATH}: invalid state.`);
+  }
+  if (
+    journal.updatedAt !== undefined &&
+    (typeof journal.updatedAt !== 'string' || Number.isNaN(Date.parse(journal.updatedAt)))
+  ) {
+    throw new CorruptJournalError(`Cannot recover invalid ${JOURNAL_REL_PATH}: invalid updatedAt.`);
+  }
+  const seenTargets = new Set();
   for (const [index, operation] of journal.operations.entries()) {
-    if (!operation || !['write', 'delete'].includes(operation.type)) {
+    if (!operation || typeof operation !== 'object' || Array.isArray(operation)) {
+      throw new CorruptJournalError(`Journal operation ${index} must be an object.`);
+    }
+    const allowedOperationKeys = new Set([
+      'type',
+      'target',
+      'staged',
+      'backup',
+      'existedBefore',
+      'done',
+    ]);
+    const unknownOperationKeys = Object.keys(operation).filter(
+      (key) => !allowedOperationKeys.has(key)
+    );
+    if (unknownOperationKeys.length) {
+      throw new CorruptJournalError(
+        `Journal operation ${index} has unknown field(s): ${unknownOperationKeys.join(', ')}.`
+      );
+    }
+    if (!['write', 'delete'].includes(operation.type)) {
       throw new CorruptJournalError(`Journal operation ${index} has an invalid type.`);
+    }
+    if (typeof operation.target !== 'string' || operation.target.length === 0) {
+      throw new CorruptJournalError(`Journal operation ${index} has an invalid target.`);
+    }
+    if (seenTargets.has(operation.target)) {
+      throw new CorruptJournalError(`Journal has duplicate target: ${operation.target}.`);
+    }
+    seenTargets.add(operation.target);
+    if (
+      normalizedOptions.allowedTargets instanceof Set &&
+      !normalizedOptions.allowedTargets.has(operation.target)
+    ) {
+      throw new CorruptJournalError(
+        `Journal operation ${index} targets a non-compiler-owned path: ${operation.target}.`
+      );
+    }
+    if (typeof operation.backup !== 'string') {
+      throw new CorruptJournalError(`Journal operation ${index} has an invalid backup path.`);
+    }
+    if (typeof operation.existedBefore !== 'boolean' || typeof operation.done !== 'boolean') {
+      throw new CorruptJournalError(
+        `Journal operation ${index} must declare boolean existedBefore and done fields.`
+      );
+    }
+    if (operation.type === 'delete' && operation.staged !== null) {
+      throw new CorruptJournalError(`Journal delete operation ${index} must have staged: null.`);
+    }
+    if (
+      operation.type === 'write' &&
+      operation.staged !== null &&
+      typeof operation.staged !== 'string'
+    ) {
+      throw new CorruptJournalError(`Journal write operation ${index} has an invalid staged path.`);
+    }
+    if (state === JOURNAL_STATE_COMMITTED && !operation.done) {
+      throw new CorruptJournalError(
+        `Committed journal operation ${index} is not marked complete.`
+      );
     }
     try {
       resolveContainedPath(packageAbsRoot, operation.target);
@@ -220,6 +446,28 @@ function validateJournal(packageAbsRoot, journal) {
     ) {
       throw new CorruptJournalError(`Journal operation ${index} has an unexpected staged path.`);
     }
+    if (operation.staged) {
+      const targetDirectory = path.posix.dirname(operation.target);
+      const stagedDirectory = path.posix.dirname(operation.staged);
+      const expectedPrefix = `${path.posix.basename(operation.target)}${STAGED_SUFFIX}.`;
+      const stagedBasename = path.posix.basename(operation.staged);
+      const token = stagedBasename.slice(expectedPrefix.length);
+      if (
+        stagedDirectory !== targetDirectory ||
+        !stagedBasename.startsWith(expectedPrefix) ||
+        !/^[a-f0-9]{12}$/.test(token)
+      ) {
+        throw new CorruptJournalError(
+          `Journal operation ${index} staged path is not a direct target sibling.`
+        );
+      }
+      const stagedAbs = path.join(packageAbsRoot, operation.staged);
+      if (fs.existsSync(stagedAbs) && fs.lstatSync(stagedAbs).isSymbolicLink()) {
+        throw new CorruptJournalError(
+          `Journal operation ${index} staged path must not be a symlink.`
+        );
+      }
+    }
   }
 }
 
@@ -236,16 +484,28 @@ function validateJournal(packageAbsRoot, journal) {
  * @returns {{recovered: boolean, reason?: string, rolledBack?: number, totalOperations?: number}}
  *   Recovery result.
  */
-function recoverInterruptedJournal(repoRoot, packageAbsRoot) {
+function recoverInterruptedJournal(repoRoot, packageAbsRoot, options) {
+  assertSafePackageRoot(repoRoot, packageAbsRoot);
   const lock = acquireRepoLock(repoRoot);
   try {
     const journalAbsPath = journalPath(packageAbsRoot);
     const journal = detectInterruptedJournal(packageAbsRoot);
     if (!journal) return { recovered: false, reason: 'no-journal' };
-    validateJournal(packageAbsRoot, journal);
+    validateJournal(packageAbsRoot, journal, options);
 
     const operations = journal.operations;
     const completedOperations = operations.filter((operation) => operation.done);
+    if (journal.state === JOURNAL_STATE_COMMITTED) {
+      cleanupStagedFromJournal(packageAbsRoot, operations);
+      cleanupBackups(packageAbsRoot, operations);
+      fs.unlinkSync(journalAbsPath);
+      return {
+        recovered: true,
+        action: 'finalized',
+        rolledBack: 0,
+        totalOperations: operations.length,
+      };
+    }
     // Roll back every operation because a crash can happen after backup creation
     // but before the journal records the operation as complete.
     for (const operation of [...operations].reverse()) {
@@ -327,10 +587,15 @@ function assertDeletesAreAuthorized(packageAbsRoot, operations) {
 }
 
 function assertTransactionPaths(repoRoot, packageAbsRoot, operations, rehashSources) {
+  const seenTargets = new Set();
   for (const operation of operations) {
     if (!operation || !['write', 'delete'].includes(operation.type)) {
       throw new TransactionError('Sync operations must be write or delete records.');
     }
+    if (seenTargets.has(operation.target)) {
+      throw new TransactionError(`Duplicate sync operation target: ${operation.target}`);
+    }
+    seenTargets.add(operation.target);
     resolveContainedPath(packageAbsRoot, operation.target);
     if (operation.type === 'write' && !Buffer.isBuffer(operation.content)) {
       throw new TransactionError(`Write operation content must be a Buffer: ${operation.target}`);
@@ -338,8 +603,8 @@ function assertTransactionPaths(repoRoot, packageAbsRoot, operations, rehashSour
   }
   for (const source of rehashSources || []) {
     resolveContainedPath(packageAbsRoot, source.path, {
-      mustExist: true,
-      realBoundaryAbs: repoRoot,
+      mustExist: source.expectedExists !== false,
+      realBoundaryAbs: source.allowRepoBoundary ? repoRoot : packageAbsRoot,
     });
   }
 }
@@ -356,7 +621,9 @@ function buildJournalOperation(packageAbsRoot, operation, stagedAbs) {
   return {
     type: operation.type,
     target: operation.target,
-    staged: operation.type === 'write' ? path.relative(packageAbsRoot, stagedAbs) : null,
+    staged: operation.type === 'write'
+      ? path.relative(packageAbsRoot, stagedAbs).split(path.sep).join('/')
+      : null,
     backup: `${operation.target}${BACKUP_SUFFIX}`,
     existedBefore: fs.existsSync(path.join(packageAbsRoot, operation.target)),
     done: false,
@@ -395,6 +662,7 @@ function runSyncTransaction(params) {
     renderLockFileLast,
   } = params;
 
+  assertSafePackageRoot(repoRoot, packageAbsRoot);
   const lock = acquireRepoLock(repoRoot);
   try {
     const existing = detectInterruptedJournal(packageAbsRoot);
@@ -406,25 +674,36 @@ function runSyncTransaction(params) {
     }
 
     assertTransactionPaths(repoRoot, packageAbsRoot, operations, rehashSources);
+    if (renderLockFileLast && operations.some((operation) => operation.target === LOCK_REL_PATH)) {
+      throw new TransactionError(
+        `${LOCK_REL_PATH} must be supplied only through renderLockFileLast.`
+      );
+    }
     assertDeletesAreAuthorized(packageAbsRoot, operations);
 
-    // Stage every operation's new content into a same-filesystem sibling file.
     const stagedPaths = new Map();
-    for (const operation of operations) {
-      if (operation.type !== 'write') continue;
-      stagedPaths.set(operation.target, stageWrite(packageAbsRoot, operation));
-    }
-
     try {
+      // Stage every operation's new content into a same-filesystem sibling file.
+      for (const operation of operations) {
+        if (operation.type !== 'write') continue;
+        stagedPaths.set(operation.target, stageWrite(packageAbsRoot, operation));
+      }
+
       // Validate the staged package completely before touching real files.
       if (validateStaged) validateStaged(stagedPaths);
 
       // Rehash sources so a concurrent edit cannot be overwritten silently.
       for (const source of rehashSources || []) {
         const absolutePath = resolveContainedPath(packageAbsRoot, source.path, {
-          mustExist: true,
-          realBoundaryAbs: repoRoot,
+          mustExist: source.expectedExists !== false,
+          realBoundaryAbs: source.allowRepoBoundary ? repoRoot : packageAbsRoot,
         });
+        const exists = fs.existsSync(absolutePath);
+        const expectedExists = source.expectedExists !== false;
+        if (exists !== expectedExists) {
+          throw new SourceChangedError(`Source changed during sync, aborting: ${source.path}`);
+        }
+        if (!exists) continue;
         const liveHash = hashFile(absolutePath).sha256;
         if (liveHash !== source.expectedSha256) {
           throw new SourceChangedError(`Source changed during sync, aborting: ${source.path}`);
@@ -442,8 +721,13 @@ function runSyncTransaction(params) {
     const journalAbsPath = journalPath(packageAbsRoot);
     let journalWritten = false;
     if (journalOperations.length) {
-      fs.mkdirSync(path.dirname(journalAbsPath), { recursive: true });
-      writeJournal(journalAbsPath, journalOperations);
+      try {
+        fs.mkdirSync(path.dirname(journalAbsPath), { recursive: true });
+        writeJournal(journalAbsPath, journalOperations, JOURNAL_STATE_APPLYING);
+      } catch (err) {
+        cleanupStaged(stagedPaths);
+        throw err;
+      }
       journalWritten = true;
     }
 
@@ -452,7 +736,7 @@ function runSyncTransaction(params) {
       for (const operation of journalOperations) {
         applyOperation(packageAbsRoot, operation);
         operation.done = true;
-        writeJournal(journalAbsPath, journalOperations);
+        writeJournal(journalAbsPath, journalOperations, JOURNAL_STATE_APPLYING);
       }
 
       if (renderLockFileLast) {
@@ -471,11 +755,11 @@ function runSyncTransaction(params) {
           );
           journalOperations.push(journalOperation);
           fs.mkdirSync(path.dirname(journalAbsPath), { recursive: true });
-          writeJournal(journalAbsPath, journalOperations);
+          writeJournal(journalAbsPath, journalOperations, JOURNAL_STATE_APPLYING);
           journalWritten = true;
           applyOperation(packageAbsRoot, journalOperation);
           journalOperation.done = true;
-          writeJournal(journalAbsPath, journalOperations);
+          writeJournal(journalAbsPath, journalOperations, JOURNAL_STATE_APPLYING);
         }
       }
     } catch (err) {
@@ -489,8 +773,12 @@ function runSyncTransaction(params) {
       throw err;
     }
 
-    // Drop backups and the journal only after the transaction is complete.
+    if (journalWritten) {
+      writeJournal(journalAbsPath, journalOperations, JOURNAL_STATE_COMMITTED);
+    }
+    // A committed journal tells recovery to preserve the new package while cleanup finishes.
     cleanupBackups(packageAbsRoot, journalOperations);
+    cleanupStagedFromJournal(packageAbsRoot, journalOperations);
     if (journalWritten) fs.unlinkSync(journalAbsPath);
 
     return { applied: journalOperations.length };
@@ -499,15 +787,35 @@ function runSyncTransaction(params) {
   }
 }
 
-function writeJournal(journalAbsPath, journalOperations) {
-  fs.writeFileSync(
-    journalAbsPath,
-    JSON.stringify(
-      { schemaVersion: 1, updatedAt: new Date().toISOString(), operations: journalOperations },
-      null,
-      2
-    )
+function writeJournal(journalAbsPath, journalOperations, state) {
+  const temporaryPath = `${journalAbsPath}.tmp.${process.pid}.${randomToken()}`;
+  const content = JSON.stringify(
+    {
+      schemaVersion: 1,
+      state,
+      updatedAt: new Date().toISOString(),
+      operations: journalOperations,
+    },
+    null,
+    2
   );
+  let fd;
+  try {
+    fd = fs.openSync(temporaryPath, 'wx');
+    fs.writeFileSync(fd, content);
+    fs.fsyncSync(fd);
+    fs.closeSync(fd);
+    fd = undefined;
+    fs.renameSync(temporaryPath, journalAbsPath);
+  } catch (err) {
+    if (fd !== undefined) fs.closeSync(fd);
+    try {
+      fs.unlinkSync(temporaryPath);
+    } catch {
+      // Preserve the original journal error; the temporary file is non-authoritative.
+    }
+    throw err;
+  }
 }
 
 function applyOperation(packageAbsRoot, operation) {

@@ -6,6 +6,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
+const { resolveContainedPath } = require('./path-safety.cjs');
+
 const PROJECT_SKILL_RENDERER = 'project-skill-mirror-v1';
 
 class MirrorRenderError extends Error {}
@@ -32,11 +34,15 @@ function addProjectFrontmatter(source, mirror, exception) {
   if (nameIndex < 0) {
     throw new MirrorRenderError(`Project Skill renderer requires a name field: ${mirror.source}`);
   }
-  frontmatter.splice(nameIndex + 1, 0, `title: ${path.posix.basename(mirror.target, '.md')}`);
+  frontmatter.splice(
+    nameIndex + 1,
+    0,
+    `title: ${yamlScalar(path.posix.basename(mirror.target, '.md'))}`
+  );
 
   const project = exception.projectFrontmatter;
-  frontmatter.push(`contextType: ${project.contextType}`);
-  frontmatter.push(`importance_tier: ${project.importanceTier}`);
+  frontmatter.push(`contextType: ${yamlScalar(project.contextType)}`);
+  frontmatter.push(`importance_tier: ${yamlScalar(project.importanceTier)}`);
   frontmatter.push('trigger_phrases:');
   for (const phrase of project.triggerPhrases) {
     frontmatter.push(`  - ${yamlScalar(phrase)}`);
@@ -64,8 +70,11 @@ function retargetProjectLinks(source, manifest, mirror) {
   return rendered;
 }
 
-function renderMirrorBytes({ packageAbsRoot, manifest, mirror }) {
-  const sourceAbs = path.join(packageAbsRoot, mirror.source);
+function renderMirrorBytes({ repoAbsRoot, packageAbsRoot, manifest, mirror }) {
+  const sourceAbs = resolveContainedPath(packageAbsRoot, mirror.source, {
+    mustExist: true,
+    realBoundaryAbs: repoAbsRoot || path.dirname(packageAbsRoot),
+  });
   const sourceBuffer = fs.readFileSync(sourceAbs);
   const exception = findDerivationException(manifest, mirror.target);
   if (!exception) return sourceBuffer;

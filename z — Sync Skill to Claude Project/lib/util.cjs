@@ -48,8 +48,17 @@ function safeIsDirectory(absolutePath) {
 function walkFilesRecursive(absoluteDirectory) {
   const results = [];
   const stack = [absoluteDirectory];
+  const visitedDirectories = new Set();
   while (stack.length) {
     const dir = stack.pop();
+    let realDirectory;
+    try {
+      realDirectory = fs.realpathSync(dir);
+    } catch {
+      continue;
+    }
+    if (visitedDirectories.has(realDirectory)) continue;
+    visitedDirectories.add(realDirectory);
     let entries;
     try {
       entries = fs.readdirSync(dir, { withFileTypes: true });

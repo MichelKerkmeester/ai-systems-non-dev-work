@@ -129,7 +129,7 @@ lib/
 | `registry.cjs` | Loads the registry as the sole fleet membership authority, enforces the ten-system count and safe fixed paths and finds systems by id. |
 | `render.cjs` | Renders `INVENTORY`, `CHECKSUMS` and `SMOKE_VERSION_PINS` sections from manifest data and live bytes. |
 | `repo-root.cjs` | Resolves the repo root from `AI_SYSTEM_SYNC_REPO_ROOT` or the nearest `.git` directory. |
-| `transaction.cjs` | Acquires the repo lock, validates contained paths, stages and journals operations, writes the package lock last and rolls back or safely recovers. |
+| `transaction.cjs` | Acquires the dual-protocol repo lock (unique owner file plus fixed compatibility sentinel), validates contained paths and direct-sibling staged files, stages and journals operations, writes `package-lock.json` last through a final `renderLockFileLast` step and either rolls back an `applying` journal or finalizes a `committed` journal during recovery. |
 | `util.cjs` | Provides deterministic sorting, JSON parsing, file walking, duplicate detection and case-insensitive collision checks. |
 
 ---
@@ -197,10 +197,10 @@ node --test "z — Sync Skill to Claude Project/tests/"*.test.cjs
 Expected result:
 
 ```text
-1..126
-# tests 126
+1..150
+# tests 150
 # suites 0
-# pass 126
+# pass 150
 # fail 0
 # cancelled 0
 # skipped 0

@@ -10,8 +10,17 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { PROJECT_SKILL_RENDERER } = require('./mirrors.cjs');
-const { relativePathProblem } = require('./path-safety.cjs');
-const { readJsonStrict, findDuplicates } = require('./util.cjs');
+const {
+  UnsafePathError,
+  relativePathProblem,
+  resolveContainedPath,
+} = require('./path-safety.cjs');
+const {
+  readJsonStrict,
+  findDuplicates,
+  JsonReadError,
+  JsonParseError,
+} = require('./util.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 2. CONSTANTS
@@ -66,6 +75,12 @@ function validateRelativePath(value, label, addProblem, options) {
   const problem = relativePathProblem(value, options);
   if (problem) addProblem(`${label} ${problem}`);
   return !problem;
+}
+
+function validateObjectKeys(value, allowedKeys, label, addProblem) {
+  for (const key of Object.keys(value)) {
+    if (!allowedKeys.has(key)) addProblem(`${label} has unknown field "${key}"`);
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -123,6 +138,12 @@ function validateManifestShape(data, expected) {
     if (!isNonEmptyString(data.kernel.alignedSkillVersion)) {
       addProblem('kernel.alignedSkillVersion must be a non-empty string');
     }
+    validateObjectKeys(
+      data.kernel,
+      new Set(['path', 'version', 'alignedSkillVersion']),
+      'kernel',
+      addProblem
+    );
   }
 
   if (typeof data.sourceCoverage !== 'object' || data.sourceCoverage === null) {
@@ -156,6 +177,12 @@ function validateManifestShape(data, expected) {
         }
       });
     }
+    validateObjectKeys(
+      data.sourceCoverage,
+      new Set(['include', 'exclude']),
+      'sourceCoverage',
+      addProblem
+    );
   }
 
   if (!Array.isArray(data.mirrors) || data.mirrors.length === 0) {
@@ -188,6 +215,12 @@ function validateManifestShape(data, expected) {
       if (!('projectVersion' in mirror) || typeof mirror.projectVersion !== 'string') {
         addProblem(`mirrors[${index}].projectVersion must be a string`);
       }
+      validateObjectKeys(
+        mirror,
+        new Set(['source', 'target', 'sourceVersion', 'projectVersion']),
+        `mirrors[${index}]`,
+        addProblem
+      );
     });
     const sources = data.mirrors.map((mirror) => mirror && mirror.source).filter(Boolean);
     const targets = data.mirrors.map((mirror) => mirror && mirror.target).filter(Boolean);
@@ -237,6 +270,12 @@ function validateManifestShape(data, expected) {
             allowDot: true,
           });
         }
+        validateObjectKeys(
+          validator,
+          new Set(['name', 'command', 'cwd']),
+          `validators[${index}]`,
+          addProblem
+        );
       });
     }
   }
@@ -376,8 +415,28 @@ function validateManifestShape(data, expected) {
               `generatedRegions[${index}].sections contains unsupported renderer(s): ${unsupported.join(', ')}`
             );
           }
+          const duplicateSections = findDuplicates(region.sections);
+          if (duplicateSections.length) {
+            addProblem(
+              `generatedRegions[${index}].sections has duplicate renderer(s): ` +
+                duplicateSections.join(', ')
+            );
+          }
         }
+        validateObjectKeys(
+          region,
+          new Set(['target', 'sections']),
+          `generatedRegions[${index}]`,
+          addProblem
+        );
       });
+      const regionTargets = data.generatedRegions
+        .map((region) => region && region.target)
+        .filter(Boolean);
+      const duplicateTargets = findDuplicates(regionTargets);
+      if (duplicateTargets.length) {
+        addProblem(`generatedRegions has duplicate targets: ${duplicateTargets.join(', ')}`);
+      }
     }
   }
 
@@ -409,11 +468,37 @@ function validateManifestShape(data, expected) {
  * @throws {ManifestValidationError} When the manifest is invalid.
  */
 function loadManifest(packageAbsRoot, manifestRelPath, expected) {
-  const manifestAbsPath = path.join(packageAbsRoot, manifestRelPath || MANIFEST_FILENAME_DEFAULT);
-  if (!fs.existsSync(manifestAbsPath)) {
-    throw new ManifestMissingError(`Manifest not found: ${manifestAbsPath}`);
+  const logicalPath = manifestRelPath || MANIFEST_FILENAME_DEFAULT;
+  const lexicalManifestPath = path.join(packageAbsRoot, logicalPath);
+  if (!fs.existsSync(lexicalManifestPath)) {
+    throw new ManifestMissingError(`Manifest not found: ${lexicalManifestPath}`);
   }
-  const data = readJsonStrict(manifestAbsPath);
+  let manifestAbsPath;
+  try {
+    manifestAbsPath = resolveContainedPath(packageAbsRoot, logicalPath, { mustExist: true });
+  } catch (err) {
+    if (err instanceof UnsafePathError) {
+      throw new ManifestValidationError(
+        `Manifest failed validation (${lexicalManifestPath}):\n  - ${err.message}`,
+        [err.message]
+      );
+    }
+    throw err;
+  }
+  let data;
+  try {
+    data = readJsonStrict(manifestAbsPath);
+  } catch (err) {
+    if (err instanceof JsonReadError || err instanceof JsonParseError) {
+      const wrapped = new ManifestValidationError(
+        `Manifest failed validation (${manifestAbsPath}):\n  - ${err.message}`,
+        [err.message]
+      );
+      wrapped.cause = err;
+      throw wrapped;
+    }
+    throw err;
+  }
   const { ok, problems } = validateManifestShape(data, expected);
   if (!ok) {
     throw new ManifestValidationError(

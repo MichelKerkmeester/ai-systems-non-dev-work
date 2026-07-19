@@ -84,7 +84,7 @@ tests/
 | `render.test.cjs` | Checks target labels, inventory, checksum and Task or Bug version-pin rendering. |
 | `repo-root.test.cjs` | Checks the environment override and upward `.git` search. |
 | `sync-write.test.cjs` | Checks real CLI mirror writes, deterministic Project Skill rendering, generated regions, package-lock repair, no-op reruns and marker refusal. |
-| `transaction.test.cjs` | Checks repo locks, contained paths, staged writes, delete authorization, source changes, rollback and lock-aware crash recovery. |
+| `transaction.test.cjs` | Checks the dual-protocol repo lock (unique owner plus fixed sentinel), contained paths, direct-sibling staged paths, delete authorization, source rehash drift, `applying` rollback vs `committed` finalize recovery, corrupt-journal preservation, lock-aware crash recovery and a real two-process lock contention test that spawns a child holding the lock to prove the parent is blocked until release. |
 
 ---
 
@@ -142,10 +142,10 @@ node --test "z — Sync Skill to Claude Project/tests/"*.test.cjs
 Expected result:
 
 ```text
-1..126
-# tests 126
+1..150
+# tests 150
 # suites 0
-# pass 126
+# pass 150
 # fail 0
 # cancelled 0
 # skipped 0

@@ -305,7 +305,7 @@ Runs the opt-in delegate in report mode, emits the staged check report to stderr
 
 ### ENF-002 | Documented CI Recipe
 
-Runs the documented full test command and all-system validator check, then records the observed 126 passing tests and ten clean systems.
+Runs the documented full test command and all-system validator check, then records the observed 150 passing tests and ten clean systems.
 
 > **Scenario:** [ENF-002](enforcement/documented-ci-recipe.md)  
 > **Catalog:** [Documented CI Recipe](../feature-catalog/enforcement/documented-ci-recipe.md)

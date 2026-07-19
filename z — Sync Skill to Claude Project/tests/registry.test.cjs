@@ -18,7 +18,7 @@ const {
   EXPECTED_SYSTEM_COUNT,
   RegistryValidationError,
 } = require('../lib/registry.cjs');
-const { mkTempRepo, writeJson } = require('./helpers.cjs');
+const { mkTempRepo, writeFile, writeJson } = require('./helpers.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 2. HELPERS
@@ -118,6 +118,15 @@ test(
     );
   }
 );
+
+test('loadRegistry normalizes malformed JSON to RegistryValidationError', () => {
+  const fixtureRoot = mkTempRepo();
+  writeFile(fixtureRoot, 'registry.json', '{ not valid json');
+  assert.throws(
+    () => loadRegistry(path.join(fixtureRoot, 'lib')),
+    RegistryValidationError
+  );
+});
 
 test('findSystem looks up by id and returns null for an unknown id', () => {
   const registry = { systems: validRegistryData().systems };

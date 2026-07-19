@@ -9,6 +9,8 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const {
   computeContractDigest,
@@ -73,6 +75,19 @@ test(
 test('contract digest throws a typed error for a missing contract input', () => {
   const repoRoot = mkTempRepo();
   assert.throws(() => computeContractDigest(repoRoot, ['missing.md']), ContractInputMissingError);
+});
+
+test('contract digest rejects an input symlink that escapes the repository', () => {
+  const repoRoot = mkTempRepo();
+  const packageRoot = path.join(repoRoot, 'Package');
+  const externalRoot = mkTempRepo();
+  fs.mkdirSync(packageRoot, { recursive: true });
+  writeFile(externalRoot, 'outside.md', 'outside\n');
+  fs.symlinkSync(path.join(externalRoot, 'outside.md'), path.join(packageRoot, 'contract.md'));
+  assert.throws(
+    () => computeContractDigest(packageRoot, ['contract.md']),
+    ContractInputMissingError
+  );
 });
 
 test('package digest covers kernel plus every mirror target, sorted', () => {

@@ -33,7 +33,7 @@ The compiler's guarantee stays mechanical. It confirms reproducible derived byte
 | Registered systems | 10 |
 | Commands | 6 |
 | Exit codes | 0-6 plus usage 64 |
-| Test count | 126 |
+| Test count | 150 |
 | Enforcement status | report-only |
 
 ### Three Separate Green States
@@ -357,6 +357,6 @@ Recovery always acquires the repository lock and rolls back a valid interrupted 
 
 - [`lib/README.md`](lib/README.md) explains the domain modules and transaction engine.
 - [`scripts/README.md`](scripts/README.md) explains the opt-in pre-commit delegate.
-- [`tests/README.md`](tests/README.md) explains the 126-test suite and its fixtures.
+- [`tests/README.md`](tests/README.md) explains the 150-test suite and its fixtures.
 - [`feature-catalog/feature-catalog.md`](feature-catalog/feature-catalog.md) is the feature catalog for this tool.
 - [`manual-testing-playbook/manual-testing-playbook.md`](manual-testing-playbook/manual-testing-playbook.md) is the operator-facing manual validation playbook.

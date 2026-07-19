@@ -11,6 +11,8 @@ const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
+const { resolveContainedPath } = require('./path-safety.cjs');
+
 // ─────────────────────────────────────────────────────────────────────────────
 // 2. CONSTANTS
 // ─────────────────────────────────────────────────────────────────────────────
@@ -37,9 +39,12 @@ function computeContractDigest(packageRoot, contractInputs) {
   const hash = crypto.createHash('sha256');
   hash.update(DOMAIN_PREFIX, 'utf8');
   for (const logicalPath of sorted) {
-    const absolute = path.join(packageRoot, logicalPath);
     let bytes;
     try {
+      const absolute = resolveContainedPath(packageRoot, logicalPath, {
+        mustExist: true,
+        realBoundaryAbs: path.dirname(packageRoot),
+      });
       bytes = fs.readFileSync(absolute);
     } catch (err) {
       const wrapped = new ContractInputMissingError(
@@ -72,9 +77,9 @@ function computePackageDigest(packageRoot, kernelRelPath, mirrorTargets) {
   const hash = crypto.createHash('sha256');
   hash.update(PACKAGE_DOMAIN_PREFIX, 'utf8');
   for (const relPath of entries) {
-    const absolute = path.join(packageRoot, relPath);
     let bytes;
     try {
+      const absolute = resolveContainedPath(packageRoot, relPath, { mustExist: true });
       bytes = fs.readFileSync(absolute);
     } catch (err) {
       const wrapped = new ContractInputMissingError(

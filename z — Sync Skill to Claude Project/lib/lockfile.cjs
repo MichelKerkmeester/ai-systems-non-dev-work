@@ -8,12 +8,15 @@ const path = require('node:path');
 
 const { hashFile } = require('./hashing.cjs');
 const { FIXED_KNOWLEDGE_ROOT } = require('./manifest.cjs');
+const { resolveContainedPath } = require('./path-safety.cjs');
 const { LOCK_REL_PATH } = require('./paths.cjs');
 const { readJsonStrict } = require('./util.cjs');
 
 function buildLockState({ packageAbsRoot, entry, manifest, regionShas }) {
   const files = [];
-  const kernelHash = hashFile(path.join(packageAbsRoot, entry.kernelPath));
+  const kernelHash = hashFile(
+    resolveContainedPath(packageAbsRoot, entry.kernelPath, { mustExist: true })
+  );
   files.push({
     path: entry.kernelPath,
     sha256: kernelHash.sha256,
@@ -22,7 +25,7 @@ function buildLockState({ packageAbsRoot, entry, manifest, regionShas }) {
   });
   for (const mirror of manifest.mirrors) {
     const targetRel = `${FIXED_KNOWLEDGE_ROOT}/${mirror.target}`;
-    const hash = hashFile(path.join(packageAbsRoot, targetRel));
+    const hash = hashFile(resolveContainedPath(packageAbsRoot, targetRel, { mustExist: true }));
     files.push({ path: targetRel, sha256: hash.sha256, sha16: hash.sha16, bytes: hash.bytes });
   }
   return {

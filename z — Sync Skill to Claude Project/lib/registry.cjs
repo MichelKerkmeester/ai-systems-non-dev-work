@@ -9,7 +9,12 @@
 
 const path = require('node:path');
 const { relativePathProblem } = require('./path-safety.cjs');
-const { readJsonStrict, findDuplicates } = require('./util.cjs');
+const {
+  readJsonStrict,
+  findDuplicates,
+  JsonReadError,
+  JsonParseError,
+} = require('./util.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 2. CONSTANTS
@@ -156,7 +161,20 @@ function validateRegistryShape(data) {
  */
 function loadRegistry(registryDir) {
   const registryPath = path.join(registryDir || __dirname, '..', REGISTRY_FILENAME);
-  const data = readJsonStrict(registryPath);
+  let data;
+  try {
+    data = readJsonStrict(registryPath);
+  } catch (err) {
+    if (err instanceof JsonReadError || err instanceof JsonParseError) {
+      const wrapped = new RegistryValidationError(
+        `registry.json failed validation:\n  - ${err.message}`,
+        [err.message]
+      );
+      wrapped.cause = err;
+      throw wrapped;
+    }
+    throw err;
+  }
   const { ok, problems } = validateRegistryShape(data);
   if (!ok) {
     throw new RegistryValidationError(

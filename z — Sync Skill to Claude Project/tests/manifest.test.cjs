@@ -118,6 +118,37 @@ test('validateManifestShape rejects generated sections without a registered rend
   assert.ok(problems.some((problem) => problem.includes('unsupported renderer')));
 });
 
+test('validateManifestShape rejects duplicate generated-region targets and sections', () => {
+  const repoRoot = mkTempRepo();
+  const { entry, manifest } = buildCleanPackage(repoRoot);
+  manifest.generatedRegions = [
+    { target: 'SYNC.md', sections: ['INVENTORY', 'INVENTORY'] },
+    { target: 'SYNC.md', sections: ['SMOKE_VERSION_PINS'] },
+  ];
+  const { ok, problems } = validateManifestShape(manifest, entry);
+  assert.equal(ok, false);
+  assert.ok(problems.some((problem) => problem.includes('duplicate renderer')));
+  assert.ok(problems.some((problem) => problem.includes('duplicate targets')));
+});
+
+test('validateManifestShape rejects unknown fields in every nested schema object', () => {
+  const repoRoot = mkTempRepo();
+  const { entry, manifest } = buildCleanPackage(repoRoot);
+  manifest.kernel.extra = true;
+  manifest.sourceCoverage.extra = true;
+  manifest.mirrors[0].extra = true;
+  manifest.validators = [{ name: 'valid', command: ['node'], cwd: '.', extra: true }];
+  manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['INVENTORY'], extra: true }];
+  const { ok, problems } = validateManifestShape(manifest, entry);
+  assert.equal(ok, false);
+  for (const label of ['kernel', 'sourceCoverage', 'mirrors[0]', 'validators[0]', 'generatedRegions[0]']) {
+    assert.ok(
+      problems.some((problem) => problem.includes(`${label} has unknown field`)),
+      problems.join('; ')
+    );
+  }
+});
+
 test('validateManifestShape requires deterministic configuration for derivation exceptions', () => {
   const repoRoot = mkTempRepo();
   const { entry, manifest, mirrorTarget } = buildCleanPackage(repoRoot);
@@ -129,13 +160,16 @@ test('validateManifestShape requires deterministic configuration for derivation 
 });
 
 test(
-  'loadManifest surfaces invalid JSON as ManifestValidationError-free JSON error, not a crash',
+  'loadManifest normalizes invalid JSON to ManifestValidationError',
   () => {
     const repoRoot = mkTempRepo();
     const packageRoot = path.join(repoRoot, 'Broken');
     const manifestPath = path.join(packageRoot, 'claude-project.sync.json');
     fs.mkdirSync(packageRoot, { recursive: true });
     fs.writeFileSync(manifestPath, '{ not valid json');
-    assert.throws(() => loadManifest(packageRoot, 'claude-project.sync.json'));
+    assert.throws(
+      () => loadManifest(packageRoot, 'claude-project.sync.json'),
+      ManifestValidationError
+    );
   }
 );

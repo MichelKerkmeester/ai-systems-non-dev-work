@@ -242,6 +242,19 @@ test('a journal under an active repo lock is reported as in-progress, not recove
   }
 });
 
+test('an active repo lock blocks checks before a journal exists', () => {
+  const repoRoot = mkTempRepo();
+  const { entry } = buildCleanPackage(repoRoot);
+  const lock = acquireRepoLock(repoRoot);
+  try {
+    const result = checkSystem({ repoRoot, entry });
+    assert.equal(result.exitCode, EXIT.INTERRUPTED_TRANSACTION);
+    assert.deepEqual(getFindingCodes(result), [CODE.SYNC_IN_PROGRESS]);
+  } finally {
+    lock.release();
+  }
+});
+
 test('unknown knowledge file is reported, never auto-deleted', () => {
   const repoRoot = mkTempRepo();
   const { entry } = buildCleanPackage(repoRoot);
@@ -297,6 +310,70 @@ test('a missing package lock is mechanical drift and cannot produce a clean chec
   const result = checkSystem({ repoRoot, entry });
   assert.equal(result.exitCode, EXIT.MECHANICAL_DRIFT);
   assert.ok(getFindingCodes(result).includes(CODE.LOCK_MISSING));
+});
+
+test('a malformed generated-region hash is lock structure drift', () => {
+  const repoRoot = mkTempRepo();
+  const { entry, manifest, packageAbsRoot } = buildCleanPackage(repoRoot);
+  manifest.generatedRegions = [{ target: 'SYNC.md', sections: ['INVENTORY'] }];
+  writeJson(repoRoot, path.join(entry.packageRoot, entry.manifestPath), manifest);
+  const body = renderInventorySection(manifest);
+  writeFile(
+    repoRoot,
+    path.join(entry.packageRoot, 'SYNC.md'),
+    `<!-- BEGIN GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n${body}\n` +
+      '<!-- END GENERATED: AI-SYSTEM-SYNC INVENTORY -->\n'
+  );
+  const lockAbs = path.join(packageAbsRoot, 'claude project/package-lock.json');
+  const lock = JSON.parse(fs.readFileSync(lockAbs, 'utf8'));
+  lock.regions = [{ target: 'SYNC.md', section: 'INVENTORY', sha256: 'not-a-hash' }];
+  fs.writeFileSync(lockAbs, JSON.stringify(lock, null, 2));
+
+  const result = checkSystem({ repoRoot, entry });
+  assert.ok(getFindingCodes(result).includes(CODE.LOCK_STRUCTURE_MISMATCH));
+});
+
+test('a symlinked mirror target cannot false-pass byte parity', () => {
+  const repoRoot = mkTempRepo();
+  const { entry, mirrorTarget, packageAbsRoot } = buildCleanPackage(repoRoot);
+  const targetAbs = path.join(packageAbsRoot, 'claude project/knowledge', mirrorTarget);
+  const sourceAbs = path.join(packageAbsRoot, entry.skillRoot, 'SKILL.md');
+  fs.unlinkSync(targetAbs);
+  fs.symlinkSync(path.relative(path.dirname(targetAbs), sourceAbs), targetAbs);
+
+  const result = checkSystem({ repoRoot, entry });
+  assert.ok(getFindingCodes(result).includes(CODE.MANIFEST_INVALID));
+  assert.ok(
+    result.findings.some((item) => item.message.includes('must be a regular file'))
+  );
+});
+
+test('an ancestor source symlink escaping the repository is rejected', () => {
+  const repoRoot = mkTempRepo();
+  const externalRoot = mkTempRepo();
+  const { entry, manifest, packageAbsRoot } = buildCleanPackage(repoRoot);
+  writeFile(externalRoot, 'outside.md', 'outside repository\n');
+  const linkedDirectory = path.join(packageAbsRoot, entry.skillRoot, 'external');
+  fs.symlinkSync(externalRoot, linkedDirectory, 'dir');
+  const sourceRel = `${entry.skillRoot}/external/outside.md`;
+  const target = 'Fixture System - External - v1.0.0.md';
+  manifest.sourceCoverage.include.push(sourceRel);
+  manifest.mirrors.push({
+    source: sourceRel,
+    target,
+    sourceVersion: '1.0.0',
+    projectVersion: '1.0.0',
+  });
+  manifest.expectedKnowledgeCount = 2;
+  writeJson(repoRoot, path.join(entry.packageRoot, entry.manifestPath), manifest);
+  writeFile(
+    repoRoot,
+    path.join(entry.packageRoot, 'claude project/knowledge', target),
+    'outside repository\n'
+  );
+
+  const result = checkSystem({ repoRoot, entry });
+  assert.ok(getFindingCodes(result).includes(CODE.SYMLINK_ESCAPES_REPO));
 });
 
 test(

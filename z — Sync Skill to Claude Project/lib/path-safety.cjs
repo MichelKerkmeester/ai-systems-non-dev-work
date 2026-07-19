@@ -75,9 +75,30 @@ function resolveContainedPath(baseAbs, relativePath, options) {
   return resolved;
 }
 
+function resolvePackageRoot(repoAbs, packageRoot) {
+  const problem = relativePathProblem(packageRoot, { basenameOnly: true });
+  if (problem) throw new UnsafePathError(`Unsafe package root "${packageRoot}": ${problem}`);
+  const resolvedRepo = path.resolve(repoAbs);
+  const resolvedPackage = path.resolve(resolvedRepo, packageRoot);
+  if (!fs.existsSync(resolvedPackage)) {
+    throw new UnsafePathError(`Package root does not exist: ${packageRoot}`);
+  }
+  const packageStat = fs.lstatSync(resolvedPackage);
+  if (packageStat.isSymbolicLink() || !packageStat.isDirectory()) {
+    throw new UnsafePathError(`Package root must be a real directory: ${packageRoot}`);
+  }
+  const realRepo = fs.realpathSync(resolvedRepo);
+  const realPackage = fs.realpathSync(resolvedPackage);
+  if (!isPathInside(realRepo, realPackage)) {
+    throw new UnsafePathError(`Package root resolves outside the repository: ${packageRoot}`);
+  }
+  return resolvedPackage;
+}
+
 module.exports = {
   UnsafePathError,
   isPathInside,
   relativePathProblem,
   resolveContainedPath,
+  resolvePackageRoot,
 };

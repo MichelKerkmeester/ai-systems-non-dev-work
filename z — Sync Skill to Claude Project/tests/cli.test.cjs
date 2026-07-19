@@ -18,7 +18,7 @@ const { spawnSync } = require('node:child_process');
 
 const { ENV_OVERRIDE } = require('../lib/repo-root.cjs');
 const { loadRegistry } = require('../lib/registry.cjs');
-const { mkTempRepo, writeJson } = require('./helpers.cjs');
+const { mkTempRepo, buildCleanPackage, writeFile, writeJson } = require('./helpers.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 2. CONSTANTS
@@ -109,6 +109,32 @@ test('sync --write against a system with no manifest yet still exits 2, cleanly'
   assert.equal(result.stderr, '');
 });
 
+test('commands normalize malformed manifest JSON to exit 2 without stack traces', () => {
+  const repoRoot = mkTempRepo();
+  writeFile(repoRoot, 'Product Owner/claude-project.sync.json', '{ not valid json');
+  const commands = [
+    ['plan', '--system', 'product-owner'],
+    ['check', '--system', 'product-owner'],
+    ['sync', '--system', 'product-owner', '--write'],
+    [
+      'review-kernel',
+      '--system',
+      'product-owner',
+      '--reviewer',
+      'test-reviewer',
+      '--reason',
+      'test malformed input',
+    ],
+    ['upload-plan', '--system', 'product-owner'],
+    ['release-check', '--all'],
+  ];
+  for (const command of commands) {
+    const result = runCli(command, { repoRoot });
+    assert.equal(result.status, 2, `${command[0]}: ${result.stdout}${result.stderr}`);
+    assert.equal(result.stderr, '', `${command[0]} must not print a stack trace`);
+  }
+});
+
 test('review-kernel without --reviewer/--reason exits 64', () => {
   const result = runCli(['review-kernel', '--system', 'product-owner']);
   assert.equal(result.status, 64);
@@ -131,21 +157,26 @@ test(
   'sync --system <id> --recover detects and rolls back a real interrupted journal end-to-end',
   () => {
     const repoRoot = mkTempRepo();
-    const packageRoot = path.join(repoRoot, 'Product Owner');
-    fs.mkdirSync(packageRoot, { recursive: true });
-    fs.writeFileSync(path.join(packageRoot, 'file.md'), 'original\n');
+    const { packageAbsRoot, mirrorTarget } = buildCleanPackage(repoRoot, {
+      id: 'product-owner',
+      packageRoot: 'Product Owner',
+      skillRoot: 'sk-product-owner',
+    });
+    const targetRel = `claude project/knowledge/${mirrorTarget}`;
+    const targetAbs = path.join(packageAbsRoot, targetRel);
+    const original = fs.readFileSync(targetAbs, 'utf8');
     fs.renameSync(
-      path.join(packageRoot, 'file.md'),
-      path.join(packageRoot, 'file.md.ai-system-sync.bak')
+      targetAbs,
+      `${targetAbs}.ai-system-sync.bak`
     );
-    fs.writeFileSync(path.join(packageRoot, 'file.md'), 'half-applied\n');
+    fs.writeFileSync(targetAbs, 'half-applied\n');
     writeJson(repoRoot, 'Product Owner/claude project/sync-journal.json', {
       schemaVersion: 1,
       operations: [{
         type: 'write',
-        target: 'file.md',
+        target: targetRel,
         staged: null,
-        backup: 'file.md.ai-system-sync.bak',
+        backup: `${targetRel}.ai-system-sync.bak`,
         existedBefore: true,
         done: true,
       }],
@@ -159,9 +190,9 @@ test(
     const recoverResult = runCli(['sync', '--system', 'product-owner', '--recover'], { repoRoot });
     assert.equal(recoverResult.status, 0);
     assert.match(recoverResult.stdout, /rolled back/);
-    assert.equal(fs.readFileSync(path.join(packageRoot, 'file.md'), 'utf8'), 'original\n');
+    assert.equal(fs.readFileSync(targetAbs, 'utf8'), original);
     assert.equal(
-      fs.existsSync(path.join(packageRoot, 'claude project/sync-journal.json')),
+      fs.existsSync(path.join(packageAbsRoot, 'claude project/sync-journal.json')),
       false
     );
   }

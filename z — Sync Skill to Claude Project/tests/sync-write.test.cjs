@@ -303,8 +303,8 @@ test('sync --write deterministically renders a declared derivation exception', (
   const result = runCli(['sync', '--system', 'product-owner', '--write'], repoRoot);
   assert.equal(result.status, 0, result.stdout + result.stderr);
   const rendered = fs.readFileSync(mirrorAbs, 'utf8');
-  assert.match(rendered, /title: Product Owner - System - Skill - v1\.0\.0/);
-  assert.match(rendered, /contextType: reference/);
+  assert.match(rendered, /title: "Product Owner - System - Skill - v1\.0\.0"/);
+  assert.match(rendered, /contextType: "reference"/);
   assert.match(rendered, /\[Reference\]\(<Product Owner - Reference - Example - v1\.0\.0\.md>\)/);
   assert.doesNotMatch(rendered, /stale hand-applied content/);
 

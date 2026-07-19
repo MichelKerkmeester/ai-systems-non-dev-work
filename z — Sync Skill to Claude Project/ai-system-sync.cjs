@@ -29,12 +29,16 @@ const { computeContractDigest, ContractInputMissingError } = req('contract-diges
 const { hashFile, sha256Hex } = req('hashing.cjs');
 const { renderLockContentIfChanged } = req('lockfile.cjs');
 const { MirrorRenderError, renderMirrorBytes } = req('mirrors.cjs');
-const { UnsafePathError, resolveContainedPath } = req('path-safety.cjs');
+const {
+  UnsafePathError,
+  resolveContainedPath,
+  resolvePackageRoot,
+} = req('path-safety.cjs');
 const { extractRegion, replaceRegion, RegionNotFoundError } = req('regions.cjs');
 const { renderSection, UnknownSectionError } = req('render.cjs');
 const git = req('git-utils.cjs');
-const { sortStable } = req('util.cjs');
-const { KERNEL_REVIEW_REL_PATH } = req('paths.cjs');
+const { readJsonStrict, sortStable } = req('util.cjs');
+const { KERNEL_REVIEW_REL_PATH, LOCK_REL_PATH } = req('paths.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 2. CONSTANTS
@@ -182,9 +186,12 @@ function cmdPlan(flags, ctx) {
   let sawUnknown = false;
   for (const entry of target.entries) {
     printLine(`== ${entry.id} (${entry.packageRoot}) ==`);
-    const packageAbsRoot = path.join(ctx.repoRoot, entry.packageRoot);
-    if (!fs.existsSync(packageAbsRoot)) {
-      printLine(`  package root not found: ${entry.packageRoot}`);
+    let packageAbsRoot;
+    try {
+      packageAbsRoot = resolvePackageRoot(ctx.repoRoot, entry.packageRoot);
+    } catch (err) {
+      if (!(err instanceof UnsafePathError)) throw err;
+      printLine(`  package root invalid: ${err.message}`);
       sawUnknown = true;
       continue;
     }
@@ -210,6 +217,7 @@ function cmdPlan(flags, ctx) {
         );
       } else if (err instanceof ManifestValidationError) {
         printLine(`  manifest invalid:\n    ${err.message.split('\n').join('\n    ')}`);
+        sawUnknown = true;
       } else {
         throw err;
       }
@@ -326,13 +334,51 @@ function cmdSync(flags, ctx) {
     printLine(`error: unknown system id "${flags.system}"`);
     return EXIT.INVALID_MANIFEST_OR_PATHS;
   }
-  const packageAbsRoot = path.join(ctx.repoRoot, entry.packageRoot);
+  if (!flags.write && !flags.recover) {
+    printLine('sync only writes with --write. Pass --recover only for an interrupted transaction.');
+    return EXIT.INVALID_MANIFEST_OR_PATHS;
+  }
+  let packageAbsRoot;
+  try {
+    packageAbsRoot = resolvePackageRoot(ctx.repoRoot, entry.packageRoot);
+  } catch (err) {
+    if (!(err instanceof UnsafePathError)) throw err;
+    printLine(`error: cannot sync ${entry.id}: ${err.message}`);
+    return EXIT.INVALID_MANIFEST_OR_PATHS;
+  }
 
   if (flags.recover) {
-    try {
+    const interruptedJournal = tx.detectInterruptedJournal(packageAbsRoot);
+    if (!interruptedJournal) {
       const result = tx.recoverInterruptedJournal(ctx.repoRoot, packageAbsRoot);
       if (!result.recovered) {
         printLine(`sync --recover: no interrupted transaction found for ${entry.id}.`);
+        return EXIT.CLEAN;
+      }
+    }
+    let recoveryManifest;
+    try {
+      recoveryManifest = loadManifest(packageAbsRoot, entry.manifestPath, entry).data;
+    } catch (err) {
+      if (err instanceof ManifestMissingError || err instanceof ManifestValidationError) {
+        printLine(`error: recovery refused for ${entry.id}: ${err.message}`);
+        return EXIT.INVALID_MANIFEST_OR_PATHS;
+      }
+      throw err;
+    }
+    try {
+      const allowedTargets = buildRecoveryAllowedTargets(
+        packageAbsRoot,
+        recoveryManifest
+      );
+      const result = tx.recoverInterruptedJournal(ctx.repoRoot, packageAbsRoot, {
+        allowedTargets,
+      });
+      if (result.action === 'finalized') {
+        printLine(
+          `sync --recover: finalized committed transaction with ` +
+            `${result.totalOperations} operation(s) for ${entry.id}.`
+        );
         return EXIT.CLEAN;
       }
       printLine(
@@ -359,8 +405,7 @@ function cmdSync(flags, ctx) {
     return EXIT.INTERRUPTED_TRANSACTION;
   }
 
-  // Resolve manifest state once so report-only and write paths describe this
-  // System's actual state rather than a stale fleet-wide assumption.
+  // Resolve manifest state once before staging compiler-owned content.
   let manifestError = null;
   try {
     loadManifest(packageAbsRoot, entry.manifestPath, entry);
@@ -370,28 +415,6 @@ function cmdSync(flags, ctx) {
     } else {
       throw err;
     }
-  }
-
-  if (!flags.write) {
-    if (manifestError instanceof ManifestMissingError) {
-      printLine(
-        `sync only writes with --write. (Even with --write, ${entry.id} still needs ` +
-          `${entry.manifestPath} hand-authored first.)`
-      );
-    } else if (manifestError instanceof ManifestValidationError) {
-      printLine(
-        `sync only writes with --write. (Even with --write, ${entry.id}'s ` +
-          `${entry.manifestPath} fails validation and must be fixed first: ` +
-            `${manifestError.message})`
-      );
-    } else {
-      printLine(
-          `sync only writes with --write. (${entry.id}'s ${entry.manifestPath} ` +
-            'exists and validates: ' +
-          `pass --write to render its mirrors and generated regions.)`
-      );
-    }
-    return EXIT.INVALID_MANIFEST_OR_PATHS;
   }
 
   // Reject a missing or invalid manifest before staging undeclared content.
@@ -453,6 +476,33 @@ function cmdSync(flags, ctx) {
   }
 }
 
+function buildRecoveryAllowedTargets(packageAbsRoot, manifest) {
+  const allowedTargets = new Set([
+    LOCK_REL_PATH,
+    ...manifest.mirrors.map(
+      (mirror) => `${FIXED_KNOWLEDGE_ROOT}/${mirror.target}`
+    ),
+    ...(manifest.generatedRegions || []).map((region) => region.target),
+  ]);
+  const lockAbs = resolveContainedPath(packageAbsRoot, LOCK_REL_PATH);
+  if (!fs.existsSync(lockAbs)) return allowedTargets;
+  try {
+    const previousLock = readJsonStrict(lockAbs);
+    for (const target of previousLock.deletable || []) {
+      if (
+        typeof target === 'string' &&
+        target.startsWith(`${FIXED_KNOWLEDGE_ROOT}/`)
+      ) {
+        resolveContainedPath(packageAbsRoot, target);
+        allowedTargets.add(target);
+      }
+    }
+  } catch {
+    // Current manifest targets remain sufficient when prior lock state is unreadable.
+  }
+  return allowedTargets;
+}
+
 /**
  * Turn a validated manifest into the exact set of file writes `sync --write`
  * needs to apply: every mirror re-derived from its live, dereferenced source,
@@ -465,33 +515,72 @@ function cmdSync(flags, ctx) {
  */
 function buildSyncOperations({ repoRoot, packageAbsRoot, entry, manifest }) {
   const operations = [];
-  const rehashSources = [];
+  const preconditions = new Map();
   const regionShas = [];
+
+  const snapshot = (relativePath, absolutePath, allowRepoBoundary) => {
+    if (preconditions.has(relativePath)) return;
+    const expectedExists = fs.existsSync(absolutePath);
+    preconditions.set(relativePath, {
+      path: relativePath,
+      expectedExists,
+      expectedSha256: expectedExists ? hashFile(absolutePath).sha256 : null,
+      allowRepoBoundary: !!allowRepoBoundary,
+    });
+  };
+
+  const manifestAbs = resolveContainedPath(packageAbsRoot, entry.manifestPath, {
+    mustExist: true,
+  });
+  snapshot(entry.manifestPath, manifestAbs, false);
+  const kernelAbsPath = resolveContainedPath(packageAbsRoot, entry.kernelPath, {
+    mustExist: true,
+  });
+  snapshot(entry.kernelPath, kernelAbsPath, false);
+  const lockAbsPath = resolveContainedPath(packageAbsRoot, LOCK_REL_PATH);
+  snapshot(LOCK_REL_PATH, lockAbsPath, false);
 
   for (const mirror of manifest.mirrors) {
     const sourceAbs = resolveContainedPath(packageAbsRoot, mirror.source, {
       mustExist: true,
       realBoundaryAbs: repoRoot,
     });
-    const sourceHash = hashFile(sourceAbs);
-    const renderedBytes = renderMirrorBytes({ packageAbsRoot, manifest, mirror });
+    snapshot(mirror.source, sourceAbs, true);
+    const renderedBytes = renderMirrorBytes({
+      repoAbsRoot: repoRoot,
+      packageAbsRoot,
+      manifest,
+      mirror,
+    });
     const renderedSha256 = sha256Hex(renderedBytes);
     const targetRel = `${FIXED_KNOWLEDGE_ROOT}/${mirror.target}`;
     const targetAbs = resolveContainedPath(packageAbsRoot, targetRel);
+    snapshot(targetRel, targetAbs, false);
+    if (fs.existsSync(targetAbs)) {
+      const targetStat = fs.lstatSync(targetAbs);
+      if (targetStat.isSymbolicLink() || !targetStat.isFile()) {
+        throw new SyncRenderError(`Compiler-owned mirror target must be a regular file: ${targetRel}`);
+      }
+    }
     const alreadyCurrent =
       fs.existsSync(targetAbs) && hashFile(targetAbs).sha256 === renderedSha256;
     if (!alreadyCurrent) {
       operations.push({ type: 'write', target: targetRel, content: renderedBytes });
-      rehashSources.push({ path: mirror.source, expectedSha256: sourceHash.sha256 });
     }
   }
 
-  const kernelAbsPath = resolveContainedPath(packageAbsRoot, entry.kernelPath, { mustExist: true });
   for (const region of manifest.generatedRegions || []) {
     const targetAbs = resolveContainedPath(packageAbsRoot, region.target, { mustExist: true });
     if (!fs.existsSync(targetAbs)) {
       throw new SyncRenderError(`Generated-region target does not exist: ${region.target}`);
     }
+    const targetStat = fs.lstatSync(targetAbs);
+    if (targetStat.isSymbolicLink() || !targetStat.isFile()) {
+      throw new SyncRenderError(
+        `Generated-region target must be a regular file: ${region.target}`
+      );
+    }
+    snapshot(region.target, targetAbs, false);
     const originalContent = fs.readFileSync(targetAbs, 'utf8');
     let content = originalContent;
     for (const section of region.sections) {
@@ -514,7 +603,7 @@ function buildSyncOperations({ repoRoot, packageAbsRoot, entry, manifest }) {
     }
   }
 
-  return { operations, rehashSources, regionShas };
+  return { operations, rehashSources: [...preconditions.values()], regionShas };
 }
 
 function cmdReviewKernel(flags, ctx) {
@@ -528,7 +617,14 @@ function cmdReviewKernel(flags, ctx) {
     printLine(`error: unknown system id "${flags.system}"`);
     return EXIT.INVALID_MANIFEST_OR_PATHS;
   }
-  const packageAbsRoot = path.join(ctx.repoRoot, entry.packageRoot);
+  let packageAbsRoot;
+  try {
+    packageAbsRoot = resolvePackageRoot(ctx.repoRoot, entry.packageRoot);
+  } catch (err) {
+    if (!(err instanceof UnsafePathError)) throw err;
+    printLine(`error: cannot review-kernel for ${entry.id}: ${err.message}`);
+    return EXIT.INVALID_MANIFEST_OR_PATHS;
+  }
   let manifest;
   try {
     manifest = loadManifest(packageAbsRoot, entry.manifestPath, entry).data;
@@ -551,7 +647,16 @@ function cmdReviewKernel(flags, ctx) {
     throw err;
   }
 
-  const kernelAbs = path.join(packageAbsRoot, entry.kernelPath);
+  let kernelAbs;
+  try {
+    kernelAbs = resolveContainedPath(packageAbsRoot, entry.kernelPath, { mustExist: true });
+  } catch (err) {
+    if (err instanceof UnsafePathError) {
+      printLine(`error: kernel path invalid: ${err.message}`);
+      return EXIT.INVALID_MANIFEST_OR_PATHS;
+    }
+    throw err;
+  }
   if (!fs.existsSync(kernelAbs)) {
     printLine(`error: kernel file not found: ${entry.kernelPath}`);
     return EXIT.INVALID_MANIFEST_OR_PATHS;
@@ -575,7 +680,16 @@ function cmdReviewKernel(flags, ctx) {
     alignedSkillVersion: manifest.kernel.alignedSkillVersion,
   };
 
-  const reviewAbs = path.join(packageAbsRoot, KERNEL_REVIEW_REL_PATH);
+  let reviewAbs;
+  try {
+    reviewAbs = resolveContainedPath(packageAbsRoot, KERNEL_REVIEW_REL_PATH);
+  } catch (err) {
+    if (err instanceof UnsafePathError) {
+      printLine(`error: review path invalid: ${err.message}`);
+      return EXIT.INVALID_MANIFEST_OR_PATHS;
+    }
+    throw err;
+  }
   fs.mkdirSync(path.dirname(reviewAbs), { recursive: true });
   fs.writeFileSync(reviewAbs, `${JSON.stringify(record, null, 2)}\n`);
   printLine(
@@ -591,9 +705,26 @@ function cmdUploadPlan(flags, ctx) {
     printLine(`error: upload-plan ${target.error}`);
     return target.exitCode;
   }
+  let sawInvalid = false;
   for (const entry of target.entries) {
     printLine(`== ${entry.id} upload plan ==`);
-    const packageAbsRoot = path.join(ctx.repoRoot, entry.packageRoot);
+    const lexicalPackageRoot = path.join(ctx.repoRoot, entry.packageRoot);
+    if (!fs.existsSync(lexicalPackageRoot)) {
+      printLine(
+        '  no manifest yet - cannot produce an upload plan until ' +
+          'claude-project.sync.json is authored.'
+      );
+      continue;
+    }
+    let packageAbsRoot;
+    try {
+      packageAbsRoot = resolvePackageRoot(ctx.repoRoot, entry.packageRoot);
+    } catch (err) {
+      if (!(err instanceof UnsafePathError)) throw err;
+      printLine(`  package root invalid: ${err.message}`);
+      sawInvalid = true;
+      continue;
+    }
     try {
       const { data: manifest } = loadManifest(packageAbsRoot, entry.manifestPath, entry);
       printLine(`  1. Paste ${entry.kernelPath} into the Project custom instructions field.`);
@@ -614,12 +745,13 @@ function cmdUploadPlan(flags, ctx) {
         );
       } else if (err instanceof ManifestValidationError) {
         printLine(`  manifest invalid:\n    ${err.message.split('\n').join('\n    ')}`);
+        sawInvalid = true;
       } else {
         throw err;
       }
     }
   }
-  return EXIT.CLEAN;
+  return sawInvalid ? EXIT.INVALID_MANIFEST_OR_PATHS : EXIT.CLEAN;
 }
 
 function cmdReleaseCheck(flags, ctx) {

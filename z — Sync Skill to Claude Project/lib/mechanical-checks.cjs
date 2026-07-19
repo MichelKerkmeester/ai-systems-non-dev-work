@@ -16,7 +16,11 @@ const { EXIT, worstExitCode } = require('./exit-codes.cjs');
 const { hashFile, isSha16, isSha256, sha256Hex } = require('./hashing.cjs');
 const { loadManifest, ManifestMissingError, ManifestValidationError, FIXED_KNOWLEDGE_ROOT } = require('./manifest.cjs');
 const { MirrorRenderError, renderMirrorBytes } = require('./mirrors.cjs');
-const { UnsafePathError, resolveContainedPath } = require('./path-safety.cjs');
+const {
+  UnsafePathError,
+  resolveContainedPath,
+  resolvePackageRoot,
+} = require('./path-safety.cjs');
 const { JOURNAL_REL_PATH, LOCK_REL_PATH, KERNEL_REVIEW_REL_PATH, UPLOAD_RECEIPT_REL_PATH } = require('./paths.cjs');
 const { renderSection } = require('./render.cjs');
 const { extractRegion } = require('./regions.cjs');
@@ -114,19 +118,80 @@ function isPathInside(parentAbs, childAbs) {
  * @param {string} relPath - Package-relative file or directory path.
  * @returns {{missing: boolean, files: string[]}} Expansion result.
  */
-function expandCoverageEntry(packageAbsRoot, relPath) {
-  const abs = path.join(packageAbsRoot, relPath);
+function expandCoverageEntry(repoAbsRoot, packageAbsRoot, relPath) {
+  const realRepoRoot = fs.realpathSync(repoAbsRoot);
+  let abs;
+  try {
+    abs = resolveContainedPath(packageAbsRoot, relPath, {
+      mustExist: true,
+      realBoundaryAbs: repoAbsRoot,
+    });
+  } catch (err) {
+    if (err instanceof UnsafePathError) {
+      return { missing: !fs.existsSync(path.join(packageAbsRoot, relPath)), files: [], unsafe: [err.message] };
+    }
+    throw err;
+  }
   let stat;
   try {
     stat = fs.statSync(abs);
   } catch {
-    return { missing: true, files: [] };
+    return { missing: true, files: [], unsafe: [] };
   }
   if (stat.isDirectory()) {
-    const files = walkFilesRecursive(abs).map((f) => `${relPath.replace(/\/$/, '')}/${f}`);
-    return { missing: false, files };
+    const files = [];
+    const unsafe = [];
+    const visited = new Set();
+    const stack = [{ absolutePath: abs, relativePath: relPath.replace(/\/$/, '') }];
+    while (stack.length) {
+      const current = stack.pop();
+      let realDirectory;
+      try {
+        realDirectory = fs.realpathSync(current.absolutePath);
+      } catch {
+        unsafe.push(`Broken coverage path: ${current.relativePath}`);
+        continue;
+      }
+      if (!isPathInside(realRepoRoot, realDirectory)) {
+        unsafe.push(`Coverage path resolves outside the repo: ${current.relativePath}`);
+        continue;
+      }
+      if (visited.has(realDirectory)) continue;
+      visited.add(realDirectory);
+      let entries;
+      try {
+        entries = fs.readdirSync(current.absolutePath, { withFileTypes: true });
+      } catch {
+        unsafe.push(`Cannot read coverage path: ${current.relativePath}`);
+        continue;
+      }
+      for (const entry of entries) {
+        const childAbs = path.join(current.absolutePath, entry.name);
+        const childRel = `${current.relativePath}/${entry.name}`;
+        let childStat;
+        try {
+          if (entry.isSymbolicLink()) {
+            const childReal = fs.realpathSync(childAbs);
+            if (!isPathInside(realRepoRoot, childReal)) {
+              unsafe.push(`Coverage symlink resolves outside the repo: ${childRel}`);
+              continue;
+            }
+          }
+          childStat = fs.statSync(childAbs);
+        } catch {
+          unsafe.push(`Broken coverage path: ${childRel}`);
+          continue;
+        }
+        if (childStat.isDirectory()) {
+          stack.push({ absolutePath: childAbs, relativePath: childRel });
+        } else if (childStat.isFile()) {
+          files.push(childRel);
+        }
+      }
+    }
+    return { missing: false, files, unsafe };
   }
-  return { missing: false, files: [relPath] };
+  return { missing: false, files: [relPath], unsafe: [] };
 }
 
 /**
@@ -136,21 +201,24 @@ function expandCoverageEntry(packageAbsRoot, relPath) {
  * @param {{include: string[], exclude?: string[]}} sourceCoverage - Coverage configuration.
  * @returns {{covered: Set<string>, missingIncludes: string[]}} Coverage result.
  */
-function buildCoverageSet(packageAbsRoot, sourceCoverage) {
+function buildCoverageSet(repoAbsRoot, packageAbsRoot, sourceCoverage) {
   const included = new Set();
   const missingIncludes = [];
+  const unsafeEntries = [];
   for (const entry of sourceCoverage.include) {
-    const { missing, files } = expandCoverageEntry(packageAbsRoot, entry);
+    const { missing, files, unsafe } = expandCoverageEntry(repoAbsRoot, packageAbsRoot, entry);
     if (missing) missingIncludes.push(entry);
+    unsafeEntries.push(...unsafe);
     for (const f of files) included.add(f);
   }
   const excluded = new Set();
   for (const entry of sourceCoverage.exclude || []) {
-    const { files } = expandCoverageEntry(packageAbsRoot, entry);
+    const { files, unsafe } = expandCoverageEntry(repoAbsRoot, packageAbsRoot, entry);
+    unsafeEntries.push(...unsafe);
     for (const f of files) excluded.add(f);
   }
   for (const f of excluded) included.delete(f);
-  return { covered: included, missingIncludes };
+  return { covered: included, missingIncludes, unsafeEntries };
 }
 
 /**
@@ -164,28 +232,36 @@ function buildCoverageSet(packageAbsRoot, sourceCoverage) {
  */
 function checkSymlinkSafety(repoAbsRoot, packageAbsRoot, relPath, findings) {
   const abs = path.join(packageAbsRoot, relPath);
-  let lst;
   try {
-    lst = fs.lstatSync(abs);
-  } catch {
-    return; // handled by SOURCE_MISSING elsewhere
-  }
-  if (!lst.isSymbolicLink()) return;
-  let real;
-  try {
-    real = fs.realpathSync(abs);
-  } catch {
-    findings.push(finding(CODE.SYMLINK_BROKEN, EXIT.INVALID_MANIFEST_OR_PATHS, `Broken symlink: ${relPath}`));
-    return;
-  }
-  if (!isPathInside(repoAbsRoot, real)) {
+    resolveContainedPath(packageAbsRoot, relPath, {
+      mustExist: true,
+      realBoundaryAbs: repoAbsRoot,
+    });
+    return true;
+  } catch (err) {
+    if (!(err instanceof UnsafePathError)) throw err;
+    let finalStat;
+    try {
+      finalStat = fs.lstatSync(abs);
+    } catch {
+      return false; // SOURCE_MISSING reports ordinary absent paths.
+    }
+    let code = CODE.SYMLINK_ESCAPES_REPO;
+    let message = err.message;
+    try {
+      if (finalStat.isSymbolicLink()) fs.realpathSync(abs);
+    } catch {
+      code = CODE.SYMLINK_BROKEN;
+      message = `Broken symlink: ${relPath}`;
+    }
     findings.push(
       finding(
-        CODE.SYMLINK_ESCAPES_REPO,
+        code,
         EXIT.INVALID_MANIFEST_OR_PATHS,
-        `Symlink resolves outside the repo: ${relPath} -> ${real}`
+        message
       )
     );
+    return false;
   }
 }
 
@@ -196,7 +272,11 @@ function checkSymlinkSafety(repoAbsRoot, packageAbsRoot, relPath, findings) {
  * @returns {void}
  */
 function checkCoverageAndMirrors({ repoAbsRoot, packageAbsRoot, manifest, findings }) {
-  const { covered, missingIncludes } = buildCoverageSet(packageAbsRoot, manifest.sourceCoverage);
+  const { covered, missingIncludes, unsafeEntries } = buildCoverageSet(
+    repoAbsRoot,
+    packageAbsRoot,
+    manifest.sourceCoverage
+  );
   if (missingIncludes.length) {
     findings.push(
       finding(
@@ -204,6 +284,11 @@ function checkCoverageAndMirrors({ repoAbsRoot, packageAbsRoot, manifest, findin
         EXIT.INVALID_MANIFEST_OR_PATHS,
         `sourceCoverage.include path(s) do not exist: ${missingIncludes.join(', ')}`
       )
+    );
+  }
+  for (const unsafeEntry of unsafeEntries) {
+    findings.push(
+      finding(CODE.SYMLINK_ESCAPES_REPO, EXIT.INVALID_MANIFEST_OR_PATHS, unsafeEntry)
     );
   }
 
@@ -221,13 +306,19 @@ function checkCoverageAndMirrors({ repoAbsRoot, packageAbsRoot, manifest, findin
 
   for (const mirror of manifest.mirrors) {
     const abs = path.join(packageAbsRoot, mirror.source);
+    const isSafe = checkSymlinkSafety(
+      repoAbsRoot,
+      packageAbsRoot,
+      mirror.source,
+      findings
+    );
     if (!fs.existsSync(abs)) {
       findings.push(
         finding(CODE.SOURCE_MISSING, EXIT.INVALID_MANIFEST_OR_PATHS, `Mirror source missing: ${mirror.source}`)
       );
       continue;
     }
-    checkSymlinkSafety(repoAbsRoot, packageAbsRoot, mirror.source, findings);
+    if (!isSafe) continue;
   }
 
   const targetCollisions = findCaseInsensitiveCollisions(manifest.mirrors.map((m) => m.target));
@@ -248,8 +339,19 @@ function checkCoverageAndMirrors({ repoAbsRoot, packageAbsRoot, manifest, findin
  * @param {object} context - Check context and finding accumulator.
  * @returns {void}
  */
-function checkKnowledgeInventory({ packageAbsRoot, manifest, findings }) {
-  const knowledgeAbsDir = path.join(packageAbsRoot, FIXED_KNOWLEDGE_ROOT);
+function checkKnowledgeInventory({ repoAbsRoot, packageAbsRoot, manifest, findings }) {
+  let knowledgeAbsDir;
+  try {
+    knowledgeAbsDir = resolveContainedPath(packageAbsRoot, FIXED_KNOWLEDGE_ROOT, {
+      mustExist: false,
+    });
+  } catch (err) {
+    if (err instanceof UnsafePathError) {
+      findings.push(finding(CODE.MANIFEST_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, err.message));
+      return;
+    }
+    throw err;
+  }
   if (!fs.existsSync(knowledgeAbsDir)) {
     findings.push(
       finding(
@@ -298,14 +400,46 @@ function checkKnowledgeInventory({ packageAbsRoot, manifest, findings }) {
 
   for (const mirror of manifest.mirrors) {
     const sourceAbs = path.join(packageAbsRoot, mirror.source);
-    const targetAbs = path.join(knowledgeAbsDir, mirror.target);
+    const targetRel = `${FIXED_KNOWLEDGE_ROOT}/${mirror.target}`;
     if (!fs.existsSync(sourceAbs) || !actualSet.has(mirror.target)) continue; // already reported above
+    let targetAbs;
+    try {
+      targetAbs = resolveContainedPath(packageAbsRoot, targetRel, { mustExist: true });
+    } catch (err) {
+      if (err instanceof UnsafePathError) {
+        findings.push(finding(CODE.MANIFEST_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, err.message));
+        continue;
+      }
+      throw err;
+    }
+    const targetStat = fs.lstatSync(targetAbs);
+    if (targetStat.isSymbolicLink() || !targetStat.isFile()) {
+      findings.push(
+        finding(
+          CODE.MANIFEST_INVALID,
+          EXIT.INVALID_MANIFEST_OR_PATHS,
+          `Compiler-owned mirror target must be a regular file: ${targetRel}`
+        )
+      );
+      continue;
+    }
     let expectedBytes;
     try {
-      expectedBytes = renderMirrorBytes({ packageAbsRoot, manifest, mirror });
+      expectedBytes = renderMirrorBytes({
+        repoAbsRoot,
+        packageAbsRoot,
+        manifest,
+        mirror,
+      });
     } catch (err) {
       if (err instanceof MirrorRenderError) {
         findings.push(finding(CODE.MANIFEST_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, err.message));
+        continue;
+      }
+      if (err instanceof UnsafePathError) {
+        findings.push(
+          finding(CODE.SYMLINK_ESCAPES_REPO, EXIT.INVALID_MANIFEST_OR_PATHS, err.message)
+        );
         continue;
       }
       throw err;
@@ -325,7 +459,16 @@ function checkKnowledgeInventory({ packageAbsRoot, manifest, findings }) {
 
 /** Read package-lock.json once so missing and invalid states stay distinct. */
 function loadLock(packageAbsRoot, findings) {
-  const lockAbs = path.join(packageAbsRoot, LOCK_REL_PATH);
+  let lockAbs;
+  try {
+    lockAbs = resolveContainedPath(packageAbsRoot, LOCK_REL_PATH);
+  } catch (err) {
+    if (err instanceof UnsafePathError) {
+      findings.push(finding(CODE.MANIFEST_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, err.message));
+      return { status: 'invalid', data: null };
+    }
+    throw err;
+  }
   if (!fs.existsSync(lockAbs)) return { status: 'missing', data: null };
   try {
     return { status: 'ok', data: readJsonStrict(lockAbs) };
@@ -375,6 +518,27 @@ function checkLockConsistency({ packageAbsRoot, entry, manifest, lockState, find
 
   if (lock.schemaVersion !== 1) structureProblems.push('schemaVersion must be 1');
   if (lock.systemId !== entry.id) structureProblems.push(`systemId must be ${entry.id}`);
+  fileRecords.forEach((record, index) => {
+    if (!record || typeof record !== 'object' || Array.isArray(record)) {
+      structureProblems.push(`files[${index}] must be an object`);
+      return;
+    }
+    if (typeof record.path !== 'string') structureProblems.push(`files[${index}].path must be a string`);
+    if (!isSha256(record.sha256)) structureProblems.push(`files[${index}].sha256 must be SHA-256`);
+    if (!isSha16(record.sha16)) structureProblems.push(`files[${index}].sha16 must be sha256-16`);
+    if (!Number.isInteger(record.bytes) || record.bytes < 0) {
+      structureProblems.push(`files[${index}].bytes must be a non-negative integer`);
+    }
+  });
+  regionRecords.forEach((record, index) => {
+    if (!record || typeof record !== 'object' || Array.isArray(record)) {
+      structureProblems.push(`regions[${index}] must be an object`);
+      return;
+    }
+    if (typeof record.target !== 'string') structureProblems.push(`regions[${index}].target must be a string`);
+    if (typeof record.section !== 'string') structureProblems.push(`regions[${index}].section must be a string`);
+    if (!isSha256(record.sha256)) structureProblems.push(`regions[${index}].sha256 must be SHA-256`);
+  });
   if (!sameStringSet(filePaths, expectedFiles)) structureProblems.push('files inventory is incomplete or contains extras');
   if (!sameStringSet(regionKeys, expectedRegions)) structureProblems.push('regions inventory is incomplete or contains extras');
   if (!sameStringSet(lock.deletable, expectedDeletable)) structureProblems.push('deletable inventory does not match mirrors');
@@ -412,7 +576,12 @@ function checkLockConsistency({ packageAbsRoot, entry, manifest, lockState, find
     try {
       abs = resolveContainedPath(packageAbsRoot, record.path);
     } catch (err) {
-      if (err instanceof UnsafePathError) continue;
+      if (err instanceof UnsafePathError) {
+        findings.push(
+          finding(CODE.LOCK_STRUCTURE_MISMATCH, EXIT.MECHANICAL_DRIFT, err.message)
+        );
+        continue;
+      }
       throw err;
     }
     if (!fs.existsSync(abs)) continue; // reported elsewhere as missing knowledge/kernel file
@@ -432,7 +601,18 @@ function checkLockConsistency({ packageAbsRoot, entry, manifest, lockState, find
   for (const record of regionRecords) {
     const key = record && regionLockKey(record.target, record.section);
     if (!record || !expectedRegionSet.has(key) || !isSha256(record.sha256)) continue;
-    const targetAbs = path.join(packageAbsRoot, record.target);
+    let targetAbs;
+    try {
+      targetAbs = resolveContainedPath(packageAbsRoot, record.target);
+    } catch (err) {
+      if (err instanceof UnsafePathError) {
+        findings.push(
+          finding(CODE.LOCK_STRUCTURE_MISMATCH, EXIT.MECHANICAL_DRIFT, err.message)
+        );
+        continue;
+      }
+      throw err;
+    }
     if (!fs.existsSync(targetAbs)) continue;
     const body = extractRegion(fs.readFileSync(targetAbs, 'utf8'), record.section);
     if (body !== null && sha256Hex(body) !== record.sha256) {
@@ -459,13 +639,33 @@ function regionLockKey(target, section) {
 function checkGeneratedRegions({ packageAbsRoot, entry, manifest, findings }) {
   const kernelAbsPath = path.join(packageAbsRoot, entry.kernelPath);
   for (const region of manifest.generatedRegions || []) {
-    const abs = path.join(packageAbsRoot, region.target);
+    let abs;
+    try {
+      abs = resolveContainedPath(packageAbsRoot, region.target);
+    } catch (err) {
+      if (err instanceof UnsafePathError) {
+        findings.push(finding(CODE.MANIFEST_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, err.message));
+        continue;
+      }
+      throw err;
+    }
     if (!fs.existsSync(abs)) {
       findings.push(
         finding(
           CODE.REGION_NOT_SCAFFOLDED,
           EXIT.MECHANICAL_DRIFT,
           `Generated-region target does not exist: ${region.target}`
+        )
+      );
+      continue;
+    }
+    const targetStat = fs.lstatSync(abs);
+    if (targetStat.isSymbolicLink() || !targetStat.isFile()) {
+      findings.push(
+        finding(
+          CODE.MANIFEST_INVALID,
+          EXIT.INVALID_MANIFEST_OR_PATHS,
+          `Generated-region target must be a regular file: ${region.target}`
         )
       );
       continue;
@@ -621,7 +821,16 @@ function checkKernelReview({ packageAbsRoot, entry, manifest, findings }) {
     throw err;
   }
 
-  const reviewAbs = path.join(packageAbsRoot, KERNEL_REVIEW_REL_PATH);
+  let reviewAbs;
+  try {
+    reviewAbs = resolveContainedPath(packageAbsRoot, KERNEL_REVIEW_REL_PATH);
+  } catch (err) {
+    if (err instanceof UnsafePathError) {
+      findings.push(finding(CODE.MANIFEST_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, err.message));
+      return;
+    }
+    throw err;
+  }
   if (!fs.existsSync(reviewAbs)) {
     findings.push(
       finding(
@@ -657,7 +866,16 @@ function checkKernelReview({ packageAbsRoot, entry, manifest, findings }) {
     );
     return;
   }
-  const kernelAbs = path.join(packageAbsRoot, entry.kernelPath);
+  let kernelAbs;
+  try {
+    kernelAbs = resolveContainedPath(packageAbsRoot, entry.kernelPath);
+  } catch (err) {
+    if (err instanceof UnsafePathError) {
+      findings.push(finding(CODE.MANIFEST_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, err.message));
+      return;
+    }
+    throw err;
+  }
   if (fs.existsSync(kernelAbs)) {
     const liveKernelHash = hashFile(kernelAbs).sha256;
     if (review.kernelSha256 && review.kernelSha256 !== liveKernelHash) {
@@ -722,7 +940,7 @@ function loadFleetRetiredNames(repoRoot, registry) {
   const names = new Set();
   for (const sys of registry.systems) {
     try {
-      const packageAbsRoot = path.join(repoRoot, sys.packageRoot);
+      const packageAbsRoot = resolvePackageRoot(repoRoot, sys.packageRoot);
       const { data } = loadManifest(packageAbsRoot, sys.manifestPath, sys);
       for (const n of data.retiredNames || []) names.add(n.toLowerCase());
     } catch {
@@ -747,29 +965,32 @@ function loadFleetRetiredNames(repoRoot, registry) {
 function checkSystem({ repoRoot, entry, options }) {
   const opts = options || {};
   const findings = [];
-  const packageAbsRoot = path.join(repoRoot, entry.packageRoot);
-
-  if (!fs.existsSync(packageAbsRoot)) {
+  let packageAbsRoot;
+  try {
+    packageAbsRoot = resolvePackageRoot(repoRoot, entry.packageRoot);
+  } catch (err) {
+    if (!(err instanceof UnsafePathError)) throw err;
     findings.push(
-      finding(CODE.PACKAGE_ROOT_MISSING, EXIT.INVALID_MANIFEST_OR_PATHS, `Package root not found: ${entry.packageRoot}`)
+      finding(CODE.PACKAGE_ROOT_MISSING, EXIT.INVALID_MANIFEST_OR_PATHS, err.message)
+    );
+    return finalize(entry.id, findings);
+  }
+
+  const repoLockState = inspectRepoLock(repoRoot).state;
+  if (repoLockState === 'held') {
+    findings.push(
+      finding(
+        CODE.SYNC_IN_PROGRESS,
+        EXIT.INTERRUPTED_TRANSACTION,
+        'A fleet sync transaction is active; wait for the repo lock to clear before checking. ' +
+          'Do not run recovery while the lock is held.'
+      )
     );
     return finalize(entry.id, findings);
   }
 
   const journalAbs = path.join(packageAbsRoot, JOURNAL_REL_PATH);
   if (fs.existsSync(journalAbs)) {
-    const lockState = inspectRepoLock(repoRoot).state;
-    if (lockState === 'held') {
-      findings.push(
-        finding(
-          CODE.SYNC_IN_PROGRESS,
-          EXIT.INTERRUPTED_TRANSACTION,
-          `A sync transaction is active for ${entry.id}; wait for the repo lock to clear. ` +
-            'Do not run recovery while the lock is held.'
-        )
-      );
-      return finalize(entry.id, findings);
-    }
     findings.push(
       finding(
         CODE.INTERRUPTED_TRANSACTION,
@@ -806,7 +1027,7 @@ function checkSystem({ repoRoot, entry, options }) {
   const lock = loadLock(packageAbsRoot, findings);
 
   checkCoverageAndMirrors({ repoAbsRoot: repoRoot, packageAbsRoot, manifest, findings });
-  checkKnowledgeInventory({ packageAbsRoot, manifest, findings });
+  checkKnowledgeInventory({ repoAbsRoot: repoRoot, packageAbsRoot, manifest, findings });
   checkLockConsistency({ packageAbsRoot, entry, manifest, lockState: lock, findings });
   checkGeneratedRegions({ packageAbsRoot, entry, manifest, findings });
   checkRetiredTokens({ packageAbsRoot, entry, manifest, findings });
@@ -840,7 +1061,27 @@ function finalize(systemId, findings) {
  */
 function releaseCheckSystem({ repoRoot, entry }) {
   const findings = [];
-  const packageAbsRoot = path.join(repoRoot, entry.packageRoot);
+  let packageAbsRoot;
+  try {
+    packageAbsRoot = resolvePackageRoot(repoRoot, entry.packageRoot);
+  } catch (err) {
+    if (!(err instanceof UnsafePathError)) throw err;
+    findings.push(
+      finding(CODE.PACKAGE_ROOT_MISSING, EXIT.INVALID_MANIFEST_OR_PATHS, err.message)
+    );
+    return finalize(entry.id, findings);
+  }
+
+  if (inspectRepoLock(repoRoot).state === 'held') {
+    findings.push(
+      finding(
+        CODE.SYNC_IN_PROGRESS,
+        EXIT.INTERRUPTED_TRANSACTION,
+        'A fleet sync transaction is active; wait for the repo lock to clear before release checks.'
+      )
+    );
+    return finalize(entry.id, findings);
+  }
 
   let manifest;
   try {
@@ -858,7 +1099,16 @@ function releaseCheckSystem({ repoRoot, entry }) {
     return finalize(entry.id, findings);
   }
 
-  const receiptAbs = path.join(packageAbsRoot, UPLOAD_RECEIPT_REL_PATH);
+  let receiptAbs;
+  try {
+    receiptAbs = resolveContainedPath(packageAbsRoot, UPLOAD_RECEIPT_REL_PATH);
+  } catch (err) {
+    if (err instanceof UnsafePathError) {
+      findings.push(finding(CODE.MANIFEST_INVALID, EXIT.INVALID_MANIFEST_OR_PATHS, err.message));
+      return finalize(entry.id, findings);
+    }
+    throw err;
+  }
   if (!fs.existsSync(receiptAbs)) {
     findings.push(
       finding(

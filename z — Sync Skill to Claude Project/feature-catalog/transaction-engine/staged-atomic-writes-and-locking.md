@@ -27,6 +27,24 @@ The engine journals each ordinary operation before the first real path changes. 
 
 After success the engine removes backups and the journal and releases the lock. If apply fails, it restores operations in reverse order, cleans staging and backups and removes the journal before returning the error.
 
+### Dual-Protocol Lock
+
+Every lock acquisition creates BOTH a unique owner file `.ai-system-sync.lock.owner.<12-hex-token>` AND the fixed compatibility sentinel `.ai-system-sync.lock` at the repo root, both carrying the same JSON payload `{ pid, host, acquiredAt, processIdentity, token }`. New-protocol compilers coordinate through the unique owners; legacy compilers that only know the fixed sentinel are still blocked. Requiring both layers means a mixed fleet of old and new binaries cannot race each other.
+
+`processIdentity` is read from `ps -o lstart= -p <pid>` and defeats PID-reuse resurrection: a reused live PID with a different process-start time is treated as stale. Stale cleanup is ABA-safe through `removeSnapshotIfUnchanged`, which compares payload, device and inode before unlinking. Acquire creates the owner first, lists every other snapshot, throws `RepoLockHeldError` if any active contender is observed, then creates the fixed sentinel (or reclaims a stale one). Stale owner records whose payload and inode still match are removed after the fixed sentinel is held. Release removes the fixed sentinel and the unique owner only when the on-disk payload still byte-equals the acquirer's own.
+
+### Staged Path Direct-Sibling Validation
+
+A staged path must be a direct sibling of its target, named exactly `<target>.ai-system-sync.staged.<12-hex>` with no additional path components, and must not be a symlink. The journal validator enforces this on every recovery, defeating the staged-directory symlink exploit: a journal that recorded a staged path inside another directory or with extra components is rejected as corrupt.
+
+### Lockfile Through The Transaction
+
+`package-lock.json` bytes are computed AFTER every ordinary operation has been applied, through the caller-supplied `renderLockFileLast` callback. The returned bytes are then staged, journaled and applied as the final journaled operation, so a failure between the package writes and the lock write rolls back as one transaction. The engine refuses any operation list that tries to write `package-lock.json` directly; the lock can only enter the transaction through this final-step callback.
+
+### Mechanical-Check Refusal While A Writer Holds The Lock
+
+Both `check` and `release-check` refuse while a fleet writer lock is held, BEFORE any journal inspection. This prevents either command from reading a package mid-swap. The finding is reported with the `SYNC_IN_PROGRESS` code at the interrupted-transaction exit class with guidance to wait for the lock to clear, not to run recovery against a live transaction.
+
 ---
 
 ## 3. SOURCE FILES

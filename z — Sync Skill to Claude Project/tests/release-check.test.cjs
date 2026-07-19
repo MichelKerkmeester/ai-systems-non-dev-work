@@ -15,6 +15,7 @@ const path = require('node:path');
 const { releaseCheckSystem, CODE } = require('../lib/mechanical-checks.cjs');
 const { computePackageDigest } = require('../lib/contract-digest.cjs');
 const { EXIT } = require('../lib/exit-codes.cjs');
+const { acquireRepoLock } = require('../lib/transaction.cjs');
 const { mkTempRepo, buildCleanPackage, writeJson } = require('./helpers.cjs');
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -38,6 +39,19 @@ test('exit 6: no upload-receipt.json at all is reported as LIVE_RECEIPT_MISSING'
   const result = releaseCheckSystem({ repoRoot, entry });
   assert.equal(result.exitCode, EXIT.LIVE_RECEIPT_STALE);
   assert.equal(result.findings[0].code, CODE.LIVE_RECEIPT_MISSING);
+});
+
+test('release-check refuses to inspect package state during an active sync', () => {
+  const repoRoot = mkTempRepo();
+  const { entry } = buildCleanPackage(repoRoot);
+  const lock = acquireRepoLock(repoRoot);
+  try {
+    const result = releaseCheckSystem({ repoRoot, entry });
+    assert.equal(result.exitCode, EXIT.INTERRUPTED_TRANSACTION);
+    assert.equal(result.findings[0].code, CODE.SYNC_IN_PROGRESS);
+  } finally {
+    lock.release();
+  }
 });
 
 test('exit 6: a receipt recorded against an older package digest is stale', () => {

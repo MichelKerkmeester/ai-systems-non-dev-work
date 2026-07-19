@@ -25,6 +25,15 @@ The CLI detects `claude project/sync-journal.json` before starting a normal sync
 
 Rollback restores backups for replaced or deleted targets, removes targets that did not exist before a write and cleans staged files. Recovery removes a valid journal only after restoration and returns the rolled-back and total operation counts. A corrupt, invalid or unsafe journal is preserved for manual inspection, a live lock blocks recovery and a package without a journal returns a clean no-recovery result.
 
+### Applying Versus Committed Recovery
+
+The journal records one of two states, and recovery handles each differently:
+
+- `applying` — Recovery treats the transaction as not-yet-complete and rolls back EVERY operation in reverse order, regardless of whether each individual operation was marked done. This is the conservative choice: a crash can occur after a backup is created but before the journal records the operation as complete, so every operation is undone. After rollback, leftover staged and backup files are cleaned and the journal is removed.
+- `committed` — Recovery treats the transaction as having reached its final state and finalizes it instead of rolling back. The new package bytes are preserved, leftover staged and backup files are cleaned, and the journal is removed. This state is written once every operation has been applied successfully and signals that cleanup, not rollback, is the safe recovery.
+
+A corrupt, invalid or unsafe journal is never forwarded or rolled back automatically; it is preserved for manual inspection.
+
 ---
 
 ## 3. SOURCE FILES
