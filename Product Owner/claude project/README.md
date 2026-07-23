@@ -1,32 +1,32 @@
 # Product Owner - Claude Project Packaging
 
-Hand-maintained claude.ai **Projects** package for Product Owner Skill v1.4.0. This folder is the editing surface; the live claude.ai Project is push-only because its UI has no repository lock.
+Compiler-managed local package for the Product Owner claude.ai Project. Mirrors, generated regions and package-lock state derive from the authoritative skill and `claude-project.sync.json`; `Custom Instructions.md` remains hand-synthesized. The live claude.ai Project is a separate manual upload because its UI has no repository lock.
 
 ## 1. OVERVIEW AND STRUCTURE
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.3.0
-|-- README.md                     <- manifest and manual sync contract
-`-- knowledge/                    <- upload all thirty files as Project Knowledge
-    |-- Product Owner - System - Skill - v1.4.0.md
+|-- Custom Instructions.md        <- synthesized Project kernel v1.4.0
+|-- README.md                     <- upload manifest and compiler-managed sync contract
+`-- knowledge/                    <- upload all thirty-two files as Project Knowledge
+    |-- Product Owner - System - Skill - v1.5.0.md
     |-- Product Owner - Thinking - DEPTH Framework - v0.202.md
     |-- Product Owner - System - Interactive Mode - v0.404.md
     |-- Product Owner - Templates - Task Mode - v0.303.md
     |-- Product Owner - Templates - Bug Mode - v0.203.md
     |-- Product Owner - Templates - Doc Mode - v0.106.md
-    |-- Product Owner - Templates - Story Mode - v0.103.md
+    |-- Product Owner - Templates - Story Mode - v0.200.md
     |-- Product Owner - Assets - Task Templates - v0.101.md
     |-- Product Owner - Assets - Bug Report Template - v0.100.md
     |-- Product Owner - Assets - Interactive Response Templates - v0.102.md
     |-- Product Owner - Assets - Doc Templates - v0.107.md
-    |-- Product Owner - Assets - Story Templates - v0.102.md
+    |-- Product Owner - Assets - Story Templates - v0.200.md
     `-- Product Owner - Rules - Human Voice - EN - v0.210.md
 ```
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.3.0 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.4.0**. It preserves backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, DEPTH quality gates, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.4.0 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.5.0**. It preserves backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, DEPTH quality gates, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -34,59 +34,63 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 
 | Source | Project Knowledge mirror |
 | --- | --- |
-| `sk-product-owner/SKILL.md` | `Product Owner - System - Skill - v1.4.0.md` |
+| `sk-product-owner/SKILL.md` | `Product Owner - System - Skill - v1.5.0.md` |
 | `sk-product-owner/references/depth-framework.md` | `Product Owner - Thinking - DEPTH Framework - v0.202.md` |
 | `sk-product-owner/references/interactive-mode.md` | `Product Owner - System - Interactive Mode - v0.404.md` |
 | `sk-product-owner/references/task-mode.md` | `Product Owner - Templates - Task Mode - v0.303.md` |
 | `sk-product-owner/references/bug-mode.md` | `Product Owner - Templates - Bug Mode - v0.203.md` |
 | `sk-product-owner/references/doc-mode.md` | `Product Owner - Templates - Doc Mode - v0.106.md` |
-| `sk-product-owner/references/story-mode.md` | `Product Owner - Templates - Story Mode - v0.103.md` |
+| `sk-product-owner/references/story-mode.md` | `Product Owner - Templates - Story Mode - v0.200.md` |
 | `sk-product-owner/assets/task-templates.md` | `Product Owner - Assets - Task Templates - v0.101.md` |
 | `sk-product-owner/assets/bug-report-template.md` | `Product Owner - Assets - Bug Report Template - v0.100.md` |
 | `sk-product-owner/assets/interactive-response-templates.md` | `Product Owner - Assets - Interactive Response Templates - v0.102.md` |
 | `sk-product-owner/assets/doc-templates.md` | `Product Owner - Assets - Doc Templates - v0.107.md` |
-| `sk-product-owner/assets/story-templates.md` | `Product Owner - Assets - Story Templates - v0.102.md` |
+| `sk-product-owner/assets/story-templates.md` | `Product Owner - Assets - Story Templates - v0.200.md` |
 | `sk-product-owner/references/human-voice-rules.md` | `Product Owner - Rules - Human Voice - EN - v0.210.md` |
 
-Every knowledge file is a byte-for-byte source mirror. Each worked example under `sk-product-owner/assets/examples/<mode>/` also mirrors under its frontmatter title plus `.md` (seventeen `Product Owner - Examples - ...` files). Use `cp -L` for `human-voice-rules.md` so claude.ai receives the dereferenced file contents rather than a symlink.
+Every knowledge file is a byte-for-byte source mirror. Each worked example under `sk-product-owner/assets/examples/<mode>/` also mirrors under its frontmatter title plus `.md` (nineteen `Product Owner - Examples - ...` files). The central compiler dereferences `human-voice-rules.md` so claude.ai receives file contents rather than a symlink.
 
 ## Paired-Version + Checksum Table
 
+<!-- BEGIN GENERATED: AI-SYSTEM-SYNC CHECKSUMS -->
 | Document | Sync stamp |
 | --- | --- |
-| **Custom Instructions** | project kernel v1.3.0 -> Skill v1.4.0, sha16 `f4636ec3e3de4dcb` |
-| knowledge/ System - Skill | v1.4.0 -> v1.4.0, sha16 `727f733915ad5bf1` |
+| **Custom Instructions** | project kernel v1.4.0 -> Skill v1.5.0, sha16 `a5b782219cdfb9b5` |
+| knowledge/ System - Skill | v1.5.0 -> v1.5.0, sha16 `bcaff9ee5dd11a8c` |
 | knowledge/ Thinking - DEPTH Framework | v0.202 -> v0.202, sha16 `53a90623f7af5fdd` |
+| knowledge/ Rules - Human Voice - EN | v0.210 -> v0.210, sha16 `f8980baed64ddb1c` |
 | knowledge/ System - Interactive Mode | v0.404 -> v0.404, sha16 `100160a28f3b6c28` |
 | knowledge/ Templates - Task Mode | v0.303 -> v0.303, sha16 `40cccb81fca6155e` |
 | knowledge/ Templates - Bug Mode | v0.203 -> v0.203, sha16 `26f153475866468c` |
 | knowledge/ Templates - Doc Mode | v0.106 -> v0.106, sha16 `1a37521662e92f86` |
-| knowledge/ Templates - Story Mode | v0.103 -> v0.103, sha16 `d2fddc0a5a486c18` |
+| knowledge/ Templates - Story Mode | v0.200 -> v0.200, sha16 `c999c4f8556a6d03` |
 | knowledge/ Assets - Task Templates | v0.101 -> v0.101, sha16 `4f6dbe14cbf20dd3` |
 | knowledge/ Assets - Bug Report Template | v0.100 -> v0.100, sha16 `fc70714e1d48c81c` |
+| knowledge/ Assets - Doc Templates | v0.107 -> v0.107, sha16 `4b112cdf4f4101f9` |
+| knowledge/ Assets - Story Templates | v0.200 -> v0.200, sha16 `25e68b785c60d24a` |
 | knowledge/ Assets - Interactive Response Templates | v0.102 -> v0.102, sha16 `70018ea339d29773` |
-| knowledge/ Assets - Doc Templates | v0.107 -> v0.107, sha16 `d80d0ee04721ed01` |
-| knowledge/ Assets - Story Templates | v0.102 -> v0.102, sha16 `b19e645a83978041` |
-| knowledge/ Rules - Human Voice EN | v0.210 -> v0.210, sha16 `f8980baed64ddb1c` |
-| knowledge/ Examples - Bug - Backend API - v0.100 | v0.100 -> v0.100, sha16 `b74e056e202c35d1` |
-| knowledge/ Examples - Bug - Frontend Visual - v0.100 | v0.100 -> v0.100, sha16 `c3fe8eee08785ee9` |
-| knowledge/ Examples - Bug - Mobile Crash - v0.100 | v0.100 -> v0.100, sha16 `b8653729cb076a43` |
-| knowledge/ Examples - Bug - Quick Bug - v0.100 | v0.100 -> v0.100, sha16 `d233c8501969e29f` |
-| knowledge/ Examples - Doc - Behavior Reference - v0.100 | v0.100 -> v0.100, sha16 `f0c50dcc3311c3ac` |
-| knowledge/ Examples - Doc - Catalog - v0.100 | v0.100 -> v0.100, sha16 `b6bff2caa90417bd` |
-| knowledge/ Examples - Doc - Guide - v0.100 | v0.100 -> v0.100, sha16 `c6a55af98b79beb9` |
-| knowledge/ Examples - Doc - Proposal - v0.100 | v0.100 -> v0.100, sha16 `8b1e347f76537253` |
-| knowledge/ Examples - Doc - Quick - v0.100 | v0.100 -> v0.100, sha16 `3360d86b4dc37386` |
-| knowledge/ Examples - Doc - README - v0.100 | v0.100 -> v0.100, sha16 `bdc2dfbbf674f45c` |
-| knowledge/ Examples - Story - Complex Tier - v0.100 | v0.100 -> v0.100, sha16 `b425a46b71f1bc12` |
-| knowledge/ Examples - Story - Medium Tier - v0.100 | v0.100 -> v0.100, sha16 `dd27015fbefdafc3` |
-| knowledge/ Examples - Story - Simple Tier - v0.100 | v0.100 -> v0.100, sha16 `2e617608a03468b8` |
-| knowledge/ Examples - Task - Quick Task - v0.100 | v0.100 -> v0.100, sha16 `00567c4774ac11f6` |
-| knowledge/ Examples - Task - Standard Feature - v0.100 | v0.100 -> v0.100, sha16 `8fb6f9bcd0eb22a8` |
-| knowledge/ Examples - Task - Subtask - v0.100 | v0.100 -> v0.100, sha16 `8cd777bbbdfe48d7` |
-| knowledge/ Examples - Task - UI Refinement - v0.100 | v0.100 -> v0.100, sha16 `2788b702696c66f2` |
+| knowledge/ Examples - Bug - Backend API | v0.100 -> v0.100, sha16 `b74e056e202c35d1` |
+| knowledge/ Examples - Bug - Frontend Visual | v0.100 -> v0.100, sha16 `c3fe8eee08785ee9` |
+| knowledge/ Examples - Bug - Mobile Crash | v0.100 -> v0.100, sha16 `b8653729cb076a43` |
+| knowledge/ Examples - Bug - Quick Bug | v0.100 -> v0.100, sha16 `d233c8501969e29f` |
+| knowledge/ Examples - Doc - Behavior Reference | v0.100 -> v0.100, sha16 `0b29033d8e36c5e6` |
+| knowledge/ Examples - Doc - Catalog | v0.100 -> v0.100, sha16 `b6bff2caa90417bd` |
+| knowledge/ Examples - Doc - Guide | v0.100 -> v0.100, sha16 `124408f96503cc7c` |
+| knowledge/ Examples - Doc - Proposal | v0.100 -> v0.100, sha16 `8b1e347f76537253` |
+| knowledge/ Examples - Doc - Quick | v0.100 -> v0.100, sha16 `d589ec52579c56c9` |
+| knowledge/ Examples - Doc - README | v0.100 -> v0.100, sha16 `bdc2dfbbf674f45c` |
+| knowledge/ Examples - Doc - How It Works | v0.100 -> v0.100, sha16 `8bd7b9a2bafd7bdf` |
+| knowledge/ Examples - Story - Complete Reference | v0.100 -> v0.100, sha16 `14232f59a31f4872` |
+| knowledge/ Examples - Story - Complex Tier | v0.200 -> v0.200, sha16 `31b8f3ccd0e8f4ce` |
+| knowledge/ Examples - Story - Medium Tier | v0.200 -> v0.200, sha16 `f10ffa4760cfe5d8` |
+| knowledge/ Examples - Story - Simple Tier | v0.200 -> v0.200, sha16 `64f893782a61865f` |
+| knowledge/ Examples - Task - Quick Task | v0.100 -> v0.100, sha16 `00567c4774ac11f6` |
+| knowledge/ Examples - Task - Standard Feature | v0.100 -> v0.100, sha16 `8fb6f9bcd0eb22a8` |
+| knowledge/ Examples - Task - Subtask | v0.100 -> v0.100, sha16 `8cd777bbbdfe48d7` |
+| knowledge/ Examples - Task - UI Refinement | v0.100 -> v0.100, sha16 `2788b702696c66f2` |
+<!-- END GENERATED: AI-SYSTEM-SYNC CHECKSUMS -->
 
-Recompute full hashes with `shasum -a 256`. Never carry an old checksum forward after content changes.
+`sync --write` recomputes every value above from live bytes and writes them into `package-lock.json`. Never hand-carry an old checksum forward after content changes.
 
 ## ClickUp Connector Delivery
 
@@ -103,7 +107,7 @@ Push shape: artifact H1 becomes the task name; Deliverable Block framing and att
 1. Create or open a claude.ai Project named **Product Owner**.
 2. Paste `Custom Instructions.md` into the Project custom instructions field.
 3. Remove superseded Project Knowledge uploads.
-4. Upload all thirty files in `knowledge/` with filenames unchanged (thirteen core files plus the seventeen Examples mirrors).
+4. Upload all thirty-two files in `knowledge/` with filenames unchanged (thirteen core files plus the nineteen Examples mirrors).
 5. Run the smoke matrix below.
 6. Confirm the Deliverable Block appears first and the reported path follows the create or refinement contract.
 
@@ -130,7 +134,9 @@ Push shape: artifact H1 becomes the task name; Deliverable Block framing and att
 - A Doc refinement preserves the source's divider, bullet, heading and spacing style unless the user explicitly requests ClickUp normalization.
 - A Doc refinement retains its original basename, structure, links, identifiers, tables, literal copy and status markers outside requested scope.
 - New Docs report `export/NNN - doc-[description].md`; refinements report `export/[original-source-filename].md`.
+<!-- BEGIN GENERATED: AI-SYSTEM-SYNC SMOKE_VERSION_PINS -->
 - Task and Bug behavior remains compatible with the pinned v0.303 and v0.203 references.
+<!-- END GENERATED: AI-SYSTEM-SYNC SMOKE_VERSION_PINS -->
 - New Docs balance heading depth: H2 stays a minority of headings and H3/H4 carry the rest, with no all-H2 wall.
 - Doc deliveries report the dimensioned verdict: pass or attention for Source safety, Shape fit, ClickUp layout, Readability and Voice.
 - `$story` and `$s` select Story; `$stories`, `$sort` and embedded `$s` do not; `create a task to write a story` stays Task.
@@ -147,10 +153,11 @@ Push shape: artifact H1 becomes the task name; Deliverable Block framing and att
 
 ## Change Checklist
 
-- Copy changed source files from `../sk-product-owner/SKILL.md`, `../sk-product-owner/references/` and `../sk-product-owner/assets/` to the exact mapped filenames.
-- Keep all thirty mirror files byte-identical to their sources, including every file under `sk-product-owner/assets/examples/`.
+- Update authoritative files under `../sk-product-owner/` and adjust `../claude-project.sync.json` when a source, mapped filename or version pin changes, then run `sync --system product-owner --write` through the central compiler.
+- Let the compiler enforce byte parity for all thirty-two mirrors, including every file under `sk-product-owner/assets/examples/`.
 - Re-derive `Custom Instructions.md` when identity, routing, source safety, template handling, quality or delivery behavior changes.
-- Recompute every sha256-16 value and update this README.
+- If contract inputs changed, obtain the named human's explicit decision and reason, then run `review-kernel` after sync.
+- Run `check --system product-owner --run-validators` before live upload.
 - Remove superseded mirror filenames and search for stale version references.
 - Re-upload changed files to the live Project and run the smoke matrix.
 
@@ -158,4 +165,4 @@ Push shape: artifact H1 becomes the task name; Deliverable Block framing and att
 
 - Backlog artifacts remain WHAT/WHY focused. Docs may cover source-backed technical HOW, supplied implementation facts, architecture, APIs, schemas, debugging or operational procedures and clearly labelled technical proposals or recommendations. Never fabricate current facts, evidence, approval, authority or professional sign-off.
 - Project Knowledge may be retrieved as chunks, so the kernel repeats the routing, source-safety and delivery gates.
-- This package is manually maintained. There is no generated derivation path or repository lock for the live Project.
+- The local package is compiler-managed and repository-locked. The live claude.ai Project is manually uploaded and has no repository lock, so local parity does not prove live deployment currency.

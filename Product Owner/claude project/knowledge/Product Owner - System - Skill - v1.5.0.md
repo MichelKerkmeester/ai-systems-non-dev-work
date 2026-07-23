@@ -2,7 +2,7 @@
 name: product-owner
 description: "Routes Product Owner requests into backlog artifacts, narrative user stories, and source-safe product or engineering documentation, including ClickUp-formatted guides, catalogs, behavior references, runbooks, API or schema references, and proposals."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.4.0
+version: 1.5.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, user story, doc mode, product documentation, engineering documentation, ClickUp, DEPTH, $task, $bug, $doc, $story, $quick -->
@@ -540,7 +540,7 @@ Every Doc selection passes through `finalize_artifact_route`. `PENDING` means Do
 
 ### Mode Selection Notes
 
-Task Mode handles `$task`, `$t`, `$task --subtask`, features, acceptance criteria, technical tasks, integrations and UI refinement. Bug Mode handles `$bug`, `$b`, isolated defects and reproduction steps. Doc Mode handles `$doc`, `$d` and its five adaptive shapes: Guide, Catalog, Behavior reference, Proposal and the prose-first Narrative overview; engineering triggers include API or schema references, architecture documents, runbooks, troubleshooting guides and decision records. Story Mode handles `$story`, `$s`, selects a Simple, Medium or Complex tier from requirement count and shared machinery, names the tier in the response, and never emits ticket header fields, story points or INVEST notes. Interactive Mode handles ambiguity, conflicting commands, missing scope/value/evidence, and Doc or Story contract gaps. Quick is an energy override, not an intent: it narrows the artifact using the already-selected Task, Bug, Doc or Story resources, and never bypasses conflicting commands or Doc authority/conflict/lifecycle gates.
+Task Mode handles `$task`, `$t`, `$task --subtask`, features, acceptance criteria, technical tasks, integrations and UI refinement. Bug Mode handles `$bug`, `$b`, isolated defects and reproduction steps. Doc Mode handles `$doc`, `$d` and its five adaptive shapes: Guide, Catalog, Behavior reference, Proposal and the prose-first Narrative overview; engineering triggers include API or schema references, architecture documents, runbooks, troubleshooting guides and decision records. Story Mode handles `$story`, `$s`, drafts in the Barter house format, selects a Simple, Medium or Complex tier from requirement count and shared machinery, names the tier in the response, and never emits ticket header fields, story points or INVEST notes. Interactive Mode handles ambiguity, conflicting commands, missing scope/value/evidence, and Doc or Story contract gaps. Quick is an energy override, not an intent: it narrows the artifact using the already-selected Task, Bug, Doc or Story resources, and never bypasses conflicting commands or Doc authority/conflict/lifecycle gates.
 
 ---
 
@@ -605,7 +605,7 @@ When refining existing tasks, preserve source section names, order and reference
 
 For Doc work, classify material claims as current behavior, approved direction, proposal, retired material or unknown, at section, row or claim level when a file mixes statuses. Resolve source authority in this order, only within the scope each signal covers: explicit user designation, explicit source declaration, repository placement, then independent corroboration; recency is not authority and byte-identical duplicates are not independent corroboration. Never invent requirements, evidence, root causes, platform details, implementation facts, approvals or acceptance conditions. Preserve supplied technical identifiers, code, architecture, APIs, schemas and operational evidence when audience needs require them; new technical analysis belongs in an explicitly labelled proposal with evidence, assumptions, trade-offs, decision ownership and approval gaps visible.
 
-New Doc and Story artifacts follow the ClickUp Markdown contract: exact `* * *` dividers immediately after every non-title, non-empty content heading; `*   ` unordered bullets and `*   [ ]` checklists; same-level empty spacer headings only in ClickUp-bound content, never in a file export. Balance heading depth: H1 is the title only, H2 anchors the major sections and stays a minority of the document's headings, H3 and H4 carry the rest with bold paragraph leads below. This contract overrides generic dash-bullet guidance in DEPTH; Task, Bug and Interactive formatting stays unchanged.
+New Doc artifacts follow the ClickUp Markdown contract: exact `* * *` dividers immediately after every non-title, non-empty content heading; `*   ` unordered bullets and `*   [ ]` checklists; same-level empty spacer headings only in ClickUp-bound content, never in a file export. Balance heading depth: H1 is the title only, H2 anchors the major sections and stays a minority of the document's headings, H3 and H4 carry the rest with bold paragraph leads below. New Story artifacts follow the Barter house format in `assets/story-templates.md`: the same `* * *` dividers and `*   ` bullets, but `- [ ]` checklists, numbered `1.` acceptance criteria each closed with a Mark-as-done checkbox, and major sections anchored at H3 rather than H2 because ClickUp renders H2 very large. Both contracts override generic dash-bullet guidance in DEPTH; Task, Bug and Interactive formatting stays unchanged.
 
 For Doc artifacts, source fidelity and the ClickUp definition-entry contract narrowly override the general em-dash ban: preserve supplied em dashes in a refinement and use the exact `*   **Term** — definition` delimiter in a new ClickUp document; the ban stays active for newly authored prose outside that structural pattern.
 
@@ -630,7 +630,7 @@ Ask one comprehensive question and wait when required information is missing; ne
 7. Use user-provided context as the main source of truth; deliver only what the user requested.
 8. Identify dependencies, edge cases, error states, empty states, loading states and permission boundaries when relevant.
 9. Write acceptance criteria as testable, specific and unambiguous conditions; keep Task QA checklist items inside Requirements.
-10. Use `---` between required Task and Bug sections; use `-` and `- [ ]` for Task, Bug and Interactive bullets and checklists; use exact `*   ` and `*   [ ]` in new Doc and Story artifacts, preserving the source marker in refinements.
+10. Use `---` between required Task and Bug sections; use `-` and `- [ ]` for Task, Bug and Interactive bullets and checklists; use exact `*   ` bullets in new Doc and Story artifacts, `*   [ ]` checklists in Doc and `- [ ]` checklists in the Story house format, preserving the source marker in refinements.
 11. Use H3 generated Task and Bug artifact section headers without leading icons or symbols.
 12. Export before responding and verify the save before claiming delivery.
 13. Return only the output path, quality summary and brief summary after export, adding one ClickUp delivery offer when ClickUp tooling is available.
@@ -721,7 +721,7 @@ Refuse or reframe when the primary deliverable is live implementation rather tha
 - Backlog deliverables stay outcome-focused; documents include source-backed or explicitly proposed HOW when relevant.
 - Doc sources are classified, unresolved conflicts block drafting, and non-current statuses remain visible.
 - Doc refinements preserve filenames, headings, order, links, identifiers, tables, literal copy and status markers outside requested scope.
-- New Doc and Story artifacts pass the ClickUp divider, heading-adjacency, heading-depth, spacer-heading and bullet-marker contract.
+- New Doc artifacts pass the ClickUp divider, heading-adjacency, heading-depth, spacer-heading and bullet-marker contract; new Story artifacts pass the Barter house-format grammar (H3 section anchors, `- [ ]` checklists, numbered acceptance criteria with a Mark-as-done checkbox).
 - Story artifacts carry no ticket header fields, story points or INVEST notes, and the response names the chosen tier.
 - HVR passes with no hard blockers; no assumption tags appear in exports.
 - Export file is saved and verified before the chat response.

@@ -92,7 +92,7 @@ Field change events -> Autosave state machine -> Save request queue -> Server (r
 ### Timing Rules
 * * *
 
-**1\. Debounce Interval**
+**1. Debounce Interval**
 * * *
 
 The editor waits for a quiet period in field changes before issuing a save. It does not save on every keystroke.
@@ -104,7 +104,7 @@ The editor waits for a quiet period in field changes before issuing a save. It d
 *   **Status** — Current behavior
 * * *
 
-**2\. Maximum Wait Cap**
+**2. Maximum Wait Cap**
 * * *
 
 Continuous editing must still produce a save attempt.
@@ -120,7 +120,7 @@ Continuous editing must still produce a save attempt.
 ### Offline Behavior
 * * *
 
-**1\. Detecting Offline State**
+**1. Detecting Offline State**
 * * *
 
 The editor distinguishes "no network" from "server error" so it does not treat temporary connectivity loss as a conflict.
@@ -132,7 +132,7 @@ The editor distinguishes "no network" from "server error" so it does not treat t
 *   **Status** — Current behavior
 * * *
 
-**2\. Reconnection Retry**
+**2. Reconnection Retry**
 * * *
 
 *   **When** — The browser reports connectivity restored while the editor holds a queued IndexedDB draft.
@@ -146,7 +146,7 @@ The editor distinguishes "no network" from "server error" so it does not treat t
 ### Conflict Resolution Rules
 * * *
 
-**1\. Revision Mismatch Detection**
+**1. Revision Mismatch Detection**
 * * *
 
 *   **When** — A save request's revision number does not match the server's current revision for that record.
@@ -155,7 +155,7 @@ The editor distinguishes "no network" from "server error" so it does not treat t
 *   **Status** — Current behavior
 * * *
 
-**2\. Conflict Presentation and Resolution**
+**2. Conflict Presentation and Resolution**
 * * *
 
 *   **When** — The editor enters `conflict`.

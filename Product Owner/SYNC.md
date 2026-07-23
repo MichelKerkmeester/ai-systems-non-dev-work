@@ -1,6 +1,6 @@
 ---
 title: "Product Owner - Sync Manifest"
-description: "Manual sync contract between the authoritative sk-product-owner skill and the derived claude.ai Project packaging: inventory, workflow, parity rules, and drift checks."
+description: "Compiler-managed alignment contract between the authoritative sk-product-owner skill and the derived claude.ai Project package: inventory, workflow, parity rules, and drift checks."
 ---
 
 # Product Owner Sync Manifest
@@ -18,7 +18,7 @@ The Product Owner ships in two packagings. The source skill is authoritative and
 | `sk-product-owner/` plus `AGENTS.md` | **Source of truth and CLI runtime identity.** `AGENTS.md` applies the Product Owner boundary, export protocol and manual-load fallback before handing identity to `sk-product-owner/SKILL.md`. |
 | `claude project/` | **Derived Project package.** `knowledge/` contains versioned source mirrors, `Custom Instructions.md` is a hand-synthesized Claude kernel and `README.md` is the upload and integrity manifest. |
 
-This system has no derive script. Synchronization is manual copy or a simple shell copy only. `sk-product-owner/` remains authoritative and `claude project/knowledge/` remains disposable.
+This system has no project-local derive script. The central AI System Sync Compiler renders declared mirrors, generated regions and package-lock state from `sk-product-owner/`; Project Knowledge remains disposable.
 
 ---
 
@@ -45,27 +45,52 @@ Keep `AGENTS.md`, `sk-product-owner/SKILL.md` and `claude project/Custom Instruc
 
 ## 4. SOURCE-TO-MIRROR INVENTORY
 
-The Project Knowledge package contains exactly these thirteen core mirrors:
+The Project Knowledge package contains exactly the mirrors in the declared inventory below.
 
-| Authoritative source                                        | Claude Project Knowledge mirror                                       |
-| -------------------------------------------------------------| -----------------------------------------------------------------------|
-| `sk-product-owner/SKILL.md`                                 | `Product Owner - System - Skill - v1.4.0.md`                          |
-| `sk-product-owner/references/depth-framework.md`            | `Product Owner - Thinking - DEPTH Framework - v0.202.md`              |
-| `sk-product-owner/references/human-voice-rules.md`          | `Product Owner - Rules - Human Voice - EN - v0.210.md`                |
-| `sk-product-owner/references/interactive-mode.md`           | `Product Owner - System - Interactive Mode - v0.404.md`               |
-| `sk-product-owner/references/task-mode.md`                  | `Product Owner - Templates - Task Mode - v0.303.md`                   |
-| `sk-product-owner/references/bug-mode.md`                   | `Product Owner - Templates - Bug Mode - v0.203.md`                    |
-| `sk-product-owner/references/doc-mode.md`                   | `Product Owner - Templates - Doc Mode - v0.106.md`                    |
-| `sk-product-owner/references/story-mode.md`                 | `Product Owner - Templates - Story Mode - v0.103.md`                  |
-| `sk-product-owner/assets/task-templates.md`                 | `Product Owner - Assets - Task Templates - v0.101.md`                 |
-| `sk-product-owner/assets/bug-report-template.md`            | `Product Owner - Assets - Bug Report Template - v0.100.md`            |
-| `sk-product-owner/assets/doc-templates.md`                  | `Product Owner - Assets - Doc Templates - v0.107.md`                  |
-| `sk-product-owner/assets/story-templates.md`                | `Product Owner - Assets - Story Templates - v0.102.md`                |
+<!-- BEGIN GENERATED: AI-SYSTEM-SYNC INVENTORY -->
+| Authoritative source | Claude Project Knowledge mirror |
+| --- | --- |
+| `sk-product-owner/SKILL.md` | `Product Owner - System - Skill - v1.5.0.md` |
+| `sk-product-owner/references/depth-framework.md` | `Product Owner - Thinking - DEPTH Framework - v0.202.md` |
+| `sk-product-owner/references/human-voice-rules.md` | `Product Owner - Rules - Human Voice - EN - v0.210.md` |
+| `sk-product-owner/references/interactive-mode.md` | `Product Owner - System - Interactive Mode - v0.404.md` |
+| `sk-product-owner/references/task-mode.md` | `Product Owner - Templates - Task Mode - v0.303.md` |
+| `sk-product-owner/references/bug-mode.md` | `Product Owner - Templates - Bug Mode - v0.203.md` |
+| `sk-product-owner/references/doc-mode.md` | `Product Owner - Templates - Doc Mode - v0.106.md` |
+| `sk-product-owner/references/story-mode.md` | `Product Owner - Templates - Story Mode - v0.200.md` |
+| `sk-product-owner/assets/task-templates.md` | `Product Owner - Assets - Task Templates - v0.101.md` |
+| `sk-product-owner/assets/bug-report-template.md` | `Product Owner - Assets - Bug Report Template - v0.100.md` |
+| `sk-product-owner/assets/doc-templates.md` | `Product Owner - Assets - Doc Templates - v0.107.md` |
+| `sk-product-owner/assets/story-templates.md` | `Product Owner - Assets - Story Templates - v0.200.md` |
 | `sk-product-owner/assets/interactive-response-templates.md` | `Product Owner - Assets - Interactive Response Templates - v0.102.md` |
+| `sk-product-owner/assets/examples/bug/bug-example-backend-api.md` | `Product Owner - Examples - Bug - Backend API - v0.100.md` |
+| `sk-product-owner/assets/examples/bug/bug-example-frontend-visual.md` | `Product Owner - Examples - Bug - Frontend Visual - v0.100.md` |
+| `sk-product-owner/assets/examples/bug/bug-example-mobile-crash.md` | `Product Owner - Examples - Bug - Mobile Crash - v0.100.md` |
+| `sk-product-owner/assets/examples/bug/bug-example-quick.md` | `Product Owner - Examples - Bug - Quick Bug - v0.100.md` |
+| `sk-product-owner/assets/examples/doc/doc-example-behavior-reference.md` | `Product Owner - Examples - Doc - Behavior Reference - v0.100.md` |
+| `sk-product-owner/assets/examples/doc/doc-example-catalog.md` | `Product Owner - Examples - Doc - Catalog - v0.100.md` |
+| `sk-product-owner/assets/examples/doc/doc-example-guide.md` | `Product Owner - Examples - Doc - Guide - v0.100.md` |
+| `sk-product-owner/assets/examples/doc/doc-example-proposal.md` | `Product Owner - Examples - Doc - Proposal - v0.100.md` |
+| `sk-product-owner/assets/examples/doc/doc-example-quick.md` | `Product Owner - Examples - Doc - Quick - v0.100.md` |
+| `sk-product-owner/assets/examples/doc/doc-example-readme.md` | `Product Owner - Examples - Doc - README - v0.100.md` |
+| `sk-product-owner/assets/examples/doc/doc-example-how-it-works.md` | `Product Owner - Examples - Doc - How It Works - v0.100.md` |
+| `sk-product-owner/assets/examples/story/story-example-complete.md` | `Product Owner - Examples - Story - Complete Reference - v0.100.md` |
+| `sk-product-owner/assets/examples/story/story-example-complex.md` | `Product Owner - Examples - Story - Complex Tier - v0.200.md` |
+| `sk-product-owner/assets/examples/story/story-example-medium.md` | `Product Owner - Examples - Story - Medium Tier - v0.200.md` |
+| `sk-product-owner/assets/examples/story/story-example-simple.md` | `Product Owner - Examples - Story - Simple Tier - v0.200.md` |
+| `sk-product-owner/assets/examples/task/task-example-quick.md` | `Product Owner - Examples - Task - Quick Task - v0.100.md` |
+| `sk-product-owner/assets/examples/task/task-example-standard-feature.md` | `Product Owner - Examples - Task - Standard Feature - v0.100.md` |
+| `sk-product-owner/assets/examples/task/task-example-subtask.md` | `Product Owner - Examples - Task - Subtask - v0.100.md` |
+| `sk-product-owner/assets/examples/task/task-example-ui-refinement.md` | `Product Owner - Examples - Task - UI Refinement - v0.100.md` |
 
-In addition, every worked example under `sk-product-owner/assets/examples/<mode>/` (task, bug, doc, story, seventeen files) mirrors byte-identically into `knowledge/` under its own frontmatter `title` plus `.md`, the `Product Owner - Examples - {Mode} - {Name} - v0.100.md` convention. The full Project Knowledge package therefore contains exactly thirty files.
+**Declared mirrors:** 32
+**Skill version:** 1.5.0
+**Custom Instructions version:** 1.4.0 (aligned to Skill 1.5.0)
+<!-- END GENERATED: AI-SYSTEM-SYNC INVENTORY -->
 
-The Product Owner Skill is pinned to `1.4.0`. Claude Custom Instructions are pinned to `1.3.0` and must declare alignment with Skill `1.4.0`. These filenames and versions belong to the current unreleased package: contract corrections made before release reuse the pinned names, replace the derived mirror bytes and regenerate the checksum manifest instead of creating parallel versioned mirrors.
+Every worked example under `sk-product-owner/assets/examples/<mode>/` (task, bug, doc, story) mirrors byte-identically into `knowledge/` under its own frontmatter `title` plus `.md`, the `Product Owner - Examples - {Mode} - {Name} - v0.100.md` convention. It is one row in the declared inventory above like every other mirror.
+
+Skill and Custom Instructions pins live in the declared inventory above. These filenames and versions belong to the current unreleased package: contract corrections made before release reuse the pinned names, replace the derived mirror bytes and run `sync --write` to regenerate the mirror bytes, inventory and lock instead of creating parallel versioned mirrors.
 
 ---
 
@@ -74,12 +99,12 @@ The Product Owner Skill is pinned to `1.4.0`. Claude Custom Instructions are pin
 Apply this sequence whenever a source reference, asset, router or delivery contract changes:
 
 1. Finish and validate the authoritative files under `sk-product-owner/`.
-2. Copy `sk-product-owner/SKILL.md` and every changed reference or asset into the exact versioned mirror name above. Use `cp -L` for symlinked shared references so Project Knowledge receives file bytes rather than links.
-3. Remove superseded versioned mirrors. Do not retain old and new filenames together.
-4. If identity, routing, Product Owner boundaries, source gates or delivery changed, update `AGENTS.md` and hand-synthesize the equivalent change into `claude project/Custom Instructions.md`.
-5. Update `claude project/README.md` with the exact thirty-file upload inventory (thirteen core plus seventeen examples), paired versions, lookup phrases, smoke tests and sha256-16 values.
-6. Compute each checksum from the final file bytes. Never copy a digest from an earlier version.
-7. Run the drift checks in section 7 before release.
+2. If identity, routing, Product Owner boundaries, source gates or delivery changed, update `AGENTS.md` and hand-synthesize the equivalent change into `claude project/Custom Instructions.md`.
+3. Update `claude-project.sync.json` when a source, mirror filename or version pin changes. Remove a superseded mirror only after it is no longer declared; never retain old and new filenames together.
+4. Run `node "z — Sync Skill to Claude Project/ai-system-sync.cjs" sync --system product-owner --write`. The compiler dereferences shared symlinks and renders mirrors, inventory, checksums and package-lock state.
+5. If contract inputs changed, obtain the named human's explicit decision and reason, then run `review-kernel` after sync so the digest covers final generated bytes.
+6. Run `node "z — Sync Skill to Claude Project/ai-system-sync.cjs" check --system product-owner --run-validators`.
+7. Complete the remaining routing and delivery smoke checks in section 7 before release.
 
 ---
 

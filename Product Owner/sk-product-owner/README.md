@@ -395,7 +395,7 @@ Every example uses invented products (Driftboard, Ledgerly, Prism, Fieldstack an
 
 ## 8. DUAL PACKAGING
 
-This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project: `Custom Instructions.md` is a hand-synthesized kernel carrying the router and rules in compact form, and `knowledge/` mirrors `SKILL.md` plus every file in `references/` and `assets/`, thirty files in all, byte-identical and tracked by a sha256-16 manifest. The `human-voice-rules.md` symlink is mirrored dereferenced so the Project receives real file contents. `../SYNC.md` holds the manual sync contract.
+This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project: `Custom Instructions.md` is a hand-synthesized kernel carrying the router and rules in compact form, and `knowledge/` contains thirty manifest-declared mirrors of `SKILL.md`, `references/` and `assets/`. The central AI System Sync Compiler renders those mirrors, generated regions, sha256-16 checksums and package-lock state; it dereferences the `human-voice-rules.md` symlink so the Project receives real file contents. `../SYNC.md` holds the compiler-managed alignment contract.
 
 ---
 
@@ -436,7 +436,7 @@ No. The CLI packaging is complete on its own. The Project exists for people who 
 |---|---|
 | [`SKILL.md`](./SKILL.md) | Executable router, DEPTH methodology, rules, and export protocol |
 | [`../AGENTS.md`](../AGENTS.md) | CLI bootstrap and identity handoff for a cold model |
-| [`../SYNC.md`](../SYNC.md) | Manual sync contract between this skill and the Claude Project mirror |
+| [`../SYNC.md`](../SYNC.md) | Compiler-managed alignment contract for the Claude Project package |
 | [`references/task-mode.md`](./references/task-mode.md) | Task, subtask, and parent-task workflow and structure rules |
 | [`references/bug-mode.md`](./references/bug-mode.md) | Bug workflow, evidence handling, and QA checklist |
 | [`references/doc-mode.md`](./references/doc-mode.md) | Doc creation, refinement, source-authority, and fidelity rules |

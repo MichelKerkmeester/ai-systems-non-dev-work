@@ -22,19 +22,19 @@ Rotating the signing key replaces the credential Ledgerly uses to verify webhook
 ## Process
 * * *
 
-### 1\. Generate the replacement key
+### 1. Generate the replacement key
 * * *
 
 In **Settings → API → Signing Keys**, select **Generate new key**. Ledgerly activates the new key alongside the current one, so both verify signatures during the overlap window.
 * * *
 
-### 2\. Update the integration's stored key
+### 2. Update the integration's stored key
 * * *
 
 Copy the new key into the integration's configuration or secret store before revoking the old one. A gap between the two steps leaves the integration unable to verify incoming signatures.
 * * *
 
-### 3\. Revoke the old key
+### 3. Revoke the old key
 * * *
 
 Select **Revoke** next to the previous key once every integration confirms the switch. The source does not state whether Ledgerly retries a webhook delivery that was signed with a key revoked mid-flight, so that outcome stays unverified rather than assumed.

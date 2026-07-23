@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "id": "product-owner",
+  "skillRoot": "sk-product-owner",
+  "skillId": "product-owner",
+  "knowledgeRoot": "claude project/knowledge",
+  "kernel": {
+    "path": "claude project/Custom Instructions.md",
+    "version": "1.4.0",
+    "alignedSkillVersion": "1.5.0"
+  },
+  "sourceCoverage": {
+    "include": [
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/references",
+      "sk-product-owner/assets"
+    ]
+  },
+  "mirrors": [
+    {
+      "source": "sk-product-owner/SKILL.md",
+      "target": "Product Owner - System - Skill - v1.5.0.md",
+      "sourceVersion": "1.5.0",
+      "projectVersion": "1.5.0"
+    },
+    {
+      "source": "sk-product-owner/references/depth-framework.md",
+      "target": "Product Owner - Thinking - DEPTH Framework - v0.202.md",
+      "sourceVersion": "0.202",
+      "projectVersion": "0.202"
+    },
+    {
+      "source": "sk-product-owner/references/human-voice-rules.md",
+      "target": "Product Owner - Rules - Human Voice - EN - v0.210.md",
+      "sourceVersion": "0.210",
+      "projectVersion": "0.210"
+    },
+    {
+      "source": "sk-product-owner/references/interactive-mode.md",
+      "target": "Product Owner - System - Interactive Mode - v0.404.md",
+      "sourceVersion": "0.404",
+      "projectVersion": "0.404"
+    },
+    {
+      "source": "sk-product-owner/references/task-mode.md",
+      "target": "Product Owner - Templates - Task Mode - v0.303.md",
+      "sourceVersion": "0.303",
+      "projectVersion": "0.303"
+    },
+    {
+      "source": "sk-product-owner/references/bug-mode.md",
+      "target": "Product Owner - Templates - Bug Mode - v0.203.md",
+      "sourceVersion": "0.203",
+      "projectVersion": "0.203"
+    },
+    {
+      "source": "sk-product-owner/references/doc-mode.md",
+      "target": "Product Owner - Templates - Doc Mode - v0.106.md",
+      "sourceVersion": "0.106",
+      "projectVersion": "0.106"
+    },
+    {
+      "source": "sk-product-owner/references/story-mode.md",
+      "target": "Product Owner - Templates - Story Mode - v0.200.md",
+      "sourceVersion": "0.200",
+      "projectVersion": "0.200"
+    },
+    {
+      "source": "sk-product-owner/assets/task-templates.md",
+      "target": "Product Owner - Assets - Task Templates - v0.101.md",
+      "sourceVersion": "0.101",
+      "projectVersion": "0.101"
+    },
+    {
+      "source": "sk-product-owner/assets/bug-report-template.md",
+      "target": "Product Owner - Assets - Bug Report Template - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/doc-templates.md",
+      "target": "Product Owner - Assets - Doc Templates - v0.107.md",
+      "sourceVersion": "0.107",
+      "projectVersion": "0.107"
+    },
+    {
+      "source": "sk-product-owner/assets/story-templates.md",
+      "target": "Product Owner - Assets - Story Templates - v0.200.md",
+      "sourceVersion": "0.200",
+      "projectVersion": "0.200"
+    },
+    {
+      "source": "sk-product-owner/assets/interactive-response-templates.md",
+      "target": "Product Owner - Assets - Interactive Response Templates - v0.102.md",
+      "sourceVersion": "0.102",
+      "projectVersion": "0.102"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/bug/bug-example-backend-api.md",
+      "target": "Product Owner - Examples - Bug - Backend API - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/bug/bug-example-frontend-visual.md",
+      "target": "Product Owner - Examples - Bug - Frontend Visual - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/bug/bug-example-mobile-crash.md",
+      "target": "Product Owner - Examples - Bug - Mobile Crash - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/bug/bug-example-quick.md",
+      "target": "Product Owner - Examples - Bug - Quick Bug - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/doc/doc-example-behavior-reference.md",
+      "target": "Product Owner - Examples - Doc - Behavior Reference - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/doc/doc-example-catalog.md",
+      "target": "Product Owner - Examples - Doc - Catalog - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/doc/doc-example-guide.md",
+      "target": "Product Owner - Examples - Doc - Guide - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/doc/doc-example-proposal.md",
+      "target": "Product Owner - Examples - Doc - Proposal - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/doc/doc-example-quick.md",
+      "target": "Product Owner - Examples - Doc - Quick - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/doc/doc-example-readme.md",
+      "target": "Product Owner - Examples - Doc - README - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/doc/doc-example-how-it-works.md",
+      "target": "Product Owner - Examples - Doc - How It Works - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/story/story-example-complete.md",
+      "target": "Product Owner - Examples - Story - Complete Reference - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/story/story-example-complex.md",
+      "target": "Product Owner - Examples - Story - Complex Tier - v0.200.md",
+      "sourceVersion": "0.200",
+      "projectVersion": "0.200"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/story/story-example-medium.md",
+      "target": "Product Owner - Examples - Story - Medium Tier - v0.200.md",
+      "sourceVersion": "0.200",
+      "projectVersion": "0.200"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/story/story-example-simple.md",
+      "target": "Product Owner - Examples - Story - Simple Tier - v0.200.md",
+      "sourceVersion": "0.200",
+      "projectVersion": "0.200"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/task/task-example-quick.md",
+      "target": "Product Owner - Examples - Task - Quick Task - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/task/task-example-standard-feature.md",
+      "target": "Product Owner - Examples - Task - Standard Feature - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/task/task-example-subtask.md",
+      "target": "Product Owner - Examples - Task - Subtask - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    },
+    {
+      "source": "sk-product-owner/assets/examples/task/task-example-ui-refinement.md",
+      "target": "Product Owner - Examples - Task - UI Refinement - v0.100.md",
+      "sourceVersion": "0.100",
+      "projectVersion": "0.100"
+    }
+  ],
+  "contractInputs": [
+    "claude project/Custom Instructions.md",
+    "sk-product-owner/SKILL.md"
+  ],
+  "validators": [],
+  "retiredNames": [
+    "v1.2.0",
+    "v0.302",
+    "v0.201",
+    "Product Owner - Templates - Bug Mode - v0.202",
+    "Owner - Rules - Human Voice.md",
+    "Product Owner - System - Skill - v1.4.0",
+    "Product Owner - Templates - Story Mode - v0.103",
+    "Product Owner - Assets - Story Templates - v0.102",
+    "Product Owner - Examples - Story - Simple Tier - v0.100",
+    "Product Owner - Examples - Story - Medium Tier - v0.100",
+    "Product Owner - Examples - Story - Complex Tier - v0.100"
+  ],
+  "scanExcludes": [
+    "sk-product-owner/changelog"
+  ],
+  "expectedKnowledgeCount": 32,
+  "generatedRegions": [
+    { "target": "SYNC.md", "sections": ["INVENTORY"] },
+    { "target": "claude project/README.md", "sections": ["CHECKSUMS", "SMOKE_VERSION_PINS"] }
+  ]
+}

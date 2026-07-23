@@ -179,7 +179,7 @@ Worked example: [`examples/doc/doc-example-guide.md`](examples/doc/doc-example-g
 
 ## Process
 * * *
-### 1\. {Step or Component}
+### 1. {Step or Component}
 * * *
 {What must be true, why it matters, and the verified product or engineering rules that apply.}
 
@@ -192,7 +192,7 @@ Worked example: [`examples/doc/doc-example-guide.md`](examples/doc/doc-example-g
 * * *
 ###   
 
-### 2\. {Step or Component}
+### 2. {Step or Component}
 * * *
 {What must be true, why it matters, and the verified product or engineering rules that apply.}
 
@@ -343,7 +343,7 @@ The Notification corpus demonstrates this shape through indexes, message IDs, vo
 
 Use when readers need to understand product or system states, rules, flows, components, combinations, boundaries, and outcomes.
 
-Worked example: [`examples/doc/doc-example-behavior-reference.md`](examples/doc/doc-example-behavior-reference.md) shows a state machine with timing, offline behavior, precedence and one unresolved edge kept outside settled rules.
+Worked example: [`examples/doc/doc-example-behavior-reference.md`](examples/doc/doc-example-behavior-reference.md) shows a state machine with timing, offline behavior, precedence and one unresolved edge kept outside settled rules. A longer, system-scale behavior reference lives in [`examples/doc/doc-example-how-it-works.md`](examples/doc/doc-example-how-it-works.md): a subscription billing lifecycle explained through its states, renewal and proration, dunning retries, cancellation and precedence.
 
 ````markdown
 # {Behavior Reference Title}
@@ -394,7 +394,7 @@ Worked example: [`examples/doc/doc-example-behavior-reference.md`](examples/doc/
 * * *
 ### {Rule, Feature, or Flow}
 * * *
-**1\. {Rule or Step Name}**
+**1. {Rule or Step Name}**
 * * *
 {Source-supported condition, mechanism, and outcome.}
 
@@ -405,7 +405,7 @@ Worked example: [`examples/doc/doc-example-behavior-reference.md`](examples/doc/
 *   **Status** — {Current behavior, approved direction, proposal, retired material, or unknown}
 * * *
 
-**2\. {Rule or Step Name}**
+**2. {Rule or Step Name}**
 * * *
 {Source-supported condition, mechanism, and outcome.}
 * * *

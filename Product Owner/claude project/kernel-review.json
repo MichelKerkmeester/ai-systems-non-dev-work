@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "systemId": "product-owner",
+  "reviewer": "Michel Kerkmeester",
+  "reason": "Remove escaped-dot from numbered acceptance criteria across templates and examples; kernel numbering rule now plain 1.",
+  "decision": null,
+  "reviewedAt": "2026-07-21T13:38:32+02:00",
+  "contractDigest": "0e62ae1348cf8c91a5b80fc21fc0e25eeea788a0adfcc5a3a00c8359015e8080",
+  "kernelSha256": "a5b782219cdfb9b51ae5467277813c0f8df969f8159a8cc5183647b2d0ba13ce",
+  "kernelVersion": "1.4.0",
+  "alignedSkillVersion": "1.5.0"
+}

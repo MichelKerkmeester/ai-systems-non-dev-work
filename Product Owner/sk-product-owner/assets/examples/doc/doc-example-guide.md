@@ -32,7 +32,7 @@ An empty state appears when a Driftboard view, list or panel has nothing to show
 ## Process
 * * *
 
-### 1\. Board View — No Tasks Yet
+### 1. Board View — No Tasks Yet
 * * *
 
 This state appears the first time a user opens a board that has no cards in any column. The goal is to explain what a board is for and get the user to create the first card without feeling like they did something wrong.
@@ -51,7 +51,7 @@ Primary action: "Add your first card"
 
 ###   
 
-### 2\. List View — No Items Match Filters
+### 2. List View — No Items Match Filters
 * * *
 
 This state appears when a saved or ad hoc filter combination returns zero rows, even though the underlying list has data. It must never look identical to the "no data at all" state, because the fix is different: adjust the filters, not create content.
@@ -70,7 +70,7 @@ Primary action: "Clear filters"
 
 ###   
 
-### 3\. Inbox — All Caught Up
+### 3. Inbox — All Caught Up
 * * *
 
 This state appears when a user has cleared every notification and mention in their inbox. Unlike the other states, this one is a reward moment, not a nudge toward an action.
@@ -88,7 +88,7 @@ Subcopy: "New mentions and updates will show up here as they happen."
 
 ###   
 
-### 4\. Reports — Not Enough Data Yet
+### 4. Reports — Not Enough Data Yet
 * * *
 
 This state appears when a report needs a minimum amount of history, for example seven days of activity, before it can render a trend. The state is temporary and clears when the threshold is met.
